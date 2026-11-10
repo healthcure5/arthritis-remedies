@@ -105,17 +105,18 @@ Joint Release
 <span style="font-size: 14px; color: #4F6580">We'll email your free guide here.</span>
 </div>
 <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; cursor: pointer; min-height: 44px">
-<input type="checkbox" name="Wants tips by email" value="Yes" style="width: 22px; height: 22px; margin: 2px 0 0; accent-color: #1A4FB0; flex: none">
-<span>Send me gentle joint-care tips by email now and then. You can unsubscribe any time.</span>
+<input id="tips" type="checkbox" name="Wants tips by email" value="Yes" required style="width: 22px; height: 22px; margin: 2px 0 0; accent-color: #1A4FB0; flex: none">
+<span>Yes, send me my free guide and gentle joint-care tips by email. You can unsubscribe any time.</span>
 </label>
+<div id="err-tips" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please tick the box above to get your free guide and tips by email.</div>
 <div id="err" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please add your first name and a valid email address so we know where to send your guide.</div>
 
 <button type="submit" id="go" class="btn" style="display: block; text-align: center; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); color: #FFFFFF; text-decoration: none; padding: 17px 28px; border-radius: 14px; font-weight: 700; font-size: 18px; border: 0; width: 100%; font-family: inherit; cursor: pointer">Send my free guide</button>
-<p style="margin: 0; font-size: 13.5px; color: #4F6580; text-align: center">We only use your details to send your guide, and tips if you ask for them. We never sell them. <a href="privacy.html">Privacy policy</a></p>
+<p style="margin: 0; font-size: 13.5px; color: #4F6580; text-align: center">We only use your details to send your guide and joint-care tips. We never sell them. <a href="privacy.html">Privacy policy</a></p>
 </form>
 </div>
 
 </div>
-<script src="site.js?v=8"></script>
+<script src="site.js?v=9"></script>
 </body>
 </html>
