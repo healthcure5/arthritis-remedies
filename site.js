@@ -103,17 +103,17 @@ var CHECKOUT_URL = '';
     }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var first = (form.elements.first.value || '').trim();
-      var email = (form.elements.email.value || '').trim();
+      var first = (document.getElementById('first').value || '').trim();
+      var email = (document.getElementById('email').value || '').trim();
       var ok = first.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
       if (!ok) { if (err) { err.hidden = false; } return; }
       if (err) { err.hidden = true; }
-      // Save the details with the host's form collector when it is switched on
-      try {
-        var data = new URLSearchParams(new FormData(form)).toString();
-        fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data }).catch(function () {});
-      } catch (x) {}
-      leave(function () { window.location.href = CHECKOUT_URL || 'thank-you.html'; });
+      // Hand the details to the form service: it emails the visitor their guide,
+      // emails the site owner the signup, then returns to the thank-you page.
+      leave(function () {
+        if (CHECKOUT_URL) { window.location.href = CHECKOUT_URL; return; }
+        HTMLFormElement.prototype.submit.call(form);
+      });
     });
   }
 })();
