@@ -93,6 +93,10 @@ Joint Release
 <label for="first" style="font-weight: 600; font-size: 15.5px; color: #0A1F44">First name</label>
 <input id="first" name="First name" type="text" autocomplete="given-name" placeholder="Jane" style="font: inherit; padding: 14px 16px; border: 1.5px solid #AEC6DF; border-radius: 14px; background: #F4F8FC; color: #0A1F44; width: 100%; box-sizing: border-box; min-height: 52px; box-shadow: inset 0 3px 6px rgba(16, 40, 74, 0.1)">
 </div>
+<div style="flex: 1 1 180px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<label for="last" style="font-weight: 600; font-size: 15.5px; color: #0A1F44">Last name</label>
+<input id="last" name="Last name" type="text" autocomplete="family-name" placeholder="Smith" style="font: inherit; padding: 14px 16px; border: 1.5px solid #AEC6DF; border-radius: 14px; background: #F4F8FC; color: #0A1F44; width: 100%; box-sizing: border-box; min-height: 52px; box-shadow: inset 0 3px 6px rgba(16, 40, 74, 0.1)">
+</div>
  </div>
 <div style="display: flex; flex-direction: column; gap: 7px">
 <label for="phone" style="font-weight: 600; font-size: 15.5px; color: #0A1F44">Phone number <span style="font-weight: 400; color: #4F6580">(optional)</span></label>
@@ -109,7 +113,7 @@ Joint Release
 <span>Yes, send me my free guide and gentle joint-care tips by email. You can unsubscribe any time.</span>
 </label>
 <div id="err-tips" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please tick the box above to get your free guide and tips by email.</div>
-<div id="err" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please add your first name and a valid email address so we know where to send your guide.</div>
+<div id="err" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please add your first name, your last name and a valid email address so we know where to send your guide.</div>
 
 <button type="submit" id="go" class="btn" style="display: block; text-align: center; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); color: #FFFFFF; text-decoration: none; padding: 17px 28px; border-radius: 14px; font-weight: 700; font-size: 18px; border: 0; width: 100%; font-family: inherit; cursor: pointer">Send my free guide</button>
 <p style="margin: 0; font-size: 13.5px; color: #4F6580; text-align: center">We only use your details to send your guide and joint-care tips. We never sell them. <a href="privacy.html">Privacy policy</a></p>
@@ -117,6 +121,6 @@ Joint Release
 </div>
 
 </div>
-<script src="site.js?v=9"></script>
+<script src="site.js?v=10"></script>
 </body>
 </html>

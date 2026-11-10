@@ -111,7 +111,9 @@ var CHECKOUT_URL = '';
       e.preventDefault();
       var first = (document.getElementById('first').value || '').trim();
       var email = (document.getElementById('email').value || '').trim();
-      var ok = first.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+      var lastEl = document.getElementById('last');
+      var last = lastEl ? (lastEl.value || '').trim() : 'x';
+      var ok = first.length > 0 && last.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
       if (!ok) { if (err) { err.hidden = false; } return; }
       if (err) { err.hidden = true; }
       var tips = document.getElementById('tips'), errTips = document.getElementById('err-tips');
