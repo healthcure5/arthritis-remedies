@@ -30,8 +30,8 @@ body{margin:0;background:#F4F8FC}
 a{color:#1A4FB0}a:hover{color:#0B2C6E}
 input:focus{outline:3px solid #A6CBEE;outline-offset:1px}
 img{max-width:100%}
-.btn{box-shadow:0 3px 0 #0B2C6E,0 16px 28px -10px rgba(20,62,150,.6);transition:translate .2s ease,box-shadow .2s ease}
-.btn:hover{translate:0 -3px;box-shadow:0 6px 0 #0B2C6E,0 22px 34px -10px rgba(20,62,150,.6)}
+.btn{box-shadow:0 2px 0 #0B2C6E,0 12px 22px -12px rgba(20,62,150,.6);transition:translate .2s ease,box-shadow .2s ease}
+.btn:hover{translate:0 -2px;box-shadow:0 4px 0 #0B2C6E,0 18px 28px -12px rgba(20,62,150,.6)}
 .btn:active{translate:0 2px;box-shadow:0 1px 0 #0B2C6E,0 8px 16px -8px rgba(20,62,150,.6)}
 .veil{position:fixed;inset:0;z-index:100;background:var(--grain),radial-gradient(circle at 50% 40%,#3D7FE6 0%,#1A4FB0 55%,#103A8A 100%);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
 @keyframes veilout{from{opacity:1}to{opacity:0}}
@@ -97,7 +97,7 @@ Kinder Joints
 <div style="display: flex; flex-direction: column; gap: 7px">
 <label for="phone" style="font-weight: 600; font-size: 15.5px; color: #0A1F44">Phone number <span style="font-weight: 400; color: #4F6580">(optional)</span></label>
 <input id="phone" name="Phone number" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" style="font: inherit; padding: 14px 16px; border: 1.5px solid #AEC6DF; border-radius: 14px; background: #F4F8FC; color: #0A1F44; width: 100%; box-sizing: border-box; min-height: 52px; box-shadow: inset 0 3px 6px rgba(16, 40, 74, 0.1)">
-<span style="font-size: 14px; color: #4F6580">Only if you'd like us to be able to reach you by phone.</span>
+<span style="font-size: 14px; color: #4F6580">You can leave this blank.</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 7px">
 <label for="email" style="font-weight: 600; font-size: 15.5px; color: #0A1F44">Email address</label>
@@ -112,7 +112,7 @@ Kinder Joints
 
 <div id="pay" hidden style="background: #F4F8FC; border-radius: 18px; padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 12px"><div style="display: flex; align-items: center; gap: 10px; font-weight: 700; color: #0A1F44"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A4FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Secure payment on the next step</div><div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="border: 1.5px solid #BDD3EA; background: #FFFFFF; color: #0A1F44; font-size: 13.5px; font-weight: 600; padding: 6px 12px; border-radius: 10px">Apple Pay</span><span style="border: 1.5px solid #BDD3EA; background: #FFFFFF; color: #0A1F44; font-size: 13.5px; font-weight: 600; padding: 6px 12px; border-radius: 10px">Google Pay</span><span style="border: 1.5px solid #BDD3EA; background: #FFFFFF; color: #0A1F44; font-size: 13.5px; font-weight: 600; padding: 6px 12px; border-radius: 10px">PayPal</span><span style="border: 1.5px solid #BDD3EA; background: #FFFFFF; color: #0A1F44; font-size: 13.5px; font-weight: 600; padding: 6px 12px; border-radius: 10px">Visa</span><span style="border: 1.5px solid #BDD3EA; background: #FFFFFF; color: #0A1F44; font-size: 13.5px; font-weight: 600; padding: 6px 12px; border-radius: 10px">Mastercard</span><span style="border: 1.5px solid #BDD3EA; background: #FFFFFF; color: #0A1F44; font-size: 13.5px; font-weight: 600; padding: 6px 12px; border-radius: 10px">American Express</span><span style="border: 1.5px solid #BDD3EA; background: #FFFFFF; color: #0A1F44; font-size: 13.5px; font-weight: 600; padding: 6px 12px; border-radius: 10px">Discover</span></div><div style="font-size: 14px; color: #4F6580">You will finish on our payment partner&#39;s secure page. We never see or store your card details.</div></div>
 <button type="submit" id="go" class="btn" style="display: block; text-align: center; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); color: #FFFFFF; text-decoration: none; padding: 17px 28px; border-radius: 14px; font-weight: 700; font-size: 18px; border: 0; width: 100%; font-family: inherit; cursor: pointer">Continue</button>
-<p style="margin: 0; font-size: 13.5px; color: #4F6580; text-align: center">We only use your details to send your guide. We never sell or share them.</p>
+<p style="margin: 0; font-size: 13.5px; color: #4F6580; text-align: center">We only use your details to send your guide, and tips if you ask for them. We never sell them. <a href="privacy.html">Privacy policy</a></p>
 </form>
 </div>
 
