@@ -91,6 +91,11 @@ var CHECKOUT_URL = '';
   window.addEventListener('pageshow', function (e) {
     if (e.persisted && veil) { veil.classList.remove('leaving'); busy = false; }
   });
+  // Thank-you page: show the address the guide was sent to
+  var sentTo = document.getElementById('sent-to');
+  if (sentTo) {
+    try { var saved = sessionStorage.getItem('ar-email'); if (saved) { sentTo.textContent = saved; } } catch (x) {}
+  }
   // Signup form
   var form = document.getElementById('signup');
   if (form) {
@@ -112,6 +117,7 @@ var CHECKOUT_URL = '';
       // emails the site owner the signup, then returns to the thank-you page.
       leave(function () {
         if (CHECKOUT_URL) { window.location.href = CHECKOUT_URL; return; }
+        try { sessionStorage.setItem('ar-email', email); } catch (x) {}
         HTMLFormElement.prototype.submit.call(form);
       });
     });
