@@ -17,22 +17,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700..900;1,600..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&display=swap">
 <style>
+:root{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .2 0 0 0 -.04'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
 h1,h2,h3{text-wrap:balance;font-optical-sizing:auto;font-kerning:normal}
 p,li,figcaption{text-wrap:pretty}
 [hidden]{display:none!important}
-::selection{background:#FFC56B;color:#10284A}
+::selection{background:#FFC56B;color:#0A1F44}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #FFC56B;outline-offset:3px;border-radius:8px}
 img{height:auto}
 @media (max-width:760px){.hdr-link{display:none!important}.hdr-in{flex-wrap:nowrap!important;padding:12px 16px!important;gap:12px!important}.hdr-nav{flex-wrap:nowrap!important;flex:none}.hdr-brand{font-size:19px!important;white-space:nowrap}.hdr-btn{white-space:nowrap;padding:11px 18px!important;font-size:15px!important}.hdr.compact .hdr-brand{font-size:16.5px!important}}
 body{margin:0;background:#FFE3A3}
-a{color:#174C87}a:hover{color:#10284A}
+a{color:#103A8A}a:hover{color:#0A1F44}
 .btn{box-shadow:0 3px 0 #C98A1E,0 16px 28px -10px rgba(8,24,48,.6);transition:translate .2s ease,box-shadow .2s ease}
 .btn:hover{translate:0 -3px;box-shadow:0 6px 0 #C98A1E,0 22px 34px -10px rgba(8,24,48,.6)}
 .btn:active{translate:0 2px;box-shadow:0 1px 0 #C98A1E,0 8px 16px -8px rgba(8,24,48,.6)}
 .lift{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .lift:hover{transform:perspective(900px) translateY(-8px) rotateX(3deg)}
-.veil{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 40%,#3F86CF 0%,#1D5FA6 55%,#174C87 100%);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
+.veil{position:fixed;inset:0;z-index:100;background:var(--grain),radial-gradient(circle at 50% 40%,#3D7FE6 0%,#1A4FB0 55%,#103A8A 100%);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
 @keyframes veilout{from{opacity:1}to{opacity:0}}
 @keyframes veilin{from{opacity:0}to{opacity:1}}
 @keyframes breathe{0%,100%{scale:1}50%{scale:1.12}}
@@ -58,58 +59,58 @@ a{color:#174C87}a:hover{color:#10284A}
 </style>
 </head>
 <body>
-<div style="font-family: 'Inter', system-ui, sans-serif; color: #10284A; background: radial-gradient(circle at 50% 0%, #FFF8E3 0%, #FFE7AE 42%, #FFCB73 100%); font-size: 17px; line-height: 1.6; min-height: 100vh; position: relative; overflow: hidden; display: flex; flex-direction: column">
-<div class="veil" id="veil" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#FFFFFF"/><path d="M9 17c3-6 11-6 14 0" stroke="#1D5FA6" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#1D5FA6"/></svg></div>
+<div style="font-family: 'Inter', system-ui, sans-serif; color: #0A1F44; background: radial-gradient(circle at 50% 0%, #FFF8E3 0%, #FFE7AE 42%, #FFCB73 100%); font-size: 17px; line-height: 1.6; min-height: 100vh; position: relative; overflow: hidden; display: flex; flex-direction: column">
+<div class="veil" id="veil" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#FFFFFF"/><path d="M9 17c3-6 11-6 14 0" stroke="#1A4FB0" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#1A4FB0"/></svg></div>
 <canvas id="confetti" aria-hidden="true"></canvas>
 
 <div class="bob" aria-hidden="true" style="position: absolute; left: -90px; top: -90px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #FFFFFF 0%, #FFF3D0 55%, #FFDD95 100%); box-shadow: 0 40px 60px -20px rgba(150, 90, 0, 0.35)"></div>
-<div class="bob2" aria-hidden="true" style="position: absolute; right: -60px; top: 120px; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #5A9BDF 0%, #1D5FA6 60%, #174C87 100%); box-shadow: 0 30px 44px -14px rgba(16, 40, 74, 0.5)"></div>
+<div class="bob2" aria-hidden="true" style="position: absolute; right: -60px; top: 120px; width: 190px; height: 190px; border-radius: 50%; background: var(--grain), radial-gradient(circle at 32% 28%, #5C98F0 0%, #1A4FB0 60%, #103A8A 100%); box-shadow: 0 30px 44px -14px rgba(16, 40, 74, 0.5)"></div>
 <div class="bob" aria-hidden="true" style="position: absolute; right: 16%; bottom: -80px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #FFFFFF 0%, #FFF3D0 55%, #FFDD95 100%); box-shadow: 0 40px 60px -20px rgba(150, 90, 0, 0.35)"></div>
 <div class="bob2" aria-hidden="true" style="position: absolute; left: 8%; bottom: 90px; width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #FFB3A1 0%, #F2785C 65%, #D95F44 100%); box-shadow: 0 18px 26px -10px rgba(150, 60, 30, 0.5)"></div>
 
 <header style="position: relative; padding: 22px 24px">
-<a href="index.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #10284A; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 22px; min-height: 44px">
-<svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#1D5FA6"/><path d="M9 17c3-6 11-6 14 0" stroke="#FFC56B" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#FFC56B"/></svg>
+<a href="index.html" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #0A1F44; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 22px; min-height: 44px">
+<svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#1A4FB0"/><path d="M9 17c3-6 11-6 14 0" stroke="#FFC56B" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#FFC56B"/></svg>
 Arthritis Remedies
 </a>
 </header>
 
 <main style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16px 24px 72px; gap: 22px">
-<button type="button" id="cheer" class="cheer pop" aria-label="Celebrate again" style="width: 96px; height: 96px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #5A9BDF 0%, #1D5FA6 60%, #174C87 100%); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), 0 5px 0 #123F73, 0 26px 36px -10px rgba(16, 40, 74, 0.55)">
+<button type="button" id="cheer" class="cheer pop" aria-label="Celebrate again" style="width: 96px; height: 96px; border-radius: 50%; background: var(--grain), radial-gradient(circle at 32% 28%, #5C98F0 0%, #1A4FB0 60%, #103A8A 100%); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), 0 5px 0 #0B2C6E, 0 26px 36px -10px rgba(16, 40, 74, 0.55)">
 <svg aria-hidden="true" width="52" height="52" viewBox="0 0 52 52"><path d="M41 15 21 37 11 27" fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
-<h1 class="s1" style="margin: 0; font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: clamp(68px, 14vw, 190px); line-height: 1; letter-spacing: -0.02em; color: #10284A; text-shadow: 0 2px 0 #FFFFFF, 0 5px 0 #FFE3A3, 0 8px 0 #F5B95A, 0 30px 46px rgba(150, 90, 0, 0.35)">Thank you!</h1>
-<p class="s2" style="margin: 0; font-family: 'Playfair Display', 'Lora', Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(24px, 3.1vw, 38px); line-height: 1.25; color: #174C87; max-width: 820px">Congratulations on receiving your guide!</p>
+<h1 class="s1" style="margin: 0; font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: clamp(68px, 14vw, 190px); line-height: 1; letter-spacing: -0.02em; color: #0A1F44; text-shadow: 0 2px 0 #FFFFFF, 0 5px 0 #FFE3A3, 0 8px 0 #F5B95A, 0 30px 46px rgba(150, 90, 0, 0.35)">Thank you!</h1>
+<p class="s2" style="margin: 0; font-family: 'Playfair Display', 'Lora', Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(24px, 3.1vw, 38px); line-height: 1.25; color: #103A8A; max-width: 820px">Congratulations on receiving your guide!</p>
 <p class="s2" style="margin: 0; font-size: 19px; max-width: 640px; color: #253B55">Get ready for the change that's about to begin. Step by step, you'll be working toward easier mornings, less pain, and more of the life you love. Your fresh start begins today.</p>
 
 <div class="s2" style="width: 100%; max-width: 720px; box-sizing: border-box; background: #FFFFFF; border-radius: 28px; padding: 26px 28px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 24px; text-align: left; box-shadow: inset 0 2px 0 #FFFFFF, 0 6px 0 #F5B95A, 0 40px 56px -18px rgba(150, 90, 0, 0.6)">
-<div aria-hidden="true" style="flex: none; width: 76px; height: 76px; border-radius: 22px; background: radial-gradient(circle at 32% 28%, #5A9BDF 0%, #1D5FA6 60%, #174C87 100%); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), 0 4px 0 #123F73, 0 18px 24px -10px rgba(16, 40, 74, 0.5)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.500"/><path d="m3.500 7 8.500 6.500L20.500 7"/></svg></div>
+<div aria-hidden="true" style="flex: none; width: 76px; height: 76px; border-radius: 22px; background: var(--grain), radial-gradient(circle at 32% 28%, #5C98F0 0%, #1A4FB0 60%, #103A8A 100%); display: flex; align-items: center; justify-content: center; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35), 0 4px 0 #0B2C6E, 0 18px 24px -10px rgba(16, 40, 74, 0.5)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.500"/><path d="m3.500 7 8.500 6.500L20.500 7"/></svg></div>
 <div style="flex: 1 1 260px; min-width: 0">
-<div style="font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 26px; line-height: 1.2; color: #10284A">Your guide is on its way</div>
-<div style="font-size: 17px; color: #334A63; margin-top: 6px; overflow-wrap: anywhere">We've sent it to <strong id="sent-to" style="color: #10284A">the email address you gave us</strong>. It should be waiting in your inbox within a couple of minutes.</div>
+<div style="font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 26px; line-height: 1.2; color: #0A1F44">Your guide is on its way</div>
+<div style="font-size: 17px; color: #334A63; margin-top: 6px; overflow-wrap: anywhere">We've sent it to <strong id="sent-to" style="color: #0A1F44">the email address you gave us</strong>. It should be waiting in your inbox within a couple of minutes.</div>
 </div>
 </div>
 
 <div class="s3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; width: 100%; max-width: 900px; margin-top: 14px; text-align: left">
 <div class="lift" style="background: #FFFFFF; border-radius: 24px; padding: 22px 24px; box-shadow: inset 0 2px 0 #FFFFFF, 0 2px 4px rgba(150, 90, 0, 0.1), 0 26px 36px -18px rgba(150, 90, 0, 0.55)">
-<div style="font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: 32px; line-height: 1; color: #1D5FA6">1</div>
-<div style="font-weight: 700; color: #10284A; margin-top: 8px">Check your inbox</div>
+<div style="font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: 32px; line-height: 1; color: #1A4FB0">1</div>
+<div style="font-weight: 700; color: #0A1F44; margin-top: 8px">Check your inbox</div>
 <div style="font-size: 15.5px; margin-top: 4px; color: #334A63">Look for our email. If it isn't there in a few minutes, peek in your spam or promotions folder.</div>
 </div>
 <div class="lift" style="background: #FFFFFF; border-radius: 24px; padding: 22px 24px; box-shadow: inset 0 2px 0 #FFFFFF, 0 2px 4px rgba(150, 90, 0, 0.1), 0 26px 36px -18px rgba(150, 90, 0, 0.55)">
-<div style="font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: 32px; line-height: 1; color: #1D5FA6">2</div>
-<div style="font-weight: 700; color: #10284A; margin-top: 8px">Open your guide</div>
+<div style="font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: 32px; line-height: 1; color: #1A4FB0">2</div>
+<div style="font-weight: 700; color: #0A1F44; margin-top: 8px">Open your guide</div>
 <div style="font-size: 15.5px; margin-top: 4px; color: #334A63">One tap in the email and it's yours to keep, on any phone, tablet or computer.</div>
 </div>
 <div class="lift" style="background: #FFFFFF; border-radius: 24px; padding: 22px 24px; box-shadow: inset 0 2px 0 #FFFFFF, 0 2px 4px rgba(150, 90, 0, 0.1), 0 26px 36px -18px rgba(150, 90, 0, 0.55)">
-<div style="font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: 32px; line-height: 1; color: #1D5FA6">3</div>
-<div style="font-weight: 700; color: #10284A; margin-top: 8px">Take one small step</div>
+<div style="font-family: 'Playfair Display', 'Lora', Georgia, serif; font-weight: 800; font-size: 32px; line-height: 1; color: #1A4FB0">3</div>
+<div style="font-weight: 700; color: #0A1F44; margin-top: 8px">Take one small step</div>
 <div style="font-size: 15.5px; margin-top: 4px; color: #334A63">There's no rush and no falling behind. Go gently. We're cheering for you.</div>
 </div>
 </div>
 
 <div class="s3" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 26px; margin-top: 16px">
-<a href="index.html" style="color: #174C87; font-weight: 600; padding: 12px 4px">Back to the home page</a>
+<a href="index.html" style="color: #103A8A; font-weight: 600; padding: 12px 4px">Back to the home page</a>
 </div>
 </main>
 
@@ -124,7 +125,7 @@ Arthritis Remedies
   try { still = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
   if (still) { c.style.display = 'none'; return; }
   var ctx = c.getContext('2d'), W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var cols = ['#1D5FA6', '#5A9BDF', '#2F7A62', '#F2785C', '#FFFFFF', '#10284A', '#E3B23C'];
+  var cols = ['#1A4FB0', '#5C98F0', '#2F7A62', '#F2785C', '#FFFFFF', '#0A1F44', '#E3B23C'];
   var P = [], running = false;
   function size() { W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
   function burst(x, y, n, angle, spread, power) {
