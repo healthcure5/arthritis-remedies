@@ -1,5 +1,5 @@
-# Kinder Joints
+# Joint Release
 
-The Kinder Joints website, home of The Joint Reset guide: a landing page, a details page and a thank-you page.
+The Joint Release website, home of The Joint Reset guide: a landing page, a details page and a thank-you page.
 
 Live at https://healthcure5.github.io/arthritis-remedies/
