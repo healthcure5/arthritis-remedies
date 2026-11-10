@@ -1,7 +1,8 @@
 // ---------------------------------------------------------------
-// PAYMENT: paste your checkout link between the quotes below.
-// Example: var CHECKOUT_URL = 'https://payhip.com/b/XXXXX';
-// While it is empty, the site skips payment and opens the guide.
+// SELLING THE JOINT RESET: paste your checkout link between the
+// quotes below. Example: var CHECKOUT_URL = 'https://payhip.com/b/XXXXX';
+// While it is empty, the "Get The Joint Reset" buttons and the offer
+// on the thank-you page stay hidden. The free guide works either way.
 // ---------------------------------------------------------------
 var CHECKOUT_URL = '';
 
@@ -96,16 +97,16 @@ var CHECKOUT_URL = '';
   if (sentTo) {
     try { var saved = sessionStorage.getItem('ar-email'); if (saved) { sentTo.textContent = saved; } } catch (x) {}
   }
+  // The Joint Reset: show the buy buttons only once a checkout link is set
+  if (CHECKOUT_URL) {
+    document.querySelectorAll('[data-buy]').forEach(function (a) { a.href = CHECKOUT_URL; a.hidden = false; });
+    document.querySelectorAll('[data-buy-block]').forEach(function (b) { b.hidden = false; });
+    document.querySelectorAll('[data-nobuy]').forEach(function (n) { n.hidden = true; });
+  }
   // Signup form
   var form = document.getElementById('signup');
   if (form) {
     var err = document.getElementById('err');
-    var pay = document.getElementById('pay');
-    var goBtn = document.getElementById('go');
-    if (CHECKOUT_URL) {
-      if (pay) { pay.hidden = false; }
-      if (goBtn) { goBtn.textContent = 'Continue to secure payment'; }
-    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var first = (document.getElementById('first').value || '').trim();
@@ -116,7 +117,6 @@ var CHECKOUT_URL = '';
       // Hand the details to the form service: it emails the visitor their guide,
       // emails the site owner the signup, then returns to the thank-you page.
       leave(function () {
-        if (CHECKOUT_URL) { window.location.href = CHECKOUT_URL; return; }
         try { sessionStorage.setItem('ar-email', email); } catch (x) {}
         HTMLFormElement.prototype.submit.call(form);
       });
