@@ -20,6 +20,7 @@
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
 h1,h2,h3{text-wrap:balance;font-optical-sizing:auto;font-kerning:normal}
 p,li,figcaption{text-wrap:pretty}
+[hidden]{display:none!important}
 ::selection{background:#FFC56B;color:#10284A}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #FFC56B;outline-offset:3px;border-radius:8px}
 img{height:auto}
@@ -38,14 +39,14 @@ a{color:#FFD48A}a:hover{color:#FFFFFF}
 @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -16px}}
 @keyframes settle{from{opacity:0;translate:0 50px;scale:.94}to{opacity:1;translate:0 0;scale:1}}
 @media (prefers-reduced-motion:no-preference){
-.veil{animation:veilout 2.5s cubic-bezier(.45,0,.2,1) both}
-.veil.leaving{animation:veilin 2.5s cubic-bezier(.45,0,.2,1) both;pointer-events:auto}
-.veil svg{animation:breathe 2.5s ease-in-out infinite}
+.veil{animation:veilout .5s cubic-bezier(.45,0,.2,1) both}
+.veil.leaving{animation:veilin .5s cubic-bezier(.45,0,.2,1) both;pointer-events:auto}
+.veil svg{animation:breathe 1.2s ease-in-out infinite}
 .bob{animation:bob 7s ease-in-out infinite}
 .bob2{animation:bob 9s ease-in-out -3s infinite}
-.s1{animation:settle 2s cubic-bezier(.2,.7,.2,1) 1.2s backwards}
-.s2{animation:settle 2s cubic-bezier(.2,.7,.2,1) 1.9s backwards}
-.s3{animation:settle 2s cubic-bezier(.2,.7,.2,1) 2.6s backwards}
+.s1{animation:settle .9s cubic-bezier(.2,.7,.2,1) .2s backwards}
+.s2{animation:settle .9s cubic-bezier(.2,.7,.2,1) .4s backwards}
+.s3{animation:settle .9s cubic-bezier(.2,.7,.2,1) .6s backwards}
 }
 @media (max-width:760px){div[aria-hidden="true"][style*="position: absolute"]{display:none}}
 </style>
@@ -106,6 +107,6 @@ Arthritis Remedies
 </main>
 
 </div>
-<script src="site.js?v=5"></script>
+<script src="site.js?v=6"></script>
 </body>
 </html>
