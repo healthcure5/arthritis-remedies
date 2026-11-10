@@ -114,6 +114,9 @@ var CHECKOUT_URL = '';
       var ok = first.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
       if (!ok) { if (err) { err.hidden = false; } return; }
       if (err) { err.hidden = true; }
+      var tips = document.getElementById('tips'), errTips = document.getElementById('err-tips');
+      if (tips && !tips.checked) { if (errTips) { errTips.hidden = false; } tips.focus(); return; }
+      if (errTips) { errTips.hidden = true; }
       // Hand the details to the form service: it emails the visitor their guide,
       // emails the site owner the signup, then returns to the thank-you page.
       leave(function () {
