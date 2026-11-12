@@ -9,7 +9,7 @@ var COURSE_URL = '';   // The Joint Release Course
   var here = (location.pathname.split('/').pop() || 'index.html');
   var ITEMS = [
     ['index.html', 'Home', 'Start here'],
-    ['signup.html', 'The free guide', 'Your first small step, free'],
+    ['guide.html', 'The free guide', 'Your first small step, free'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Joint Release Course', 'Eight weeks to feeling more like you'],
     ['library.html', 'My library', 'Everything you own, in one place']
