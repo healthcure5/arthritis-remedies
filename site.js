@@ -107,13 +107,44 @@ var CHECKOUT_URL = '';
   var form = document.getElementById('signup');
   if (form) {
     var err = document.getElementById('err');
+    var humanEl = document.getElementById('human'), loadedAt = Date.now();
+    if (humanEl) {
+      humanEl.addEventListener('change', function (ev) {
+        var box = document.getElementById('human-box'), txt = document.getElementById('human-text'), eh = document.getElementById('err-human');
+        humanEl.dataset.ok = '';
+        box.classList.remove('ok', 'busy');
+        if (!humanEl.checked) { txt.textContent = "I'm not a robot"; return; }
+        box.classList.add('busy');
+        txt.textContent = 'Checking…';
+        // Real, light checks: a genuine tap, the hidden trap field left empty, and a human amount of time on the page.
+        var honey = form.querySelector('[name="_honey"]');
+        var wait = Math.max(900, 2500 - (Date.now() - loadedAt));
+        setTimeout(function () {
+          box.classList.remove('busy');
+          var pass = ev.isTrusted !== false && (!honey || honey.value === '');
+          if (!pass) { humanEl.checked = false; txt.textContent = 'We could not verify you. Please try again.'; return; }
+          humanEl.dataset.ok = '1';
+          box.classList.add('ok');
+          txt.textContent = 'Verified. Thank you!';
+          if (eh) { eh.hidden = true; }
+        }, wait);
+      });
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var first = (document.getElementById('first').value || '').trim();
       var email = (document.getElementById('email').value || '').trim();
-      var ok = first.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+      var lastEl = document.getElementById('last');
+      var last = lastEl ? (lastEl.value || '').trim() : 'x';
+      var ok = first.length > 0 && last.length > 0 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
       if (!ok) { if (err) { err.hidden = false; } return; }
       if (err) { err.hidden = true; }
+      var tips = document.getElementById('tips'), errTips = document.getElementById('err-tips');
+      if (tips && !tips.checked) { if (errTips) { errTips.hidden = false; } tips.focus(); return; }
+      if (errTips) { errTips.hidden = true; }
+      var human = document.getElementById('human'), errHuman = document.getElementById('err-human');
+      if (human && human.dataset.ok !== '1') { if (errHuman) { errHuman.hidden = false; } human.focus(); return; }
+      if (errHuman) { errHuman.hidden = true; }
       // Hand the details to the form service: it emails the visitor their guide,
       // emails the site owner the signup, then returns to the thank-you page.
       leave(function () {
