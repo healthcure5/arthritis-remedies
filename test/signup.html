@@ -26,7 +26,7 @@ p,li,figcaption{text-wrap:pretty}
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #FFC56B;outline-offset:3px;border-radius:8px}
 img{height:auto}
 @media (max-width:760px){.hdr-link{display:none!important}.hdr-in{flex-wrap:nowrap!important;padding:12px 16px!important;gap:12px!important}.hdr-nav{flex-wrap:nowrap!important;flex:none}.hdr-brand{font-size:19px!important;white-space:nowrap}.hdr-btn{white-space:nowrap;padding:11px 18px!important;font-size:15px!important}.hdr.compact .hdr-brand{font-size:16.5px!important}}
-body{margin:0;background:#F4F8FC}
+body{margin:0;background:#B5C8E0}
 a{color:#1A4FB0}a:hover{color:#0B2C6E}
 input:focus{outline:3px solid #A6CBEE;outline-offset:1px}
 img{max-width:100%}
@@ -50,6 +50,16 @@ img{max-width:100%}
 @media (max-width:760px){div[aria-hidden="true"][style*="position: absolute"]{display:none}}
 </style>
 <style>.hdr.compact .hdr-tag{display:none}@media (max-width:760px){.hdr-tag{font-size:9px!important;letter-spacing:.14em!important}}</style>
+<style id="look2">
+body{background:#B5C8E0!important}
+.hdr-bg{background:rgba(10,31,68,.96)!important;box-shadow:0 12px 28px -18px rgba(10,31,68,.8)!important}
+.hdr-nav{display:none!important}
+.hdr-in{padding:10px 20px!important}
+.hdr-brand svg,.hdr.compact .hdr-brand svg{width:54px!important;height:54px!important}
+#top{background:#0A1F44!important}
+#top h1{color:#FFFFFF!important}#top h1 span{color:#0A1F44!important}
+#top p{color:#D7E2EE!important}
+</style>
 </head>
 <style id="test-look">
 body p,body li,body figcaption{font-size:20px!important;line-height:1.65!important;color:#1B2F4D}
@@ -63,7 +73,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 </style>
 <body>
 
-<div style="font-family: 'Inter', system-ui, sans-serif; color: #334A63; background: #F4F8FC; font-size: 18px; line-height: 1.6; min-height: 100vh; display: flex; flex-wrap: wrap">
+<div style="font-family: 'Inter', system-ui, sans-serif; color: #334A63; background: #B5C8E0; font-size: 18px; line-height: 1.6; min-height: 100vh; display: flex; flex-wrap: wrap">
 <div class="veil" id="veil" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#FFFFFF"/><path d="M9 17c3-6 11-6 14 0" stroke="#1A4FB0" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#1A4FB0"/></svg></div>
 
 <!-- LEFT: reassurance -->
@@ -148,6 +158,6 @@ Joint Release
 
 </div>
 <script src="site.js?v=13"></script>
-<script src="menu.js?v=5"></script>
+<script src="menu.js?v=6"></script>
 </body>
 </html>

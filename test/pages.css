@@ -91,3 +91,17 @@ footer{padding:26px 0 44px;font-size:17px;color:var(--grey)}
 
 .lessons[hidden]{display:none}
 .brandline{display:none}
+
+/* look 2: darker ground, dark header and opening panel, logo-only header */
+body{background:#B5C8E0}
+.top{background:#0A1F44;box-shadow:0 12px 28px -18px rgba(10,31,68,.8)}
+.top-in{padding:10px 20px}
+.brand svg{display:block}
+main>section:first-child .panel{background:#0A1F44;box-shadow:0 30px 50px -30px rgba(10,31,68,.8)}
+main>section:first-child .panel h1{color:#fff}
+main>section:first-child .panel h1 .mark{color:#0A1F44}
+main>section:first-child .panel p{color:#D7E2EE}
+main>section:first-child .panel .eyebrow{color:#FFC56B}
+main>section:first-child .panel .note{color:#AEC6DF}
+.letter-copy{background:#fff;border-radius:36px;padding:clamp(24px,5vw,56px);box-shadow:0 30px 50px -30px rgba(16,40,74,.35)}
+footer{color:#1B2F4D}
