@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>My library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pages.css?v=1">
+</head>
+<body>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#1A4FB0"/><path d="M9 17c3-6 11-6 14 0" stroke="#FFC56B" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#FFC56B"/></svg>Joint Release</a><a class="btn small" href="signup.html">Get the free guide</a></div></header>
+<div id="jr-menu-slot"></div>
+<main>
+<section><div class="wrap"><div class="panel">
+<span class="eyebrow">My library</span>
+<h1>Everything you have, in one place</h1>
+<p>Pick up where you left off. Your progress is saved on this device.</p>
+</div></div></section>
+
+<section><div class="wrap"><div class="panel ice">
+<div class="row" style="justify-content:space-between"><h2>The Joint Release Course</h2><span class="tag" id="stars">★ 0 stars</span></div>
+<div class="meter"><b id="bar" style="width:0%"></b></div>
+<p id="status">You haven't started yet. Your first lesson takes ten minutes.</p>
+<div class="row"><a class="btn" id="go" href="course/#week-0">Start the course</a><a class="btn ghost" href="course/#bonuses">Bonus Theater</a><a class="btn ghost" href="course/#toolkit">Toolkit</a></div>
+<div class="lessons" id="lessons"><a href="course/#week-0" data-id="week-0"><i>★</i><span>Welcome</span></a><a href="course/#week-1" data-id="week-1"><i>R</i><span>Reassure</span></a><a href="course/#week-2" data-id="week-2"><i>E</i><span>Ease in</span></a><a href="course/#week-3" data-id="week-3"><i>L</i><span>Load wisely</span></a><a href="course/#week-4" data-id="week-4"><i>E</i><span>Eat</span></a><a href="course/#barbara" data-id="barbara"><i>♥</i><span>Barbara's corner</span></a><a href="course/#week-5" data-id="week-5"><i>A</i><span>Adapt</span></a><a href="course/#week-6" data-id="week-6"><i>S</i><span>Sleep & soothe</span></a><a href="course/#week-7" data-id="week-7"><i>E</i><span>Endure</span></a><a href="course/#week-8" data-id="week-8"><i>★</i><span>Keep going</span></a></div>
+<p class="note">Not enrolled yet? <a href="course-info.html">See the course · $100</a>. After checkout your course link is also sent to your email.</p>
+</div></div></section>
+
+<section><div class="wrap"><div class="grid">
+<div class="card"><span class="tag">Free</span><h3>7 Everyday Habits</h3><p>Your free guide, with a gentle swap for each habit.</p><a class="btn wide" href="../7-everyday-habits.pdf" target="_blank" rel="noopener">Open my free guide</a><p class="note">Don't have it yet? <a href="signup.html">Get it by email</a>.</p></div>
+<div class="card"><span class="tag">$27</span><h3>The Joint Reset</h3><p>The full guide. Every popular remedy gets one of five honest verdicts.</p><a class="btn wide" data-shop="book" data-price="$27" href="#">Get The Joint Reset · $27</a><p class="note">Already bought it? Your copy is in the email we sent at checkout.</p></div>
+</div></div></section>
+</main>
+<footer><div class="wrap">Joint Release · General information, not medical advice. Please keep taking anything you have been prescribed. · <a href="privacy.html">Privacy</a></div></footer>
+<script src="menu.js?v=1"></script>
+<script>
+(function(){
+  var done={},watched={};
+  try{done=JSON.parse(localStorage.getItem('jr_done')||'{}');watched=JSON.parse(localStorage.getItem('jr_watched')||'{}');}catch(e){}
+  var links=document.querySelectorAll('#lessons a'),n=0,next=null;
+  links.forEach(function(a){if(done[a.dataset.id]){a.classList.add('done');a.querySelector('i').textContent='✓';n++;}else if(!next){next=a;}});
+  document.getElementById('bar').style.width=(n/links.length*100)+'%';
+  document.getElementById('stars').textContent='★ '+(n*3+Object.keys(watched).length)+' stars';
+  var go=document.getElementById('go'),st=document.getElementById('status');
+  if(n===links.length){st.textContent='You finished all '+n+' lessons. Wonderful work.';go.textContent='Revisit the course';go.href='course/#home';}
+  else if(n>0){st.textContent=n+' of '+links.length+' lessons done. Keep going, you are doing well.';go.textContent='Continue: '+next.querySelector('span').textContent;go.href=next.getAttribute('href');}
+})();
+</script>
+</body>
+</html>
