@@ -88,3 +88,6 @@ footer{padding:26px 0 44px;font-size:17px;color:var(--grey)}
 .btn.yesbtn{display:block;width:100%;font-size:22px;padding:22px 20px;background:var(--yellow);color:var(--navy);box-shadow:0 3px 0 #C98A1E,0 14px 24px -12px rgba(8,24,48,.6)}
 .btn.soon{opacity:.65;cursor:default}
 .pay .small{font-size:16.5px;color:var(--grey);text-align:center}
+
+.lessons[hidden]{display:none}
+.brandline{display:none}
