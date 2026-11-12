@@ -50,7 +50,19 @@ img{max-width:100%}
 @media (max-width:760px){div[aria-hidden="true"][style*="position: absolute"]{display:none}}
 </style>
 </head>
+<style id="test-look">
+body p,body li,body figcaption{font-size:20px!important;line-height:1.65!important;color:#1B2F4D}
+body summary{font-size:21px!important}
+body label,body input[type=text],body input[type=email]{font-size:19px!important}
+body h3{font-size:25px!important}
+body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padding-bottom:19px!important}
+.test-bar{background:#FFC56B;color:#0A1F44;font:600 17px/1.4 Inter,system-ui,sans-serif;padding:12px 18px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;justify-content:center;text-align:center}
+.test-bar a{color:#0A1F44;font-weight:800}
+@media (max-width:760px){body h1{font-size:42px!important}body h2{font-size:32px!important}}
+</style>
 <body>
+<div class="test-bar"><span>Test version of Joint Release</span><a href="index.html">Home</a><a href="signup.html">Signup</a><a href="course/">Open the course →</a></div>
+
 <div style="font-family: 'Inter', system-ui, sans-serif; color: #334A63; background: #F4F8FC; font-size: 18px; line-height: 1.6; min-height: 100vh; display: flex; flex-wrap: wrap">
 <div class="veil" id="veil" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#FFFFFF"/><path d="M9 17c3-6 11-6 14 0" stroke="#1A4FB0" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#1A4FB0"/></svg></div>
 
