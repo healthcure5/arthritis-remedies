@@ -107,6 +107,16 @@ var CHECKOUT_URL = '';
   var form = document.getElementById('signup');
   if (form) {
     var err = document.getElementById('err');
+    var humanEl = document.getElementById('human');
+    if (humanEl) {
+      humanEl.addEventListener('change', function () {
+        var box = document.getElementById('human-box'), txt = document.getElementById('human-text'), eh = document.getElementById('err-human');
+        txt.textContent = humanEl.checked ? "Okay, you're not a robot. Thank you!" : "I'm not a robot";
+        box.style.background = humanEl.checked ? '#E6F6EC' : '#F4F8FC';
+        box.style.borderColor = humanEl.checked ? '#1E8A4C' : '#AEC6DF';
+        if (humanEl.checked && eh) { eh.hidden = true; }
+      });
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var first = (document.getElementById('first').value || '').trim();
@@ -119,6 +129,9 @@ var CHECKOUT_URL = '';
       var tips = document.getElementById('tips'), errTips = document.getElementById('err-tips');
       if (tips && !tips.checked) { if (errTips) { errTips.hidden = false; } tips.focus(); return; }
       if (errTips) { errTips.hidden = true; }
+      var human = document.getElementById('human'), errHuman = document.getElementById('err-human');
+      if (human && !human.checked) { if (errHuman) { errHuman.hidden = false; } human.focus(); return; }
+      if (errHuman) { errHuman.hidden = true; }
       // Hand the details to the form service: it emails the visitor their guide,
       // emails the site owner the signup, then returns to the thank-you page.
       leave(function () {
