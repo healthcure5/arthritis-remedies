@@ -91,14 +91,32 @@ body{background:#B5C8E0!important}
 #top h1{color:#FFFFFF!important}#top h1 span{color:#0A1F44!important}
 #top p{color:#D7E2EE!important}
 </style>
-<style id="look3">
-.more summary{display:inline-flex;align-items:center;gap:10px;justify-content:center;font-weight:700;font-size:19px!important;color:#0A1F44;border:2px solid #0A1F44;border-radius:999px;padding:12px 26px;min-height:50px;cursor:pointer;list-style:none}
-.more summary::-webkit-details-marker{display:none}
-.more summary::after{content:"";width:9px;height:9px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .25s}
-.more[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
-.more[open] summary{background:#0A1F44;color:#FFFFFF}
-.more-in{margin-top:20px;padding-top:20px;border-top:2px solid rgba(10,31,68,.18)}
+<style id="look4">
+.more-btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:#0A1F44;text-decoration:none;border:2px solid #0A1F44;border-radius:999px;padding:12px 26px;min-height:50px}
+.more-btn::after{content:"";width:9px;height:9px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg) translateY(-3px)}
+.more-btn:hover{background:#0A1F44;color:#FFFFFF}
+.detail{scroll-margin-top:80px}
+.book{--w:210px;width:var(--w);aspect-ratio:3/4.05;position:relative;transform:perspective(1200px) rotateY(-22deg) rotateX(3deg);transform-origin:50% 50%;filter:drop-shadow(18px 26px 22px rgba(6,18,42,.5))}
+.book-lg{--w:270px}
+.bk-pages{position:absolute;top:1.6%;bottom:1.6%;right:-5.5%;width:8%;border-radius:0 3px 3px 0;background:repeating-linear-gradient(90deg,#FBF8F1 0 1px,#DDD6C6 1px 2px);box-shadow:inset 0 0 6px rgba(0,0,0,.25)}
+.bk-cover{position:absolute;inset:0;border-radius:3px 7px 7px 3px;overflow:hidden;display:flex;flex-direction:column;padding:13% 11% 9% 15%;box-sizing:border-box;text-align:left;font-family:'Lora',Georgia,serif}
+.bk-cover::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.38) 0,rgba(0,0,0,.12) 3%,rgba(255,255,255,.22) 4.5%,rgba(255,255,255,0) 7%,rgba(0,0,0,.07) 9%,rgba(0,0,0,0) 12%),linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 38%,rgba(0,0,0,.14) 100%);pointer-events:none}
+.bk-cover::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.55;mix-blend-mode:overlay;pointer-events:none}
+.bk-tag{font:700 calc(var(--w)*.038)/1.4 Inter,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.bk-title{font-weight:700;font-size:calc(var(--w)*.135);line-height:1.08;margin-top:9%;letter-spacing:-.01em}
+.bk-rule{width:22%;height:calc(var(--w)*.014);border-radius:9px;background:#FFC56B;margin:8% 0 6%}
+.bk-sub{font-style:italic;font-size:calc(var(--w)*.062);line-height:1.35}
+.bk-brand{margin-top:auto;display:flex;align-items:center;gap:6px;font:700 calc(var(--w)*.036)/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.bk-brand svg{width:calc(var(--w)*.09);height:calc(var(--w)*.09)}
+.bk-reset .bk-cover{background:radial-gradient(120% 90% at 20% 0%,#1D4A8F 0%,#0E2A5C 45%,#081A3A 100%);color:#FFFFFF}
+.bk-reset .bk-tag,.bk-reset .bk-brand{color:#FFC56B}
+.bk-reset .bk-sub{color:#D7E2EE}
+.bk-guide .bk-cover{background:linear-gradient(160deg,#FBF7EE 0%,#F1E9D8 100%);color:#0A1F44;box-shadow:inset 0 0 0 1px rgba(10,31,68,.12)}
+.bk-guide .bk-title{font-size:calc(var(--w)*.098);line-height:1.14}
+.bk-guide .bk-tag{align-self:flex-start;background:#0A1F44;color:#FFC56B;padding:3% 6%;border-radius:99px;letter-spacing:.14em}
+.bk-guide .bk-sub,.bk-guide .bk-brand{color:#1A4FB0}
 @media (min-width:700px){.books-row>div+div{border-left:2px solid rgba(10,31,68,.18)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
 </style>
 </head>
 <style id="test-look">
@@ -171,6 +189,92 @@ One small step today
 </section>
 
 <!-- PHOTO BAND -->
+
+
+<!-- HOW IT WORKS -->
+<section style="background: #B5C8E0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 44px 60px; align-items: center">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; justify-content: center">
+<div class="rv" aria-hidden="true" style="position: relative; background: radial-gradient(circle at 30% 20%, #C4DCF4 0%, #A6CBEE 70%); border-radius: 40px; width: min(100%, 420px); aspect-ratio: 1 / 1; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), 0 40px 60px -30px rgba(20, 62, 150, 0.5)">
+<div class="bob2" style="position: absolute; left: 14%; top: 16%; width: 60%; background: #FFFFFF; border-radius: 20px; padding: 18px 20px; box-sizing: border-box; transform: perspective(900px) rotateY(14deg) rotate(-4deg); box-shadow: 0 2px 4px rgba(12, 34, 64, 0.15), 0 30px 44px -14px rgba(12, 34, 64, 0.5); display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 1"></span></div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 0.700"></span></div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; border: 2px solid #5E90C4; box-sizing: border-box; flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 0.850"></span></div>
+</div>
+<div class="bob" style="position: absolute; right: 10%; bottom: 14%; width: 44%; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); border-radius: 20px; padding: 18px 20px; box-sizing: border-box; transform: perspective(900px) rotateY(-14deg) rotate(5deg); box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 30px 44px -14px rgba(12, 34, 64, 0.6); display: flex; flex-direction: column; gap: 10px">
+<span style="height: 10px; width: 60%; border-radius: 5px; background: #FFC56B"></span>
+<span style="height: 10px; border-radius: 5px; background: #5C98F0"></span>
+<span style="height: 10px; width: 80%; border-radius: 5px; background: #5C98F0"></span>
+</div>
+</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0">
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">What we do</div>
+<h2 style="margin: 10px 0 18px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">From stiff and stuck to moving with confidence.</h2>
+<p style="margin: 0 0 22px">This is the change our team works toward every day. Our guides are made to leave you:</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; color: #0A1F44; font-weight: 500">
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Clear about what deserves your trust, and what does not</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Steady, with a rhythm that fits your real life</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Calmer on hard days, because you know what to do</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>More confident when you talk with your doctor</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="books" style="background: #B5C8E0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px">
+<div class="rv" style="max-width: 640px; margin: 0 auto 56px; text-align: center">
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">Our two guides</div>
+<h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">Start wherever feels right</h2>
+</div>
+<div class="books-row" style="display: flex; flex-wrap: wrap; gap: 64px 0; align-items: flex-start">
+<div class="rv" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 8px clamp(8px, 3vw, 40px)">
+<div class="book bk-guide" role="img" aria-label="Cover of the free guide, 7 Everyday Habits"><div class="bk-pages"></div><div class="bk-cover" aria-hidden="true"><span class="bk-tag">Free guide</span><span class="bk-title">7 Everyday Habits That Can Keep Joints Stiff and Sore</span><span class="bk-rule"></span><span class="bk-sub">And the gentle swap for each</span><span class="bk-brand"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M15 12 31 32 15 52" stroke="currentColor" stroke-width="9" stroke-linejoin="round"/><circle cx="32" cy="32" r="8.5" fill="#FFC56B"/><path d="M45 23a13 13 0 0 1 0 18" stroke="#FFC56B" stroke-width="4"/></svg>Gentle Joint Care</span></div></div>
+<h3 style="margin: 22px 0 0; font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.2; color: #0A1F44">7 Everyday Habits</h3>
+<p style="margin: 0; max-width: 420px">A gentle first step toward easier mornings. It is our gift to you.</p>
+<a class="more-btn" href="#guide-more">Know more</a>
+</div>
+<div class="rv" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 8px clamp(8px, 3vw, 40px)">
+<div class="book bk-reset" role="img" aria-label="Cover of The Joint Reset"><div class="bk-pages"></div><div class="bk-cover" aria-hidden="true"><span class="bk-tag">A gentle, honest guide for your joints</span><span class="bk-title">The Joint Reset</span><span class="bk-rule"></span><span class="bk-sub">Natural arthritis remedies, and what the evidence says</span><span class="bk-brand"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M15 12 31 32 15 52" stroke="currentColor" stroke-width="9" stroke-linejoin="round"/><circle cx="32" cy="32" r="8.5" fill="#FFC56B"/><path d="M45 23a13 13 0 0 1 0 18" stroke="#FFC56B" stroke-width="4"/></svg>Gentle Joint Care</span></div></div>
+<h3 style="margin: 22px 0 0; font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.2; color: #0A1F44">The Joint Reset</h3>
+<p style="margin: 0; max-width: 420px">The book that helps you stop guessing and feel calm and clear about your joints.</p>
+<a class="more-btn" href="#book-more">Know more</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="guide-more" class="detail detail-dark" style="background: #0A1F44">
+<div style="max-width: 1080px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 72px">
+<div class="rv" style="flex: 0 1 300px; min-width: 220px; margin: 0 auto; display: flex; justify-content: center"><div class="book book-lg bk-guide" role="img" aria-label="Cover of the free guide, 7 Everyday Habits"><div class="bk-pages"></div><div class="bk-cover" aria-hidden="true"><span class="bk-tag">Free guide</span><span class="bk-title">7 Everyday Habits That Can Keep Joints Stiff and Sore</span><span class="bk-rule"></span><span class="bk-sub">And the gentle swap for each</span><span class="bk-brand"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M15 12 31 32 15 52" stroke="currentColor" stroke-width="9" stroke-linejoin="round"/><circle cx="32" cy="32" r="8.5" fill="#FFC56B"/><path d="M45 23a13 13 0 0 1 0 18" stroke="#FFC56B" stroke-width="4"/></svg>Gentle Joint Care</span></div></div></div>
+<div class="rv" style="flex: 1 1 420px; min-width: 0">
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #FFC56B">The free guide</div>
+<h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #FFFFFF">7 Everyday Habits</h2>
+<p style="margin: 22px 0 0; font-family: 'Lora', Georgia, serif; font-size: 24px!important; line-height: 1.45!important; color: #FFFFFF">This is our first step, placed gently in your hands.</p>
+<p style="margin: 18px 0 0; color: #D7E2EE">Throughout this short guide, our team walks beside you through an ordinary day and shows you a kinder way to look at it. Along the way, it helps you set down the blame you may have been carrying and feel that change is possible again.</p>
+<p style="margin: 18px 0 0; color: #D7E2EE">If you have ever wondered where on earth to begin, this is your beginning. It takes about ten minutes, and it costs nothing.</p>
+<p style="margin: 26px 0 0; font-weight: 600; color: #FFFFFF">If you are ready to take one small, gentle step for your joints…</p>
+<a class="btn" href="signup.html" style="display: inline-block; margin-top: 18px; background: #FFC56B; color: #0A1F44; text-decoration: none; padding: 17px 34px; border-radius: 14px; font-weight: 700; font-size: 19px">Send me my free copy</a>
+</div>
+</div>
+</section>
+
+<section id="book-more" class="detail" style="background: #EAF2FA">
+<div style="max-width: 1080px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 72px">
+<div class="rv" style="flex: 0 1 300px; min-width: 220px; margin: 0 auto; display: flex; justify-content: center"><div class="book book-lg bk-reset" role="img" aria-label="Cover of The Joint Reset"><div class="bk-pages"></div><div class="bk-cover" aria-hidden="true"><span class="bk-tag">A gentle, honest guide for your joints</span><span class="bk-title">The Joint Reset</span><span class="bk-rule"></span><span class="bk-sub">Natural arthritis remedies, and what the evidence says</span><span class="bk-brand"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M15 12 31 32 15 52" stroke="currentColor" stroke-width="9" stroke-linejoin="round"/><circle cx="32" cy="32" r="8.5" fill="#FFC56B"/><path d="M45 23a13 13 0 0 1 0 18" stroke="#FFC56B" stroke-width="4"/></svg>Gentle Joint Care</span></div></div></div>
+<div class="rv" style="flex: 1 1 420px; min-width: 0">
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">The book</div>
+<h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">The Joint Reset</h2>
+<p style="margin: 22px 0 0; font-family: 'Lora', Georgia, serif; font-size: 24px!important; line-height: 1.45!important; color: #0A1F44">This is everything our team has learned about caring for sore joints, in one book.</p>
+<p style="margin: 18px 0 0; color: #334A63">Throughout the book, we take you from confused and worn out to calm and clear. Along the way, it gives you back something many people with sore joints quietly lose: the feeling of being in charge of your own body.</p>
+<p style="margin: 18px 0 0; color: #334A63">If you have ever wished you could sit down with someone who has already done all the reading for you, this is that conversation.</p>
+<p style="margin: 26px 0 0; font-weight: 600; color: #0A1F44">If you are ready to stop guessing and feel at home in your body again…</p>
+<a class="btn" href="book.html" style="display: inline-block; margin-top: 18px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); color: #FFFFFF; text-decoration: none; padding: 17px 34px; border-radius: 14px; font-weight: 700; font-size: 19px">Buy now</a>
+</div>
+</div>
+</section>
+
 <section aria-label="Everyday moments" style="background: #B5C8E0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 88px 24px 0">
 <div class="rv" style="max-width: 640px; margin-bottom: 40px">
@@ -190,38 +294,6 @@ One small step today
 <img class="slot" width="1168" height="880" loading="lazy" decoding="async" src="../images/chair.jpg" alt="A man in glasses seated on a wooden chair at home, straightening one leg in a gentle exercise" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 26px; transform: perspective(900px) rotateY(-6deg) rotateX(2deg); box-shadow: 0 2px 4px rgba(16, 40, 74, 0.08), 0 18px 28px -10px rgba(16, 40, 74, 0.2), 0 44px 60px -28px rgba(16, 40, 74, 0.45)">
 <figcaption style="margin-top: 18px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 19px; color: #0A1F44">A movement in a chair</figcaption>
 </figure>
-</div>
-</div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="books" style="background: #B5C8E0">
-<div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px">
-<div class="rv" style="max-width: 640px; margin: 0 auto 48px; text-align: center">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">Our two guides</div>
-<h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">Start wherever feels right</h2>
-</div>
-<div class="books-row" style="display: flex; flex-wrap: wrap; gap: 56px 0; align-items: flex-start">
-<div class="rv" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 8px clamp(8px, 3vw, 40px)">
-<img loading="lazy" decoding="async" src="../images/habits-cover.jpg?v=2" alt="Cover of the free guide, 7 Everyday Habits That Can Keep Joints Stiff and Sore" style="width: min(62%, 230px); border-radius: 4px 10px 10px 4px; box-shadow: -8px 0 0 rgba(10, 31, 68, 0.9), 0 30px 44px -18px rgba(10, 31, 68, 0.7)">
-<h3 style="margin: 10px 0 0; font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.2; color: #0A1F44">7 Everyday Habits</h3>
-<p style="margin: 0; max-width: 420px">A gentle first step toward easier mornings. It is our gift to you.</p>
-<details class="more" style="width: 100%; max-width: 460px">
-<summary>Know more</summary>
-<div class="more-in"><p style="margin: 0">This short guide helps you see your ordinary days in a kinder light, so you can stop blaming yourself and begin with one small change. It takes about ten minutes to read.</p>
-<a class="btn" href="signup.html" style="display: inline-block; margin-top: 18px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); color: #FFFFFF; text-decoration: none; padding: 16px 30px; border-radius: 14px; font-weight: 600; font-size: 18px">Send me my free copy</a></div>
-</details>
-</div>
-<div class="rv" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 8px clamp(8px, 3vw, 40px)">
-<img loading="lazy" decoding="async" src="../images/guide-cover.jpg?v=3" alt="Cover of The Joint Reset" style="width: min(62%, 230px); border-radius: 4px 10px 10px 4px; box-shadow: -8px 0 0 rgba(10, 31, 68, 0.9), 0 30px 44px -18px rgba(10, 31, 68, 0.7)">
-<h3 style="margin: 10px 0 0; font-family: 'Lora', Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.2; color: #0A1F44">The Joint Reset</h3>
-<p style="margin: 0; max-width: 420px">The book that helps you stop guessing and feel calm and clear about your joints.</p>
-<details class="more" style="width: 100%; max-width: 460px">
-<summary>Know more</summary>
-<div class="more-in"><p style="margin: 0">If you are tired of trying one remedy after another, this book is for you. It is made to leave you clear about what deserves your trust, calmer on hard days, and back in charge of your own routine.</p>
-<a class="btn" href="book.html" style="display: inline-block; margin-top: 18px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); color: #FFFFFF; text-decoration: none; padding: 16px 30px; border-radius: 14px; font-weight: 600; font-size: 18px">Buy now</a></div>
-</details>
-</div>
 </div>
 </div>
 </section>
@@ -266,35 +338,7 @@ One small step today
 
 
 <!-- HONEST PROMISE -->
-<section style="background: #B5C8E0">
-<div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 44px 60px; align-items: center">
-<div style="flex: 1 1 320px; min-width: 0; display: flex; justify-content: center">
-<div class="rv" aria-hidden="true" style="position: relative; background: radial-gradient(circle at 30% 20%, #C4DCF4 0%, #A6CBEE 70%); border-radius: 40px; width: min(100%, 420px); aspect-ratio: 1 / 1; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), 0 40px 60px -30px rgba(20, 62, 150, 0.5)">
-<div class="bob2" style="position: absolute; left: 14%; top: 16%; width: 60%; background: #FFFFFF; border-radius: 20px; padding: 18px 20px; box-sizing: border-box; transform: perspective(900px) rotateY(14deg) rotate(-4deg); box-shadow: 0 2px 4px rgba(12, 34, 64, 0.15), 0 30px 44px -14px rgba(12, 34, 64, 0.5); display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 1"></span></div>
-<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 0.700"></span></div>
-<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; border: 2px solid #5E90C4; box-sizing: border-box; flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 0.850"></span></div>
-</div>
-<div class="bob" style="position: absolute; right: 10%; bottom: 14%; width: 44%; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); border-radius: 20px; padding: 18px 20px; box-sizing: border-box; transform: perspective(900px) rotateY(-14deg) rotate(5deg); box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 30px 44px -14px rgba(12, 34, 64, 0.6); display: flex; flex-direction: column; gap: 10px">
-<span style="height: 10px; width: 60%; border-radius: 5px; background: #FFC56B"></span>
-<span style="height: 10px; border-radius: 5px; background: #5C98F0"></span>
-<span style="height: 10px; width: 80%; border-radius: 5px; background: #5C98F0"></span>
-</div>
-</div>
-</div>
-<div style="flex: 1 1 440px; min-width: 0">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">What we do</div>
-<h2 style="margin: 10px 0 18px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">From stiff and stuck to moving with confidence.</h2>
-<p style="margin: 0 0 22px">This is the change our team works toward every day. Our guides are made to leave you:</p>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; color: #0A1F44; font-weight: 500">
-<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Clear about what deserves your trust, and what does not</span></li>
-<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Steady, with a rhythm that fits your real life</span></li>
-<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Calmer on hard days, because you know what to do</span></li>
-<li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="flex: none"><circle cx="12" cy="12" r="12" fill="#1A4FB0"/><path d="M17 8.5 10.5 15 7 11.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>More confident when you talk with your doctor</span></li>
-</ul>
-</div>
-</div>
-</section>
+
 
 <!-- TRUST -->
 
