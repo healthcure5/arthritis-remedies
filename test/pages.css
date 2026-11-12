@@ -252,3 +252,6 @@ body.theme-course{background-color:#081A3A;background-image:radial-gradient(60re
 .lib-letter{border-radius:36px;padding:clamp(28px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;gap:36px 56px;background:radial-gradient(rgba(10,31,68,.06) 1.5px,transparent 1.7px) 0 0/22px 22px,linear-gradient(170deg,#FFF6E2,#FFE2A8);box-shadow:0 30px 50px -30px rgba(10,31,68,.55)}
 .env{flex:0 1 240px;min-width:180px;margin:0 auto;filter:drop-shadow(0 18px 20px rgba(10,31,68,.35));transform:rotate(-5deg)}
 .lib-letter-text{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+/* free guide button: bright gold, calm (no moving shine) */
+.cta-soft{color:#0A1F44;background:linear-gradient(180deg,#FFDA94 0%,#FFC56B 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.6),0 4px 0 #C98A1E,0 16px 28px -12px rgba(201,138,30,.6)}
+.cta-soft::after{border-color:#0A1F44}
