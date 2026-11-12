@@ -114,9 +114,26 @@ Joint Release
 <span>Yes, send me my free guide and gentle joint-care tips by email. You can unsubscribe any time.</span>
 </label>
 <div id="err-tips" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please tick the box above to get your free guide and tips by email.</div>
-<label for="human" id="human-box" style="display: flex; gap: 14px; align-items: center; cursor: pointer; background: #F4F8FC; border: 1.5px solid #AEC6DF; border-radius: 14px; padding: 14px 16px; min-height: 60px; box-shadow: inset 0 3px 6px rgba(16, 40, 74, 0.08); transition: background .3s ease, border-color .3s ease">
-<input id="human" type="checkbox" style="width: 26px; height: 26px; margin: 0; accent-color: #1E8A4C; flex: none">
-<span id="human-text" aria-live="polite" style="font-weight: 600; font-size: 16.5px; color: #0A1F44">I'm not a robot</span>
+<style>
+#human-box{display:flex;align-items:center;gap:14px;background:#F9FBFD;border:1.5px solid #C5D5E6;border-radius:8px;padding:14px 16px;min-height:76px;cursor:pointer;box-shadow:0 1px 2px rgba(16,40,74,.08);transition:border-color .3s ease,background .3s ease}
+#human-box.ok{background:#F1FAF4;border-color:#1E8A4C}
+#human{position:absolute;opacity:0;width:1px;height:1px}
+#human-mark{flex:none;width:30px;height:30px;border:2px solid #7C93AD;border-radius:5px;background:#fff;display:grid;place-items:center;box-sizing:border-box}
+#human:focus-visible+#human-mark{outline:3px solid #2F6FE0;outline-offset:2px}
+#human-box.busy #human-mark{border-color:#C5D5E6 #C5D5E6 #C5D5E6 #1A4FB0;border-radius:50%;animation:hspin .7s linear infinite}
+#human-box.ok #human-mark{border-color:#1E8A4C;background:#1E8A4C}
+#human-box.ok #human-mark::after{content:"";width:8px;height:15px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-2px)}
+#human-text{flex:1;font-weight:600;font-size:16.5px;color:#0A1F44}
+#human-seal{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;line-height:1.2;color:#4F6580;text-align:center;border-left:1px solid #D7E2EE;padding-left:12px}
+#human-seal b{font-size:11.5px;color:#0A1F44}
+@keyframes hspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){#human-box.busy #human-mark{animation:none}}
+</style>
+<label for="human" id="human-box">
+<input id="human" type="checkbox">
+<span id="human-mark" aria-hidden="true"></span>
+<span id="human-text" aria-live="polite">I'm not a robot</span>
+<span id="human-seal" aria-hidden="true"><svg width="26" height="28" viewBox="0 0 26 28"><path d="M13 1l11 4v8c0 7-4.6 12-11 14C6.6 25 2 20 2 13V5z" fill="#1A4FB0"/><path d="M8 13.5l3.5 3.5L18.5 10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Joint Release</b>Security check</span>
 </label>
 <div id="err-human" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please tick “I'm not a robot” so we know it's really you.</div>
 <div id="err" hidden role="alert" style="background: #FFF1D6; border: 1.5px solid #C98A1E; color: #5A3B00; border-radius: 12px; padding: 12px 16px; font-size: 15.5px; font-weight: 500">Please add your first name, your last name and a valid email address so we know where to send your guide.</div>
@@ -127,6 +144,6 @@ Joint Release
 </div>
 
 </div>
-<script src="site.js?v=11"></script>
+<script src="site.js?v=12"></script>
 </body>
 </html>
