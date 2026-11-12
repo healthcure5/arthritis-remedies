@@ -9,9 +9,9 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
   var PROGRAMS = [
+    ['guide.html', 'Free guide', 'A kind first step, on us'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
-    ['course-info.html', 'The Joint Release Course', 'Eight weeks to feeling more like you'],
-    ['library.html', 'Our library', 'Everything we offer, in one place']
+    ['course-info.html', 'The Joint Release Course', 'Eight weeks to feeling more like you']
   ];
   var LOGO = '<svg role="img" aria-label="Gentle Joint Care" width="58" height="58" viewBox="0 0 64 64" fill="none" stroke-linecap="round" style="filter: drop-shadow(0 0 7px rgba(255,197,107,.55)) drop-shadow(0 3px 6px rgba(0,0,0,.5)); overflow: visible"><defs><linearGradient id="gjc-ring" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF8E1"/><stop offset=".3" stop-color="#FFC56B"/><stop offset=".55" stop-color="#B8791A"/><stop offset=".8" stop-color="#FFE3A6"/><stop offset="1" stop-color="#E0A23A"/></linearGradient><radialGradient id="gjc-in" cx="24" cy="20" r="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3B74DA"/><stop offset=".55" stop-color="#0E2A5C"/><stop offset="1" stop-color="#061533"/></radialGradient><linearGradient id="gjc-let" x1="16" y1="14" x2="46" y2="52" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFE0A0"/></linearGradient><radialGradient id="gjc-ball" cx="50" cy="48" r="9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF6D8"/><stop offset=".45" stop-color="#FFC56B"/><stop offset="1" stop-color="#C9861F"/></radialGradient></defs><circle cx="31" cy="32" r="30" fill="url(#gjc-ring)"/><circle cx="31" cy="32" r="26.5" fill="none" stroke="#7A4D0C" stroke-width=".8" opacity=".6"/><circle cx="31" cy="32" r="24.5" fill="url(#gjc-in)"/><path d="M12.5 23a20.5 20.5 0 0 1 25-10.5" stroke="#FFFFFF" stroke-width="2" opacity=".6"/><text x="31" y="45" text-anchor="middle" font-family="\'Lora\', Georgia, \'Times New Roman\', serif" font-weight="700" font-size="38" fill="url(#gjc-let)">G</text><circle cx="52" cy="50" r="7.5" fill="url(#gjc-ball)" stroke="#8C5A10" stroke-width=".7"/><circle cx="50" cy="47.6" r="1.9" fill="#FFFFFF" opacity=".9"/><path d="M55 12.5l4.5-4M60 21h5M49 6.5l1.5-5" stroke="#FFC56B" stroke-width="3"/><path d="M8 6l1.6 4.4L14 12l-4.4 1.6L8 18l-1.6-4.4L2 12l4.4-1.6z" fill="#FFF3CF"/></svg>';
   var css = document.createElement('style');
@@ -26,13 +26,14 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
     '.jr-nav a:hover,.jr-nav button:hover,.jr-nav .on{color:#FFC56B;border-bottom-color:#FFC56B}' +
     '.jr-nav button::after{content:"";width:8px;height:8px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s}' +
     '.jr-nav button[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}' +
-    '.jr-drop{position:absolute;right:0;top:calc(100% + 10px);width:min(340px,calc(100vw - 32px));padding:10px;border-radius:22px;background:rgba(8,26,58,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1.5px solid rgba(255,197,107,.55);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease,transform .25s ease,visibility 0s .25s;z-index:160}' +
+    '.jr-drop{position:absolute;right:0;top:calc(100% + 10px);width:min(340px,calc(100vw - 32px));padding:12px 22px 16px;border-radius:22px;background:radial-gradient(rgba(255,255,255,.09) 1.5px,transparent 1.7px) 0 0/26px 26px,radial-gradient(20rem 14rem at 100% 0%,rgba(255,197,107,.22),transparent 60%),rgba(16,52,112,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1.5px solid rgba(255,197,107,.55);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease,transform .25s ease,visibility 0s .25s;z-index:160}' +
     '.jr-drop.open{opacity:1;visibility:visible;transform:none;transition:opacity .25s ease,transform .25s ease}' +
-    '.jr-drop-top{display:flex;align-items:center;gap:12px;padding:10px 14px 14px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.18);font:800 18px/1 Inter,system-ui,sans-serif;color:#FFFFFF}' +
-    '.jr-drop a{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:14px 16px;border:0;border-radius:14px;font:700 21px/1.2 Lora,Georgia,serif;color:#FFFFFF}' +
-    '.jr-drop a small{font:500 15.5px/1.35 Inter,system-ui,sans-serif;color:#C7D8EA}' +
-    '.jr-drop a:hover,.jr-drop a.on{background:rgba(255,197,107,.16);color:#FFD48A;border:0}' +
-    '@media (max-width:640px){.jr-nav{width:100%;justify-content:center;font-size:18px;gap:4px 26px}.jr-nav a,.jr-nav button{padding:8px 4px}.jr-drop{right:50%;transform:translate(50%,-12px)}.jr-drop.open{transform:translate(50%,0)}.hdr-space{min-height:138px!important}}' +
+    '.jr-drop-top{display:flex;align-items:center;gap:12px;padding:8px 0 14px;font:800 18px/1 Inter,system-ui,sans-serif;color:#FFFFFF}' +
+    '.jr-drop a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:16px 30px 16px 0;border:0;border-top:1px solid rgba(255,255,255,.2);border-radius:0;font:700 21px/1.2 Lora,Georgia,serif;color:#FFFFFF;transition:padding .2s ease}' +
+    '.jr-drop a::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border-right:2.5px solid #FFC56B;border-top:2.5px solid #FFC56B;transform:translateY(-50%) rotate(45deg)}' +
+    '.jr-drop a small{font:500 15.5px/1.35 Inter,system-ui,sans-serif;color:#DCE8F5}' +
+    '.jr-drop a:hover,.jr-drop a.on{background:none;color:#FFD48A;border-bottom:0;border-top:1px solid rgba(255,255,255,.2);padding-left:10px}' +
+    '@media (max-width:640px){.jr-nav{width:100%;justify-content:center;font-size:17px;gap:4px 18px}.jr-nav a,.jr-nav button{padding:8px 4px}.jr-drop{right:50%;transform:translate(50%,-12px)}.jr-drop.open{transform:translate(50%,0)}.hdr-space{min-height:138px!important}}' +
     'a.soon{opacity:.6;cursor:default;pointer-events:none}' +
     '@media (prefers-reduced-motion:reduce){.jr-drop{transition:none}}';
   document.head.appendChild(css);
@@ -43,6 +44,7 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
   navEl.setAttribute('aria-label', 'Main');
   navEl.innerHTML = '<a href="index.html"' + (here === 'index.html' ? ' class="on" aria-current="page"' : '') + '>Home</a>' +
     '<button type="button" id="jr-prog" aria-expanded="false" aria-controls="jr-drop"' + (isProgram ? ' class="on"' : '') + '>Programs</button>' +
+    '<a href="library.html"' + (here === 'library.html' ? ' class="on" aria-current="page"' : '') + '>Library</a>' +
     '<a href="privacy.html#contact">Contact</a>' +
     '<div class="jr-drop" id="jr-drop"><div class="jr-drop-top">' + LOGO.replace('width="58" height="58"', 'width="44" height="44"') + '<span>Gentle Joint Care</span></div>' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' class="on" aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
   var host = document.querySelector('.hdr-in, .top-in');
