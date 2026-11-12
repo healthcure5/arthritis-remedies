@@ -21,13 +21,17 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
     '.jr-fab{position:fixed;right:18px;top:16px;z-index:150;display:grid;place-items:center;width:52px;height:48px;padding:0;background:none;border:0;cursor:pointer}.top{position:sticky;top:0;z-index:100}' +
     '.jr-burger{display:block;box-sizing:border-box;width:36px;height:28px;border-top:4px solid #FFC56B;border-bottom:4px solid #FFC56B;position:relative;border-radius:2px}.jr-burger::after{content:"";position:absolute;left:0;right:0;top:8px;border-top:4px solid #FFC56B;border-radius:2px}' +
     '.jr-shade{position:fixed;inset:0;background:rgba(10,31,68,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}' +
-    '.jr-drawer{position:fixed;top:0;right:0;bottom:0;width:min(88vw,360px);background:#FFFFFF;z-index:201;transform:translateX(102%);visibility:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1);padding:22px 18px 28px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;font-family:Inter,system-ui,sans-serif}' +
-    '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none;visibility:visible;box-shadow:-20px 0 50px -20px rgba(10,31,68,.5)}' +
-    '.jr-lock{display:flex;align-items:center;gap:12px;margin:0 0 10px}.jr-lock b{display:block;font:700 23px/1.1 Lora,Georgia,serif;color:#0A1F44}.jr-lock small{display:block;font:700 11px/1 Inter,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#1A4FB0;margin-top:5px}' +
-    '.jr-drawer a{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:#0A1F44;background:#F4F8FC;border-radius:16px;padding:15px 16px;font-weight:700;font-size:20px}' +
-    '.jr-drawer a small{font-weight:500;font-size:16px;line-height:1.35;color:#4F6580}' +
-    '.jr-drawer a.on{background:#EAF2FA;box-shadow:inset 5px 0 0 #FFC56B}' +
-    '.jr-close{align-self:flex-end;font:700 16px Inter,system-ui,sans-serif;background:none;border:0;color:#1A4FB0;padding:10px;cursor:pointer}' +
+    '.jr-drawer{position:fixed;top:0;right:0;bottom:0;width:min(90vw,400px);z-index:201;transform:translateX(102%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1);padding:26px 30px 34px;display:flex;flex-direction:column;overflow-y:auto;font-family:Inter,system-ui,sans-serif;color:#D7E2EE;background:radial-gradient(rgba(255,255,255,.06) 1.5px,transparent 1.7px) 0 0/26px 26px,radial-gradient(30rem 22rem at 100% 0%,rgba(255,197,107,.2),transparent 60%),#081A3A}' +
+    '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none;visibility:visible;box-shadow:-30px 0 60px -20px rgba(0,0,0,.6)}' +
+    '.jr-lock{display:flex;align-items:center;gap:14px;margin:6px 0 30px}.jr-lock b{display:block;font:800 21px/1.1 Inter,system-ui,sans-serif;color:#FFFFFF}' +
+    '.jr-drawer a{position:relative;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#FFFFFF;padding:22px 34px 22px 0;border-top:1px solid rgba(255,255,255,.14);font:700 25px/1.2 Lora,Georgia,serif;transition:padding .2s ease,color .2s ease}' +
+    '.jr-drawer a:last-of-type{border-bottom:1px solid rgba(255,255,255,.14)}' +
+    '.jr-drawer a::after{content:"";position:absolute;right:6px;top:50%;width:11px;height:11px;border-right:2.5px solid #FFC56B;border-top:2.5px solid #FFC56B;transform:translateY(-50%) rotate(45deg)}' +
+    '.jr-drawer a small{font:500 16.5px/1.4 Inter,system-ui,sans-serif;color:#AEC6DF}' +
+    '.jr-drawer a:hover{padding-left:10px;color:#FFD48A}' +
+    '.jr-drawer a.on{color:#FFC56B;padding-left:18px}.jr-drawer a.on::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:4px;border-radius:4px;background:#FFC56B}' +
+    '.jr-foot{margin:auto 0 0;padding-top:28px;font:500 16px/1.5 Inter,system-ui,sans-serif;color:#AEC6DF}' +
+    '.jr-close{align-self:flex-end;flex:none;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);cursor:pointer;position:relative;font-size:0}.jr-close::before,.jr-close::after{content:"";position:absolute;left:12px;right:12px;top:21px;border-top:3px solid #FFC56B;border-radius:2px}.jr-close::before{transform:rotate(45deg)}.jr-close::after{transform:rotate(-45deg)}' +
     '.jr-fab.on-light{background:rgba(255,255,255,.92);border-radius:12px;box-shadow:0 6px 16px -8px rgba(10,31,68,.6)}.jr-fab.on-light .jr-burger,.jr-fab.on-light .jr-burger::after{border-color:#0A1F44}' +
     '@media (prefers-reduced-motion:reduce){.jr-shade,.jr-drawer{transition:none}}';
   document.head.appendChild(css);
@@ -37,8 +41,8 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
   fab.innerHTML = '<span class="jr-burger" aria-hidden="true"></span>';
   var shade = document.createElement('div'); shade.className = 'jr-shade';
   var drawer = document.createElement('aside'); drawer.className = 'jr-drawer'; drawer.setAttribute('aria-label', 'Menu');
-  drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><div class="jr-lock">' + MARK + '<span><b>Gentle Joint Care</b></span></div>' +
-    ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (i[0] === here ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('');
+  drawer.innerHTML = '<button type="button" class="jr-close" aria-label="Close the menu">Close</button><div class="jr-lock">' + MARK + '<span><b>Gentle Joint Care</b></span></div>' +
+    ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (i[0] === here ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('') + '<p class="jr-foot">Take your time. There is no rush.</p>';
   if (!document.querySelector('.hdr, .top')) { fab.classList.add('on-light'); }
   document.body.appendChild(fab);
   // Keep the three lines level with the middle of the top bar
