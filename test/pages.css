@@ -225,3 +225,30 @@ body.theme-course{background-color:#081A3A;background-image:radial-gradient(60re
 .theme-course .top{background:#081A3A}
 .sheet,.sheet p{color:#1B2F4D}
 .theme-course .sheet .eyebrow,.sheet .eyebrow{color:#1A4FB0}
+
+/* look 7: library showcase */
+.more-btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:#0A1F44;text-decoration:none;border:2px solid #0A1F44;border-radius:999px;padding:12px 26px;min-height:50px}
+.more-btn::after{content:"";width:9px;height:9px;border-right:2.5px solid currentColor;border-top:2.5px solid currentColor;transform:rotate(45deg)}
+.more-btn:hover{background:#0A1F44;color:#fff}
+.more-gold{color:#FFC56B;border-color:#FFC56B}.more-gold:hover{background:#FFC56B;color:#0A1F44}
+.lib-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.lib-card{position:relative;overflow:hidden;border-radius:36px;padding:44px 28px 36px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;box-shadow:0 30px 50px -30px rgba(10,31,68,.55)}
+.lib-card .book{margin-bottom:18px}
+.lib-card h2{font-size:30px}
+.lib-guide{background:radial-gradient(rgba(10,31,68,.06) 1.5px,transparent 1.7px) 0 0/22px 22px,linear-gradient(170deg,#FBF7EE,#F1E9D8)}
+.lib-reset{background:radial-gradient(rgba(26,79,176,.10) 1.5px,transparent 1.7px) 0 0/22px 22px,linear-gradient(170deg,#FFFFFF,#DCE8F6)}
+.lib-course{position:relative;overflow:hidden;border-radius:36px;padding:clamp(28px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;gap:36px 56px;background:radial-gradient(rgba(255,255,255,.075) 1.5px,transparent 1.7px) 0 0/26px 26px,radial-gradient(40rem 26rem at 90% 0%,rgba(255,197,107,.22),transparent 60%),#081A3A;box-shadow:0 30px 50px -30px rgba(10,31,68,.8)}
+.lib-rings{position:absolute;right:-180px;bottom:-220px;width:520px;height:520px;opacity:.4;pointer-events:none}
+.lib-course-text{position:relative;flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.lib-course-text h2{color:#fff}.lib-course-text p{color:#D7E2EE}.lib-course-text .eyebrow{color:#FFC56B}
+.tablet{position:relative;flex:0 1 330px;min-width:240px;margin:0 auto;padding:12px;border-radius:26px;background:linear-gradient(160deg,#2B3A55,#0D1524);box-shadow:0 30px 50px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.25);transform:perspective(1200px) rotateY(14deg) rotateX(4deg)}
+.tab-screen{border-radius:16px;overflow:hidden;background:#F4F8FC}
+.tab-screen img{display:block;width:100%;height:150px;object-fit:cover;object-position:50% 20%}
+.tab-ui{padding:14px 16px 18px;display:flex;flex-direction:column;gap:9px}
+.tab-ui i{display:block;height:10px;border-radius:99px;background:#D7E2EE}
+.tab-pill{align-self:flex-start;background:#0A1F44;color:#FFC56B;font:700 12px/1 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:99px}
+.tab-bar{height:10px;border-radius:99px;background:#D7E2EE;margin-top:4px}.tab-bar b{display:block;width:38%;height:100%;border-radius:99px;background:#FFC56B}
+.tab-stars{color:#E0992B;font-size:18px;letter-spacing:4px}
+.lib-letter{border-radius:36px;padding:clamp(28px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;gap:36px 56px;background:radial-gradient(rgba(10,31,68,.06) 1.5px,transparent 1.7px) 0 0/22px 22px,linear-gradient(170deg,#FFF6E2,#FFE2A8);box-shadow:0 30px 50px -30px rgba(10,31,68,.55)}
+.env{flex:0 1 240px;min-width:180px;margin:0 auto;filter:drop-shadow(0 18px 20px rgba(10,31,68,.35));transform:rotate(-5deg)}
+.lib-letter-text{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;align-items:flex-start}

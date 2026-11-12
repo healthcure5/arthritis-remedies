@@ -4,6 +4,7 @@
 // ---------------------------------------------------------------
 var BOOK_URL = '';     // The Joint Reset
 var COURSE_URL = '';   // The Joint Release Course
+var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
 
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
@@ -12,9 +13,9 @@ var COURSE_URL = '';   // The Joint Release Course
     ['guide.html', 'The free guide', 'Your first small step, free'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Joint Release Course', 'Eight weeks to feeling more like you'],
-    ['library.html', 'My library', 'Everything you own, in one place']
+    ['library.html', 'Our library', 'Everything we offer, in one place']
   ];
-  var MARK = '<span style="display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:#0A1F44"><svg role="img" aria-label="Gentle Joint Care" width="42" height="42" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M47.5 16.5A22 22 0 1 0 54 32H37" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round"/><circle cx="36" cy="32" r="6.5" fill="#FFC56B"/><path d="M53.5 20.5l5-3M49 12.5l3-5M57 27h5" stroke="#FFC56B" stroke-width="3.5"/></svg></span>';
+  var MARK = '<span style="display:grid;place-items:center;width:60px;height:60px;border-radius:16px;background:#0A1F44"><svg role="img" aria-label="Gentle Joint Care" width="44" height="44" viewBox="0 0 64 64" fill="none" stroke-linecap="round" style="filter: drop-shadow(0 3px 5px rgba(0,0,0,.45)); overflow: visible"><defs><linearGradient id="gjc-g" x1="12" y1="8" x2="52" y2="58" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#E4EEFA"/><stop offset="1" stop-color="#9DBBE2"/></linearGradient><radialGradient id="gjc-j" cx="34" cy="29.5" r="9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF6D8"/><stop offset=".45" stop-color="#FFC56B"/><stop offset="1" stop-color="#D4831A"/></radialGradient><linearGradient id="gjc-s" x1="48" y1="6" x2="62" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFE7A8"/><stop offset="1" stop-color="#F0A83A"/></linearGradient></defs><path d="M48.5 18A22 22 0 1 0 55 33.5H38" stroke="#061533" stroke-width="10.5" stroke-linejoin="round" opacity=".55"/><path d="M47.5 16.5A22 22 0 1 0 54 32H37" stroke="url(#gjc-g)" stroke-width="10" stroke-linejoin="round"/><path d="M17 20.5A19.5 19.5 0 0 1 40 12" stroke="#FFFFFF" stroke-width="2.2" opacity=".95"/><circle cx="36" cy="32" r="7.6" fill="url(#gjc-j)" stroke="#B9741A" stroke-width=".8"/><circle cx="33.6" cy="29.4" r="2" fill="#FFFFFF" opacity=".9"/><path d="M54 20.5l5.5-3.2M49.5 12.5l3-5.2M57.5 27h5.5" stroke="url(#gjc-s)" stroke-width="3.6"/></svg></span>';
   var css = document.createElement('style');
   css.textContent =
     '.jr-fab{position:fixed;right:18px;top:16px;z-index:150;display:grid;place-items:center;width:52px;height:48px;padding:0;background:none;border:0;cursor:pointer}.top{position:sticky;top:0;z-index:100}' +
@@ -62,7 +63,8 @@ var COURSE_URL = '';   // The Joint Release Course
   document.querySelectorAll('[data-open-sheet]').forEach(function (b) { b.addEventListener('click', function (e) { e.preventDefault(); sheet(true); }); });
   document.querySelectorAll('[data-close-sheet]').forEach(function (b) { b.addEventListener('click', function () { sheet(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { sheet(false); } });
-  var url = co.getAttribute('data-item') === 'course' ? COURSE_URL : BOOK_URL;
+  var item = co.getAttribute('data-item');
+  var url = item === 'course' ? COURSE_URL : item === 'letter' ? LETTER_URL : BOOK_URL;
   var country = document.getElementById('co-country'), slot = document.getElementById('co-state-slot');
   var CODES = 'US CA GB AU NZ IE AF AL DZ AD AO AG AR AM AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HK HU IS IN ID IR IQ IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT PR QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE UY UZ VU VA VE VN YE ZM ZW'.split(' ');
   var names; try { names = new Intl.DisplayNames(['en'], { type: 'region' }); } catch (e) { names = null; }
