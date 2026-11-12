@@ -14,7 +14,7 @@ var COURSE_URL = '';   // The Joint Release Course
     ['course-info.html', 'The Joint Release Course', 'Eight weeks to feeling more like you'],
     ['library.html', 'My library', 'Everything you own, in one place']
   ];
-  var MARK = '<span style="display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:#0A1F44"><svg role="img" aria-label="Joint Release" width="44" height="44" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M15 12 31 32 15 52" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round"/><circle cx="15" cy="12" r="6.5" fill="#FFFFFF"/><circle cx="15" cy="52" r="6.5" fill="#FFFFFF"/><circle cx="32" cy="32" r="8.5" fill="#FFC56B"/><path d="M45 23a13 13 0 0 1 0 18" stroke="#FFC56B" stroke-width="4"/><path d="M53 17a21 21 0 0 1 0 30" stroke="#FFC56B" stroke-width="4" opacity=".55"/></svg></span>';
+  var MARK = '<span style="display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:#0A1F44"><svg role="img" aria-label="Gentle Joint Care" width="42" height="42" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M47.5 16.5A22 22 0 1 0 54 32H37" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round"/><circle cx="36" cy="32" r="6.5" fill="#FFC56B"/><path d="M53.5 20.5l5-3M49 12.5l3-5M57 27h5" stroke="#FFC56B" stroke-width="3.5"/></svg></span>';
   var css = document.createElement('style');
   css.textContent =
     '.jr-fab{position:fixed;right:18px;top:16px;z-index:150;display:grid;place-items:center;width:52px;height:48px;padding:0;background:none;border:0;cursor:pointer}.top{position:sticky;top:0;z-index:100}' +
@@ -58,6 +58,10 @@ var COURSE_URL = '';   // The Joint Release Course
   // Checkout block (book and course pages)
   var co = document.getElementById('checkout');
   if (!co) { return; }
+  function sheet(open) { document.documentElement.classList.toggle('sheet-open', open); if (open) { co.scrollTop = 0; var f = document.getElementById('co-first'); if (f) { setTimeout(function () { f.focus(); }, 450); } } }
+  document.querySelectorAll('[data-open-sheet]').forEach(function (b) { b.addEventListener('click', function (e) { e.preventDefault(); sheet(true); }); });
+  document.querySelectorAll('[data-close-sheet]').forEach(function (b) { b.addEventListener('click', function () { sheet(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { sheet(false); } });
   var url = co.getAttribute('data-item') === 'course' ? COURSE_URL : BOOK_URL;
   var country = document.getElementById('co-country'), slot = document.getElementById('co-state-slot');
   var CODES = 'US CA GB AU NZ IE AF AL DZ AD AO AG AR AM AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HK HU IS IN ID IR IQ IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT PR QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE UY UZ VU VA VE VN YE ZM ZW'.split(' ');
