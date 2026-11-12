@@ -4,177 +4,136 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Joint Release Course</title>
+<title>The Joint Release Course · Gentle Joint Care</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22 fill=%22none%22 stroke=%22%23FFFFFF%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cdefs%3E%3CclipPath id=%22gjc-clip%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2228.6%22/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2230%22 fill=%22%23163E82%22 stroke-width=%222.2%22/%3E%3Cg clip-path=%22url%28%23gjc-clip%29%22%3E%3Ccircle cx=%2241.5%22 cy=%2210.5%22 r=%223.6%22/%3E%3Cpath d=%22M24.6 22.5c-1.6-7.5 2-13.6 8-13.8 5.8-.2 9.2 5 7.6 13.4%22/%3E%3Cpath d=%22M26 19c1.5-3.4 4.6-5.2 8.4-5 2.2.1 3.9 1.4 4.8 3.4%22/%3E%3Cpath d=%22M28.5 11.5c1.6 1 3.6 1.4 5.6 1.2M36.4 10.6c.8 1 1.9 1.8 3 2.2%22 stroke-width=%221.2%22/%3E%3Cpath d=%22M25.6 19.5c-.4 5.6 2.2 9.8 6.6 9.8 4.2 0 6.8-4 6.6-9.4%22/%3E%3Cpath d=%22M28.4 21.4c.7.6 1.6.6 2.3 0M33.6 21.4c.7.6 1.6.6 2.3 0M30 25c1.3 1 3 1 4.3 0%22 stroke-width=%221.2%22/%3E%3Cpath d=%22M29.4 28.8v3.200c-6 .8-13 3.2-15.4 8.6-1.6 3.6-2 9-2 17M35 28.800v3.200c6 .8 13 3.2 15.4 8.6 1.6 3.6 2 9 2 17%22/%3E%3Cpath d=%22M29.4 32c.8 1.4 1.7 2 2.8 2s2-.6 2.8-2%22 stroke-width=%221.2%22/%3E%3Cpath d=%22M16.5 56c1.5-4.5 5-8 9.5-10.200M47.5 56c-1.5-4.5-5-8-9.5-10.2%22/%3E%3Cpath d=%22M25.6 45.400c.6-2.4 2.6-3.8 5-3.600l5.6.5c1.7.2 2.8 1.3 2.7 2.7-.1 1.3-1.2 2.2-2.8 2.200h-3.6%22/%3E%3Cpath d=%22M38.4 46.400c.4 2.4-1.2 4.5-3.7 4.900l-5.3.8c-2 .3-3.6-.8-3.9-2.5-.3-1.5.6-2.9 2.2-3.4%22/%3E%3Cpath d=%22M31.5 43.900h4.400M32 45.800h3.600M29.8 49.200l4.2-.6%22 stroke-width=%221.1%22/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  /* Layout idea: calm sea-mist world; a left "path" of 9 stops, one roomy reading column, soft raised cards */
-  --mist:#F4F8FC;      /* page */
-  --paper:#ffffff;     /* cards */
-  --ink:#0A1F44;       /* text */
-  --soft:#4F6580;      /* secondary text */
-  --sea:#1A4FB0;       /* accent */
-  --sea-deep:#0E3486;
-  --glow:#FFC56B;      /* warm highlight */
-  --line:#D7E2EE;
-  --good:#2e8b57; --warn:#b4571f;
-  --display:"Lora",Georgia,serif;
-  --body:"Inter","Segoe UI",system-ui,sans-serif;
-  --lift:0 1px 0 #fff inset,0 10px 30px -12px rgba(16,40,74,.28),0 2px 6px rgba(16,40,74,.08);
-  color-scheme:light;
-}
+:root{--navy:#0A1F44;--blue:#1A4FB0;--sea:#1A4FB0;--gold:#FFC56B;--ink:#0A1F44;--text:#2A3F5A;--soft:#5A6F8A;--line:#D5E0EE;--bg:#EAF0F8;--card:#FFFFFF}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--mist);color:var(--ink);font:400 18px/1.65 var(--body);
-  background-image:radial-gradient(60rem 30rem at 90% -10%,#DCE8F6 0,transparent 60%),radial-gradient(40rem 26rem at -10% 30%,#FFF1D6 0,transparent 55%);background-attachment:fixed}
-h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
-h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700}
-h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700}
-h3{font-size:1.25rem;font-weight:500}
-p{margin:0;max-width:65ch}
-a{color:var(--sea-deep);font-weight:600}
-button{font:inherit;cursor:pointer}
-:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:8px}
-.shell{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:100%}
-nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:22px 16px;background:linear-gradient(180deg,#0E3486,#0A1F44);color:#EEF4FB}
-.brand{font-family:var(--display);font-size:1.5rem;font-weight:700;display:flex;gap:10px;align-items:center}
-.brand i{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe2b5,var(--glow) 60%,#d98a35);box-shadow:0 0 0 6px rgba(255,197,107,.18)}
-.tag{font-size:.9rem;opacity:.8;margin:6px 0 16px}
-.meter{background:rgba(255,255,255,.15);border-radius:99px;height:10px;overflow:hidden}
-.meter b{display:block;height:100%;background:var(--glow);border-radius:99px;transition:width .5s}
-.meter-t{font-size:.85rem;margin:6px 0 14px;opacity:.9}
-.stops{display:flex;flex-direction:column;gap:4px}
-.stops a{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:12px;color:#EEF4FB;text-decoration:none;font-weight:600;font-size:.98rem}
-.stops a:hover{background:rgba(255,255,255,.1)}
-.stops a.on{background:#EEF4FB;color:var(--sea-deep)}
-.dot{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.85rem;background:rgba(255,255,255,.16)}
-a.on .dot{background:var(--sea);color:#fff}
-a.done .dot{background:var(--glow);color:#3b2506}
-main{padding:28px clamp(16px,4vw,56px) 80px;display:flex;flex-direction:column;gap:22px;max-width:980px}
-.card{background:var(--paper);border-radius:22px;padding:clamp(18px,3vw,30px);box-shadow:var(--lift);display:flex;flex-direction:column;gap:14px}
-.hero{background:linear-gradient(135deg,#ffffff 0,#E6EFFA 100%);position:relative;overflow:hidden}
-.hero svg{position:absolute;right:-10px;bottom:-6px;width:min(46%,330px);opacity:.95}
-.hero>*:not(svg){position:relative;max-width:56ch}
-.eyebrow{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;color:var(--sea)}
-.lead{font-size:1.15rem;color:var(--soft)}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--sea);color:#fff;border:0;border-radius:14px;padding:13px 20px;font-weight:800;text-decoration:none;box-shadow:0 6px 0 var(--sea-deep);transition:transform .1s,box-shadow .1s;align-self:flex-start}
-.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--sea-deep)}
-.btn.alt{background:#fff;color:var(--sea-deep);box-shadow:0 6px 0 var(--line);border:2px solid var(--line)}
-.letters{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:12px}
-.letter{background:var(--paper);border-radius:18px;padding:14px;text-decoration:none;color:var(--ink);box-shadow:var(--lift);display:flex;flex-direction:column;gap:2px;transition:transform .2s}
-.letter:hover{transform:translateY(-4px) rotate(-1deg)}
-.letter b{font-family:var(--display);font-size:2.4rem;color:var(--sea);line-height:1}
-.letter span{font-weight:800}
-.letter small{color:var(--soft);font-size:.85rem;line-height:1.3}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.stat{background:#F4F8FC;border-radius:16px;padding:16px;border-left:6px solid var(--sea)}
-.stat b{font-family:var(--display);font-size:2rem;display:block;color:var(--sea-deep);font-variant-numeric:tabular-nums}
-.stat small{color:var(--soft)}
-.acro{display:flex;flex-direction:column;gap:8px}
-.acro div{display:flex;gap:12px;align-items:flex-start;background:#F4F8FC;border-radius:14px;padding:10px 14px}
-.acro b{font-family:var(--display);font-size:1.6rem;color:var(--sea);width:1.2em;flex:none;line-height:1.2}
-.heart{background:#fff6ea;border-radius:16px;padding:16px 18px;border:2px dashed #f0cfa0}
-ul,ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
-.try{background:linear-gradient(135deg,#0A1F44,#1A4FB0);color:#fff;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
-.try a{color:#ffe2b5}
-.quiz button{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:8px;color:var(--ink)}
-.quiz button.right{border-color:var(--good);background:#e8f6ee}
-.quiz button.wrong{border-color:var(--warn);background:#fdf0e6}
-.quiz .fb{margin-top:10px;font-weight:600}
-.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.tablewrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:.98rem}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-weight:800;color:var(--sea-deep)}
-.checks label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
-.checks input{width:22px;height:22px;accent-color:var(--sea);flex:none;margin-top:3px}
-input[type=range]{width:100%;accent-color:var(--sea)}
-.bars{display:flex;gap:6px;align-items:flex-end;height:70px}
-.bars i{flex:1;background:var(--sea);border-radius:6px 6px 0 0;min-height:4px;opacity:.85}
-.note{font-size:.92rem;color:var(--soft)}
-.safety{border-left:6px solid var(--warn);background:#fff8f2}
-.chart text{font:600 13px var(--body);fill:var(--ink)}
-.vid{justify-content:space-between;background:#F4F8FC;border-radius:14px;padding:10px 14px}
-.watch{background:#fff;border:2px solid var(--sea);color:var(--sea-deep);border-radius:99px;padding:6px 14px;font-weight:800}
-.watch.seen{background:var(--glow);border-color:var(--glow);color:#3b2506}
-a.watch{text-decoration:none}
-.bonus summary{display:flex;gap:14px;align-items:center;cursor:pointer;list-style:none}
-.bonus summary::-webkit-details-marker{display:none}
-.bnum{flex:none;background:var(--glow);color:#3b2506;font-weight:800;border-radius:12px;padding:8px 12px;white-space:nowrap}
-.btitle{font-family:var(--display);font-size:1.3rem;font-weight:700;display:flex;flex-direction:column;flex:1}
-.btitle small{font-family:var(--body);font-size:.85rem;font-weight:600;color:var(--soft)}
-.bstar{color:#b9741c;font-size:1.5rem}
-.theater{background:#0A1F44;border-radius:20px;padding:10px;box-shadow:0 18px 40px -14px rgba(10,31,68,.6)}
-.tbar{display:flex;align-items:center;gap:10px;color:#D7E2EE;font-weight:800;font-size:.9rem;padding:4px 8px 10px}
-.tbar i{width:14px;height:14px;border-radius:50%;background:var(--glow)}
-.tbar span{margin-left:auto;font-weight:600;opacity:.75}
-.screen{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 30% 25%,#2F6FE0,#0E3486 60%,#0A1F44);display:grid;place-items:center}
-.screen iframe{width:100%;height:100%;border:0;display:block}
-.play{background:none;border:0;color:#fff;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:800}
-.play b{width:84px;height:84px;border-radius:50%;background:var(--glow);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(255,197,107,.22);transition:transform .2s}
-.play b::after{content:"";border-left:26px solid #3b2506;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:7px}
-.play:hover b{transform:scale(1.08)}
-.starcount{font-family:var(--display);font-size:2rem;color:#b9741c;font-weight:700}
-.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:10px}
-.badge{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;text-decoration:none;color:var(--soft);padding:12px 6px;border-radius:16px;border:2px dashed var(--line)}
-.badge b{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#E6EDF5;font-family:var(--display);font-size:1.3rem;color:var(--soft)}
-.badge small{font-size:.8rem;line-height:1.2;font-weight:600}
-.badge.lit{border:2px solid var(--glow);background:#fff6ea;color:var(--ink)}
-.badge.lit b{background:radial-gradient(circle at 35% 30%,#ffe2b5,var(--glow) 65%,#d98a35);color:#3b2506;box-shadow:0 0 0 5px rgba(255,197,107,.25)}
-#confetti{position:fixed;inset:0;pointer-events:none;z-index:9}
-#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);background:var(--ink);color:#fff;border-radius:18px;padding:14px 20px;display:flex;gap:12px;align-items:center;max-width:min(92vw,520px);box-shadow:0 14px 40px rgba(0,0,0,.3);transition:transform .45s cubic-bezier(.2,1.3,.4,1);z-index:10}
-#toast.show{transform:translate(-50%,0)}
-#toast b{color:var(--glow);font-size:1.15rem;white-space:nowrap}
-@media (max-width:860px){
-  .shell{grid-template-columns:1fr}
-  nav{position:static;height:auto;padding:14px 16px}
-  .stops{flex-direction:row;overflow-x:auto;padding-bottom:6px}
-  .stops a{flex:none}
-  .stops a em{display:none}
-  .hero svg{position:static;width:60%;align-self:flex-end}
-}
+body{margin:0;background:var(--bg);color:var(--text);font:400 19px/1.65 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:Lora,Georgia,serif;color:var(--ink);line-height:1.2;margin:0 0 12px}
+h1{font-size:clamp(30px,5vw,42px)}h2{font-size:clamp(24px,3.6vw,30px)}h3{font-size:22px;margin-top:26px}
+p{margin:0 0 14px}a{color:var(--blue)}ul,ol{padding-left:24px;margin:0 0 14px}li{margin-bottom:8px}
+.bar{background:var(--navy);color:#fff}
+.bar-in{max-width:860px;margin:0 auto;padding:10px 18px;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font:800 20px/1.1 Inter,system-ui,sans-serif}
+.brand small{display:block;font:500 14px/1.3 Inter,system-ui,sans-serif;color:#C7D8EA;margin-top:3px}
+.menu-btn{font:700 18px/1 Inter,system-ui,sans-serif;color:var(--navy);background:var(--gold);border:0;border-radius:999px;padding:14px 22px;cursor:pointer}
+.tabs{background:var(--navy);border-top:1px solid rgba(255,255,255,.14)}
+.tabs-in{max-width:860px;margin:0 auto;padding:0 10px;display:flex;gap:2px;overflow-x:auto}
+.tabs a{flex:1 0 auto;text-align:center;color:#D7E2EE;text-decoration:none;font:700 17px/1 Inter,system-ui,sans-serif;padding:16px 14px;border-bottom:4px solid transparent;white-space:nowrap}
+.tabs a.on{color:var(--gold);border-bottom-color:var(--gold)}
+main{max-width:760px;margin:0 auto;padding:26px 18px 90px}
+.eyebrow{display:block;font:800 14px/1.3 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.lead{font-size:21px;color:var(--text)}
+.sheet{background:var(--card);border-radius:22px;padding:clamp(22px,4vw,36px);margin-bottom:18px;box-shadow:0 14px 34px -26px rgba(10,31,68,.5)}
+.sheet>section+section{margin-top:30px;padding-top:28px;border-top:1px solid var(--line)}
+.heart{font:italic 500 21px/1.6 Lora,Georgia,serif;color:var(--ink)}
+.big{background:var(--navy);color:#fff;border-radius:18px;padding:24px}
+.big .eyebrow{color:var(--gold)}.big p{font:600 23px/1.4 Lora,Georgia,serif;margin:0;color:#fff}
+.try{background:#FFF1D6;border-left:6px solid var(--gold);border-radius:14px;padding:22px}
+.try .eyebrow{color:#8A5A0A}.try p{margin:0;font-size:20px;color:var(--ink)}
+.acro{display:grid;gap:10px;margin-top:14px}
+.acro div{display:flex;gap:14px;align-items:flex-start}
+.acro b:first-child{flex:none;width:42px;height:42px;border-radius:12px;background:var(--blue);color:#fff;font:700 22px/42px Lora,Georgia,serif;text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:800 20px/1.2 Inter,system-ui,sans-serif;color:var(--navy);background:linear-gradient(180deg,#FFD88F,#FFC56B);border:0;border-radius:16px;padding:18px 26px;min-height:60px;text-decoration:none;cursor:pointer;box-shadow:0 4px 0 #D69A2E}
+.btn.alt{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+.btn.wide{width:100%}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+.note{font-size:16px;color:var(--soft)}
+.meter{height:14px;border-radius:999px;background:#D5E0EE;overflow:hidden;margin:14px 0 8px}
+.meter b{display:block;height:100%;background:linear-gradient(90deg,#1A4FB0,#3D7FE6);border-radius:999px;transition:width .5s}
+.part{margin-top:30px}
+.part h2{margin-bottom:4px}.part>p{color:var(--soft);margin-bottom:12px}
+.step{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:16px 18px;margin-bottom:10px;text-decoration:none;color:var(--ink);box-shadow:0 10px 24px -22px rgba(10,31,68,.6)}
+.step .num{flex:none;width:44px;height:44px;border-radius:50%;background:#E3ECF8;color:var(--blue);font:800 18px/44px Inter,system-ui,sans-serif;text-align:center}
+.step b{display:block;font:700 20px/1.25 Lora,Georgia,serif}
+.step small{display:block;font-size:16px;color:var(--soft);margin-top:2px}
+.step .go{margin-left:auto;flex:none;font:800 15px/1 Inter,system-ui,sans-serif;color:var(--blue)}
+.step.done .num{background:#1F8A5B;color:#fff}
+.step.next{box-shadow:0 0 0 3px var(--gold),0 10px 24px -18px rgba(10,31,68,.6)}
+.step.next .num{background:var(--gold);color:var(--navy)}
+.step.lock{background:transparent;box-shadow:none;border:2px dashed #C2D0E2;color:var(--soft)}
+.step.lock .num{background:#DCE5F1;color:#7A8CA5}.step.lock b{color:#5A6F8A}.step.lock .go{color:#7A8CA5}
+.video{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#061533;margin:12px 0}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;inset:0;width:100%;border:0;cursor:pointer;color:#fff;font:800 20px/1.2 Inter,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(circle at 50% 40%,#2A63C8,#0A1F44)}
+.play i{width:84px;height:84px;border-radius:50%;background:var(--gold);position:relative;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.play i::after{content:"";position:absolute;left:33px;top:24px;border-left:28px solid var(--navy);border-top:18px solid transparent;border-bottom:18px solid transparent}
+.quiz button{display:block;width:100%;text-align:left;font:600 19px/1.4 Inter,system-ui,sans-serif;color:var(--ink);background:#F3F7FC;border:2px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px;cursor:pointer}
+.quiz button.right{background:#E3F5EC;border-color:#1F8A5B}.quiz button.wrong{background:#FDECEC;border-color:#D46A6A}
+.fb{font-weight:700;color:var(--ink);min-height:1.6em}
+.tablewrap{overflow-x:auto;margin:10px 0}table{border-collapse:collapse;width:100%;font-size:17px}th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}th{background:#F3F7FC;color:var(--ink)}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.checks input{width:24px;height:24px;flex:none;margin-top:3px;accent-color:var(--blue)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.stat{background:#F3F7FC;border-radius:14px;padding:16px;font-size:17px}.stat b{display:block;font:700 26px/1.2 Lora,Georgia,serif;color:var(--blue);margin-bottom:4px}
+.chart text{font:600 14px Inter,system-ui,sans-serif;fill:#0A1F44}
+input[type=range]{width:100%;height:36px;accent-color:var(--blue)}
+.bars{display:flex;align-items:flex-end;gap:6px;height:110px;margin-top:14px}.bars i{flex:1;background:var(--blue);border-radius:6px 6px 0 0;min-width:8px}
+.starcount{font:700 30px/1 Lora,Georgia,serif;color:#B5791A}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.badge{width:74px;text-align:center;text-decoration:none;color:var(--soft);font-size:13px;opacity:.55}
+.badge b{display:block;width:54px;height:54px;margin:0 auto 4px;border-radius:50%;background:#DCE5F1;color:#7A8CA5;font:700 22px/54px Lora,Georgia,serif}
+.badge.lit{opacity:1;color:var(--ink)}.badge.lit b{background:var(--gold);color:var(--navy)}
+.safety{font-size:17px;color:var(--soft)}
+.shade{position:fixed;inset:0;background:rgba(6,18,42,.6);z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(92vw,420px);z-index:41;background:var(--navy);color:#fff;overflow-y:auto;padding:22px 22px 40px;transform:translateX(102%);visibility:hidden;transition:transform .3s}
+.menu-open .shade{opacity:1;pointer-events:auto}.menu-open .panel{transform:none;visibility:visible}
+.panel h2{color:#fff;font-size:26px;margin:0}.panel h3{color:var(--gold);font:800 14px/1.3 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:24px 0 6px}
+.panel a{display:flex;gap:12px;align-items:center;color:#fff;text-decoration:none;font:600 19px/1.3 Inter,system-ui,sans-serif;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.panel a span{flex:none;width:28px;text-align:center;color:var(--gold)}
+.panel a.lock{color:#9FB3CD}.panel a.on{color:var(--gold)}
+.panel .close{float:right;font:700 17px/1 Inter,system-ui,sans-serif;color:#fff;background:rgba(255,255,255,.14);border:0;border-radius:999px;padding:12px 18px;cursor:pointer}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,180%);background:var(--navy);color:#fff;border-radius:18px;padding:16px 22px;display:flex;gap:14px;align-items:center;max-width:min(92vw,520px);box-shadow:0 14px 40px rgba(0,0,0,.4);transition:transform .4s;z-index:61}
+#toast.show{transform:translate(-50%,0)}#toast b{color:var(--gold);font-size:20px;white-space:nowrap}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (max-width:560px){body{font-size:18px}.brand small{display:none}.step .go{display:none}.btn{width:100%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-em{font-style:normal}
 </style>
 </head>
 <body>
-<div class="shell">
-<nav aria-label="Course path">
-  <div class="brand"><i></i>Joint Release</div>
-  <p class="tag">The R.E.L.E.A.S.E. Method · 8 gentle weeks</p>
-  <div class="meter"><b id="meterBar" style="width:0%"></b></div>
-  <p class="meter-t" id="meterText">0 of 9 steps done</p>
-  <div class="stops" id="stops"></div>
-  <p class="tag" style="margin-top:16px"><a href="../library.html" style="color:#FFC56B">← Our library</a> &nbsp;·&nbsp; <a href="../index.html" style="color:#FFC56B">Joint Release home</a></p>
-</nav>
+<header class="bar"><div class="bar-in"><a class="brand" href="#home"><svg role="img" aria-label="Gentle Joint Care" width="52" height="52" viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible"><defs><clipPath id="gjc-clip"><circle cx="32" cy="32" r="28.6"/></clipPath></defs><circle cx="32" cy="32" r="30" fill="#163E82" stroke-width="2.2"/><g clip-path="url(#gjc-clip)"><circle cx="41.5" cy="10.5" r="3.6"/><path d="M24.6 22.5c-1.6-7.5 2-13.6 8-13.8 5.8-.2 9.2 5 7.6 13.4"/><path d="M26 19c1.5-3.4 4.6-5.2 8.4-5 2.2.1 3.9 1.4 4.8 3.4"/><path d="M28.5 11.5c1.6 1 3.6 1.4 5.6 1.2M36.4 10.6c.8 1 1.9 1.8 3 2.2" stroke-width="1.2"/><path d="M25.6 19.5c-.4 5.6 2.2 9.8 6.6 9.8 4.2 0 6.8-4 6.6-9.4"/><path d="M28.4 21.4c.7.6 1.6.6 2.3 0M33.6 21.4c.7.6 1.6.6 2.3 0M30 25c1.3 1 3 1 4.3 0" stroke-width="1.2"/><path d="M29.4 28.8v3.200c-6 .8-13 3.2-15.4 8.6-1.6 3.6-2 9-2 17M35 28.800v3.200c6 .8 13 3.2 15.4 8.6 1.6 3.6 2 9 2 17"/><path d="M29.4 32c.8 1.4 1.7 2 2.8 2s2-.6 2.8-2" stroke-width="1.2"/><path d="M16.5 56c1.5-4.5 5-8 9.5-10.200M47.5 56c-1.5-4.5-5-8-9.5-10.2"/><path d="M25.6 45.400c.6-2.4 2.6-3.8 5-3.600l5.6.5c1.7.2 2.8 1.3 2.7 2.7-.1 1.3-1.2 2.2-2.8 2.200h-3.6"/><path d="M38.4 46.400c.4 2.4-1.2 4.5-3.7 4.900l-5.3.8c-2 .3-3.6-.8-3.9-2.5-.3-1.5.6-2.9 2.2-3.4"/><path d="M31.5 43.900h4.400M32 45.800h3.600M29.8 49.200l4.2-.6" stroke-width="1.1"/></g></svg><span>Gentle Joint Care<small>The Joint Release Course</small></span></a><button class="menu-btn" id="menuBtn" aria-haspopup="dialog">Menu</button></div></header>
+<nav class="tabs" aria-label="Sections"><div class="tabs-in"><a href="#home">My path</a><a href="#bonuses">Bonuses</a><a href="#toolkit">Toolkit</a><a href="#progress">My progress</a></div></nav>
 <main id="view"></main>
-</div>
+<div class="shade" id="shade"></div>
+<aside class="panel" aria-label="Course menu"><button class="close" id="menuClose">Close ✕</button><h2>Menu</h2><div id="panelList"></div></aside>
 <canvas id="confetti" aria-hidden="true"></canvas>
 <div id="toast" role="status" aria-live="polite"></div>
-
 <script>
-/* ---------- tiny safe storage ---------- */
 const mem={};
 const store={get(k,d){try{const v=localStorage.getItem('jr_'+k);return v?JSON.parse(v):(k in mem?mem[k]:d)}catch(e){return k in mem?mem[k]:d}},
   set(k,v){mem[k]=v;try{localStorage.setItem('jr_'+k,JSON.stringify(v))}catch(e){}}};
-
-/* ---------- course content ---------- */
 const W=[
 {id:'week-0',n:'★',nav:'Welcome',title:'Welcome. We are glad you are here.',
  hug:`Living with sore joints is hard. Some days it can feel like your body is not on your side. You are not broken, and you are not alone. About 1 in 5 adults lives with arthritis. This course walks beside you, one small step at a time.`,
  big:`You do not have to fix everything. You only have to do one small thing today.`,
- acro:['START','How to use this course',[['S','<b>Small steps.</b> Each week has one big idea and one tiny action.'],['T','<b>Ten minutes.</b> That is all a lesson asks of you.'],['A','<b>Ask your doctor.</b> Tell them you are starting. Bring the question sheet from the Toolkit.'],['R','<b>Rate your day.</b> Use the feelings slider on the Home page.'],['T','<b>Tick it off.</b> Press “I did it” to fill your progress bar.']]],
+ acro:['START','How to use this course',[['S','<b>Small steps.</b> Each week has one big idea and one tiny action.'],['T','<b>Ten minutes.</b> That is all a lesson asks of you.'],['A','<b>Ask your doctor.</b> Tell them you are starting. Bring the question sheet from the Toolkit.'],['R','<b>Rate your day.</b> Use the feelings slider on the My progress page.'],['T','<b>Tick it off.</b> Press “I did it” to open your next lesson.']]],
  body:`<h3>Is this course right for me?</h3><p>Yes, if you have osteoarthritis or everyday joint pain in your knees, hips, hands or back, and you want to feel and move better.</p><p>If you have rheumatoid arthritis, psoriatic arthritis, gout or lupus, you can still use these habits. You also need medicine from your doctor to protect your joints. Please keep taking it.</p>`,
  doit:`Write down one thing you miss doing. Gardening? Playing on the floor with a grandchild? Walking to the mailbox without stopping? That is your <b>“why.”</b> Keep it where you can see it.`,
  q:['What does this course ask you to do each day?',['Fix everything at once','One small thing','Push through bad pain'],1,'One small thing, done often, beats one big thing done once.']},
+{id:'encourage',n:'♥',nav:'A word of encouragement',title:'Before we begin: you can do this',
+ hug:`Maybe you have tried things before and they did not last. Maybe you are tired of hoping. That is okay. You do not need to feel brave today. You only need to be here, and you already are.`,
+ big:`You are not starting from zero. You are starting from everything you have already lived through.`,
+ acro:['KIND','Four promises to make to yourself',[['K','<b>Keep it small.</b> A tiny step you finish beats a big plan you dread.'],['I','<b>It is okay to rest.</b> Rest is part of the plan. It is not failing.'],['N','<b>No comparing.</b> Not with others, and not with who you were at 30.'],['D','<b>Do it your way.</b> Slow counts. Sitting down counts. Starting again counts.']]],
+ body:`<h3>What to expect</h3><p>Some days will feel good. Some will not. Both are normal, and both are part of getting better. We will never ask you to push through bad pain.</p><h3>How the course is laid out</h3><ul><li><b>Start here</b> is three short visits. No work yet.</li><li><b>Part 1</b> gives you two easy wins.</li><li><b>Part 2</b> builds a little more each week.</li><li><b>Part 3</b> takes on the bigger things, like sleep and hard days.</li></ul><p>Each lesson opens the next one, so you always know what to do.</p>`,
+ doit:`Say this out loud, or write it down: “I am allowed to go slowly.”`,
+ q:['What counts as a win in this course?',['Only big changes','Any small step you finish','Never having a bad day'],1,'Yes. Small steps you finish are what change things.']},
+{id:'mindset',n:'✦',nav:'Your mindset',title:'Your mindset: how you think about pain matters',
+ hug:`When something hurts for a long time, it is easy to start bracing for it. To think, “this is just my life now.” Those thoughts make sense. They also make hard days heavier than they need to be.`,
+ big:`You cannot always choose how your joints feel. You can choose what you say to yourself about it, and that changes more than you might think.`,
+ acro:['HOPE','Four thoughts to practice',[['H','<b>Hurt is a message, not a verdict.</b> It tells you about today. It does not decide tomorrow.'],['O','<b>One day at a time.</b> You only have to handle this one.'],['P','<b>Progress over perfect.</b> A little better is still better.'],['E','<b>Expect ups and downs.</b> A dip is not the end of the road.']]],
+ body:`<h3>Swap the thought</h3><div class="tablewrap"><table><tr><th>When you catch yourself thinking</th><th>Try this</th></tr><tr><td>“I can’t do anything anymore.”</td><td>“I can still do some things. I will start with one.”</td></tr><tr><td>“It’s only going to get worse.”</td><td>“Many people feel better with the right habits. I am learning them.”</td></tr><tr><td>“I had a bad day. I’ve ruined it.”</td><td>“One bad day does not undo my good ones.”</td></tr></table></div><h3>Why this comes first</h3><p>Pain is felt in the body and shaped in the brain. Worry and fear can turn the volume up. Calm and confidence can turn it down. That is why we start here, before a single exercise.</p>`,
+ doit:`Pick one swap from the table above. The next time the old thought shows up, try the new one.`,
+ q:['A bad day in the middle of a good week means…',['You are back at the start','It is a dip, and dips pass','You should give up'],1,'Right. Ups and downs are part of the road.']},
 {id:'week-1',n:'R',nav:'Reassure',title:'Week 1 · Reassure: understand your pain',
  hug:`Pain is scary when you do not know what it means. This week we take the fear away. When you understand pain, it loses some of its power.`,
  big:`Hurt does not always mean harm. A sore joint is still a strong joint, and gentle movement is how it gets fed.`,
  acro:['SAFE','Four truths about joint pain',[['S','<b>Sore is not the same as damaged.</b> Pain is an alarm. Sometimes the alarm is set too loud.'],['A','<b>Activity feeds the joint.</b> Cartilage has no blood supply. Movement squeezes fluid in and out, like a sponge.'],['F','<b>Flare-ups pass.</b> A bad day is a bad day. It is not the new normal.'],['E','<b>Everyone has their own pace.</b> Your path is yours. No comparing.']]],
  body:`<h3>What is arthritis, really?</h3><p>A joint is where two bones meet. The ends are covered in a smooth cushion called cartilage. In osteoarthritis, the whole joint changes over time: the cushion, the bone, and the muscles around it. Doctors used to call it “wear and tear.” Today they know the joint is always repairing itself, and the right kind of movement helps that repair.</p><h3>The traffic light for pain</h3><ul><li><b>Green (0–2 out of 10):</b> safe. Keep going.</li><li><b>Yellow (3–5):</b> okay. This is normal when you start moving more.</li><li><b>Red (6 or more):</b> ease off. Do less today and try again tomorrow.</li></ul>`,
- doit:`Use the feelings slider on the Home page today. That number is your starting line. In eight weeks we will look back at it together.`,
+ doit:`Use the feelings slider on the My progress page today. That number is your starting line. In eight weeks we will look back at it together.`,
  q:['How does cartilage get its food?',['From blood vessels','From movement squeezing fluid in and out','From resting all day'],1,'Right. Motion is lotion. Gentle movement feeds the joint.']},
 {id:'week-2',n:'E',nav:'Ease in',title:'Week 2 · Ease in: gentle movement',
  hug:`If moving has hurt before, it makes sense to be careful. We will start so small it feels almost too easy. That is on purpose.`,
@@ -199,20 +158,6 @@ const W=[
  body:`<h3>Kitchen comforts: what the science says</h3><div class="tablewrap"><table><tr><th>Remedy</th><th>What we know</th></tr><tr><td>Heat and cold packs</td><td>Recommended in the U.S. arthritis guidelines. Safe and cheap.</td></tr><tr><td>Chili-pepper cream (capsaicin)</td><td>Guidelines suggest it for knees. It tingles at first. Wash your hands after.</td></tr><tr><td>Turmeric and ginger in food</td><td>Lovely in cooking. Research on pills is still small and mixed. Ask your pharmacist first if you take blood thinners.</td></tr><tr><td>Glucosamine pills</td><td>Arthritis doctors advise against them. Studies did not show they work.</td></tr><tr><td>“Miracle cures”</td><td>If something promises to cure arthritis, please keep your money. Nothing cures it yet. Many things help.</td></tr></table></div>`,
  doit:`Add one color to one meal today. A handful of berries, some spinach in your eggs, or carrots on the side.`,
  q:['If you lose 1 pound, about how much pressure comes off your knee with each step?',['1 pound','4 pounds','None'],1,'Yes, about 4 pounds. Lose 10 pounds and each knee carries about 48,000 pounds less for every mile you walk.']},
-{id:'barbara',n:'♥',nav:'Barbara’s corner',title:'Bonus · Barbara O’Neill’s comfort remedies',
- hug:`Many of you found us because you love Barbara O’Neill’s gentle, back-to-nature way of caring for the body. This lesson gathers her best-known comfort ideas for sore joints, with a kind and honest note on what research says about each one.`,
- big:`Warmth, touch and a quiet moment to care for yourself can feel wonderful. Use these as comforts alongside your moving, eating and sleeping habits.`,
- acro:['SOOTHE','How to make a castor oil compress, the way Barbara teaches it',[['S','<b>Start with a skin test.</b> Dab a little oil on your inner arm. Wait a day. No rash? Go ahead.'],['O','<b>Oil on a cloth.</b> Soak a piece of cotton or flannel in castor oil.'],['O','<b>On the sore joint.</b> Lay the cloth over your knee, hand or hip. Cover it with an old towel. The oil stains.'],['T','<b>Top with gentle warmth.</b> A warm (not hot) water bottle or heat pack on top.'],['H','<b>Hold for 20–30 minutes.</b> Rest. Breathe slow. This is your time.'],['E','<b>Ease off if it stings.</b> Red, itchy or sore skin means stop and wash it off.']]],
- body:`<h3>Barbara’s ideas, side by side with the science</h3><div class="tablewrap"><table><tr><th>What Barbara teaches</th><th>What we know so far</th></tr>
- <tr><td><b>Castor oil compress</b> on sore joints</td><td>No good studies show it treats arthritis. The warmth and rest can feel soothing, and heat is in the official guidelines. Safe for most people on unbroken skin.</td></tr>
- <tr><td><b>Cayenne pepper</b> to bring blood to the area</td><td>The active part, capsaicin, is suggested in U.S. guidelines as a cream for knees. Homemade cayenne mixes can burn skin. A store-bought capsaicin cream is the safer way.</td></tr>
- <tr><td><b>Ginger and turmeric</b>, in food or as a warm poultice</td><td>Small studies are mixed. Lovely in food. Ask a pharmacist before taking pills, especially with blood thinners.</td></tr>
- <tr><td><b>Potato, onion and other poultices</b></td><td>No research for arthritis. A warm poultice is a gentle comfort and unlikely to harm unbroken skin.</td></tr>
- <tr><td><b>“More blood flow speeds healing”</b></td><td>This matches the science in one big way: movement brings blood to muscles and feeds your joints. Walking is the strongest blood-flow remedy there is.</td></tr></table></div>
- <h3>An honest word, because we care about you</h3><p>Barbara is a natural-health teacher. She is not a doctor, and in 2019 Australia’s health regulator barred her from giving health services there. Some videos that carry her name promise to “heal” or “reverse” arthritis fast. No remedy has been shown to do that. Please enjoy these as comforts, keep your doctor in the loop, and never stop a prescribed medicine for them.</p>`,
- vids:[['Barbara O’Neill on castor oil for sore joints (YouTube)','https://www.youtube.com/watch?v=BDq0kej3C14'],['Barbara O’Neill’s full lecture on poultices (YouTube)','https://www.youtube.com/watch?v=uVLGsqysQcs']],
- doit:`Give yourself 20 quiet minutes with a warm compress on your sorest joint. Put on music you love. You have earned it.`,
- q:['What should you do before putting a new oil on your skin?',['Use a lot right away','Test a little on your inner arm and wait a day','Heat it until very hot'],1,'Yes. A small skin test keeps you safe.']},
 {id:'week-5',n:'A',nav:'Adapt',title:'Week 5 · Adapt: work smarter, not harder',
  hug:`Using a tool or taking a break is not giving up. It is how you keep doing the things you love.`,
  big:`Spread your energy across the day like butter on toast. Do not use it all in one corner.`,
@@ -239,95 +184,133 @@ const W=[
  hug:`Look how far you have come. Eight weeks ago you took one small step. Now you have a whole set of tools. We are proud of you.`,
  big:`You are now the expert on your own joints. Keep the habits that helped and let the rest go.`,
  acro:['GROW','Make it last',[['G','<b>Goal.</b> Pick one thing for the next month. Go back to your “why.”'],['R','<b>Routine.</b> Tie it to something you already do. “After coffee, I walk.”'],['O','<b>Others.</b> Walk with a friend. Join a class. It is easier together.'],['W','<b>Win.</b> Notice every small win. Tell someone.']]],
- body:`<h3>Look back</h3><p>Go to the Home page and check your feelings chart. Even one point lower is real progress. If your number is the same but you are doing more, that is progress too.</p><h3>Where to go next</h3><ul><li>Ask your doctor about a local program like GLA:D, Walk With Ease, or Tai Chi for Arthritis.</li><li>See a physical therapist for a plan made just for you.</li><li>Come back to any week whenever you need it.</li></ul>`,
+ body:`<h3>Look back</h3><p>Go to My progress and check your feelings chart. Even one point lower is real progress. If your number is the same but you are doing more, that is progress too.</p><h3>Where to go next</h3><ul><li>Ask your doctor about a local program like GLA:D, Walk With Ease, or Tai Chi for Arthritis.</li><li>See a physical therapist for a plan made just for you.</li><li>Come back to any week whenever you need it.</li></ul>`,
  vids:[['Find a proven arthritis program near you (CDC list)','https://www.cdc.gov/arthritis/programs']],
  doit:`Write a short note to yourself from eight weeks ago. What would you tell that person?`,
  q:['What is the best way to keep a habit?',['Wait until you feel like it','Tie it to something you already do','Do it only on good days'],1,'Right. “After coffee, I walk.” Simple hooks make habits stick.']}
 ];
-const LETTERS=[['R','Reassure','Understand your pain','week-1'],['E','Ease in','Gentle movement','week-2'],['L','Load wisely','Build strong helpers','week-3'],['E','Eat','Food that loves you back','week-4'],['A','Adapt','Work smarter','week-5'],['S','Sleep & soothe','Calm the alarm','week-6'],['E','Endure','Your flare-up plan','week-7']];
+const BARB={id:'barbara',n:'♥',nav:'Barbara’s corner',title:'Barbara O’Neill’s comfort remedies',
+ hug:`Many of you found us because you love Barbara O’Neill’s gentle, back-to-nature way of caring for the body. This lesson gathers her best-known comfort ideas for sore joints, with a kind and honest note on what research says about each one.`,
+ big:`Warmth, touch and a quiet moment to care for yourself can feel wonderful. Use these as comforts alongside your moving, eating and sleeping habits.`,
+ acro:['SOOTHE','How to make a castor oil compress, the way Barbara teaches it',[['S','<b>Start with a skin test.</b> Dab a little oil on your inner arm. Wait a day. No rash? Go ahead.'],['O','<b>Oil on a cloth.</b> Soak a piece of cotton or flannel in castor oil.'],['O','<b>On the sore joint.</b> Lay the cloth over your knee, hand or hip. Cover it with an old towel. The oil stains.'],['T','<b>Top with gentle warmth.</b> A warm (not hot) water bottle or heat pack on top.'],['H','<b>Hold for 20–30 minutes.</b> Rest. Breathe slow. This is your time.'],['E','<b>Ease off if it stings.</b> Red, itchy or sore skin means stop and wash it off.']]],
+ body:`<h3>Barbara’s ideas, side by side with the science</h3><div class="tablewrap"><table><tr><th>What Barbara teaches</th><th>What we know so far</th></tr>
+ <tr><td><b>Castor oil compress</b> on sore joints</td><td>No good studies show it treats arthritis. The warmth and rest can feel soothing, and heat is in the official guidelines. Safe for most people on unbroken skin.</td></tr>
+ <tr><td><b>Cayenne pepper</b> to bring blood to the area</td><td>The active part, capsaicin, is suggested in U.S. guidelines as a cream for knees. Homemade cayenne mixes can burn skin. A store-bought capsaicin cream is the safer way.</td></tr>
+ <tr><td><b>Ginger and turmeric</b>, in food or as a warm poultice</td><td>Small studies are mixed. Lovely in food. Ask a pharmacist before taking pills, especially with blood thinners.</td></tr>
+ <tr><td><b>Potato, onion and other poultices</b></td><td>No research for arthritis. A warm poultice is a gentle comfort and unlikely to harm unbroken skin.</td></tr>
+ <tr><td><b>“More blood flow speeds healing”</b></td><td>This matches the science in one big way: movement brings blood to muscles and feeds your joints. Walking is the strongest blood-flow remedy there is.</td></tr></table></div>
+ <h3>An honest word, because we care about you</h3><p>Barbara is a natural-health teacher. She is not a doctor, and in 2019 Australia’s health regulator barred her from giving health services there. Some videos that carry her name promise to “heal” or “reverse” arthritis fast. No remedy has been shown to do that. Please enjoy these as comforts, keep your doctor in the loop, and never stop a prescribed medicine for them.</p>`,
+ doit:`Give yourself 20 quiet minutes with a warm compress on your sorest joint. Put on music you love. You have earned it.`,
+ q:['What should you do before putting a new oil on your skin?',['Use a lot right away','Test a little on your inner arm and wait a day','Heat it until very hot'],1,'Yes. A small skin test keeps you safe.']};
+/* ---------- the path, in order ---------- */
+const PARTS=[
+ ['Start here','Three short visits to settle in. No work yet.',['week-0','encourage','mindset']],
+ ['Part 1 · Small first steps','Two easy wins to get you going.',['week-1','week-2']],
+ ['Part 2 · Building up','A little more each week.',['week-3','week-4','week-5']],
+ ['Part 3 · The bigger things','Sleep, hard days, and making it last.',['week-6','week-7','week-8']]
+];
+const PATH=PARTS.flatMap(p=>p[2]);
+const L=id=>id==='barbara'?BARB:W.find(w=>w.id===id);
+/* ---------- videos: all play here, inside the course ---------- */
+const VID={
+ tAOuEpa01j4:['Tai chi for sore joints','A follow-along class with Dr Paul Lam. Slow, flowing moves you can do standing or in a chair.'],
+ BDq0kej3C14:['Barbara O’Neill: castor oil for sore joints','Barbara shows how she uses a castor oil compress on sore knees.'],
+ uVLGsqysQcs:['Barbara O’Neill: the poultice class','Her full lecture on making poultices at home.'],
+ AP9IuNavHIg:['Barbara O’Neill: Exercise That Works','A full lecture, close to an hour. Make a cup of tea and settle in.'],
+ slWOfJzWAf8:['Barbara O’Neill: Fantastic Fats','A full lecture, close to an hour, on fats in food.']
+};
+const LESSON_VIDS={'week-2':['tAOuEpa01j4'],'barbara':['BDq0kej3C14']};
+const BONUS=[
+ {id:'b-taichi',t:'Tai chi follow-along class',s:'A calm class to move along with.',yt:'tAOuEpa01j4'},
+ {id:'barbara',t:'Barbara O’Neill’s comfort remedies',s:'Her best-known comfort ideas, with an honest note on each.'},
+ {id:'b-poultice',t:'Barbara’s poultice class',s:'Full lecture.',yt:'uVLGsqysQcs'},
+ {id:'b-exercise',t:'Barbara: Exercise That Works',s:'Full lecture, close to an hour.',yt:'AP9IuNavHIg'},
+ {id:'b-fats',t:'Barbara: Fantastic Fats',s:'Full lecture, close to an hour.',yt:'slWOfJzWAf8'},
+ {id:'b-book',t:'The Joint Reset book',s:'Our book is included with your course.'},
+ {id:'science',t:'The science, in plain words',s:'Why we trust these steps.'}
+];
+const BARB_NOTE=`<p class="note">A kind, honest word: Barbara is a natural-health teacher, not a doctor. These talks share her own views, and we have not checked every claim in them. Enjoy them as ideas, keep your doctor in the loop, and never stop a prescribed medicine because of a video.</p>`;
 
-/* ---------- bonus theater ---------- */
-const BT={tAOuEpa01j4:['Gentle Tai Chi for Sore Joints','A follow-along lesson with Dr Paul Lam. Slow, flowing moves you can do standing or in a chair.'],
-  BDq0kej3C14:['Barbara’s Castor Oil Comfort','Barbara O’Neill shows how she uses a castor oil compress on sore knees.'],
-  uVLGsqysQcs:['Barbara’s Poultice Class','Barbara O’Neill’s full lecture on making poultices at home.']};
-const BON=W.flatMap(w=>(w.vids||[]).filter(v=>v[1].includes('youtube.com/watch')).map(v=>{const id=v[1].split('v=')[1];return{u:v[1],id,t:BT[id][0],s:BT[id][1],from:w.nav}}));
-let openBonus=0;
-function bonuses(){
-  const s=store.get('watched',{});
-  return `<section class="card hero"><span class="eyebrow">Your gifts</span><h1>The Bonus Theater</h1><p class="lead">Each bonus is a video picked to go with your lessons. Tap a bonus to open it, then press play. Watch one to earn a star.</p></section>
-  ${BON.map((b,i)=>`<details class="card bonus" name="bonus" ${i===openBonus?'open':''}><summary><span class="bnum">Bonus ${i+1}</span><span class="btitle">${b.t}<small>Goes with: ${b.from}</small></span><span class="bstar">${s[b.u]?'★':''}</span></summary>
-    <p>${b.s}</p>
-    <div class="theater"><div class="tbar"><i></i>Joint Release Theater<span>Bonus ${i+1} of ${BON.length}</span></div>
-      <div class="screen" id="screen${i}"><button class="play" data-i="${i}" aria-label="Play ${b.t}"><b></b><span>Press play</span></button></div></div>
-    <div class="row"><button class="watch ${s[b.u]?'seen':''}" data-u="${b.u}">${s[b.u]?'★ Watched':'I watched it'}</button>${BON[i+1]?`<button class="btn alt nextb" data-i="${i+1}">Next: Bonus ${i+2} →</button>`:''}</div>
-    <p class="note">Video not showing? <a href="${b.u}" target="_blank" rel="noopener">Open it in a new tab</a>.</p></details>`).join('')}`;
-}
-/* ---------- views ---------- */
 const $=s=>document.querySelector(s);
 const done=()=>store.get('done',{});
-function nav(route){
-  const d=done(),items=[['home','⌂','Home'],...W.map(w=>[w.id,w.n,w.nav]),['bonuses','▶','Bonus Theater'],['toolkit','✎','Toolkit'],['science','%','The science']];
-  $('#stops').innerHTML=items.map(([id,n,t])=>`<a href="#${id}" class="${id===route?'on':''} ${d[id]?'done':''}"><span class="dot">${d[id]?'✓':n}</span><em>${t}</em></a>`).join('');
-  const c=W.filter(w=>d[w.id]).length;
-  $('#meterBar').style.width=(c/W.length*100)+'%';
-  $('#meterText').textContent=c===W.length?`All ${W.length} steps done. Wonderful!`:`${c} of ${W.length} steps done`;
-}
-function home(){
-  const log=store.get('log',[]);
-  const next=W.find(w=>!done()[w.id])||W[W.length-1];
-  return `<section class="card hero">
-    <span class="eyebrow">An 8-week course for sore, stiff joints</span>
-    <h1>Move easier. Hurt less. Feel like you again.</h1>
-    <p class="lead">Ten minutes a day. Plain words. Steps so small you cannot fail. Built on the same science used by the world’s leading arthritis programs.</p>
-    <a class="btn" href="#${next.id}">${Object.keys(done()).length?'Continue':'Start here'}: ${next.nav} →</a>
-    <svg viewBox="0 0 330 220" aria-hidden="true"><circle cx="250" cy="70" r="46" fill="#FFC56B"/><path d="M0 220V150q60-50 130-18t200-40v128z" fill="#C9DCF2"/><path d="M0 220v-40q90-40 170-10t160-20v70z" fill="#1A4FB0"/><path d="M60 220q40-50 110-50t120-40" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 16"/></svg>
-  </section>
-  <section class="card"><h2>The R.E.L.E.A.S.E. Method</h2><p>Seven letters. Seven weeks. One caring plan. Tap a letter to visit that week.</p>
-    <div class="letters">${LETTERS.map(l=>`<a class="letter" href="#${l[3]}"><b>${l[0]}</b><span>${l[1]}</span><small>${l[2]}</small></a>`).join('')}</div></section>
-  <section class="card"><h2>How do your joints feel today?</h2>
+const open_=id=>{const i=PATH.indexOf(id);return i<=0||!!done()[PATH[i-1]]};
+const nextUp=()=>PATH.find(id=>!done()[id]);
+const count=()=>PATH.filter(id=>done()[id]).length;
+const stars=()=>Object.keys(done()).length*3+Object.keys(store.get('watched',{})).length;
+
+function player(id){const v=VID[id],s=store.get('watched',{});
+  return `<h3>${v[0]}</h3><p>${v[1]}</p><div class="video" id="v-${id}"><button class="play" data-id="${id}" aria-label="Play ${v[0]}"><i></i><span>Press to play</span></button></div>
+  <div class="row"><button class="btn alt watch" data-id="${id}">${s[id]?'★ Watched':'I watched it'}</button></div>`}
+
+function stepRow(id,n){const w=L(id),d=done()[id],o=open_(id),nx=nextUp()===id;
+  return `<a class="step ${d?'done':o?(nx?'next':''):'lock'}" href="#${id}"><span class="num">${d?'✓':o?n:'🔒'}</span><span><b>${w.nav}</b><small>${d?'Done. Open it again anytime.':o?(nx?'This is your next step':'Ready when you are'):'Opens after the step before it'}</small></span><span class="go">${o?'Open →':''}</span></a>`}
+
+function home(){const c=count(),nx=nextUp(),all=c===PATH.length;let n=0;
+  return `<div class="sheet"><section><span class="eyebrow">The Joint Release Course</span>
+    <h1>${c?(all?'You finished the whole path.':'Welcome back.'):'Welcome. Start right here.'}</h1>
+    <p class="lead">${all?'We are so proud of you. Every lesson stays open, so come back whenever you like.':'One short lesson at a time, in order. Each one opens the next. There is no rush.'}</p>
+    <div class="meter"><b style="width:${c/PATH.length*100}%"></b></div><p class="note">${c} of ${PATH.length} lessons done</p>
+    <a class="btn wide" href="#${nx||'bonuses'}">${all?'Visit your bonuses →':(c?'Continue: ':'Begin: ')+L(nx).nav+' →'}</a></section></div>
+  ${PARTS.map(p=>`<div class="part"><h2>${p[0]}</h2><p>${p[1]}</p>${p[2].map(id=>stepRow(id,++n)).join('')}</div>`).join('')}
+  <div class="part"><h2>Your bonuses</h2><p>Extra videos and helpers. Open anytime.</p><a class="step" href="#bonuses"><span class="num">★</span><span><b>See all ${BONUS.length} bonuses</b><small>Videos play right here in the course</small></span><span class="go">Open →</span></a></div>
+  <p class="safety" style="margin-top:28px">This course teaches healthy habits. It does not replace your doctor, and it cannot diagnose or cure any condition. Please check with your doctor before starting new exercise, and keep taking your prescribed medicines.</p>`}
+
+function lesson(w){const main=PATH.includes(w.id),i=PATH.indexOf(w.id),d=done()[w.id],part=main?PARTS.find(p=>p[2].includes(w.id))[0]:'Bonus',nx=PATH[i+1],vids=LESSON_VIDS[w.id]||[];
+  if(main&&!open_(w.id)){const prev=PATH.slice(0,i).find(id=>!done()[id]);
+    return `<div class="sheet"><section><span class="eyebrow">Not just yet</span><h1>${w.nav} opens soon</h1><p class="lead">We take things in order so nothing feels like too much. Finish <b>${L(prev).nav}</b> first, and this lesson will be waiting for you.</p><a class="btn" href="#${prev}">Go to ${L(prev).nav} →</a></section></div>`}
+  return `<div class="sheet">
+  <section><span class="eyebrow">${part}${main?` · Lesson ${i+1} of ${PATH.length}`:''}</span><h1>${w.title}</h1><p class="heart">${w.hug}</p></section>
+  <section class="big"><span class="eyebrow">The big idea</span><p>${w.big}</p></section>
+  <section><span class="eyebrow">A word to remember it by</span><h2>${w.acro[0].split('').join(' · ')}</h2><p>${w.acro[1]}</p><div class="acro">${w.acro[2].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div></section>
+  <section>${w.body}</section>
+  ${vids.length?`<section><span class="eyebrow">Watch</span>${vids.map(player).join('')}${w.id==='barbara'?BARB_NOTE:''}</section>`:''}
+  <section class="try"><span class="eyebrow">Your one small thing today</span><p>${w.doit}</p></section>
+  <section class="quiz" data-a="${w.q[2]}"><span class="eyebrow">Quick check</span><h3 style="margin-top:0">${w.q[0]}</h3>${w.q[1].map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}<p class="fb" id="fb" role="status"></p></section>
+  <section><button class="btn wide" id="didit">${d?'✓ Done. Well done!':'I did it'}</button>
+    <div class="row" id="after" ${d?'':'hidden'}>${main?(nx?`<a class="btn alt wide" href="#${nx}">Next: ${L(nx).nav} →</a>`:`<a class="btn alt wide" href="#bonuses">Visit your bonuses →</a>`):`<a class="btn alt wide" href="#bonuses">Back to your bonuses →</a>`}</div>
+    ${main&&nx&&!d?`<p class="note" style="margin-top:12px">Pressing “I did it” opens your next lesson: ${L(nx).nav}.</p>`:''}</section></div>`}
+
+function bonuses(){return `<div class="sheet"><section><span class="eyebrow">Your bonuses</span><h1>Extras, in order</h1><p class="lead">Take them one at a time, whenever you like. Every video plays right here.</p></section></div>
+  ${BONUS.map((b,i)=>`<a class="step" href="#${b.id}"><span class="num">${i+1}</span><span><b>Bonus ${i+1} · ${b.t}</b><small>${b.s}</small></span><span class="go">Open →</span></a>`).join('')}`}
+
+function bonus(b){const i=BONUS.indexOf(b),nx=BONUS[i+1];
+  return `<div class="sheet"><section><span class="eyebrow">Bonus ${i+1} of ${BONUS.length}</span>
+  ${b.yt?player(b.yt)+(VID[b.yt][0].includes('Barbara')?BARB_NOTE:''):`<h1>The Joint Reset book</h1><p class="lead">Our book is yours to keep with this course. Read it on your screen or print it out.</p><a class="btn" href="../the-joint-reset.pdf" target="_blank" rel="noopener">Open the book</a>`}</section>
+  <section><div class="row" style="margin-top:0">${nx?`<a class="btn alt" href="#${nx.id}">Next bonus: ${nx.t} →</a>`:''}<a class="btn alt" href="#bonuses">All bonuses</a></div></section></div>`}
+
+function progress(){const log=store.get('log',[]);
+  return `<div class="sheet"><section><span class="eyebrow">My progress</span><h1>How do your joints feel today?</h1>
     <p>Slide to your number. 0 means no pain. 10 means the worst pain. There is no wrong answer.</p>
     <input type="range" id="pain" min="0" max="10" value="${log.length?log[log.length-1].v:4}" aria-label="Pain today from 0 to 10">
-    <div class="row"><b id="painV" style="font-size:1.4rem"></b><button class="btn" id="savePain">Save today’s number</button></div>
-    <div class="bars" id="bars" aria-hidden="true"></div><p class="note" id="barsNote"></p>
-    <p class="note">Your numbers stay on this device only.</p></section>
-  <section class="card"><h2>Your rewards</h2><p>Finish a lesson to earn 3 stars and light up its badge. Watch a video to earn 1 more.</p>
+    <div class="row"><b id="painV" style="font-size:24px;color:var(--ink)"></b><button class="btn" id="savePain">Save today’s number</button></div>
+    <div class="bars" id="bars" aria-hidden="true"></div><p class="note" id="barsNote"></p><p class="note">Your numbers stay on this device only.</p></section>
+  <section><h2>Your stars</h2><p>Finish a lesson to earn 3 stars. Watch a video to earn 1 more.</p>
     <div class="row"><span class="starcount">★ ${stars()}</span><span class="note">${stars()?'Every star is a kind thing you did for your body.':'Your first star is waiting in the Welcome lesson.'}</span></div>
-    <div class="badges">${W.map(w=>`<a href="#${w.id}" class="badge ${done()[w.id]?'lit':''}"><b>${w.n}</b><small>${w.nav}</small></a>`).join('')}</div></section>
-  <section class="card"><h2>What is inside</h2><div class="grid2">
-    <div class="stat"><b>10</b>lessons with a kind word, a big idea, and a memory word<br><small>START, SAFE, WARM, LIFT, PLATE, SOOTHE, PACE, CALM, RESET, GROW</small></div>
-    <div class="stat"><b>10</b>tiny daily actions and quick check quizzes</div>
-    <div class="stat"><b>5</b>Toolkit pages: planner, flare plan, doctor questions, food swaps, video library</div>
-    <div class="stat"><b>8</b>research findings explained in plain words, with links</div></div></section>
-  <section class="card safety"><h3>A caring safety note</h3><p>This course teaches healthy habits. It does not replace your doctor, and it cannot diagnose or cure any condition. Please check with your doctor before starting new exercise, and keep taking your prescribed medicines.</p></section>`;
-}
-function week(w){
-  const i=W.indexOf(w),nx=W[i+1],d=done()[w.id];
-  return `<section class="card hero"><span class="eyebrow">Step ${i+1} of ${W.length}</span><h1>${w.title}</h1><p class="heart">${w.hug}</p></section>
-  <section class="card"><span class="eyebrow">The big idea</span><h2>${w.big}</h2></section>
-  <section class="card"><span class="eyebrow">Memory word</span><h2>${w.acro[0].split('').join(' · ')}</h2><p>${w.acro[1]}</p>
-    <div class="acro">${w.acro[2].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div></section>
-  <section class="card">${w.body}</section>
-  ${w.vids?`<section class="card"><span class="eyebrow">Watch and follow along</span>${w.vids.map(v=>{const b=BON.findIndex(x=>x.u===v[1]);return b>=0?`<div class="row vid"><span><b>Bonus ${b+1}</b> · ${BON[b].t}</span><a class="watch" href="#bonuses" data-open="${b}">Open in the Bonus Theater</a></div>`:`<div class="row vid"><span>▶ <a href="${v[1]}" target="_blank" rel="noopener">${v[0]}</a></span></div>`}).join('')}<p class="note">Bonus videos play right here in the course, in your Bonus Theater.</p></section>`:''}
-  <section class="try"><span class="eyebrow" style="color:#ffe2b5">Your one small thing today</span><p>${w.doit}</p></section>
-  <section class="card quiz" data-a="${w.q[2]}"><span class="eyebrow">Quick check</span><h3>${w.q[0]}</h3>
-    ${w.q[1].map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}<p class="fb" id="fb" role="status"></p></section>
-  <div class="row"><button class="btn" id="didit">${d?'✓ Done. Well done!':'I did it'}</button>${nx?`<a class="btn alt" href="#${nx.id}">Next: ${nx.nav} →</a>`:`<a class="btn alt" href="#toolkit">Open the Toolkit →</a>`}</div>`;
-}
+    <div class="badges">${PATH.map(id=>`<a href="#${id}" class="badge ${done()[id]?'lit':''}"><b>${L(id).n}</b>${L(id).nav}</a>`).join('')}</div></section></div>`}
+
+function menu(route){const d=done();let n=0;
+  $('#panelList').innerHTML=`<a href="#home" class="${route==='home'?'on':''}"><span>⌂</span>My path</a>
+  ${PARTS.map(p=>`<h3>${p[0]}</h3>${p[2].map(id=>{n++;const o=open_(id);return `<a href="#${id}" class="${id===route?'on':''} ${o?'':'lock'}"><span>${d[id]?'✓':o?n:'🔒'}</span>${L(id).nav}</a>`}).join('')}`).join('')}
+  <h3>Bonuses</h3>${BONUS.map((b,i)=>`<a href="#${b.id}" class="${b.id===route?'on':''}"><span>${i+1}</span>${b.t}</a>`).join('')}
+  <h3>Helpers</h3><a href="#toolkit" class="${route==='toolkit'?'on':''}"><span>✎</span>Toolkit</a><a href="#progress" class="${route==='progress'?'on':''}"><span>★</span>My progress</a><a href="../index.html"><span>←</span>Back to the website</a>`;
+  const tab=PATH.includes(route)||route==='home'?'home':(route==='toolkit'||route==='progress')?route:'bonuses';
+  document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+tab));}
+
 function toolkit(){
   const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],p=store.get('plan',{}),f=store.get('flare',{});
   const fl=[['My early warning signs','e.g. knee feels hot, I slept badly'],['What soothes me','e.g. heat pack, warm shower, 4–6 breath'],['The one task I will keep','e.g. short walk to the mailbox'],['Who I can ask for help','a name and phone number'],['I will call my doctor if','e.g. no better after 7 days']];
-  return `<section class="card hero"><span class="eyebrow">Toolkit</span><h1>Your helpers, all in one place</h1><p class="lead">Tick, type and come back anytime. Everything saves on this device.</p></section>
-  <section class="card"><h2>Weekly planner</h2><p>Tick each day you walk and each day you do your strength moves.</p><div class="tablewrap"><table><tr><th></th>${days.map(d=>`<th>${d}</th>`).join('')}</tr>
+  return `<div class="sheet"><section><span class="eyebrow">Toolkit</span><h1>Your helpers, all in one place</h1><p class="lead">Tick, type and come back anytime. Everything saves on this device.</p></section>
+  <section><h2>Weekly planner</h2><p>Tick each day you walk and each day you do your strength moves.</p><div class="tablewrap"><table><tr><th></th>${days.map(d=>`<th>${d}</th>`).join('')}</tr>
     ${['Walk','Strength','4–6 breath'].map(r=>`<tr><th>${r}</th>${days.map(d=>`<td><input type="checkbox" class="pl" id="pl-${r[0]}-${d}" aria-label="${r} ${d}" ${p[r[0]+d]?'checked':''} data-k="${r[0]+d}" style="width:22px;height:22px;accent-color:var(--sea)"></td>`).join('')}</tr>`).join('')}</table></div></section>
-  <section class="card"><h2>My flare-up plan</h2>${fl.map((x,i)=>`<label for="fl${i}"><b>${x[0]}</b></label><input id="fl${i}" class="fl" data-k="${i}" placeholder="${x[1]}" value="${(f[i]||'').replace(/"/g,'&quot;')}" style="font:inherit;padding:12px;border:2px solid var(--line);border-radius:12px;width:100%">`).join('')}</section>
-  <section class="card"><h2>Questions for my doctor</h2><div class="checks">${['Which kind of arthritis do I have?','Is it safe for me to start walking and strength exercises?','Can you refer me to a physical therapist?','Which pain medicine or cream is safest with my other medicines?','Would losing some weight help my joints, and can you help me with that?','Is there a GLA:D, Walk With Ease or tai chi class near me?'].map((q,i)=>`<label for="dq${i}"><input type="checkbox" id="dq${i}"><span>${q}</span></label>`).join('')}</div></section>
-  <section class="card"><h2>Easy food swaps</h2><div class="tablewrap"><table><tr><th>Instead of</th><th>Try</th></tr><tr><td>Soda or sweet tea</td><td>Water with lemon or berries</td></tr><tr><td>Chips</td><td>A small handful of nuts</td></tr><tr><td>White bread</td><td>Whole-grain bread</td></tr><tr><td>Fried chicken</td><td>Baked chicken or fish</td></tr><tr><td>Candy</td><td>Fruit you love</td></tr></table></div></section>
-  <section class="card"><h2>More to explore</h2><p>Your videos live in the <a href="#bonuses">Bonus Theater</a>. These free pages from arthritis charities are good next stops.</p>${W.filter(w=>w.vids).flatMap(w=>w.vids).filter(v=>!v[1].includes('youtube.com/watch')).map(v=>`<p>▶ <a href="${v[1]}" target="_blank" rel="noopener">${v[0]}</a></p>`).join('')}</section>
-  <section class="card"><h2>Words made simple</h2><ul><li><b>Cartilage:</b> the smooth cushion on the ends of your bones.</li><li><b>Flare-up:</b> a few days when pain is worse than usual.</li><li><b>Inflammation:</b> swelling and heat. It is your body’s repair crew working overtime.</li><li><b>Osteoarthritis (OA):</b> the most common kind of arthritis.</li><li><b>Physical therapist (PT):</b> a movement expert who builds a plan just for you.</li></ul></section>`;
+  <section><h2>My flare-up plan</h2>${fl.map((x,i)=>`<label for="fl${i}"><b>${x[0]}</b></label><input id="fl${i}" class="fl" data-k="${i}" placeholder="${x[1]}" value="${(f[i]||'').replace(/"/g,'&quot;')}" style="font:inherit;padding:14px;margin:6px 0 14px;border:2px solid var(--line);border-radius:12px;width:100%">`).join('')}</section>
+  <section><h2>Questions for my doctor</h2><div class="checks">${['Which kind of arthritis do I have?','Is it safe for me to start walking and strength exercises?','Can you refer me to a physical therapist?','Which pain medicine or cream is safest with my other medicines?','Would losing some weight help my joints, and can you help me with that?','Is there a GLA:D, Walk With Ease or tai chi class near me?'].map((q,i)=>`<label for="dq${i}"><input type="checkbox" id="dq${i}"><span>${q}</span></label>`).join('')}</div></section>
+  <section><h2>Easy food swaps</h2><div class="tablewrap"><table><tr><th>Instead of</th><th>Try</th></tr><tr><td>Soda or sweet tea</td><td>Water with lemon or berries</td></tr><tr><td>Chips</td><td>A small handful of nuts</td></tr><tr><td>White bread</td><td>Whole-grain bread</td></tr><tr><td>Fried chicken</td><td>Baked chicken or fish</td></tr><tr><td>Candy</td><td>Fruit you love</td></tr></table></div></section>
+  <section><h2>More to explore</h2><p>Your videos are in <a href="#bonuses">your bonuses</a>. These free pages from arthritis charities are good next stops.</p>${W.filter(w=>w.vids).flatMap(w=>w.vids).filter(v=>!v[1].includes('youtube.com/watch')).map(v=>`<p>▶ <a href="${v[1]}" target="_blank" rel="noopener">${v[0]}</a></p>`).join('')}</section>
+  <section><h2>Words made simple</h2><ul><li><b>Cartilage:</b> the smooth cushion on the ends of your bones.</li><li><b>Flare-up:</b> a few days when pain is worse than usual.</li><li><b>Inflammation:</b> swelling and heat. It is your body’s repair crew working overtime.</li><li><b>Osteoarthritis (OA):</b> the most common kind of arthritis.</li><li><b>Physical therapist (PT):</b> a movement expert who builds a plan just for you.</li></ul></section></div>`;
 }
 function science(){
-  return `<section class="card hero"><span class="eyebrow">The science, in plain words</span><h1>Why we trust these steps</h1><p class="lead">Everything in this course comes from published research and official arthritis guidelines. Here are the numbers.</p></section>
-  <section class="card"><h2>Exercise and learning lower pain</h2><p>GLA:D is a program from Denmark that pairs joint education with exercise classes. More than 60,000 people with knee or hip arthritis had joined by 2021. This chart shows average pain right after the course in the 2020 report.</p>
+  return `<div class="sheet"><section><span class="eyebrow">The science, in plain words</span><h1>Why we trust these steps</h1><p class="lead">Everything in this course comes from published research and official arthritis guidelines. Here are the numbers.</p></section>
+  <section><h2>Exercise and learning lower pain</h2><p>GLA:D is a program from Denmark that pairs joint education with exercise classes. More than 60,000 people with knee or hip arthritis had joined by 2021. This chart shows average pain right after the course in the 2020 report.</p>
     <svg class="chart" viewBox="0 0 520 200" role="img" aria-label="Average pain before and after GLA:D. Knee: 4.8 to 3.4. Hip: 4.8 to 3.7."><g>
     <text x="0" y="38">Knee, before</text><rect x="120" y="22" width="${4.8*70}" height="24" rx="6" fill="#AEC6DF"/><text x="${128+4.8*70}" y="39">4.8</text>
     <text x="0" y="74">Knee, after</text><rect x="120" y="58" width="${3.4*70}" height="24" rx="6" fill="#1A4FB0"/><text x="${128+3.4*70}" y="75">3.4  (28% less)</text>
@@ -335,20 +318,17 @@ function science(){
     <text x="0" y="164">Hip, after</text><rect x="120" y="148" width="${3.7*70}" height="24" rx="6" fill="#1A4FB0"/><text x="${128+3.7*70}" y="165">3.7  (23% less)</text>
     <text x="120" y="194" style="font-weight:400;fill:#4F6580">Pain on a 0–10 scale</text></g></svg>
     <p class="note">Source: <a href="https://www.mq.edu.au/__data/assets/pdf_file/0003/1270416/annual-report-2020-eng-glad-denmark.pdf" target="_blank" rel="noopener">GLA:D Denmark Annual Report 2020</a>. These are averages. Your result may be different.</p></section>
-  <section class="card"><h2>More findings</h2><div class="grid2">
+  <section><h2>More findings</h2><div class="grid2">
     <div class="stat"><b>1 lb = 4 lb</b>Each pound lost took about four pounds of load off the knee per step.<br><small><a href="https://news.wfu.edu/?p=65959" target="_blank" rel="noopener">Wake Forest University, Messier 2005</a></small></div>
     <div class="stat"><b>30% less pain</b>Older adults who combined diet and exercise for 18 months had 30% less knee pain and 24% better function.<br><small><a href="https://reliasmedia.com/articles/83546-taking-off-weight-takes-pressure-off-knees-feet" target="_blank" rel="noopener">ADAPT trial summary</a></small></div>
     <div class="stat"><b>38% better</b>GLA:D Australia’s 2023 report found quality of life up 38% for knees and 24% for hips.<br><small><a href="https://timesnewsgroup.com.au/themooraboolnews/seniors/glad-good-life-with-arthritis-denmark" target="_blank" rel="noopener">News summary of the report</a></small></div>
     <div class="stat"><b>30 months</b>The UK’s ESCAPE-pain program showed benefits lasting up to 30 months after it ended.<br><small><a href="https://versusarthritis.org/media/2082/evidence-review-panel-physical-activity-report-april-2016.pdf" target="_blank" rel="noopener">Arthritis Research UK review</a></small></div></div></section>
-  <section class="card"><h2>What the official guideline strongly recommends</h2><p>The American College of Rheumatology and the Arthritis Foundation reviewed the research together. Their strongest “yes” goes to:</p>
+  <section><h2>What the official guideline strongly recommends</h2><p>The American College of Rheumatology and the Arthritis Foundation reviewed the research together. Their strongest “yes” goes to:</p>
     <ul><li>Exercise</li><li>Weight loss for knee or hip arthritis, if you carry extra weight</li><li>Self-management programs (like this course)</li><li>Tai chi</li><li>A cane when needed</li></ul>
     <p class="note">Source: <a href="https://www.arthritis.org/diseases/more-about/guidelines-for-osteoarthritis-treatments" target="_blank" rel="noopener">Arthritis Foundation guideline summary</a>.</p></section>
-  <section class="card safety"><h3>Our promise to be honest</h3><p>No course, food or remedy can cure arthritis. What the research shows is that the right habits help many people hurt less and do more. That is what we teach.</p></section>`;
+  <section class="safety"><h3>Our promise to be honest</h3><p>No course, food or remedy can cure arthritis. What the research shows is that the right habits help many people hurt less and do more. That is what we teach.</p></section></div>`;
 }
-
-/* ---------- rewards ---------- */
 const PRAISE=['You showed up for yourself today. That takes heart.','One more step done. Your joints thank you.','Look at you go. Small steps add up.','That was real work, and you did it.','Beautiful. Be proud of yourself today.'];
-const stars=()=>Object.keys(done()).length*3+Object.keys(store.get('watched',{})).length;
 function celebrate(msg,pts){
   const t=$('#toast');t.innerHTML=`<b>${pts}</b><span>${msg}</span>`;t.classList.add('show');
   clearTimeout(celebrate.t);celebrate.t=setTimeout(()=>t.classList.remove('show'),4200);
@@ -358,36 +338,37 @@ function celebrate(msg,pts){
   let n=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.a+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6);x.restore();});
     if(++n<150)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height);})();
 }
-/* ---------- router + wiring ---------- */
 function drawBars(){
   const log=store.get('log',[]).slice(-14),b=$('#bars');if(!b)return;
   b.innerHTML=log.map(x=>`<i style="height:${Math.max(6,x.v*10)}%" title="${x.d}: ${x.v}"></i>`).join('');
   $('#barsNote').textContent=log.length?`Your last ${log.length} check-in${log.length>1?'s':''}. First: ${log[0].v}. Latest: ${log[log.length-1].v}.`:'Your chart will grow here as you check in.';
 }
+
 function render(){
-  const r=(location.hash||'#home').slice(1),w=W.find(x=>x.id===r);
-  $('#view').innerHTML=w?week(w):r==='toolkit'?toolkit():r==='science'?science():r==='bonuses'?bonuses():home();
-  nav(w?r:(['toolkit','science','bonuses'].includes(r)?r:'home'));
-  document.querySelectorAll('[data-open]').forEach(a=>a.onclick=()=>{openBonus=+a.dataset.open;});
-  document.querySelectorAll('.play').forEach(p=>p.onclick=()=>{const b=BON[p.dataset.i];
-    $('#screen'+p.dataset.i).innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${b.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="${b.t}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;});
-  document.querySelectorAll('.nextb').forEach(n=>n.onclick=()=>{const all=document.querySelectorAll('.bonus');all[n.dataset.i].open=true;all[n.dataset.i].scrollIntoView({block:'start'});});
-  window.scrollTo(0,0);
+  const r=(location.hash||'#home').slice(1),w=(PATH.includes(r)||r==='barbara')?L(r):null,b=BONUS.find(x=>x.id===r&&r!=='barbara'&&r!=='science');
+  $('#view').innerHTML=w?lesson(w):b?bonus(b):r==='bonuses'?bonuses():r==='toolkit'?toolkit():r==='science'?science():r==='progress'?progress():home();
+  menu(w||b||['bonuses','toolkit','science','progress'].includes(r)?r:'home');
+  document.body.classList.remove('menu-open');window.scrollTo(0,0);
+  document.querySelectorAll('.play').forEach(p=>p.onclick=()=>{const id=p.dataset.id;
+    $('#v-'+id).innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="${VID[id][0]}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;});
+  document.querySelectorAll('.watch').forEach(x=>x.onclick=()=>{const s=store.get('watched',{});if(s[x.dataset.id])return;
+    s[x.dataset.id]=true;store.set('watched',s);x.textContent='★ Watched';celebrate('Lovely. Time spent learning is time spent caring for yourself.','+1 star');});
   const pain=$('#pain');
   if(pain){const show=()=>$('#painV').textContent=pain.value+' out of 10';show();pain.oninput=show;drawBars();
     $('#savePain').onclick=()=>{const log=store.get('log',[]),d=new Date().toISOString().slice(0,10),i=log.findIndex(x=>x.d===d);
       if(i>=0)log[i].v=+pain.value;else log.push({d,v:+pain.value});store.set('log',log);drawBars();$('#savePain').textContent='Saved. Thank you for checking in.';};}
   const dd=$('#didit');
-  if(dd)dd.onclick=()=>{const d=done(),first=!d[w.id];d[w.id]=true;store.set('done',d);dd.textContent='✓ Done. Well done!';nav(r);
-    if(first)celebrate(W.every(x=>d[x.id])?'You finished the whole course. We are so proud of you!':PRAISE[Math.floor(Math.random()*PRAISE.length)],'+3 stars');};
-  document.querySelectorAll('.watch').forEach(b=>b.onclick=()=>{const s=store.get('watched',{});if(s[b.dataset.u])return;
-    s[b.dataset.u]=true;store.set('watched',s);b.textContent='★ Watched';b.classList.add('seen');celebrate('Lovely. Time spent learning is time spent caring for yourself.','+1 star');});
-  document.querySelectorAll('.quiz button').forEach(b=>b.onclick=()=>{
-    const ok=b.dataset.k===b.parentElement.dataset.a;b.className=ok?'right':'wrong';
+  if(dd)dd.onclick=()=>{const d=done(),first=!d[w.id];d[w.id]=true;store.set('done',d);dd.textContent='✓ Done. Well done!';$('#after').hidden=false;menu(r);
+    if(first)celebrate(PATH.every(x=>d[x])?'You finished the whole course. We are so proud of you!':PRAISE[Math.floor(Math.random()*PRAISE.length)],'+3 stars');};
+  document.querySelectorAll('.quiz button').forEach(x=>x.onclick=()=>{
+    const ok=x.dataset.k===x.parentElement.dataset.a;x.className=ok?'right':'wrong';
     $('#fb').textContent=ok?w.q[3]:'Good try. Have another go.';});
   document.querySelectorAll('.pl').forEach(c=>c.onchange=()=>{const p=store.get('plan',{});p[c.dataset.k]=c.checked;store.set('plan',p);});
   document.querySelectorAll('.fl').forEach(c=>c.oninput=()=>{const f=store.get('flare',{});f[c.dataset.k]=c.value;store.set('flare',f);});
 }
+$('#menuBtn').onclick=()=>document.body.classList.add('menu-open');
+$('#menuClose').onclick=$('#shade').onclick=()=>document.body.classList.remove('menu-open');
+addEventListener('keydown',e=>{if(e.key==='Escape')document.body.classList.remove('menu-open')});
 addEventListener('hashchange',render);render();
 </script>
 </body>
