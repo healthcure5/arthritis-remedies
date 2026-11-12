@@ -105,3 +105,6 @@ main>section:first-child .panel .eyebrow{color:#FFC56B}
 main>section:first-child .panel .note{color:#AEC6DF}
 .letter-copy{background:#fff;border-radius:36px;padding:clamp(24px,5vw,56px);box-shadow:0 30px 50px -30px rgba(16,40,74,.35)}
 footer{color:#1B2F4D}
+
+.brand{gap:12px;align-items:center}
+@media (max-width:420px){.jr-name{font-size:18px!important}}
