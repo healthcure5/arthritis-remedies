@@ -176,3 +176,48 @@ footer{color:#1B2F4D}
 #human-text{font-weight:600;font-size:18px;color:#0A1F44}
 @keyframes hspin{to{transform:rotate(360deg)}}
 button.cta-big{font-family:Inter,system-ui,sans-serif}
+
+/* look 6: price on paid buttons, centred sheet, three distinct product pages */
+.cta-big .cta-l{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left}
+.cta-big .cta-l b{font-weight:800}
+.cta-big .cta-l small{font:600 15px/1.2 Inter,system-ui,sans-serif;opacity:.78;letter-spacing:.01em}
+.sheet-shade{background:rgba(6,18,42,.45)}
+.sheet{left:50%;right:auto;top:14px;width:min(660px,calc(100% - 28px));max-height:calc(100vh - 28px);max-height:calc(100dvh - 28px);border-radius:28px;transform:translate(-50%,-112%)}
+.sheet-open .sheet{transform:translate(-50%,0)}
+/* book page extra */
+.aside-row{display:flex;flex-wrap:wrap;gap:32px 48px;align-items:flex-start;max-width:1000px;margin:0 auto}
+.bubble{flex:0 1 280px;background:#0A1F44;color:#fff;border-radius:28px 28px 28px 6px;padding:26px 24px;font:500 22px/1.4 Lora,Georgia,serif;box-shadow:0 26px 40px -22px rgba(10,31,68,.8)}
+.bubble small{display:block;margin-top:12px;font:700 13px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#FFC56B}
+.aside-row .letter-copy{flex:1 1 420px;margin:0}
+/* free guide: light and easy */
+body.theme-guide{background:#EEE7D8}
+.theme-guide .open{background:linear-gradient(170deg,#FBF7EE 0%,#F1E9D8 100%);color:#334A63}
+.theme-guide .open h1{color:#0A1F44}
+.theme-guide .open p{color:#334A63}
+.theme-guide .open .eyebrow{color:#1A4FB0}
+.theme-guide .open-in{flex-direction:row-reverse}
+.cta-soft{display:inline-flex;align-items:center;gap:14px;font:800 22px/1.2 Inter,system-ui,sans-serif;color:#fff;text-decoration:none;cursor:pointer;border:0;padding:22px 38px;border-radius:999px;background:#0A1F44;box-shadow:0 4px 0 #050F24,0 18px 30px -12px rgba(10,31,68,.6);transition:transform .15s ease}
+.cta-soft::after{content:"";width:12px;height:12px;border-right:3.5px solid #FFC56B;border-top:3.5px solid #FFC56B;transform:rotate(45deg);flex:none}
+.cta-soft:hover{transform:translateY(-3px)}
+.cta-soft:active{transform:translateY(3px)}
+.sheet .cta-soft{width:100%;justify-content:center}
+/* course: the richest page */
+body.theme-course{background-color:#081A3A;background-image:radial-gradient(60rem 36rem at 88% -6%,rgba(255,197,107,.20),transparent 60%),radial-gradient(48rem 34rem at -8% 46%,rgba(47,111,224,.38),transparent 62%),radial-gradient(rgba(255,255,255,.075) 1.5px,transparent 1.7px);background-size:auto,auto,26px 26px;background-attachment:fixed,fixed,scroll;color:#D7E2EE}
+.theme-course .top{background:rgba(8,26,58,.92)}
+.theme-course .open{background:none;position:relative;overflow:hidden}
+.theme-course .open h1{font-size:clamp(36px,5vw,60px)}
+.theme-course .rings{position:absolute;right:-140px;top:-60px;width:560px;height:560px;opacity:.5;pointer-events:none}
+.theme-course .letter-copy p,.theme-course .letter-copy li{color:#D7E2EE}
+.theme-course .letter-copy h2,.theme-course .letter-copy .big,.theme-course .sign{color:#fff}
+.theme-course .eyebrow{color:#FFC56B}
+.theme-course .rule{background:rgba(255,255,255,.16)}
+.theme-course ul.ticks li::before{background:#FFC56B}
+.theme-course ul.ticks li::after{border-color:#0A1F44}
+.theme-course footer{color:#AEC6DF}.theme-course footer a{color:#FFC56B}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:1000px;margin:0 auto}
+.stats div{border:1.5px solid rgba(255,197,107,.5);border-radius:24px;padding:22px 20px;text-align:center;background:rgba(255,255,255,.04)}
+.stats b{display:block;font:700 54px/1 Lora,Georgia,serif;color:#FFC56B}
+.stats span{display:block;margin-top:8px;font-weight:600;color:#fff}
+.cta-xl{font-size:26px;padding:28px 50px}
+.cta-xl .cta-l small{font-size:16px}
+@media (max-width:520px){.cta-big,.cta-soft{font-size:20px;padding:20px 28px}.cta-xl{font-size:22px;padding:24px 32px}}
