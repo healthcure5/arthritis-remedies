@@ -108,3 +108,5 @@ footer{color:#1B2F4D}
 
 .brand{gap:12px;align-items:center}
 @media (max-width:420px){.jr-name{font-size:18px!important}}
+
+.brand svg{width:68px;height:68px}
