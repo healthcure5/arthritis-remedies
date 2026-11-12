@@ -27,6 +27,7 @@ var COURSE_URL = '';   // The Joint Release Course
     '.jr-drawer a small{font-weight:500;font-size:16px;line-height:1.35;color:#4F6580}' +
     '.jr-drawer a.on{background:#EAF2FA;box-shadow:inset 5px 0 0 #FFC56B}' +
     '.jr-close{align-self:flex-end;font:700 16px Inter,system-ui,sans-serif;background:none;border:0;color:#1A4FB0;padding:10px;cursor:pointer}' +
+    '.jr-fab.on-light{background:rgba(255,255,255,.92);border-radius:12px;box-shadow:0 6px 16px -8px rgba(10,31,68,.6)}.jr-fab.on-light .jr-burger,.jr-fab.on-light .jr-burger::after{border-color:#0A1F44}' +
     '@media (prefers-reduced-motion:reduce){.jr-shade,.jr-drawer{transition:none}}';
   document.head.appendChild(css);
 
@@ -37,6 +38,7 @@ var COURSE_URL = '';   // The Joint Release Course
   var drawer = document.createElement('aside'); drawer.className = 'jr-drawer'; drawer.setAttribute('aria-label', 'Menu');
   drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><div class="jr-lock">' + MARK + '<span><b>Gentle Joint Care</b></span></div>' +
     ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (i[0] === here ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('');
+  if (!document.querySelector('.hdr, .top')) { fab.classList.add('on-light'); }
   document.body.appendChild(fab); document.body.appendChild(shade); document.body.appendChild(drawer);
   function toggle(open) { document.documentElement.classList.toggle('jr-open', open); }
   fab.addEventListener('click', function () { toggle(true); });
