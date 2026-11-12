@@ -14,11 +14,11 @@ var COURSE_URL = '';   // The Joint Release Course
     ['course-info.html', 'The Joint Release Course', 'Eight weeks to feeling more like you'],
     ['library.html', 'My library', 'Everything you own, in one place']
   ];
-  var MARK = '<svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#0A1F44"/><path d="M10 23c4.5-10 15.5-10 20 0" stroke="#FFC56B" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="20" cy="28" r="3.2" fill="#FFFFFF"/></svg>';
+  var MARK = '<span style="display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:#0A1F44"><svg role="img" aria-label="Joint Release" width="44" height="44" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M15 12 31 32 15 52" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round"/><circle cx="15" cy="12" r="6.5" fill="#FFFFFF"/><circle cx="15" cy="52" r="6.5" fill="#FFFFFF"/><circle cx="32" cy="32" r="8.5" fill="#FFC56B"/><path d="M45 23a13 13 0 0 1 0 18" stroke="#FFC56B" stroke-width="4"/><path d="M53 17a21 21 0 0 1 0 30" stroke="#FFC56B" stroke-width="4" opacity=".55"/></svg></span>';
   var css = document.createElement('style');
   css.textContent =
-    '.jr-fab{position:fixed;right:14px;top:8px;z-index:150;display:inline-flex;align-items:center;gap:9px;font:700 17px/1 Inter,system-ui,sans-serif;color:#FFFFFF;background:#0A1F44;border:0;border-radius:12px;padding:0 16px;height:44px;cursor:pointer;box-shadow:0 8px 18px -8px rgba(10,31,68,.7)}.hdr-in,.top-in{padding-right:128px!important}.top{position:sticky;top:0;z-index:100}@media (max-width:760px){.hdr-btn,.top .btn.small{display:none!important}}' +
-    '.jr-burger{width:20px;height:15px;border-top:3px solid #FFC56B;border-bottom:3px solid #FFC56B;position:relative;border-radius:1px}.jr-burger::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:3px solid #FFC56B}' +
+    '.jr-fab{position:fixed;right:16px;top:14px;z-index:150;display:block;width:52px;height:46px;padding:10px 8px;background:none;border:0;cursor:pointer}.top{position:sticky;top:0;z-index:100}' +
+    '.jr-burger{display:block;width:36px;height:26px;border-top:4px solid #FFC56B;border-bottom:4px solid #FFC56B;position:relative;border-radius:2px}.jr-burger::after{content:"";position:absolute;left:0;right:0;top:7px;border-top:4px solid #FFC56B;border-radius:2px}' +
     '.jr-shade{position:fixed;inset:0;background:rgba(10,31,68,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}' +
     '.jr-drawer{position:fixed;top:0;right:0;bottom:0;width:min(88vw,360px);background:#FFFFFF;z-index:201;transform:translateX(102%);visibility:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1);padding:22px 18px 28px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;font-family:Inter,system-ui,sans-serif}' +
     '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none;visibility:visible;box-shadow:-20px 0 50px -20px rgba(10,31,68,.5)}' +
@@ -32,10 +32,10 @@ var COURSE_URL = '';   // The Joint Release Course
 
   var fab = document.createElement('button');
   fab.type = 'button'; fab.className = 'jr-fab'; fab.setAttribute('aria-label', 'Open the menu');
-  fab.innerHTML = '<span class="jr-burger" aria-hidden="true"></span>Menu';
+  fab.innerHTML = '<span class="jr-burger" aria-hidden="true"></span>';
   var shade = document.createElement('div'); shade.className = 'jr-shade';
   var drawer = document.createElement('aside'); drawer.className = 'jr-drawer'; drawer.setAttribute('aria-label', 'Menu');
-  drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><div class="jr-lock">' + MARK + '<span><b>Joint Release</b><small>Gentle joint care</small></span></div>' +
+  drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><div class="jr-lock">' + MARK + '<span><b>Joint Release</b></span></div>' +
     ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (i[0] === here ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('');
   document.body.appendChild(fab); document.body.appendChild(shade); document.body.appendChild(drawer);
   function toggle(open) { document.documentElement.classList.toggle('jr-open', open); }
