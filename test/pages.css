@@ -163,3 +163,16 @@ footer{color:#1B2F4D}
 .sheet .cta-big.soon{opacity:.6;cursor:default}
 .sheet .cta-big.soon::before{display:none}
 @media (prefers-reduced-motion:reduce){.cta-big::before{animation:none}.sheet,.sheet-shade{transition:none}}
+
+/* free-guide sheet */
+.alert{background:#FFF1D6;border:1.5px solid #C98A1E;color:#5A3B00;border-radius:12px;padding:12px 16px;font-size:17px;font-weight:500}
+#human-box{display:flex;align-items:center;gap:14px;background:#F9FBFD;border:1.5px solid #C5D5E6;border-radius:10px;padding:14px 16px;min-height:68px;cursor:pointer;transition:border-color .3s,background .3s}
+#human-box.ok{background:#F1FAF4;border-color:#1E8A4C}
+#human{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
+#human-mark{flex:none;width:30px;height:30px;border:2px solid #7C93AD;border-radius:5px;background:#fff;display:grid;place-items:center;box-sizing:border-box}
+#human-box.busy #human-mark{border-color:#C5D5E6 #C5D5E6 #C5D5E6 #1A4FB0;border-radius:50%;animation:hspin .7s linear infinite}
+#human-box.ok #human-mark{border-color:#1E8A4C;background:#1E8A4C}
+#human-box.ok #human-mark::after{content:"";width:8px;height:15px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-2px)}
+#human-text{font-weight:600;font-size:18px;color:#0A1F44}
+@keyframes hspin{to{transform:rotate(360deg)}}
+button.cta-big{font-family:Inter,system-ui,sans-serif}
