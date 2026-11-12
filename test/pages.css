@@ -221,3 +221,7 @@ body.theme-course{background-color:#081A3A;background-image:radial-gradient(60re
 .cta-xl{font-size:26px;padding:28px 50px}
 .cta-xl .cta-l small{font-size:16px}
 @media (max-width:520px){.cta-big,.cta-soft{font-size:20px;padding:20px 28px}.cta-xl{font-size:22px;padding:24px 32px}}
+
+.theme-course .top{background:#081A3A}
+.sheet,.sheet p{color:#1B2F4D}
+.theme-course .sheet .eyebrow,.sheet .eyebrow{color:#1A4FB0}
