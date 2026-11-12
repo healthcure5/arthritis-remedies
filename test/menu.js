@@ -24,8 +24,8 @@ var COURSE_URL = '';   // The Joint Release Course, $100
     '.jr-menu button{background:#1A4FB0;border-color:#1A4FB0;color:#FFFFFF}' +
     '.jr-burger{width:18px;height:12px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;position:relative}.jr-burger::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:2px solid currentColor}' +
     '.jr-shade{position:fixed;inset:0;background:rgba(10,31,68,.45);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}' +
-    '.jr-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);background:#FFFFFF;z-index:201;transform:translateX(-102%);transition:transform .3s cubic-bezier(.2,.7,.2,1);padding:22px 18px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;box-shadow:20px 0 50px -20px rgba(10,31,68,.5);font-family:Inter,system-ui,sans-serif}' +
-    '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none}' +
+    '.jr-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);background:#FFFFFF;z-index:201;transform:translateX(-102%);transition:transform .3s cubic-bezier(.2,.7,.2,1);padding:22px 18px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;visibility:hidden;font-family:Inter,system-ui,sans-serif}' +
+    '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none;visibility:visible;box-shadow:20px 0 50px -20px rgba(10,31,68,.5)}' +
     '.jr-drawer h2{margin:0 0 6px;font:700 24px/1.2 Lora,Georgia,serif;color:#0A1F44}' +
     '.jr-drawer a{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:#0A1F44;background:#F4F8FC;border-radius:16px;padding:14px 16px;font-weight:700;font-size:19px}' +
     '.jr-drawer a small{font-weight:500;font-size:15.5px;color:#4F6580}' +
