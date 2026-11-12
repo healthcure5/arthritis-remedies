@@ -95,7 +95,6 @@ input[type=range]{width:100%;accent-color:var(--sea)}
 .note{font-size:.92rem;color:var(--soft)}
 .safety{border-left:6px solid var(--warn);background:#fff8f2}
 .chart text{font:600 13px var(--body);fill:var(--ink)}
-.lesson-pic{width:100%;height:clamp(220px,40vw,360px);object-fit:cover;object-position:40% 30%;border-radius:22px;display:block;box-shadow:var(--lift)}
 .vid{justify-content:space-between;background:#F4F8FC;border-radius:14px;padding:10px 14px}
 .watch{background:#fff;border:2px solid var(--sea);color:var(--sea-deep);border-radius:99px;padding:6px 14px;font-weight:800}
 .watch.seen{background:var(--glow);border-color:var(--glow);color:#3b2506}
@@ -145,7 +144,7 @@ em{font-style:normal}
   <div class="brand"><i></i>Joint Release</div>
   <p class="tag">The R.E.L.E.A.S.E. Method · 8 gentle weeks</p>
   <div class="meter"><b id="meterBar" style="width:0%"></b></div>
-  <p class="meter-t" id="meterStars" style="float:right;color:#FFC56B;font-weight:800;margin:6px 0 0"></p><p class="meter-t" id="meterText">0 of 9 steps done</p>
+  <p class="meter-t" id="meterText">0 of 9 steps done</p>
   <div class="stops" id="stops"></div>
   <p class="tag" style="margin-top:16px"><a href="../index.html" style="color:#FFC56B">← Back to Joint Release</a></p>
 </nav>
@@ -244,7 +243,6 @@ const W=[
  doit:`Write a short note to yourself from eight weeks ago. What would you tell that person?`,
  q:['What is the best way to keep a habit?',['Wait until you feel like it','Tie it to something you already do','Do it only on good days'],1,'Right. “After coffee, I walk.” Simple hooks make habits stick.']}
 ];
-const PIC={'week-2':['walk.jpg','A woman walking along a park path'],'week-3':['chair.jpg','A man seated on a chair, straightening one leg in a gentle exercise'],'week-4':['bowl.jpg','A home-cooked bowl of salmon, vegetables, chickpeas and brown rice'],'week-5':['hands.jpg','An older person gently stretching the fingers of one hand']};
 const LETTERS=[['R','Reassure','Understand your pain','week-1'],['E','Ease in','Gentle movement','week-2'],['L','Load wisely','Build strong helpers','week-3'],['E','Eat','Food that loves you back','week-4'],['A','Adapt','Work smarter','week-5'],['S','Sleep & soothe','Calm the alarm','week-6'],['E','Endure','Your flare-up plan','week-7']];
 
 /* ---------- bonus theater ---------- */
@@ -271,7 +269,6 @@ function nav(route){
   $('#stops').innerHTML=items.map(([id,n,t])=>`<a href="#${id}" class="${id===route?'on':''} ${d[id]?'done':''}"><span class="dot">${d[id]?'✓':n}</span><em>${t}</em></a>`).join('');
   const c=W.filter(w=>d[w.id]).length;
   $('#meterBar').style.width=(c/W.length*100)+'%';
-  $('#meterStars').textContent='★ '+stars();
   $('#meterText').textContent=c===W.length?`All ${W.length} steps done. Wonderful!`:`${c} of ${W.length} steps done`;
 }
 function home(){
@@ -304,8 +301,7 @@ function home(){
 }
 function week(w){
   const i=W.indexOf(w),nx=W[i+1],d=done()[w.id];
-  return `${PIC[w.id]?`<img class="lesson-pic" src="../../images/${PIC[w.id][0]}" alt="${PIC[w.id][1]}">`:''}
-  <section class="card hero"><span class="eyebrow">Step ${i+1} of ${W.length}</span><h1>${w.title}</h1><p class="heart">${w.hug}</p></section>
+  return `<section class="card hero"><span class="eyebrow">Step ${i+1} of ${W.length}</span><h1>${w.title}</h1><p class="heart">${w.hug}</p></section>
   <section class="card"><span class="eyebrow">The big idea</span><h2>${w.big}</h2></section>
   <section class="card"><span class="eyebrow">Memory word</span><h2>${w.acro[0].split('').join(' · ')}</h2><p>${w.acro[1]}</p>
     <div class="acro">${w.acro[2].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div></section>
