@@ -35,7 +35,7 @@ var COURSE_URL = '';   // The Joint Release Course
   fab.innerHTML = '<span class="jr-burger" aria-hidden="true"></span>';
   var shade = document.createElement('div'); shade.className = 'jr-shade';
   var drawer = document.createElement('aside'); drawer.className = 'jr-drawer'; drawer.setAttribute('aria-label', 'Menu');
-  drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><div class="jr-lock">' + MARK + '<span><b>Joint Release</b></span></div>' +
+  drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><div class="jr-lock">' + MARK + '<span><b>Gentle Joint Care</b></span></div>' +
     ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (i[0] === here ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('');
   document.body.appendChild(fab); document.body.appendChild(shade); document.body.appendChild(drawer);
   function toggle(open) { document.documentElement.classList.toggle('jr-open', open); }
