@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Joint Release Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: calm sea-mist world; a left "path" of 9 stops, one roomy reading column, soft raised cards */
+  --mist:#eaf3f1;      /* page */
+  --paper:#ffffff;     /* cards */
+  --ink:#143531;       /* text */
+  --soft:#4d6b66;      /* secondary text */
+  --sea:#1c7f72;       /* accent */
+  --sea-deep:#0f5a51;
+  --glow:#f4b266;      /* warm highlight */
+  --line:#cfe1dd;
+  --good:#2e8b57; --warn:#b4571f;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Nunito Sans","Segoe UI",system-ui,sans-serif;
+  --lift:0 1px 0 #fff inset,0 10px 30px -12px rgba(20,53,49,.28),0 2px 6px rgba(20,53,49,.08);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--mist);color:var(--ink);font:400 18px/1.65 var(--body);
+  background-image:radial-gradient(60rem 30rem at 90% -10%,#d3ece6 0,transparent 60%),radial-gradient(40rem 26rem at -10% 30%,#fbe9d2 0,transparent 55%);background-attachment:fixed}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700}
+h3{font-size:1.25rem;font-weight:500}
+p{margin:0;max-width:65ch}
+a{color:var(--sea-deep);font-weight:600}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:8px}
+.shell{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:100%}
+nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:22px 16px;background:linear-gradient(180deg,#0f5a51,#12403a);color:#eaf6f3}
+.brand{font-family:var(--display);font-size:1.5rem;font-weight:700;display:flex;gap:10px;align-items:center}
+.brand i{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe2b5,var(--glow) 60%,#d98a35);box-shadow:0 0 0 6px rgba(244,178,102,.18)}
+.tag{font-size:.9rem;opacity:.8;margin:6px 0 16px}
+.meter{background:rgba(255,255,255,.15);border-radius:99px;height:10px;overflow:hidden}
+.meter b{display:block;height:100%;background:var(--glow);border-radius:99px;transition:width .5s}
+.meter-t{font-size:.85rem;margin:6px 0 14px;opacity:.9}
+.stops{display:flex;flex-direction:column;gap:4px}
+.stops a{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:12px;color:#eaf6f3;text-decoration:none;font-weight:600;font-size:.98rem}
+.stops a:hover{background:rgba(255,255,255,.1)}
+.stops a.on{background:#eaf6f3;color:var(--sea-deep)}
+.dot{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.85rem;background:rgba(255,255,255,.16)}
+a.on .dot{background:var(--sea);color:#fff}
+a.done .dot{background:var(--glow);color:#3b2506}
+main{padding:28px clamp(16px,4vw,56px) 80px;display:flex;flex-direction:column;gap:22px;max-width:980px}
+.card{background:var(--paper);border-radius:22px;padding:clamp(18px,3vw,30px);box-shadow:var(--lift);display:flex;flex-direction:column;gap:14px}
+.hero{background:linear-gradient(135deg,#ffffff 0,#e3f3ef 100%);position:relative;overflow:hidden}
+.hero svg{position:absolute;right:-10px;bottom:-6px;width:min(46%,330px);opacity:.95}
+.hero>*:not(svg){position:relative;max-width:56ch}
+.eyebrow{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;color:var(--sea)}
+.lead{font-size:1.15rem;color:var(--soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--sea);color:#fff;border:0;border-radius:14px;padding:13px 20px;font-weight:800;text-decoration:none;box-shadow:0 6px 0 var(--sea-deep);transition:transform .1s,box-shadow .1s;align-self:flex-start}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--sea-deep)}
+.btn.alt{background:#fff;color:var(--sea-deep);box-shadow:0 6px 0 var(--line);border:2px solid var(--line)}
+.letters{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:12px}
+.letter{background:var(--paper);border-radius:18px;padding:14px;text-decoration:none;color:var(--ink);box-shadow:var(--lift);display:flex;flex-direction:column;gap:2px;transition:transform .2s}
+.letter:hover{transform:translateY(-4px) rotate(-1deg)}
+.letter b{font-family:var(--display);font-size:2.4rem;color:var(--sea);line-height:1}
+.letter span{font-weight:800}
+.letter small{color:var(--soft);font-size:.85rem;line-height:1.3}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.stat{background:#f2f8f6;border-radius:16px;padding:16px;border-left:6px solid var(--sea)}
+.stat b{font-family:var(--display);font-size:2rem;display:block;color:var(--sea-deep);font-variant-numeric:tabular-nums}
+.stat small{color:var(--soft)}
+.acro{display:flex;flex-direction:column;gap:8px}
+.acro div{display:flex;gap:12px;align-items:flex-start;background:#f2f8f6;border-radius:14px;padding:10px 14px}
+.acro b{font-family:var(--display);font-size:1.6rem;color:var(--sea);width:1.2em;flex:none;line-height:1.2}
+.heart{background:#fff6ea;border-radius:16px;padding:16px 18px;border:2px dashed #f0cfa0}
+ul,ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px;max-width:65ch}
+.try{background:linear-gradient(135deg,#0f5a51,#1c7f72);color:#fff;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.try a{color:#ffe2b5}
+.quiz button{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:8px;color:var(--ink)}
+.quiz button.right{border-color:var(--good);background:#e8f6ee}
+.quiz button.wrong{border-color:var(--warn);background:#fdf0e6}
+.quiz .fb{margin-top:10px;font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.98rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:800;color:var(--sea-deep)}
+.checks label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.checks input{width:22px;height:22px;accent-color:var(--sea);flex:none;margin-top:3px}
+input[type=range]{width:100%;accent-color:var(--sea)}
+.bars{display:flex;gap:6px;align-items:flex-end;height:70px}
+.bars i{flex:1;background:var(--sea);border-radius:6px 6px 0 0;min-height:4px;opacity:.85}
+.note{font-size:.92rem;color:var(--soft)}
+.safety{border-left:6px solid var(--warn);background:#fff8f2}
+.chart text{font:600 13px var(--body);fill:var(--ink)}
+.vid{justify-content:space-between;background:#f2f8f6;border-radius:14px;padding:10px 14px}
+.watch{background:#fff;border:2px solid var(--sea);color:var(--sea-deep);border-radius:99px;padding:6px 14px;font-weight:800}
+.watch.seen{background:var(--glow);border-color:var(--glow);color:#3b2506}
+a.watch{text-decoration:none}
+.bonus summary{display:flex;gap:14px;align-items:center;cursor:pointer;list-style:none}
+.bonus summary::-webkit-details-marker{display:none}
+.bnum{flex:none;background:var(--glow);color:#3b2506;font-weight:800;border-radius:12px;padding:8px 12px;white-space:nowrap}
+.btitle{font-family:var(--display);font-size:1.3rem;font-weight:700;display:flex;flex-direction:column;flex:1}
+.btitle small{font-family:var(--body);font-size:.85rem;font-weight:600;color:var(--soft)}
+.bstar{color:#b9741c;font-size:1.5rem}
+.theater{background:#0c2b27;border-radius:20px;padding:10px;box-shadow:0 18px 40px -14px rgba(12,43,39,.6)}
+.tbar{display:flex;align-items:center;gap:10px;color:#cfe8e2;font-weight:800;font-size:.9rem;padding:4px 8px 10px}
+.tbar i{width:14px;height:14px;border-radius:50%;background:var(--glow)}
+.tbar span{margin-left:auto;font-weight:600;opacity:.75}
+.screen{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 30% 25%,#2aa392,#0f5a51 60%,#0a3a34);display:grid;place-items:center}
+.screen iframe{width:100%;height:100%;border:0;display:block}
+.play{background:none;border:0;color:#fff;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:800}
+.play b{width:84px;height:84px;border-radius:50%;background:var(--glow);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(244,178,102,.22);transition:transform .2s}
+.play b::after{content:"";border-left:26px solid #3b2506;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:7px}
+.play:hover b{transform:scale(1.08)}
+.starcount{font-family:var(--display);font-size:2rem;color:#b9741c;font-weight:700}
+.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:10px}
+.badge{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;text-decoration:none;color:var(--soft);padding:12px 6px;border-radius:16px;border:2px dashed var(--line)}
+.badge b{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#e4eeeb;font-family:var(--display);font-size:1.3rem;color:var(--soft)}
+.badge small{font-size:.8rem;line-height:1.2;font-weight:600}
+.badge.lit{border:2px solid var(--glow);background:#fff6ea;color:var(--ink)}
+.badge.lit b{background:radial-gradient(circle at 35% 30%,#ffe2b5,var(--glow) 65%,#d98a35);color:#3b2506;box-shadow:0 0 0 5px rgba(244,178,102,.25)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);background:var(--ink);color:#fff;border-radius:18px;padding:14px 20px;display:flex;gap:12px;align-items:center;max-width:min(92vw,520px);box-shadow:0 14px 40px rgba(0,0,0,.3);transition:transform .45s cubic-bezier(.2,1.3,.4,1);z-index:10}
+#toast.show{transform:translate(-50%,0)}
+#toast b{color:var(--glow);font-size:1.15rem;white-space:nowrap}
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr}
+  nav{position:static;height:auto;padding:14px 16px}
+  .stops{flex-direction:row;overflow-x:auto;padding-bottom:6px}
+  .stops a{flex:none}
+  .stops a em{display:none}
+  .hero svg{position:static;width:60%;align-self:flex-end}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+em{font-style:normal}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav aria-label="Course path">
+  <div class="brand"><i></i>Joint Release</div>
+  <p class="tag">The R.E.L.E.A.S.E. Method · 8 gentle weeks</p>
+  <div class="meter"><b id="meterBar" style="width:0%"></b></div>
+  <p class="meter-t" id="meterText">0 of 9 steps done</p>
+  <div class="stops" id="stops"></div>
+</nav>
+<main id="view"></main>
+</div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ---------- tiny safe storage ---------- */
+const mem={};
+const store={get(k,d){try{const v=localStorage.getItem('jr_'+k);return v?JSON.parse(v):(k in mem?mem[k]:d)}catch(e){return k in mem?mem[k]:d}},
+  set(k,v){mem[k]=v;try{localStorage.setItem('jr_'+k,JSON.stringify(v))}catch(e){}}};
+
+/* ---------- course content ---------- */
+const W=[
+{id:'week-0',n:'★',nav:'Welcome',title:'Welcome. We are glad you are here.',
+ hug:`Living with sore joints is hard. Some days it can feel like your body is not on your side. You are not broken, and you are not alone. About 1 in 5 adults lives with arthritis. This course walks beside you, one small step at a time.`,
+ big:`You do not have to fix everything. You only have to do one small thing today.`,
+ acro:['START','How to use this course',[['S','<b>Small steps.</b> Each week has one big idea and one tiny action.'],['T','<b>Ten minutes.</b> That is all a lesson asks of you.'],['A','<b>Ask your doctor.</b> Tell them you are starting. Bring the question sheet from the Toolkit.'],['R','<b>Rate your day.</b> Use the feelings slider on the Home page.'],['T','<b>Tick it off.</b> Press “I did it” to fill your progress bar.']]],
+ body:`<h3>Is this course right for me?</h3><p>Yes, if you have osteoarthritis or everyday joint pain in your knees, hips, hands or back, and you want to feel and move better.</p><p>If you have rheumatoid arthritis, psoriatic arthritis, gout or lupus, you can still use these habits. You also need medicine from your doctor to protect your joints. Please keep taking it.</p>`,
+ doit:`Write down one thing you miss doing. Gardening? Playing on the floor with a grandchild? Walking to the mailbox without stopping? That is your <b>“why.”</b> Keep it where you can see it.`,
+ q:['What does this course ask you to do each day?',['Fix everything at once','One small thing','Push through bad pain'],1,'One small thing, done often, beats one big thing done once.']},
+{id:'week-1',n:'R',nav:'Reassure',title:'Week 1 · Reassure: understand your pain',
+ hug:`Pain is scary when you do not know what it means. This week we take the fear away. When you understand pain, it loses some of its power.`,
+ big:`Hurt does not always mean harm. A sore joint is still a strong joint, and gentle movement is how it gets fed.`,
+ acro:['SAFE','Four truths about joint pain',[['S','<b>Sore is not the same as damaged.</b> Pain is an alarm. Sometimes the alarm is set too loud.'],['A','<b>Activity feeds the joint.</b> Cartilage has no blood supply. Movement squeezes fluid in and out, like a sponge.'],['F','<b>Flare-ups pass.</b> A bad day is a bad day. It is not the new normal.'],['E','<b>Everyone has their own pace.</b> Your path is yours. No comparing.']]],
+ body:`<h3>What is arthritis, really?</h3><p>A joint is where two bones meet. The ends are covered in a smooth cushion called cartilage. In osteoarthritis, the whole joint changes over time: the cushion, the bone, and the muscles around it. Doctors used to call it “wear and tear.” Today they know the joint is always repairing itself, and the right kind of movement helps that repair.</p><h3>The traffic light for pain</h3><ul><li><b>Green (0–2 out of 10):</b> safe. Keep going.</li><li><b>Yellow (3–5):</b> okay. This is normal when you start moving more.</li><li><b>Red (6 or more):</b> ease off. Do less today and try again tomorrow.</li></ul>`,
+ doit:`Use the feelings slider on the Home page today. That number is your starting line. In eight weeks we will look back at it together.`,
+ q:['How does cartilage get its food?',['From blood vessels','From movement squeezing fluid in and out','From resting all day'],1,'Right. Motion is lotion. Gentle movement feeds the joint.']},
+{id:'week-2',n:'E',nav:'Ease in',title:'Week 2 · Ease in: gentle movement',
+ hug:`If moving has hurt before, it makes sense to be careful. We will start so small it feels almost too easy. That is on purpose.`,
+ big:`Walking is medicine for joints. Start with what you can do today, even if it is two minutes.`,
+ acro:['WARM','Your walking plan',[['W','<b>Walk a little.</b> Start with 5 minutes, or less. Indoors counts.'],['A','<b>Add a minute.</b> Each week, add 1–2 minutes per walk.'],['R','<b>Rest when you need to.</b> Sitting down for a moment is smart.'],['M','<b>Mark it down.</b> Tick your walks in the Toolkit planner.']]],
+ body:`<h3>The 2-hour rule</h3><p>A little extra soreness after moving is normal. If your pain is worse than usual for more than 2 hours afterward, you did a bit too much. Next time, do a little less. You did not hurt yourself.</p><h3>Good choices for sore joints</h3><ul><li>Walking on flat ground</li><li>Water walking or swimming (the water carries your weight)</li><li>A bike or pedal exerciser</li><li>Tai chi (slow, flowing moves you can even do in a chair)</li></ul><p>Walk With Ease, a 6-week walking program from the Arthritis Foundation, is built on the same idea: walk, stretch, learn, and stay motivated.</p>`,
+ vids:[['Try a free tai chi lesson with Dr Paul Lam (YouTube)','https://www.youtube.com/watch?v=tAOuEpa01j4'],['Seated exercises you can do in a chair (Versus Arthritis)','https://versusarthritis.org/news/2023/september/exercises-you-can-do-sitting-down']],
+ doit:`Take one 5-minute walk today. Around the house is fine. When you finish, say out loud: “I just fed my joints.”`,
+ q:['Your knee is a bit more sore for one hour after a walk. What does that mean?',['You damaged it','That is normal. Keep going.','You should stop walking for good'],1,'Yes. Under 2 hours of extra soreness is your body getting used to moving.']},
+{id:'week-3',n:'L',nav:'Load wisely',title:'Week 3 · Load wisely: build strong helpers',
+ hug:`Muscles are your joints’ helpers. When they get stronger, your joints carry less of the load. You are never too old to get stronger. People in their 90s do.`,
+ big:`Strong muscles act like shock absorbers. Two or three short sessions a week is enough.`,
+ acro:['LIFT','How to get stronger safely',[['L','<b>Low and slow.</b> Move slowly. Count 3 up and 3 down.'],['I','<b>In the yellow zone.</b> Pain up to 5 out of 10 is okay. More than that, ease off.'],['F','<b>Few first.</b> Start with 5 of each move. Work up to 10.'],['T','<b>Two or three days a week.</b> Rest a day in between.']]],
+ body:`<h3>The Kitchen Counter Six</h3><p>Hold a counter or sturdy chair for balance.</p><ol><li><b>Sit to stand.</b> Stand up from a chair and sit back down slowly.</li><li><b>Heel raises.</b> Rise onto your toes, then lower.</li><li><b>Seated knee straighten.</b> Sit tall, straighten one leg, hold 3 seconds.</li><li><b>Side leg lift.</b> Stand tall, lift one leg out to the side.</li><li><b>Wall push-up.</b> Hands on the wall, bend and straighten your arms.</li><li><b>Soft squeeze.</b> Squeeze a soft ball or rolled sock for sore hands.</li></ol><p>A physical therapist can check your form and adjust these moves for you. Guidelines say exercise works even better with a little coaching.</p>`,
+ vids:[['Follow-along strength sessions with Leon and his mum (Versus Arthritis)','https://versusarthritis.org/about-arthritis/exercising-with-arthritis/resistance-band-workout-sessions']],
+ doit:`Do 5 sit-to-stands from your favorite chair. That is it. You just did strength training.`,
+ q:['How often should you do strength moves?',['Every hour','2 or 3 days a week','Once a month'],1,'Right. Muscles grow on the rest days in between.']},
+{id:'week-4',n:'E',nav:'Eat',title:'Week 4 · Eat: food that loves you back',
+ hug:`This is not a diet, and no food is “bad.” We are adding good things to your plate. Nobody is taking joy away from you.`,
+ big:`For knees and hips, every pound you lose takes about four pounds of pressure off your knees with each step.`,
+ acro:['PLATE','Build a joint-friendly plate',[['P','<b>Plants on half.</b> Vegetables, fruit, beans. Lots of colors.'],['L','<b>Lean protein.</b> Chicken, eggs, beans, yogurt. Protein feeds your muscles.'],['A','<b>A fish night or two.</b> Salmon, sardines, tuna. They carry omega-3 fats.'],['T','<b>Tasty good fats.</b> Olive oil, nuts, avocado.'],['E','<b>Ease off sugary drinks.</b> Swap one soda for water with lemon.']]],
+ body:`<h3>Kitchen comforts: what the science says</h3><div class="tablewrap"><table><tr><th>Remedy</th><th>What we know</th></tr><tr><td>Heat and cold packs</td><td>Recommended in the U.S. arthritis guidelines. Safe and cheap.</td></tr><tr><td>Chili-pepper cream (capsaicin)</td><td>Guidelines suggest it for knees. It tingles at first. Wash your hands after.</td></tr><tr><td>Turmeric and ginger in food</td><td>Lovely in cooking. Research on pills is still small and mixed. Ask your pharmacist first if you take blood thinners.</td></tr><tr><td>Glucosamine pills</td><td>Arthritis doctors advise against them. Studies did not show they work.</td></tr><tr><td>“Miracle cures”</td><td>If something promises to cure arthritis, please keep your money. Nothing cures it yet. Many things help.</td></tr></table></div>`,
+ doit:`Add one color to one meal today. A handful of berries, some spinach in your eggs, or carrots on the side.`,
+ q:['If you lose 1 pound, about how much pressure comes off your knee with each step?',['1 pound','4 pounds','None'],1,'Yes, about 4 pounds. Lose 10 pounds and each knee carries about 48,000 pounds less for every mile you walk.']},
+{id:'barbara',n:'♥',nav:'Barbara’s corner',title:'Bonus · Barbara O’Neill’s comfort remedies',
+ hug:`Many of you found us because you love Barbara O’Neill’s gentle, back-to-nature way of caring for the body. This lesson gathers her best-known comfort ideas for sore joints, with a kind and honest note on what research says about each one.`,
+ big:`Warmth, touch and a quiet moment to care for yourself can feel wonderful. Use these as comforts alongside your moving, eating and sleeping habits.`,
+ acro:['SOOTHE','How to make a castor oil compress, the way Barbara teaches it',[['S','<b>Start with a skin test.</b> Dab a little oil on your inner arm. Wait a day. No rash? Go ahead.'],['O','<b>Oil on a cloth.</b> Soak a piece of cotton or flannel in castor oil.'],['O','<b>On the sore joint.</b> Lay the cloth over your knee, hand or hip. Cover it with an old towel. The oil stains.'],['T','<b>Top with gentle warmth.</b> A warm (not hot) water bottle or heat pack on top.'],['H','<b>Hold for 20–30 minutes.</b> Rest. Breathe slow. This is your time.'],['E','<b>Ease off if it stings.</b> Red, itchy or sore skin means stop and wash it off.']]],
+ body:`<h3>Barbara’s ideas, side by side with the science</h3><div class="tablewrap"><table><tr><th>What Barbara teaches</th><th>What we know so far</th></tr>
+ <tr><td><b>Castor oil compress</b> on sore joints</td><td>No good studies show it treats arthritis. The warmth and rest can feel soothing, and heat is in the official guidelines. Safe for most people on unbroken skin.</td></tr>
+ <tr><td><b>Cayenne pepper</b> to bring blood to the area</td><td>The active part, capsaicin, is suggested in U.S. guidelines as a cream for knees. Homemade cayenne mixes can burn skin. A store-bought capsaicin cream is the safer way.</td></tr>
+ <tr><td><b>Ginger and turmeric</b>, in food or as a warm poultice</td><td>Small studies are mixed. Lovely in food. Ask a pharmacist before taking pills, especially with blood thinners.</td></tr>
+ <tr><td><b>Potato, onion and other poultices</b></td><td>No research for arthritis. A warm poultice is a gentle comfort and unlikely to harm unbroken skin.</td></tr>
+ <tr><td><b>“More blood flow speeds healing”</b></td><td>This matches the science in one big way: movement brings blood to muscles and feeds your joints. Walking is the strongest blood-flow remedy there is.</td></tr></table></div>
+ <h3>An honest word, because we care about you</h3><p>Barbara is a natural-health teacher. She is not a doctor, and in 2019 Australia’s health regulator barred her from giving health services there. Some videos that carry her name promise to “heal” or “reverse” arthritis fast. No remedy has been shown to do that. Please enjoy these as comforts, keep your doctor in the loop, and never stop a prescribed medicine for them.</p>`,
+ vids:[['Barbara O’Neill on castor oil for sore joints (YouTube)','https://www.youtube.com/watch?v=BDq0kej3C14'],['Barbara O’Neill’s full lecture on poultices (YouTube)','https://www.youtube.com/watch?v=uVLGsqysQcs']],
+ doit:`Give yourself 20 quiet minutes with a warm compress on your sorest joint. Put on music you love. You have earned it.`,
+ q:['What should you do before putting a new oil on your skin?',['Use a lot right away','Test a little on your inner arm and wait a day','Heat it until very hot'],1,'Yes. A small skin test keeps you safe.']},
+{id:'week-5',n:'A',nav:'Adapt',title:'Week 5 · Adapt: work smarter, not harder',
+ hug:`Using a tool or taking a break is not giving up. It is how you keep doing the things you love.`,
+ big:`Spread your energy across the day like butter on toast. Do not use it all in one corner.`,
+ acro:['PACE','Save your energy',[['P','<b>Plan.</b> Pick your top 3 tasks for the day. The rest can wait.'],['A','<b>Alternate.</b> Switch between heavy jobs and light jobs.'],['C','<b>Chunk it.</b> Clean one room, then rest. Garden 15 minutes, then sit.'],['E','<b>Ease the joint.</b> Use tools that do the hard part for you.']]],
+ body:`<h3>Little helpers that make a big difference</h3><ul><li><b>A cane</b> in the hand <em>opposite</em> your sore hip or knee. Guidelines strongly recommend it.</li><li><b>Jar openers and fat-grip pens</b> for sore hands.</li><li><b>Cushioned, supportive shoes.</b></li><li><b>A warm shower in the morning</b> to melt stiffness.</li><li><b>A cold pack for 15 minutes</b> on a hot, puffy joint. Wrap it in a cloth.</li></ul><h3>Boom and bust</h3><p>On a good day, it is tempting to do everything. Then you pay for it for three days. Try stopping while you still feel good. Tomorrow you will thank yourself.</p>`,
+ doit:`Pick one job you dread. Cut it in half and put a 10-minute rest in the middle.`,
+ q:['Which hand should hold the cane?',['The same side as the sore leg','The opposite side from the sore leg','Either, it does not matter'],1,'Opposite side. The cane and the sore leg move forward together.']},
+{id:'week-6',n:'S',nav:'Sleep & soothe',title:'Week 6 · Sleep and soothe: calm the alarm',
+ hug:`Pain makes it hard to sleep, and poor sleep makes pain louder. That loop is exhausting. This week we gently loosen it.`,
+ big:`A calm body feels less pain. Sleep and slow breathing turn the pain alarm down.`,
+ acro:['CALM','Better nights, softer days',[['C','<b>Cool, dark room.</b> A pillow between your knees can help hips and backs.'],['A','<b>A set bedtime.</b> Same time each night, even weekends.'],['L','<b>Let go with your breath.</b> In for 4, out for 6. Do it five times.'],['M','<b>Move in the daytime.</b> A walk today is better sleep tonight.']]],
+ body:`<h3>The 4–6 breath</h3><ol><li>Sit or lie down. Put a hand on your belly.</li><li>Breathe in through your nose while you count to 4.</li><li>Breathe out slowly while you count to 6.</li><li>Repeat five times.</li></ol><h3>You matter too</h3><p>Feeling sad, worried or fed up is common with long-term pain. Talking helps. Guidelines suggest a kind of talking therapy called CBT for people with arthritis. If your mood stays low for two weeks, please tell your doctor. That takes courage, and it is the right thing to do.</p>`,
+ vids:[['More gentle tai chi from the Arthritis Society Canada','https://arthritis.ca/healthy-living/tai-chi-to-help-arthritis/']],
+ doit:`Tonight, do five rounds of the 4–6 breath in bed.`,
+ q:['Which breath calms the body?',['Short fast breaths','In for 4, out for 6','Holding your breath'],1,'Right. A long, slow breath out tells your body it is safe.']},
+{id:'week-7',n:'E',nav:'Endure',title:'Week 7 · Endure: your flare-up plan',
+ hug:`Flare-ups happen to everyone, even people doing everything right. A flare does not erase your progress.`,
+ big:`A flare is a storm, and storms pass. Having a plan makes them shorter and less scary.`,
+ acro:['RESET','What to do on a bad day',[['R','<b>Rest a little.</b> Cut your activity in half. Do not stop completely.'],['E','<b>Ease with heat or cold.</b> 15 minutes at a time.'],['S','<b>Simplify the day.</b> Top 1 task only. Ask for help.'],['E','<b>Ease back in.</b> When it settles, build back up over a few days.'],['T','<b>Tell your doctor</b> if it is not better in a week, or sooner if you see a red flag.']]],
+ body:`<h3>Red flags: call your doctor today</h3><ul><li>A joint that is hot, red and very swollen, especially with a fever</li><li>Sudden, severe pain after a fall or injury</li><li>You cannot put weight on your leg</li><li>New numbness, weakness, or loss of bladder or bowel control</li><li>Chest pain or trouble breathing while moving (call emergency services)</li></ul><h3>About pain medicine</h3><p>Creams and gels like diclofenac are recommended for knees and hands. Pills can help too. Your doctor or pharmacist knows which are safe with your other medicines. Never stop a prescribed medicine without asking them.</p>`,
+ doit:`Fill in your flare plan in the Toolkit. Put it on the fridge.`,
+ q:['During a flare, what is the best plan?',['Stay in bed all week','Do about half as much and ease back in','Push harder'],1,'Yes. Gentle movement, less of it, then build back.']},
+{id:'week-8',n:'★',nav:'Keep going',title:'Week 8 · Keep going: your life, your pace',
+ hug:`Look how far you have come. Eight weeks ago you took one small step. Now you have a whole set of tools. We are proud of you.`,
+ big:`You are now the expert on your own joints. Keep the habits that helped and let the rest go.`,
+ acro:['GROW','Make it last',[['G','<b>Goal.</b> Pick one thing for the next month. Go back to your “why.”'],['R','<b>Routine.</b> Tie it to something you already do. “After coffee, I walk.”'],['O','<b>Others.</b> Walk with a friend. Join a class. It is easier together.'],['W','<b>Win.</b> Notice every small win. Tell someone.']]],
+ body:`<h3>Look back</h3><p>Go to the Home page and check your feelings chart. Even one point lower is real progress. If your number is the same but you are doing more, that is progress too.</p><h3>Where to go next</h3><ul><li>Ask your doctor about a local program like GLA:D, Walk With Ease, or Tai Chi for Arthritis.</li><li>See a physical therapist for a plan made just for you.</li><li>Come back to any week whenever you need it.</li></ul>`,
+ vids:[['Find a proven arthritis program near you (CDC list)','https://www.cdc.gov/arthritis/programs']],
+ doit:`Write a short note to yourself from eight weeks ago. What would you tell that person?`,
+ q:['What is the best way to keep a habit?',['Wait until you feel like it','Tie it to something you already do','Do it only on good days'],1,'Right. “After coffee, I walk.” Simple hooks make habits stick.']}
+];
+const LETTERS=[['R','Reassure','Understand your pain','week-1'],['E','Ease in','Gentle movement','week-2'],['L','Load wisely','Build strong helpers','week-3'],['E','Eat','Food that loves you back','week-4'],['A','Adapt','Work smarter','week-5'],['S','Sleep & soothe','Calm the alarm','week-6'],['E','Endure','Your flare-up plan','week-7']];
+
+/* ---------- bonus theater ---------- */
+const BT={tAOuEpa01j4:['Gentle Tai Chi for Sore Joints','A follow-along lesson with Dr Paul Lam. Slow, flowing moves you can do standing or in a chair.'],
+  BDq0kej3C14:['Barbara’s Castor Oil Comfort','Barbara O’Neill shows how she uses a castor oil compress on sore knees.'],
+  uVLGsqysQcs:['Barbara’s Poultice Class','Barbara O’Neill’s full lecture on making poultices at home.']};
+const BON=W.flatMap(w=>(w.vids||[]).filter(v=>v[1].includes('youtube.com/watch')).map(v=>{const id=v[1].split('v=')[1];return{u:v[1],id,t:BT[id][0],s:BT[id][1],from:w.nav}}));
+let openBonus=0;
+function bonuses(){
+  const s=store.get('watched',{});
+  return `<section class="card hero"><span class="eyebrow">Your gifts</span><h1>The Bonus Theater</h1><p class="lead">Each bonus is a video picked to go with your lessons. Tap a bonus to open it, then press play. Watch one to earn a star.</p></section>
+  ${BON.map((b,i)=>`<details class="card bonus" name="bonus" ${i===openBonus?'open':''}><summary><span class="bnum">Bonus ${i+1}</span><span class="btitle">${b.t}<small>Goes with: ${b.from}</small></span><span class="bstar">${s[b.u]?'★':''}</span></summary>
+    <p>${b.s}</p>
+    <div class="theater"><div class="tbar"><i></i>Joint Release Theater<span>Bonus ${i+1} of ${BON.length}</span></div>
+      <div class="screen" id="screen${i}"><button class="play" data-i="${i}" aria-label="Play ${b.t}"><b></b><span>Press play</span></button></div></div>
+    <div class="row"><button class="watch ${s[b.u]?'seen':''}" data-u="${b.u}">${s[b.u]?'★ Watched':'I watched it'}</button>${BON[i+1]?`<button class="btn alt nextb" data-i="${i+1}">Next: Bonus ${i+2} →</button>`:''}</div>
+    <p class="note">Video not showing? <a href="${b.u}" target="_blank" rel="noopener">Open it in a new tab</a>.</p></details>`).join('')}`;
+}
+/* ---------- views ---------- */
+const $=s=>document.querySelector(s);
+const done=()=>store.get('done',{});
+function nav(route){
+  const d=done(),items=[['home','⌂','Home'],...W.map(w=>[w.id,w.n,w.nav]),['bonuses','▶','Bonus Theater'],['toolkit','✎','Toolkit'],['science','%','The science']];
+  $('#stops').innerHTML=items.map(([id,n,t])=>`<a href="#${id}" class="${id===route?'on':''} ${d[id]?'done':''}"><span class="dot">${d[id]?'✓':n}</span><em>${t}</em></a>`).join('');
+  const c=W.filter(w=>d[w.id]).length;
+  $('#meterBar').style.width=(c/W.length*100)+'%';
+  $('#meterText').textContent=c===W.length?`All ${W.length} steps done. Wonderful!`:`${c} of ${W.length} steps done`;
+}
+function home(){
+  const log=store.get('log',[]);
+  const next=W.find(w=>!done()[w.id])||W[W.length-1];
+  return `<section class="card hero">
+    <span class="eyebrow">An 8-week course for sore, stiff joints</span>
+    <h1>Move easier. Hurt less. Feel like you again.</h1>
+    <p class="lead">Ten minutes a day. Plain words. Steps so small you cannot fail. Built on the same science used by the world’s leading arthritis programs.</p>
+    <a class="btn" href="#${next.id}">${Object.keys(done()).length?'Continue':'Start here'}: ${next.nav} →</a>
+    <svg viewBox="0 0 330 220" aria-hidden="true"><circle cx="250" cy="70" r="46" fill="#f4b266"/><path d="M0 220V150q60-50 130-18t200-40v128z" fill="#bfe0d9"/><path d="M0 220v-40q90-40 170-10t160-20v70z" fill="#1c7f72"/><path d="M60 220q40-50 110-50t120-40" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 16"/></svg>
+  </section>
+  <section class="card"><h2>The R.E.L.E.A.S.E. Method</h2><p>Seven letters. Seven weeks. One caring plan. Tap a letter to visit that week.</p>
+    <div class="letters">${LETTERS.map(l=>`<a class="letter" href="#${l[3]}"><b>${l[0]}</b><span>${l[1]}</span><small>${l[2]}</small></a>`).join('')}</div></section>
+  <section class="card"><h2>How do your joints feel today?</h2>
+    <p>Slide to your number. 0 means no pain. 10 means the worst pain. There is no wrong answer.</p>
+    <input type="range" id="pain" min="0" max="10" value="${log.length?log[log.length-1].v:4}" aria-label="Pain today from 0 to 10">
+    <div class="row"><b id="painV" style="font-size:1.4rem"></b><button class="btn" id="savePain">Save today’s number</button></div>
+    <div class="bars" id="bars" aria-hidden="true"></div><p class="note" id="barsNote"></p>
+    <p class="note">Your numbers stay on this device only.</p></section>
+  <section class="card"><h2>Your rewards</h2><p>Finish a lesson to earn 3 stars and light up its badge. Watch a video to earn 1 more.</p>
+    <div class="row"><span class="starcount">★ ${stars()}</span><span class="note">${stars()?'Every star is a kind thing you did for your body.':'Your first star is waiting in the Welcome lesson.'}</span></div>
+    <div class="badges">${W.map(w=>`<a href="#${w.id}" class="badge ${done()[w.id]?'lit':''}"><b>${w.n}</b><small>${w.nav}</small></a>`).join('')}</div></section>
+  <section class="card"><h2>What is inside</h2><div class="grid2">
+    <div class="stat"><b>10</b>lessons with a kind word, a big idea, and a memory word<br><small>START, SAFE, WARM, LIFT, PLATE, SOOTHE, PACE, CALM, RESET, GROW</small></div>
+    <div class="stat"><b>10</b>tiny daily actions and quick check quizzes</div>
+    <div class="stat"><b>5</b>Toolkit pages: planner, flare plan, doctor questions, food swaps, video library</div>
+    <div class="stat"><b>8</b>research findings explained in plain words, with links</div></div></section>
+  <section class="card safety"><h3>A caring safety note</h3><p>This course teaches healthy habits. It does not replace your doctor, and it cannot diagnose or cure any condition. Please check with your doctor before starting new exercise, and keep taking your prescribed medicines.</p></section>`;
+}
+function week(w){
+  const i=W.indexOf(w),nx=W[i+1],d=done()[w.id];
+  return `<section class="card hero"><span class="eyebrow">Step ${i+1} of ${W.length}</span><h1>${w.title}</h1><p class="heart">${w.hug}</p></section>
+  <section class="card"><span class="eyebrow">The big idea</span><h2>${w.big}</h2></section>
+  <section class="card"><span class="eyebrow">Memory word</span><h2>${w.acro[0].split('').join(' · ')}</h2><p>${w.acro[1]}</p>
+    <div class="acro">${w.acro[2].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div></section>
+  <section class="card">${w.body}</section>
+  ${w.vids?`<section class="card"><span class="eyebrow">Watch and follow along</span>${w.vids.map(v=>{const b=BON.findIndex(x=>x.u===v[1]);return b>=0?`<div class="row vid"><span><b>Bonus ${b+1}</b> · ${BON[b].t}</span><a class="watch" href="#bonuses" data-open="${b}">Open in the Bonus Theater</a></div>`:`<div class="row vid"><span>▶ <a href="${v[1]}" target="_blank" rel="noopener">${v[0]}</a></span></div>`}).join('')}<p class="note">Bonus videos play right here in the course, in your Bonus Theater.</p></section>`:''}
+  <section class="try"><span class="eyebrow" style="color:#ffe2b5">Your one small thing today</span><p>${w.doit}</p></section>
+  <section class="card quiz" data-a="${w.q[2]}"><span class="eyebrow">Quick check</span><h3>${w.q[0]}</h3>
+    ${w.q[1].map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}<p class="fb" id="fb" role="status"></p></section>
+  <div class="row"><button class="btn" id="didit">${d?'✓ Done. Well done!':'I did it'}</button>${nx?`<a class="btn alt" href="#${nx.id}">Next: ${nx.nav} →</a>`:`<a class="btn alt" href="#toolkit">Open the Toolkit →</a>`}</div>`;
+}
+function toolkit(){
+  const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],p=store.get('plan',{}),f=store.get('flare',{});
+  const fl=[['My early warning signs','e.g. knee feels hot, I slept badly'],['What soothes me','e.g. heat pack, warm shower, 4–6 breath'],['The one task I will keep','e.g. short walk to the mailbox'],['Who I can ask for help','a name and phone number'],['I will call my doctor if','e.g. no better after 7 days']];
+  return `<section class="card hero"><span class="eyebrow">Toolkit</span><h1>Your helpers, all in one place</h1><p class="lead">Tick, type and come back anytime. Everything saves on this device.</p></section>
+  <section class="card"><h2>Weekly planner</h2><p>Tick each day you walk and each day you do your strength moves.</p><div class="tablewrap"><table><tr><th></th>${days.map(d=>`<th>${d}</th>`).join('')}</tr>
+    ${['Walk','Strength','4–6 breath'].map(r=>`<tr><th>${r}</th>${days.map(d=>`<td><input type="checkbox" class="pl" id="pl-${r[0]}-${d}" aria-label="${r} ${d}" ${p[r[0]+d]?'checked':''} data-k="${r[0]+d}" style="width:22px;height:22px;accent-color:var(--sea)"></td>`).join('')}</tr>`).join('')}</table></div></section>
+  <section class="card"><h2>My flare-up plan</h2>${fl.map((x,i)=>`<label for="fl${i}"><b>${x[0]}</b></label><input id="fl${i}" class="fl" data-k="${i}" placeholder="${x[1]}" value="${(f[i]||'').replace(/"/g,'&quot;')}" style="font:inherit;padding:12px;border:2px solid var(--line);border-radius:12px;width:100%">`).join('')}</section>
+  <section class="card"><h2>Questions for my doctor</h2><div class="checks">${['Which kind of arthritis do I have?','Is it safe for me to start walking and strength exercises?','Can you refer me to a physical therapist?','Which pain medicine or cream is safest with my other medicines?','Would losing some weight help my joints, and can you help me with that?','Is there a GLA:D, Walk With Ease or tai chi class near me?'].map((q,i)=>`<label for="dq${i}"><input type="checkbox" id="dq${i}"><span>${q}</span></label>`).join('')}</div></section>
+  <section class="card"><h2>Easy food swaps</h2><div class="tablewrap"><table><tr><th>Instead of</th><th>Try</th></tr><tr><td>Soda or sweet tea</td><td>Water with lemon or berries</td></tr><tr><td>Chips</td><td>A small handful of nuts</td></tr><tr><td>White bread</td><td>Whole-grain bread</td></tr><tr><td>Fried chicken</td><td>Baked chicken or fish</td></tr><tr><td>Candy</td><td>Fruit you love</td></tr></table></div></section>
+  <section class="card"><h2>More to explore</h2><p>Your videos live in the <a href="#bonuses">Bonus Theater</a>. These free pages from arthritis charities are good next stops.</p>${W.filter(w=>w.vids).flatMap(w=>w.vids).filter(v=>!v[1].includes('youtube.com/watch')).map(v=>`<p>▶ <a href="${v[1]}" target="_blank" rel="noopener">${v[0]}</a></p>`).join('')}</section>
+  <section class="card"><h2>Words made simple</h2><ul><li><b>Cartilage:</b> the smooth cushion on the ends of your bones.</li><li><b>Flare-up:</b> a few days when pain is worse than usual.</li><li><b>Inflammation:</b> swelling and heat. It is your body’s repair crew working overtime.</li><li><b>Osteoarthritis (OA):</b> the most common kind of arthritis.</li><li><b>Physical therapist (PT):</b> a movement expert who builds a plan just for you.</li></ul></section>`;
+}
+function science(){
+  return `<section class="card hero"><span class="eyebrow">The science, in plain words</span><h1>Why we trust these steps</h1><p class="lead">Everything in this course comes from published research and official arthritis guidelines. Here are the numbers.</p></section>
+  <section class="card"><h2>Exercise and learning lower pain</h2><p>GLA:D is a program from Denmark that pairs joint education with exercise classes. More than 60,000 people with knee or hip arthritis had joined by 2021. This chart shows average pain right after the course in the 2020 report.</p>
+    <svg class="chart" viewBox="0 0 520 200" role="img" aria-label="Average pain before and after GLA:D. Knee: 4.8 to 3.4. Hip: 4.8 to 3.7."><g>
+    <text x="0" y="38">Knee, before</text><rect x="120" y="22" width="${4.8*70}" height="24" rx="6" fill="#9fc9c1"/><text x="${128+4.8*70}" y="39">4.8</text>
+    <text x="0" y="74">Knee, after</text><rect x="120" y="58" width="${3.4*70}" height="24" rx="6" fill="#1c7f72"/><text x="${128+3.4*70}" y="75">3.4  (28% less)</text>
+    <text x="0" y="128">Hip, before</text><rect x="120" y="112" width="${4.8*70}" height="24" rx="6" fill="#9fc9c1"/><text x="${128+4.8*70}" y="129">4.8</text>
+    <text x="0" y="164">Hip, after</text><rect x="120" y="148" width="${3.7*70}" height="24" rx="6" fill="#1c7f72"/><text x="${128+3.7*70}" y="165">3.7  (23% less)</text>
+    <text x="120" y="194" style="font-weight:400;fill:#4d6b66">Pain on a 0–10 scale</text></g></svg>
+    <p class="note">Source: <a href="https://www.mq.edu.au/__data/assets/pdf_file/0003/1270416/annual-report-2020-eng-glad-denmark.pdf" target="_blank" rel="noopener">GLA:D Denmark Annual Report 2020</a>. These are averages. Your result may be different.</p></section>
+  <section class="card"><h2>More findings</h2><div class="grid2">
+    <div class="stat"><b>1 lb = 4 lb</b>Each pound lost took about four pounds of load off the knee per step.<br><small><a href="https://news.wfu.edu/?p=65959" target="_blank" rel="noopener">Wake Forest University, Messier 2005</a></small></div>
+    <div class="stat"><b>30% less pain</b>Older adults who combined diet and exercise for 18 months had 30% less knee pain and 24% better function.<br><small><a href="https://reliasmedia.com/articles/83546-taking-off-weight-takes-pressure-off-knees-feet" target="_blank" rel="noopener">ADAPT trial summary</a></small></div>
+    <div class="stat"><b>38% better</b>GLA:D Australia’s 2023 report found quality of life up 38% for knees and 24% for hips.<br><small><a href="https://timesnewsgroup.com.au/themooraboolnews/seniors/glad-good-life-with-arthritis-denmark" target="_blank" rel="noopener">News summary of the report</a></small></div>
+    <div class="stat"><b>30 months</b>The UK’s ESCAPE-pain program showed benefits lasting up to 30 months after it ended.<br><small><a href="https://versusarthritis.org/media/2082/evidence-review-panel-physical-activity-report-april-2016.pdf" target="_blank" rel="noopener">Arthritis Research UK review</a></small></div></div></section>
+  <section class="card"><h2>What the official guideline strongly recommends</h2><p>The American College of Rheumatology and the Arthritis Foundation reviewed the research together. Their strongest “yes” goes to:</p>
+    <ul><li>Exercise</li><li>Weight loss for knee or hip arthritis, if you carry extra weight</li><li>Self-management programs (like this course)</li><li>Tai chi</li><li>A cane when needed</li></ul>
+    <p class="note">Source: <a href="https://www.arthritis.org/diseases/more-about/guidelines-for-osteoarthritis-treatments" target="_blank" rel="noopener">Arthritis Foundation guideline summary</a>.</p></section>
+  <section class="card safety"><h3>Our promise to be honest</h3><p>No course, food or remedy can cure arthritis. What the research shows is that the right habits help many people hurt less and do more. That is what we teach.</p></section>`;
+}
+
+/* ---------- rewards ---------- */
+const PRAISE=['You showed up for yourself today. That takes heart.','One more step done. Your joints thank you.','Look at you go. Small steps add up.','That was real work, and you did it.','Beautiful. Be proud of yourself today.'];
+const stars=()=>Object.keys(done()).length*3+Object.keys(store.get('watched',{})).length;
+function celebrate(msg,pts){
+  const t=$('#toast');t.innerHTML=`<b>${pts}</b><span>${msg}</span>`;t.classList.add('show');
+  clearTimeout(celebrate.t);celebrate.t=setTimeout(()=>t.classList.remove('show'),4200);
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const c=$('#confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+  const cols=['#f4b266','#1c7f72','#ffffff','#9fd6cb','#e8743b'],P=Array.from({length:110},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.4,r:5+Math.random()*7,vy:2+Math.random()*4,vx:-1.5+Math.random()*3,a:Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)]}));
+  let n=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.a+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6);x.restore();});
+    if(++n<150)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height);})();
+}
+/* ---------- router + wiring ---------- */
+function drawBars(){
+  const log=store.get('log',[]).slice(-14),b=$('#bars');if(!b)return;
+  b.innerHTML=log.map(x=>`<i style="height:${Math.max(6,x.v*10)}%" title="${x.d}: ${x.v}"></i>`).join('');
+  $('#barsNote').textContent=log.length?`Your last ${log.length} check-in${log.length>1?'s':''}. First: ${log[0].v}. Latest: ${log[log.length-1].v}.`:'Your chart will grow here as you check in.';
+}
+function render(){
+  const r=(location.hash||'#home').slice(1),w=W.find(x=>x.id===r);
+  $('#view').innerHTML=w?week(w):r==='toolkit'?toolkit():r==='science'?science():r==='bonuses'?bonuses():home();
+  nav(w?r:(['toolkit','science','bonuses'].includes(r)?r:'home'));
+  document.querySelectorAll('[data-open]').forEach(a=>a.onclick=()=>{openBonus=+a.dataset.open;});
+  document.querySelectorAll('.play').forEach(p=>p.onclick=()=>{const b=BON[p.dataset.i];
+    $('#screen'+p.dataset.i).innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${b.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="${b.t}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;});
+  document.querySelectorAll('.nextb').forEach(n=>n.onclick=()=>{const all=document.querySelectorAll('.bonus');all[n.dataset.i].open=true;all[n.dataset.i].scrollIntoView({block:'start'});});
+  window.scrollTo(0,0);
+  const pain=$('#pain');
+  if(pain){const show=()=>$('#painV').textContent=pain.value+' out of 10';show();pain.oninput=show;drawBars();
+    $('#savePain').onclick=()=>{const log=store.get('log',[]),d=new Date().toISOString().slice(0,10),i=log.findIndex(x=>x.d===d);
+      if(i>=0)log[i].v=+pain.value;else log.push({d,v:+pain.value});store.set('log',log);drawBars();$('#savePain').textContent='Saved. Thank you for checking in.';};}
+  const dd=$('#didit');
+  if(dd)dd.onclick=()=>{const d=done(),first=!d[w.id];d[w.id]=true;store.set('done',d);dd.textContent='✓ Done. Well done!';nav(r);
+    if(first)celebrate(W.every(x=>d[x.id])?'You finished the whole course. We are so proud of you!':PRAISE[Math.floor(Math.random()*PRAISE.length)],'+3 stars');};
+  document.querySelectorAll('.watch').forEach(b=>b.onclick=()=>{const s=store.get('watched',{});if(s[b.dataset.u])return;
+    s[b.dataset.u]=true;store.set('watched',s);b.textContent='★ Watched';b.classList.add('seen');celebrate('Lovely. Time spent learning is time spent caring for yourself.','+1 star');});
+  document.querySelectorAll('.quiz button').forEach(b=>b.onclick=()=>{
+    const ok=b.dataset.k===b.parentElement.dataset.a;b.className=ok?'right':'wrong';
+    $('#fb').textContent=ok?w.q[3]:'Good try. Have another go.';});
+  document.querySelectorAll('.pl').forEach(c=>c.onchange=()=>{const p=store.get('plan',{});p[c.dataset.k]=c.checked;store.set('plan',p);});
+  document.querySelectorAll('.fl').forEach(c=>c.oninput=()=>{const f=store.get('flare',{});f[c.dataset.k]=c.value;store.set('flare',f);});
+}
+addEventListener('hashchange',render);render();
+</script>
+</body>
+</html>
