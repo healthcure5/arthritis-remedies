@@ -269,3 +269,6 @@ body.theme-book{background-image:linear-gradient(rgba(10,31,68,.065) 1.5px,trans
 body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(255,197,107,.35),transparent 60%),radial-gradient(40rem 28rem at 0% 70%,rgba(255,218,148,.45),transparent 62%),repeating-linear-gradient(135deg,rgba(201,138,30,.07) 0 2px,transparent 2px 24px);background-attachment:fixed,fixed,scroll}
 .theme-guide .open{position:relative;overflow:hidden;background:radial-gradient(circle at 0% 100%,rgba(255,197,107,.55) 0 120px,transparent 121px 170px,rgba(255,197,107,.4) 171px 176px,transparent 177px 236px,rgba(255,197,107,.3) 237px 242px,transparent 243px 310px,rgba(255,197,107,.22) 311px 316px,transparent 317px),linear-gradient(170deg,#FFFBF2 0%,#F6ECD6 100%)}
 .theme-guide .open-in{position:relative}
+
+.bk-guide .bk-title{color:#C62828}
+.bk-guide .bk-tag{background:#C62828;color:#FFFFFF}
