@@ -287,3 +287,7 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .getbox b{color:inherit}
 .getbox>p b{color:#FFE3A6}
 .getbox{background:linear-gradient(180deg,rgba(255,197,107,.34),rgba(255,197,107,.2));border-color:rgba(255,197,107,.8)}
+
+.sign .script{margin-top:6px;color:#0A1F44}
+.theme-course .sign .script{color:#FFD48A}
+.brand svg{width:72px;height:72px}
