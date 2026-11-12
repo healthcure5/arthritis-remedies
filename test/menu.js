@@ -8,57 +8,56 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
 
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
-  var ITEMS = [
-    ['index.html', 'Home', 'Start here'],
-    ['guide.html', 'The free guide', 'Your first small step, free'],
+  var PROGRAMS = [
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Joint Release Course', 'Eight weeks to feeling more like you'],
     ['library.html', 'Our library', 'Everything we offer, in one place']
   ];
-  var MARK = '<svg role="img" aria-label="Gentle Joint Care" width="56" height="56" viewBox="0 0 64 64" fill="none" stroke-linecap="round" style="filter: drop-shadow(0 3px 6px rgba(0,0,0,.5)); overflow: visible"><defs><linearGradient id="gjc-ring" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF3CF"/><stop offset=".35" stop-color="#FFC56B"/><stop offset=".7" stop-color="#C9861F"/><stop offset="1" stop-color="#FFD98F"/></linearGradient><radialGradient id="gjc-in" cx="24" cy="20" r="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2A5FC0"/><stop offset=".6" stop-color="#0E2A5C"/><stop offset="1" stop-color="#061533"/></radialGradient><radialGradient id="gjc-ball" cx="50" cy="48" r="9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF6D8"/><stop offset=".45" stop-color="#FFC56B"/><stop offset="1" stop-color="#C9861F"/></radialGradient></defs><circle cx="31" cy="32" r="29" fill="url(#gjc-ring)"/><circle cx="31" cy="32" r="24.5" fill="url(#gjc-in)"/><path d="M13 22a20.5 20.5 0 0 1 24-9.5" stroke="#FFFFFF" stroke-width="1.6" opacity=".55"/><text x="30" y="46.5" text-anchor="middle" font-family="\'Great Vibes\', \'Brush Script MT\', cursive" font-size="45" fill="#FFFFFF">G</text><circle cx="52" cy="50" r="7.5" fill="url(#gjc-ball)" stroke="#8C5A10" stroke-width=".7"/><circle cx="50" cy="47.6" r="1.9" fill="#FFFFFF" opacity=".9"/><path d="M55 12.5l4.5-4M60 21h5M49 6.5l1.5-5" stroke="#FFC56B" stroke-width="3"/></svg>';
+  var LOGO = '<svg role="img" aria-label="Gentle Joint Care" width="58" height="58" viewBox="0 0 64 64" fill="none" stroke-linecap="round" style="filter: drop-shadow(0 0 7px rgba(255,197,107,.55)) drop-shadow(0 3px 6px rgba(0,0,0,.5)); overflow: visible"><defs><linearGradient id="gjc-ring" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF8E1"/><stop offset=".3" stop-color="#FFC56B"/><stop offset=".55" stop-color="#B8791A"/><stop offset=".8" stop-color="#FFE3A6"/><stop offset="1" stop-color="#E0A23A"/></linearGradient><radialGradient id="gjc-in" cx="24" cy="20" r="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3B74DA"/><stop offset=".55" stop-color="#0E2A5C"/><stop offset="1" stop-color="#061533"/></radialGradient><linearGradient id="gjc-let" x1="16" y1="14" x2="46" y2="52" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFE9B8"/></linearGradient><radialGradient id="gjc-ball" cx="50" cy="48" r="9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF6D8"/><stop offset=".45" stop-color="#FFC56B"/><stop offset="1" stop-color="#C9861F"/></radialGradient></defs><circle cx="31" cy="32" r="30" fill="url(#gjc-ring)"/><circle cx="31" cy="32" r="26.5" fill="none" stroke="#7A4D0C" stroke-width=".8" opacity=".6"/><circle cx="31" cy="32" r="24.5" fill="url(#gjc-in)"/><path d="M12.5 23a20.5 20.5 0 0 1 25-10.5" stroke="#FFFFFF" stroke-width="2" opacity=".6"/><text x="30" y="46.5" text-anchor="middle" font-family="\'Great Vibes\', \'Brush Script MT\', cursive" font-size="45" fill="url(#gjc-let)">G</text><circle cx="52" cy="50" r="7.5" fill="url(#gjc-ball)" stroke="#8C5A10" stroke-width=".7"/><circle cx="50" cy="47.6" r="1.9" fill="#FFFFFF" opacity=".9"/><path d="M55 12.5l4.5-4M60 21h5M49 6.5l1.5-5" stroke="#FFC56B" stroke-width="3"/><path d="M8 6l1.6 4.4L14 12l-4.4 1.6L8 18l-1.6-4.4L2 12l4.4-1.6z" fill="#FFF3CF"/></svg>';
   var css = document.createElement('style');
   css.textContent =
-    '.jr-fab{position:fixed;right:18px;top:16px;z-index:150;display:grid;place-items:center;width:52px;height:48px;padding:0;background:none;border:0;cursor:pointer}.top{position:sticky;top:0;z-index:100}' +
-    '.jr-burger{display:block;box-sizing:border-box;width:36px;height:28px;border-top:4px solid #FFC56B;border-bottom:4px solid #FFC56B;position:relative;border-radius:2px}.jr-burger::after{content:"";position:absolute;left:0;right:0;top:8px;border-top:4px solid #FFC56B;border-radius:2px}' +
-    '.jr-shade{position:fixed;inset:0;background:rgba(10,31,68,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}' +
-    '.jr-drawer{position:fixed;top:0;right:0;bottom:0;width:min(90vw,400px);z-index:201;transform:translateX(102%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1);padding:26px 30px 34px;display:flex;flex-direction:column;overflow-y:auto;font-family:Inter,system-ui,sans-serif;color:#D7E2EE;background:radial-gradient(rgba(255,255,255,.06) 1.5px,transparent 1.7px) 0 0/26px 26px,radial-gradient(30rem 22rem at 100% 0%,rgba(255,197,107,.2),transparent 60%),#081A3A}' +
-    '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none;visibility:visible;box-shadow:-30px 0 60px -20px rgba(0,0,0,.6)}' +
-    '.jr-lock{display:flex;align-items:center;gap:14px;margin:6px 0 30px}.jr-lock b{display:block;font:800 21px/1.1 Inter,system-ui,sans-serif;color:#FFFFFF}' +
-    '.jr-drawer a{position:relative;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#FFFFFF;padding:22px 34px 22px 0;border-top:1px solid rgba(255,255,255,.14);font:700 25px/1.2 Lora,Georgia,serif;transition:padding .2s ease,color .2s ease}' +
-    '.jr-drawer a:last-of-type{border-bottom:1px solid rgba(255,255,255,.14)}' +
-    '.jr-drawer a::after{content:"";position:absolute;right:6px;top:50%;width:11px;height:11px;border-right:2.5px solid #FFC56B;border-top:2.5px solid #FFC56B;transform:translateY(-50%) rotate(45deg)}' +
-    '.jr-drawer a small{font:500 16.5px/1.4 Inter,system-ui,sans-serif;color:#AEC6DF}' +
-    '.jr-drawer a:hover{padding-left:10px;color:#FFD48A}' +
-    '.jr-drawer a.on{color:#FFC56B;padding-left:18px}.jr-drawer a.on::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:4px;border-radius:4px;background:#FFC56B}' +
-    '.jr-foot{margin:auto 0 0;padding-top:28px;font:500 16px/1.5 Inter,system-ui,sans-serif;color:#AEC6DF}' +
-    '.jr-close{align-self:flex-end;flex:none;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);cursor:pointer;position:relative;font-size:0}.jr-close::before,.jr-close::after{content:"";position:absolute;left:12px;right:12px;top:21px;border-top:3px solid #FFC56B;border-radius:2px}.jr-close::before{transform:rotate(45deg)}.jr-close::after{transform:rotate(-45deg)}' +
-    '.jr-fab.on-light{background:rgba(255,255,255,.92);border-radius:12px;box-shadow:0 6px 16px -8px rgba(10,31,68,.6)}.jr-fab.on-light .jr-burger,.jr-fab.on-light .jr-burger::after{border-color:#0A1F44}' +
-    '@media (prefers-reduced-motion:reduce){.jr-shade,.jr-drawer{transition:none}}';
+    '.hdr-nav,.jr-fab,.jr-drawer,.jr-shade{display:none!important}' +
+    '.hdr-in,.top-in{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:6px 24px!important;padding:10px 20px!important}' +
+    '.top{position:sticky;top:0;z-index:100}' +
+    '.jr-bar{background:#0A1F44;position:sticky;top:0;z-index:100;box-shadow:0 12px 28px -18px rgba(10,31,68,.8)}.jr-bar-in{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 24px}' +
+    '.jr-bar a.jr-home{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 21px/1 Inter,system-ui,sans-serif;color:#FFFFFF;white-space:nowrap}' +
+    '.jr-nav{position:relative;display:flex;align-items:center;gap:4px clamp(14px,3vw,34px);font:700 19px/1 Inter,system-ui,sans-serif;margin-left:auto}' +
+    '.jr-nav a,.jr-nav button{font:inherit;color:#FFFFFF;text-decoration:none;background:none;border:0;padding:14px 4px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-bottom:3px solid transparent}' +
+    '.jr-nav a:hover,.jr-nav button:hover,.jr-nav .on{color:#FFC56B;border-bottom-color:#FFC56B}' +
+    '.jr-nav button::after{content:"";width:8px;height:8px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s}' +
+    '.jr-nav button[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}' +
+    '.jr-drop{position:absolute;right:0;top:calc(100% + 10px);width:min(340px,calc(100vw - 32px));padding:10px;border-radius:22px;background:rgba(8,26,58,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1.5px solid rgba(255,197,107,.55);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease,transform .25s ease,visibility 0s .25s;z-index:160}' +
+    '.jr-drop.open{opacity:1;visibility:visible;transform:none;transition:opacity .25s ease,transform .25s ease}' +
+    '.jr-drop a{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:14px 16px;border:0;border-radius:14px;font:700 21px/1.2 Lora,Georgia,serif;color:#FFFFFF}' +
+    '.jr-drop a small{font:500 15.5px/1.35 Inter,system-ui,sans-serif;color:#C7D8EA}' +
+    '.jr-drop a:hover,.jr-drop a.on{background:rgba(255,197,107,.16);color:#FFD48A;border:0}' +
+    '@media (max-width:640px){.jr-nav{width:100%;justify-content:center;font-size:18px;gap:4px 26px}.jr-nav a,.jr-nav button{padding:8px 4px}.jr-drop{right:50%;transform:translate(50%,-12px)}.jr-drop.open{transform:translate(50%,0)}.hdr-space{min-height:138px!important}}' +
+    'a.soon{opacity:.6;cursor:default;pointer-events:none}' +
+    '@media (prefers-reduced-motion:reduce){.jr-drop{transition:none}}';
   document.head.appendChild(css);
 
-  var fab = document.createElement('button');
-  fab.type = 'button'; fab.className = 'jr-fab'; fab.setAttribute('aria-label', 'Open the menu');
-  fab.innerHTML = '<span class="jr-burger" aria-hidden="true"></span>';
-  var shade = document.createElement('div'); shade.className = 'jr-shade';
-  var drawer = document.createElement('aside'); drawer.className = 'jr-drawer'; drawer.setAttribute('aria-label', 'Menu');
-  drawer.innerHTML = '<button type="button" class="jr-close" aria-label="Close the menu">Close</button><div class="jr-lock">' + MARK + '<span><b>Gentle Joint Care</b></span></div>' +
-    ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (i[0] === here ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('') + '<p class="jr-foot">Take your time. There is no rush.</p>';
-  if (!document.querySelector('.hdr, .top')) { fab.classList.add('on-light'); }
-  document.body.appendChild(fab);
-  // Keep the three lines level with the middle of the top bar
-  var barEl = document.querySelector('.hdr, .top');
-  function place() {
-    if (!barEl) { return; }
-    var r = barEl.getBoundingClientRect();
-    fab.style.top = Math.max(6, Math.round(Math.max(r.top, 0) + (r.bottom - Math.max(r.top, 0) - 48) / 2)) + 'px';
+  var isProgram = PROGRAMS.some(function (p) { return p[0] === here; });
+  var navEl = document.createElement('nav');
+  navEl.className = 'jr-nav';
+  navEl.setAttribute('aria-label', 'Main');
+  navEl.innerHTML = '<a href="index.html"' + (here === 'index.html' ? ' class="on" aria-current="page"' : '') + '>Home</a>' +
+    '<button type="button" id="jr-prog" aria-expanded="false" aria-controls="jr-drop"' + (isProgram ? ' class="on"' : '') + '>Programs</button>' +
+    '<a href="privacy.html#contact">Contact</a>' +
+    '<div class="jr-drop" id="jr-drop">' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' class="on" aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
+  var host = document.querySelector('.hdr-in, .top-in');
+  if (!host) {
+    var bar = document.createElement('header');
+    bar.className = 'jr-bar';
+    bar.innerHTML = '<div class="jr-bar-in"><a class="jr-home" href="index.html">' + LOGO + '<span>Gentle Joint Care</span></a></div>';
+    document.body.insertBefore(bar, document.body.firstChild);
+    host = bar.firstChild;
   }
-  place(); window.addEventListener('resize', place); window.addEventListener('scroll', place, { passive: true }); window.addEventListener('load', place); setTimeout(place, 600); document.body.appendChild(shade); document.body.appendChild(drawer);
-  function toggle(open) { document.documentElement.classList.toggle('jr-open', open); }
-  fab.addEventListener('click', function () { toggle(true); });
-  shade.addEventListener('click', function () { toggle(false); });
-  drawer.querySelector('.jr-close').addEventListener('click', function () { toggle(false); });
-  drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { toggle(false); }); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { toggle(false); } });
+  host.appendChild(navEl);
+  var btn = document.getElementById('jr-prog'), drop = document.getElementById('jr-drop');
+  function set(open) { drop.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); set(!drop.classList.contains('open')); });
+  document.addEventListener('click', function (e) { if (!drop.contains(e.target)) { set(false); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { set(false); } });
 
   // Checkout block (book and course pages)
   var co = document.getElementById('checkout');
