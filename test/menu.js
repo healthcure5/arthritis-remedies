@@ -1,68 +1,69 @@
 // ---------------------------------------------------------------
-// SHOP LINKS: paste your checkout links between the quotes.
-// While a link is empty, its buttons show "Coming soon".
+// CHECKOUT LINKS: paste your payment provider's links between the quotes.
+// While a link is empty, the "Yes, I want..." button shows "Checkout opens soon".
 // ---------------------------------------------------------------
-var BOOK_URL = '';     // The Joint Reset, $27
-var COURSE_URL = '';   // The Joint Release Course, $100
+var BOOK_URL = '';     // The Joint Reset
+var COURSE_URL = '';   // The Joint Release Course
 
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
   var ITEMS = [
     ['index.html', 'Home', 'Start here'],
-    ['signup.html', 'Free guide', '7 everyday habits · Free'],
-    ['index.html#full', 'The book', 'The Joint Reset · $27'],
-    ['course-info.html', 'The course', '8 gentle weeks · $100'],
+    ['signup.html', 'The free guide', '7 everyday habits and a gentle swap for each'],
+    ['book.html', 'The Joint Reset', 'The book: honest verdicts on 24 remedies'],
+    ['course-info.html', 'The Joint Release Course', 'Eight gentle weeks, ten minutes a day'],
     ['library.html', 'My library', 'Everything you own, in one place']
   ];
+  var MARK = '<svg aria-hidden="true" width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#0A1F44"/><path d="M10 23c4.5-10 15.5-10 20 0" stroke="#FFC56B" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="20" cy="28" r="3.2" fill="#FFFFFF"/></svg>';
   var css = document.createElement('style');
   css.textContent =
-    '.jr-menu{background:#FFFFFF;border-bottom:1px solid #D7E2EE;font:600 17px/1.2 Inter,system-ui,sans-serif}' +
-    '.jr-menu-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;align-items:center;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}' +
-    '.jr-menu-in::-webkit-scrollbar{display:none}' +
-    '.jr-menu a,.jr-menu button{flex:none;font:inherit;color:#0A1F44;text-decoration:none;background:#F4F8FC;border:1.5px solid #D7E2EE;border-radius:999px;padding:11px 16px;min-height:44px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;white-space:nowrap}' +
-    '.jr-menu a.on{background:#0A1F44;border-color:#0A1F44;color:#FFFFFF}' +
-    '.jr-menu button{background:#1A4FB0;border-color:#1A4FB0;color:#FFFFFF}' +
-    '.jr-burger{width:18px;height:12px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;position:relative}.jr-burger::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:2px solid currentColor}' +
-    '.jr-shade{position:fixed;inset:0;background:rgba(10,31,68,.45);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}' +
-    '.jr-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,340px);background:#FFFFFF;z-index:201;transform:translateX(-102%);transition:transform .3s cubic-bezier(.2,.7,.2,1);padding:22px 18px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;visibility:hidden;font-family:Inter,system-ui,sans-serif}' +
-    '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none;visibility:visible;box-shadow:20px 0 50px -20px rgba(10,31,68,.5)}' +
-    '.jr-drawer h2{margin:0 0 6px;font:700 24px/1.2 Lora,Georgia,serif;color:#0A1F44}' +
-    '.jr-drawer a{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:#0A1F44;background:#F4F8FC;border-radius:16px;padding:14px 16px;font-weight:700;font-size:19px}' +
-    '.jr-drawer a small{font-weight:500;font-size:15.5px;color:#4F6580}' +
-    '.jr-drawer a.on{background:#EAF2FA;box-shadow:inset 4px 0 0 #1A4FB0}' +
-    '.jr-close{align-self:flex-end;font:600 16px Inter,system-ui,sans-serif;background:none;border:0;color:#1A4FB0;padding:10px;cursor:pointer}' +
-    'a.soon{opacity:.6;cursor:default;pointer-events:none}' +
+    '.jr-fab{position:fixed;right:16px;bottom:18px;z-index:150;display:inline-flex;align-items:center;gap:10px;font:700 18px/1 Inter,system-ui,sans-serif;color:#FFFFFF;background:#0A1F44;border:0;border-radius:999px;padding:16px 22px;min-height:56px;cursor:pointer;box-shadow:0 14px 30px -10px rgba(10,31,68,.7),0 0 0 4px rgba(255,197,107,.9)}' +
+    '.jr-burger{width:22px;height:16px;border-top:3px solid #FFC56B;border-bottom:3px solid #FFC56B;position:relative;border-radius:1px}.jr-burger::after{content:"";position:absolute;left:0;right:0;top:3.5px;border-top:3px solid #FFC56B}' +
+    '.jr-shade{position:fixed;inset:0;background:rgba(10,31,68,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}' +
+    '.jr-drawer{position:fixed;top:0;right:0;bottom:0;width:min(88vw,360px);background:#FFFFFF;z-index:201;transform:translateX(102%);visibility:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1);padding:22px 18px 28px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;font-family:Inter,system-ui,sans-serif}' +
+    '.jr-open .jr-shade{opacity:1;pointer-events:auto}.jr-open .jr-drawer{transform:none;visibility:visible;box-shadow:-20px 0 50px -20px rgba(10,31,68,.5)}' +
+    '.jr-lock{display:flex;align-items:center;gap:12px;margin:0 0 10px}.jr-lock b{display:block;font:700 23px/1.1 Lora,Georgia,serif;color:#0A1F44}.jr-lock small{display:block;font:700 11px/1 Inter,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#1A4FB0;margin-top:5px}' +
+    '.jr-drawer a{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:#0A1F44;background:#F4F8FC;border-radius:16px;padding:15px 16px;font-weight:700;font-size:20px}' +
+    '.jr-drawer a small{font-weight:500;font-size:16px;line-height:1.35;color:#4F6580}' +
+    '.jr-drawer a.on{background:#EAF2FA;box-shadow:inset 5px 0 0 #FFC56B}' +
+    '.jr-close{align-self:flex-end;font:700 16px Inter,system-ui,sans-serif;background:none;border:0;color:#1A4FB0;padding:10px;cursor:pointer}' +
     '@media (prefers-reduced-motion:reduce){.jr-shade,.jr-drawer{transition:none}}';
   document.head.appendChild(css);
 
-  function isOn(href) { var f = href.split('#')[0]; return f === here && href.indexOf('#') < 0; }
-  var bar = document.createElement('nav');
-  bar.className = 'jr-menu';
-  bar.setAttribute('aria-label', 'Site menu');
-  bar.innerHTML = '<div class="jr-menu-in"><button type="button" id="jr-open"><span class="jr-burger" aria-hidden="true"></span>Menu</button>' +
-    ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (isOn(i[0]) ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '</a>'; }).join('') + '</div>';
-  var old = document.querySelector('.test-bar'), space = document.querySelector('.hdr-space'), slot = document.getElementById('jr-menu-slot');
-  if (old) { old.parentNode.replaceChild(bar, old); }
-  else if (slot) { slot.parentNode.replaceChild(bar, slot); }
-  else if (space) { space.parentNode.insertBefore(bar, space.nextSibling); }
-  else { document.body.insertBefore(bar, document.body.firstChild); }
-
+  var fab = document.createElement('button');
+  fab.type = 'button'; fab.className = 'jr-fab'; fab.setAttribute('aria-label', 'Open the menu');
+  fab.innerHTML = '<span class="jr-burger" aria-hidden="true"></span>Menu';
   var shade = document.createElement('div'); shade.className = 'jr-shade';
   var drawer = document.createElement('aside'); drawer.className = 'jr-drawer'; drawer.setAttribute('aria-label', 'Menu');
-  drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><h2>Joint Release</h2>' +
-    ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (isOn(i[0]) ? ' class="on"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('');
-  document.body.appendChild(shade); document.body.appendChild(drawer);
+  drawer.innerHTML = '<button type="button" class="jr-close">Close ✕</button><div class="jr-lock">' + MARK + '<span><b>Joint Release</b><small>Gentle joint care</small></span></div>' +
+    ITEMS.map(function (i) { return '<a href="' + i[0] + '"' + (i[0] === here ? ' class="on" aria-current="page"' : '') + '>' + i[1] + '<small>' + i[2] + '</small></a>'; }).join('');
+  document.body.appendChild(fab); document.body.appendChild(shade); document.body.appendChild(drawer);
   function toggle(open) { document.documentElement.classList.toggle('jr-open', open); }
-  document.getElementById('jr-open').addEventListener('click', function () { toggle(true); });
+  fab.addEventListener('click', function () { toggle(true); });
   shade.addEventListener('click', function () { toggle(false); });
   drawer.querySelector('.jr-close').addEventListener('click', function () { toggle(false); });
   drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { toggle(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { toggle(false); } });
 
-  // Buy buttons
-  document.querySelectorAll('[data-shop]').forEach(function (a) {
-    var url = a.getAttribute('data-shop') === 'course' ? COURSE_URL : BOOK_URL;
-    if (url) { a.href = url; }
-    else { a.removeAttribute('href'); a.classList.add('soon'); a.setAttribute('aria-disabled', 'true'); a.textContent = 'Coming soon · ' + a.getAttribute('data-price'); }
-  });
+  // Checkout block (book and course pages)
+  var co = document.getElementById('checkout');
+  if (!co) { return; }
+  var url = co.getAttribute('data-item') === 'course' ? COURSE_URL : BOOK_URL;
+  var country = document.getElementById('co-country'), slot = document.getElementById('co-state-slot');
+  var CODES = 'US CA GB AU NZ IE AF AL DZ AD AO AG AR AM AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HK HU IS IN ID IR IQ IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT PR QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE UY UZ VU VA VE VN YE ZM ZW'.split(' ');
+  var names; try { names = new Intl.DisplayNames(['en'], { type: 'region' }); } catch (e) { names = null; }
+  var list = CODES.map(function (c) { return [c, names ? names.of(c) : c]; });
+  var top = list.slice(0, 6), rest = list.slice(6).sort(function (a, b) { return a[1].localeCompare(b[1]); });
+  country.innerHTML = top.concat(rest).map(function (c) { return '<option value="' + c[0] + '">' + c[1] + '</option>'; }).join('');
+  var STATES = 'Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,District of Columbia,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming,American Samoa,Guam,Northern Mariana Islands,Puerto Rico,U.S. Virgin Islands'.split(',');
+  function drawState() {
+    slot.innerHTML = country.value === 'US'
+      ? '<label for="co-state">State</label><select id="co-state" name="state" autocomplete="address-level1"><option value="">Choose your state</option>' + STATES.map(function (s) { return '<option>' + s + '</option>'; }).join('') + '</select>'
+      : '<label for="co-state">State, province or region</label><input id="co-state" name="state" type="text" autocomplete="address-level1">';
+  }
+  country.addEventListener('change', drawState); drawState();
+  var yes = document.getElementById('co-yes'), note = document.getElementById('co-note');
+  if (url) { yes.href = url; note.textContent = 'You will finish on our secure checkout page.'; }
+  else { yes.removeAttribute('href'); yes.setAttribute('aria-disabled', 'true'); yes.classList.add('soon'); }
+  document.getElementById('co-form').addEventListener('submit', function (e) { e.preventDefault(); });
 })();
