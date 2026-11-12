@@ -255,3 +255,17 @@ body.theme-course{background-color:#081A3A;background-image:radial-gradient(60re
 /* free guide button: bright gold, calm (no moving shine) */
 .cta-soft{color:#0A1F44;background:linear-gradient(180deg,#FFDA94 0%,#FFC56B 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.6),0 4px 0 #C98A1E,0 16px 28px -12px rgba(201,138,30,.6)}
 .cta-soft::after{border-color:#0A1F44}
+
+/* look 8: each product page gets its own decoration */
+.cta-wide{font-size:24px;padding:26px 56px}
+.cta-wide .cta-l small{font-size:17px}
+.cta-soft{font-size:24px;padding:28px 46px}
+@media (max-width:520px){.cta-wide{font-size:21px;padding:24px 36px}.cta-soft{font-size:21px;padding:26px 32px}}
+/* book: squares */
+body.theme-book{background-image:linear-gradient(rgba(10,31,68,.065) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(10,31,68,.065) 1.5px,transparent 1.5px);background-size:46px 46px}
+.theme-book .open{position:relative;overflow:hidden;background-image:linear-gradient(rgba(255,255,255,.05) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.05) 1.5px,transparent 1.5px);background-size:46px 46px}
+.theme-book .squares{position:absolute;right:-70px;top:-40px;width:460px;height:540px;opacity:.55;pointer-events:none}
+/* free guide: sunrise arcs and soft stripes */
+body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(255,197,107,.35),transparent 60%),radial-gradient(40rem 28rem at 0% 70%,rgba(255,218,148,.45),transparent 62%),repeating-linear-gradient(135deg,rgba(201,138,30,.07) 0 2px,transparent 2px 24px);background-attachment:fixed,fixed,scroll}
+.theme-guide .open{position:relative;overflow:hidden;background:radial-gradient(circle at 0% 100%,rgba(255,197,107,.55) 0 120px,transparent 121px 170px,rgba(255,197,107,.4) 171px 176px,transparent 177px 236px,rgba(255,197,107,.3) 237px 242px,transparent 243px 310px,rgba(255,197,107,.22) 311px 316px,transparent 317px),linear-gradient(170deg,#FFFBF2 0%,#F6ECD6 100%)}
+.theme-guide .open-in{position:relative}
