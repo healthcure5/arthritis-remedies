@@ -284,3 +284,6 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .theme-guide .open{background:radial-gradient(circle at 0% 100%,rgba(255,197,107,.55) 0 120px,transparent 121px 170px,rgba(255,197,107,.4) 171px 176px,transparent 177px 236px,rgba(255,197,107,.3) 237px 242px,transparent 243px 310px,rgba(255,197,107,.22) 311px 316px,transparent 317px),repeating-linear-gradient(135deg,rgba(201,138,30,.08) 0 2px,transparent 2px 24px),linear-gradient(170deg,#FFFBF2 0%,#F6ECD6 100%)}
 .theme-guide .open-in>div:last-child{position:relative;isolation:isolate}
 .theme-guide .open-in>div:last-child::before{content:"";position:absolute;z-index:-1;left:-6%;top:-12%;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#4D8BEA 0%,#1A4FB0 60%,#0E3486 100%);box-shadow:0 30px 50px -24px rgba(14,52,134,.7)}
+.getbox b{color:inherit}
+.getbox>p b{color:#FFE3A6}
+.getbox{background:linear-gradient(180deg,rgba(255,197,107,.34),rgba(255,197,107,.2));border-color:rgba(255,197,107,.8)}
