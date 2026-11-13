@@ -294,3 +294,10 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 
 /* look 10: photos */
 .shot{display:block;width:min(440px,100%);height:auto;flex:none;align-self:center;aspect-ratio:4/3;object-fit:cover;border-radius:22px;box-shadow:0 2px 4px rgba(12,34,64,.2),0 30px 50px -18px rgba(12,34,64,.55)}.shot+.book{display:none}.shot-c{margin:0 auto 34px;width:min(520px,100%)}
+
+/* look 11: people photos sit on the page itself */
+.pageshot{height:clamp(300px,50vw,640px);background-color:var(--fade,#0A1F44);background-size:cover;background-position:center 30%;position:relative}
+.pageshot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,var(--fade,#0A1F44) 100%)}
+.pageshot~.open-in{padding-top:clamp(8px,2vw,24px)}
+.theme-guide{--fade:#F8F2E4}.theme-book{--fade:#0A1F44}.theme-course{--fade:#081A3A}
+.theme-course .open .rings{top:auto;bottom:-20%}
