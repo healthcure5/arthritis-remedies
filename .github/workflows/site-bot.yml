@@ -1,0 +1,50 @@
+name: Site Bot
+
+# Press "Run workflow" on the Actions tab. The bot then works by itself.
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: "Website to test"
+        default: "https://healthcure5.github.io/arthritis-remedies/"
+        required: true
+      test_email:
+        description: "Email to use in test sign-ups"
+        default: "test@example.com"
+        required: true
+      submit_forms:
+        description: "Really submit the sign-up form? (yes/no)"
+        default: "yes"
+        required: true
+      test_checkout:
+        description: "Go through checkout with a TEST card? (yes/no)"
+        default: "yes"
+        required: true
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install browser
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Run the bot
+        env:
+          SITE_URL: ${{ inputs.site_url }}
+          TEST_EMAIL: ${{ inputs.test_email }}
+          SUBMIT_FORMS: ${{ inputs.submit_forms }}
+          TEST_CHECKOUT: ${{ inputs.test_checkout }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node site-bot/bot.mjs
+      - name: Save report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-bot-report
+          path: site-bot/out/
