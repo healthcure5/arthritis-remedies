@@ -301,3 +301,21 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .pageshot~.open-in{padding-top:clamp(8px,2vw,24px)}
 .theme-guide{--fade:#F8F2E4}.theme-book{--fade:#0A1F44}.theme-course{--fade:#081A3A}
 .theme-course .open .rings{top:auto;bottom:-20%}
+
+/* look 12: words sit on top of the photo */
+.pageshot{position:absolute;inset:0;height:auto;z-index:0;background-color:rgb(var(--fr,10,31,68))}
+.pageshot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--fr,10,31,68),0) 55%,rgb(var(--fr,10,31,68)) 100%),linear-gradient(90deg,rgba(var(--fr,10,31,68),.95) 0%,rgba(var(--fr,10,31,68),.78) 38%,rgba(var(--fr,10,31,68),.18) 72%,rgba(var(--fr,10,31,68),0) 100%)}
+.pageshot.flip{transform:scaleX(-1)}
+.pageshot.flip::after{background:linear-gradient(180deg,rgba(var(--fr,10,31,68),0) 55%,rgb(var(--fr,10,31,68)) 100%),linear-gradient(270deg,rgba(var(--fr,10,31,68),.95) 0%,rgba(var(--fr,10,31,68),.78) 38%,rgba(var(--fr,10,31,68),.18) 72%,rgba(var(--fr,10,31,68),0) 100%)}
+@media (max-width:760px){.pageshot::after,.pageshot.flip::after{background:linear-gradient(180deg,rgba(var(--fr,10,31,68),.62) 0%,rgba(var(--fr,10,31,68),.8) 60%,rgb(var(--fr,10,31,68)) 100%)}}
+
+.open{position:relative;overflow:hidden}
+.pageshot~.open-in{position:relative;z-index:1;min-height:clamp(460px,66vh,700px);padding-top:clamp(48px,8vw,96px)}
+.pageshot~.open-in>div:first-child{max-width:600px}
+.pageshot~.getbox,.pageshot~.rings,.pageshot~.squares{position:relative;z-index:1}
+.theme-course .pageshot~.rings{position:absolute}
+.theme-book .pageshot~.squares{position:absolute}
+.theme-guide{--fr:248,242,228}.theme-book{--fr:10,31,68}.theme-course{--fr:8,26,58}
+.theme-guide .open-in{flex-direction:row}
+.theme-guide .pageshot~.open-in>div:last-child::before{display:none}
+.theme-book .pageshot::after{background:linear-gradient(180deg,rgba(10,31,68,0) 38%,rgb(10,31,68) 78%),linear-gradient(90deg,rgba(10,31,68,.95) 0%,rgba(10,31,68,.78) 38%,rgba(10,31,68,.18) 72%,rgba(10,31,68,0) 100%)}
