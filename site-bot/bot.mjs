@@ -94,9 +94,21 @@ async function signupForms(pages) {
     if (!forms || !(await page.locator('form:not(#co-form) input[type=email]').count())) { await page.close(); continue; }
     const form = page.locator('form:not(#co-form):has(input[type=email])').first();
     const id = (await form.getAttribute('id')) || 'signup';
+    try {
+    // If the form is hidden behind a button (a pop-up panel), open it first
+    if (!(await form.locator('input[type=email]').first().isVisible())) {
+      const opener = page.locator('button:visible, a:visible')
+        .filter({ hasText: /free guide|yes,? i want|get (it|my|the)|claim|send me|download|start/i })
+        .filter({ hasNot: page.locator('[type=submit]') }).first();
+      if (await opener.count()) { await opener.click({ timeout: 5000 }).catch(() => {}); await page.waitForTimeout(1000); }
+    }
+    if (!(await form.locator('input[type=email]').first().isVisible())) {
+      log(false, `Sign-up form "${id}" on ${url}`, 'the form stays hidden — could not find the button that opens it');
+      await shot(page, `signup-hidden-${id}`); await page.close(); continue;
+    }
     await form.locator('input[name*="first" i], input[id*="first" i]').first().fill('Test', { timeout: 3000 }).catch(() => {});
     await form.locator('input[name*="last" i], input[id*="last" i]').first().fill('Bot', { timeout: 3000 }).catch(() => {});
-    await form.locator('input[type=email]').first().fill(EMAIL);
+    await form.locator('input[type=email]').first().fill(EMAIL, { timeout: 5000 });
     const boxes = await form.locator('input[type=checkbox]').all();
     for (const b of boxes) { const bid = await b.getAttribute('id'); await tick(page, bid ? `#${bid}` : 'input[type=checkbox]'); }
     log(true, `Filled sign-up form "${id}" on ${url}`, `${boxes.length} tick boxes ticked`);
@@ -111,6 +123,7 @@ async function signupForms(pages) {
       log(thanked, `Submitted sign-up form "${id}"`, `now on ${after}`);
       await shot(page, `signup-after-${id}`);
     } else log(true, `Did not submit "${id}"`, 'submit_forms was set to no');
+    } catch (e) { log(false, `Sign-up form "${id}" on ${url}`, e.message.split('\n')[0]); await shot(page, `signup-error-${id}`); }
     await page.close();
   }
 }
@@ -217,9 +230,9 @@ async function checkout(pages) {
 // ---------- run everything ----------
 console.log(`Site Bot starting on ${SITE}\n`);
 const pages = await crawl();
-await signupForms(pages);
-await quizzes(pages);
-await checkout(pages);
+for (const [name, step] of [['Sign-up forms', signupForms], ['Quiz', quizzes], ['Checkout', checkout]]) {
+  try { await step(pages); } catch (e) { log(false, `${name} step stopped early`, e.message.split('\n')[0]); }
+}
 await browser.close();
 
 const fails = report.filter(r => !r.ok);
