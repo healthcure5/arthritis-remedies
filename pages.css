@@ -327,3 +327,7 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .pageshot~.open-in>div:first-child{max-width:520px;flex:0 1 520px}
 .theme-book .pageshot~.open-in>div:first-child{max-width:480px;flex:0 1 480px}
 }
+
+/* look 14: free guide photo fills the whole top again */
+.pageshot.full{left:0!important;right:0;top:0;bottom:0;height:auto!important;-webkit-mask-image:none!important;mask-image:none!important}
+.pageshot.full::after{display:block!important;background:linear-gradient(180deg,rgba(var(--fr,10,31,68),0) 55%,rgb(var(--fr,10,31,68)) 100%),linear-gradient(90deg,rgba(var(--fr,10,31,68),.95) 0%,rgba(var(--fr,10,31,68),.8) 36%,rgba(var(--fr,10,31,68),.2) 68%,rgba(var(--fr,10,31,68),0) 100%)!important}
