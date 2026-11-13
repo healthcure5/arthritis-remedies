@@ -92,6 +92,24 @@ input[type=range]{width:100%;height:36px;accent-color:var(--blue)}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media (max-width:560px){body{font-size:18px}.brand small{display:none}.step .go{display:none}.btn{width:100%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+main{zoom:var(--z,1)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.tools span{font:700 15px/1 Inter,system-ui,sans-serif;color:var(--soft);margin-right:2px}
+.tools button{font:700 16px/1 Inter,system-ui,sans-serif;color:var(--blue);background:#fff;border:2px solid var(--line);border-radius:999px;padding:11px 16px;min-height:44px;cursor:pointer}
+.photo{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px;margin:16px 0 4px}
+.why{background:#F3F7FC;border-radius:14px;padding:16px 18px;font-size:17px;margin-top:18px}
+.kind{background:linear-gradient(135deg,#123A7A,#0A1F44);color:#fff;border-radius:22px;padding:24px;margin-bottom:18px}
+.kind .eyebrow{color:var(--gold)}.kind p{font:italic 500 21px/1.5 Lora,Georgia,serif;margin:0;color:#fff}
+.field{font:inherit;padding:14px;border:2px solid var(--line);border-radius:12px;width:100%;margin:6px 0 12px;color:var(--ink)}
+.breath{display:flex;flex-direction:column;align-items:center;gap:18px;padding:10px 0}
+.breath i{width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7FB0F5,#1A4FB0);transform:scale(.6);transition:transform 4s ease-in-out;box-shadow:0 0 0 14px rgba(26,79,176,.12)}
+.breath i.in{transform:scale(1)}.breath i.out{transform:scale(.6);transition-duration:6s}
+.breath b{font:700 26px/1.2 Lora,Georgia,serif;color:var(--ink);min-height:32px}
+.clock{font:700 64px/1 Lora,Georgia,serif;color:var(--ink);text-align:center;margin:8px 0 14px;font-variant-numeric:tabular-nums}
+.cert{border:6px double #B5791A;border-radius:18px;padding:34px 22px;text-align:center;background:#FFFDF7}
+.cert h2{font-size:34px}.cert .who{font:italic 600 34px/1.2 Lora,Georgia,serif;color:var(--blue);margin:14px 0;min-height:42px}
+@media print{.bar,.tabs,.tools,.panel,.shade,.video,.btn,.quiz,#toast,#confetti,.noprint{display:none!important}body{background:#fff}main{zoom:1;padding:0}.sheet{box-shadow:none;padding:0}}
 </style>
 </head>
 <body>
@@ -250,19 +268,21 @@ function home(){const c=count(),nx=nextUp(),all=c===PATH.length;let n=0;
     <h1>${c?(all?'You did it. We’re so proud of you.':'Welcome back. It’s good to see you.'):'We’re so glad you’re here.'}</h1>
     <p class="lead">${all?'Look how far you have come. Every lesson stays open for you, so come back whenever you need a kind reminder.':c?'However today feels, you showed up, and that matters. Your next step is waiting whenever you’re ready.':'Living with sore joints is hard, and you have carried it for a long time. You don’t have to carry it alone anymore. We’ll take this together, one small, kind step at a time. There is nothing to get wrong here, and there is no rush.'}</p>
     <div class="meter"><b style="width:${c/PATH.length*100}%"></b></div><p class="note">${c?c+' of '+PATH.length+' steps taken. Every one counts.':'Your first step is waiting just below.'}</p>
-    <a class="btn wide" href="#${nx||'bonuses'}">${all?'Visit your bonuses →':(c?'Carry on with: '+L(nx).nav:'Take my first step')+' →'}</a></section></div>
+    <a class="btn wide" href="#${nx||'bonuses'}">${all?'Visit your bonuses →':(c?'Carry on with: '+L(nx).nav:'Take my first step')+' →'}</a>${all?'<div class="row"><a class="btn alt wide" href="#certificate">See my certificate →</a></div>':''}</section></div>
+  ${homeExtras()}
   ${PARTS.map(p=>`<div class="part"><h2>${p[0]}</h2><p>${p[1]}</p>${p[2].map(id=>stepRow(id,++n)).join('')}</div>`).join('')}
   <div class="part"><h2>Your bonuses</h2><p>A few gifts from us to you. Open them anytime.</p><a class="step" href="#bonuses"><span class="num">★</span><span><b>See all ${BONUS.length} bonuses</b><small>Videos play right here in the course</small></span><span class="go">Open →</span></a></div>
+  ${helpers()}
   <p class="safety" style="margin-top:28px">Because we care about you: this course teaches healthy habits that work alongside your doctor, never instead of them. It cannot diagnose or cure any condition. Please check with your doctor before starting new exercise, and keep taking your prescribed medicines.</p>`}
 
 function lesson(w){const main=PATH.includes(w.id),i=PATH.indexOf(w.id),d=done()[w.id],part=main?PARTS.find(p=>p[2].includes(w.id))[0]:'Bonus',nx=PATH[i+1],vids=LESSON_VIDS[w.id]||[];
   if(main&&!open_(w.id)){const prev=PATH.slice(0,i).find(id=>!done()[id]);
     return `<div class="sheet"><section><span class="eyebrow">Almost there</span><h1>We’re saving this one for you</h1><p class="lead">We take things one at a time so nothing ever feels like too much. Once you finish <b>${L(prev).nav}</b>, this lesson will open for you. No hurry at all.</p><a class="btn" href="#${prev}">Go to ${L(prev).nav} →</a></section></div>`}
   return `<div class="sheet">
-  <section><span class="eyebrow">${part}${main?` · Lesson ${i+1} of ${PATH.length}`:''}</span><h1>${w.title}</h1><p class="heart">${w.hug}</p></section>
+  <section><span class="eyebrow">${part}${main?` · Lesson ${i+1} of ${PATH.length}`:''}</span><h1>${w.title}</h1>${PHOTO[w.id]?`<img class="photo" src="../images/${PHOTO[w.id][0]}" alt="${PHOTO[w.id][1]}" loading="lazy">`:''}<p class="heart">${w.hug}</p></section>
   <section class="big"><span class="eyebrow">The one thing to hold on to</span><p>${w.big}</p></section>
   <section><span class="eyebrow">A word to remember it by</span><h2>${w.acro[0].split('').join(' · ')}</h2><p>${w.acro[1]}</p><div class="acro">${w.acro[2].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div></section>
-  <section>${w.body}</section>
+  <section>${w.body}${WHY[w.id]?`<p class="why"><b>Why we trust this:</b> ${WHY[w.id]} <a href="#science">See the science</a></p>`:''}</section>
   ${vids.length?`<section><span class="eyebrow">Watch with us</span>${vids.map(player).join('')}${w.id==='barbara'?BARB_NOTE:''}</section>`:''}
   <section class="try"><span class="eyebrow">Your one small thing today</span><p>${w.doit}</p></section>
   <section class="quiz" data-a="${w.q[2]}"><span class="eyebrow">A quick, friendly check</span><h3 style="margin-top:0">${w.q[0]}</h3>${w.q[1].map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}<p class="fb" id="fb" role="status"></p></section>
@@ -286,20 +306,20 @@ function progress(){const log=store.get('log',[]);
     <div class="bars" id="bars" aria-hidden="true"></div><p class="note" id="barsNote"></p><p class="note">Your numbers stay on this device only.</p></section>
   <section><h2>Your stars</h2><p>Finish a lesson to earn 3 stars. Watch a video to earn 1 more.</p>
     <div class="row"><span class="starcount">★ ${stars()}</span><span class="note">${stars()?'Every star is a kind thing you did for your body.':'Your first star is waiting in the Welcome lesson.'}</span></div>
-    <div class="badges">${PATH.map(id=>`<a href="#${id}" class="badge ${done()[id]?'lit':''}"><b>${L(id).n}</b>${L(id).nav}</a>`).join('')}</div></section></div>`}
+    <div class="badges">${PATH.map(id=>`<a href="#${id}" class="badge ${done()[id]?'lit':''}"><b>${L(id).n}</b>${L(id).nav}</a>`).join('')}</div><div class="row"><a class="btn alt" href="#certificate">My certificate</a></div></section></div>`}
 
 function menu(route){const d=done();let n=0;
   $('#panelList').innerHTML=`<a href="#home" class="${route==='home'?'on':''}"><span>⌂</span>My path</a>
   ${PARTS.map(p=>`<h3>${p[0]}</h3>${p[2].map(id=>{n++;const o=open_(id);return `<a href="#${id}" class="${id===route?'on':''} ${o?'':'lock'}"><span>${d[id]?'✓':n}</span>${L(id).nav}</a>`}).join('')}`).join('')}
   <h3>Bonuses</h3>${BONUS.map((b,i)=>`<a href="#${b.id}" class="${b.id===route?'on':''}"><span>${i+1}</span>${b.t}</a>`).join('')}
-  <h3>Helpers</h3><a href="#toolkit" class="${route==='toolkit'?'on':''}"><span>✎</span>Toolkit</a><a href="#progress" class="${route==='progress'?'on':''}"><span>★</span>My progress</a><a href="../index.html"><span>←</span>Back to the website</a>`;
-  const tab=PATH.includes(route)||route==='home'?'home':(route==='toolkit'||route==='progress')?route:'bonuses';
+  <h3>Helpers</h3><a href="#hardday" class="${route==='hardday'?'on':''}"><span>♥</span>Having a hard day?</a><a href="#daily" class="${route==='daily'?'on':''}"><span>⏱</span>My daily 10 minutes</a><a href="#toolkit" class="${route==='toolkit'?'on':''}"><span>✎</span>Toolkit</a><a href="#progress" class="${route==='progress'?'on':''}"><span>★</span>My progress</a><a href="../index.html"><span>←</span>Back to the website</a>`;
+  const tab=PATH.includes(route)||route==='home'?'home':['toolkit','hardday','daily'].includes(route)?'toolkit':['progress','certificate'].includes(route)?'progress':'bonuses';
   document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+tab));}
 
 function toolkit(){
   const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],p=store.get('plan',{}),f=store.get('flare',{});
   const fl=[['My early warning signs','e.g. knee feels hot, I slept badly'],['What soothes me','e.g. heat pack, warm shower, 4–6 breath'],['The one task I will keep','e.g. short walk to the mailbox'],['Who I can ask for help','a name and phone number'],['I will call my doctor if','e.g. no better after 7 days']];
-  return `<div class="sheet"><section><span class="eyebrow">Toolkit</span><h1>Your helpers, all in one place</h1><p class="lead">Tick, type and come back anytime. Everything saves on this device.</p></section>
+  return `<div class="sheet"><section><span class="eyebrow">Toolkit</span><h1>Your helpers, all in one place</h1><p class="lead">Tick, type and come back anytime. Everything saves on this device.</p><div class="row"><a class="btn alt" href="#hardday">Having a hard day?</a><a class="btn alt" href="#daily">My daily 10 minutes</a></div></section>
   <section><h2>Weekly planner</h2><p>Tick each day you walk and each day you do your strength moves.</p><div class="tablewrap"><table><tr><th></th>${days.map(d=>`<th>${d}</th>`).join('')}</tr>
     ${['Walk','Strength','4–6 breath'].map(r=>`<tr><th>${r}</th>${days.map(d=>`<td><input type="checkbox" class="pl" id="pl-${r[0]}-${d}" aria-label="${r} ${d}" ${p[r[0]+d]?'checked':''} data-k="${r[0]+d}" style="width:22px;height:22px;accent-color:var(--sea)"></td>`).join('')}</tr>`).join('')}</table></div></section>
   <section><h2>My flare-up plan</h2>${fl.map((x,i)=>`<label for="fl${i}"><b>${x[0]}</b></label><input id="fl${i}" class="fl" data-k="${i}" placeholder="${x[1]}" value="${(f[i]||'').replace(/"/g,'&quot;')}" style="font:inherit;padding:14px;margin:6px 0 14px;border:2px solid var(--line);border-radius:12px;width:100%">`).join('')}</section>
@@ -344,10 +364,63 @@ function drawBars(){
   $('#barsNote').textContent=log.length?`Your last ${log.length} check-in${log.length>1?'s':''}. First: ${log[0].v}. Latest: ${log[log.length-1].v}.`:'Your chart will grow here as you check in.';
 }
 
+/* ---------- value: comfort, convenience, heart ---------- */
+const NOTES=['You are doing better than you think.','Slow is still forward.','Your body is not your enemy. It is asking for kindness.','One small thing today is enough.','Rest is part of getting stronger.','You have got through every hard day so far.','Be as patient with yourself as you would be with a friend.','A little better is still better.','You showed up. That is the hardest part.','Good days are coming. You are building them.'];
+const PHOTO={'week-1':['hands.jpg','An older person stretching the fingers of one hand'],'week-2':['walk.jpg','A woman with grey hair walking along a park path'],'week-3':['chair.jpg','A man seated on a wooden chair at home, straightening one leg'],'week-4':['bowl.jpg','A home-cooked bowl of salmon, roasted carrots and sweet potato']};
+const WHY={'week-1':'Programs that pair learning about pain with exercise, like GLA:D in Denmark, saw average knee pain fall from 4.8 to 3.4 out of 10.','week-2':'Tai chi and exercise both get the strongest “yes” in the official U.S. arthritis guideline.','week-3':'Exercise is the top recommendation in the guideline from the American College of Rheumatology and the Arthritis Foundation.','week-4':'In a Wake Forest University study, each pound lost took about four pounds of load off the knee with every step.','week-5':'The official guideline strongly recommends a cane when you need one.','week-7':'Self-management programs, which teach you to handle hard days yourself, get a strong “yes” in the official guideline.','week-8':'The UK’s ESCAPE-pain program showed benefits lasting up to 30 months after it ended.'};
+const canSpeak='speechSynthesis' in window;
+function tools(full){return `<div class="tools noprint"><span>Text size</span><button id="tsm" aria-label="Smaller text">A−</button><button id="tsp" aria-label="Bigger text">A+</button>${full&&canSpeak?'<button id="readme">🔊 Read this to me</button>':''}${full?'<button id="printme">Print this page</button>':''}</div>`}
+function applySize(){document.documentElement.style.setProperty('--z',[.9,1,1.15,1.3][store.get('size',1)])}
+function homeExtras(){const why=store.get('why',''),d=done(),last=[...PATH].reverse().find(id=>d[id]);
+  return `<div class="kind"><span class="eyebrow">A kind word for today</span><p>${NOTES[Math.floor(Date.now()/864e5)%NOTES.length]}</p></div>
+  <div class="sheet"><section><span class="eyebrow">Your why</span>${why?`<p class="heart">“${why.replace(/</g,'&lt;')}”</p><p class="note">This is what you are doing it for. <a href="#home" id="whyEdit">Change it</a></p>`:`<p>What is one thing you miss doing? Gardening, playing with a grandchild, a walk to the mailbox? Write it here, and we will keep it in front of you.</p><input class="field" id="whyIn" maxlength="140" placeholder="I want to be able to…" aria-label="Your why"><button class="btn alt" id="whySave">Keep this for me</button>`}</section>
+  ${last?`<section class="try"><span class="eyebrow">Still practicing</span><p>${L(last).doit}</p></section>`:''}</div>`}
+function helpers(){return `<div class="part"><h2>Helpers for any day</h2><p>Always open, whatever lesson you are on.</p>
+  <a class="step" href="#hardday"><span class="num">♥</span><span><b>Having a hard day?</b><small>A calm breath and a plan, in one place</small></span><span class="go">Open →</span></a>
+  <a class="step" href="#daily"><span class="num">⏱</span><span><b>My daily 10 minutes</b><small>A timer for your walk, strength and breath</small></span><span class="go">Open →</span></a></div>`}
+function breathBox(){return `<div class="breath"><i id="bcirc"></i><b id="bword">Ready when you are</b><button class="btn" id="bstart">Breathe with me</button></div>`}
+function hardday(){const f=store.get('flare',{}),has=Object.values(f).some(Boolean);
+  return `<div class="sheet"><section><span class="eyebrow">For a hard day</span><h1>We’re right here with you.</h1><p class="heart">A hard day does not undo your good ones. You have not done anything wrong. Let’s make today a little softer.</p></section>
+  <section><span class="eyebrow">First, one slow breath</span><p>In for 4, out for 6. Five rounds. Just follow the circle.</p>${breathBox()}</section>
+  <section><span class="eyebrow">Then, your plan for today</span><div class="acro">${L('week-7').acro[2].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div>
+  ${has?`<h3>What you wrote for yourself</h3><ul>${['My early warning signs','What soothes me','The one task I will keep','Who I can ask for help','I will call my doctor if'].map((t,i)=>f[i]?`<li><b>${t}:</b> ${String(f[i]).replace(/</g,'&lt;')}</li>`:'').join('')}</ul>`:`<p class="note">You can write your own plan in the <a href="#toolkit">Toolkit</a>, and it will show up here.</p>`}</section>
+  <section><h3 style="margin-top:0">Please call your doctor today if</h3><ul><li>A joint is hot, red and very swollen, especially with a fever</li><li>You have sudden, severe pain after a fall</li><li>You cannot put weight on your leg</li></ul><p class="note">Chest pain or trouble breathing: call emergency services.</p></section></div>`}
+function daily(){return `<div class="sheet"><section><span class="eyebrow">My daily 10 minutes</span><h1>Ten kind minutes for your joints</h1><p class="lead">Do one part or all three. Only do the parts you have reached in your lessons, and stop if pain goes above 5 out of 10.</p></section>
+  <section><span class="eyebrow">1 · Walk</span><h2>A 5-minute walk</h2><p>Around the house counts. Press start and we will keep the time for you.</p><div class="clock" id="clock">5:00</div><div class="row" style="margin-top:0"><button class="btn" id="tstart">Start my walk</button><button class="btn alt" id="treset">Start over</button></div></section>
+  <section><span class="eyebrow">2 · Strength</span><h2>5 sit-to-stands</h2><p>Stand up from your favorite chair and sit back down slowly. Count 3 up and 3 down.</p><button class="btn alt" id="sdone">I did my strength moves</button></section>
+  <section><span class="eyebrow">3 · Breath</span><h2>Five slow breaths</h2>${breathBox()}</section>
+  <section><p class="note">When you finish a part, we tick it on today’s line in your <a href="#toolkit">Toolkit planner</a> for you.</p></section></div>`}
+function certificate(){const all=PATH.every(id=>done()[id]),name=store.get('name','');
+  if(!all)return `<div class="sheet"><section><span class="eyebrow">Your certificate</span><h1>We’re keeping this ready for you</h1><p class="lead">When you finish your last lesson, your certificate will be waiting right here with your name on it.</p><a class="btn" href="#home">Back to my path →</a></section></div>`;
+  return `<div class="sheet"><section class="noprint"><span class="eyebrow">You earned this</span><h1>Your certificate</h1><label for="certName">What name shall we put on it?</label><input class="field" id="certName" maxlength="60" value="${name.replace(/"/g,'&quot;')}" placeholder="Your name"><button class="btn" id="certPrint">Print my certificate</button></section>
+  <section><div class="cert"><span class="eyebrow">Gentle Joint Care</span><h2>Certificate of Completion</h2><p>This is to celebrate that</p><div class="who" id="certWho">${name.replace(/</g,'&lt;')||'&nbsp;'}</div><p>finished all ${PATH.length} lessons of <b>The Joint Release Course</b>,<br>one small, brave step at a time.</p><p class="note">${new Date().toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'})}</p></div></section></div>`}
+let tHandle=null,bHandle=[];
+function tickPlan(k){const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date().getDay()],p=store.get('plan',{});p[k+dn]=true;store.set('plan',p)}
+function wireValue(w){
+  clearInterval(tHandle);bHandle.forEach(clearTimeout);bHandle=[];if(canSpeak)speechSynthesis.cancel();
+  const sz=d=>{store.set('size',Math.max(0,Math.min(3,store.get('size',1)+d)));applySize()};
+  if($('#tsm')){$('#tsm').onclick=()=>sz(-1);$('#tsp').onclick=()=>sz(1)}
+  const pm=$('#printme');if(pm)pm.onclick=()=>print();
+  const rm=$('#readme');if(rm)rm.onclick=()=>{if(speechSynthesis.speaking){speechSynthesis.cancel();rm.textContent='🔊 Read this to me';return}
+    const parts=[...document.querySelectorAll('#view .sheet>section')].filter(x=>!x.classList.contains('quiz')&&!x.querySelector('.video')&&!x.querySelector('#didit')).map(x=>x.innerText.trim());
+    parts.forEach((t,i)=>{const u=new SpeechSynthesisUtterance(t);u.rate=.9;if(i===parts.length-1)u.onend=()=>rm.textContent='🔊 Read this to me';speechSynthesis.speak(u)});rm.textContent='■ Stop reading'};
+  const ws=$('#whySave');if(ws)ws.onclick=()=>{const v=$('#whyIn').value.trim();if(v){store.set('why',v);render()}};
+  const we=$('#whyEdit');if(we)we.onclick=e=>{e.preventDefault();store.set('why','');render()};
+  document.querySelectorAll('#bstart').forEach(bs=>bs.onclick=()=>{const box=bs.parentElement,c=box.querySelector('i'),t=box.querySelector('b');bHandle.forEach(clearTimeout);bHandle=[];bs.hidden=true;
+    for(let n=0;n<5;n++){bHandle.push(setTimeout(()=>{c.className='in';t.textContent='Breathe in… ('+(n+1)+' of 5)'},n*10000));bHandle.push(setTimeout(()=>{c.className='out';t.textContent='And slowly out…'},n*10000+4000))}
+    bHandle.push(setTimeout(()=>{c.className='';t.textContent='Lovely. Notice how that feels.';bs.hidden=false;bs.textContent='Once more';tickPlan('4')},50000))});
+  const ts=$('#tstart');if(ts){let left=300,run=false;const show=()=>$('#clock').textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0');
+    ts.onclick=()=>{run=!run;ts.textContent=run?'Pause':'Carry on';clearInterval(tHandle);if(run)tHandle=setInterval(()=>{left--;show();if(left<=0){clearInterval(tHandle);run=false;ts.textContent='Walk again';left=300;tickPlan('W');celebrate('You just fed your joints. Well done.','Walk done')}},1000)};
+    $('#treset').onclick=()=>{clearInterval(tHandle);run=false;left=300;show();ts.textContent='Start my walk'};
+    $('#sdone').onclick=()=>{tickPlan('S');$('#sdone').textContent='✓ Ticked for today';celebrate('Strong work. Your muscles are your joints’ helpers.','Strength done')}}
+  const cn=$('#certName');if(cn){cn.oninput=()=>{store.set('name',cn.value);$('#certWho').textContent=cn.value||' '};$('#certPrint').onclick=()=>print()}
+}
+
 function render(){
   const r=(location.hash||'#home').slice(1),w=(PATH.includes(r)||r==='barbara')?L(r):null,b=BONUS.find(x=>x.id===r&&r!=='barbara'&&r!=='science');
-  $('#view').innerHTML=w?lesson(w):b?bonus(b):r==='bonuses'?bonuses():r==='toolkit'?toolkit():r==='science'?science():r==='progress'?progress():home();
-  menu(w||b||['bonuses','toolkit','science','progress'].includes(r)?r:'home');
+  $('#view').innerHTML=w?lesson(w):b?bonus(b):r==='bonuses'?bonuses():r==='toolkit'?toolkit():r==='science'?science():r==='progress'?progress():r==='hardday'?hardday():r==='daily'?daily():r==='certificate'?certificate():home();
+  $('#view').insertAdjacentHTML('afterbegin',tools(!!w||['hardday','science','toolkit'].includes(r)));wireValue(w);
+  menu(w||b||['bonuses','toolkit','science','progress','hardday','daily','certificate'].includes(r)?r:'home');
   document.body.classList.remove('menu-open');window.scrollTo(0,0);
   document.querySelectorAll('.play').forEach(p=>p.onclick=()=>{const id=p.dataset.id;
     $('#v-'+id).innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="${VID[id][0]}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;});
@@ -369,7 +442,7 @@ function render(){
 $('#menuBtn').onclick=()=>document.body.classList.add('menu-open');
 $('#menuClose').onclick=$('#shade').onclick=()=>document.body.classList.remove('menu-open');
 addEventListener('keydown',e=>{if(e.key==='Escape')document.body.classList.remove('menu-open')});
-addEventListener('hashchange',render);render();
+applySize();addEventListener('hashchange',render);render();
 </script>
 </body>
 </html>
