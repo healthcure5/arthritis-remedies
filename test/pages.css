@@ -322,6 +322,8 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 
 /* look 13: photo on the right, softly blended; words stay clear of faces */
 @media (min-width:761px){
-.pageshot{--ph:clamp(460px,66vh,700px);left:36%;right:0;top:0;bottom:auto;height:var(--ph);background-color:transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 36%),linear-gradient(180deg,#000 62%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 36%),linear-gradient(180deg,#000 62%,transparent 100%);mask-composite:intersect}
+.pageshot{--ph:clamp(460px,66vh,700px);left:42%;right:0;top:0;bottom:auto;height:var(--ph);background-color:transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 36%),linear-gradient(180deg,#000 62%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 36%),linear-gradient(180deg,#000 62%,transparent 100%);mask-composite:intersect}
 .pageshot::after,.theme-book .pageshot::after{display:none}
+.pageshot~.open-in>div:first-child{max-width:520px;flex:0 1 520px}
+.theme-book .pageshot~.open-in>div:first-child{max-width:480px;flex:0 1 480px}
 }
