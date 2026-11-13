@@ -107,11 +107,11 @@ const mem={};
 const store={get(k,d){try{const v=localStorage.getItem('jr_'+k);return v?JSON.parse(v):(k in mem?mem[k]:d)}catch(e){return k in mem?mem[k]:d}},
   set(k,v){mem[k]=v;try{localStorage.setItem('jr_'+k,JSON.stringify(v))}catch(e){}}};
 const W=[
-{id:'week-0',n:'★',nav:'Welcome',title:'Welcome. We are glad you are here.',
- hug:`Living with sore joints is hard. Some days it can feel like your body is not on your side. You are not broken, and you are not alone. About 1 in 5 adults lives with arthritis. This course walks beside you, one small step at a time.`,
+{id:'week-0',n:'★',nav:'Welcome',title:'Welcome. We’re so glad you found us.',
+ hug:`Living with sore joints is hard. Some days it can feel like your body is not on your side, and like nobody quite understands. We do. You are not broken, and you are not alone: about 1 in 5 adults lives with arthritis. From here on, we walk beside you, one small step at a time.`,
  big:`You do not have to fix everything. You only have to do one small thing today.`,
  acro:['START','How to use this course',[['S','<b>Small steps.</b> Each week has one big idea and one tiny action.'],['T','<b>Ten minutes.</b> That is all a lesson asks of you.'],['A','<b>Ask your doctor.</b> Tell them you are starting. Bring the question sheet from the Toolkit.'],['R','<b>Rate your day.</b> Use the feelings slider on the My progress page.'],['T','<b>Tick it off.</b> Press “I did it” to open your next lesson.']]],
- body:`<h3>Is this course right for me?</h3><p>Yes, if you have osteoarthritis or everyday joint pain in your knees, hips, hands or back, and you want to feel and move better.</p><p>If you have rheumatoid arthritis, psoriatic arthritis, gout or lupus, you can still use these habits. You also need medicine from your doctor to protect your joints. Please keep taking it.</p>`,
+ body:`<h3>A promise from us</h3><p>We will never rush you, scold you, or ask you to push through bad pain. If a day goes badly, the course will still be here tomorrow, and so will we.</p><h3>Is this course right for me?</h3><p>Yes, if you have osteoarthritis or everyday joint pain in your knees, hips, hands or back, and you want to feel and move better.</p><p>If you have rheumatoid arthritis, psoriatic arthritis, gout or lupus, you can still use these habits. You also need medicine from your doctor to protect your joints. Please keep taking it.</p>`,
  doit:`Write down one thing you miss doing. Gardening? Playing on the floor with a grandchild? Walking to the mailbox without stopping? That is your <b>“why.”</b> Keep it where you can see it.`,
  q:['What does this course ask you to do each day?',['Fix everything at once','One small thing','Push through bad pain'],1,'One small thing, done often, beats one big thing done once.']},
 {id:'encourage',n:'♥',nav:'A word of encouragement',title:'Before we begin: you can do this',
@@ -204,10 +204,10 @@ const BARB={id:'barbara',n:'♥',nav:'Barbara’s corner',title:'Barbara O’Nei
  q:['What should you do before putting a new oil on your skin?',['Use a lot right away','Test a little on your inner arm and wait a day','Heat it until very hot'],1,'Yes. A small skin test keeps you safe.']};
 /* ---------- the path, in order ---------- */
 const PARTS=[
- ['Start here','Three short visits to settle in. No work yet.',['week-0','encourage','mindset']],
- ['Part 1 · Small first steps','Two easy wins to get you going.',['week-1','week-2']],
- ['Part 2 · Building up','A little more each week.',['week-3','week-4','week-5']],
- ['Part 3 · The bigger things','Sleep, hard days, and making it last.',['week-6','week-7','week-8']]
+ ['Start here','Three short visits, just to settle in and feel at home. No work yet.',['week-0','encourage','mindset']],
+ ['Part 1 · Small first steps','Two easy wins, so you can feel what a little better is like.',['week-1','week-2']],
+ ['Part 2 · Building up','A little more each week, and only as much as feels right.',['week-3','week-4','week-5']],
+ ['Part 3 · The bigger things','Sleep, hard days, and making it last. You’ll be ready by then.',['week-6','week-7','week-8']]
 ];
 const PATH=PARTS.flatMap(p=>p[2]);
 const L=id=>id==='barbara'?BARB:W.find(w=>w.id===id);
@@ -243,34 +243,34 @@ function player(id){const v=VID[id],s=store.get('watched',{});
   <div class="row"><button class="btn alt watch" data-id="${id}">${s[id]?'★ Watched':'I watched it'}</button></div>`}
 
 function stepRow(id,n){const w=L(id),d=done()[id],o=open_(id),nx=nextUp()===id;
-  return `<a class="step ${d?'done':o?(nx?'next':''):'lock'}" href="#${id}"><span class="num">${d?'✓':o?n:'🔒'}</span><span><b>${w.nav}</b><small>${d?'Done. Open it again anytime.':o?(nx?'This is your next step':'Ready when you are'):'Opens after the step before it'}</small></span><span class="go">${o?'Open →':''}</span></a>`}
+  return `<a class="step ${d?'done':o?(nx?'next':''):'lock'}" href="#${id}"><span class="num">${d?'✓':n}</span><span><b>${w.nav}</b><small>${d?'Done, and we’re proud of you. Come back anytime.':o?(nx?'Your next step, whenever you’re ready':'Ready when you are'):'Saved for you. It opens after the step before.'}</small></span><span class="go">${o?'Open →':''}</span></a>`}
 
 function home(){const c=count(),nx=nextUp(),all=c===PATH.length;let n=0;
   return `<div class="sheet"><section><span class="eyebrow">The Joint Release Course</span>
-    <h1>${c?(all?'You finished the whole path.':'Welcome back.'):'Welcome. Start right here.'}</h1>
-    <p class="lead">${all?'We are so proud of you. Every lesson stays open, so come back whenever you like.':'One short lesson at a time, in order. Each one opens the next. There is no rush.'}</p>
-    <div class="meter"><b style="width:${c/PATH.length*100}%"></b></div><p class="note">${c} of ${PATH.length} lessons done</p>
-    <a class="btn wide" href="#${nx||'bonuses'}">${all?'Visit your bonuses →':(c?'Continue: ':'Begin: ')+L(nx).nav+' →'}</a></section></div>
+    <h1>${c?(all?'You did it. We’re so proud of you.':'Welcome back. It’s good to see you.'):'We’re so glad you’re here.'}</h1>
+    <p class="lead">${all?'Look how far you have come. Every lesson stays open for you, so come back whenever you need a kind reminder.':c?'However today feels, you showed up, and that matters. Your next step is waiting whenever you’re ready.':'Living with sore joints is hard, and you have carried it for a long time. You don’t have to carry it alone anymore. We’ll take this together, one small, kind step at a time. There is nothing to get wrong here, and there is no rush.'}</p>
+    <div class="meter"><b style="width:${c/PATH.length*100}%"></b></div><p class="note">${c?c+' of '+PATH.length+' steps taken. Every one counts.':'Your first step is waiting just below.'}</p>
+    <a class="btn wide" href="#${nx||'bonuses'}">${all?'Visit your bonuses →':(c?'Carry on with: '+L(nx).nav:'Take my first step')+' →'}</a></section></div>
   ${PARTS.map(p=>`<div class="part"><h2>${p[0]}</h2><p>${p[1]}</p>${p[2].map(id=>stepRow(id,++n)).join('')}</div>`).join('')}
-  <div class="part"><h2>Your bonuses</h2><p>Extra videos and helpers. Open anytime.</p><a class="step" href="#bonuses"><span class="num">★</span><span><b>See all ${BONUS.length} bonuses</b><small>Videos play right here in the course</small></span><span class="go">Open →</span></a></div>
-  <p class="safety" style="margin-top:28px">This course teaches healthy habits. It does not replace your doctor, and it cannot diagnose or cure any condition. Please check with your doctor before starting new exercise, and keep taking your prescribed medicines.</p>`}
+  <div class="part"><h2>Your bonuses</h2><p>A few gifts from us to you. Open them anytime.</p><a class="step" href="#bonuses"><span class="num">★</span><span><b>See all ${BONUS.length} bonuses</b><small>Videos play right here in the course</small></span><span class="go">Open →</span></a></div>
+  <p class="safety" style="margin-top:28px">Because we care about you: this course teaches healthy habits that work alongside your doctor, never instead of them. It cannot diagnose or cure any condition. Please check with your doctor before starting new exercise, and keep taking your prescribed medicines.</p>`}
 
 function lesson(w){const main=PATH.includes(w.id),i=PATH.indexOf(w.id),d=done()[w.id],part=main?PARTS.find(p=>p[2].includes(w.id))[0]:'Bonus',nx=PATH[i+1],vids=LESSON_VIDS[w.id]||[];
   if(main&&!open_(w.id)){const prev=PATH.slice(0,i).find(id=>!done()[id]);
-    return `<div class="sheet"><section><span class="eyebrow">Not just yet</span><h1>${w.nav} opens soon</h1><p class="lead">We take things in order so nothing feels like too much. Finish <b>${L(prev).nav}</b> first, and this lesson will be waiting for you.</p><a class="btn" href="#${prev}">Go to ${L(prev).nav} →</a></section></div>`}
+    return `<div class="sheet"><section><span class="eyebrow">Almost there</span><h1>We’re saving this one for you</h1><p class="lead">We take things one at a time so nothing ever feels like too much. Once you finish <b>${L(prev).nav}</b>, this lesson will open for you. No hurry at all.</p><a class="btn" href="#${prev}">Go to ${L(prev).nav} →</a></section></div>`}
   return `<div class="sheet">
   <section><span class="eyebrow">${part}${main?` · Lesson ${i+1} of ${PATH.length}`:''}</span><h1>${w.title}</h1><p class="heart">${w.hug}</p></section>
-  <section class="big"><span class="eyebrow">The big idea</span><p>${w.big}</p></section>
+  <section class="big"><span class="eyebrow">The one thing to hold on to</span><p>${w.big}</p></section>
   <section><span class="eyebrow">A word to remember it by</span><h2>${w.acro[0].split('').join(' · ')}</h2><p>${w.acro[1]}</p><div class="acro">${w.acro[2].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div></section>
   <section>${w.body}</section>
-  ${vids.length?`<section><span class="eyebrow">Watch</span>${vids.map(player).join('')}${w.id==='barbara'?BARB_NOTE:''}</section>`:''}
+  ${vids.length?`<section><span class="eyebrow">Watch with us</span>${vids.map(player).join('')}${w.id==='barbara'?BARB_NOTE:''}</section>`:''}
   <section class="try"><span class="eyebrow">Your one small thing today</span><p>${w.doit}</p></section>
-  <section class="quiz" data-a="${w.q[2]}"><span class="eyebrow">Quick check</span><h3 style="margin-top:0">${w.q[0]}</h3>${w.q[1].map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}<p class="fb" id="fb" role="status"></p></section>
-  <section><button class="btn wide" id="didit">${d?'✓ Done. Well done!':'I did it'}</button>
+  <section class="quiz" data-a="${w.q[2]}"><span class="eyebrow">A quick, friendly check</span><h3 style="margin-top:0">${w.q[0]}</h3>${w.q[1].map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}<p class="fb" id="fb" role="status"></p></section>
+  <section><button class="btn wide" id="didit">${d?'✓ Done. We’re proud of you.':'I did it'}</button>
     <div class="row" id="after" ${d?'':'hidden'}>${main?(nx?`<a class="btn alt wide" href="#${nx}">Next: ${L(nx).nav} →</a>`:`<a class="btn alt wide" href="#bonuses">Visit your bonuses →</a>`):`<a class="btn alt wide" href="#bonuses">Back to your bonuses →</a>`}</div>
-    ${main&&nx&&!d?`<p class="note" style="margin-top:12px">Pressing “I did it” opens your next lesson: ${L(nx).nav}.</p>`:''}</section></div>`}
+    ${main&&nx&&!d?`<p class="note" style="margin-top:12px">When you’re ready, press “I did it” and we’ll open your next lesson for you: ${L(nx).nav}.</p>`:''}</section></div>`}
 
-function bonuses(){return `<div class="sheet"><section><span class="eyebrow">Your bonuses</span><h1>Extras, in order</h1><p class="lead">Take them one at a time, whenever you like. Every video plays right here.</p></section></div>
+function bonuses(){return `<div class="sheet"><section><span class="eyebrow">Your bonuses</span><h1>A few gifts, just for you</h1><p class="lead">Take them one at a time, whenever you feel like it. Every video plays right here, so you never have to go looking.</p></section></div>
   ${BONUS.map((b,i)=>`<a class="step" href="#${b.id}"><span class="num">${i+1}</span><span><b>Bonus ${i+1} · ${b.t}</b><small>${b.s}</small></span><span class="go">Open →</span></a>`).join('')}`}
 
 function bonus(b){const i=BONUS.indexOf(b),nx=BONUS[i+1];
@@ -279,8 +279,8 @@ function bonus(b){const i=BONUS.indexOf(b),nx=BONUS[i+1];
   <section><div class="row" style="margin-top:0">${nx?`<a class="btn alt" href="#${nx.id}">Next bonus: ${nx.t} →</a>`:''}<a class="btn alt" href="#bonuses">All bonuses</a></div></section></div>`}
 
 function progress(){const log=store.get('log',[]);
-  return `<div class="sheet"><section><span class="eyebrow">My progress</span><h1>How do your joints feel today?</h1>
-    <p>Slide to your number. 0 means no pain. 10 means the worst pain. There is no wrong answer.</p>
+  return `<div class="sheet"><section><span class="eyebrow">My progress</span><h1>How are your joints feeling today?</h1>
+    <p>Slide to your number. 0 means no pain. 10 means the worst pain. There is no wrong answer, and whatever your number is, thank you for telling us.</p>
     <input type="range" id="pain" min="0" max="10" value="${log.length?log[log.length-1].v:4}" aria-label="Pain today from 0 to 10">
     <div class="row"><b id="painV" style="font-size:24px;color:var(--ink)"></b><button class="btn" id="savePain">Save today’s number</button></div>
     <div class="bars" id="bars" aria-hidden="true"></div><p class="note" id="barsNote"></p><p class="note">Your numbers stay on this device only.</p></section>
@@ -290,7 +290,7 @@ function progress(){const log=store.get('log',[]);
 
 function menu(route){const d=done();let n=0;
   $('#panelList').innerHTML=`<a href="#home" class="${route==='home'?'on':''}"><span>⌂</span>My path</a>
-  ${PARTS.map(p=>`<h3>${p[0]}</h3>${p[2].map(id=>{n++;const o=open_(id);return `<a href="#${id}" class="${id===route?'on':''} ${o?'':'lock'}"><span>${d[id]?'✓':o?n:'🔒'}</span>${L(id).nav}</a>`}).join('')}`).join('')}
+  ${PARTS.map(p=>`<h3>${p[0]}</h3>${p[2].map(id=>{n++;const o=open_(id);return `<a href="#${id}" class="${id===route?'on':''} ${o?'':'lock'}"><span>${d[id]?'✓':n}</span>${L(id).nav}</a>`}).join('')}`).join('')}
   <h3>Bonuses</h3>${BONUS.map((b,i)=>`<a href="#${b.id}" class="${b.id===route?'on':''}"><span>${i+1}</span>${b.t}</a>`).join('')}
   <h3>Helpers</h3><a href="#toolkit" class="${route==='toolkit'?'on':''}"><span>✎</span>Toolkit</a><a href="#progress" class="${route==='progress'?'on':''}"><span>★</span>My progress</a><a href="../index.html"><span>←</span>Back to the website</a>`;
   const tab=PATH.includes(route)||route==='home'?'home':(route==='toolkit'||route==='progress')?route:'bonuses';
@@ -358,11 +358,11 @@ function render(){
     $('#savePain').onclick=()=>{const log=store.get('log',[]),d=new Date().toISOString().slice(0,10),i=log.findIndex(x=>x.d===d);
       if(i>=0)log[i].v=+pain.value;else log.push({d,v:+pain.value});store.set('log',log);drawBars();$('#savePain').textContent='Saved. Thank you for checking in.';};}
   const dd=$('#didit');
-  if(dd)dd.onclick=()=>{const d=done(),first=!d[w.id];d[w.id]=true;store.set('done',d);dd.textContent='✓ Done. Well done!';$('#after').hidden=false;menu(r);
+  if(dd)dd.onclick=()=>{const d=done(),first=!d[w.id];d[w.id]=true;store.set('done',d);dd.textContent='✓ Done. We’re proud of you.';$('#after').hidden=false;menu(r);
     if(first)celebrate(PATH.every(x=>d[x])?'You finished the whole course. We are so proud of you!':PRAISE[Math.floor(Math.random()*PRAISE.length)],'+3 stars');};
   document.querySelectorAll('.quiz button').forEach(x=>x.onclick=()=>{
     const ok=x.dataset.k===x.parentElement.dataset.a;x.className=ok?'right':'wrong';
-    $('#fb').textContent=ok?w.q[3]:'Good try. Have another go.';});
+    $('#fb').textContent=ok?w.q[3]:'So close. Have another go. Nobody is keeping score.';});
   document.querySelectorAll('.pl').forEach(c=>c.onchange=()=>{const p=store.get('plan',{});p[c.dataset.k]=c.checked;store.set('plan',p);});
   document.querySelectorAll('.fl').forEach(c=>c.oninput=()=>{const f=store.get('flare',{});f[c.dataset.k]=c.value;store.set('flare',f);});
 }
