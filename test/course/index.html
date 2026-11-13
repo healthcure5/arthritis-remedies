@@ -378,7 +378,8 @@ const BARB_NOTE=`<p class="note">A kind, honest word: Barbara is a natural-healt
 
 const $=s=>document.querySelector(s);
 const done=()=>store.get('done',{});
-const open_=id=>{const i=PATH.indexOf(id);return i<=0||!!done()[PATH[i-1]]};
+const PREVIEW=/[?&]preview/.test(location.search);
+const open_=id=>{const i=PATH.indexOf(id);return PREVIEW||i<=0||!!done()[PATH[i-1]]};
 const nextUp=()=>PATH.find(id=>!done()[id]);
 const count=()=>PATH.filter(id=>done()[id]).length;
 const stars=()=>Object.keys(done()).length*3+Object.keys(store.get('watched',{})).length;
