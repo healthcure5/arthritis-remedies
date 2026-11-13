@@ -319,3 +319,9 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .theme-guide .open-in{flex-direction:row}
 .theme-guide .pageshot~.open-in>div:last-child::before{display:none}
 .theme-book .pageshot::after{background:linear-gradient(180deg,rgba(10,31,68,0) 38%,rgb(10,31,68) 78%),linear-gradient(90deg,rgba(10,31,68,.95) 0%,rgba(10,31,68,.78) 38%,rgba(10,31,68,.18) 72%,rgba(10,31,68,0) 100%)}
+
+/* look 13: photo anchored right, words on the calm side */
+@media (min-width:761px){
+.pageshot{--ph:clamp(460px,66vh,700px);background-size:auto var(--ph);background-position:right top!important;background-repeat:no-repeat}
+.pageshot::after,.theme-book .pageshot::after{background:linear-gradient(180deg,rgba(var(--fr,10,31,68),0) calc(var(--ph)*.6),rgb(var(--fr,10,31,68)) var(--ph)),linear-gradient(90deg,rgb(var(--fr,10,31,68)) 0%,rgb(var(--fr,10,31,68)) 38%,rgba(var(--fr,10,31,68),.55) 52%,rgba(var(--fr,10,31,68),0) 74%)}
+}
