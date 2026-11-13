@@ -179,7 +179,7 @@ const W=[
  hug:`Maybe you have tried things before and they did not last. Maybe you are tired of hoping. That is okay. You do not need to feel brave today. You only need to be here, and you already are.`,
  big:`You are not starting from zero. You are starting from everything you have already lived through.`,
  acro:['KIND','Four promises to make to yourself',[['K','<b>Keep it small.</b> A tiny step you finish beats a big plan you dread.'],['I','<b>It is okay to rest.</b> Rest is part of the plan. It is not failing.'],['N','<b>No comparing.</b> Not with others, and not with who you were at 30.'],['D','<b>Do it your way.</b> Slow counts. Sitting down counts. Starting again counts.']]],
- body:`<h3>What to expect</h3><p>Some days will feel good. Some will not. Both are normal, and both are part of getting better. We will never ask you to push through bad pain.</p><h3>How the course is laid out</h3><ul><li><b>Start here</b> is three short visits. No work yet.</li><li><b>Part 1</b> gives you two easy wins.</li><li><b>Part 2</b> builds a little more each week.</li><li><b>Part 3</b> takes on the bigger things, like sleep and hard days.</li></ul><p>Each lesson opens the next one, so you always know what to do.</p>`,
+ body:`<h3>What to expect</h3><p>Some days will feel good. Some will not. Both are normal, and both are part of getting better. We will never ask you to push through bad pain.</p><h3>How the course is laid out</h3><ul><li><b>Start here</b> is two short visits. No work yet.</li><li><b>Part 1</b> gives you two easy wins.</li><li><b>Part 2</b> builds a little more each week.</li><li><b>Part 3</b> takes on the bigger things, like sleep and hard days.</li></ul><p>Each lesson opens the next one, so you always know what to do.</p>`,
  doit:`Say this out loud, or write it down: “I am allowed to go slowly.”`,
  q:['What counts as a win in this course?',['Only big changes','Any small step you finish','Never having a bad day'],1,'Yes. Small steps you finish are what change things.']},
 {id:'mindset',n:'✦',nav:'Your mindset',title:'Your mindset: how you think about pain matters',
@@ -350,7 +350,7 @@ const BARB={id:'barbara',n:'♥',nav:'Barbara’s corner',title:'Barbara O’Nei
  q:['What should you do before putting a new oil on your skin?',['Use a lot right away','Test a little on your inner arm and wait a day','Heat it until very hot'],1,'Yes. A small skin test keeps you safe.']};
 /* ---------- the path, in order ---------- */
 const PARTS=[
- ['Start here','Three short visits, just to settle in. No work yet.',['week-0','encourage','mindset']],
+ ['Start here','Two short visits, just to settle in. No work yet.',['encourage','mindset']],
  ['Part 1 · Small first steps','Understand your joints, and take your first easy walks.',['week-1','know','week-2']],
  ['Part 2 · Soothe','Food, warmth and spices, with Barbara’s comforts checked for you.',['story','week-4','warmth','herbs']],
  ['Part 3 · Build','Strength, kinder days, better nights, and a routine of your own.',['week-3','week-5','week-6','routine']],
@@ -368,11 +368,21 @@ const VID={
 };
 const LESSON_VIDS={'week-2':['tAOuEpa01j4'],'warmth':['BDq0kej3C14']};
 const BONUS=[
- {id:'b-taichi',t:'Tai chi follow-along class',s:'A calm class to move along with',yt:'tAOuEpa01j4'},
- {id:'b-castor',t:'Barbara: castor oil for sore joints',s:'How she makes her compress',yt:'BDq0kej3C14'},
- {id:'b-poultice',t:'Barbara: the poultice class',s:'Her full lecture',yt:'uVLGsqysQcs'},
- {id:'b-exercise',t:'Barbara: Exercise That Works',s:'Full lecture, close to an hour',yt:'AP9IuNavHIg'},
- {id:'b-fats',t:'Barbara: Fantastic Fats',s:'Full lecture, close to an hour',yt:'slWOfJzWAf8'}
+ {id:'b-taichi',t:'Tai chi for sore joints',s:'Move along with a calm class',yt:'tAOuEpa01j4',
+  what:'A follow-along class with Dr Paul Lam, a doctor who has taught tai chi to people with arthritis for many years. The moves are slow and flowing, and you can do them standing or in a chair.',
+  why:'Tai chi gets one of the strongest “yes” votes in the official arthritis guideline for knees and hips. It builds balance, strength and calm all at once, without jarring your joints. If walking is hard right now, this is a lovely place to begin.'},
+ {id:'b-castor',t:'Barbara’s castor oil compress',s:'Watch her make it, step by step',yt:'BDq0kej3C14',
+  what:'Barbara O’Neill shows how she makes and uses a castor oil compress on a sore joint. It is the same compress you met in the Warmth lesson, and seeing it done makes it much easier to try.',
+  why:'The oil itself has not been proven in studies. What many people love is the ritual: warmth, stillness and twenty quiet minutes of looking after yourself. Watch this if you would like a comfort for the evenings.'},
+ {id:'b-poultice',t:'Barbara’s poultice class',s:'Her full lecture on poultices',yt:'uVLGsqysQcs',
+  what:'Barbara’s full lecture on making poultices at home, from what to put in the cloth to how to wrap it on.',
+  why:'If you enjoyed the ginger poultice idea and want to see how these are really made, this is the long version. Remember our rule from the lesson: take a poultice off the moment it stings, and never leave ginger or cayenne on overnight.'},
+ {id:'b-exercise',t:'Barbara: Exercise That Works',s:'A full lecture, close to an hour',yt:'AP9IuNavHIg',
+  what:'One of Barbara’s hour-long talks, this one about exercise and why the body needs it every day. Make a cup of tea and settle in.',
+  why:'Moving every day is the one remedy she and the doctors agree on completely. If you need a push to believe that movement is worth it, an hour with someone who loves the subject can help. Do keep to your own pace from the Ease in and Load wisely lessons.'},
+ {id:'b-fats',t:'Barbara: Fantastic Fats',s:'A full lecture, close to an hour',yt:'slWOfJzWAf8',
+  what:'Another of Barbara’s hour-long talks, this one about the fats in our food.',
+  why:'Good fats came up in your Eat lesson: olive oil, nuts and oily fish have the best support for joints and heart. This talk goes deeper into her view. Listen with your Eat lesson in mind, and bring any big changes to your doctor first.'}
 ];
 const BARB_NOTE=`<p class="note">A kind, honest word: Barbara is a natural-health teacher, not a doctor. These talks share her own views, and we have not checked every claim in them. Enjoy them as ideas, keep your doctor in the loop, and never stop a prescribed medicine because of a video.</p>`;
 
@@ -424,7 +434,7 @@ function bonuses(){return `<div class="sheet"><section><span class="eyebrow">You
 function bonus(b){const i=BONUS.indexOf(b),nx=BONUS[i+1];
   return `<div class="sheet"><section><span class="eyebrow">Bonus ${i+1} of ${BONUS.length}</span>
   ${b.yt?player(b.yt)+(VID[b.yt][0].includes('Barbara')?BARB_NOTE:''):`<h1>The Joint Reset book</h1><p class="lead">Our book is yours to keep with this course. Read it on your screen or print it out.</p><a class="btn" href="../the-joint-reset.pdf" target="_blank" rel="noopener">Open the book</a>`}</section>
-  <section><div class="row" style="margin-top:0">${nx?`<a class="btn alt" href="#${nx.id}">Next bonus: ${nx.t} →</a>`:''}<a class="btn alt" href="#bonuses">All bonuses</a></div></section></div>`}
+  <section><div class="row" style="margin-top:0">${nx?`<a class="btn alt" href="#${nx.id}">Next session: ${nx.t} →</a>`:''}<a class="btn alt" href="#bonuses">All bonuses</a></div></section></div>`}
 
 function progress(){const log=store.get('log',[]);
   return `<div class="sheet"><section><span class="eyebrow">My progress</span><h1>How are your joints feeling today?</h1>
@@ -434,13 +444,13 @@ function progress(){const log=store.get('log',[]);
     <div class="bars" id="bars" aria-hidden="true"></div><p class="note" id="barsNote"></p><p class="note">Your numbers stay on this device only.</p></section>
   <section><span class="eyebrow">Your why</span>${store.get('why','')?`<p class="heart">“${store.get('why','').replace(/</g,'&lt;')}”</p><p class="note">This is what you are doing it for. <a href="#progress" id="whyEdit">Change it</a></p>`:`<p>What is one thing you miss doing? Write it here, and we will keep it safe for you.</p><input class="field" id="whyIn" maxlength="140" placeholder="I want to be able to…" aria-label="Your why"><button class="btn alt" id="whySave">Keep this for me</button>`}</section>
   <section><h2>Your stars</h2><p>Finish a lesson to earn 3 stars. Watch a video to earn 1 more.</p>
-    <div class="row"><span class="starcount">★ ${stars()}</span><span class="note">${stars()?'Every star is a kind thing you did for your body.':'Your first star is waiting in the Welcome lesson.'}</span></div>
+    <div class="row"><span class="starcount">★ ${stars()}</span><span class="note">${stars()?'Every star is a kind thing you did for your body.':'Your first star is waiting in your first lesson.'}</span></div>
     <div class="badges">${PATH.map(id=>`<a href="#${id}" class="badge ${done()[id]?'lit':''}"><b>${L(id).n}</b>${L(id).nav}</a>`).join('')}</div><div class="row"><a class="btn alt" href="#certificate">My certificate</a></div></section></div>`}
 
 function menu(route){const d=done();let n=0;
   $('#panelList').innerHTML=`<a href="#home" class="${route==='home'?'on':''}"><span>⌂</span>My path</a>
   ${PARTS.map(p=>`<h3>${p[0]}</h3>${p[2].map(id=>{n++;const o=open_(id);return `<a href="#${id}" class="${id===route?'on':''} ${o?'':'lock'}"><span>${d[id]?'✓':n}</span>${L(id).nav}</a>`}).join('')}`).join('')}
-  <h3>Bonuses</h3>${BONUS.map((b,i)=>`<a href="#${b.id}" class="${b.id===route?'on':''}"><span>${i+1}</span>${b.t}</a>`).join('')}
+  <h3>The Practice Room</h3>${BONUS.map((b,i)=>`<a href="#${b.id}" class="${b.id===route?'on':''}"><span>${i+1}</span>${b.t}</a>`).join('')}
   <h3>Helpers</h3><a href="#hardday" class="${route==='hardday'?'on':''}"><span>♥</span>Having a hard day?</a><a href="#daily" class="${route==='daily'?'on':''}"><span>⏱</span>My daily 10 minutes</a><a href="#toolkit" class="${route==='toolkit'?'on':''}"><span>✎</span>Toolkit</a><a href="#progress" class="${route==='progress'?'on':''}"><span>★</span>My progress</a><a href="../index.html"><span>←</span>Back to the website</a>`;
   const tab=PATH.includes(route)||route==='home'?'home':['toolkit','hardday','daily'].includes(route)?'toolkit':['progress','certificate'].includes(route)?'progress':'bonuses';
   document.querySelectorAll('.tabs a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+tab));}
@@ -583,13 +593,17 @@ function overview(){return `<article class="page"><span class="eyebrow">Course o
   <p class="heart">It is exhausting to hurt, and even more exhausting to not know who to believe. This course will be honest with you from the first page, because you deserve that.</p>
   <p>It will not cure your arthritis. Nothing can promise that. What it can do is real, though, and it matters: less stiffness in the morning, more confidence about what is safe to try, and a plan that is entirely yours.</p>
   <h2>How it is laid out</h2>
-  <p><b>Start here.</b> Three short visits, just to settle in. No work yet.</p>
+  <p><b>Start here.</b> Two short visits, just to settle in. No work yet.</p>
   <p><b>Part 1 · Small first steps.</b> Understand what is happening in your joints, and take your first easy walks.</p>
   <p><b>Part 2 · Soothe.</b> Food, warmth, poultices and spices. Including Barbara O’Neill’s best-loved comforts, each one checked so you can use them safely.</p>
   <p><b>Part 3 · Build.</b> Strength, kinder days, better nights, and a routine that fits your life.</p>
   <p><b>Part 4 · Keep going.</b> A plan for hard days, and answers for the moments you doubt yourself.</p>
   <h2>What else is waiting for you</h2>
-  <p><b>Your bonuses</b> are videos you watch right here. <b>Your toolkit</b> holds your helpers: a planner, a timer for your daily ten minutes, a page for hard days, and easy recipes. Every lesson can be read aloud to you.</p>
+  <p><b>The Practice Room</b> is where the doing begins: five follow-along videos you watch right here. <b>Your toolkit</b> holds your helpers: a planner, a timer for your daily ten minutes, a page for hard days, and easy recipes. Every lesson can be read aloud to you. And at the very end, <b>your bonuses</b>: trusted places to visit when you want more.</p>
+  <h2>Is this course right for me?</h2>
+  <p>Yes, if you have osteoarthritis or everyday joint pain in your knees, hips, hands or back, and you want to feel and move better. If you have rheumatoid arthritis, psoriatic arthritis, gout or lupus, you can still use these habits. You also need medicine from your doctor to protect your joints. Please keep taking it.</p>
+  <h2>A promise from us</h2>
+  <p>We will never rush you, scold you, or ask you to push through bad pain.</p>
   <h2>How to take it</h2>
   <p>One lesson at a time, in order. Each one opens the next. Ten minutes is plenty. If a day goes badly, the course will still be here tomorrow, and so will we.</p>
   <p class="safety">Because we care about you: this course teaches healthy habits that work alongside your doctor, never instead of them. It cannot diagnose or cure any condition. Please check with your doctor before starting new exercise, and keep taking your prescribed medicines.</p>
@@ -600,9 +614,9 @@ function home(){const c=count(),nx=nextUp(),all=c===PATH.length;let n=0;
   <p class="kindline">${NOTES[Math.floor(Date.now()/864e5)%NOTES.length]}</p>
   <div class="meter"><b style="width:${c/PATH.length*100}%"></b></div><p class="note">${c?c+' of '+PATH.length+' steps taken. Every one counts.':'Tap a heading below and it will open for you.'}</p>
   ${part}
-  ${fold('Your bonuses','Videos to watch right here, whenever you like',BONUS.map((b,i)=>row('#'+b.id,'▶','Bonus '+(i+1)+' · '+b.t,b.s)).join(''))}
+  ${fold('Step up · The Practice Room','You have the knowledge. This is where the doing begins.',BONUS.map((b,i)=>row('#'+b.id,'▶','Session '+(i+1)+' · '+b.t,b.s)).join(''))}
   ${fold('Your toolkit','Helpers, all in one place',row('#hardday','♥','Having a hard day?','A calm breath and a plan')+row('#daily','⏱','My daily 10 minutes','A timer for your walk, strength and breath')+row('#toolkit','✎','My planner and plans','Weekly planner, flare plan, questions for my doctor')+row('#kitchen','🍲','My joint-friendly kitchen','A shopping list and eight easy recipes')+row('#progress','★','My progress','Your feelings chart, your why, and your stars')+row('#certificate','🎖','My certificate','Waiting for you at the end'))}
-  ${fold('More to explore','Trusted places to visit when you are ready',row('#science','%','The science, in plain words','Why we trust these steps')+EXPLORE.map(e=>`<a class="step" href="${e[2]}" target="_blank" rel="noopener"><span class="num">↗</span><span><b>${e[0]}</b><small>${e[1]} · opens a new page</small></span></a>`).join(''))}
+  ${fold('Your bonuses','Our gift to you: trusted places to visit when you want more',row('#science','%','The science, in plain words','Why we trust these steps')+EXPLORE.map(e=>`<a class="step" href="${e[2]}" target="_blank" rel="noopener"><span class="num">↗</span><span><b>${e[0]}</b><small>${e[1]} · opens a new page</small></span></a>`).join(''))}
   ${all?'':`<a class="btn wide" style="margin-top:28px" href="#${nx}">${c?'Carry on with: '+L(nx).nav:'Take my first step'} →</a>`}
   <p class="foot noprint"><a href="#overview">Read the course overview again</a></p></article>`}
 function lesson(w){const i=PATH.indexOf(w.id),d=done()[w.id],part=PARTS.find(p=>p[2].includes(w.id))[0],nx=PATH[i+1],vids=LESSON_VIDS[w.id]||[];
@@ -617,12 +631,13 @@ function lesson(w){const i=PATH.indexOf(w.id),d=done()[w.id],part=PARTS.find(p=>
   <section class="try"><span class="eyebrow">Your one small thing today</span><p>${w.doit}</p></section>
   <section class="quiz" data-a="${w.q[2]}"><span class="eyebrow">A quick, friendly check</span><h3 style="margin-top:0">${w.q[0]}</h3>${w.q[1].map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}<p class="fb" id="fb" role="status"></p></section>
   <section><button class="btn wide" id="didit">${d?'✓ Done. We’re proud of you.':'I did it'}</button>
-    <div class="row" id="after" ${d?'':'hidden'}>${nx?`<a class="btn alt wide" href="#${nx}">Next: ${L(nx).nav} →</a>`:`<a class="btn alt wide" href="#certificate">See my certificate →</a>`}</div>
+    <div class="row" id="after" ${d?'':'hidden'}>${nx?`<a class="btn alt wide" href="#${nx}">Next: ${L(nx).nav} →</a>`:`<a class="btn alt wide" href="#b-taichi">Step up to the Practice Room →</a>`}</div>
     ${nx&&!d?`<p class="note" style="margin-top:12px">When you’re ready, press “I did it” and we’ll open your next lesson for you: ${L(nx).nav}.</p>`:''}${foot()}</section></article>`}
 function bonuses(){return home()}
 function bonus(b){const i=BONUS.indexOf(b),nx=BONUS[i+1];
-  return `<article class="page"><span class="eyebrow">Bonus ${i+1} of ${BONUS.length}</span>${player(b.yt)}${VID[b.yt][0].includes('Barbara')?BARB_NOTE:''}
-  ${nx?`<a class="btn alt wide" style="margin-top:22px" href="#${nx.id}">Next bonus: ${nx.t} →</a>`:''}${foot()}</article>`}
+  return `<article class="page"><span class="eyebrow">The Practice Room · Session ${i+1} of ${BONUS.length}</span><h1>${b.t}</h1>
+  <h3>What this is</h3><p>${b.what}</p><h3>Why it is here for you</h3><p>${b.why}</p><span class="eyebrow" style="margin-top:26px">Watch with us</span>${player(b.yt).replace(/^<h3>.*?<\/p>/,'')}${VID[b.yt][0].includes('Barbara')?BARB_NOTE:''}
+  ${nx?`<a class="btn alt wide" style="margin-top:22px" href="#${nx.id}">Next session: ${nx.t} →</a>`:''}${foot()}</article>`}
 function kitchen(){return `<article class="page sheet"><section><span class="eyebrow">Your toolkit</span><h1>My joint-friendly kitchen</h1><p class="heart">Good food won’t cure arthritis, but it steadies your weight, lifts your energy and makes every other step easier. These recipes ask very little of sore hands.</p></section>
   <section><h2>A shopping list to start with</h2><ul><li><b>Vegetables:</b> leafy greens, broccoli, carrots, tomatoes, peppers, onions</li><li><b>Fruit:</b> berries, cherries, oranges, apples</li><li><b>Protein:</b> salmon or sardines, lentils, chickpeas, eggs</li><li><b>Whole grains:</b> oats, brown rice, wholegrain bread</li><li><b>Good fats:</b> olive oil, walnuts, almonds</li><li><b>Flavour:</b> turmeric, fresh ginger, garlic, black pepper, lemon</li></ul></section>
   <section><h2>Eight easy recipes</h2>
@@ -638,8 +653,9 @@ function kitchen(){return `<article class="page sheet"><section><span class="eye
 function menu(route){const d=done();let n=0;
   $('#panelList').innerHTML=`<a href="#home"><span>⌂</span>My path</a><a href="#overview"><span>☰</span>Course overview</a>
   ${PARTS.map(p=>`<h3>${p[0]}</h3>${p[2].map(id=>{n++;return `<a href="#${id}" class="${id===route?'on':''} ${open_(id)?'':'lock'}"><span>${d[id]?'✓':n}</span>${L(id).nav}</a>`}).join('')}`).join('')}
-  <h3>Bonuses</h3>${BONUS.map((b,i)=>`<a href="#${b.id}" class="${b.id===route?'on':''}"><span>▶</span>${b.t}</a>`).join('')}
+  <h3>The Practice Room</h3>${BONUS.map((b,i)=>`<a href="#${b.id}" class="${b.id===route?'on':''}"><span>▶</span>${b.t}</a>`).join('')}
   <h3>Toolkit</h3><a href="#hardday"><span>♥</span>Having a hard day?</a><a href="#daily"><span>⏱</span>My daily 10 minutes</a><a href="#toolkit"><span>✎</span>My planner and plans</a><a href="#kitchen"><span>🍲</span>My kitchen</a><a href="#progress"><span>★</span>My progress</a>
+  <h3>Your bonuses</h3><a href="#science"><span>%</span>The science, in plain words</a>
   <h3>Text size</h3><div class="sizer"><button id="tsm" aria-label="Smaller text">A−</button><button id="tsp" aria-label="Bigger text">A+</button></div>
   <a href="#welcome"><span>🌿</span>Welcome page</a><a href="../index.html"><span>←</span>Back to the website</a>`}
 function render(){
