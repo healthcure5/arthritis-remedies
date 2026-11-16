@@ -3,17 +3,17 @@
 // While a link is empty, the "Yes, I want..." button shows "Checkout opens soon".
 // ---------------------------------------------------------------
 var BOOK_URL = '';     // The Joint Reset
-var COURSE_URL = '';   // The Gentle Joint Care Program
-var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
+var COURSE_URL = '';   // The Hinge Care Program
+var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
 
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
   var PROGRAMS = [
     ['guide.html', 'Free guide', 'A kind first step, on us'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
-    ['course-info.html', 'The Gentle Joint Care Program', 'Eight weeks to feeling more like you']
+    ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you']
   ];
-  var LOGO = '<span class="gjc-mark" role="img" aria-label="Gentle Joint Care"></span>';
+  var LOGO = '<span class="gjc-mark" role="img" aria-label="Hinge Care"></span>';
   var css = document.createElement('style');
   css.textContent =
     '.hdr,.top,.hdr-nav,.jr-fab,.jr-drawer,.jr-shade{display:none!important}' +
@@ -46,10 +46,10 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
     '<a href="library.html"' + (here === 'library.html' ? ' aria-current="page"' : '') + '>Library</a>' +
     '<a href="app/">Stretch app</a>' +
     '<a href="contact.html">Contact</a>' +
-    '<div class="jr-drop" id="jr-drop"><div class="jr-drop-top">' + LOGO.replace('width="64" height="64"', 'width="46" height="46"') + '<span>Gentle Joint Care</span></div>' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
+    '<div class="jr-drop" id="jr-drop"><div class="jr-drop-top">' + LOGO.replace('width="64" height="64"', 'width="46" height="46"') + '<span>Hinge Care</span></div>' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
   var bar = document.createElement('header');
   bar.className = 'jr-bar';
-  bar.innerHTML = '<div class="jr-bar-in"><a class="jr-home" href="index.html">' + LOGO + '<span>Gentle Joint Care</span></a></div>';
+  bar.innerHTML = '<div class="jr-bar-in"><a class="jr-home" href="index.html">' + LOGO + '<span>Hinge Care</span></a></div>';
   document.body.insertBefore(bar, document.body.firstChild);
   var host = bar.firstChild;
   host.appendChild(navEl);

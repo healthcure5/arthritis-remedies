@@ -3,17 +3,17 @@
 // While a link is empty, the "Yes, I want..." button shows "Checkout opens soon".
 // ---------------------------------------------------------------
 var BOOK_URL = '';     // The Joint Reset
-var COURSE_URL = '';   // The Gentle Joint Care Program
-var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
+var COURSE_URL = '';   // The Hinge Care Program
+var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
 
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
   var PROGRAMS = [
     ['guide.html', 'Free guide', 'A kind first step, on us'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
-    ['course-info.html', 'The Gentle Joint Care Program', 'Eight weeks to feeling more like you']
+    ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you']
   ];
-  var LOGO = '<svg role="img" aria-label="Gentle Joint Care" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible"><defs><clipPath id="gjc-clip"><circle cx="32" cy="32" r="28.6"/></clipPath></defs><circle cx="32" cy="32" r="30" fill="#163E82" stroke-width="2.2"/><g clip-path="url(#gjc-clip)"><circle cx="41.5" cy="10.5" r="3.6"/><path d="M24.6 22.5c-1.6-7.5 2-13.6 8-13.8 5.8-.2 9.2 5 7.6 13.4"/><path d="M26 19c1.5-3.4 4.6-5.2 8.4-5 2.2.1 3.9 1.4 4.8 3.4"/><path d="M28.5 11.5c1.6 1 3.6 1.4 5.6 1.2M36.4 10.6c.8 1 1.9 1.8 3 2.2" stroke-width="1.2"/><path d="M25.6 19.5c-.4 5.6 2.2 9.8 6.6 9.8 4.2 0 6.8-4 6.6-9.4"/><path d="M28.4 21.4c.7.6 1.6.6 2.3 0M33.6 21.4c.7.6 1.6.6 2.3 0M30 25c1.3 1 3 1 4.3 0" stroke-width="1.2"/><path d="M29.4 28.8v3.200c-6 .8-13 3.2-15.4 8.6-1.6 3.6-2 9-2 17M35 28.800v3.200c6 .8 13 3.2 15.4 8.6 1.6 3.6 2 9 2 17"/><path d="M29.4 32c.8 1.4 1.7 2 2.8 2s2-.6 2.8-2" stroke-width="1.2"/><path d="M16.5 56c1.5-4.5 5-8 9.5-10.200M47.5 56c-1.5-4.5-5-8-9.5-10.2"/><path d="M25.6 45.400c.6-2.4 2.6-3.8 5-3.600l5.6.5c1.7.2 2.8 1.3 2.7 2.7-.1 1.3-1.2 2.2-2.8 2.200h-3.6"/><path d="M38.4 46.400c.4 2.4-1.2 4.5-3.7 4.900l-5.3.8c-2 .3-3.6-.8-3.9-2.5-.3-1.5.6-2.9 2.2-3.4"/><path d="M31.5 43.900h4.400M32 45.800h3.600M29.8 49.200l4.2-.6" stroke-width="1.1"/></g></svg>';
+  var LOGO = '<svg role="img" aria-label="Hinge Care" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible"><defs><clipPath id="gjc-clip"><circle cx="32" cy="32" r="28.6"/></clipPath></defs><circle cx="32" cy="32" r="30" fill="#163E82" stroke-width="2.2"/><g clip-path="url(#gjc-clip)"><circle cx="41.5" cy="10.5" r="3.6"/><path d="M24.6 22.5c-1.6-7.5 2-13.6 8-13.8 5.8-.2 9.2 5 7.6 13.4"/><path d="M26 19c1.5-3.4 4.6-5.2 8.4-5 2.2.1 3.9 1.4 4.8 3.4"/><path d="M28.5 11.5c1.6 1 3.6 1.4 5.6 1.2M36.4 10.6c.8 1 1.9 1.8 3 2.2" stroke-width="1.2"/><path d="M25.6 19.5c-.4 5.6 2.2 9.8 6.6 9.8 4.2 0 6.8-4 6.6-9.4"/><path d="M28.4 21.4c.7.6 1.6.6 2.3 0M33.6 21.4c.7.6 1.6.6 2.3 0M30 25c1.3 1 3 1 4.3 0" stroke-width="1.2"/><path d="M29.4 28.8v3.200c-6 .8-13 3.2-15.4 8.6-1.6 3.6-2 9-2 17M35 28.800v3.200c6 .8 13 3.2 15.4 8.6 1.6 3.6 2 9 2 17"/><path d="M29.4 32c.8 1.4 1.7 2 2.8 2s2-.6 2.8-2" stroke-width="1.2"/><path d="M16.5 56c1.5-4.5 5-8 9.5-10.200M47.5 56c-1.5-4.5-5-8-9.5-10.2"/><path d="M25.6 45.400c.6-2.4 2.6-3.8 5-3.600l5.6.5c1.7.2 2.8 1.3 2.7 2.7-.1 1.3-1.2 2.2-2.8 2.200h-3.6"/><path d="M38.4 46.400c.4 2.4-1.2 4.5-3.7 4.900l-5.3.8c-2 .3-3.6-.8-3.9-2.5-.3-1.5.6-2.9 2.2-3.4"/><path d="M31.5 43.900h4.400M32 45.800h3.600M29.8 49.200l4.2-.6" stroke-width="1.1"/></g></svg>';
   var css = document.createElement('style');
   css.textContent =
     '.hdr,.top,.hdr-nav,.jr-fab,.jr-drawer,.jr-shade{display:none!important}' +
@@ -45,10 +45,10 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
     '<button type="button" id="jr-prog" aria-expanded="false" aria-controls="jr-drop">Programs</button>' +
     '<a href="library.html"' + (here === 'library.html' ? ' aria-current="page"' : '') + '>Library</a>' +
     '<a href="privacy.html#contact">Contact</a>' +
-    '<div class="jr-drop" id="jr-drop"><div class="jr-drop-top">' + LOGO.replace('width="64" height="64"', 'width="46" height="46"') + '<span>Gentle Joint Care</span></div>' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
+    '<div class="jr-drop" id="jr-drop"><div class="jr-drop-top">' + LOGO.replace('width="64" height="64"', 'width="46" height="46"') + '<span>Hinge Care</span></div>' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
   var bar = document.createElement('header');
   bar.className = 'jr-bar';
-  bar.innerHTML = '<div class="jr-bar-in"><a class="jr-home" href="index.html">' + LOGO + '<span>Gentle Joint Care</span></a></div>';
+  bar.innerHTML = '<div class="jr-bar-in"><a class="jr-home" href="index.html">' + LOGO + '<span>Hinge Care</span></a></div>';
   document.body.insertBefore(bar, document.body.firstChild);
   var host = bar.firstChild;
   host.appendChild(navEl);
