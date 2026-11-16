@@ -13,7 +13,7 @@ var LETTER_URL = '';   // The Gentle Joint Care Letter, $7 a month
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Gentle Joint Care Program', 'Eight weeks to feeling more like you']
   ];
-  var LOGO = '<img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_182012_9e1189c2-5448-41e8-a375-43ff232cf13e.png" alt="Gentle Joint Care" width="64" height="64" style="display:block;border-radius:50%;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.35)">';
+  var LOGO = '<img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_182227_4c535cda-88ee-4761-bfce-b31a6504eac8.png" alt="Gentle Joint Care" width="64" height="64" style="display:block;border-radius:50%;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.35)">';
   var css = document.createElement('style');
   css.textContent =
     '.hdr,.top,.hdr-nav,.jr-fab,.jr-drawer,.jr-shade{display:none!important}' +
