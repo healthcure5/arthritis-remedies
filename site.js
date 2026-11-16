@@ -10,7 +10,7 @@ var CHECKOUT_URL = '';
   var veil = document.getElementById('veil');
   var calm = false;
   try { calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-  var WAIT = calm ? 0 : 250;
+  var WAIT = 0;
   var busy = false;
   function leave(then) {
     if (busy) { return; }

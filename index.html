@@ -188,6 +188,7 @@ body footer a{color:#FFD48A}
 <style>@media(min-width:900px){.stairs{align-items:start;padding-bottom:40px}.stairs>figure:nth-child(1){margin-top:0!important}.stairs>figure:nth-child(2){margin-top:75px!important}.stairs>figure:nth-child(3){margin-top:150px!important}}</style>
 <style>#top h1,h1{line-height:1.36!important}h2{line-height:1.25!important}</style>
 <style>.hdr-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover}</style>
+<style>.veil{display:none!important}</style>
 </head>
 <style id="test-look">
 body p,body li,body figcaption{font-size:20px!important;line-height:1.65!important;color:#1B2F4D}
@@ -201,7 +202,6 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 </style>
 <body>
 <div style="font-family: 'Inter', system-ui, sans-serif; color: #334A63; background: #B5C8E0; font-size: 18px; line-height: 1.6; overflow-x: clip">
-<div class="veil" id="veil" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#FFFFFF"/><path d="M9 17c3-6 11-6 14 0" stroke="#1A4FB0" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#1A4FB0"/></svg></div>
 
 <!-- NAV -->
 <header class="hdr" style="background: rgba(244, 248, 246, 0.82); position: sticky; top: 0; z-index: 20; box-shadow: 0 1px 0 rgba(16, 40, 74, 0.07)">
@@ -518,7 +518,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 </footer>
 
 </div>
-<script src="site.js?v=14"></script>
+<script src="site.js?v=15"></script>
 <script>(function(){document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.more-btn");if(!a)return;var h=a.getAttribute("href");if(h!=="#guide-more"&&h!=="#book-more")return;var s=document.querySelector(h);if(!s)return;var t=s.querySelector("h2"),b=s.querySelector("a.btn");if(!t||!b)return;var ey=t.previousElementSibling||t;e.preventDefault();var sy=window.pageYOffset,vh=window.innerHeight,top=ey.getBoundingClientRect().top+sy,bot=b.getBoundingClientRect().bottom+sy,H=bot-top,y=(vh-H>=80)?top-(vh-H)/2:bot-vh+40;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})})})();</script>
 <script src="menu.js?v=37"></script>
 </body>
