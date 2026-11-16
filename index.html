@@ -517,7 +517,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 
 </div>
 <script src="site.js?v=14"></script>
-<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.more-btn");if(!a)return;var h=a.getAttribute("href");if(h!=="#guide-more"&&h!=="#book-more")return;var s=document.querySelector(h);if(!s)return;e.preventDefault();var r=s.getBoundingClientRect(),top=r.top+window.pageYOffset,bot=top+r.height,vh=window.innerHeight,y=(r.height+84<=vh)?top-84:bot-vh+16;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})})})();</script>
+<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.more-btn");if(!a)return;var h=a.getAttribute("href");if(h!=="#guide-more"&&h!=="#book-more")return;var s=document.querySelector(h);if(!s)return;var t=s.querySelector("h2"),b=s.querySelector("a.btn");if(!t||!b)return;e.preventDefault();var sy=window.pageYOffset,vh=window.innerHeight,tt=t.getBoundingClientRect().top+sy,bb=b.getBoundingClientRect().bottom+sy,y=tt-96,min=bb-vh+40;if(y<min)y=min;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})})})();</script>
 <script src="menu.js?v=33"></script>
 </body>
 </html>
