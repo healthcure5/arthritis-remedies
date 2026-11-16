@@ -365,12 +365,6 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .theme-book .pageshot~.open-in,.theme-course .pageshot~.open-in{max-width:none;padding-left:clamp(20px,3.5vw,56px);min-height:clamp(540px,80vh,820px)}
 }
 @media (min-width:761px){.theme-course .pageshot{left:26%;--ph:clamp(580px,86vh,880px)}.theme-course .pageshot~.open-in{min-height:clamp(580px,86vh,880px)}}
-/* program hero: button centered under the photo */
-.theme-course .pageshot~.open-in .cta-xl{align-self:center}
-@media (min-width:761px){
-.theme-course .pageshot~.open-in{padding-bottom:150px!important}
-.theme-course .pageshot~.open-in .cta-xl{position:absolute;left:63%;transform:translateX(-50%);top:calc(clamp(580px,86vh,880px) + 22px);margin:0;white-space:nowrap}
-}
-.theme-course .stats b{font-size:clamp(28px,3.4vw,38px);line-height:1.1}
-.theme-course .stats span{font-weight:500;font-size:17px;line-height:1.4;color:#D7E2EE}
-.theme-course .stats div{padding:30px 22px}
+/* program hero: button centered, under the words */
+.theme-course .pageshot~.open-in .cta-mid{flex:0 0 100%;display:flex;justify-content:center;margin-top:8px}
+.theme-course .pageshot~.open-in{padding-bottom:clamp(40px,6vw,72px)!important}
