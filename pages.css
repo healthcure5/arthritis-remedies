@@ -356,3 +356,4 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 @media (max-width:899px){.gsplit{grid-template-columns:1fr}.gsplit.rev .gpic{order:0}.gsplit .gtext{margin:0 auto!important}.theme-guide .open-in{flex-direction:column!important}.theme-guide .gcover{order:2}}
 .gsplit{padding:0!important;margin:0!important}
 .gsplit .script{font-size:clamp(40px,4.4vw,60px)}
+.gsplit .bubble{min-height:0!important;height:auto!important;padding-bottom:26px!important;margin-bottom:28px}
