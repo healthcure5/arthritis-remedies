@@ -364,3 +364,4 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .theme-course .pageshot{left:30%;--ph:clamp(540px,80vh,820px)}
 .theme-book .pageshot~.open-in,.theme-course .pageshot~.open-in{max-width:none;padding-left:clamp(20px,3.5vw,56px);min-height:clamp(540px,80vh,820px)}
 }
+@media (min-width:761px){.theme-course .pageshot{left:26%;--ph:clamp(580px,86vh,880px)}.theme-course .pageshot~.open-in{min-height:clamp(580px,86vh,880px)}}
