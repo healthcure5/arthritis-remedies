@@ -517,7 +517,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 
 </div>
 <script src="site.js?v=14"></script>
-<script>(function(){var m={"#guide-more":"guide-buy","#book-more":"book-buy"};document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.more-btn");if(!a)return;var id=m[a.getAttribute("href")];var b=id&&document.getElementById(id);if(!b)return;e.preventDefault();var y=b.getBoundingClientRect().top+window.pageYOffset-window.innerHeight*0.55;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})})})();</script>
+<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.more-btn");if(!a)return;var h=a.getAttribute("href");if(h!=="#guide-more"&&h!=="#book-more")return;var s=document.querySelector(h);if(!s)return;e.preventDefault();var r=s.getBoundingClientRect(),top=r.top+window.pageYOffset,bot=top+r.height,vh=window.innerHeight,y=(r.height+84<=vh)?top-84:bot-vh+16;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})})})();</script>
 <script src="menu.js?v=33"></script>
 </body>
 </html>
