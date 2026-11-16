@@ -134,6 +134,25 @@ body{background:#B5C8E0!important}
 .bk-cover>span{position:relative;z-index:1}
 .bk-guide .bk-brand{color:#fff}
 </style>
+<style id="home3">
+/* first photo melts down into the page */
+.pageshot.band{-webkit-mask-image:linear-gradient(180deg,#000 52%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 52%,transparent 100%)!important}
+#top>.pageshot.band+div{margin-top:clamp(-150px,-10vw,-70px);padding-bottom:170px!important}
+#top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(180deg,rgba(10,31,68,0),#B5C8E0);pointer-events:none;z-index:2}
+/* flat Know more buttons */
+.more-btn{background:#FFC56B!important;box-shadow:none!important;border:2px solid #E0A23A}
+.more-btn:hover{transform:none;background:#FFD48A!important}
+/* detail sections: words on the left, bigger book on the right */
+.detail>div{max-width:1200px!important}
+.detail>div>.rv:first-child{order:2;flex:1 1 520px!important}
+.detail>div>.rv:last-child{order:1;flex:1 1 420px!important}
+.detail .shot{width:min(640px,100%)}
+.detail .book-lg{--w:340px}
+@media (max-width:700px){.qdeco{aspect-ratio:auto!important;padding:20px;display:flex;flex-direction:column;gap:16px}.qdeco>div{position:static!important;width:100%!important}}
+.qcard{font-family:Inter,system-ui,sans-serif}
+.qrow{display:flex;align-items:flex-start;gap:12px;font-size:18px;line-height:1.35;font-weight:600;color:#0A1F44}
+.qmark{flex:none;width:28px;height:28px;border-radius:9px;background:#1A4FB0;color:#fff;font:700 18px/28px Lora,Georgia,serif;text-align:center}
+</style>
 <style id="look6">.shot{display:block;width:min(440px,100%);height:auto;flex:none;align-self:center;aspect-ratio:4/3;object-fit:cover;border-radius:22px;box-shadow:0 2px 4px rgba(12,34,64,.2),0 30px 50px -18px rgba(12,34,64,.55)}.shot+.book{display:none}.shot-c{margin:0 auto 34px;width:min(520px,100%)}</style>
 <style id="look7">.hdr-space{display:none!important}/* look 12: words sit on top of the photo */.pageshot{position:absolute;inset:0;height:auto;z-index:0;background-color:rgb(var(--fr,10,31,68))}.pageshot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--fr,10,31,68),0) 55%,rgb(var(--fr,10,31,68)) 100%),linear-gradient(90deg,rgba(var(--fr,10,31,68),.95) 0%,rgba(var(--fr,10,31,68),.78) 38%,rgba(var(--fr,10,31,68),.18) 72%,rgba(var(--fr,10,31,68),0) 100%)}.pageshot.flip{transform:scaleX(-1)}.pageshot.flip::after{background:linear-gradient(180deg,rgba(var(--fr,10,31,68),0) 55%,rgb(var(--fr,10,31,68)) 100%),linear-gradient(270deg,rgba(var(--fr,10,31,68),.95) 0%,rgba(var(--fr,10,31,68),.78) 38%,rgba(var(--fr,10,31,68),.18) 72%,rgba(var(--fr,10,31,68),0) 100%)}@media (max-width:760px){.pageshot::after,.pageshot.flip::after{background:linear-gradient(180deg,rgba(var(--fr,10,31,68),.62) 0%,rgba(var(--fr,10,31,68),.8) 60%,rgb(var(--fr,10,31,68)) 100%)}}/* look 13: photo on the right, softly blended; words stay clear of faces */@media (min-width:761px){.pageshot{--ph:clamp(460px,66vh,700px);left:42%;right:0;top:0;bottom:auto;height:var(--ph);background-color:transparent;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 36%),linear-gradient(180deg,#000 62%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 36%),linear-gradient(180deg,#000 62%,transparent 100%);mask-composite:intersect}.pageshot::after,.theme-book .pageshot::after{display:none}}#top{position:relative;overflow:hidden}.pageshot.band{position:relative!important;left:0!important;right:auto;top:auto;bottom:auto;width:100%;height:auto!important;aspect-ratio:16/9;background-size:cover!important;background-position:center!important;-webkit-mask-image:none!important;mask-image:none!important}.pageshot.band::after{display:none!important}#top>.pageshot.band+div{min-height:0!important;padding-top:12px!important}#top>.pageshot+div{position:relative;z-index:1;min-height:clamp(480px,70vh,720px);padding-top:clamp(56px,9vw,110px)!important}#top>.pageshot+div>div{max-width:560px;flex:0 1 560px!important}</style>
 <style id="look5">
@@ -224,16 +243,17 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <section style="background: #B5C8E0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 44px 60px; align-items: center">
 <div style="flex: 1 1 320px; min-width: 0; display: flex; justify-content: center">
-<div class="rv" aria-hidden="true" style="position: relative; background: radial-gradient(circle at 30% 20%, #C4DCF4 0%, #A6CBEE 70%); border-radius: 40px; width: min(100%, 420px); aspect-ratio: 1 / 1; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), 0 40px 60px -30px rgba(20, 62, 150, 0.5)">
-<div class="bob2" style="position: absolute; left: 14%; top: 16%; width: 60%; background: #FFFFFF; border-radius: 20px; padding: 18px 20px; box-sizing: border-box; transform: perspective(900px) rotateY(14deg) rotate(-4deg); box-shadow: 0 2px 4px rgba(12, 34, 64, 0.15), 0 30px 44px -14px rgba(12, 34, 64, 0.5); display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 1"></span></div>
-<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 0.700"></span></div>
-<div style="display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; border-radius: 7px; border: 2px solid #5E90C4; box-sizing: border-box; flex: none"></span><span style="height: 10px; border-radius: 5px; background: #E1ECF7; flex: 0.850"></span></div>
+<div class="rv qdeco" style="position: relative; background: radial-gradient(circle at 30% 20%, #C4DCF4 0%, #A6CBEE 70%); border-radius: 40px; width: min(100%, 440px); aspect-ratio: 4 / 5.3; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), 0 40px 60px -30px rgba(20, 62, 150, 0.5)">
+<div class="bob2 qcard" style="position: absolute; left: 6%; top: 6%; width: 84%; background: #FFFFFF; border-radius: 22px; padding: 22px 22px 24px; box-sizing: border-box; transform: rotate(-2deg); box-shadow: 0 2px 4px rgba(12, 34, 64, 0.15), 0 30px 44px -14px rgba(12, 34, 64, 0.5); display: flex; flex-direction: column; gap: 18px">
+<div style="font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">Questions we hear every day</div>
+<div class="qrow"><span class="qmark">?</span><span>Why are my joints stiffest in the morning?</span></div>
+<div class="qrow"><span class="qmark">?</span><span>Which advice can I actually trust?</span></div>
+<div class="qrow"><span class="qmark">?</span><span>What should I ask my doctor?</span></div>
 </div>
-<div class="bob" style="position: absolute; right: 10%; bottom: 14%; width: 44%; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); border-radius: 20px; padding: 18px 20px; box-sizing: border-box; transform: perspective(900px) rotateY(-14deg) rotate(5deg); box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 30px 44px -14px rgba(12, 34, 64, 0.6); display: flex; flex-direction: column; gap: 10px">
-<span style="height: 10px; width: 60%; border-radius: 5px; background: #FFC56B"></span>
-<span style="height: 10px; border-radius: 5px; background: #5C98F0"></span>
-<span style="height: 10px; width: 80%; border-radius: 5px; background: #5C98F0"></span>
+<div class="bob qcard" style="position: absolute; right: 5%; bottom: 5%; width: 74%; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); border-radius: 22px; padding: 22px; box-sizing: border-box; transform: rotate(2deg); box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 30px 44px -14px rgba(12, 34, 64, 0.6); display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: Lora, Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.25; color: #FFFFFF">You are not the only one asking.</div>
+<div style="font-size: 17px; line-height: 1.45; color: #E3EDFA">Our guides answer these in plain, caring words, one small step at a time.</div>
+<div style="height: 3px; width: 56px; border-radius: 3px; background: #FFC56B; margin-top: 4px"></div>
 </div>
 </div>
 </div>
@@ -284,7 +304,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <p style="margin: 18px 0 0; color: #D7E2EE">Throughout this short guide, our team walks beside you through an ordinary day and shows you a kinder way to look at it. Along the way, it helps you set down the blame you may have been carrying and feel that change is possible again.</p>
 <p style="margin: 18px 0 0; color: #D7E2EE">If you have ever wondered where on earth to begin, this is your beginning. It takes about ten minutes, and it costs nothing.</p>
 <p style="margin: 26px 0 0; font-weight: 600; color: #FFFFFF">If you are ready to take one small, kind step for your joints…</p>
-<a class="btn" href="guide.html" style="display: inline-block; margin-top: 18px; background: #FFC56B; color: #0A1F44; text-decoration: none; padding: 17px 34px; border-radius: 14px; font-weight: 700; font-size: 19px">Know more</a>
+<a class="btn" href="guide.html" style="display: inline-block; margin-top: 18px; background: #FFC56B; color: #0A1F44; text-decoration: none; padding: 17px 34px; border-radius: 14px; font-weight: 700; font-size: 19px">Get it free</a>
 </div>
 </div>
 </section>
@@ -299,7 +319,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <p style="margin: 18px 0 0; color: #334A63">Throughout the book, we take you from confused and worn out to calm and clear. Along the way, it gives you back something many people with sore joints quietly lose: the feeling of being in charge of your own body.</p>
 <p style="margin: 18px 0 0; color: #334A63">If you have ever wished you could sit down with someone who has already done all the reading for you, this is that conversation.</p>
 <p style="margin: 26px 0 0; font-weight: 600; color: #0A1F44">If you are ready to stop guessing and feel at home in your body again…</p>
-<a class="btn" href="book.html" style="display: inline-block; margin-top: 18px; background: #FFC56B; color: #0A1F44; text-decoration: none; padding: 17px 34px; border-radius: 14px; font-weight: 700; font-size: 19px">Know more</a>
+<a class="btn" href="book.html" style="display: inline-block; margin-top: 18px; background: #FFC56B; color: #0A1F44; text-decoration: none; padding: 17px 34px; border-radius: 14px; font-weight: 700; font-size: 19px">Buy now</a>
 </div>
 </div>
 </section>
