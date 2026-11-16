@@ -383,3 +383,5 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 h1,.open h1,.theme-course .open h1{line-height:1.36!important}
 h1 .mark,h1 span[style*="FFC56B"]{padding-top:0;padding-bottom:0;line-height:1.36}
 h2,h3{line-height:1.28}
+.brand img,.jr-home img,.hdr-brand img{width:68px;height:68px;border-radius:50%;object-fit:cover;display:block}
+.jr-drop-top img{width:46px;height:46px;border-radius:50%}
