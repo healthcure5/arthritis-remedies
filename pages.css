@@ -365,3 +365,9 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .theme-book .pageshot~.open-in,.theme-course .pageshot~.open-in{max-width:none;padding-left:clamp(20px,3.5vw,56px);min-height:clamp(540px,80vh,820px)}
 }
 @media (min-width:761px){.theme-course .pageshot{left:26%;--ph:clamp(580px,86vh,880px)}.theme-course .pageshot~.open-in{min-height:clamp(580px,86vh,880px)}}
+/* program hero: button centered under the photo */
+.theme-course .pageshot~.open-in .cta-xl{align-self:center}
+@media (min-width:761px){
+.theme-course .pageshot~.open-in{padding-bottom:150px!important}
+.theme-course .pageshot~.open-in .cta-xl{position:absolute;left:63%;transform:translateX(-50%);top:calc(clamp(580px,86vh,880px) + 22px);margin:0;white-space:nowrap}
+}
