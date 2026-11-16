@@ -104,7 +104,12 @@
     if(msg){err.textContent=msg;err.hidden=false;return;}
     err.hidden=true;
     try{sessionStorage.setItem('ar-email',email);}catch(x){}
-    HTMLFormElement.prototype.submit.call(f);
+    // Add the person to the MailerLite "Free Guide" group so the email series starts,
+    // then hand the form to FormSubmit, which notifies the owner and opens the thank-you page.
+    var done=false;function go(){if(done){return;}done=true;HTMLFormElement.prototype.submit.call(f);}
+    var ml=new URLSearchParams();ml.append('fields[email]',email);ml.append('fields[name]',first);ml.append('ml-submit','1');ml.append('anticsrf','true');
+    try{fetch('https://assets.mailerlite.com/jsonp/2784798/forms/204330418699241330/subscribe',{method:'POST',mode:'no-cors',body:ml,keepalive:true}).then(go,go);}catch(x){go();}
+    setTimeout(go,4000);
   });
 })();
 </script>
