@@ -1,0 +1,28 @@
+name: Fetch cover photos
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fetch-cover-photos.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download the two cover photos used on the site
+        run: |
+          base=https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL
+          curl -fsSL "$base/hf_20261116_163402_58f33eba-4b6b-4214-904f-f6c0316aaf16.png" -o /tmp/guide.png
+          curl -fsSL "$base/hf_20261116_163404_999985d1-73e5-4b85-943b-ac3ae2a69a07.png" -o /tmp/book.png
+          convert /tmp/guide.png -resize '1400x1400>' -quality 90 images/cover-photo-guide.jpg
+          convert /tmp/book.png -resize '1400x1400>' -quality 90 images/cover-photo-book.jpg
+          ls -la images
+      - name: Save them to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/cover-photo-guide.jpg images/cover-photo-book.jpg
+          git commit -m "Add the two cover photos as local files" || echo "nothing to commit"
+          git push
