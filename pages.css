@@ -336,3 +336,23 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 /* smoother running */
 @media (max-width:760px){.cta-big::before{animation:none}}
 .shot{content-visibility:auto}
+
+/* guide page: use the whole width */
+.theme-guide .gcover{flex:0 1 380px;display:flex;justify-content:center;align-items:center;margin:0 auto}
+.theme-guide .open-in{flex-direction:row!important;justify-content:space-between}
+.theme-guide .open-in>div:last-child::before{display:none}
+.theme-guide .gcover .book{transform:none;--w:min(360px,70vw);filter:drop-shadow(0 30px 30px rgba(6,18,42,.55)),drop-shadow(0 6px 8px rgba(6,18,42,.3))}
+.theme-guide .gcover .bk-pages{display:none}
+.bk-photo{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_163402_58f33eba-4b6b-4214-904f-f6c0316aaf16.png),url(images/bowl.jpg)}
+.bk-cover>span{position:relative;z-index:1}
+.bk-guide .bk-title{color:#C62828;text-shadow:0 0 6px rgba(255,255,255,.9),0 1px 2px rgba(255,255,255,.9)}
+.bk-guide .bk-sub{color:#0A1F44;font-weight:600;text-shadow:0 0 6px rgba(255,255,255,.9)}
+.bk-guide .bk-brand{color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+.gsplit{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.gsplit .gtext{align-self:center;max-width:640px;margin:0 0 0 auto;box-sizing:border-box;padding:clamp(56px,8vw,104px) clamp(24px,5vw,80px)}
+.gsplit.rev .gtext{margin:0 auto 0 0}
+.gsplit .gpic{background-size:cover;background-position:center;background-color:#E9DDC2;min-height:420px}
+.gsplit.rev .gpic{order:-1}
+@media (max-width:899px){.gsplit{grid-template-columns:1fr}.gsplit.rev .gpic{order:0}.gsplit .gtext{margin:0 auto!important}.theme-guide .open-in{flex-direction:column!important}.theme-guide .gcover{order:2}}
+.gsplit{padding:0!important;margin:0!important}
+.gsplit .script{font-size:clamp(40px,4.4vw,60px)}
