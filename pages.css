@@ -370,3 +370,11 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .theme-course .pageshot~.open-in{padding-bottom:clamp(40px,6vw,72px)!important}
 .gsplit .bubble .bq{display:block;margin-top:18px;font:400 18px/1.6 Inter,system-ui,sans-serif;color:#D7E2EE}
 .gsplit .bubble{padding:34px 32px 30px!important}
+
+/* library: flat books, photo backgrounds in the two cards */
+.lib-card .book{transform:none!important;filter:none!important}
+.lib-card .bk-pages{display:none!important}
+.lib-card .bk-cover{border-radius:0!important}
+.lib-card{background-size:cover!important;background-position:center!important}
+.lib-guide{background:linear-gradient(180deg,rgba(251,247,238,.78),rgba(241,233,216,.9)),url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_170857_5edafaae-7a53-40c6-9f7e-a703e1ff6dd0.png),url(images/chair.jpg)!important}
+.lib-reset{background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(220,232,246,.88)),url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_170859_64c9248b-e284-4399-b087-c7a99fbd6b8b.png),url(images/hands.jpg)!important}
