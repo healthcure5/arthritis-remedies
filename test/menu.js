@@ -13,13 +13,13 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you']
   ];
-  var LOGO = '<svg role="img" aria-label="Hinge Care" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible"><defs><clipPath id="gjc-clip"><circle cx="32" cy="32" r="28.6"/></clipPath></defs><circle cx="32" cy="32" r="30" fill="#163E82" stroke-width="2.2"/><g clip-path="url(#gjc-clip)"><circle cx="41.5" cy="10.5" r="3.6"/><path d="M24.6 22.5c-1.6-7.5 2-13.6 8-13.8 5.8-.2 9.2 5 7.6 13.4"/><path d="M26 19c1.5-3.4 4.6-5.2 8.4-5 2.2.1 3.9 1.4 4.8 3.4"/><path d="M28.5 11.5c1.6 1 3.6 1.4 5.6 1.2M36.4 10.6c.8 1 1.9 1.8 3 2.2" stroke-width="1.2"/><path d="M25.6 19.5c-.4 5.6 2.2 9.8 6.6 9.8 4.2 0 6.8-4 6.6-9.4"/><path d="M28.4 21.4c.7.6 1.6.6 2.3 0M33.6 21.4c.7.6 1.6.6 2.3 0M30 25c1.3 1 3 1 4.3 0" stroke-width="1.2"/><path d="M29.4 28.8v3.200c-6 .8-13 3.2-15.4 8.6-1.6 3.6-2 9-2 17M35 28.800v3.200c6 .8 13 3.2 15.4 8.6 1.6 3.6 2 9 2 17"/><path d="M29.4 32c.8 1.4 1.7 2 2.8 2s2-.6 2.8-2" stroke-width="1.2"/><path d="M16.5 56c1.5-4.5 5-8 9.5-10.200M47.5 56c-1.5-4.5-5-8-9.5-10.2"/><path d="M25.6 45.400c.6-2.4 2.6-3.8 5-3.600l5.6.5c1.7.2 2.8 1.3 2.7 2.7-.1 1.3-1.2 2.2-2.8 2.200h-3.6"/><path d="M38.4 46.400c.4 2.4-1.2 4.5-3.7 4.900l-5.3.8c-2 .3-3.6-.8-3.9-2.5-.3-1.5.6-2.9 2.2-3.4"/><path d="M31.5 43.900h4.400M32 45.800h3.600M29.8 49.200l4.2-.6" stroke-width="1.1"/></g></svg>';
+  var LOGO = '<span class="gjc-mark" role="img" aria-label="Hinge Care"></span>';
   var css = document.createElement('style');
   css.textContent =
     '.hdr,.top,.hdr-nav,.jr-fab,.jr-drawer,.jr-shade{display:none!important}' +
     '.hdr-in,.top-in{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:6px 24px!important;padding:10px 20px!important}' +
     '.jr-bar{background:#0A1F44!important;position:relative;z-index:100;box-shadow:0 12px 28px -18px rgba(10,31,68,.8)}.jr-bar-in{max-width:1180px;margin:0 auto;padding:10px 20px;min-height:84px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 24px}' +
-    '.jr-bar a.jr-home{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 21px/1 Inter,system-ui,sans-serif;color:#FFFFFF;white-space:nowrap}' +
+    '.jr-bar a.jr-home{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 24px/1 Lora,Georgia,serif;letter-spacing:.005em;color:#FFFFFF;white-space:nowrap}' +
     '.jr-nav{position:relative;display:flex;align-items:center;gap:4px clamp(14px,3vw,34px);font:700 19px/1 Inter,system-ui,sans-serif;margin-left:auto}' +
     '.jr-nav a,.jr-nav button{font:inherit;color:#FFFFFF;text-decoration:none;background:none;border:0;padding:14px 4px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-bottom:3px solid transparent}' +
     '.jr-nav a:hover,.jr-nav button:hover,.jr-nav .on{color:#FFC56B;border-bottom-color:#FFC56B}' +
@@ -44,7 +44,8 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
   navEl.innerHTML = '<a href="index.html"' + (here === 'index.html' ? ' aria-current="page"' : '') + '>Home</a>' +
     '<button type="button" id="jr-prog" aria-expanded="false" aria-controls="jr-drop">Programs</button>' +
     '<a href="library.html"' + (here === 'library.html' ? ' aria-current="page"' : '') + '>Library</a>' +
-    '<a href="privacy.html#contact">Contact</a>' +
+    '<a href="../app/">Stretch app</a>' +
+    '<a href="contact.html">Contact</a>' +
     '<div class="jr-drop" id="jr-drop"><div class="jr-drop-top">' + LOGO.replace('width="64" height="64"', 'width="46" height="46"') + '<span>Hinge Care</span></div>' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
   var bar = document.createElement('header');
   bar.className = 'jr-bar';
