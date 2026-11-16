@@ -144,11 +144,11 @@ footer{color:#1B2F4D}
 .plain+.plain{padding-top:0}
 .rule{height:2px;background:rgba(10,31,68,.18);max-width:720px;margin:0 auto}
 .cta-big{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:14px;font:800 22px/1.2 Inter,system-ui,sans-serif;color:#0A1F44;text-decoration:none;cursor:pointer;border:0;padding:22px 38px;border-radius:999px;background:linear-gradient(180deg,#FFE3A6 0%,#FFC56B 45%,#F0A83A 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.7),0 4px 0 #B8791A,0 18px 34px -10px rgba(240,168,58,.75),0 0 0 6px rgba(255,197,107,.22);transition:transform .15s ease,box-shadow .15s ease}
-.cta-big::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.75),rgba(255,255,255,0));transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite}
+.cta-big::before{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.75),rgba(255,255,255,0));transform:translateX(-150%) skewX(-20deg);animation:shine 3.6s ease-in-out infinite;will-change:transform}
 .cta-big::after{content:"";width:12px;height:12px;border-right:3.5px solid #0A1F44;border-top:3.5px solid #0A1F44;transform:rotate(45deg);flex:none}
 .cta-big:hover{transform:translateY(-3px);box-shadow:inset 0 2px 0 rgba(255,255,255,.7),0 7px 0 #B8791A,0 26px 40px -10px rgba(240,168,58,.85),0 0 0 9px rgba(255,197,107,.28)}
 .cta-big:active{transform:translateY(3px);box-shadow:inset 0 2px 0 rgba(255,255,255,.7),0 1px 0 #B8791A,0 8px 16px -8px rgba(240,168,58,.7)}
-@keyframes shine{0%,55%{left:-60%}100%{left:130%}}
+@keyframes shine{0%,55%{transform:translateX(-150%) skewX(-20deg)}100%{transform:translateX(330%) skewX(-20deg)}}
 .sheet-shade{position:fixed;inset:0;background:rgba(6,18,42,.6);z-index:300;opacity:0;pointer-events:none;transition:opacity .3s}
 .sheet{position:fixed;top:0;left:0;right:0;z-index:301;max-height:100vh;max-height:100dvh;overflow-y:auto;background:#fff;border-radius:0 0 32px 32px;box-shadow:0 40px 80px -20px rgba(6,18,42,.7);transform:translateY(-104%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s}
 .sheet-open .sheet{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
@@ -202,7 +202,7 @@ body.theme-guide{background:#EEE7D8}
 .cta-soft:active{transform:translateY(3px)}
 .sheet .cta-soft{width:100%;justify-content:center}
 /* course: the richest page */
-body.theme-course{background-color:#081A3A;background-image:radial-gradient(60rem 36rem at 88% -6%,rgba(255,197,107,.20),transparent 60%),radial-gradient(48rem 34rem at -8% 46%,rgba(47,111,224,.38),transparent 62%),radial-gradient(rgba(255,255,255,.075) 1.5px,transparent 1.7px);background-size:auto,auto,26px 26px;background-attachment:fixed,fixed,scroll;color:#D7E2EE}
+body.theme-course{background-color:#081A3A;background-image:radial-gradient(60rem 36rem at 88% -6%,rgba(255,197,107,.20),transparent 60%),radial-gradient(48rem 34rem at -8% 46%,rgba(47,111,224,.38),transparent 62%),radial-gradient(rgba(255,255,255,.075) 1.5px,transparent 1.7px);background-size:auto,auto,26px 26px;background-attachment:scroll;color:#D7E2EE}
 .theme-course .top{background:rgba(8,26,58,.92)}
 .theme-course .open{background:none;position:relative;overflow:hidden}
 .theme-course .open h1{font-size:clamp(36px,5vw,60px)}
@@ -266,7 +266,7 @@ body.theme-book{background-image:linear-gradient(rgba(10,31,68,.065) 1.5px,trans
 .theme-book .open{position:relative;overflow:hidden;background-image:linear-gradient(rgba(255,255,255,.05) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.05) 1.5px,transparent 1.5px);background-size:46px 46px}
 .theme-book .squares{position:absolute;right:-70px;top:-40px;width:460px;height:540px;opacity:.55;pointer-events:none}
 /* free guide: sunrise arcs and soft stripes */
-body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(255,197,107,.35),transparent 60%),radial-gradient(40rem 28rem at 0% 70%,rgba(255,218,148,.45),transparent 62%),repeating-linear-gradient(135deg,rgba(201,138,30,.07) 0 2px,transparent 2px 24px);background-attachment:fixed,fixed,scroll}
+body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(255,197,107,.35),transparent 60%),radial-gradient(40rem 28rem at 0% 70%,rgba(255,218,148,.45),transparent 62%),repeating-linear-gradient(135deg,rgba(201,138,30,.07) 0 2px,transparent 2px 24px);background-attachment:scroll}
 .theme-guide .open{position:relative;overflow:hidden;background:radial-gradient(circle at 0% 100%,rgba(255,197,107,.55) 0 120px,transparent 121px 170px,rgba(255,197,107,.4) 171px 176px,transparent 177px 236px,rgba(255,197,107,.3) 237px 242px,transparent 243px 310px,rgba(255,197,107,.22) 311px 316px,transparent 317px),linear-gradient(170deg,#FFFBF2 0%,#F6ECD6 100%)}
 .theme-guide .open-in{position:relative}
 
@@ -275,7 +275,7 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 
 /* look 9 */
 .theme-book .open{background-image:none}
-.getbox{position:relative;max-width:640px;margin:0 auto;padding:30px 28px 34px;transform:translateY(0);display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;border-radius:32px;background:linear-gradient(180deg,rgba(255,197,107,.22),rgba(255,197,107,.12));border:1.5px solid rgba(255,197,107,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 30px 50px -30px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.getbox{position:relative;max-width:640px;margin:0 auto;padding:30px 28px 34px;transform:translateY(0);display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;border-radius:32px;background:linear-gradient(180deg,rgba(255,197,107,.22),rgba(255,197,107,.12));border:1.5px solid rgba(255,197,107,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 30px 50px -30px rgba(0,0,0,.6);}
 .open .getbox{margin-bottom:clamp(48px,7vw,88px);width:calc(100% - 40px)}
 .getbox .eyebrow{color:#FFC56B;font-size:17px}
 .getbox p{color:#fff;font-size:21px;max-width:480px}
@@ -332,3 +332,7 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 /* look 14: free guide photo fills the whole top again */
 .pageshot.full{left:0!important;right:0;top:0;bottom:0;height:auto!important;-webkit-mask-image:none!important;mask-image:none!important}
 .pageshot.full::after{display:block!important;background:linear-gradient(180deg,rgba(var(--fr,10,31,68),0) 55%,rgb(var(--fr,10,31,68)) 100%),linear-gradient(90deg,rgba(var(--fr,10,31,68),.95) 0%,rgba(var(--fr,10,31,68),.8) 36%,rgba(var(--fr,10,31,68),.2) 68%,rgba(var(--fr,10,31,68),0) 100%)!important}
+
+/* smoother running */
+@media (max-width:760px){.cta-big::before{animation:none}}
+.shot{content-visibility:auto}
