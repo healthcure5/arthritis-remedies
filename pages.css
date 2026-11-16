@@ -378,3 +378,8 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .lib-card{background-size:cover!important;background-position:center!important}
 .lib-guide{background:linear-gradient(180deg,rgba(251,247,238,.78),rgba(241,233,216,.9)),url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_170857_5edafaae-7a53-40c6-9f7e-a703e1ff6dd0.png),url(images/chair.jpg)!important}
 .lib-reset{background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(220,232,246,.88)),url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_170859_64c9248b-e284-4399-b087-c7a99fbd6b8b.png),url(images/hands.jpg)!important}
+
+/* keep descenders (y, g, commas) fully visible under highlighted lines */
+h1,.open h1,.theme-course .open h1{line-height:1.36!important}
+h1 .mark,h1 span[style*="FFC56B"]{padding-top:0;padding-bottom:0;line-height:1.36}
+h2,h3{line-height:1.28}
