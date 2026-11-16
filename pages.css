@@ -368,3 +368,5 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 /* program hero: button centered, under the words */
 .theme-course .pageshot~.open-in .cta-mid{flex:0 0 100%;display:flex;justify-content:center;margin-top:8px}
 .theme-course .pageshot~.open-in{padding-bottom:clamp(40px,6vw,72px)!important}
+.gsplit .bubble .bq{display:block;margin-top:18px;font:400 18px/1.6 Inter,system-ui,sans-serif;color:#D7E2EE}
+.gsplit .bubble{padding:34px 32px 30px!important}
