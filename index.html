@@ -13,6 +13,8 @@
 <meta property="og:url" content="https://gentlerootz.com/">
 <meta property="og:image" content="https://gentlerootz.com/images/walk.jpg">
 <meta name="theme-color" content="#1A4FB0">
+<link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&display=swap">
@@ -136,9 +138,15 @@ body{background:#B5C8E0!important}
 </style>
 <style id="home3">
 /* first photo melts down into the page */
-.pageshot.band{-webkit-mask-image:linear-gradient(180deg,#000 52%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 52%,transparent 100%)!important}
+#top .pageshot.band{-webkit-mask-image:linear-gradient(180deg,#000 45%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 45%,transparent 100%)!important}
 #top>.pageshot.band+div{margin-top:clamp(-150px,-10vw,-70px);padding-bottom:170px!important}
 #top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(180deg,rgba(10,31,68,0),#B5C8E0);pointer-events:none;z-index:2}
+/* smoother running */
+.hdr-bg{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(244,248,252,.97)!important}
+.bk-cover::after{display:none!important}
+.bob,.bob2{animation:none!important}
+.veil{animation-duration:.25s!important}.veil.leaving{animation-duration:.25s!important}
+@media (prefers-reduced-motion:reduce){.rv,.par,.parup{animation:none!important}}
 /* straight covers */
 .book{transform:none;filter:drop-shadow(0 22px 22px rgba(6,18,42,.45))}
 /* flat Know more buttons */
@@ -184,7 +192,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <div class="veil" id="veil" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#FFFFFF"/><path d="M9 17c3-6 11-6 14 0" stroke="#1A4FB0" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="16" cy="21" r="2.4" fill="#1A4FB0"/></svg></div>
 
 <!-- NAV -->
-<header class="hdr" style="background: rgba(244, 248, 246, 0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 20; box-shadow: 0 1px 0 rgba(16, 40, 74, 0.07)">
+<header class="hdr" style="background: rgba(244, 248, 246, 0.82); position: sticky; top: 0; z-index: 20; box-shadow: 0 1px 0 rgba(16, 40, 74, 0.07)">
 <div class="hdr-bg" aria-hidden="true"></div>
 <div class="hdr-in" style="max-width: 1180px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 28px">
 <a class="hdr-brand" href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0A1F44; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 22px; min-height: 44px"><svg role="img" aria-label="Gentle Joint Care" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible"><defs><clipPath id="gjc-clip"><circle cx="32" cy="32" r="28.6"/></clipPath></defs><circle cx="32" cy="32" r="30" fill="#163E82" stroke-width="2.2"/><g clip-path="url(#gjc-clip)"><circle cx="41.5" cy="10.5" r="3.6"/><path d="M24.6 22.5c-1.6-7.5 2-13.6 8-13.8 5.8-.2 9.2 5 7.6 13.4"/><path d="M26 19c1.5-3.4 4.6-5.2 8.4-5 2.2.1 3.9 1.4 4.8 3.4"/><path d="M28.5 11.5c1.6 1 3.6 1.4 5.6 1.2M36.4 10.6c.8 1 1.9 1.8 3 2.2" stroke-width="1.2"/><path d="M25.6 19.5c-.4 5.6 2.2 9.8 6.6 9.8 4.2 0 6.8-4 6.6-9.4"/><path d="M28.4 21.4c.7.6 1.6.6 2.3 0M33.6 21.4c.7.6 1.6.6 2.3 0M30 25c1.3 1 3 1 4.3 0" stroke-width="1.2"/><path d="M29.4 28.8v3.200c-6 .8-13 3.2-15.4 8.6-1.6 3.6-2 9-2 17M35 28.800v3.200c6 .8 13 3.2 15.4 8.6 1.6 3.6 2 9 2 17"/><path d="M29.4 32c.8 1.4 1.7 2 2.8 2s2-.6 2.8-2" stroke-width="1.2"/><path d="M16.5 56c1.5-4.5 5-8 9.5-10.200M47.5 56c-1.5-4.5-5-8-9.5-10.2"/><path d="M25.6 45.400c.6-2.4 2.6-3.8 5-3.600l5.6.5c1.7.2 2.8 1.3 2.7 2.7-.1 1.3-1.2 2.2-2.8 2.200h-3.6"/><path d="M38.4 46.400c.4 2.4-1.2 4.5-3.7 4.900l-5.3.8c-2 .3-3.6-.8-3.9-2.5-.3-1.5.6-2.9 2.2-3.4"/><path d="M31.5 43.900h4.400M32 45.800h3.600M29.8 49.200l4.2-.6" stroke-width="1.1"/></g></svg><span class="jr-name" style="font-family: Inter, system-ui, sans-serif; font-weight: 800; font-size: 21px; letter-spacing: -0.01em; color: #FFFFFF; white-space: nowrap">Gentle Joint Care</span></a>
@@ -200,7 +208,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 
 <!-- HERO -->
 <section id="top" style="background: #B5C8E0">
-<div class="pageshot band" role="img" aria-label="A woman in a pink cardigan reading a book on her sofa at home" style="background-image:url('https://images.unsplash.com/photo-1758691031958-29541f3207a5?auto=format&q=80&w=2400');background-position:center"></div>
+<div class="pageshot band" role="img" aria-label="A woman in a pink cardigan reading a book on her sofa at home" style="background-image:url('https://images.unsplash.com/photo-1758691031958-29541f3207a5?auto=format&q=80&w=1600');background-position:center"></div>
 <div style="max-width: 1180px; margin: 0 auto; padding: 12px 24px 88px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 56px">
 <div style="flex: 1 1 460px; min-width: 0">
 <h1 style="margin: 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(38px, 5.2vw, 62px); line-height: 1.14; letter-spacing: -0.015em; color: #0A1F44">We help stiff, sore joints <span style="background: #FFC56B; padding: 0 10px; border-radius: 10px; -webkit-box-decoration-break: clone; box-decoration-break: clone">move more freely again.</span></h1>
@@ -458,19 +466,36 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <!-- FINAL CTA -->
 <section id="get" style="background: #B5C8E0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 92px 24px">
-<div class="rv" style="background: var(--grain), radial-gradient(circle at 20% 0%, #3D7FE6 0%, #1A4FB0 55%, #103A8A 100%); border-radius: 44px; padding: clamp(32px, 5vw, 68px); display: flex; flex-wrap: wrap; align-items: center; gap: 36px 60px; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.16), 0 60px 80px -44px rgba(20, 62, 150, 0.8)">
-<div class="bob" style="flex: 0 1 220px; min-width: 150px; margin: 0 auto"><div class="book bk-guide" role="img" aria-label="Cover of the free guide, 7 Everyday Habits"><div class="bk-pages"></div><div class="bk-cover" aria-hidden="true"><div class="bk-photo"></div><span class="bk-title">7 Everyday Habits That Can Keep Joints Stiff and Sore</span><span class="bk-rule"></span><span class="bk-sub">And the gentle swap for each</span><span class="bk-brand"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke-linecap="round"><path d="M47.5 16.5A22 22 0 1 0 54 32H37" stroke="currentColor" stroke-width="8"/><circle cx="36" cy="32" r="6.5" fill="#FFC56B"/></svg>Gentle Joint Care</span></div></div></div>
-<div style="flex: 1 1 380px; min-width: 0">
+<div class="rv" style="background: radial-gradient(circle at 20% 0%, #3D7FE6 0%, #1A4FB0 55%, #103A8A 100%); border-radius: 44px; padding: clamp(32px, 5vw, 68px); display: flex; flex-wrap: wrap; align-items: center; gap: 36px 60px; box-shadow: 0 60px 80px -44px rgba(20, 62, 150, 0.8)">
+<div style="flex: 1 1 340px; min-width: 0">
 <h2 style="margin: 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.04; letter-spacing: -0.015em; color: #FFFFFF">Take your time. Take what helps.</h2>
-<p style="margin: 18px 0 0; font-size: 19px; color: #E6F0FA">Start with one small win today. You're not doing this alone.</p>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; margin-top: 30px">
-<a class="btn btn-amber" href="guide.html" style="background: #FFC56B; color: #0A1F44; text-decoration: none; padding: 17px 34px; border-radius: 14px; font-weight: 700; font-size: 19px">Know more</a>
-<span style="font-size: 17px; color: #E6F0FA">Free · Sent straight to your email</span>
+<p style="margin: 18px 0 0; font-size: 19px; color: #E6F0FA">Join our email list and we will write to you with kind, steady encouragement and news of new guides. You are not doing this alone.</p>
 </div>
+<form id="list-form" novalidate style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 14px" autocomplete="on">
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 6px; color: #FFFFFF; font-weight: 600; font-size: 17px">First name<input id="lf-first" name="First name" type="text" autocomplete="given-name" style="font: inherit; font-weight: 500; color: #0A1F44; background: #FFFFFF; border: 0; border-radius: 12px; padding: 14px 16px; min-height: 54px; box-sizing: border-box; width: 100%"></label>
+<label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 6px; color: #FFFFFF; font-weight: 600; font-size: 17px">Last name<input id="lf-last" name="Last name" type="text" autocomplete="family-name" style="font: inherit; font-weight: 500; color: #0A1F44; background: #FFFFFF; border: 0; border-radius: 12px; padding: 14px 16px; min-height: 54px; box-sizing: border-box; width: 100%"></label>
 </div>
+<label style="display: flex; flex-direction: column; gap: 6px; color: #FFFFFF; font-weight: 600; font-size: 17px">Email address<input id="lf-email" name="email" type="email" autocomplete="email" inputmode="email" style="font: inherit; font-weight: 500; color: #0A1F44; background: #FFFFFF; border: 0; border-radius: 12px; padding: 14px 16px; min-height: 54px; box-sizing: border-box; width: 100%"></label>
+<label style="display: flex; gap: 12px; align-items: flex-start; color: #E6F0FA; font-size: 17px; line-height: 1.45"><input id="lf-ok" type="checkbox" name="Agreed to emails" value="Yes" style="width: 24px; height: 24px; margin: 3px 0 0; flex: none; accent-color: #FFC56B"><span>Yes, I would like to receive emails from Gentle Joint Care. I can unsubscribe at any time.</span></label>
+<div id="lf-msg" role="status" aria-live="polite" style="min-height: 24px; font-weight: 600; color: #FFE2A8"></div>
+<button type="submit" id="lf-btn" style="align-self: flex-start; background: #FFC56B; color: #0A1F44; border: 0; border-radius: 14px; font: 700 19px Inter, system-ui, sans-serif; padding: 17px 34px; min-height: 56px; cursor: pointer">Join the email list</button>
+</form>
 </div>
 </div>
 </section>
+<script>
+(function(){var f=document.getElementById('list-form');if(!f){return;}
+f.addEventListener('submit',function(e){e.preventDefault();
+var m=document.getElementById('lf-msg'),b=document.getElementById('lf-btn');
+var fn=document.getElementById('lf-first').value.trim(),ln=document.getElementById('lf-last').value.trim(),em=document.getElementById('lf-email').value.trim();
+if(!fn||!ln||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){m.textContent='Please add your first name, last name and a valid email address.';return;}
+if(!document.getElementById('lf-ok').checked){m.textContent='Please tick the box so we know you would like our emails.';return;}
+b.disabled=true;m.textContent='One moment...';
+fetch('https://formsubmit.co/ajax/cgmandrez@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({'First name':fn,'Last name':ln,'email':em,'Agreed to emails':'Yes','_subject':'New email list sign-up','_captcha':'false'})})
+.then(function(r){return r.json();}).then(function(){f.reset();m.textContent='Thank you. You are on the list, and we are glad you are here.';b.disabled=false;})
+.catch(function(){m.textContent='Something went wrong. Please try again in a moment.';b.disabled=false;});});})();
+</script>
 
 
 <!-- FOOTER -->
@@ -487,7 +512,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 </footer>
 
 </div>
-<script src="site.js?v=13"></script>
+<script src="site.js?v=14"></script>
 <script src="menu.js?v=29"></script>
 </body>
 </html>

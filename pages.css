@@ -118,7 +118,7 @@ footer{color:#1B2F4D}
 .bk-pages{position:absolute;top:1.6%;bottom:1.6%;right:-5.5%;width:8%;border-radius:0 3px 3px 0;background:repeating-linear-gradient(90deg,#FBF8F1 0 1px,#DDD6C6 1px 2px);box-shadow:inset 0 0 6px rgba(0,0,0,.25)}
 .bk-cover{position:absolute;inset:0;border-radius:3px 7px 7px 3px;overflow:hidden;display:flex;flex-direction:column;padding:13% 11% 9% 15%;box-sizing:border-box;text-align:left;font-family:'Lora',Georgia,serif}
 .bk-cover::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.38) 0,rgba(0,0,0,.12) 3%,rgba(255,255,255,.22) 4.5%,rgba(255,255,255,0) 7%,rgba(0,0,0,.07) 9%,rgba(0,0,0,0) 12%),linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 38%,rgba(0,0,0,.14) 100%);pointer-events:none}
-.bk-cover::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.55;mix-blend-mode:overlay;pointer-events:none}
+.bk-cover::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:0;pointer-events:none}
 .bk-tag{font:700 calc(var(--w)*.038)/1.4 Inter,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase}
 .bk-title{font-weight:700;font-size:calc(var(--w)*.135);line-height:1.08;margin-top:9%;letter-spacing:-.01em}
 .bk-rule{width:22%;height:calc(var(--w)*.014);border-radius:9px;background:#FFC56B;margin:8% 0 6%}
