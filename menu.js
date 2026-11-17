@@ -32,7 +32,7 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
     '.jr-drop a::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border-right:2.5px solid #FFC56B;border-top:2.5px solid #FFC56B;transform:translateY(-50%) rotate(45deg)}' +
     '.jr-drop a small{font:500 15.5px/1.35 Inter,system-ui,sans-serif;color:#DCE8F5}' +
     '.jr-drop a:hover,.jr-drop a.on{background:none;color:#FFD48A;border-bottom:0;border-top:1px solid rgba(255,255,255,.2);padding-left:10px}' +
-    '@media (max-width:640px){.jr-nav{width:100%;justify-content:center;flex-wrap:wrap;font-size:16px;gap:0 14px}.jr-nav a,.jr-nav button{padding:8px 4px}.jr-drop{right:50%;transform:translate(50%,-12px)}.jr-drop.jr-show{transform:translate(50%,0)}}' +
+    '.jr-burger{display:none;align-items:center;gap:10px;font:700 18px/1 Inter,system-ui,sans-serif;color:#fff;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.35);border-radius:12px;padding:11px 16px;cursor:pointer}' +'.jr-burger i{display:block;width:20px;height:2.5px;background:currentColor;border-radius:2px;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor}' +'@media (max-width:640px){.jr-bar-in{min-height:68px;padding:8px 16px;flex-wrap:wrap}.jr-bar a.jr-home{font-size:22px}.jr-burger{display:inline-flex}.jr-nav{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;font-size:19px;padding:4px 0 10px;margin:0}.jr-bar.jr-open .jr-nav{display:flex}.jr-nav a,.jr-nav button{padding:15px 4px;border-bottom:1px solid rgba(255,255,255,.14);justify-content:space-between;text-align:left}.jr-drop{position:static;width:auto;opacity:1;visibility:visible;transform:none!important;transition:none;display:none;margin:6px 0 10px}.jr-drop.jr-show{display:block}}' +
     'a.soon{opacity:.6;cursor:default;pointer-events:none}' +
     '@media (prefers-reduced-motion:reduce){.jr-drop{transition:none}}';
   document.head.appendChild(css);
@@ -53,6 +53,11 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
   document.body.insertBefore(bar, document.body.firstChild);
   var host = bar.firstChild;
   host.appendChild(navEl);
+  var burger = document.createElement('button');
+  burger.type = 'button'; burger.className = 'jr-burger'; burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Open the menu');
+  burger.innerHTML = '<i></i>Menu';
+  host.insertBefore(burger, navEl);
+  burger.addEventListener('click', function (e) { e.stopPropagation(); var open = !bar.classList.contains('jr-open'); bar.classList.toggle('jr-open', open); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); });
   var btn = document.getElementById('jr-prog'), drop = document.getElementById('jr-drop');
   function set(open) { drop.classList.toggle('jr-show', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
   btn.addEventListener('click', function (e) { e.stopPropagation(); set(!drop.classList.contains('jr-show')); });
