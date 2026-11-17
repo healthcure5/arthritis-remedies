@@ -5,6 +5,36 @@
 var BOOK_URL = '';     // The Joint Reset
 var COURSE_URL = '';   // The Hinge Care Program
 var LETTER_URL = '';   // The Hinge Care Club, $7 a month
+var BOOK_OFFER_URL = '';   // The Joint Reset at $17, shown only on the thank-you page
+var COURSE_OFFER_URL = ''; // The Program at $77, shown only after someone buys the book
+var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
+
+// Special offers: buttons marked data-pay="name" get their link here.
+// A block marked data-pay-block="name" stays hidden until its link is set.
+// Add ?preview=1 to a page address to see a hidden offer before the link exists.
+(function () {
+  var LINKS = { book17: BOOK_OFFER_URL, course77: COURSE_OFFER_URL, bundle: BUNDLE_URL };
+  var preview = /[?&]preview=1/.test(location.search);
+  function run() {
+    document.querySelectorAll('[data-pay-block]').forEach(function (b) {
+      if (LINKS[b.getAttribute('data-pay-block')] || preview) { b.hidden = false; }
+    });
+    document.querySelectorAll('[data-pay]').forEach(function (a) {
+      var u = LINKS[a.getAttribute('data-pay')];
+      if (u) { a.href = u; } else { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.title = 'Checkout opens soon'; }
+    });
+    // Black Friday strip: Nov 27 to Dec 1, 2026 (Eastern time), only once the bundle link is set
+    var now = Date.now(), from = Date.parse('2026-11-27T00:00:00-05:00'), to = Date.parse('2026-12-02T00:00:00-05:00');
+    if (BUNDLE_URL && now >= from && now < to && !/gift\.html$/.test(location.pathname) && !document.getElementById('bf-strip')) {
+      var bar = document.createElement('a');
+      bar.id = 'bf-strip'; bar.href = 'gift.html';
+      bar.textContent = 'Black Friday: the book and the Program together for $97, until December 1. See the gift bundle';
+      bar.style.cssText = 'display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 16px/1.4 Inter,system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-left));text-decoration:none';
+      document.body.insertBefore(bar, document.body.firstChild);
+    }
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', run); } else { run(); }
+})();
 
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');

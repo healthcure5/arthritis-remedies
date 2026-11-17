@@ -390,3 +390,4 @@ h2,h3{line-height:1.28}
 
 @media (max-width:640px){.cta-big{padding:18px 22px;border-radius:24px;font-size:19px;gap:10px}.cta-big .cta-l small{font-size:14.5px}}
 @media (max-width:860px){.bubble{flex:0 0 auto!important}}
+[hidden]{display:none!important}
