@@ -23,13 +23,15 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
       var u = LINKS[a.getAttribute('data-pay')];
       if (u) { a.href = u; } else { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.title = 'Checkout opens soon'; }
     });
-    // Black Friday strip: Nov 27 to Dec 1, 2026 (Eastern time), only once the bundle link is set
+    // Black Friday strip: a reminder until Nov 26, the offer from Nov 27 to Dec 1, 2026 (Eastern time)
     var now = Date.now(), from = Date.parse('2026-11-27T00:00:00-05:00'), to = Date.parse('2026-12-02T00:00:00-05:00');
-    if (BUNDLE_URL && now >= from && now < to && !/gift\.html$/.test(location.pathname) && !document.getElementById('bf-strip')) {
+    if (now < to && !/gift\.html$/.test(location.pathname) && !/preview-/.test(location.pathname) && !document.getElementById('bf-strip')) {
       var bar = document.createElement('a');
       bar.id = 'bf-strip'; bar.href = 'gift.html';
-      bar.textContent = 'Black Friday: the book and the Program together for $97, until December 1. See the gift bundle';
-      bar.style.cssText = 'display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 16px/1.4 Inter,system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-left));text-decoration:none';
+      bar.textContent = now < from
+        ? 'Black Friday gift bundle, Nov 27: the book and the Program for $97. Get a reminder'
+        : 'Black Friday: the book and the Program for $97, until Dec 1. See the bundle';
+      bar.style.cssText = 'display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 15px/1.4 Inter,system-ui,sans-serif;padding:9px max(16px,env(safe-area-inset-left));text-decoration:none';
       document.body.insertBefore(bar, document.body.firstChild);
     }
   }
@@ -42,7 +44,8 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
     ['guide.html', 'Free guide', 'A kind first step, on us'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you'],
-    ['club.html', 'The Hinge Care Club', 'A letter every Sunday, $7 a month']
+    ['club.html', 'The Hinge Care Club', 'A letter every Sunday, $7 a month'],
+    ['circle.html', 'The Circle', 'Twelve Tuesdays with a small group']
   ];
   var LOGO = '<span class="gjc-mark" role="img" aria-label="Hinge Care"></span>';
   var css = document.createElement('style');
