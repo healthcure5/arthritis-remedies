@@ -4,14 +4,15 @@
 // ---------------------------------------------------------------
 var BOOK_URL = '';     // The Joint Reset
 var COURSE_URL = '';   // The Hinge Care Program
-var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
+var LETTER_URL = '';   // The Hinge Care Club, $7 a month
 
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
   var PROGRAMS = [
     ['guide.html', 'Free guide', 'A kind first step, on us'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
-    ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you']
+    ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you'],
+    ['club.html', 'The Hinge Care Club', 'A letter every Sunday, $7 a month']
   ];
   var LOGO = '<span class="gjc-mark" role="img" aria-label="Hinge Care"></span>';
   var css = document.createElement('style');
