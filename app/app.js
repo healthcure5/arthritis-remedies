@@ -102,7 +102,7 @@ function norm(d){
  d.voice=d.voice===undefined?true:!!d.voice;d.level=d.level===undefined?1:+d.level;
  d.goal=+d.goal||3;d.seated=!!d.seated;d.activity=d.activity||'';d.text=+d.text||1;d.hc=!!d.hc;d.slow=!!d.slow;
  d.rem=d.rem||{days:['MO','WE','FR'],time:'09:00'};d.seen=+d.seen||0;d.lighten=d.lighten||'';d.readOn=d.readOn||'';
- d.speed=d.speed===undefined?(d.slow?0:1):+d.speed;d.voiceName=d.voiceName||'';d.onboarded=!!d.onboarded;d.safety=!!d.safety;return d}
+ d.speed=d.speed===undefined?(d.slow?0:1):+d.speed;d.voiceName=d.voiceName||'';d.natural=d.natural===undefined?true:!!d.natural;d.onboarded=!!d.onboarded;d.safety=!!d.safety;return d}
 let st=load();save();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
 /* ================= helpers ================= */
@@ -163,31 +163,51 @@ function bestVoice(){const l=voiceList();if(st.voiceName){const m=l.find(v=>v.na
 function vLabel(v){return v.name.replace(/^(Microsoft|Google)\s+/,'').replace(/\s*\((.*?)\)/g,(m,x)=>/enhanced|premium|natural/i.test(x)?' ('+x.replace(/ - .*$/,'')+')':'').replace(/\s+-\s+English.*$/,'').trim()+' · '+(/[-_]GB/i.test(v.lang)?'British':/[-_]AU/i.test(v.lang)?'Australian':/[-_]IE/i.test(v.lang)?'Irish':/[-_]CA/i.test(v.lang)?'Canadian':/[-_]IN/i.test(v.lang)?'Indian':/[-_]ZA/i.test(v.lang)?'South African':'American')}
 const RATES=[[.78,'Slower'],[.88,'Calm'],[.98,'Natural']];
 function rate(){return RATES[st.speed]?RATES[st.speed][0]:.88}
-let sayId=0,sayT=null;
-function pieces(text){const out=[];String(text).split('|').forEach((block,bi,all)=>{const parts=block.trim().match(/[^.!?]+[.!?]+["')]*|[^.!?]+$/g)||[];parts.forEach((p,pi)=>{p=p.trim();if(p)out.push({t:p,pause:pi===parts.length-1?(bi===all.length-1?0:650):320})})});return out}
-function estimate(text){if(!st.voice||!HAS_TTS)return 0;return pieces(text).reduce((a,p)=>a+p.t.split(/\s+/).length/(2.5*rate())+p.pause/1000+.2,0)}
-function say(text){
- if(!HAS_TTS)return;hush();const id=++sayId,list=pieces(text);let i=0;
- const next=()=>{if(id!==sayId||i>=list.length)return;const p=list[i++];let done=false;
-  const fin=()=>{if(done||id!==sayId)return;done=true;clearTimeout(guard);sayT=setTimeout(next,p.pause)};
-  const u=new SpeechSynthesisUtterance(p.t),v=bestVoice();if(v){u.voice=v;u.lang=v.lang}u.rate=rate();u.pitch=1;u.volume=1;u.onend=fin;u.onerror=fin;
-  const guard=setTimeout(fin,(p.t.split(/\s+/).length/(1.6*rate())+3)*1000);
-  try{speechSynthesis.speak(u)}catch(e){fin()}};
- next()}
-function speak(t){if(st.voice)say(t)}
-function hush(){sayId++;clearTimeout(sayT);if(HAS_TTS)try{speechSynthesis.cancel()}catch(e){}}
-const pick=a=>a[Math.floor(Math.random()*a.length)];
+/* Spoken lines have fixed keys so they can be played from recorded clips (voice/<key>.mp3) when available. */
 const LINES={
- start:['Get comfortable. We\'ll start with {n}.','Settle in. First up, {n}.','Let\'s begin. First, {n}.'],
- next:['Next, {n}.','Now, {n}.','Let\'s move on to {n}.'],
+ intro:['Get comfortable, and let\'s begin.'],
+ next:['Next up.','Now, the next one.','On to the next move.'],
  other:['Now the other side.','And switch sides.','Same again, on the other side.'],
  begin:['Begin when you\'re ready. Nice and slow.','Off you go. Gentle and easy.','Begin. Breathe out as you move.','Go ahead. Slow and steady.'],
  beginCalm:['Begin. Let your breath slow down.','Begin. There\'s no rush.'],
  half:['Halfway there.','You\'re doing well. Keep breathing.','Nice and easy. Stay relaxed.','Keep it gentle.','Lovely. Keep going at your own pace.'],
  halfCalm:['Breathe in slowly, and out.','Let your shoulders soften.'],
- rest:['And rest.','Good. Let that go.','Lovely. Relax for a moment.','Well done. Rest.']
+ rest:['And rest.','Good. Let that go.','Lovely. Relax for a moment.','Well done. Rest.'],
+ easier:['Okay. Let\'s try an easier one instead.'],
+ shorter:['Okay. We\'ll keep this one short. Only move half as far.'],
+ done:['Well done. You moved today.','Lovely work. You moved today.','All done. Well done for showing up today.'],
+ early:['That\'s okay. You can stop here. What you did still counts.'],
+ sample:['Hello. I\'ll guide you through each move, nice and slowly. Breathe out as you move, and stop if anything hurts.']
 };
-function line(k,n){return pick(LINES[k]).replace('{n}',n||'')}
+function L(k,i){const a=LINES[k];if(i===undefined)i=Math.floor(Math.random()*a.length);return{k:k+'-'+i,t:a[i]}}
+function mvSpeech(x){return{k:'mv-'+x.id,t:(x.n+'. '+x.steps.join(' ')+' '+x.tip).replace(/"/g,'')}}
+function learnSpeech(i){const c=LEARN[i];return{k:'learn-'+i,t:c.t+'. '+c.b}}
+let CLIPS=null;
+try{fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.clips){CLIPS=j;if(location.hash.indexOf('settings')>-1&&!P&&!F)settings()}}).catch(()=>{})}catch(e){}
+function hasClips(parts){return!!(CLIPS&&st.natural!==false&&parts.every(p=>CLIPS.clips[p.k]!=null))}
+const au=new Audio();au.preload='auto';
+let qId=0,qT=null,ka=null;
+function talk(parts,always){
+ if((!always&&!st.voice)||!parts.length)return;hush();
+ if(hasClips(parts)){const id=++qId;let i=0;
+  const next=()=>{if(id!==qId||i>=parts.length)return;const p=parts[i++];
+   au.onended=()=>{if(id===qId)qT=setTimeout(next,300)};au.onerror=au.onended;
+   au.src='voice/'+p.k+'.mp3'+(CLIPS.v?'?v='+CLIPS.v:'');au.defaultPlaybackRate=au.playbackRate=clipRate();
+   const pr=au.play();if(pr&&pr.catch)pr.catch(()=>{if(id===qId){qId++;sayText(parts.slice(i-1).map(x=>x.t).join(' '))}})};
+  next();return}
+ sayText(parts.map(p=>p.t).join(' '))}
+function clipRate(){return[.9,1,1.1][st.speed]||1}
+function talkSecs(parts){if(!st.voice)return 0;if(hasClips(parts))return parts.reduce((a,p)=>a+CLIPS.clips[p.k]/clipRate()+.3,0);return estimate(parts.map(p=>p.t).join(' '))}
+function estimate(text){if(!HAS_TTS)return 0;const w=text.split(/\s+/).length,n=(text.match(/[.!?]/g)||[]).length;return w/(2.5*rate())+n*.25}
+/* phone voice: one smooth utterance (no chopping) */
+function sayText(text){
+ if(!HAS_TTS)return;clearInterval(ka);try{speechSynthesis.cancel()}catch(e){}
+ const u=new SpeechSynthesisUtterance(text),v=bestVoice();if(v){u.voice=v;u.lang=v.lang}u.rate=rate();u.pitch=1;u.volume=1;
+ const ua=navigator.userAgent;if(/Chrome\//.test(ua)&&!/Android|Mobile|Edg\//.test(ua))ka=setInterval(()=>{if(!speechSynthesis.speaking){clearInterval(ka);return}speechSynthesis.pause();speechSynthesis.resume()},9000);
+ u.onend=u.onerror=()=>clearInterval(ka);try{speechSynthesis.speak(u)}catch(e){}}
+function say(text){hush();sayText(text)}
+function hush(){qId++;clearTimeout(qT);clearInterval(ka);try{au.pause()}catch(e){}if(HAS_TTS)try{speechSynthesis.cancel()}catch(e){}}
+const pick=a=>a[Math.floor(Math.random()*a.length)];
 let wake=null;function wakeOn(){try{navigator.wakeLock&&navigator.wakeLock.request('screen').then(w=>wake=w).catch(()=>{})}catch(e){}}
 function wakeOff(){try{wake&&wake.release()}catch(e){}wake=null}
 function platform(){const u=navigator.userAgent||'';if(/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&'ontouchend' in document))return'ios';if(/Android/.test(u))return'android';if(/Edg\//.test(u))return'edge';return'desktop'}
@@ -261,7 +281,7 @@ function home(){
  on('#fu button',b=>{const s=last();s.asked=true;s.worse=b.dataset.a==='yes';if(s.worse)st.lighten=ymd();save();home()});
  $('go').onclick=()=>startPlay(r);
  $('rd').addEventListener('toggle',()=>{if($('rd').open&&st.readOn!==ymd()){st.readOn=ymd();save();const n=document.querySelectorAll('.num')[2];n.classList.add('done');n.textContent='✓'}});
- $('say').onclick=()=>say(card.t+'. '+card.b);
+ $('say').onclick=()=>talk([learnSpeech(st.seen%LEARN.length)],true);
 }
 function rowR(id){const r=RB[id];return`<a class="row" href="#/r/${r.id}">${pic(RPIC[r.id])}<div><b>${r.n}</b><span class="muted">${mins(secs(r))} min &middot; ${esc(r.d)}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`}
 /* ================= flare & safety ================= */
@@ -302,7 +322,7 @@ function move(id){
  <p class="note">Stop if anything causes sharp pain. <a href="#/safety">When to stop</a></p></div>`;
  $('fav').onclick=()=>{const i=st.favs.indexOf(id);i>-1?st.favs.splice(i,1):st.favs.push(id);save();move(id)};
  $('hid').onchange=e=>{if(e.target.checked){if(!st.hidden.includes(id))st.hidden.push(id)}else st.hidden=st.hidden.filter(v=>v!==id);save()};
- $('say').onclick=()=>say(x.n+'. '+x.steps.join(' ')+' '+x.tip);
+ $('say').onclick=()=>talk([mvSpeech(x)],true);
  $('try').onclick=()=>startPlay({id:'single',n:x.n,ids:[id]});
 }
 function routine(id){
@@ -322,7 +342,7 @@ function routine(id){
 /* ================= learn ================= */
 function learn(){shell('learn');app.innerHTML=`<div class="stack"><h1>Learn</h1><p class="muted">Short, plain-language reads. Tap one to open it.</p>`
  +LEARN.map((c,i)=>`<details class="read"><summary>${c.t}</summary><div class="in"><p>${c.b}</p>${i===LEARN.length-1?'<p style="margin-top:8px"><a href="#/safety">See the full list</a></p>':''}<button class="say" data-i="${i}">${SPK} Read this to me</button></div></details>`).join('')
- +`<p class="note">General information only, not medical advice.</p></div>`;on('.say',b=>{const c=LEARN[+b.dataset.i];say(c.t+'. '+c.b)})}
+ +`<p class="note">General information only, not medical advice.</p></div>`;on('.say',b=>talk([learnSpeech(+b.dataset.i)],true))}
 /* ================= progress ================= */
 function me(){
  shell('me');const total=st.sessions.reduce((a,s)=>a+(s.sec||0),0),wc=thisWeek(),t=ymd(),o=daysSet();
@@ -399,15 +419,18 @@ function voiceBox(){
  const list=voiceList().slice(0,8),cur=bestVoice();
  return`<div class="box"><h3>Voice</h3>
  <label class="check"><input type="checkbox" id="voice" ${st.voice?'checked':''}><span>Talk me through each move out loud</span></label>
- <p style="margin:10px 0 8px"><b>Speed</b></p><div class="pills" id="vs">${RATES.map((x,i)=>`<button data-s="${i}" class="${st.speed===i?'on':''}" aria-pressed="${st.speed===i}">${x[1]}</button>`).join('')}</div>
- <p style="margin:16px 0 8px"><b>Choose a voice</b> <span class="muted small">(tap one to hear it)</span></p>
+ ${CLIPS?`<label class="check"><input type="checkbox" id="nat" ${st.natural?'checked':''}><span>Use the natural recorded voice (recommended)<br><span class="muted small">Sounds smooth and the same on every phone</span></span></label><button class="say" id="nattest" style="margin-top:0">${SPK} Hear the recorded voice</button>`:''}
+ <p style="margin:14px 0 8px"><b>Speed</b></p><div class="pills" id="vs">${RATES.map((x,i)=>`<button data-s="${i}" class="${st.speed===i?'on':''}" aria-pressed="${st.speed===i}">${x[1]}</button>`).join('')}</div>
+ <p style="margin:16px 0 8px"><b>${CLIPS?'Phone voice':'Choose a voice'}</b> <span class="muted small">(${CLIPS?'used when the recorded voice is off. ':''}tap one to hear it)</span></p>
  ${list.length?`<div class="list" id="vl">${list.map((v,i)=>`<button class="choice ${cur&&cur.name===v.name?'on':''}" data-v="${i}" aria-pressed="${!!(cur&&cur.name===v.name)}">${esc(vLabel(v))}${i===0?'<small>Most natural on this device</small>':''}</button>`).join('')}</div>`:'<p class="muted">Your device is still loading its voices. Come back to this page in a moment.</p>'}
  <button class="say" id="vtest">${SPK} Hear a sample</button>
  <div class="box warm" style="margin-top:14px;padding:14px 16px"><b>Want a smoother voice?</b><p class="small" style="margin-top:4px">${tips[platform()]}</p></div></div>`}
 function voiceWire(){
  const SAMPLE='Hello. I\'ll guide you through each move, nice and slowly. | Breathe out as you move, and stop if anything hurts.';
  if($('voice'))$('voice').onchange=e=>{st.voice=e.target.checked;save()};
- on('#vs button',b=>{st.speed=+b.dataset.s;save();document.querySelectorAll('#vs button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});say(SAMPLE)});
+ if($('nat'))$('nat').onchange=e=>{st.natural=e.target.checked;save()};
+ if($('nattest'))$('nattest').onclick=()=>{const was=st.natural;st.natural=true;talk([L('sample',0)],true);st.natural=was};
+ on('#vs button',b=>{st.speed=+b.dataset.s;save();document.querySelectorAll('#vs button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});talk([L('sample',0)],true)});
  const list=voiceList().slice(0,8);
  on('#vl button',b=>{const v=list[+b.dataset.v];if(!v)return;st.voiceName=v.name;save();document.querySelectorAll('#vl button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});say(SAMPLE)});
  if($('vtest'))$('vtest').onclick=()=>say(SAMPLE);
@@ -420,19 +443,19 @@ function ics(){
 /* ================= player ================= */
 let P=null,tick=null,F=null;const pl=$('player');
 const prep1=()=>st.slow?12:8,prepN=()=>st.slow?9:6;
-function prepFor(text,base){return Math.max(base,Math.ceil(estimate(text))+2)}
+function prepFor(parts,base){return Math.max(base,Math.ceil(talkSecs(parts))+2)}
 function stepsText(x){return x.steps.join(' | ')}
 function startPlay(r){
  const seg=[];resolve(r).forEach(i=>{const x=MB[i];for(let k=0;k<x.sides;k++)seg.push({x,side:x.sides>1?(k?'Other side':'First side'):'',sec:hold(x,r)})});
  if(!seg.length)return;
- const t0=line('start',seg[0].x.n)+' | '+stepsText(seg[0].x),d0=prepFor(t0,prep1());
+ const t0=[L('intro',0),mvSpeech(seg[0].x)],d0=prepFor(t0,prep1());
  P={r,seg,i:0,ph:'prep',left:d0,dur:d0,paused:false,spent:0,hurt:0,sheet:''};pl.hidden=false;document.body.style.overflow='hidden';wakeOn();
- draw();speak(t0);clearInterval(tick);tick=setInterval(step,1000);
+ draw();talk(t0);clearInterval(tick);tick=setInterval(step,1000);
 }
 function total(){return P.seg.reduce((a,s)=>a+s.sec,0)}
-function toHold(){P.ph='hold';P.left=P.dur=P.seg[P.i].sec;chime();speak(line(P.seg[P.i].x.calm?'beginCalm':'begin'))}
-function toNext(silent){if(P.i>=P.seg.length-1){finish(false);return}P.i++;P.ph='prep';const n=P.seg[P.i],pv=P.seg[P.i-1],same=pv.x===n.x&&n.side;const t=(silent?'':line('rest')+' | ')+(same?line('other'):line('next',n.x.n)+' | '+stepsText(n.x));P.left=P.dur=same?prepN():prepFor(t,prepN());speak(t)}
-function step(){if(!P||P.paused||P.sheet)return;P.left--;if(P.ph==='hold'){P.spent++;const sec=P.seg[P.i].sec;if(sec>=20&&P.left===Math.floor(sec/2))speak(line(P.seg[P.i].x.calm?'halfCalm':'half'))}if(P.left<=0){if(P.ph==='prep')toHold();else{toNext();if(!P)return}}draw()}
+function toHold(){P.ph='hold';P.left=P.dur=P.seg[P.i].sec;chime();talk([L(P.seg[P.i].x.calm?'beginCalm':'begin')])}
+function toNext(silent){if(P.i>=P.seg.length-1){finish(false);return}P.i++;P.ph='prep';const n=P.seg[P.i],pv=P.seg[P.i-1],same=pv.x===n.x&&n.side;const t=(silent?[]:[L('rest')]).concat(same?[L('other')]:[L('next'),mvSpeech(n.x)]);P.left=P.dur=prepFor(t,prepN());talk(t)}
+function step(){if(!P||P.paused||P.sheet)return;P.left--;if(P.ph==='hold'){P.spent++;const sec=P.seg[P.i].sec;if(sec>=20&&P.left===Math.floor(sec/2))talk([L(P.seg[P.i].x.calm?'halfCalm':'half')])}if(P.left<=0){if(P.ph==='prep')toHold();else{toNext();if(!P)return}}draw()}
 function draw(){
  const s=P.seg[P.i],prep=P.ph==='prep',dur=P.dur||(prep?prepN():s.sec),frac=Math.max(0,P.left/dur),C=2*Math.PI*52;
  let sh='';
@@ -451,11 +474,11 @@ function draw(){
  $('when').onclick=()=>{P.sheet='safe';hush();draw()};
  $('pp').onclick=()=>{P.paused=!P.paused;if(P.paused)hush();draw()};
  $('skip').onclick=()=>{toNext(true);if(P)draw()};
- $('prev').onclick=()=>{if(P.i>0)P.i--;P.ph='prep';const t=P.seg[P.i].x.n+'. | '+stepsText(P.seg[P.i].x);P.left=P.dur=prepFor(t,prepN());speak(t);draw()};
+ $('prev').onclick=()=>{if(P.i>0)P.i--;P.ph='prep';const t=[mvSpeech(P.seg[P.i].x)];P.left=P.dur=prepFor(t,prepN());talk(t);draw()};
  $('hurt').onclick=()=>{P.sheet='hurt';P.hurt++;hush();draw();const f=pl.querySelector('.sheet .choice');if(f)f.focus()};
  pl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{const o=b.dataset.o;P.sheet='';
-  if(o==='gentle'){const x=P.seg[P.i].x;if(x.alt&&MB[x.alt]){const a=MB[x.alt],rest=P.seg.slice(P.i).filter(z=>z.x!==x),add=[];for(let k=0;k<a.sides;k++)add.push({x:a,side:a.sides>1?(k?'Other side':'First side'):'',sec:Math.max(10,Math.round(hold(a,P.r)*.7))});P.seg=P.seg.slice(0,P.i).concat(add,rest);P.ph='prep';const t='Okay. Let\'s try '+a.n+' instead. | '+stepsText(a);P.left=P.dur=prepFor(t,prepN());speak(t)}
-   else{P.seg.forEach(z=>{if(z.x===x)z.sec=Math.max(10,Math.round(z.sec/2))});if(P.ph==='hold'){P.left=Math.min(P.left,P.seg[P.i].sec);P.dur=P.seg[P.i].sec}speak('Okay. We\'ll keep this one short. Only move half as far.')}}
+  if(o==='gentle'){const x=P.seg[P.i].x;if(x.alt&&MB[x.alt]){const a=MB[x.alt],rest=P.seg.slice(P.i).filter(z=>z.x!==x),add=[];for(let k=0;k<a.sides;k++)add.push({x:a,side:a.sides>1?(k?'Other side':'First side'):'',sec:Math.max(10,Math.round(hold(a,P.r)*.7))});P.seg=P.seg.slice(0,P.i).concat(add,rest);P.ph='prep';const t=[L('easier',0),mvSpeech(a)];P.left=P.dur=prepFor(t,prepN());talk(t)}
+   else{P.seg.forEach(z=>{if(z.x===x)z.sec=Math.max(10,Math.round(z.sec/2))});if(P.ph==='hold'){P.left=Math.min(P.left,P.seg[P.i].sec);P.dur=P.seg[P.i].sec}talk([L('shorter',0)])}}
   if(o==='skip'){toNext(true);if(!P)return}
   if(o==='stop'){finish(true);return}
   draw()});
@@ -465,8 +488,8 @@ function finish(early){
  clearInterval(tick);wakeOff();const r=P.r,sec=Math.max(early?P.spent:total(),30),hurt=P.hurt;P=null;
  const sess={date:ymd(),name:r.n,rid:r.id,sec};if(hurt)sess.hurt=hurt;if(early)sess.partial=true;st.sessions.push(sess);
  if(hurt){const t=new Date();t.setDate(t.getDate()+1);st.lighten=ymd(t)}
- const card=todaysCard();st.readOn=ymd();st.seen++;save();
- F={sess,card,feel:'',offer:'',early,hurt};speak(early?'That\'s okay. You can stop here. | What you did still counts.':pick(['Well done. You moved today.','Lovely work. You moved today.','All done. Well done for showing up today.']));drawEnd();
+ const ci=st.seen%LEARN.length,card=LEARN[ci];st.readOn=ymd();st.seen++;save();
+ F={sess,card,ci,feel:'',offer:'',early,hurt};talk([early?L('early',0):L('done')]);drawEnd();
 }
 function drawEnd(){
  const wc=thisWeek();let resp='';
@@ -482,7 +505,7 @@ function drawEnd(){
  <button class="btn sun wide" id="fin" style="margin-top:6px">Done</button></div>`;
  pl.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{F.feel=b.dataset.f;F.sess.feel=F.feel;F.offer='';save();drawEnd()});
  pl.querySelectorAll('[data-off]').forEach(b=>b.onclick=()=>{const o=b.dataset.off;if(o==='down')st.level=Math.max(0,st.level-1);if(o==='up')st.level=Math.min(3,st.level+1);F.offer=o==='keep'?'keep':'changed';save();drawEnd()});
- $('sayc').onclick=()=>say(F.card.t+'. '+F.card.b);
+ $('sayc').onclick=()=>talk([learnSpeech(F.ci)],true);
  $('fin').onclick=()=>{F=null;hush();pl.hidden=true;pl.innerHTML='';document.body.style.overflow='';go('#/home')};
 }
 /* ================= router ================= */
