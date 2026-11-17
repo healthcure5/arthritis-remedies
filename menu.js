@@ -73,7 +73,7 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
   }
   if (/[?&]waitlist=1/.test(location.search)) {
     var done = document.getElementById('wl-done'), wf = document.getElementById('co-form');
-    if (done) { done.hidden = false; } if (wf) { wf.hidden = true; }
+    if (done) { done.hidden = false; } if (wf) { wf.style.display = 'none'; }
     sheet(true);
   }
 })();

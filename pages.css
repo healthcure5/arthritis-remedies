@@ -343,7 +343,7 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .theme-guide .open-in>div:last-child::before{display:none}
 .theme-guide .gcover .book{transform:none;--w:min(360px,70vw);filter:drop-shadow(0 30px 30px rgba(6,18,42,.55)),drop-shadow(0 6px 8px rgba(6,18,42,.3))}
 .theme-guide .gcover .bk-pages{display:none}
-.bk-photo{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_163402_58f33eba-4b6b-4214-904f-f6c0316aaf16.png),url(images/bowl.jpg)}
+.bk-photo{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;background-image:url(images/p-163402.jpg),url(images/bowl.jpg)}
 .bk-cover>span{position:relative;z-index:1}
 .bk-guide .bk-title{color:#C62828;text-shadow:0 0 6px rgba(255,255,255,.9),0 1px 2px rgba(255,255,255,.9)}
 .bk-guide .bk-sub{color:#0A1F44;font-weight:600;text-shadow:0 0 6px rgba(255,255,255,.9)}
@@ -376,8 +376,8 @@ body.theme-guide{background-image:radial-gradient(46rem 30rem at 100% 0%,rgba(25
 .lib-card .bk-pages{display:none!important}
 .lib-card .bk-cover{border-radius:0!important}
 .lib-card{background-size:cover!important;background-position:center!important}
-.lib-guide{background:linear-gradient(180deg,rgba(251,247,238,.78),rgba(241,233,216,.9)),url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_170857_5edafaae-7a53-40c6-9f7e-a703e1ff6dd0.png),url(images/chair.jpg)!important}
-.lib-reset{background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(220,232,246,.88)),url(https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261116_170859_64c9248b-e284-4399-b087-c7a99fbd6b8b.png),url(images/hands.jpg)!important}
+.lib-guide{background:linear-gradient(180deg,rgba(251,247,238,.78),rgba(241,233,216,.9)),url(images/p-170857.jpg),url(images/chair.jpg)!important}
+.lib-reset{background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(220,232,246,.88)),url(images/p-170859.jpg),url(images/hands.jpg)!important}
 
 /* keep descenders (y, g, commas) fully visible under highlighted lines */
 h1,.open h1,.theme-course .open h1{line-height:1.36!important}
