@@ -68,21 +68,12 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { sheet(false); } });
   var item = co.getAttribute('data-item');
   var url = item === 'course' ? COURSE_URL : item === 'letter' ? LETTER_URL : BOOK_URL;
-  var country = document.getElementById('co-country'), slot = document.getElementById('co-state-slot');
-  var CODES = 'US CA GB AU NZ IE AF AL DZ AD AO AG AR AM AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HK HU IS IN ID IR IQ IL IT JM JP JO KZ KE KI KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NI NE NG KP MK NO OM PK PW PS PA PG PY PE PH PL PT PR QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA KR SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE UY UZ VU VA VE VN YE ZM ZW'.split(' ');
-  var names; try { names = new Intl.DisplayNames(['en'], { type: 'region' }); } catch (e) { names = null; }
-  var list = CODES.map(function (c) { return [c, names ? names.of(c) : c]; });
-  var top = list.slice(0, 6), rest = list.slice(6).sort(function (a, b) { return a[1].localeCompare(b[1]); });
-  country.innerHTML = top.concat(rest).map(function (c) { return '<option value="' + c[0] + '">' + c[1] + '</option>'; }).join('');
-  var STATES = 'Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,District of Columbia,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming,American Samoa,Guam,Northern Mariana Islands,Puerto Rico,U.S. Virgin Islands'.split(',');
-  function drawState() {
-    slot.innerHTML = country.value === 'US'
-      ? '<label for="co-state">State</label><select id="co-state" name="state" autocomplete="address-level1"><option value="">Choose your state</option>' + STATES.map(function (s) { return '<option>' + s + '</option>'; }).join('') + '</select>'
-      : '<label for="co-state">State, province or region</label><input id="co-state" name="state" type="text" autocomplete="address-level1">';
+  if (url) {
+    document.querySelectorAll('[data-open-sheet]').forEach(function (b) { b.href = url; b.replaceWith(b.cloneNode(true)); });
   }
-  country.addEventListener('change', drawState); drawState();
-  var yes = document.getElementById('co-yes'), note = document.getElementById('co-note');
-  if (url) { yes.href = url; note.textContent = 'You will finish on our secure checkout page.'; }
-  else { yes.removeAttribute('href'); yes.setAttribute('aria-disabled', 'true'); yes.classList.add('soon'); }
-  document.getElementById('co-form').addEventListener('submit', function (e) { e.preventDefault(); });
+  if (/[?&]waitlist=1/.test(location.search)) {
+    var done = document.getElementById('wl-done'), wf = document.getElementById('co-form');
+    if (done) { done.hidden = false; } if (wf) { wf.hidden = true; }
+    sheet(true);
+  }
 })();

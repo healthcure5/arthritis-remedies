@@ -1,0 +1,26 @@
+name: Fetch site photos
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fetch-photos.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download the photos the pages use
+        run: |
+          base=https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL
+          for id in hf_20261113_010439_aa6265e7-3efe-4c7f-97d5-7fab8306b0c8 hf_20261113_010440_e354ee61-5af9-4d36-a355-25dc04f6f994 hf_20261113_010547_30dc85c9-8aea-41f9-b899-35d87036c575 hf_20261116_170857_5edafaae-7a53-40c6-9f7e-a703e1ff6dd0 hf_20261116_170859_64c9248b-e284-4399-b087-c7a99fbd6b8b; do
+            curl -fsSL "$base/$id.png" -o "images/src-$id.png"
+          done
+          ls -la images
+      - name: Save them to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/src-*.png
+          git commit -m "Copy site photos into the repository" || echo "nothing to commit"
+          git push
