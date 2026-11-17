@@ -8,34 +8,10 @@
 .cta-big::before{display:none!important}
 .slot,.slot:hover,.lift:hover{transform:none!important}
 
-/* 2. Dark words on a light page; the gold colour is kept for buttons */
+/* 2. Dark words on the light pages below each opening */
 body,body.theme-book,body.theme-course,body.theme-guide{background:var(--wd-bg)!important;background-image:none!important;color:var(--wd-text)}
-.mark{background:none!important;padding:0!important;border-radius:0!important;color:var(--wd-blue)!important}
-.eyebrow{font-size:16px!important;letter-spacing:.1em!important;color:var(--wd-blue)!important}
+.eyebrow{font-size:16px!important;letter-spacing:.1em!important}
 #bf-strip{background:var(--wd-soft)!important;color:var(--wd-ink)!important;font-weight:600!important;font-size:17px!important;border-bottom:1px solid var(--wd-line);padding:11px 16px!important;min-height:44px;box-sizing:border-box}
-#bf-strip::after{content:" \203A";font-weight:800}
-
-/* 3. One hero on every page: words first, one button, a real photo beside it */
-.wd-hero{background:var(--wd-soft);padding:0!important;border-bottom:1px solid var(--wd-line)}
-.wd-hero-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr)}
-.wd-hero-img{order:-1;display:block;width:100%;height:auto;aspect-ratio:16/8;object-fit:cover;background:#D9E4F0}
-.wd-hero-text{padding:20px 20px 34px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0}
-.wd-eyebrow{margin:0!important;font:700 16px/1.3 Inter,system-ui,sans-serif!important;letter-spacing:.08em;text-transform:uppercase;color:var(--wd-blue)!important}
-.wd-hero h1{margin:0!important;font:700 31px/1.2 Lora,Georgia,'Times New Roman',serif!important;letter-spacing:-.01em!important;color:var(--wd-ink)!important;text-wrap:balance}
-.wd-lede{margin:0!important;font-size:18px!important;line-height:1.55!important;color:var(--wd-text)!important;max-width:34em}
-.wd-note{margin:0!important;font-size:16px!important;line-height:1.5!important;color:#334A63!important;max-width:34em}
-.wd-btn{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;min-height:58px;box-sizing:border-box;margin-top:4px;padding:15px 28px;border:0;border-radius:14px;background:var(--wd-btn);color:var(--wd-ink)!important;font:800 20px/1.2 Inter,system-ui,sans-serif;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 var(--wd-btn-edge)}
-.wd-btn small{font:600 16px/1.25 Inter,system-ui,sans-serif}
-.wd-btn:hover{background:#FFD48A}
-.wd-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--wd-btn-edge)}
-@media (min-width:860px){
-.wd-hero-in{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:56px;padding:52px 24px 56px}
-.wd-hero-img{order:2;aspect-ratio:4/3.3;border-radius:22px;max-height:540px}
-.wd-hero-text{padding:0;gap:18px}
-.wd-hero h1{font-size:clamp(38px,3.5vw,50px)!important;line-height:1.18!important}
-.wd-lede{font-size:20px!important}
-.wd-note{font-size:17px!important}
-}
 
 /* 4. One button style everywhere */
 .cta-big,.cta-soft,.more-btn,.hero-cta,.jb-btn,.joinband .jb-btn,a.btn,button.btn,.btn.amber,.btn.yesbtn,.ct-btn{background:var(--wd-btn)!important;background-image:none!important;color:var(--wd-ink)!important;border:0!important;border-radius:14px!important;box-shadow:0 3px 0 var(--wd-btn-edge)!important;font-weight:800!important;transform:none}
@@ -72,55 +48,6 @@ main p,main li{max-width:68ch}
 .stats b{color:var(--wd-ink)!important;font-size:34px!important;line-height:1.15!important}
 .stats span{color:var(--wd-text)!important;font-weight:500!important}
 
-/* 9. Home page */
-#home+section{padding-top:40px!important}
-.joinband{background:var(--wd-soft)!important;background-image:none!important;border-top:1px solid var(--wd-line)}
-.joinband::before{display:none!important}
-.joinband .jb{color:var(--wd-text)!important;padding:clamp(56px,7vw,88px) 24px!important}
-.joinband h2{color:var(--wd-ink)!important;font-size:clamp(32px,3.8vw,46px)!important;line-height:1.2!important}
-.joinband h2 em{color:var(--wd-blue)!important}
-.joinband p{color:var(--wd-text)!important}
-.joinband .jb-eye{color:var(--wd-blue)!important}
-.joinband ul{flex-direction:column;gap:8px!important;margin-top:20px!important}
-.joinband li{background:none!important;border:0!important;border-radius:0!important;padding:0!important;color:var(--wd-text)!important;font:500 19px/1.5 Inter,system-ui,sans-serif!important}
-.joinband li::before{color:var(--wd-blue)!important}
-.joinband .jb-btn{margin-top:28px!important;min-height:58px!important;padding:16px 30px!important;font-size:20px!important}
-.detail>div>.rv:first-child::after{display:none}
-.cta-soft::after{display:none!important}
-
-/* 10. Offer pages that still use the older opening block: same light layout, photo beside the words */
-.open{background:var(--wd-soft)!important;background-image:none!important;color:var(--wd-text)!important;border-bottom:1px solid var(--wd-line);display:grid;grid-template-columns:minmax(0,1fr);overflow:visible!important}
-.open .rings,.open .squares{display:none!important}
-.open .pageshot{position:static!important;inset:auto!important;display:block;width:100%;height:auto!important;aspect-ratio:16/8;-webkit-mask-image:none!important;mask-image:none!important;transform:none!important;background-color:#D9E4F0!important}
-.open .pageshot::after{display:none!important}
-.open .open-in{position:static!important;min-height:0!important;max-width:none!important;margin:0!important;padding:20px 20px 34px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:18px!important}
-.open .open-in>div:first-child{max-width:none!important;flex:none!important;gap:14px!important}
-.open h1,.theme-course .open h1{color:var(--wd-ink)!important;font-size:31px!important;line-height:1.2!important}
-.open p{color:var(--wd-text)!important}
-.open .open-in>div:first-child>p{font-size:18px;line-height:1.55}
-.open .cta-mid{flex:none!important;display:block!important;margin:0!important;width:100%}
-.getbox,.open .getbox{margin:0 0 14px!important;width:100%!important;max-width:520px;align-items:flex-start!important;text-align:left!important;background:#fff!important;border:1px solid var(--wd-line)!important;border-radius:18px!important;box-shadow:none!important;padding:22px!important;gap:12px!important}
-.getbox p{color:var(--wd-text)!important;font-size:18px!important}
-.getbox b,.getbox>p b{color:var(--wd-ink)!important}
-.getbox .eyebrow{font-size:16px!important}
-.getbox .pay{padding:0!important;background:none!important;width:100%}
-@media (min-width:860px){
-.open{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;column-gap:56px;padding:52px max(24px,calc((100vw - 1180px)/2 + 24px)) 56px!important}
-.open .pageshot{order:2;aspect-ratio:4/3.3;border-radius:22px;max-height:540px}
-.open .open-in{padding:0!important}
-.open h1,.theme-course .open h1{font-size:clamp(34px,3.2vw,46px)!important;line-height:1.18!important}
-.open .open-in>div:first-child>p{font-size:20px}
-}
-
-/* 11. Contact page: words on a plain ground, not on a photo */
-.ct-hero{background:var(--wd-soft)!important;color:var(--wd-text)!important;border-bottom:1px solid var(--wd-line)}
-.ct-hero::before{display:none!important}
-.ct-hero h1{color:var(--wd-ink)!important;font-size:clamp(32px,3.6vw,48px)!important;line-height:1.2!important}
-.ct-hero h1 em{color:var(--wd-blue)!important}
-.ct-hero p{color:var(--wd-text)!important}
-.ct-eye{color:var(--wd-blue)!important;font-size:16px!important;letter-spacing:.08em!important}
-button[type=submit]{background:var(--wd-btn)!important;background-image:none!important;color:var(--wd-ink)!important;box-shadow:0 3px 0 var(--wd-btn-edge)!important;font-weight:800!important}
-
 /* 12. Loose ends found by the checks */
 .books-row>div{box-shadow:none!important;border:1px solid var(--wd-line)!important;border-radius:22px!important}
 .books-row>div:nth-child(1){background:#FBF7EE!important}
@@ -134,3 +61,18 @@ button[type=submit]{background:var(--wd-btn)!important;background-image:none!imp
 .lib-course-text p{color:var(--wd-text)!important}
 summary{min-height:44px;align-items:center}
 section p[style*="max-width: 720px"],section p[style*="max-width: 760px"]{max-width:62ch!important;margin-inline:auto!important}
+
+/* 13. Big photo openings with words on top (the main site's look), on a navy or cream ground */
+.theme-book .open,.theme-course .open{background-color:#0A1F44!important}
+.theme-course .open{background-color:#081A3A!important}
+.ct-hero button,button[type=submit]{background:var(--wd-btn)!important;background-image:none!important;color:var(--wd-ink)!important;box-shadow:0 3px 0 var(--wd-btn-edge)!important;font-weight:800!important}
+
+/* 14. Footers read well on the light pages */
+footer,.theme-course footer{color:var(--wd-text)!important}
+footer a,.theme-course footer a{color:var(--wd-blue)!important}
+#top~footer,body>div>footer{color:#C7D8EA!important}
+body>div>footer a{color:#FFD48A!important}
+
+/* 15. Gold labels only on navy; blue on the light pages */
+.theme-course main>section:not(.open) .eyebrow,.lib-course-text .eyebrow{color:var(--wd-blue)!important}
+.ct-eye{font-size:16px!important}
