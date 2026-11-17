@@ -32,7 +32,7 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
     '.jr-drop a::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border-right:2.5px solid #FFC56B;border-top:2.5px solid #FFC56B;transform:translateY(-50%) rotate(45deg)}' +
     '.jr-drop a small{font:500 15.5px/1.35 Inter,system-ui,sans-serif;color:#DCE8F5}' +
     '.jr-drop a:hover,.jr-drop a.on{background:none;color:#FFD48A;border-bottom:0;border-top:1px solid rgba(255,255,255,.2);padding-left:10px}' +
-    '@media (max-width:640px){.jr-nav{width:100%;justify-content:center;font-size:17px;gap:4px 18px}.jr-nav a,.jr-nav button{padding:8px 4px}.jr-drop{right:50%;transform:translate(50%,-12px)}.jr-drop.jr-show{transform:translate(50%,0)}}' +
+    '@media (max-width:640px){.jr-nav{width:100%;justify-content:center;flex-wrap:wrap;font-size:16px;gap:0 14px}.jr-nav a,.jr-nav button{padding:8px 4px}.jr-drop{right:50%;transform:translate(50%,-12px)}.jr-drop.jr-show{transform:translate(50%,0)}}' +
     'a.soon{opacity:.6;cursor:default;pointer-events:none}' +
     '@media (prefers-reduced-motion:reduce){.jr-drop{transition:none}}';
   document.head.appendChild(css);
@@ -42,7 +42,7 @@ var LETTER_URL = '';   // The Hinge Care Letter, $7 a month
   navEl.className = 'jr-nav';
   navEl.setAttribute('aria-label', 'Main');
   navEl.innerHTML = '<a href="index.html"' + (here === 'index.html' ? ' aria-current="page"' : '') + '>Home</a>' +
-    '<button type="button" id="jr-prog" aria-expanded="false" aria-controls="jr-drop">Programs</button>' +
+    '<button type="button" id="jr-prog" aria-expanded="false" aria-controls="jr-drop">Guides</button>' +
     '<a href="library.html"' + (here === 'library.html' ? ' aria-current="page"' : '') + '>Library</a>' +
     '<a href="app/">Stretch app</a>' +
     '<a href="contact.html">Contact</a>' +
