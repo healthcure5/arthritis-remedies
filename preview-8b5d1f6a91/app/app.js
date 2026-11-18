@@ -166,7 +166,7 @@ function norm(d){
  d.voice=d.voice===undefined?true:!!d.voice;d.level=d.level===undefined?1:+d.level;
  d.goal=+d.goal||3;d.seated=!!d.seated;d.activity=d.activity||'';d.text=+d.text||1;d.hc=!!d.hc;d.slow=!!d.slow;
  d.rem=d.rem||{days:['MO','WE','FR'],time:'09:00'};d.seen=+d.seen||0;d.lighten=d.lighten||'';d.readOn=d.readOn||'';
- d.speed=d.speed===undefined?(d.slow?0:1):+d.speed;d.voiceName=d.voiceName||'';d.natural=d.natural===undefined?true:!!d.natural;d.onboarded=!!d.onboarded;d.safety=!!d.safety;return d}
+ d.speed=d.speed===undefined?(d.slow?0:1):+d.speed;d.voiceName=d.voiceName||'';d.natural=d.natural===undefined?true:!!d.natural;d.onboarded=!!d.onboarded;d.safety=!!d.safety;d.badges=Array.isArray(d.badges)?d.badges:[];d.start=d.start||(d.sessions[0]&&d.sessions[0].date)||'';return d}
 let st=load();save();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
 /* ================= helpers ================= */
@@ -280,6 +280,36 @@ function prefs(){document.body.classList.remove('t1','t2','t3');document.body.cl
 function dl(name,type,text){const b=new Blob([text],{type}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},600)}
 function pic(k,big){return`<div class="pict${big?' big':''}" aria-hidden="true">${PIC[k]||PIC.seat}</div>`}
 function todaysCard(){return LEARN[st.seen%LEARN.length]}
+/* ================= rewards: plant, badges, 8-week path ================= */
+const STAGES=[[0,'A seed','Finish a session to plant it.'],[1,'A sprout','Your first session planted it.'],[3,'Little leaves','It grows a little every time you move.'],[6,'A young plant','Steady and green.'],[10,'Growing strong','Ten sessions of looking after yourself.'],[18,'Full and leafy','This is what showing up looks like.'],[30,'In bloom','Thirty sessions. It flowered for you.']];
+function stageOf(n){let i=0;STAGES.forEach((x,k)=>{if(n>=x[0])i=k});return i}
+function plantSVG(n,size){const st_=stageOf(n),h=Math.min(16+st_*12,80),leaves=Math.min(n,14),top=104-h;let lv='';
+ for(let i=0;i<leaves;i++){const y=100-(i+1)*(h-4)/(leaves+1),L=i%2===0,r=Math.max(7,13-i*.35);lv+=`<ellipse cx="${L?60-r:60+r}" cy="${y}" rx="${r}" ry="${r*.48}" transform="rotate(${L?28:-28} 60 ${y})" fill="${i%3?'#4E8A57':'#2F5D3A'}"/>`}
+ const bloom=st_>=6?`<g transform="translate(60 ${top})">${[0,72,144,216,288].map(a=>`<ellipse rx="5" ry="9" transform="rotate(${a}) translate(0 -8)" fill="#FFC56B"/>`).join('')}<circle r="5" fill="#E08A3C"/></g>`:'';
+ const seed=n<1?'<ellipse cx="60" cy="101" rx="5" ry="3.5" fill="#8A5A33"/>':'';
+ return`<svg viewBox="0 0 120 150" width="${size||96}" height="${(size||96)*1.25}" aria-hidden="true"><ellipse cx="60" cy="146" rx="34" ry="3" fill="#000" opacity=".08"/>${n>=1?`<path d="M60 104 V${top}" stroke="#2F5D3A" stroke-width="3.5" stroke-linecap="round"/>`:''}${lv}${bloom}${seed}<path d="M34 104 h52 l-6 40 h-40z" fill="#B9764A"/><rect x="31" y="100" width="58" height="9" rx="3" fill="#A0643C"/></svg>`}
+const BADGES=[
+ ['first','First step','You finished your first session.',S=>S.length>=1],
+ ['s5','Five sessions','Five times you made time for your joints.',S=>S.length>=5],
+ ['goal1','Goal week','You reached your weekly goal.',()=>weekStreak()>=1],
+ ['explorer','Explorer','You tried five different routines.',S=>new Set(S.map(x=>x.rid)).size>=5],
+ ['morning','Early riser','Five morning routines.',S=>S.filter(x=>x.rid==='bedside'||x.rid==='wake').length>=5],
+ ['hands','Helping hands','Three sessions for your hands.',S=>S.filter(x=>x.rid==='hands').length>=3],
+ ['calm','Calm keeper','Three breathing or evening sessions.',S=>S.filter(x=>x.rid==='breathe'||x.rid==='evening').length>=3],
+ ['kind','Kind to yourself','You chose Easy day when you needed it.',S=>S.some(x=>x.rid==='easy')],
+ ['s10','Ten sessions','Double figures.',S=>S.length>=10],
+ ['goal4','Four steady weeks','Four weeks in a row at your goal.',()=>weekStreak()>=4],
+ ['s25','Twenty-five sessions','A real habit now.',S=>S.length>=25],
+ ['s50','Fifty sessions','Fifty times. That deserves a cup of something nice.',S=>S.length>=50]];
+const BICON={first:'M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z',goal1:'M5 12.5l4.5 4.5L19 7.5',goal4:'M5 12.5l4.5 4.5L19 7.5',explorer:'M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 6.5l-2 5-5 2 2-5z',morning:'M12 4v2M4.9 6.9l1.4 1.4M19.1 6.9l-1.4 1.4M3 16h18M7 16a5 5 0 0110 0',hands:'M7 20v-8a2 2 0 014 0V6a2 2 0 014 0v6a2 2 0 014 0v4a4 4 0 01-4 4z',calm:'M3 12c3-4 6-4 9 0s6 4 9 0',kind:'M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z'};
+function badgeHTML(b,on){const p=BICON[b[0]]||BICON.first;return`<div class="badge${on?' on':''}"><div class="bi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="${p}"/></svg>${/^s\d/.test(b[0])?`<b>${b[0].slice(1)}</b>`:''}</div><span>${b[1]}</span></div>`}
+function newBadges(){const got=[];BADGES.forEach(b=>{if(!st.badges.includes(b[0])&&b[3](st.sessions)){st.badges.push(b[0]);got.push(b)}});return got}
+const PATH=[['Getting started','wake'],['Easier mornings','bedside'],['Hands that work','hands'],['Neck and shoulders','upper'],['Hips and knees','legs'],['Gentle strength','strength'],['Steady on your feet','balance'],['Putting it all together','evening']];
+function pathWeek(){if(!st.start)return 0;return Math.min(7,Math.max(0,Math.floor(gap(st.start,ymd())/7)))}
+function pathDone(w){if(!st.start)return false;const a=pd(st.start);a.setDate(a.getDate()+w*7);const o=daysSet();let n=0;for(let i=0;i<7;i++){if(o[ymd(a)])n++;a.setDate(a.getDate()+1)}return n>=st.goal}
+function pathHTML(){const w=pathWeek(),r=RB[PATH[w][1]];return`<div class="box path"><div class="label">Your 8-week path</div><h3 style="margin:4px 0 2px">Week ${w+1}: ${PATH[w][0]}</h3><p class="muted small">This week's featured routine is ${r.n}.</p>
+ <div class="pdots" aria-hidden="true">${PATH.map((p,i)=>`<i class="${pathDone(i)?'done':''}${i===w?' now':''}">${pathDone(i)?'':i+1}</i>`).join('')}</div>
+ <a class="btn sm" href="#/r/${r.id}" style="margin-top:12px">Open ${esc(r.n)}</a></div>`}
 /* ================= shell ================= */
 const app=document.getElementById('app'),backBtn=document.getElementById('back'),nav=document.querySelector('.nav');
 function shell(tab,back){nav.hidden=false;backBtn.hidden=!back;document.querySelectorAll('.nav a').forEach(a=>{const on=a.dataset.tab===tab;a.classList.toggle('on',on);on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')})}
@@ -330,15 +360,17 @@ function home(){
  const away=ls&&gap(ls.date,ymd())>3;
  let h='<div class="stack">';
  h+=`<div><p class="muted">${away?'Welcome back. Start gently today.':greet()}</p><h1>Today's session</h1>${st.activity?`<p class="small" style="margin-top:6px">Working toward: <b>${esc(st.activity.toLowerCase())}</b></p>`:''}</div>`;
- h+=`<div class="box week"><div style="flex:1;min-width:0"><b>This week:</b> ${Math.min(wc,st.goal)} of ${st.goal} days${wc>=st.goal?'. Goal reached.':''}</div>${dotsHTML(wc)}</div>`;
+ const n=st.sessions.length,sg=STAGES[stageOf(n)];
+ h+=`<a class="box garden" href="#/me"><div class="pl">${plantSVG(n,76)}</div><div style="flex:1;min-width:0"><div class="label">Your plant</div><b style="font:700 20px var(--head)">${sg[1]}</b><p class="muted small">${n?plural(n,'session')+'. '+sg[2]:sg[2]}</p><div class="week" style="margin-top:8px;gap:10px"><span class="small"><b>This week:</b> ${Math.min(wc,st.goal)} of ${st.goal}</span>${dotsHTML(wc)}</div></div></a>`;
  const fu=followUp();
  if(fu)h+=`<div class="box tint" id="fu"><h3 style="margin-bottom:6px">A quick question</h3><p>After your last session (${esc(fu.name)}), did your joints feel worse for more than two hours afterwards?</p><div class="btns" style="margin-top:12px"><button class="btn line sm" data-a="yes">Yes</button><button class="btn line sm" data-a="no">No</button><button class="btn line sm" data-a="unsure">Not sure</button></div></div>`;
  if(soreRun())h+=`<div class="box warm"><h3 style="margin-bottom:6px">Your joints have been sore for a few days</h3><p>It may be worth checking in with your doctor or a physical therapist. In the meantime, Easy day and the Breathing break are here for you.</p><p style="margin-top:8px"><a href="#/safety">When to stop and get help</a></p></div>`;
  h+=`<ol class="session">
  <li><div class="num ${m?'done':''}">${m?'✓':'1'}</div><div><h3>How are your joints today?</h3><div class="faces" role="group" aria-label="How are your joints today">${MOODS.map((x,i)=>`<button data-m="${i+1}" class="${m===i+1?'on':''}" aria-pressed="${m===i+1}">${FACE[i]}<span>${x}</span></button>`).join('')}</div><p class="note" style="margin-top:8px">${m?'Saved. Tap another face to change it.':'Your answer shapes the routine below.'}</p></div></li>
- <li><div class="num ${moved?'done':''}">${moved?'✓':'2'}</div><div><h3>Move</h3><div class="box"><div class="move">${rcov(r.id)}<div><b style="font:700 21px var(--head)">${r.n}</b><p class="muted small">${moved?'You moved today. This one is ready if you\'d like more.':p.why}</p></div></div><p class="small" style="margin-top:10px"><b>You'll need:</b> ${need(r)}.</p><div class="btns" style="margin-top:14px"><button class="btn sun" id="go">Start &middot; ${mins(secs(r))} min</button><a class="textbtn" href="#/moves">Choose another</a></div></div>
+ <li><div class="num ${moved?'done':''}">${moved?'✓':'2'}</div><div><h3>Move</h3><div class="box hero-card">${heroImg(r.id)}<div class="move" style="grid-template-columns:1fr"><div><b style="font:700 23px var(--head)">${r.n}</b><p class="muted small">${moved?'You moved today. This one is ready if you\'d like more.':p.why}</p></div></div><p class="small" style="margin-top:10px"><b>You'll need:</b> ${need(r)}.</p><div class="btns" style="margin-top:14px"><button class="btn sun" id="go">Start &middot; ${mins(secs(r))} min</button><a class="textbtn" href="#/moves">Choose another</a></div></div>
  ${m>=4&&p.r!=='strength'?`<p class="small" style="margin-top:10px">Feeling good? <a href="#/r/strength">Gentle strength</a> is ready if you'd like a little more.</p>`:''}</div></li>
  <li><div class="num ${readToday?'done':''}">${readToday?'✓':'3'}</div><div><h3>Learn something small</h3><details class="read" id="rd"><summary>${card.t}</summary><div class="in"><p>${card.b}</p><button class="say" id="say">${SPK} Read this to me</button></div></details></div></li></ol>`;
+ h+=pathHTML();
  h+=`<div class="box warm"><h3 style="margin-bottom:6px">Sore day or flare?</h3><p>Rest is part of looking after your joints. If you'd like to move, these are very gentle.</p><div class="btns" style="margin-top:12px"><a class="btn line sm" href="#/r/easy">Easy day</a><a class="btn line sm" href="#/r/breathe">Breathing break</a></div><p style="margin-top:10px"><a href="#/flare">What helps on flare days</a></p></div>`;
  if(st.focus.length){const ids=[...new Set(st.focus.map(f=>JOINTS[f][1]))];h+=`<h2 style="margin-top:6px">For your ${st.focus.map(f=>JOINTS[f][0].toLowerCase()).join(', ').replace(/, ([^,]*)$/,' and $1')}</h2><div class="list">${ids.map(rowR).join('')}</div>`}
  h+=`<p class="note">For general wellness, not medical advice. Check with your doctor before starting a new remedy or exercise. Move slowly and never push into sharp pain. <a href="#/safety">When to stop</a></p></div>`;
@@ -349,6 +381,7 @@ function home(){
  $('rd').addEventListener('toggle',()=>{if($('rd').open&&st.readOn!==ymd()){st.readOn=ymd();save();const n=document.querySelectorAll('.num')[2];n.classList.add('done');n.textContent='✓'}});
  $('say').onclick=()=>talk([learnSpeech(st.seen%LEARN.length)],true);
 }
+function heroImg(id){const m=MB[RCOV[id]],u=m&&COVER[m.id];return u?`<div class="himg"><img src="${u}?auto=compress&cs=tinysrgb&w=720&h=405&fit=crop" alt="" onerror="this.parentNode.remove()"></div>`:''}
 function rowR(id){const r=RB[id];return`<a class="row" href="#/r/${r.id}">${rcov(r.id)}<div><b>${r.n}</b><span class="muted">${mins(secs(r))} min &middot; ${esc(r.d)}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`}
 /* ================= flare & safety ================= */
 function flare(){shell('home',true);app.innerHTML=`<div class="stack"><h1>Flare days</h1><div class="box"><p><b>Flares happen, and they aren’t your fault.</b> One hard day doesn’t undo your progress.</p><ul style="padding-left:22px;margin:12px 0 0">
@@ -418,7 +451,12 @@ function me(){
  const r2=st.checkins.filter(c=>gap(c.date,t)<14),p2=st.checkins.filter(c=>{const x=gap(c.date,t);return x>=14&&x<28});
  let trend='';if(r2.length>=3&&p2.length>=3){const a=good(r2),b=good(p2);trend=a>b+.1?'Your joints felt "Good" or "Great" more often in the last two weeks.':a<b-.1?'Your joints have felt sore more often lately. Go gently, and try Easy day on harder days.':'How your joints feel has been fairly steady this month.'}
  const la=st.acts[st.acts.length-1],fa=st.acts[0],due=st.activity&&(!la||gap(la.date,t)>=14);
- let h=`<div class="stack"><h1>Your progress</h1><div class="stats"><div><b>${monthDays()}</b><span>days moved this month</span></div><div><b>${weekStreak()}</b><span>weeks in a row at your goal</span></div><div><b>${mins(total)}</b><span>minutes in total</span></div></div>
+ const n=st.sessions.length,sg=STAGES[stageOf(n)],nx=STAGES[stageOf(n)+1];
+ let h=`<div class="stack"><h1>Your progress</h1>
+ <div class="box garden big"><div class="pl">${plantSVG(n,120)}</div><div style="flex:1;min-width:0"><div class="label">Your plant</div><h2 style="margin:2px 0 4px">${sg[1]}</h2><p class="muted">${sg[2]}</p>${nx?`<p class="small" style="margin-top:6px">${plural(nx[0]-n,'more session')} until: <b>${nx[1].toLowerCase()}</b></p>`:''}</div></div>
+ <div class="box"><h3>Your badges <span class="muted small">(${st.badges.length} of ${BADGES.length})</span></h3><div class="badges">${BADGES.map(b=>badgeHTML(b,st.badges.includes(b[0]))).join('')}</div></div>
+ ${pathHTML()}
+ <div class="stats"><div><b>${monthDays()}</b><span>days moved this month</span></div><div><b>${weekStreak()}</b><span>weeks in a row at your goal</span></div><div><b>${mins(total)}</b><span>minutes in total</span></div></div>
  <div class="box week"><div style="flex:1;min-width:0"><b>This week:</b> ${Math.min(wc,st.goal)} of ${st.goal} days</div>${dotsHTML(wc)}</div>`;
  if(st.activity){h+=`<div class="box"><h3>${esc(st.activity)}</h3>`;
   h+=due?`<p style="margin-top:6px">How easy is this for you right now?</p><div class="nums" role="group" aria-label="0 means very hard, 10 means very easy">${Array.from({length:11},(_,i)=>`<button data-v="${i}">${i}</button>`).join('')}</div><div class="scale"><span>0 = very hard</span><span>10 = very easy</span></div>`
@@ -559,10 +597,10 @@ function draw(){
 function closePlay(){clearInterval(tick);wakeOff();P=null;F=null;hush();pl.hidden=true;pl.innerHTML='';document.body.style.overflow='';render()}
 function finish(early){
  clearInterval(tick);wakeOff();const r=P.r,sec=Math.max(early?P.spent:total(),30),hurt=P.hurt;P=null;
- const sess={date:ymd(),name:r.n,rid:r.id,sec};if(hurt)sess.hurt=hurt;if(early)sess.partial=true;st.sessions.push(sess);
+ const sess={date:ymd(),name:r.n,rid:r.id,sec};if(!st.start)st.start=ymd();const before=stageOf(st.sessions.length);if(hurt)sess.hurt=hurt;if(early)sess.partial=true;st.sessions.push(sess);
  if(hurt){const t=new Date();t.setDate(t.getDate()+1);st.lighten=ymd(t)}
- const ci=st.seen%LEARN.length,card=LEARN[ci];st.readOn=ymd();st.seen++;save();
- F={sess,card,ci,feel:'',offer:'',early,hurt};talk([early?L('early',0):L('done')]);drawEnd();
+ const nb=newBadges(),grew=stageOf(st.sessions.length)>before;const ci=st.seen%LEARN.length,card=LEARN[ci];st.readOn=ymd();st.seen++;save();
+ F={sess,card,ci,feel:'',offer:'',early,hurt,nb,grew};talk([early?L('early',0):L('done')]);drawEnd();
 }
 function drawEnd(){
  const wc=thisWeek();let resp='';
@@ -571,12 +609,15 @@ function drawEnd(){
  if(F.feel==='right')resp=`<h3>Just right is perfect</h3><p>We'll keep your routines at this pace.</p>`;
  if(F.offer==='changed')resp=`<h3>Done</h3><p>Your pace is now "${LEVELS[st.level][1]}". You can change it on any routine page.</p>`;
  if(F.offer==='keep')resp=`<h3>No problem</h3><p>We'll keep your pace as it is.</p>`;
- pl.innerHTML=`<div class="stage" style="padding-top:12px"><div class="endtick" aria-hidden="true">${TICK}</div><h2>${F.early?'You can stop here':'Well done. You moved today.'}</h2>
+ const nS=st.sessions.length;
+ pl.innerHTML=`${F.drawn?'':'<div class="confetti" aria-hidden="true">'+Array.from({length:28},(_,i)=>`<i style="left:${(i*37)%100}%;animation-delay:${(i%7)*.12}s;background:${['#FFC56B','#2F5D3A','#4E8A57','#E08A3C'][i%4]}"></i>`).join('')+'</div>'}<div class="stage" style="padding-top:12px"><div class="endtick" aria-hidden="true">${TICK}</div><h2>${F.early?'You can stop here':'Well done. You moved today.'}</h2>
  <p>${F.early?'What you did still counts. ':''}That's ${Math.min(wc,st.goal)} of ${st.goal} days this week.${F.hurt?' You told us something hurt, so tomorrow\'s suggestion will be lighter.':''}</p>
- <div class="box" style="width:100%;text-align:left;margin-top:10px"><h3>How did that feel?</h3><div class="pills" style="margin-top:12px">${[['easy','Too easy'],['right','Just right'],['hard','Too hard']].map(x=>`<button data-f="${x[0]}" class="${F.feel===x[0]?'on':''}" aria-pressed="${F.feel===x[0]}">${x[1]}</button>`).join('')}</div>${resp?`<div style="margin-top:14px">${resp}</div>`:''}</div>
+ <div class="box garden" style="width:100%;text-align:left;margin-top:10px"><div class="pl">${plantSVG(nS,70)}</div><div><div class="label">Your plant</div><b style="font:700 19px var(--head)">${F.grew?'It grew! '+STAGES[stageOf(nS)][1]:'A new leaf'}</b><p class="muted small">${plural(nS,'session')} so far.</p></div></div>
+ ${F.nb.length?F.nb.map(b=>`<div class="box newbadge" style="width:100%">${badgeHTML(b,true)}<div style="text-align:left"><div class="label">New badge</div><b style="font:700 19px var(--head)">${b[1]}</b><p class="muted small">${b[2]}</p></div></div>`).join(''):''}
+ <div class="box" style="width:100%;text-align:left"><h3>How did that feel?</h3><div class="pills" style="margin-top:12px">${[['easy','Too easy'],['right','Just right'],['hard','Too hard']].map(x=>`<button data-f="${x[0]}" class="${F.feel===x[0]?'on':''}" aria-pressed="${F.feel===x[0]}">${x[1]}</button>`).join('')}</div>${resp?`<div style="margin-top:14px">${resp}</div>`:''}</div>
  <div class="box tint" style="width:100%;text-align:left"><div class="label">Did you know?</div><h3 style="margin:4px 0 6px">${F.card.t}</h3><p>${F.card.b}</p><button class="say" id="sayc">${SPK} Read this to me</button></div>
  <button class="btn sun wide" id="fin" style="margin-top:6px">Done</button></div>`;
- pl.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{F.feel=b.dataset.f;F.sess.feel=F.feel;F.offer='';save();drawEnd()});
+ F.drawn=true;pl.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{F.feel=b.dataset.f;F.sess.feel=F.feel;F.offer='';save();drawEnd()});
  pl.querySelectorAll('[data-off]').forEach(b=>b.onclick=()=>{const o=b.dataset.off;if(o==='down')st.level=Math.max(0,st.level-1);if(o==='up')st.level=Math.min(3,st.level+1);F.offer=o==='keep'?'keep':'changed';save();drawEnd()});
  $('sayc').onclick=()=>talk([learnSpeech(F.ci)],true);
  $('fin').onclick=()=>{F=null;hush();pl.hidden=true;pl.innerHTML='';document.body.style.overflow='';go('#/home')};
