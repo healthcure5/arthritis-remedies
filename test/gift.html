@@ -58,7 +58,7 @@ footer a,.foot a{display:inline-block;padding-block:10px}
 <span class="eyebrow">Opens Friday, November 27</span>
 <p>Leave your email and we'll tell you the moment the bundle is ready.</p>
 <div id="wl-done" class="wl-done" hidden role="status">You're on the list. We'll email you on November 27.</div>
-<form class="pay" id="bf-form" action="https://formsubmit.co/cgmandrez@gmail.com" method="POST">
+<form class="pay" id="bf-form" data-ml="204433345968342713" action="https://formsubmit.co/cgmandrez@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Waitlist: Black Friday gift bundle ($97)">
 <input type="hidden" name="_next" value="https://gentlerootz.com/gift.html?waitlist=1">
 <input type="hidden" name="_template" value="table">
@@ -115,5 +115,6 @@ function BUNDLE_URL_SET(){return typeof BUNDLE_URL!=='undefined'&&!!BUNDLE_URL}
 document.getElementById('bf-soon').hidden=st!=='soon';document.getElementById('bf-live').hidden=st!=='live';document.getElementById('bf-over').hidden=st!=='over';
 if(/[?&]waitlist=1/.test(location.search)){document.getElementById('bf-form').style.display='none';document.getElementById('wl-done').hidden=false;}})();
 </script>
+<script src="ml-signup.js?v=1"></script>
 </body>
 </html>
