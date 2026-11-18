@@ -52,6 +52,12 @@ document.getElementById('item').value=it.name+' ('+it.price+')';
 document.getElementById('subj').value=(it.partner?'Partner request: ':'Opening soon list: ')+it.name;
 document.getElementById('next').value='https://gentlerootz.com/shop/thanks.html?item='+encodeURIComponent(key);
 if(it.partner){document.getElementById('h').textContent='Become a partner';document.getElementById('go').textContent='Send my partner request';}
+var ML={book:'204433343441274231',program:'204433344207783358',program77:'204433344207783358',club:'204433344859997789',clubyear:'204433344859997789',gift:'204433344859997789',gift6:'204433344859997789',gift12:'204433344859997789',bundle:'204433345968342713'};
+var fm=document.getElementById('f');
+fm.addEventListener('submit',function(e){var id=ML[key];if(!id||fm.dataset.mlSent)return;e.preventDefault();fm.dataset.mlSent='1';
+var body=new URLSearchParams();body.append('fields[email]',document.getElementById('em').value.trim());body.append('fields[name]',document.getElementById('fn').value.trim());body.append('ml-submit','1');body.append('anticsrf','true');
+var done=false;function go(){if(done)return;done=true;HTMLFormElement.prototype.submit.call(fm);}
+try{fetch('https://assets.mailerlite.com/jsonp/2784798/forms/'+id+'/subscribe',{method:'POST',mode:'no-cors',body:body,keepalive:true}).then(go,go);}catch(x){go();}setTimeout(go,3000);});
 </script>
 </main>
 <footer class="hc-foot"><div class="hc-wrap"><p>For general wellness, not medical advice. Check with your doctor before starting new exercises.</p><p><a href="../index.html">Visit our website: gentlerootz.com</a> · <a href="partners.html">Partners</a> · <a href="../privacy.html">Privacy</a></p></div></footer>
