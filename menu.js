@@ -31,7 +31,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
       bar.textContent = now < from
         ? 'Black Friday gift bundle, Nov 27: the book and the Program for $97. Get a reminder'
         : 'Black Friday: the book and the Program for $97, until Dec 1. See the bundle';
-      bar.style.cssText = 'display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 15px/1.4 Inter,system-ui,sans-serif;padding:9px max(16px,env(safe-area-inset-left));text-decoration:none';
+      bar.style.cssText = 'display:block;background:#FFC56B;color:#1F3A27;text-align:center;font:700 16px/1.4 Inter,system-ui,sans-serif;padding:9px max(16px,env(safe-area-inset-left));text-decoration:none';
       document.body.insertBefore(bar, document.body.firstChild);
     }
   }
@@ -52,19 +52,19 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
   css.textContent =
     '.hdr,.top,.hdr-nav,.jr-fab,.jr-drawer,.jr-shade{display:none!important}' +
     '.hdr-in,.top-in{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:6px 24px!important;padding:10px 20px!important}' +
-    '.jr-bar{background:#0A1F44!important;position:relative;z-index:100;box-shadow:0 12px 28px -18px rgba(10,31,68,.8)}.jr-bar-in{max-width:1180px;margin:0 auto;padding:10px 20px;min-height:84px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 24px}' +
+    '.jr-bar{background:#1F3A27!important;position:relative;z-index:100;box-shadow:0 12px 28px -18px rgba(31,58,39,.8)}.jr-bar-in{max-width:1180px;margin:0 auto;padding:10px 20px;min-height:84px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 24px}' +
     '.jr-bar a.jr-home{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 24px/1 Lora,Georgia,serif;letter-spacing:.005em;color:#FFFFFF;white-space:nowrap}' +
     '.jr-nav{position:relative;display:flex;align-items:center;gap:4px clamp(14px,3vw,34px);font:700 19px/1 Inter,system-ui,sans-serif;margin-left:auto}' +
     '.jr-nav a,.jr-nav button{font:inherit;color:#FFFFFF;text-decoration:none;background:none;border:0;padding:14px 4px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-bottom:3px solid transparent}' +
     '.jr-nav a:hover,.jr-nav button:hover,.jr-nav .on{color:#FFC56B;border-bottom-color:#FFC56B}' +
     '.jr-nav button::after{content:"";width:8px;height:8px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s}' +
     '.jr-nav button[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}' +
-    '.jr-drop{position:absolute;right:0;top:calc(100% + 10px);width:min(340px,calc(100vw - 32px));padding:12px 22px 16px;border-radius:22px;background:radial-gradient(rgba(255,255,255,.09) 1.5px,transparent 1.7px) 0 0/26px 26px,radial-gradient(20rem 14rem at 100% 0%,rgba(255,197,107,.22),transparent 60%),rgba(14,44,98,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1.5px solid rgba(255,197,107,.55);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease,transform .25s ease,visibility 0s .25s;z-index:160}' +
+    '.jr-drop{position:absolute;right:0;top:calc(100% + 10px);width:min(340px,calc(100vw - 32px));padding:12px 22px 16px;border-radius:22px;background:radial-gradient(rgba(255,255,255,.09) 1.5px,transparent 1.7px) 0 0/26px 26px,radial-gradient(20rem 14rem at 100% 0%,rgba(255,197,107,.22),transparent 60%),rgba(30,58,38,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1.5px solid rgba(255,197,107,.55);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease,transform .25s ease,visibility 0s .25s;z-index:160}' +
     '.jr-drop.jr-show{opacity:1;visibility:visible;transform:none;transition:opacity .25s ease,transform .25s ease}' +
     '.jr-drop-top{display:flex;align-items:center;gap:12px;padding:8px 0 14px;font:800 18px/1 Inter,system-ui,sans-serif;color:#FFFFFF}' +
     '.jr-drop a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:16px 30px 16px 0;border:0;border-top:1px solid rgba(255,255,255,.2);border-radius:0;font:700 21px/1.2 Lora,Georgia,serif;color:#FFFFFF;transition:padding .2s ease}' +
     '.jr-drop a::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border-right:2.5px solid #FFC56B;border-top:2.5px solid #FFC56B;transform:translateY(-50%) rotate(45deg)}' +
-    '.jr-drop a small{font:500 15.5px/1.35 Inter,system-ui,sans-serif;color:#DCE8F5}' +
+    '.jr-drop a small{font:500 15.5px/1.35 Inter,system-ui,sans-serif;color:#E2EAD9}' +
     '.jr-drop a:hover,.jr-drop a.on{background:none;color:#FFD48A;border-bottom:0;border-top:1px solid rgba(255,255,255,.2);padding-left:10px}' +
     '.jr-burger{display:none;align-items:center;gap:10px;font:700 18px/1 Inter,system-ui,sans-serif;color:#fff;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.35);border-radius:12px;padding:11px 16px;cursor:pointer}' +'.jr-burger i{display:block;width:20px;height:2.5px;background:currentColor;border-radius:2px;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor}' +'@media (max-width:640px){.jr-bar-in{min-height:68px;padding:8px 16px;flex-wrap:wrap}.jr-bar a.jr-home{font-size:22px}.jr-burger{display:inline-flex}.jr-nav{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;font-size:19px;padding:4px 0 10px;margin:0}.jr-bar.jr-open .jr-nav{display:flex}.jr-nav a,.jr-nav button{padding:15px 4px;border-bottom:1px solid rgba(255,255,255,.14);justify-content:space-between;text-align:left}.jr-drop{position:static;width:auto;opacity:1;visibility:visible;transform:none!important;transition:none;display:none;margin:6px 0 10px}.jr-drop.jr-show{display:block}}' +
     'a.soon{opacity:.6;cursor:default;pointer-events:none}' +
@@ -85,6 +85,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
   bar.className = 'jr-bar';
   bar.innerHTML = '<div class="jr-bar-in"><a class="jr-home" href="index.html">' + LOGO + '<span>Hinge Care</span></a></div>';
   document.body.insertBefore(bar, document.body.firstChild);
+  document.documentElement.classList.add('jr-ready');
   var host = bar.firstChild;
   host.appendChild(navEl);
   var burger = document.createElement('button');
