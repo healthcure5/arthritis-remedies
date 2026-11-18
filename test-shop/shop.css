@@ -3,7 +3,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 Inter,ui-sans-serif,system-ui,sans-serif}
-img{max-width:100%;height:auto}
+img,video{max-width:100%;height:auto}
 a{color:var(--clay)}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--ink);margin:0;letter-spacing:-.01em}
 h1{font-size:clamp(40px,6vw,64px);line-height:1.08}
