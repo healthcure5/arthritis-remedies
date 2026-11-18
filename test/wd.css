@@ -1,6 +1,6 @@
 /* Test site only: changes from the web design rulebook (November 2026).
    Loaded last on every test page so it wins over the older looks. */
-:root{--wd-ink:#0A1F44;--wd-text:#1B2F4D;--wd-blue:#143E8C;--wd-bg:#F6F8FB;--wd-soft:#E9F0F8;--wd-line:#CFDCEA;--wd-btn:#FFC56B;--wd-btn-edge:#C98A1E}
+:root{--wd-ink:#1F3A27;--wd-text:#22362A;--wd-blue:#284F32;--wd-bg:#F6F2EA;--wd-soft:#EEEAE0;--wd-line:#D5E0CF;--wd-btn:#FFC56B;--wd-btn-edge:#C98A1E}
 
 /* 1. Calm pages: nothing moves by itself, nothing waits for a scroll to appear */
 .rv,.par,.parup,.bob,.bob2{animation:none!important;opacity:1!important;translate:none!important;scale:none!important}
@@ -63,14 +63,14 @@ summary{min-height:44px;align-items:center}
 section p[style*="max-width: 720px"],section p[style*="max-width: 760px"]{max-width:62ch!important;margin-inline:auto!important}
 
 /* 13. Big photo openings with words on top (the main site's look), on a navy or cream ground */
-.theme-book .open,.theme-course .open{background-color:#0A1F44!important}
-.theme-course .open{background-color:#081A3A!important}
+.theme-book .open,.theme-course .open{background-color:#1F3A27!important}
+.theme-course .open{background-color:#152C1C!important}
 .ct-hero button,button[type=submit]{background:var(--wd-btn)!important;background-image:none!important;color:var(--wd-ink)!important;box-shadow:0 3px 0 var(--wd-btn-edge)!important;font-weight:800!important}
 
 /* 14. Footers read well on the light pages */
 footer,.theme-course footer{color:var(--wd-text)!important}
 footer a,.theme-course footer a{color:var(--wd-blue)!important}
-#top~footer,body>div>footer{color:#C7D8EA!important}
+#top~footer,body>div>footer{color:#D2DECD!important}
 body>div>footer a{color:#FFD48A!important}
 
 /* 15. Gold labels only on navy; blue on the light pages */

@@ -1,11 +1,11 @@
 /* Test site: visible pass of the web design rules (Nov 17). Same words, calmer system.
    Loaded after wd.css. */
-:root{--wd2-bg:#F6F8FB;--wd2-card:#FFFFFF;--wd2-line:#D6E0EC;--wd2-ink:#0A1F44;--wd2-text:#1B2F4D;--wd2-blue:#143E8C}
+:root{--wd2-bg:#F6F2EA;--wd2-card:#FFFFFF;--wd2-line:#DDE3D6;--wd2-ink:#1F3A27;--wd2-text:#22362A;--wd2-blue:#284F32}
 
 /* 1. One brand colour (navy) + one accent (gold, buttons only); neutrals everywhere else */
-section[style*="background: #B5C8E0"],div[style*="background: #B5C8E0"]{background:var(--wd2-bg)!important;background-image:none!important}
-section:nth-of-type(even)[style*="#B5C8E0"]{background:#FFFFFF!important}
-[style*="background: #EAF2FA"],[style*="background: #E1ECF7"],[style*="background: rgba(244, 248, 246"]{background:var(--wd2-card)!important;background-image:none!important}
+section[style*="background: #C9D6C3"],div[style*="background: #C9D6C3"]{background:var(--wd2-bg)!important;background-image:none!important}
+section:nth-of-type(even)[style*="#C9D6C3"]{background:#FFFFFF!important}
+[style*="background: #F2EEE4"],[style*="background: #ECE8DD"],[style*="background: rgba(244, 248, 246"]{background:var(--wd2-card)!important;background-image:none!important}
 
 /* 2. One card style: white, thin border, gentle corners, no heavy shadows */
 section:not(#top):not(.open) [style*="box-shadow"][style*="border-radius"]:not(a):not(button):not(img):not(.wd-bar),.books-row>div,.stack>div,.lib-course{box-shadow:none!important;border:1px solid var(--wd2-line)!important;border-radius:18px!important}
@@ -23,14 +23,17 @@ section:not(#top):not(.open) [style*="#FFFFFF"] p,section:not(#top):not(.open) [
 
 /* 5. One main button per page (gold). Other buttons become quiet outlines */
 a.wd-sec,button.wd-sec{background:#FFFFFF!important;background-image:none!important;color:var(--wd2-blue)!important;box-shadow:none!important;border:2px solid var(--wd2-blue)!important}
-a.wd-sec:hover,button.wd-sec:hover{background:#EEF3FA!important}
+a.wd-sec:hover,button.wd-sec:hover{background:#F2EEE4!important}
 
 /* 6. Phones: the main action stays one tap away */
-.wd-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:#FFFFFF;border-top:1px solid var(--wd2-line);box-shadow:0 -8px 24px -12px rgba(10,31,68,.35);padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));transform:translateY(110%);transition:transform .25s ease}
+.wd-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:#FFFFFF;border-top:1px solid var(--wd2-line);box-shadow:0 -8px 24px -12px rgba(31,58,39,.35);padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));transform:translateY(110%);transition:transform .25s ease}
 .wd-bar.show{transform:none}
-.wd-bar a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:14px;background:#FFC56B;color:#0A1F44;font:800 18px/1.2 Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 3px 0 #C98A1E}
+.wd-bar a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:14px;background:#FFC56B;color:#1F3A27;font:800 18px/1.2 Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 3px 0 #C98A1E}
 @media (min-width:761px){.wd-bar{display:none}}
 @media (prefers-reduced-motion:reduce){.wd-bar{transition:none}}
 
 /* card corners: one size everywhere */
 section:not(#top):not(.open) .rv[style*="border-radius: 4"],section:not(#top):not(.open) .rv[style*="border-radius: 3"]{border-radius:20px!important}
+
+/* Hinge Care green + cream (matches the leaf-and-hinge logo) */
+html,body{background:#FAF6EF}
