@@ -25,11 +25,14 @@ book:{name:'The Joint Reset',price:'$17',note:'one payment · 30-day money-back 
 program:{name:'The Hinge Care Program',price:'$97',note:'paid once · 30-day money-back promise',what:'Eight weeks, one small step a day, sent to your email. Go at your own pace.'},
 program77:{name:'The Hinge Care Program (book buyers)',price:'$77',note:'paid once · for people who bought The Joint Reset',what:'The same eight-week Program, $20 off because you already have the book.'},
 club:{name:'Hinge Care Club, monthly',price:'$9',note:'a month for founding members, then $19 · cancel any time',what:'A Monday seated routine, a Wednesday recipe with a shopping list and a Friday small challenge, every week.'},
-gift:{name:'Hinge Care Club, 3-month gift',price:'$49',note:'paid once · nothing renews on your card',what:'Three months of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+gift:{name:'Hinge Care Club, 3-month gift',price:'$49',note:'paid once · nothing renews',what:'Three months of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+gift6:{name:'Hinge Care Club, 6-month gift',price:'$89',note:'paid once · nothing renews',what:'Six months of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+gift12:{name:'Hinge Care Club, 12-month gift',price:'$159',note:'paid once · nothing renews',what:'A full year of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+clubyear:{name:'Hinge Care Club, yearly',price:'$90',note:'a year for founding members (2 months free) · we email you before it renews',what:'A Monday seated routine, a Wednesday recipe with a shopping list and a Friday small challenge, every week.'},
 bundle:{name:'Black Friday gift bundle',price:'$97',note:'paid once · Nov 27 to Dec 1 only',what:'The Joint Reset and the Hinge Care Program together. Bought separately they cost $114.'},
 partner:{name:'Partner sign-up',price:'Free',note:'30% of every payment from people you refer',what:'You get your own link to share. Commissions are paid after the refund window closes.',partner:true}
 };
-var q=new URLSearchParams(location.search),key=q.get('item')||'book',it=ITEMS[key]||ITEMS.book;
+var q=new URLSearchParams(location.search),key=q.get('item')||'book',it=ITEMS[key]||ITEMS.book;var view=/^gift/.test(key)?'gift':(key==='clubyear'?'club':key);
 var name=q.get('name')||'there',to=q.get('to')||'Mom',msg=q.get('msg')||'';
 function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var B={
@@ -40,7 +43,7 @@ club:'<div class="box"><h2>Welcome to the Club, '+esc(name)+'</h2><p>You&#39;re 
 gift:'<div class="box"><h2>Your gift for '+esc(to)+' is on its way</h2><p>Within one day we email you a printable gift card and send '+esc(to)+' one simple welcome email.</p><a class="hc-btn" href="gift-card.html?to='+encodeURIComponent(to)+'&from='+encodeURIComponent(name)+'&msg='+encodeURIComponent(msg)+'">See your printable gift card</a><p><a href="emails/gift-buyer.html">Your email</a> · <a href="emails/gift-recipient.html">Their welcome email</a></p></div>',
 bundle:'<div class="box"><h2>Both are yours, '+esc(name)+'</h2><p>The Joint Reset downloads here, and the Program&#39;s first lesson opens now.</p><a class="hc-btn" href="sample-week.html">Preview a week</a></div>',
 partner:'<div class="box"><h2>Thanks for joining, '+esc(name)+'</h2><p>In the real store Whop gives you your personal link here. Share it in your own words, and say you earn a share if someone joins.</p><a class="hc-btn" href="partners.html">Back to the partner page</a></div>'};
-document.getElementById('body').innerHTML=B[key]||B.book;
+document.getElementById('body').innerHTML=B[view]||B.book;
 </script>
 </main>
 <footer class="hc-foot"><div class="hc-wrap"><p>For general wellness, not medical advice. Check with your doctor before starting new exercises.</p><p><a href="../test/index.html">Visit our website: gentlerootz.com</a> · <a href="partners.html">Partners</a> · <a href="../test/privacy.html">Privacy</a></p></div></footer>

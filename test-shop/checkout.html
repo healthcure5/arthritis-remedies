@@ -39,11 +39,14 @@ book:{name:'The Joint Reset',price:'$17',note:'one payment · 30-day money-back 
 program:{name:'The Hinge Care Program',price:'$97',note:'paid once · 30-day money-back promise',what:'Eight weeks, one small step a day, sent to your email. Go at your own pace.'},
 program77:{name:'The Hinge Care Program (book buyers)',price:'$77',note:'paid once · for people who bought The Joint Reset',what:'The same eight-week Program, $20 off because you already have the book.'},
 club:{name:'Hinge Care Club, monthly',price:'$9',note:'a month for founding members, then $19 · cancel any time',what:'A Monday seated routine, a Wednesday recipe with a shopping list and a Friday small challenge, every week.'},
-gift:{name:'Hinge Care Club, 3-month gift',price:'$49',note:'paid once · nothing renews on your card',what:'Three months of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+gift:{name:'Hinge Care Club, 3-month gift',price:'$49',note:'paid once · nothing renews',what:'Three months of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+gift6:{name:'Hinge Care Club, 6-month gift',price:'$89',note:'paid once · nothing renews',what:'Six months of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+gift12:{name:'Hinge Care Club, 12-month gift',price:'$159',note:'paid once · nothing renews',what:'A full year of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+clubyear:{name:'Hinge Care Club, yearly',price:'$90',note:'a year for founding members (2 months free) · we email you before it renews',what:'A Monday seated routine, a Wednesday recipe with a shopping list and a Friday small challenge, every week.'},
 bundle:{name:'Black Friday gift bundle',price:'$97',note:'paid once · Nov 27 to Dec 1 only',what:'The Joint Reset and the Hinge Care Program together. Bought separately they cost $114.'},
 partner:{name:'Partner sign-up',price:'Free',note:'30% of every payment from people you refer',what:'You get your own link to share. Commissions are paid after the refund window closes.',partner:true}
 };
-var q=new URLSearchParams(location.search),key=q.get('item')||'book',it=ITEMS[key]||ITEMS.book;
+var q=new URLSearchParams(location.search),key=q.get('item')||'book',it=ITEMS[key]||ITEMS.book;var view=/^gift/.test(key)?'gift':(key==='clubyear'?'club':key);
 document.getElementById('n').textContent=it.name;document.getElementById('w').textContent=it.what;document.getElementById('p').textContent=it.price;document.getElementById('o').textContent=it.note;
 document.title=it.name+' | Test checkout';
 if(it.gift){document.getElementById('g').hidden=false;document.getElementById('gn').required=true;document.getElementById('ge').required=true;}
