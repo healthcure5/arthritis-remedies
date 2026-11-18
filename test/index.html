@@ -216,6 +216,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 @media (max-width:760px){body h1{font-size:42px!important}body h2{font-size:32px!important}}
 </style>
 <link rel="stylesheet" href="wd.css?v=2">
+<link rel="stylesheet" href="wd2.css?v=2">
 <body>
 <a id="bf-strip" href="gift.html" style="display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 16px/1.4 Inter,system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-left));text-decoration:none;min-height:44px">Black Friday gift bundle, Nov 27: the book and the Program for $97. Get a reminder</a>
 <script>(function(){var n=Date.now(),f=Date.parse('2026-11-27T00:00:00-05:00'),t=Date.parse('2026-12-02T00:00:00-05:00'),b=document.getElementById('bf-strip');if(n>=t){b.remove()}else if(n>=f){b.textContent='Black Friday: the book and the Program for $97, until Dec 1. See the bundle'}})();</script>
@@ -542,5 +543,6 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <script src="site.js?v=15"></script>
 <script>(function(){document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.more-btn");if(!a)return;var h=a.getAttribute("href");if(h!=="#guide-more"&&h!=="#book-more")return;var s=document.querySelector(h);if(!s)return;var t=s.querySelector("h2"),b=s.querySelector("a.btn");if(!t||!b)return;var ey=t.previousElementSibling||t;e.preventDefault();var sy=window.pageYOffset,vh=window.innerHeight,top=ey.getBoundingClientRect().top+sy,bot=b.getBoundingClientRect().bottom+sy,H=bot-top,y=(vh-H>=80)?top-(vh-H)/2:bot-vh+40;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})})})();</script>
 <script src="menu.js?v=48t1"></script>
+<script src="wd2.js?v=1"></script>
 </body>
 </html>
