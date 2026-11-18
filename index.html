@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .2 0 0 0 -.04'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
@@ -32,7 +32,7 @@ img{height:auto}
 @media (max-width:760px){.hdr-link{display:none!important}.hdr-in{flex-wrap:nowrap!important;padding:12px 16px!important;gap:12px!important}.hdr-nav{flex-wrap:nowrap!important;flex:none}.hdr-brand{font-size:19px!important;white-space:nowrap}.hdr-btn{white-space:nowrap;padding:11px 18px!important;font-size:15px!important}.hdr.compact .hdr-brand{font-size:16.5px!important}}
 body{margin:0;background:#B5C8E0}
 html{scroll-behavior:smooth}
-a{color:#1A4FB0}a:hover{color:#0B2C6E}
+a{color: #143E8C}a:hover{color:#0B2C6E}
 summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
 details[open] summary span.pm{transform:rotate(45deg)}
@@ -81,6 +81,13 @@ section[id]{scroll-margin-top:84px}
 .progress{display:block;scale:0 1;animation:grow linear both;animation-timeline:scroll(root)}
 }
 }
+
+/* --- test fixes from the Website Do's and Don'ts guide --- */
+html:not(.jr-ready) .hdr,html:not(.jr-ready) .top{display:none!important}html:not(.jr-ready) body{padding-top:88px}@media (min-width:761px){html:not(.jr-ready) body{padding-top:84px}}
+
+a[href$="privacy.html"],a[href="index.html"]{display:inline-block;padding-block:10px}
+footer a,.foot a{display:inline-block;padding-block:10px}
+@media (max-width:600px){#top .pageshot.band{height:min(46vw,190px)!important;min-height:0!important}#top h1{font-size:32px!important;line-height:1.22!important}#top h1+p{margin-top:14px!important;font-size:17px!important}#top .hero-cta{margin-top:18px!important}#top>.pageshot.band+div{padding-bottom:56px!important}}
 </style>
 <style>.hdr.compact .hdr-tag{display:none}@media (max-width:760px){.hdr-tag{font-size:9px!important;letter-spacing:.14em!important}}</style>
 <style id="look2">
@@ -117,7 +124,7 @@ body{background:#B5C8E0!important}
 .bk-guide .bk-cover{background:linear-gradient(160deg,#FBF7EE 0%,#F1E9D8 100%);color:#0A1F44;box-shadow:inset 0 0 0 1px rgba(10,31,68,.12)}
 .bk-guide .bk-title{font-size:calc(var(--w)*.098);line-height:1.14;color:#C62828}
 .bk-guide .bk-tag{align-self:flex-start;background:#C62828;color:#FFFFFF;padding:3% 6%;border-radius:99px;letter-spacing:.14em}
-.bk-guide .bk-sub,.bk-guide .bk-brand{color:#1A4FB0}
+.bk-guide .bk-sub,.bk-guide .bk-brand{color: #143E8C}
 @media (min-width:700px){.books-row>div+div{border-left:2px solid rgba(10,31,68,.18)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
 </style>
@@ -185,7 +192,6 @@ body{background:#B5C8E0!important}
 body footer, body footer p, body footer li, body footer span, body footer div{color:#FFFFFF}
 body footer a{color:#FFD48A}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>.script{display:inline-block;position:relative;font-family:'Pinyon Script','Great Vibes','Brush Script MT',cursive;font-style:normal;font-weight:400;font-size:clamp(50px,6.6vw,74px);line-height:1.2;letter-spacing:.01em;padding:0 .15em .3em;text-shadow:0 2px 10px rgba(0,0,0,.18)}.script::after{content:'';position:absolute;left:8%;right:8%;bottom:.05em;height:.28em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' fill='none' stroke='%23E0A23A' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 14c50-12 100-12 136-3 10 3 14 9 8 11s-10-5-2-9c36-10 90-9 150 1'/%3E%3C/svg%3E") center/100% 100% no-repeat}</style>
 <style>@media(min-width:900px){.stairs{align-items:start;padding-bottom:40px}.stairs>figure:nth-child(1){margin-top:0!important}.stairs>figure:nth-child(2){margin-top:75px!important}.stairs>figure:nth-child(3){margin-top:150px!important}}</style>
 <style>#top h1,h1{line-height:1.36!important}h2{line-height:1.25!important}</style>
@@ -208,7 +214,11 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 .test-bar a{color:#0A1F44;font-weight:800}
 @media (max-width:760px){body h1{font-size:42px!important}body h2{font-size:32px!important}}
 </style>
+<link rel="stylesheet" href="wd.css?v=2">
+<link rel="stylesheet" href="wd2.css?v=2">
 <body>
+<a id="bf-strip" href="gift.html" style="display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 16px/1.4 Inter,system-ui,sans-serif;padding:10px max(16px,env(safe-area-inset-left));text-decoration:none;min-height:44px">Black Friday gift bundle, Nov 27: the book and the Program for $97. Get a reminder</a>
+<script>(function(){var n=Date.now(),f=Date.parse('2026-11-27T00:00:00-05:00'),t=Date.parse('2026-12-02T00:00:00-05:00'),b=document.getElementById('bf-strip');if(n>=t){b.remove()}else if(n>=f){b.textContent='Black Friday: the book and the Program for $97, until Dec 1. See the bundle'}})();</script>
 <div style="font-family: 'Inter', system-ui, sans-serif; color: #334A63; background: #B5C8E0; font-size: 18px; line-height: 1.6; overflow-x: clip">
 
 <!-- NAV -->
@@ -228,7 +238,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 
 <!-- HERO -->
 <section id="top" style="background: #B5C8E0">
-<div class="pageshot band" role="img" aria-label="A woman in a pink cardigan reading a book on her sofa at home" style="background-image:url('https://images.unsplash.com/photo-1758691031958-29541f3207a5?auto=format&q=80&w=1600');background-position:center"></div>
+<div class="pageshot band" role="img" aria-label="A woman in a pink cardigan reading a book on her sofa at home" style="background-image:url('https://images.unsplash.com/photo-1758691031958-29541f3207a5?auto=format&q=70&w=1200');background-position:center"></div>
 <div style="max-width: 1180px; margin: 0 auto; padding: 12px 24px 88px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 56px">
 <div style="flex: 1 1 460px; min-width: 0">
 <h1 style="margin: 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(38px, 5.2vw, 62px); line-height: 1.36; letter-spacing: -0.015em; color: #0A1F44">We help stiff, sore joints <span style="background: #FFC56B; padding: 0 10px; border-radius: 10px; -webkit-box-decoration-break: clone; box-decoration-break: clone">move more freely again.</span></h1>
@@ -244,7 +254,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <!-- PROBLEM -->
 <section style="background: #B5C8E0; padding: 24px 16px 0">
 <div class="rv" style="max-width: 980px; margin: 0 auto; padding: clamp(48px, 7vw, 92px) clamp(24px, 6vw, 88px); text-align: center; background: #EAF2FA; border-radius: 44px; box-sizing: border-box; box-shadow: inset 0 2px 0 #FFFFFF, 0 30px 50px -30px rgba(16, 40, 74, 0.25)">
-<h2 style="margin: 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.14; letter-spacing: -0.015em; color: #0A1F44">It's exhausting to hurt. It's worse not knowing <span style="color: #1A4FB0">who to believe.</span></h2>
+<h2 style="margin: 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.14; letter-spacing: -0.015em; color: #0A1F44">It's exhausting to hurt. It's worse not knowing <span style="color: #143E8C">who to believe.</span></h2>
 <p style="margin: 24px 0 0; font-size: 19px; color: #334A63">Cut this food. Drink that juice. If your joints have been deciding too much of your day, you've heard it all, usually from someone selling something. Our free guide starts somewhere simpler. It names seven common habits that keep joints stiff and sore, and shows how to turn each one around.</p>
 </div>
 </section>
@@ -256,7 +266,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <section aria-label="Everyday moments" style="background: #B5C8E0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 88px 24px 0">
 <div class="rv" style="max-width: 640px; margin-bottom: 40px">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">Small things that help</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #143E8C">Small things that help</div>
 <h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">Small moments that add up</h2>
 </div>
 <div class="stairs" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 26px">
@@ -281,20 +291,20 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <div style="flex: 1 1 320px; min-width: 0; display: flex; justify-content: center">
 <div class="rv qdeco" style="position: relative; background: radial-gradient(circle at 30% 20%, #C4DCF4 0%, #A6CBEE 70%); border-radius: 40px; width: min(100%, 440px); aspect-ratio: 4 / 5.3; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), 0 40px 60px -30px rgba(20, 62, 150, 0.5)">
 <div class="bob2 qcard" style="position: absolute; left: 6%; top: 6%; width: 84%; background: #FFFFFF; border-radius: 22px; padding: 22px 22px 24px; box-sizing: border-box; transform: rotate(-2deg); box-shadow: 0 2px 4px rgba(12, 34, 64, 0.15), 0 30px 44px -14px rgba(12, 34, 64, 0.5); display: flex; flex-direction: column; gap: 18px">
-<div style="font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">Questions we hear every day</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #143E8C">Questions we hear every day</div>
 <div class="qrow"><span class="qmark">?</span><span>Why are my joints stiffest in the morning?</span></div>
 <div class="qrow"><span class="qmark">?</span><span>Which advice can I actually trust?</span></div>
 <div class="qrow"><span class="qmark">?</span><span>What should I ask my doctor?</span></div>
 </div>
 <div class="bob qcard" style="position: absolute; right: 5%; bottom: 5%; width: 74%; background: var(--grain), linear-gradient(165deg, #2F6FE0 0%, #1A4FB0 45%, #0E3486 100%); border-radius: 22px; padding: 22px; box-sizing: border-box; transform: rotate(2deg); box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 30px 44px -14px rgba(12, 34, 64, 0.6); display: flex; flex-direction: column; gap: 10px">
 <div style="font-family: Lora, Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.25; color: #FFFFFF">You're not the only one asking.</div>
-<div style="font-size: 17px; line-height: 1.45; color: #E3EDFA">Our guides answer them in everyday language.</div>
+<div style="font-size: 17px; line-height: 1.45; color: #FFFFFF">Our guides answer them in everyday language.</div>
 <div style="height: 3px; width: 56px; border-radius: 3px; background: #FFC56B; margin-top: 4px"></div>
 </div>
 </div>
 </div>
 <div style="flex: 1 1 440px; min-width: 0">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">What we do</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #143E8C">What we do</div>
 <h2 style="margin: 10px 0 18px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">From stiff and stuck to moving with confidence.</h2>
 <p style="margin: 0 0 22px">That's the change we work toward. Our guides are written to leave you:</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; color: #0A1F44; font-weight: 500">
@@ -310,7 +320,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <section id="books" style="background: #B5C8E0">
 <div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px">
 <div class="rv" style="max-width: 640px; margin: 0 auto 56px; text-align: center">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">Where to start</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #143E8C">Where to start</div>
 <h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">Start wherever feels right</h2>
 </div>
 <div class="books-row" style="display: flex; flex-wrap: wrap; gap: 64px 0; align-items: flex-start">
@@ -350,7 +360,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <div style="max-width: 1080px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 72px">
 <div class="rv" style="flex: 0 1 440px; min-width: 220px; margin: 0 auto; display: flex; justify-content: center"><div class="book book-lg bk-reset" role="img" aria-label="Cover of The Joint Reset"><div class="bk-pages"></div><div class="bk-cover" aria-hidden="true"><div class="bk-photo"></div><span class="bk-tag">Written with care for your joints</span><span class="bk-title">The Joint Reset</span><span class="bk-rule"></span><span class="bk-sub">Natural arthritis remedies, and what the evidence says</span><span class="bk-brand"><span class="gjc-mark" role="img" aria-label="Hinge Care"></span>Hinge Care</span></div></div></div>
 <div class="rv" style="flex: 1 1 420px; min-width: 0">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">The book</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #143E8C">The book</div>
 <h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -0.015em; color: #0A1F44">The Joint Reset</h2>
 <p style="margin: 22px 0 0; font-family: 'Lora', Georgia, serif; font-size: 24px!important; line-height: 1.45!important; color: #0A1F44">Everything we've learned about looking after sore joints, in 124 pages.</p>
 <p style="margin: 18px 0 0; color: #334A63">We went through 27 remedies people ask about, from turmeric to castor oil, and checked each one against what the Arthritis Foundation and the US National Institutes of Health have published. The book tells you where each one stands.</p>
@@ -413,7 +423,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <div style="max-width: 1180px; margin: 0 auto; padding: 0 24px 96px">
 <div class="rv" style="padding: clamp(8px, 2vw, 20px) 0; border-top: 2px solid rgba(10, 31, 68, 0.18); padding-top: 56px; display: flex; flex-wrap: wrap; gap: 28px 56px; align-items: flex-start">
 <div style="flex: 1 1 280px; min-width: 0">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">About us</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #143E8C">About us</div>
 <h2 style="margin: 10px 0 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 650; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.15; letter-spacing: -0.015em; color: #0A1F44">Why Hinge Care exists</h2>
 </div>
 <div style="flex: 2 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
@@ -429,7 +439,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <!-- FAQ -->
 <section id="letter" style="background: #B5C8E0; padding: 24px 16px 0">
 <div class="rv" style="max-width: 820px; margin: 0 auto; padding: clamp(36px, 6vw, 72px) clamp(8px, 4vw, 40px); box-sizing: border-box; text-align: center">
-<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1A4FB0">A note from Hinge Care</div>
+<div style="font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #143E8C">A note from Hinge Care</div>
 <h2 style="margin: 0; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.14; letter-spacing: -0.015em; color: #0A1F44; margin-top: 12px">This is what we do</h2>
 <p style="margin: 22px 0 0; font-size: 19px; color: #334A63">We help people whose joints have been holding them back get moving again, at their own pace.</p>
 <p style="margin: 18px 0 0; font-size: 19px; color: #334A63">Knees that dread the stairs. Hands that can't get a jar open. Those are the days we work on, and we take them seriously.</p>
@@ -459,27 +469,27 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 <h2 style="margin: 0 0 32px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: clamp(30px, 3.6vw, 44px); letter-spacing: -0.015em; color: #0A1F44; text-align: center">Questions people often ask</h2>
 <div style="display: flex; flex-direction: column; gap: 14px">
 <details class="rv" style="background: #FFFFFF; border-radius: 20px; padding: 4px 26px; box-shadow: 0 1px 2px rgba(16, 40, 74, 0.05), 0 16px 26px -16px rgba(16, 40, 74, 0.25)">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">Can I use this instead of my medication?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #1A4FB0; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">Can I use this instead of my medication?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #143E8C; transition: transform 0.2s">+</span></summary>
 <p style="margin: 0 0 22px">It works alongside your treatment, never in place of it. Only change a medicine after speaking with your doctor, who can lower a dose safely if the time comes.</p>
 </details>
 <details class="rv" style="background: #FFFFFF; border-radius: 20px; padding: 4px 26px; box-shadow: 0 1px 2px rgba(16, 40, 74, 0.05), 0 16px 26px -16px rgba(16, 40, 74, 0.25)">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">How do I get the free guide?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #1A4FB0; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">How do I get the free guide?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #143E8C; transition: transform 0.2s">+</span></summary>
 <p style="margin: 0 0 22px">Enter your name and email, and we send the free guide straight to your inbox as a PDF. It usually arrives within a couple of minutes.</p>
 </details>
 <details class="rv" style="background: #FFFFFF; border-radius: 20px; padding: 4px 26px; box-shadow: 0 1px 2px rgba(16, 40, 74, 0.05), 0 16px 26px -16px rgba(16, 40, 74, 0.25)">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">Is it really free?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #1A4FB0; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">Is it really free?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #143E8C; transition: transform 0.2s">+</span></summary>
 <p style="margin: 0 0 22px">Yes. The 7 Bad Habits guide is free to keep. The Joint Reset is our full book, sold separately. Buying it is entirely up to you, and there's no obligation.</p>
 </details>
 <details class="rv" style="background: #FFFFFF; border-radius: 20px; padding: 4px 26px; box-shadow: 0 1px 2px rgba(16, 40, 74, 0.05), 0 16px 26px -16px rgba(16, 40, 74, 0.25)">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">Which kinds of arthritis do the guides cover?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #1A4FB0; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">Which kinds of arthritis do the guides cover?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #143E8C; transition: transform 0.2s">+</span></summary>
 <p style="margin: 0 0 22px">The habits in the free guide apply to stiff, sore joints in general. The Joint Reset explains osteoarthritis, rheumatoid arthritis, gout, psoriatic arthritis and ankylosing spondylitis, and is clear about where they need different care.</p>
 </details>
 <details class="rv" style="background: #FFFFFF; border-radius: 20px; padding: 4px 26px; box-shadow: 0 1px 2px rgba(16, 40, 74, 0.05), 0 16px 26px -16px rgba(16, 40, 74, 0.25)">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">What format is it, and can I print it?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #1A4FB0; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">What format is it, and can I print it?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #143E8C; transition: transform 0.2s">+</span></summary>
 <p style="margin: 0 0 22px">It's a PDF that opens on a phone, tablet or computer. The checklists are made to be printed and filled in with a pen.</p>
 </details>
 <details class="rv" style="background: #FFFFFF; border-radius: 20px; padding: 4px 26px; box-shadow: 0 1px 2px rgba(16, 40, 74, 0.05), 0 16px 26px -16px rgba(16, 40, 74, 0.25)">
-<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">I've tried everything and I'm tired. Is it worth it?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #1A4FB0; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-family: 'Lora', Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 20px; color: #0A1F44">I've tried everything and I'm tired. Is it worth it?<span class="pm" aria-hidden="true" style="flex: none; font-size: 28px; color: #143E8C; transition: transform 0.2s">+</span></summary>
 <p style="margin: 0 0 22px">Your tiredness makes sense. You don't need to try everything again. The guide starts with one small step you can do in a minute, and that is enough for today.</p>
 </details>
 </div>
@@ -531,6 +541,7 @@ body .btn:not(.hdr-btn){font-size:20px!important;padding-top:19px!important;padd
 </div>
 <script src="site.js?v=15"></script>
 <script>(function(){document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.more-btn");if(!a)return;var h=a.getAttribute("href");if(h!=="#guide-more"&&h!=="#book-more")return;var s=document.querySelector(h);if(!s)return;var t=s.querySelector("h2"),b=s.querySelector("a.btn");if(!t||!b)return;var ey=t.previousElementSibling||t;e.preventDefault();var sy=window.pageYOffset,vh=window.innerHeight,top=ey.getBoundingClientRect().top+sy,bot=b.getBoundingClientRect().bottom+sy,H=bot-top,y=(vh-H>=80)?top-(vh-H)/2:bot-vh+40;window.scrollTo({top:Math.max(0,y),behavior:"smooth"})})})();</script>
-<script src="menu.js?v=48"></script>
+<script src="menu.js?v=48t1"></script>
+<script src="wd2.js?v=1"></script>
 </body>
 </html>

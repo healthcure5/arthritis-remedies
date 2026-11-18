@@ -31,7 +31,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
       bar.textContent = now < from
         ? 'Black Friday gift bundle, Nov 27: the book and the Program for $97. Get a reminder'
         : 'Black Friday: the book and the Program for $97, until Dec 1. See the bundle';
-      bar.style.cssText = 'display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 15px/1.4 Inter,system-ui,sans-serif;padding:9px max(16px,env(safe-area-inset-left));text-decoration:none';
+      bar.style.cssText = 'display:block;background:#FFC56B;color:#0A1F44;text-align:center;font:700 16px/1.4 Inter,system-ui,sans-serif;padding:9px max(16px,env(safe-area-inset-left));text-decoration:none';
       document.body.insertBefore(bar, document.body.firstChild);
     }
   }
@@ -85,6 +85,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
   bar.className = 'jr-bar';
   bar.innerHTML = '<div class="jr-bar-in"><a class="jr-home" href="index.html">' + LOGO + '<span>Hinge Care</span></a></div>';
   document.body.insertBefore(bar, document.body.firstChild);
+  document.documentElement.classList.add('jr-ready');
   var host = bar.firstChild;
   host.appendChild(navEl);
   var burger = document.createElement('button');
