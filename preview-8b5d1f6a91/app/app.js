@@ -237,7 +237,7 @@ function onboard(step){
  const pr='<div class="prog" aria-hidden="true">'+[1,2,3,4].map(i=>`<i class="${i<=step?'on':''}"></i>`).join('')+'</div>';
  const skip='<button class="textbtn" id="skip">Skip this question</button>';
  let h='';
- if(step===0)h=`<div class="stack"><div class="label">Welcome to Gentle Stretch</div><h1>For the mornings your joints take a while to get going</h1>
+ if(step===0)h=`<div class="stack"><video class="hero" src="https://cdn.pixabay.com/video/2020/02/27/32937-395456375_tiny.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A group of older adults raising their arms in an exercise class"></video><div class="label">Welcome to Gentle Stretch</div><h1>For the mornings your joints take a while to get going</h1>
  <p>Short routines you can do sitting down, even on the edge of your bed. A calm voice talks you through each move. You can slow down, skip a move or stop whenever you like.</p>
  <p class="muted">Made for people in their 60s, 70s and 80s. No floor work. Every standing move has a seated version.</p>
  <div class="box warm"><h3 style="margin-bottom:8px">Before you begin</h3><ul style="margin:0;padding-left:22px">
