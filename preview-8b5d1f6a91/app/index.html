@@ -159,6 +159,12 @@ details.read .in{padding:0 18px 18px}
 .sheetwrap{position:fixed;inset:0;background:rgba(21,40,31,.55);display:flex;align-items:flex-end;justify-content:center;z-index:30;padding:12px}
 .sheet{background:var(--surface);border-radius:22px;padding:22px;width:100%;max-width:560px;max-height:92%;overflow:auto}
 .sheet .choice{margin-bottom:10px;background:var(--bg)}
+.vid{margin:0;width:100%}
+.vid .vslot{width:100%;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--green-soft)}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid figcaption{font-size:15px;color:var(--muted);margin-top:6px;text-align:left}
+.vid figcaption span{white-space:nowrap}
+.stage .vid{max-width:520px}
 .hero{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r);background:var(--green-soft);display:block}
 .endtick{width:80px;height:80px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin:8px auto}
 body.t2 main,body.t2 .stage,body.t2 .sheet{zoom:1.15}
@@ -178,6 +184,6 @@ body.hc{--line:#5B6B61;--muted:#15281F}
 <a href="#/me" data-tab="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progress</a>
 </nav>
 <div id="player" class="play" hidden></div>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

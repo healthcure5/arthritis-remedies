@@ -54,6 +54,22 @@ const M=[
 {id:'soften',n:'Soften and let go',a:'calm',pic:'calm',calm:1,sides:1,h:60,steps:['Close your eyes if you like.','Notice your jaw, your shoulders and your hands.','Each time you breathe out, let one of them soften a little.'],tip:'Rest is part of looking after your joints.'}
 ];
 const MB={};M.forEach(m=>MB[m.id]=m);
+/* Real-person demo videos (free Pexels licence), shown where a clip matches the move */
+const VID={
+ 'elbow-circles':['https://videos.pexels.com/video-files/9465187/9465187-sd_640_360_25fps.mp4'],
+ 'front-raise':['https://videos.pexels.com/video-files/6970152/6970152-sd_640_360_30fps.mp4'],
+ 'side-reach':['https://videos.pexels.com/video-files/6891859/6891859-sd_640_360_25fps.mp4','Shown standing. Do it seated, with one hand on the chair.'],
+ 'wall-push':['https://videos.pexels.com/video-files/5034563/5034563-sd_640_360_30fps.mp4'],
+ 'towel-squeeze':['https://videos.pexels.com/video-files/25950159/11923141_640_360_50fps.mp4','A soft ball works as well as a rolled towel.'],
+ 'bed-rise':['https://videos.pexels.com/video-files/8090735/8090735-sd_640_360_24fps.mp4'],
+ 'belly-breath':['https://videos.pexels.com/video-files/8795165/8795165-sd_960_506_24fps.mp4'],
+ 'soften':['https://videos.pexels.com/video-files/6205909/6205909-sd_960_506_30fps.mp4'],
+ 'seated-heel':['https://videos.pexels.com/video-files/8348871/8348871-sd_960_506_25fps.mp4']
+};
+function vslot(x){const v=VID[x.id];return v?`<figure class="vid"><div class="vslot" data-src="${v[0]}"></div><figcaption>${v[1]?esc(v[1])+' ':''}<span>Video: Pexels</span></figcaption></figure>`:''}
+function fillV(root,keep){root.querySelectorAll('.vslot').forEach(sl=>{let el=keep&&keep.getAttribute('src')===sl.dataset.src?keep:null;
+ if(!el){el=document.createElement('video');el.src=sl.dataset.src;el.muted=true;el.loop=true;el.autoplay=true;el.playsInline=true;el.setAttribute('playsinline','');el.setAttribute('preload','metadata');el.setAttribute('aria-hidden','true');el.onerror=()=>{const f=sl.closest('.vid');if(f)f.hidden=true}}
+ sl.appendChild(el);try{const p=el.play();p&&p.catch&&p.catch(()=>{})}catch(e){}})}
 const R=[
 {id:'bedside',n:'Before you get out of bed',d:'For stiff mornings. Sit on the edge of your bed and loosen up before your first steps.',ids:['long-out','bed-ankle','toe-taps','heel-slide','palm-turns','shrug-drop','bed-rise'],need:'the edge of your bed'},
 {id:'wake',n:'Wake up gently',d:'Loosen up from head to toe, all seated.',ids:['yes-nods','shrug-drop','elbow-circles','pelvic-rock','heel-slide','toe-taps']},
@@ -323,7 +339,7 @@ function moves(){
 }
 function move(id){
  const x=MB[id];if(!x)return go('#/moves');shell('moves',true);const fav=st.favs.includes(id),hid=st.hidden.includes(id);
- app.innerHTML=`<div class="stack"><div style="display:flex;gap:16px;align-items:center">${pic(x.pic,true)}<div style="min-width:0"><h1>${x.n}</h1><div style="margin-top:6px"><span class="tag">${AREAS[x.a]}</span>${x.stand?'<span class="tag stand">Standing, with support</span>':''}</div></div></div>
+ app.innerHTML=`<div class="stack"><div style="display:flex;gap:16px;align-items:center">${pic(x.pic,true)}<div style="min-width:0"><h1>${x.n}</h1><div style="margin-top:6px"><span class="tag">${AREAS[x.a]}</span>${x.stand?'<span class="tag stand">Standing, with support</span>':''}</div></div></div>${vslot(x)}
  <div class="box"><h3>How to do it</h3><ol class="steps">${x.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><p style="margin-top:6px"><b>${x.calm?'Time':'Hold or repeat'}:</b> about ${hold(x)} seconds${x.sides>1?' on each side':''}.</p>
  <div class="box warm" style="margin-top:12px;padding:14px 16px"><b>Go gently:</b> ${esc(x.tip)}</div>
  ${x.alt?`<p style="margin-top:12px">Prefer to sit? Try <a href="#/m/${x.alt}">${MB[x.alt].n}</a> instead.</p>`:''}
@@ -331,7 +347,7 @@ function move(id){
  <div class="btns"><button class="btn sun" id="try">Try it now</button><button class="btn line sm" id="fav" aria-pressed="${fav}">${fav?'Saved':'Save'}</button></div>
  <label class="check"><input type="checkbox" id="hid" ${hid?'checked':''}><span>Don't suggest this move in routines</span></label>
  <p class="note">Stop if anything causes sharp pain. <a href="#/safety">When to stop</a></p></div>`;
- $('fav').onclick=()=>{const i=st.favs.indexOf(id);i>-1?st.favs.splice(i,1):st.favs.push(id);save();move(id)};
+ fillV(app);$('fav').onclick=()=>{const i=st.favs.indexOf(id);i>-1?st.favs.splice(i,1):st.favs.push(id);save();move(id)};
  $('hid').onchange=e=>{if(e.target.checked){if(!st.hidden.includes(id))st.hidden.push(id)}else st.hidden=st.hidden.filter(v=>v!==id);save()};
  $('say').onclick=()=>talk([mvSpeech(x)],true);
  $('try').onclick=()=>startPlay({id:'single',n:x.n,ids:[id]});
@@ -473,6 +489,7 @@ function toHold(){P.ph='hold';P.left=P.dur=P.seg[P.i].sec;chime();talk([L(P.seg[
 function toNext(silent){if(P.i>=P.seg.length-1){finish(false);return}P.i++;P.ph='prep';const n=P.seg[P.i],pv=P.seg[P.i-1],same=pv.x===n.x&&n.side;const t=(silent?[]:[L('rest')]).concat(same?[L('other')]:[L('next'),mvSpeech(n.x)]);P.left=P.dur=prepFor(t,prepN());talk(t)}
 function step(){if(!P||P.paused||P.sheet)return;P.left--;if(P.ph==='hold'){P.spent++;const sec=P.seg[P.i].sec;if(sec>=20&&P.left===Math.floor(sec/2))talk([L(P.seg[P.i].x.calm?'halfCalm':'half')])}if(P.left<=0){if(P.ph==='prep')toHold();else{toNext();if(!P)return}}draw()}
 function draw(){
+ const keep=pl.querySelector('.vslot video');
  const s=P.seg[P.i],prep=P.ph==='prep',dur=P.dur||(prep?prepN():s.sec),frac=Math.max(0,P.left/dur),C=2*Math.PI*52;
  let sh='';
  if(P.sheet==='hurt')sh=`<div class="sheetwrap"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh"><h2 id="sh" style="font-size:24px">Let's ease off</h2><p style="margin:6px 0 14px">Sharp or worsening pain is a sign to stop. What would you like to do?</p>
@@ -481,11 +498,12 @@ function draw(){
  pl.innerHTML=`<div class="pbar"><button id="end">End</button><div class="t">${esc(P.r.n)}</div><button id="when">When to stop</button></div>
  <div class="segs" aria-hidden="true">${P.seg.map((_,i)=>`<i class="${i<P.i?'on':i===P.i?'now':''}"></i>`).join('')}</div>
  <div class="stage"><div class="phase">${prep?(P.i===0?'Get comfortable':'Next up'):'Move '+(P.i+1)+' of '+P.seg.length}${s.side?' &middot; '+s.side:''}</div><h2>${esc(s.x.n)}</h2>
- <div class="timer">${pic(s.x.pic,true)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E6EEE3" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#FFC56B':'#2F5D3A'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
+ ${vslot(s.x)}<div class="timer">${VID[s.x.id]?'':pic(s.x.pic,true)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E6EEE3" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#FFC56B':'#2F5D3A'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
  <p class="muted" style="font-weight:700">${prep?'Get into position':s.x.calm?'Breathe slowly':'Move gently'}</p>
  <ol class="steps how" style="text-align:left">${s.x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol><p class="tip">${esc(s.x.tip)}</p></div>
  <div class="ctl"><button id="prev">Back</button><button class="go" id="pp">${P.paused?'Resume':'Pause'}</button><button id="skip">Skip</button></div>
  <button class="hurt" id="hurt">This hurts</button>${sh}`;
+ fillV(pl,keep);
  $('end').onclick=()=>{P.spent>=30?finish(true):closePlay()};
  $('when').onclick=()=>{P.sheet='safe';hush();draw()};
  $('pp').onclick=()=>{P.paused=!P.paused;if(P.paused)hush();draw()};
