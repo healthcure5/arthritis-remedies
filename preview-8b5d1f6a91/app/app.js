@@ -312,6 +312,7 @@ function pathHTML(){const w=pathWeek(),r=RB[PATH[w][1]];return`<div class="box p
  <a class="btn sm" href="#/r/${r.id}" style="margin-top:12px">Open ${esc(r.n)}</a></div>`}
 /* ================= shell ================= */
 const app=document.getElementById('app'),backBtn=document.getElementById('back'),nav=document.querySelector('.nav');
+document.getElementById('fab').onclick=()=>{if(P||F)return;startPlay(RB[plan().r])};
 function shell(tab,back){nav.hidden=false;backBtn.hidden=!back;document.querySelectorAll('.nav a').forEach(a=>{const on=a.dataset.tab===tab;a.classList.toggle('on',on);on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')})}
 backBtn.onclick=()=>{history.length>1?history.back():go('#/home')};
 function on(sel,fn){document.querySelectorAll(sel).forEach(el=>el.addEventListener('click',()=>fn(el)))}
@@ -464,7 +465,7 @@ function me(){
  h+=`<div class="box"><h3 style="margin-bottom:12px">Last 4 weeks</h3><div class="cal">${cal}</div></div>
  <div class="box"><h3>How your joints felt</h3>${ck.length?`<div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap">${ck.map(c=>`<div style="text-align:center;width:46px"><div style="width:36px;height:36px;margin:0 auto">${FACE[c.m-1]}</div><span class="note" style="font-size:13px">${fmt(c.date)}</span></div>`).join('')}</div>${trend?`<p style="margin-top:12px">${trend}</p>`:''}`:'<p class="muted" style="margin-top:6px">Tap a face on the Today page to start tracking how you feel.</p>'}</div>
  <div class="box"><h3>Recent sessions</h3>${st.sessions.length?`<div class="list" style="margin-top:10px">${st.sessions.slice(-5).reverse().map(s=>`<div><b>${esc(s.name)}</b><br><span class="muted small">${fmt(s.date,{weekday:'short',month:'short',day:'numeric'})} &middot; ${mins(s.sec)} min${s.feel?' &middot; felt '+({easy:'too easy',right:'just right',hard:'too hard'})[s.feel]:''}</span></div>`).join('')}</div>`:'<p class="muted" style="margin-top:6px">Your finished routines will show up here.</p>'}</div>
- <div class="btns"><a class="btn line sm" href="#/summary">Summary for your doctor</a><a class="btn line sm" href="#/settings">Settings and reminders</a><button class="btn line sm" id="share">Share with family</button></div>
+ <div class="links"><a href="#/summary"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span>Summary for your doctor<small>A one-page printout of the last 4 weeks</small></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a href="#/settings"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-2.7-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3.6 15H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.1-2.7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 9.7 4.6V4a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></span><span>Settings and reminders<small>Text size, voice, goal and reminders</small></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><button id="share"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></span><span>Share with family<small>Send the app to someone you love</small></span><span class="chev" aria-hidden="true">&rsaquo;</span></button></div>
  <p class="note">Your progress is saved on this device only. We don't collect it.</p></div>`;
  app.innerHTML=h;on('.nums button',b=>{st.acts.push({date:ymd(),v:+b.dataset.v});save();me()});
  $('share').onclick=shareApp;
@@ -483,7 +484,7 @@ function summary(){
 }
 function shareApp(){const url=location.href.split('#')[0],text='Gentle Stretch: short, gentle stretches you can do sitting down, with a calm voice that talks you through each move.';
  if(navigator.share){navigator.share({title:'Gentle Stretch',text,url}).catch(()=>{});return}
- try{navigator.clipboard.writeText(text+' '+url).then(()=>{const b=$('share');if(b)b.textContent='Link copied'})}catch(e){}}
+ try{navigator.clipboard.writeText(text+' '+url).then(()=>{const b=$('share');if(b){const sm=b.querySelector('small');if(sm)sm.textContent='Link copied. Paste it in a text or email.'}})}catch(e){}}
 /* ================= settings ================= */
 function settings(msg){
  shell('me',true);
@@ -578,8 +579,8 @@ function draw(){
  ${vslot(s.x)}<div class="timer">${VID[s.x.id]?'':cov(s.x,true)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E6EEE3" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#FFC56B':'#2F5D3A'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
  <p class="muted" style="font-weight:700">${prep?'Get into position':s.x.calm?'Breathe slowly':'Move gently'}</p>
  <ol class="steps how" style="text-align:left">${s.x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol><p class="tip">${esc(s.x.tip)}</p></div>
- <div class="ctl"><button id="prev">Back</button><button class="go" id="pp">${P.paused?'Resume':'Pause'}</button><button id="skip">Skip</button></div>
- <button class="hurt" id="hurt">This hurts</button>${sh}`;
+ <div class="ctl"><button id="prev" aria-label="Previous move"><span class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6l-6 6 6 6M19 6l-6 6 6 6"/></svg></span>Back</button><button class="go" id="pp"><span class="cb">${P.paused?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></svg>'}</span>${P.paused?'Resume':'Pause'}</button><button id="skip" aria-label="Skip this move"><span class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6l6 6-6 6M13 6l6 6-6 6"/></svg></span>Skip</button></div>
+ <button class="hurt" id="hurt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.5"/></svg>This hurts</button>${sh}`;
  fillV(pl,keep);
  $('end').onclick=()=>{P.spent>=30?finish(true):closePlay()};
  $('when').onclick=()=>{P.sheet='safe';hush();draw()};
