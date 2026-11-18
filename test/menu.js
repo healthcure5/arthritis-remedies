@@ -2,12 +2,12 @@
 // CHECKOUT LINKS: paste your payment provider's links between the quotes.
 // While a link is empty, the "Yes, I want..." button shows "Checkout opens soon".
 // ---------------------------------------------------------------
-var BOOK_URL = '';     // The Joint Reset
-var COURSE_URL = '';   // The Hinge Care Program
-var LETTER_URL = '';   // The Hinge Care Club, $7 a month
-var BOOK_OFFER_URL = '';   // The Joint Reset at $17, shown only on the thank-you page
-var COURSE_OFFER_URL = ''; // The Program at $77, shown only after someone buys the book
-var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
+var BOOK_URL = '../test-shop/checkout.html?item=book';     // TEST: The Joint Reset, $17
+var COURSE_URL = '../test-shop/checkout.html?item=program';   // TEST: The Hinge Care Program, $97
+var LETTER_URL = '../test-shop/checkout.html?item=club';   // TEST: Hinge Care Club, $9 founding then $19
+var BOOK_OFFER_URL = '../test-shop/checkout.html?item=book';   // TEST: book, same $17 price everywhere
+var COURSE_OFFER_URL = '../test-shop/checkout.html?item=program77'; // TEST: Program at $77 after the book
+var BUNDLE_URL = '../test-shop/checkout.html?item=bundle';       // TEST: gift bundle, book + Program for $97
 
 // Special offers: buttons marked data-pay="name" get their link here.
 // A block marked data-pay-block="name" stays hidden until its link is set.
@@ -25,7 +25,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
     });
     // Black Friday strip: a reminder until Nov 26, the offer from Nov 27 to Dec 1, 2026 (Eastern time)
     var now = Date.now(), from = Date.parse('2026-11-27T00:00:00-05:00'), to = Date.parse('2026-12-02T00:00:00-05:00');
-    if (now < to && !/gift\.html$/.test(location.pathname) && !/preview-/.test(location.pathname) && !document.getElementById('bf-strip')) {
+    if (false && now < to && !/gift\.html$/.test(location.pathname) && !/preview-/.test(location.pathname) && !document.getElementById('bf-strip')) {
       var bar = document.createElement('a');
       bar.id = 'bf-strip'; bar.href = 'gift.html';
       bar.textContent = now < from
@@ -41,11 +41,11 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
 (function () {
   var here = (location.pathname.split('/').pop() || 'index.html');
   var PROGRAMS = [
-    ['guide.html', 'Free guide', 'A kind first step, on us'],
-    ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
-    ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you'],
-    ['club.html', 'The Hinge Care Club', 'A letter every Sunday, $7 a month'],
-    ['circle.html', 'The Circle', 'Twelve Tuesdays with a small group']
+    ['guide.html', 'Free guide', '7 Bad Habits, free'],
+    ['book.html', 'The Joint Reset', 'The book, $17'],
+    ['course-info.html', 'The Hinge Care Program', 'Eight weeks, $97 once'],
+    ['club.html', 'The Hinge Care Club', 'For you or as a gift, $9 a month for founding members'],
+    ['../test-shop/index.html', 'Give it as a gift', 'Easier mornings for Mom or Dad']
   ];
   var LOGO = '<span class="gjc-mark" role="img" aria-label="Hinge Care"></span>';
   var css = document.createElement('style');
@@ -77,8 +77,8 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
   navEl.setAttribute('aria-label', 'Main');
   navEl.innerHTML = '<a href="index.html"' + (here === 'index.html' ? ' aria-current="page"' : '') + '>Home</a>' +
     '<button type="button" id="jr-prog" aria-expanded="false" aria-controls="jr-drop">Guides</button>' +
-    '<a href="library.html"' + (here === 'library.html' ? ' aria-current="page"' : '') + '>Library</a>' +
-    '<a href="../app/">Stretch app</a>' +
+    '<a href="index.html#shop">Prices</a>' +
+    
     '<a href="contact.html">Contact</a>' +
     '<div class="jr-drop" id="jr-drop"><div class="jr-drop-top">' + LOGO.replace('width="64" height="64"', 'width="46" height="46"') + '<span>Hinge Care</span></div>' + PROGRAMS.map(function (p) { return '<a href="' + p[0] + '"' + (p[0] === here ? ' aria-current="page"' : '') + '>' + p[1] + '<small>' + p[2] + '</small></a>'; }).join('') + '</div>';
   var bar = document.createElement('header');
@@ -110,6 +110,12 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
   var url = item === 'course' ? COURSE_URL : item === 'letter' ? LETTER_URL : BOOK_URL;
   if (url) {
     document.querySelectorAll('[data-open-sheet]').forEach(function (b) { b.href = url; b.replaceWith(b.cloneNode(true)); });
+    // Checkout is open: swap the "opening soon" wording in the box above the button
+    document.querySelectorAll('.getbox').forEach(function (g) {
+      var eye = g.querySelector('.eyebrow'), p = g.querySelector('p');
+      if (eye && /soon/i.test(eye.textContent)) { eye.textContent = 'Ready now'; }
+      if (p && /shortly/i.test(p.textContent)) { p.textContent = item === 'course' ? 'Tap below to pay securely. Your first lesson opens right after.' : 'Tap below to pay securely. Your book is ready to download right after.'; }
+    });
   }
   if (/[?&]waitlist=1/.test(location.search)) {
     var done = document.getElementById('wl-done'), wf = document.getElementById('co-form');

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Thank you | Hinge Care (test store)</title>
+<link rel="icon" href="../brand/hinge-care-icon-green.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shop.css?v=1">
+<style>
+.pg{max-width:760px;margin:0 auto;padding:36px 20px 56px}.pg h1{font-size:clamp(32px,5vw,46px);line-height:1.1;margin:0 0 12px}
+.box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin:18px 0}
+.box h2{font-size:26px;margin:0 0 8px}.row{display:flex;justify-content:space-between;gap:12px;font-size:19px;padding:6px 0}.row b{font-family:Fraunces,Georgia,serif;font-size:24px}
+label{display:block;font-weight:700;margin:14px 0 6px}input,textarea{width:100%;box-sizing:border-box;font:inherit;font-size:19px;padding:13px 14px;border:1.5px solid #B9AE9B;border-radius:12px;background:#fff}
+textarea{min-height:96px}.pay{background:#F2E9DB;border-radius:14px;padding:16px;color:#55645D;font-size:17px}
+.box .hc-btn,form .hc-btn{border:0;cursor:pointer;width:100%;justify-content:center;text-align:center;margin-top:18px}
+.steps{padding-left:22px}.steps li{margin:8px 0}
+.small{font-size:16px;color:var(--soft)}
+</style></head><body>
+<div class="hc-testflag">Test store preview. Nothing is charged and nothing is sent. <a href="index.html">Store home</a> · <a href="../test/index.html">Test site</a> · <a href="emails/index.html">Test emails</a></div>
+<header class="hc-top"><div class="hc-wrap hc-top-in"><a class="hc-brand" href="index.html"><img src="../brand/hinge-care-icon-green.svg" alt="" width="40" height="40">Hinge Care</a><nav class="hc-nav" aria-label="Main"><a href="index.html#plans">Join</a><a href="sample-week.html">Free sample week</a><a href="index.html#faq">Questions</a></nav></div></header>
+<main class="pg">
+<h1>Thank you</h1>
+<div id="body"></div>
+<p class="small" style="margin-top:24px">This is a test page. In the real store, Whop shows the purchase and sends the receipt. The test emails show what Hinge Care would send.</p>
+<script>var ITEMS={
+book:{name:'The Joint Reset',price:'$17',note:'one payment · 30-day money-back promise',what:'124 large-print pages. 27 home remedies checked against the research, with a plain verdict on each. Download it right after paying.'},
+program:{name:'The Hinge Care Program',price:'$97',note:'paid once · 30-day money-back promise',what:'Eight weeks, one small step a day, sent to your email. Go at your own pace.'},
+program77:{name:'The Hinge Care Program (book buyers)',price:'$77',note:'paid once · for people who bought The Joint Reset',what:'The same eight-week Program, $20 off because you already have the book.'},
+club:{name:'Hinge Care Club, monthly',price:'$9',note:'a month for founding members, then $19 · cancel any time',what:'A Monday seated routine, a Wednesday recipe with a shopping list and a Friday small challenge, every week.'},
+gift:{name:'Hinge Care Club, 3-month gift',price:'$49',note:'paid once · nothing renews on your card',what:'Three months of the Club for Mom or Dad, plus a printable gift card from you.',gift:true},
+bundle:{name:'Black Friday gift bundle',price:'$97',note:'paid once · Nov 27 to Dec 1 only',what:'The Joint Reset and the Hinge Care Program together. Bought separately they cost $114.'},
+partner:{name:'Partner sign-up',price:'Free',note:'30% of every payment from people you refer',what:'You get your own link to share. Commissions are paid after the refund window closes.',partner:true}
+};
+var q=new URLSearchParams(location.search),key=q.get('item')||'book',it=ITEMS[key]||ITEMS.book;
+var name=q.get('name')||'there',to=q.get('to')||'Mom',msg=q.get('msg')||'';
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var B={
+book:'<div class="box"><h2>Your book is ready, '+esc(name)+'</h2><p>In the real store the download button for The Joint Reset (PDF) sits here, and a copy arrives by email.</p><p><img src="../images/cover-joint-reset-green.png" alt="The Joint Reset cover" width="180" style="border-radius:10px"></p><a class="hc-btn" href="emails/book-receipt.html">See the book email</a></div><div class="box"><h2>Want someone to walk you through it?</h2><p>Because you have the book, the eight-week Program is $77 instead of $97.</p><a class="hc-btn" href="checkout.html?item=program77">Get the Program for $77</a></div>',
+program:'<div class="box"><h2>You are in, '+esc(name)+'</h2><p>Your first lesson opens now. One small step a day for eight weeks, by email.</p><a class="hc-btn" href="sample-week.html">Preview a week of steps</a></div>',
+program77:'<div class="box"><h2>You are in, '+esc(name)+'</h2><p>The Program is yours for $77. Your first lesson opens now.</p><a class="hc-btn" href="sample-week.html">Preview a week of steps</a></div>',
+club:'<div class="box"><h2>Welcome to the Club, '+esc(name)+'</h2><p>You are a founding member, so your price stays at $9 a month for as long as you stay.</p><ol class="steps"><li>Open Start Here and read the welcome.</li><li>Print your tracker.</li><li>Try Monday&#39;s seated routine.</li></ol><a class="hc-btn" href="sample-week.html">Open this week</a><p><a href="tracker.html">Print the My Gentle Month tracker</a> · <a href="emails/founding-welcome.html">See the welcome email</a></p></div>',
+gift:'<div class="box"><h2>Your gift for '+esc(to)+' is on its way</h2><p>Within one day we email you a printable gift card and send '+esc(to)+' one simple welcome email.</p><a class="hc-btn" href="gift-card.html?to='+encodeURIComponent(to)+'&from='+encodeURIComponent(name)+'&msg='+encodeURIComponent(msg)+'">See your printable gift card</a><p><a href="emails/gift-buyer.html">Your email</a> · <a href="emails/gift-recipient.html">Their welcome email</a></p></div>',
+bundle:'<div class="box"><h2>Both are yours, '+esc(name)+'</h2><p>The Joint Reset downloads here, and the Program&#39;s first lesson opens now.</p><a class="hc-btn" href="sample-week.html">Preview a week</a></div>',
+partner:'<div class="box"><h2>Thanks for joining, '+esc(name)+'</h2><p>In the real store Whop gives you your personal link here. Share it in your own words, and say you earn a share if someone joins.</p><a class="hc-btn" href="partners.html">Back to the partner page</a></div>'};
+document.getElementById('body').innerHTML=B[key]||B.book;
+</script>
+</main>
+<footer class="hc-foot"><div class="hc-wrap"><p>For general wellness, not medical advice. Check with your doctor before starting new exercises.</p><p><a href="../test/index.html">Visit our website: gentlerootz.com</a> · <a href="partners.html">Partners</a> · <a href="../test/privacy.html">Privacy</a></p></div></footer>
+</body></html>
