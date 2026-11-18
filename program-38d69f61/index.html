@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F3A27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Hinge Care">
+<title>The Hinge Care Program</title>
+<meta name="description" content="Eight weeks, one small step a day, for stiff mornings and sore joints.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FAF6EF;--sand:#F2ECE1;--card:#FFFFFF;--ink:#1F2A22;--soft:#3F4E43;--g:#1F3A27;--g2:#2F5D3A;--g3:#E6EFE5;--rust:#A4482C;--line:#DCD3C3;--gold:#F5B04A}
+*{box-sizing:border-box}
+html{font-size:19px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--g);line-height:1.2;margin:0 0 .5em}
+h1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.2rem}
+a{color:var(--g2)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+header.top{position:fixed;top:0;left:0;right:0;z-index:25;padding-top:env(safe-area-inset-top);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+header.top::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(100% + 30px);background:linear-gradient(180deg,rgba(12,30,20,.42) 0%,rgba(12,30,20,.18) 55%,rgba(12,30,20,0) 100%);pointer-events:none}
+header.top.away{transform:translateY(-110%)}
+header.top .wrap{position:relative;display:flex;align-items:center;gap:10px;min-height:64px}
+header.top .brand{display:inline-flex;align-items:center;gap:10px;flex:0 1 auto;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:5px 14px 5px 5px;color:#fff;font-size:.95rem;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-shadow:0 1px 6px rgba(0,0,0,.35);margin-right:auto}
+header.top .brand .logo{width:34px;height:34px;border-radius:50%}
+header.top .navbtn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:99px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-shadow:0 1px 6px rgba(0,0,0,.35);padding:10px 18px}
+.leafband{height:calc(150px + env(safe-area-inset-top))}
+.lphoto{height:calc(280px + env(safe-area-inset-top));margin:0!important;border-radius:0 0 28px 28px!important;width:100%}
+.cover{padding-top:env(safe-area-inset-top)}
+.card,.lrow,.today-card,.garden,.vcard,details.week,.upnext{border-radius:20px}
+.today-card,.garden,details.week{box-shadow:0 10px 30px rgba(31,58,39,.07)}
+.logo{width:40px;height:40px;flex:none}
+.brand{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--g);font-size:1.05rem;flex:1}
+.navbtn{background:none;border:2px solid var(--g2);color:var(--g2);border-radius:10px;font:600 .9rem Inter,sans-serif;padding:10px 14px;min-height:48px;cursor:pointer}
+.hero{background:var(--g);color:#fff;padding:36px 0 32px}
+.hero h1{color:#fff;margin-bottom:.3em}
+.hero p{font-size:1.1rem;margin:0 0 18px;color:#F1EEE6}
+.bar{background:rgba(255,255,255,.2);border-radius:99px;height:14px;overflow:hidden;margin:6px 0 8px}
+.bar i{display:block;height:100%;background:var(--gold);width:0}
+.barlabel{font-size:.9rem;color:#F1EEE6;margin:0 0 18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--g2);color:#fff;border:0;border-radius:12px;font:600 1rem Inter,sans-serif;padding:14px 22px;min-height:56px;cursor:pointer;text-decoration:none;width:100%;text-align:center}
+.btn:focus-visible,.navbtn:focus-visible,.opt:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn.light{background:#fff;color:var(--g)}
+.btn.ghost{background:transparent;color:var(--g2);border:2px solid var(--g2)}
+@media(min-width:720px){.btn{width:auto}}
+.under{font-size:.85rem;color:var(--soft);margin:.5em 0 0}
+.hero .under{color:#E4E0D6}
+section{padding:28px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:0 0 16px}
+details.week{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 14px;overflow:hidden}
+details.week summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;gap:14px;align-items:center;min-height:64px}
+details.week summary::-webkit-details-marker{display:none}
+.wnum{flex:none;width:48px;height:48px;border-radius:50%;background:var(--g3);color:var(--g);font:600 1.1rem Fraunces,serif;display:flex;align-items:center;justify-content:center}
+.wnum.done{background:var(--g2);color:#fff}
+.wtitle{flex:1}
+.wtitle b{display:block;font-family:Fraunces,serif;color:var(--g);font-size:1.1rem;font-weight:600}
+.wtitle span{font-size:.85rem;color:var(--soft)}
+.chev{font-size:1.4rem;color:var(--g2);transition:transform .2s}
+details[open] .chev{transform:rotate(90deg)}
+.wbody{padding:0 20px 20px;border-top:1px solid var(--line)}
+.aim{margin:14px 0 12px;color:var(--soft)}
+.lrow{display:flex;align-items:center;gap:12px;width:100%;background:var(--sand);border:0;border-radius:12px;padding:14px 16px;margin:0 0 10px;min-height:56px;font:500 1rem Inter,sans-serif;color:var(--ink);text-align:left;cursor:pointer}
+.lrow .tick{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--g2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem}
+.lrow.done .tick{background:var(--g2)}
+.lrow small{display:block;color:var(--soft);font-size:.8rem;font-weight:400}
+.days{margin:16px 0 0}
+.days h3{font-size:1rem;margin-bottom:8px}
+.day{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--sand);cursor:pointer}
+.day input{width:28px;height:28px;flex:none;margin:2px 0 0;accent-color:var(--g2)}
+.day span b{font-weight:600;color:var(--g)}
+/* lesson */
+.crumb{font-size:.85rem;color:var(--soft);margin:22px 0 6px}
+.read{margin:4px 0 18px}
+.open{font-family:Fraunces,Georgia,serif;font-size:1.3rem;color:var(--g);line-height:1.4;margin:0 0 20px}
+.body p{margin:0 0 1em}
+.body h3{margin-top:1.4em}
+.body ul{padding-left:1.2em;margin:0 0 1em}
+.body li{margin:0 0 .5em}
+.try{background:var(--g3);border-left:6px solid var(--g2);border-radius:12px;padding:18px 20px;margin:22px 0}
+.try b{display:block;font-family:Fraunces,serif;color:var(--g);font-size:1.1rem;margin-bottom:4px}
+.watch{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);margin:0 0 22px}
+.watch b{display:block;color:var(--g2)}
+.watch small{color:var(--soft)}
+.vid{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;margin:0 0 8px;background:#000}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.check h3{font-size:1.1rem}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px;font:500 1rem Inter,sans-serif;color:var(--ink);min-height:56px;cursor:pointer}
+.opt.right{border-color:var(--g2);background:var(--g3)}
+.opt.wrong{border-color:var(--rust);background:#FBEDE8}
+.why{margin:6px 0 0;font-weight:500;color:var(--g)}
+.nav2{display:flex;flex-direction:column;gap:12px;margin:26px 0 10px}
+.disc{font-size:.85rem;color:var(--soft);border-top:1px solid var(--line);padding:18px 0 40px;margin-top:20px}
+/* toolkit */
+.tk h2{margin-top:6px}
+.tk ul{padding-left:1.2em}
+.field{margin:0 0 14px}
+.field label{display:block;font-weight:600;color:var(--g);margin:0 0 6px}
+.field input,.field textarea{width:100%;font:400 1rem Inter,sans-serif;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);min-height:52px}
+.field textarea{min-height:80px}
+table.log{width:100%;border-collapse:collapse;font-size:.95rem}
+table.log th,table.log td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left}
+table.log input{width:100%;font:400 1rem Inter,sans-serif;padding:8px;border:1px solid var(--line);border-radius:8px;min-height:44px}
+.saved{font-size:.85rem;color:var(--g2);min-height:1.2em}
+.hide{display:none!important}
+
+:root{--leaf:url('images/leaf.jpg')}
+.cover{position:relative;min-height:88vh;min-height:88dvh;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(180deg,rgba(12,36,25,.35) 0%,rgba(12,36,25,.55) 45%,rgba(12,36,25,.9) 100%),var(--leaf) center/cover,linear-gradient(135deg,#1F5239,#2F6B4F 55%,#7FA98B)}
+.cover .wrap{padding-top:40px;padding-bottom:34px;width:100%}
+.cover h1{color:#fff;font-size:2.3rem;margin-bottom:.35em;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.cover p{font-size:1.1rem;color:#F4F1E8;margin:0 0 18px;max-width:34em}
+.kicker{display:inline-block;font:600 .8rem Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:99px;margin:0 0 16px}
+.cover .bar{background:rgba(255,255,255,.25)}
+.leafband{height:110px;background:linear-gradient(180deg,rgba(20,61,43,.25),rgba(250,246,239,0) 55%,var(--cream) 100%),var(--leaf) center 35%/cover,linear-gradient(120deg,#1F5239,#2F6B4F 50%,#7FA98B)}
+details.week summary{padding:0;display:block}
+.wphoto{position:relative;height:150px;background:#ccc center/cover}
+.wphoto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.25))}
+.wphoto .wnum{position:absolute;left:16px;bottom:-24px;z-index:1;border:4px solid #fff;width:56px;height:56px;background:var(--g3)}
+.wphoto .wnum.done{background:var(--g2)}
+.wrow{display:flex;gap:14px;align-items:center;padding:32px 20px 18px}
+.mini{height:6px;background:var(--sand);border-radius:99px;overflow:hidden;margin-top:8px}
+.mini i{display:block;height:100%;background:var(--g2)}
+.lphoto{background:#ccc center/cover}
+.sizer{display:flex;gap:8px;align-items:center;font-size:.85rem;color:var(--soft);margin:0 0 6px}
+.sizer button{min-width:48px;min-height:44px;border:2px solid var(--line);background:#fff;border-radius:10px;font:700 1rem Inter,sans-serif;color:var(--g);cursor:pointer}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);background:var(--g);color:#fff;padding:16px 22px;border-radius:14px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .35s ease,opacity .35s;opacity:0;visibility:hidden;z-index:20;max-width:90vw;text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1;visibility:visible}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:19}
+.card.soft{background:var(--g3);border-color:#CFE0CE}
+
+
+.welcome{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:40px 22px;background:linear-gradient(180deg,rgba(12,36,25,.5),rgba(12,36,25,.82)),var(--leaf) center/cover,linear-gradient(135deg,#1F5239,#2F6B4F 55%,#7FA98B)}
+.welcome .in{max-width:560px}
+.welcome .logo{width:84px;height:84px;margin:0 auto 18px;display:block;background:#fff;border-radius:22px;padding:10px}
+.welcome h1{color:#fff;font-size:2.2rem;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.welcome p{font-size:1.15rem;color:#F4F1E8;margin:0 0 16px}
+.welcome .btn{margin-top:10px}
+.ov li{margin:0 0 .6em}
+.ovweeks{list-style:none;padding:0;margin:0 0 20px}
+.ovweeks li{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 10px}
+.ovweeks img{width:72px;height:56px;object-fit:cover;border-radius:8px;flex:none}
+.ovweeks b{display:block;color:var(--g);font-family:Fraunces,serif}
+.ovweeks span{font-size:.85rem;color:var(--soft)}
+.shade{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:opacity .25s;z-index:30}
+.shade.on{opacity:1;visibility:visible}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(92vw,400px);background:var(--cream);z-index:31;transform:translateX(105%);transition:transform .3s ease;overflow-y:auto;padding:18px 18px 40px;box-shadow:-10px 0 30px rgba(0,0,0,.2)}
+.panel.on{transform:none}
+.panel .phead{display:flex;align-items:center;justify-content:space-between;margin:0 0 10px}
+.panel h2{margin:0;font-size:1.3rem}
+.panel h3{font-size:1rem;margin:18px 0 8px}
+.plink{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 8px;min-height:52px;font:500 .95rem Inter,sans-serif;color:var(--ink);cursor:pointer;text-decoration:none}
+.plink .t{flex:none;width:24px;height:24px;border-radius:50%;border:2px solid var(--g2);color:#fff;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+.plink.done .t{background:var(--g2)}
+
+
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:0 0 16px}
+.vt{display:block;font-family:Fraunces,serif;color:var(--g);font-size:1.15rem;margin:0 0 8px}
+.vlen{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--rust);font-weight:600;margin:0 0 4px}
+.vcard p{margin:0 0 .8em}
+.vplay{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;min-height:150px;border:0;border-radius:12px;cursor:pointer;color:#fff;font:600 1.05rem Inter,sans-serif;background:linear-gradient(180deg,rgba(12,36,25,.45),rgba(12,36,25,.75)),var(--leaf) center/cover,var(--g)}
+.pbtn{width:60px;height:60px;border-radius:50%;background:#fff;color:var(--g);display:flex;align-items:center;justify-content:center;font-size:1.4rem;padding-left:4px}
+.bnote{background:var(--sand);border-radius:12px;padding:14px 16px;font-size:.92rem;color:var(--soft);margin:0 0 22px}
+
+
+.plan{background:linear-gradient(135deg,#2F5D3A,#1F3A27);color:#fff;border-radius:16px;padding:20px;margin:0 0 18px}
+.plan h2{color:#fff;margin-bottom:.3em}
+.plan p{color:#EEF3EC;margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:6px 12px;font-size:.85rem}
+.plan .btn{margin:0 0 10px}
+.ver{background:#FFF7E8;border-left:6px solid var(--gold);border-radius:12px;padding:16px 18px;margin:22px 0}
+.ver b{display:block;font-family:Fraunces,serif;color:var(--g);margin-bottom:4px}
+.q{margin:0 0 22px}
+.q p{font-weight:600;color:var(--g);margin:0 0 10px}
+.opt.sel{border-color:var(--g2);background:var(--g3)}
+.player{background:linear-gradient(180deg,rgba(12,36,25,.6),rgba(12,36,25,.88)),var(--leaf) center/cover,var(--g);color:#fff;border-radius:18px;padding:26px 20px;text-align:center;margin:10px 0 20px}
+.player .stepn{font-size:.9rem;color:#E4E0D6;margin:0 0 10px}
+.player .say{font-family:Fraunces,serif;font-size:1.45rem;line-height:1.35;min-height:6.5em;display:flex;align-items:center;justify-content:center;margin:0 0 14px}
+.ring{width:110px;height:110px;margin:0 auto 16px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 1.6rem Inter,sans-serif}
+.pctl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pctl .btn{width:100%}
+.tests td,.tests th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+.tests{width:100%;border-collapse:collapse}
+.tests input{width:100%;min-height:44px;font:400 1rem Inter,sans-serif;padding:6px 8px;border:1px solid var(--line);border-radius:8px}
+.cal{width:100%;border-collapse:collapse;font-size:.72rem}
+.cal td,.cal th{border:1px solid var(--line);padding:5px;vertical-align:top}
+.cal th{background:var(--g3);color:var(--g)}
+.cert{border:10px double var(--g2);border-radius:8px;padding:34px 20px;text-align:center;background:#fff}
+.cert h1{font-size:2.2rem}
+.cert .nm{font-family:Fraunces,serif;font-size:1.8rem;color:var(--rust);border-bottom:2px solid var(--line);display:inline-block;min-width:60%;padding:6px 0;margin:10px 0 18px}
+.fridge{border:3px solid var(--g2);border-radius:14px;padding:20px;background:#fff}
+.fridge h2{text-align:center}
+.ci textarea{min-height:64px}
+
+
+:root{--plum:#2A1733;--plum2:#1B0F22;--plumtext:#F4EEF7;--plumsoft:#D9CCE0;--lav:#B79BC9}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;max-width:100%}
+body{overscroll-behavior-x:none;touch-action:pan-y pinch-zoom}
+#confetti{max-width:100vw}
+.btn,.lrow,.opt,.plink,.navbtn,.vplay{transition:transform .12s ease,box-shadow .2s ease,background-color .2s ease}
+.btn:active,.lrow:active,.opt:active,.plink:active,.vplay:active{transform:scale(.98)}
+@media(hover:hover){.btn:hover{box-shadow:0 6px 18px rgba(31,58,39,.22);transform:translateY(-1px)}.lrow:hover,.plink:hover{background:#ECE5D8}.opt:hover{border-color:var(--g2)}}
+.lrow.done .tick,.plink.done .t{animation:pop .35s ease}
+@keyframes pop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+#plum{position:relative;color:var(--plumtext);margin-top:10px;padding:150px 0 40px;background:
+ linear-gradient(180deg,var(--cream) 0%,rgba(250,246,239,0) 120px),
+ linear-gradient(180deg,rgba(42,23,51,.55) 0%,rgba(27,15,34,.92) 55%,var(--plum2) 100%),
+ var(--leaf) center/cover,var(--plum);overflow:hidden}
+#plum::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 80% 30%,rgba(183,155,201,.28),transparent 70%);pointer-events:none}
+#plum .wrap{position:relative}
+#plum h2{color:#fff;font-size:1.4rem}
+#plum p{color:var(--plumsoft)}
+#plum .quote{font-family:Fraunces,Georgia,serif;font-size:1.35rem;line-height:1.4;color:#fff;margin:0 0 22px;max-width:30em}
+#plum .today{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px;margin:0 0 20px;backdrop-filter:blur(2px)}
+#plum .today b{display:block;color:var(--lav);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px}
+#plum .today .what{color:#fff;font-size:1.1rem;margin:0 0 12px}
+#plum .btn.light{background:#fff;color:var(--plum)}
+#plum .fine{font-size:.82rem;color:var(--plumsoft);border-top:1px solid rgba(255,255,255,.15);padding-top:16px;margin-top:22px}
+#plum a{color:#fff}
+.hide-foot #plum{display:none}
+.today-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0 18px;box-shadow:0 8px 24px rgba(31,58,39,.08)}
+.today-card .lbl{font:600 .8rem Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--rust);margin:0 0 6px}
+.today-card h2{font-size:1.35rem;margin-bottom:12px}
+.dots{display:flex;gap:8px;margin:12px 0 4px}
+.dots i{width:30px;height:30px;border-radius:50%;background:var(--sand);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:.8rem;color:#fff}
+.dots i.on{background:var(--g2);border-color:var(--g2)}
+.dots i.now{border-color:var(--gold)}
+.stat{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+.stat span{background:var(--g3);color:var(--g);border-radius:99px;padding:6px 12px;font-size:.85rem;font-weight:600}
+.readbar{position:fixed;top:0;left:0;height:4px;background:var(--gold);width:0;z-index:40;transition:width .1s linear}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:15;background:rgba(250,246,239,.96);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .3s ease;backdrop-filter:blur(6px)}
+.dock.show{transform:none}
+.dock .btn{max-width:688px;margin:0 auto;display:flex}
+.upnext{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:6px 0 16px;cursor:pointer;width:100%;text-align:left;padding:0;font:inherit;color:inherit}
+.upnext img{width:110px;height:90px;object-fit:cover;flex:none}
+.upnext small{display:block;color:var(--rust);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+.upnext b{font-family:Fraunces,serif;color:var(--g)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.28s}
+
+
+.garden{background:linear-gradient(180deg,#F3EEF6,#fff);border:1px solid #E3D8EA;border-radius:18px;padding:18px 18px 12px;margin:0 0 18px;text-align:center}
+.garden .lbl{font:600 .8rem Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#6B4A80;margin:0 0 4px}
+.garden h2{font-size:1.25rem;margin:0 0 6px;color:var(--plum)}
+.garden svg{width:100%;max-width:340px;height:auto;display:block;margin:0 auto}
+.leafg use{transform-box:fill-box;transform-origin:50% 100%}
+.leafg.new use{animation:grow .7s cubic-bezier(.3,1.6,.5,1) both;animation-delay:inherit}
+@keyframes grow{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.badge{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 10px;text-align:center}
+.badge .ic{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:linear-gradient(135deg,#6B3F86,#2A1733);color:#fff;box-shadow:0 6px 16px rgba(42,23,51,.3)}
+.badge.locked{opacity:.5}.badge.locked .ic{background:var(--sand);color:var(--soft);box-shadow:none;filter:grayscale(1)}
+.badge b{display:block;color:var(--plum);font-size:.95rem}.badge small{color:var(--soft);font-size:.78rem}
+.cele{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(27,15,34,.72);opacity:0;visibility:hidden;transition:opacity .3s}
+.cele.on{opacity:1;visibility:visible}
+.cele .box{background:radial-gradient(120% 90% at 50% 0%,#5B3474,#2A1733 70%);color:#fff;border-radius:24px;padding:30px 24px;text-align:center;max-width:380px;width:100%;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:scale(.7);transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+.cele.on .box{transform:scale(1)}
+.cele .big{width:110px;height:110px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:radial-gradient(circle,#F5B04A,#C9822A);box-shadow:0 0 0 10px rgba(245,176,74,.2),0 0 50px rgba(245,176,74,.6);animation:glow 1.6s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 18px rgba(245,176,74,.12),0 0 70px rgba(245,176,74,.8)}}
+.cele h2{color:#fff;font-size:1.6rem;margin:0 0 6px}
+.cele p{color:#E6DAEE;margin:0 0 18px}
+.cele .kick{font:600 .8rem Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#F5B04A;margin:0 0 6px}
+.btn.plum{background:linear-gradient(135deg,#6B3F86,#3B2148);color:#fff}
+.btn.win{background:linear-gradient(135deg,#2F5D3A,#3E7A4B)}
+.check .opt.right{animation:pop .4s ease}
+.check .opt.wrong{animation:shake .35s ease}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.xp{position:fixed;z-index:45;pointer-events:none;font:700 1.1rem Inter,sans-serif;color:#6B3F86;animation:rise 1s ease-out forwards}
+@keyframes rise{from{opacity:1;transform:translate(-50%,0)}to{opacity:0;transform:translate(-50%,-60px)}}
+
+
+/* glass menu */
+.panel{background:rgba(250,246,239,.55)!important;backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border-left:1px solid rgba(255,255,255,.6);padding-top:calc(18px + env(safe-area-inset-top))!important}
+.shade{background:rgba(12,24,16,.25)!important;backdrop-filter:blur(2px)}
+.plink{background:rgba(255,255,255,.62)!important;border-color:rgba(255,255,255,.7)!important;backdrop-filter:blur(6px)}
+.msec{margin:0 0 8px}
+.mhead{display:flex;align-items:center;justify-content:space-between;width:100%;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.6);border-radius:14px;padding:14px 16px;min-height:56px;font:600 1rem Fraunces,Georgia,serif;color:var(--g);cursor:pointer;text-align:left}
+.mhead .cnt{font:500 .8rem Inter,sans-serif;color:var(--soft);margin-left:auto;margin-right:10px}
+.mhead .ch{transition:transform .25s}
+.msec.open .mhead .ch{transform:rotate(90deg)}
+.mbody{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.msec.open .mbody{grid-template-rows:1fr}
+.mbody>div{overflow:hidden;padding:0 4px}
+.msec.open .mbody>div{padding-top:8px}
+.vbadge{margin-left:auto;flex:none;width:30px;height:30px;border-radius:50%;background:linear-gradient(145deg,#C0392B,#8E1F14);color:#fff;font-size:.7rem;display:flex;align-items:center;justify-content:center;padding-left:2px;box-shadow:0 3px 0 #5E140D,0 4px 10px rgba(0,0,0,.2)}
+.lrow .vbadge{order:9}
+.fabplay{position:fixed;right:16px;top:calc(76px + env(safe-area-inset-top));z-index:20;width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;color:#fff;font-size:1.3rem;padding-left:4px;background:linear-gradient(145deg,#D9483A,#A3261A);box-shadow:0 5px 0 #6E160E,0 10px 20px rgba(0,0,0,.25);transition:transform .12s,box-shadow .12s,top .35s}
+.fabplay:active{transform:translateY(4px);box-shadow:0 1px 0 #6E160E,0 4px 10px rgba(0,0,0,.25)}
+header.top.away~.fabplay{top:calc(14px + env(safe-area-inset-top))}
+.fabplay span{position:absolute;right:-4px;bottom:-4px;background:#fff;color:#A3261A;font:700 .7rem Inter,sans-serif;border-radius:99px;padding:2px 6px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+/* 3D buttons */
+.btn{box-shadow:0 5px 0 #1A3522,0 8px 18px rgba(31,58,39,.22);transform:translateY(0);transition:transform .1s ease,box-shadow .1s ease}
+.btn:active{transform:translateY(4px)!important;box-shadow:0 1px 0 #1A3522,0 3px 8px rgba(31,58,39,.2)!important}
+.btn.light{box-shadow:0 5px 0 #CFC6B5,0 8px 18px rgba(0,0,0,.18)}
+.btn.light:active{box-shadow:0 1px 0 #CFC6B5!important}
+.btn.ghost{box-shadow:0 4px 0 rgba(47,93,58,.35)}
+.btn.ghost:active{box-shadow:0 1px 0 rgba(47,93,58,.35)!important}
+#did,#tdone,#fdone,.dock .btn{background:linear-gradient(180deg,#3E7A4B,#2F5D3A);font-size:1.1rem;min-height:62px;border-radius:16px}
+#fdone{background:linear-gradient(180deg,#fff,#EFE7F3)!important;color:var(--plum)!important;box-shadow:0 5px 0 #8E66AA,0 10px 22px rgba(0,0,0,.3)!important}
+@media(hover:hover){.btn:hover{transform:translateY(-2px)}}
+/* custom checkboxes */
+.day input{appearance:none;-webkit-appearance:none;width:32px!important;height:32px!important;border-radius:10px;border:2px solid var(--g2);background:#fff;display:grid;place-content:center;box-shadow:0 3px 0 rgba(47,93,58,.35);cursor:pointer;transition:background .2s}
+.day input::after{content:"";width:10px;height:18px;border:solid #fff;border-width:0 4px 4px 0;transform:rotate(45deg) scale(0);margin-top:-4px;transition:transform .25s cubic-bezier(.3,1.8,.5,1)}
+.day input:checked{background:linear-gradient(180deg,#3E7A4B,#2F5D3A);border-color:#2F5D3A}
+.day input:checked::after{transform:rotate(45deg) scale(1)}
+.rumble{animation:rumble .55s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes rumble{0%,100%{transform:translate(0,0) rotate(0)}10%{transform:translate(-2px,1px) rotate(-3deg)}20%{transform:translate(3px,-1px) rotate(3deg)}30%{transform:translate(-3px,2px) rotate(-4deg)}40%{transform:translate(3px,0) rotate(4deg)}50%{transform:translate(-2px,-2px) rotate(-3deg) scale(1.12)}65%{transform:translate(2px,1px) rotate(2deg) scale(1.18)}80%{transform:translate(-1px,0) scale(.95)}}
+
+
+.pbtn{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.85);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding-left:3px;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .25s,background .25s}
+.vplay:hover .pbtn{transform:scale(1.06);background:rgba(255,255,255,.26)}
+.vplay{font:600 1rem Inter,sans-serif;letter-spacing:.04em}
+.vbadge{margin-left:auto;flex:none;width:28px;height:28px;border-radius:50%;background:transparent;border:1.5px solid var(--g2);color:var(--g2);display:flex;align-items:center;justify-content:center;padding-left:2px;box-shadow:none}
+.vbadge svg{width:12px;height:12px}
+.fabplay{width:48px;height:48px;background:rgba(20,32,24,.38)!important;border:1.5px solid rgba(255,255,255,.85)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 6px 18px rgba(0,0,0,.25)!important;padding-left:3px;display:flex;align-items:center;justify-content:center}
+.fabplay:active{transform:scale(.94)!important}
+.fabplay span{background:#fff;color:var(--g)!important}
+/* menu marks */
+.plink .t{width:22px;height:22px;border:1.5px solid #C9C0B0!important;background:transparent!important;border-radius:50%}
+.plink.done .t{border:0!important;background:none!important;color:var(--g2)}
+.plink .t svg{width:22px;height:22px}
+.plink.nav .t{display:none}
+.plink.nav::after{content:"›";margin-left:auto;color:var(--soft);font-size:1.2rem}
+/* new check animation */
+.ripple{position:fixed;z-index:44;pointer-events:none;width:12px;height:12px;border-radius:50%;border:2px solid #3E7A4B;transform:translate(-50%,-50%);animation:ripple .75s ease-out forwards}
+@keyframes ripple{to{width:110px;height:110px;opacity:0;border-width:1px}}
+.leaffly{position:fixed;z-index:45;pointer-events:none;width:26px;height:26px;transform:translate(-50%,-50%);animation:leaffly 1.3s cubic-bezier(.3,.7,.3,1) forwards}
+@keyframes leaffly{0%{opacity:0;transform:translate(-50%,-50%) scale(.3) rotate(-30deg)}15%{opacity:1;transform:translate(-50%,-80%) scale(1.15) rotate(10deg)}55%{transform:translate(-30%,-260%) scale(1) rotate(-12deg)}100%{opacity:0;transform:translate(-10%,-420%) scale(.8) rotate(18deg)}}
+.day input:checked{animation:fillpop .45s cubic-bezier(.3,1.6,.5,1) .5s both}
+@keyframes fillpop{0%{transform:scale(1)}40%{transform:scale(1.22)}100%{transform:scale(1)}}
+
+
+.garden{background:#F9F0E6!important;border-color:#EADFCF!important}
+.tree{position:relative;width:100%;max-width:420px;margin:0 auto;aspect-ratio:968/730;overflow:hidden;border-radius:16px}
+.tstage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:50% 92%;-webkit-mask-image:radial-gradient(120% 110% at 50% 45%,#000 70%,transparent 100%);mask-image:radial-gradient(120% 110% at 50% 45%,#000 70%,transparent 100%)}
+.tstage.on{opacity:1;animation:sway 7s ease-in-out infinite}
+.tstage.was{opacity:1;animation:fadeout 1.6s ease .3s forwards;z-index:2}
+.tstage.on{z-index:1}
+@keyframes fadeout{to{opacity:0;transform:scale(.98)}}
+@keyframes sway{0%,100%{transform:rotate(0)}50%{transform:rotate(.7deg)}}
+.sprout{position:absolute;z-index:3;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#FFF6C8 0%,#B6E08F 45%,rgba(120,180,90,0) 72%);transform:translate(-50%,-50%) scale(0);animation:sprout 1.6s ease-out forwards}
+@keyframes sprout{0%{transform:translate(-50%,-50%) scale(0);opacity:0}30%{transform:translate(-50%,-50%) scale(2.2);opacity:1}100%{transform:translate(-50%,-50%) scale(3.2);opacity:0}}
+.tbar{position:relative;height:8px;background:#EADFCF;border-radius:99px;margin:12px auto 0;max-width:420px}
+.tbar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:linear-gradient(90deg,#8FC173,#2F6B3A)}
+.tbar b{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:#F9F0E6;border:2px solid #CBBEA9;transform:translate(-50%,-50%)}
+.tbar b.hit{background:#2F6B3A;border-color:#2F6B3A}
+@media(prefers-reduced-motion:reduce){.tstage.on{animation:none}}
+
+@media print{.fabplay,#plum,.dock,.readbar,header.top,.noprint,.nav2,.read{display:none!important}body{background:#fff}.card{border:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<div class="brand"><svg aria-hidden="true" class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#2F4F36"/><g transform="translate(76 111) scale(.742)"><path fill="#ffffff" fill-rule="evenodd" d="M215.0 300.9Q214.5 301.2 214.2 301.6Q213.8 302.0 213.6 303.3Q213.3 304.7 213.3 320.1Q213.3 335.5 213.8 338.0Q214.2 340.5 215.1 342.5Q216.0 344.5 217.7 346.4Q219.3 348.3 221.7 349.9Q224.0 351.5 227.0 352.6Q230.0 353.7 232.3 354.0Q234.7 354.3 237.8 354.3Q240.8 354.3 242.8 354.1Q244.8 353.8 247.8 352.8Q250.8 351.7 253.1 350.2Q255.3 348.8 256.5 347.7Q257.7 346.5 258.6 345.2Q259.5 344.0 260.1 342.8Q260.7 341.7 261.2 339.6Q261.8 337.5 261.9 320.2Q262.0 302.8 261.7 302.2Q261.3 301.7 260.8 301.2Q260.3 300.8 259.5 300.8Q258.7 300.7 256.5 301.3Q254.3 302.0 251.7 302.4Q249.0 302.8 245.5 303.2Q242.0 303.5 237.9 303.5Q233.8 303.5 229.8 303.2Q225.8 302.8 223.2 302.3Q220.5 301.8 218.5 301.2Q216.5 300.7 216.0 300.7Q215.5 300.7 215.0 300.9ZM212.8 201.6Q212.2 201.8 211.6 202.5Q211.0 203.2 210.8 204.1Q210.7 205.0 210.7 246.8Q210.7 288.7 210.8 289.2Q211.0 289.7 211.6 290.2Q212.2 290.8 216.2 292.3Q220.3 293.8 225.2 294.7Q230.0 295.5 232.6 295.7Q235.2 295.8 239.8 295.8Q244.5 295.7 246.8 295.2Q249.2 294.7 251.9 294.3Q254.7 294.0 256.8 293.3Q259.0 292.7 259.7 292.2Q260.3 291.8 261.7 291.4Q263.0 291.0 263.8 290.2Q264.5 289.5 264.7 289.0Q264.8 288.5 264.8 246.2Q264.8 203.8 264.7 203.4Q264.5 203.0 263.7 202.2Q262.8 201.5 261.9 201.4Q261.0 201.3 258.2 202.2Q255.3 203.0 253.1 203.3Q250.8 203.7 246.8 204.0Q242.7 204.3 237.9 204.3Q233.2 204.3 228.7 204.0Q224.2 203.7 222.2 203.3Q220.3 203.0 217.2 202.2Q214.2 201.3 213.8 201.3Q213.3 201.3 212.8 201.6ZM232.0 248.2Q233.5 247.2 235.0 246.8Q236.5 246.3 237.6 246.3Q238.7 246.3 240.2 246.8Q241.8 247.2 242.5 247.5Q243.2 247.8 244.2 248.8Q245.2 249.7 246.0 251.0Q246.8 252.3 247.3 253.8Q247.8 255.3 247.8 256.4Q247.8 257.5 247.3 259.0Q246.8 260.5 245.6 262.2Q244.3 263.8 242.5 264.9Q240.7 266.0 239.3 266.2Q238.0 266.3 236.8 266.2Q235.5 266.2 234.0 265.5Q232.5 264.8 231.2 263.7Q229.8 262.5 229.0 261.0Q228.2 259.5 227.9 258.5Q227.7 257.5 227.7 256.4Q227.7 255.3 228.2 253.6Q228.8 251.8 229.7 250.6Q230.5 249.3 232.0 248.2ZM215.1 109.5Q212.3 110.5 211.8 110.8Q211.3 111.2 211.0 112.0Q210.7 112.8 210.7 151.7Q210.7 190.5 210.9 191.1Q211.2 191.7 212.1 192.2Q213.0 192.8 214.7 193.2Q216.3 193.7 217.6 194.2Q218.8 194.7 221.4 195.2Q224.0 195.7 229.8 196.2Q235.5 196.7 238.4 196.7Q241.3 196.7 246.4 196.2Q251.5 195.7 254.1 195.2Q256.7 194.7 259.9 193.5Q263.2 192.3 263.8 191.8Q264.5 191.2 264.7 190.8Q264.8 190.5 264.9 160.8Q265.0 131.0 264.9 121.8Q264.8 112.7 264.1 111.7Q263.3 110.7 260.7 109.7Q258.0 108.7 254.8 107.9Q251.5 107.2 247.2 106.7Q242.8 106.2 238.2 106.2Q233.7 106.2 228.8 106.7Q223.8 107.2 220.8 107.8Q217.8 108.5 215.1 109.5ZM234.3 137.4Q236.3 136.7 237.7 136.7Q239.0 136.7 240.8 137.2Q242.7 137.8 243.4 138.3Q244.2 138.8 245.2 140.0Q246.2 141.2 247.0 143.2Q247.8 145.2 247.8 146.7Q247.8 148.2 247.3 149.6Q246.8 151.0 246.4 151.7Q246.0 152.3 244.5 153.8Q243.0 155.2 241.0 156.0Q239.0 156.8 237.8 156.8Q236.5 156.8 234.8 156.2Q233.0 155.5 231.9 154.8Q230.8 154.0 229.8 152.7Q228.8 151.3 228.2 149.4Q227.7 147.5 227.8 145.8Q228.0 144.2 228.8 142.4Q229.7 140.7 231.0 139.4Q232.3 138.2 234.3 137.4ZM23.5 82.9Q22.0 83.7 21.1 84.7Q20.2 85.7 19.8 86.4Q19.3 87.2 19.1 88.2Q18.8 89.2 18.8 90.7Q18.7 92.2 18.8 124.8Q18.8 157.3 19.2 163.7Q19.7 170.0 20.3 173.8Q21.0 177.5 21.1 178.9Q21.2 180.3 21.5 181.5Q21.8 182.7 22.0 184.2Q22.2 185.8 23.7 192.1Q25.2 198.3 25.5 199.1Q25.8 199.8 26.8 203.5Q27.8 207.2 28.4 208.4Q29.0 209.7 30.1 213.0Q31.2 216.3 31.6 217.0Q32.0 217.7 32.5 219.2Q33.0 220.8 34.0 222.8Q35.0 224.7 35.4 225.8Q35.8 227.0 37.4 230.2Q39.0 233.3 39.4 233.8Q39.8 234.3 40.1 235.0Q40.3 235.7 42.2 238.8Q44.0 241.8 46.6 245.6Q49.2 249.3 53.6 254.7Q58.0 260.0 61.2 263.1Q64.3 266.2 66.8 268.3Q69.3 270.5 73.4 273.5Q77.5 276.5 79.9 278.0Q82.3 279.5 87.8 282.3Q93.3 285.2 94.4 285.5Q95.5 285.8 98.1 287.0Q100.7 288.2 102.0 288.5Q103.3 288.8 103.9 289.2Q104.5 289.5 106.5 290.2Q108.5 290.8 114.4 292.3Q120.3 293.8 123.9 294.3Q127.5 294.8 129.1 295.2Q130.7 295.7 134.8 296.2Q138.8 296.8 141.3 297.0Q143.8 297.2 148.4 298.0Q153.0 298.8 154.2 298.9Q155.3 299.0 157.1 299.4Q158.8 299.8 159.6 299.8Q160.3 299.8 166.5 301.3Q172.7 302.8 176.9 304.3Q181.2 305.8 183.2 306.8Q185.2 307.7 188.2 309.3Q191.2 311.0 194.4 313.5Q197.7 316.0 198.3 315.9Q199.0 315.8 199.3 315.2Q199.7 314.7 199.7 256.1Q199.7 197.5 199.6 194.2Q199.5 191.0 199.2 187.6Q198.8 184.2 198.2 181.2Q197.7 178.2 197.2 177.1Q196.8 176.0 196.3 173.8Q195.8 171.7 195.4 170.9Q195.0 170.2 193.9 166.9Q192.8 163.7 192.4 163.1Q192.0 162.5 191.4 161.0Q190.8 159.5 189.9 158.0Q189.0 156.5 188.4 155.2Q187.8 153.8 183.8 147.9Q179.7 142.0 176.9 138.9Q174.2 135.8 171.2 132.9Q168.3 130.0 165.5 127.6Q162.7 125.2 160.4 123.5Q158.2 121.8 154.5 119.4Q150.8 117.0 147.5 115.2Q144.2 113.3 136.3 109.7Q128.5 106.0 126.6 105.4Q124.7 104.8 122.5 103.9Q120.3 103.0 118.4 102.5Q116.5 102.0 115.6 101.6Q114.7 101.2 114.0 101.1Q113.3 101.0 112.4 100.6Q111.5 100.2 109.0 99.6Q106.5 99.0 105.5 98.6Q104.5 98.2 99.4 97.0Q94.3 95.8 93.6 95.5Q92.8 95.2 89.1 94.5Q85.3 93.8 82.2 93.0Q79.0 92.2 77.5 92.0Q76.0 91.8 70.6 90.6Q65.2 89.3 60.8 88.6Q56.5 87.8 55.3 87.4Q54.2 87.0 50.4 86.4Q46.7 85.8 44.4 85.3Q42.2 84.8 41.0 84.4Q39.8 84.0 36.8 83.5Q33.7 83.0 32.2 82.6Q30.7 82.2 27.8 82.2Q25.0 82.2 23.5 82.9ZM75.0 157.9Q75.7 157.2 76.3 157.2Q77.0 157.2 77.8 157.9Q78.7 158.7 79.3 159.8Q80.0 161.0 83.8 165.8Q87.7 170.7 90.2 173.5Q92.8 176.3 96.8 180.2Q100.8 184.2 107.0 189.4Q113.2 194.7 115.6 196.3Q118.0 198.0 120.8 200.2Q123.7 202.5 127.1 204.8Q130.5 207.2 131.3 207.9Q132.2 208.7 133.2 209.2Q134.2 209.8 138.0 212.8Q141.8 215.8 146.0 219.4Q150.2 223.0 155.1 228.2Q160.0 233.3 164.4 239.2Q168.8 245.2 171.0 249.2Q173.2 253.2 173.7 253.8Q174.2 254.5 175.5 257.2Q176.8 260.0 177.5 262.0Q178.2 264.0 179.0 265.8Q179.8 267.7 180.5 270.5Q181.2 273.3 181.6 274.3Q182.0 275.3 182.3 277.6Q182.7 279.8 182.5 280.2Q182.3 280.7 181.9 281.1Q181.5 281.5 181.0 281.6Q180.5 281.7 179.8 281.2Q179.2 280.8 178.6 279.7Q178.0 278.5 177.4 276.7Q176.8 274.8 173.8 269.2Q170.7 263.7 167.2 258.8Q163.7 254.0 160.8 250.7Q157.8 247.3 154.8 244.3Q151.8 241.3 148.0 237.9Q144.2 234.5 138.9 230.3Q133.7 226.2 125.5 220.2Q117.3 214.2 112.3 210.0Q107.3 205.8 102.9 201.6Q98.5 197.3 94.6 193.0Q90.7 188.7 87.9 185.1Q85.2 181.5 82.6 177.4Q80.0 173.3 78.4 170.2Q76.8 167.2 75.6 163.7Q74.3 160.2 74.3 159.4Q74.3 158.7 75.0 157.9ZM222.0 52.5Q220.5 53.5 219.4 54.7Q218.3 55.8 217.2 57.4Q216.2 59.0 215.7 60.3Q215.2 61.7 214.8 63.5Q214.3 65.3 214.3 80.3Q214.3 95.3 215.0 97.1Q215.7 98.8 216.1 99.2Q216.5 99.7 217.2 100.0Q218.0 100.3 218.7 100.3Q219.3 100.3 222.8 99.7Q226.3 99.0 231.0 98.7Q235.7 98.3 241.6 98.6Q247.5 98.8 251.9 99.6Q256.3 100.3 257.0 100.3Q257.7 100.3 258.4 100.0Q259.2 99.7 259.8 98.8Q260.5 98.0 260.9 96.8Q261.3 95.7 261.3 80.5Q261.3 65.3 261.0 63.7Q260.7 62.0 260.2 60.7Q259.7 59.3 258.7 57.7Q257.7 56.0 256.2 54.6Q254.8 53.2 253.3 52.2Q251.8 51.2 249.4 50.2Q247.0 49.2 243.9 48.6Q240.8 48.0 238.0 48.0Q235.2 48.0 232.2 48.5Q229.3 49.0 226.4 50.2Q223.5 51.5 222.0 52.5ZM462.0 19.8Q461.3 19.2 460.5 18.7Q459.7 18.2 458.7 17.9Q457.7 17.7 455.0 17.8Q452.3 18.0 449.3 18.9Q446.3 19.8 443.6 20.4Q440.8 21.0 439.5 21.5Q438.2 22.0 437.3 22.1Q436.5 22.2 435.3 22.6Q434.2 23.0 431.3 23.6Q428.5 24.2 427.8 24.5Q427.2 24.8 418.1 27.1Q409.0 29.3 406.8 30.1Q404.5 30.8 401.1 31.6Q397.7 32.3 396.7 32.8Q395.7 33.2 391.8 34.2Q387.8 35.2 387.0 35.6Q386.2 36.0 384.1 36.5Q382.0 37.0 379.1 38.1Q376.2 39.2 374.4 39.6Q372.7 40.0 370.3 41.0Q368.0 42.0 366.1 42.6Q364.2 43.2 362.2 44.1Q360.3 45.0 358.5 45.6Q356.7 46.2 348.3 50.2Q340.0 54.2 337.0 56.1Q334.0 58.0 332.8 58.6Q331.5 59.2 325.5 63.2Q319.5 67.3 316.1 70.1Q312.7 72.8 308.3 76.8Q304.0 80.8 301.1 83.9Q298.2 87.0 295.6 90.1Q293.0 93.2 289.7 97.8Q286.3 102.3 283.2 107.4Q280.2 112.5 278.7 115.6Q277.2 118.7 276.2 121.3Q275.2 124.0 274.8 126.5Q274.3 129.0 274.3 209.6Q274.3 290.2 274.8 290.8Q275.3 291.5 275.8 291.6Q276.3 291.7 276.8 291.4Q277.3 291.2 279.8 289.1Q282.3 287.0 285.3 285.2Q288.3 283.3 290.8 282.1Q293.3 280.8 297.2 279.3Q301.2 277.8 303.5 277.2Q305.8 276.7 308.1 275.8Q310.3 275.0 313.6 274.4Q316.8 273.8 318.3 273.3Q319.8 272.8 327.3 271.7Q334.8 270.5 336.6 270.1Q338.3 269.7 342.2 269.2Q346.2 268.7 347.2 268.3Q348.3 268.0 349.9 267.8Q351.5 267.7 352.4 267.3Q353.3 267.0 357.2 266.3Q361.2 265.7 361.8 265.3Q362.5 265.0 365.7 264.2Q368.8 263.5 371.1 262.7Q373.3 261.8 375.6 261.2Q377.8 260.7 383.7 258.2Q389.5 255.7 392.6 254.1Q395.7 252.5 399.6 250.1Q403.5 247.7 406.4 245.7Q409.3 243.7 412.9 240.7Q416.5 237.7 421.3 232.8Q426.2 228.0 428.9 224.7Q431.7 221.3 434.2 217.8Q436.7 214.3 439.5 209.7Q442.3 205.0 444.7 200.2Q447.0 195.5 447.4 194.9Q447.8 194.3 450.8 186.7Q453.8 179.0 454.0 178.1Q454.2 177.2 455.0 175.1Q455.8 173.0 456.8 168.9Q457.8 164.8 458.2 163.8Q458.7 162.7 459.3 159.0Q460.0 155.3 460.8 152.1Q461.7 148.8 462.3 143.4Q463.0 138.0 463.3 136.5Q463.7 135.0 464.2 130.1Q464.7 125.2 465.0 117.4Q465.3 109.7 465.2 68.2Q465.2 26.8 465.0 25.6Q464.8 24.3 464.4 23.2Q464.0 22.2 463.3 21.2Q462.7 20.3 462.0 19.8ZM407.6 109.1Q408.2 109.2 408.7 109.7Q409.2 110.2 409.2 111.2Q409.3 112.2 409.0 113.3Q408.7 114.5 407.3 117.8Q406.0 121.0 403.8 124.8Q401.5 128.7 398.9 132.2Q396.3 135.7 394.6 137.8Q392.8 139.8 389.8 143.0Q386.7 146.2 382.4 150.2Q378.2 154.2 373.4 158.2Q368.7 162.2 362.6 166.9Q356.5 171.7 350.7 176.7Q344.8 181.7 339.0 187.5Q333.2 193.3 328.2 199.2Q323.2 205.2 319.2 210.8Q315.2 216.3 311.2 223.2Q307.3 230.0 304.8 236.1Q302.2 242.2 300.6 247.8Q299.0 253.5 298.4 254.2Q297.8 254.8 297.2 254.8Q296.5 254.8 296.0 254.2Q295.5 253.7 295.3 253.1Q295.2 252.5 295.5 248.0Q295.8 243.5 297.3 236.5Q298.8 229.5 299.3 228.4Q299.8 227.3 300.3 225.5Q300.8 223.7 301.8 221.5Q302.8 219.3 303.3 217.8Q303.8 216.2 306.7 210.7Q309.5 205.2 312.2 200.8Q315.0 196.3 317.9 192.3Q320.8 188.3 325.4 183.0Q330.0 177.7 334.8 172.8Q339.7 168.0 346.1 162.5Q352.5 157.0 364.3 148.2Q376.2 139.5 381.4 135.2Q386.7 131.0 392.0 125.8Q397.3 120.7 399.6 118.0Q401.8 115.3 403.5 112.9Q405.2 110.5 406.1 109.8Q407.0 109.0 407.6 109.1Z"/></g></svg><span>Hinge Care</span></div>
+<button class="navbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="panel">☰ Menu</button>
+</div></header>
+<div class="readbar" id="readbar"></div>
+<main id="app"></main>
+<footer id="plum" aria-label="Today"></footer>
+<div class="dock" id="dock"></div>
+<div class="cele" id="cele" role="dialog" aria-modal="true" aria-labelledby="celeT"><div class="box"><div class="big" id="celeI">🌱</div><p class="kick" id="celeK">New badge</p><h2 id="celeT"></h2><p id="celeP"></p><button class="btn light" id="celeB" type="button">Keep going</button></div></div>
+<div class="shade" id="shade"></div>
+<aside class="panel" id="panel" aria-label="Program menu" aria-hidden="true"><div class="phead"><h2>Menu</h2><button class="navbtn" id="menuClose" type="button">Close ✕</button></div><div id="plist"></div></aside>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+const D = {"welcome": {"title": "Before you start", "open": "You don't have to be brave today. You only have to open this page, and you've done that.", "body": "If you've bought things for your joints before (a cream, a brace, a bottle of pills from the back of a magazine) and they ended up in a drawer, you're not alone. Most people who find this Program have already tried a lot. That's why it doesn't ask you to buy anything else, and it doesn't ask you to change your whole life on Monday.\n\nIt asks for one small step a day, for eight weeks.\n\n## How it works\n- Each week has a name and one aim.\n- Each week has three short lessons. Read one, try the small task, press \"I did it.\" The next lesson opens.\n- Each day has one tiny step on your weekly list. Tick it when it's done. If you miss a day, the box just waits.\n- The Toolkit at the bottom has your pain log, your weekly planner, your flare-up plan and your questions for the doctor. Print them or fill them in here.\n\n## Three rules we keep the whole way through\n- Every move has a seated version. You never have to get on the floor.\n- A gentle pull is fine. Sharp pain, or pain that keeps getting worse, means stop.\n- Only change a prescribed medicine after speaking with your doctor. This Program sits alongside your care.\n\nIf reading is tiring, press \"Read this to me\" at the top of any lesson and it will be read out loud.", "try": "Write down one thing you'd like to do more easily in eight weeks. Getting out of the car. Holding a grandchild. Opening the jar without asking. Keep it somewhere you'll see it."}, "weeks": [{"n": 1, "name": "The first hour of the day", "aim": "Make mornings a little kinder, starting before your feet touch the floor.", "days": ["Two ankle circles each way before you get up", "A glass of water before coffee", "Warm your hands under the tap for a minute", "Sit on the edge of the bed and roll your shoulders 5 times", "Write your morning stiffness number (0 to 10)", "Do the bed routine from lesson 2", "Look back at your numbers for the week"], "lessons": [{"id": "w1a", "title": "Why mornings are the hardest part", "open": "If the first steps of the day feel like walking on someone else's legs, there's a reason, and it isn't that you're falling apart.", "body": "Joints are fed by movement. The cartilage that cushions the ends of your bones has no blood supply of its own. It soaks up fluid when the joint moves and squeezes it out again, a bit like a sponge in a sink.\n\nAll night, you're still. The fluid settles, the muscles around the joint cool down, and by morning everything is stiff. That's why so many people say the same thing: it eases off by lunchtime.\n\n## What the stiffness can tell you\n- Stiffness that eases within about half an hour is common with osteoarthritis.\n- Stiffness that lasts more than an hour, in both hands or both feet, with warm or puffy joints, is worth showing a doctor soon. It can be a sign of rheumatoid arthritis, and early treatment protects the joints.\n\nHarvard Health notes that morning stiffness from osteoarthritis usually lasts a short while, and that moving gently is what helps it pass.\n\nYou can't skip the morning. You can give your joints a head start before you ask them to carry you.", "try": "Tomorrow, before you get up, circle each ankle slowly five times one way and five times the other. That's the whole task.", "watch": {"label": "What makes joints stiff in the morning", "src": "Harvard Health Publishing (article)", "url": "https://www.health.harvard.edu/pain/what-makes-my-joints-stiff-in-the-morning"}, "check": {"q": "Why are joints stiffer first thing in the morning?", "opts": ["They were still all night, so the joint fluid settled", "Sleep damages cartilage", "You did something wrong yesterday"], "a": 0, "why": "Right. Stillness lets the fluid settle. Gentle movement gets it going again."}}, {"id": "w1b", "title": "A routine you can do before you stand up", "open": "The kindest time to move a stiff joint is while you're still lying down and warm.", "body": "This is a short routine for the bed and the edge of the bed. Go slowly. Breathe out as you move.\n\n## Lying down\n- Ankle circles: five each way, each foot.\n- Ankle pumps: point your toes, then pull them back toward you. Ten times.\n- Knee slides: slide one heel up toward you, then back down. Five each side.\n\n## Sitting on the edge of the bed\n- Shoulder rolls: five backward, five forward.\n- Hand opening: make a soft fist, then spread your fingers wide. Ten times.\n- Gentle neck turns: look over one shoulder, then the other. Stop well before anything pinches.\n\nThen stand up slowly, with a hand on something steady. Many people keep a cane or a sturdy chair by the bed for this moment, and that's a good idea.\n\nThe whole routine takes about as long as the kettle. If one move hurts, skip it today and try again tomorrow.", "try": "Do the lying-down part tomorrow morning. Add the sitting part the day after.", "watch": {"label": "Gentle 20-minute warm-up for the joints, seated option all the way through", "src": "Arthritis Society Canada", "url": "https://arthritis.ca/living-well/2020/20-minute-warm-up-for-the-joints"}, "check": {"q": "One move in the routine hurts sharply. What do you do?", "opts": ["Push through it", "Skip it today and try again tomorrow"], "a": 1, "why": "Yes. Sharp pain means stop. There's no prize for pushing through it."}}, {"id": "w1c", "title": "Warmth first, then movement", "open": "Most people with stiff hands already know this one. Warm water before anything else.", "body": "Warmth relaxes the muscles around a joint and makes the first movements easier. That's why a warm shower, a warm mug or a basin of warm water helps so many people in the morning.\n\n## Easy ways to bring warmth in\n- A warm shower before you get dressed.\n- Hands in a bowl of warm water for a minute or two, then the hand-opening move.\n- A heat pack or warm water bottle on a stiff knee while you drink your coffee.\n- Warm wax for hands, which hand therapists use. It's sold at pharmacies.\n\n## Keep it safe\n- Warm, never hot. Bath temperature is right.\n- Fifteen to twenty minutes of heat is plenty.\n- If you have diabetes or poor feeling in your feet, check with your doctor before using heat there.\n\nA rule that's easy to remember: warm what's stiff, cool what's swollen. A joint that's hot, red and puffy wants a wrapped cold pack, not heat.", "try": "Tomorrow, warm your hands in water for one minute, then open and close them ten times.", "watch": {"label": "Seated exercises you can do in a chair", "src": "Versus Arthritis", "url": "https://versusarthritis.org/news/2023/september/exercises-you-can-do-sitting-down"}, "check": {"q": "A knee is hot, red and puffy. What helps most?", "opts": ["A hot water bottle", "A cold pack wrapped in a cloth"], "a": 1, "why": "Right. Cool what's swollen, warm what's stiff."}}]}, {"n": 2, "name": "Moving without fear", "aim": "Learn how to tell normal soreness from a warning, so moving stops feeling risky.", "days": ["A 5-minute walk (indoors counts)", "Your morning routine", "Another 5-minute walk", "Rate your pain before and after a walk", "A 6-minute walk", "Your morning routine", "Look back: did any walk feel easier?"], "lessons": [{"id": "w2a", "title": "Sore isn't the same as harmed", "open": "If moving has hurt before, being careful makes sense. The trick is knowing what the pain is telling you.", "body": "Pain is an alarm. In a joint that's been sore a long time, the alarm can be set too sensitive, so it goes off before any harm is done.\n\nThat doesn't mean you ignore it. It means you learn to read it.\n\n## The traffic light\n- Green, 0 to 2 out of 10: fine. Keep going.\n- Yellow, 3 to 5: okay, especially when you're starting to move more.\n- Red, 6 or more: ease off. Do less today and try again tomorrow.\n\n## The two-hour rule\nA little extra soreness after moving is normal. If your pain is worse than usual for more than two hours afterward, you did a bit too much. Next time, do a little less. You didn't damage anything. You found today's limit.\n\nArthritis charities and physical therapists agree on this point: sensible movement doesn't wear joints out. It feeds the cartilage and builds the muscles that protect it.", "try": "Before your next walk, write your pain number. Write it again two hours later.", "watch": {"label": "A short talk on knee pain and why exercise helps", "src": "University of Melbourne, Centre for Health, Exercise and Sports Medicine", "url": "https://www.youtube.com/watch?v=o8ZJN56aSic"}, "check": {"q": "Your knee is a little more sore for one hour after a walk. What does that mean?", "opts": ["You damaged it", "That's normal, so keep going", "Stop walking for good"], "a": 1, "why": "Yes. Under two hours of extra soreness is your body getting used to moving."}}, {"id": "w2b", "title": "Walking, the cheapest thing that helps", "open": "You don't need a gym or a new pair of shoes to start. You need the hallway.", "body": "Walking is one of the best-studied things you can do for sore knees and hips. The Arthritis Foundation built a whole six-week program, Walk With Ease, around it.\n\n## How to start\n- Walk for five minutes, or less. Up and down the hallway counts.\n- Each week, add a minute or two.\n- Sit down whenever you need to. Resting is part of it.\n- Walk after a meal or a warm shower, when your joints are looser.\n\n## Make it easier\n- Wear the most cushioned, supportive shoes you own.\n- If you use a cane, hold it in the hand opposite the sore leg. The cane and the sore leg move together.\n- On rainy days, walk laps of a shopping center or the inside of your home.\n\n## Other kind ways to move\nWater walking or swimming (the water carries your weight), a stationary bike, a pedal exerciser under a chair, and tai chi, which has a seated version.", "try": "Take one 5-minute walk today. When you finish, tick it on your weekly list.", "watch": [{"label": "Barbara O'Neill: Exercise That Works", "src": "Barbara O'Neill (YouTube)", "yt": "AP9IuNavHIg", "len": "About an hour. Make a cup of tea and settle in.", "what": "One of Barbara's full talks, all about why the body needs to move every day, and what happens to joints and muscles when it doesn't.", "why": "If part of you still worries that moving will make things worse, an hour with someone who loves this subject can change how you feel about your daily walk. Moving every day is the one remedy she and the doctors agree on completely. Keep to your own pace from this week's lessons.", "barb": true}, {"label": "Tai chi for arthritis", "src": "Arthritis Society Canada", "url": "https://arthritis.ca/healthy-living/tai-chi-to-help-arthritis/"}], "check": {"q": "Which hand holds the cane?", "opts": ["The same side as the sore leg", "The opposite side from the sore leg"], "a": 1, "why": "Opposite side. The cane and the sore leg move forward together."}}, {"id": "w2c", "title": "Pacing: stop while you still feel good", "open": "You know the pattern. A good day, you do everything, and you pay for it for three days.", "body": "People call it boom and bust. It's the most common reason a new routine falls apart, and it isn't a lack of willpower. It's that good days feel too good to waste.\n\n## Try this instead\n- Pick a set amount for the day: a 6-minute walk, one room cleaned, 15 minutes of gardening.\n- Stop there, even if you feel you could do more.\n- Add a little next week, not today.\n\nIt feels odd at first, holding back on a good day. But steady small amounts build more than big days followed by rest days. And it means a good day doesn't cost you the rest of the week.\n\n## A simple way to set your amount\nDo what you can comfortably manage on a so-so day. Not your best day, not your worst. That's your starting amount.", "try": "Choose your starting amount for walking this week, based on a so-so day. Write it on your planner.", "watch": {"label": "Getting started with exercise safely", "src": "Versus Arthritis, Let's Move with Leon", "url": "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/lets-move-with-Leon/"}, "check": {"q": "On a really good day, what's the smart move?", "opts": ["Do everything while you can", "Do your set amount and stop"], "a": 1, "why": "Right. Stopping on a good day is how you keep having good days."}}]}, {"n": 3, "name": "Warmth and comfort", "aim": "Build a short list of home comforts that work for you, and know which ones are worth your money.", "days": ["Warm your sorest joint for 15 minutes", "Try the warm and cool water swap for hands", "Your morning routine and a walk", "Patch-test one new cream or oil", "A warm bath or shower in the evening", "Your morning routine and a walk", "Write down the one comfort you liked most"], "lessons": [{"id": "w3a", "title": "Heat, cold and water", "open": "There's something about tending a sore joint with your own hands. Put the kettle on.", "body": "Heat and cold packs are recommended in the American College of Rheumatology's arthritis guidelines. They're cheap, and you probably have them already.\n\n## Heat for stiffness\nA warm water bottle, heat pack or warm towel on the joint for 15 to 20 minutes. Lovely before a walk or the morning routine.\n\n## Cold for a hot, puffy joint\nA cold pack or bag of frozen peas, wrapped in a cloth, for about 15 minutes. Never straight on the skin.\n\n## The warm and cool water swap for hands and feet\nMany people swear by this one, and it's one of Barbara O'Neill's favorite home comforts.\n- Fill one bowl with warm water (bath temperature) and one with cool water.\n- Hands in the warm bowl for about three minutes.\n- Then in the cool bowl for about 30 seconds.\n- Do this three times, ending on cool.\n\nIt's not proven in big studies, but it's gentle, free and many people find it eases stiff hands.", "try": "Try the water swap for your hands once this week.", "watch": {"label": "Finger, hand and wrist stretches, follow along", "src": "Versus Arthritis stretching series", "url": "https://versusarthritis.org/news/2021/october/new-stretching-videos-to-help-keep-moving-and-manage-your-arthritis"}, "check": {"q": "What goes between a cold pack and your skin?", "opts": ["Nothing", "A cloth"], "a": 1, "why": "Yes. Always a cloth, to protect your skin."}}, {"id": "w3b", "title": "Compresses and poultices", "open": "These are the old kitchen comforts. Some are proven, some just feel good, and both have a place.", "body": "## Castor oil compress\n- Patch test first: dab a little oil on your inner arm and wait a day.\n- Soak a piece of cotton or flannel in castor oil.\n- Lay it on the sore joint and cover it with an old towel (the oil stains).\n- Put a warm (not hot) water bottle on top.\n- Rest for 20 to 30 minutes.\n\nIt hasn't been proven in studies. Most of the comfort probably comes from the warmth and the stillness. Use it on the skin only, and stop if your skin gets red or itchy.\n\n## Ginger poultice\nGrated fresh ginger wrapped in a cotton cloth, laid on one joint. Take it off as soon as it stings, and never leave it on overnight.\n\n## Epsom salt bath\nThe warm water is what soothes. The salt is optional.\n\nThese came to many people through Barbara O'Neill, who has spent decades teaching home comforts. She isn't a doctor, so we've checked each one against the research and told you plainly what holds up.", "try": "Pick one comfort from this lesson and give yourself 20 quiet minutes with it this week. Music on, phone down.", "watch": [{"label": "Barbara O'Neill: castor oil for sore joints", "src": "Barbara O'Neill (YouTube)", "yt": "BDq0kej3C14", "len": "A short demonstration.", "what": "Barbara shows how she makes and uses a castor oil compress on a sore knee, step by step. It's the same compress you just read about.", "why": "Seeing it done once makes it far easier to try at home. Watch this before your first compress, so you know how much oil to use and how to wrap it without making a mess.", "barb": true}, {"label": "Barbara O'Neill: the poultice class", "src": "Barbara O'Neill (YouTube)", "yt": "uVLGsqysQcs", "len": "A full class. Watch it in pieces if you like.", "what": "Her full class on making poultices at home, from what goes in the cloth to how to wrap it on a joint.", "why": "If the ginger poultice caught your interest, this is the long version, with every step shown. Keep our rule in mind while you watch: take a poultice off the moment it stings, and never leave ginger or cayenne on overnight.", "barb": true}], "check": {"q": "Before using a new oil or cream on a sore joint, you should…", "opts": ["Patch-test a small spot first", "Use lots straight away"], "a": 0, "why": "Right. A small patch first, wait a day, then go ahead if your skin is fine."}}, {"id": "w3c", "title": "Creams, rubs and what to skip", "open": "The pharmacy aisle is full of promises. This lesson is here to save you money.", "body": "## Worth trying\n- Chili-pepper cream (capsaicin): the American College of Rheumatology guidelines suggest it for knee osteoarthritis. It tingles or burns for the first week or two, then relief builds. Wash your hands after, and keep it away from your eyes.\n- Anti-inflammatory gels like diclofenac: recommended for knees and hands. Ask your pharmacist if they're safe with your other medicines.\n- Comfrey cream: one three-week study found it eased knee pain. Unbroken skin only, and never swallow it.\n\n## Probably skip\n- Glucosamine and chondroitin: the biggest studies found little or no benefit, and arthritis doctors advise against them. If you've taken them for years and feel no difference, ask your pharmacist about stopping.\n- Anything that promises to cure arthritis. Nothing cures it yet. Many things help.\n\n## One at a time\nTry one new thing, give it a few weeks, and keep it only if you can feel a difference. Trying three at once means you'll never know which one helped.", "try": "Look at what's in your cupboard. Is there something you've used for months with no difference? Write it on your list for the pharmacist.", "watch": {"label": "Knee and hip arthritis: managing pain, supplements and exercise", "src": "Torbay and South Devon NHS physiotherapy videos", "url": "https://www.torbayandsouthdevon.nhs.uk/services/physiotherapy/support-videos/managing-knee-and-hip-arthritis"}, "check": {"q": "Which of these has the best support for knee pain?", "opts": ["Glucosamine pills", "Chili-pepper (capsaicin) cream", "A cream that promises a cure"], "a": 1, "why": "Yes. Capsaicin cream is in the guidelines. Give it two to four weeks."}}]}, {"n": 4, "name": "Food that's kind to joints", "aim": "Add good things to your plate without giving up the foods you love.", "days": ["Add one color to one meal", "Swap one sugary drink for water", "Your morning routine and a walk", "Fish, beans or eggs at one meal", "A handful of nuts or berries as a snack", "Your morning routine and a walk", "Cook one meal from this week's ideas"], "lessons": [{"id": "w4a", "title": "Add, don't take away", "open": "This isn't a diet. Nobody's taking your morning toast.", "body": "The eating pattern with the best support for joints and general health is close to what's called the Mediterranean way of eating. It's mostly about adding things.\n\n## A plate that's kind to joints\n- Half the plate: vegetables and fruit, lots of colors.\n- A quarter: protein. Fish, chicken, eggs, beans, yogurt. Protein feeds the muscles that protect your joints.\n- A quarter: whole grains or potatoes.\n- A drizzle of olive oil, a few nuts, some avocado.\n- Fish once or twice a week. Salmon, sardines and tuna carry omega-3 fats.\n\n## Foods you can keep\nYou may have been told to give up tomatoes, potatoes, peppers, bread, milk, tea or coffee. Research hasn't found that these make arthritis worse. If you suspect one, leave it out for two weeks, bring it back, and see what your body says.\n\nThe one exception is gout, where some foods really do matter. That's in the next lesson.", "try": "Add one color to one meal today. Berries on cereal, spinach in eggs, carrots on the side.", "watch": [{"label": "Barbara O'Neill: Fantastic Fats", "src": "Barbara O'Neill (YouTube)", "yt": "slWOfJzWAf8", "len": "About an hour.", "what": "Barbara's full talk on the fats in our food: which ones she reaches for, which ones she avoids, and why.", "why": "Good fats are a big part of the plate in this lesson. Olive oil, nuts and oily fish have the best support for joints and the heart, and this talk goes deeper into her view. Listen with this lesson in mind, and bring any big change in how you eat to your doctor first.", "barb": true}], "check": {"q": "Do you have to give up tomatoes and potatoes for arthritis?", "opts": ["Yes, always", "No, research hasn't found they make it worse"], "a": 1, "why": "Right. Keep the foods you love unless your own body tells you otherwise."}}, {"id": "w4b", "title": "Weight, knees and gout", "open": "Two things about food matter more than all the rest: what your knees carry, and gout.", "body": "## Every pound counts on the knees\nResearch from Wake Forest University found that each pound of weight lost takes about four pounds of pressure off the knee with every step. Lose ten pounds, and that adds up to a lot of pressure saved over a day of walking.\n\nYou don't need a big number. Small changes, kept up, are what count.\n\n## If yours is gout\nFood matters more in gout than in any other kind of arthritis. These can set off a flare:\n- Alcohol, especially beer and spirits.\n- Organ meats, red meat and shellfish.\n- Sweet fizzy drinks.\nWater helps. If flares keep coming back, medicine that lowers uric acid is what stops them, so talk to your doctor.\n\n## If you take medicine for blood sugar or blood pressure\nCheck with your doctor before big changes to what you eat. Small swaps, like water instead of soda, are usually fine.", "try": "Swap one sugary drink for water today. Add a slice of lemon if it helps.", "watch": {"label": "Pilates for arthritis, gentle full class", "src": "NHS Fitness Studio", "url": "https://www.nhs.uk/live-well/exercise/pilates-and-yoga/arthritis-pilates-exercise-video"}, "check": {"q": "About how much pressure comes off the knee with each step for every pound lost?", "opts": ["About 1 pound", "About 4 pounds"], "a": 1, "why": "Yes, about four pounds per step. It adds up fast."}}, {"id": "w4c", "title": "Easy meals for sore hands", "open": "Cooking is harder when chopping hurts. So we cut the chopping.", "body": "## Shortcuts that are still good food\n- Frozen vegetables and frozen berries: just as good, nothing to wash or cut.\n- Pre-cut onions, carrots and squash.\n- Tinned beans, tinned fish, jars of chopped tomatoes.\n- A sheet pan: everything on one tray, one pan to wash.\n\n## Three meals to start with\n- Warm oats with cinnamon and frozen berries, made in the microwave in a big bowl.\n- Sheet-pan salmon with ready-cut vegetables and a drizzle of olive oil, at 400°F for about 25 minutes.\n- Lentil soup with frozen onion and carrot, a tin of tomatoes, stock and a little turmeric. It freezes well for bad days.\n\n## Tools that help\nJar openers, lightweight pans with big handles, a rocking knife, and a stool to sit on while you cook. An occupational therapist can suggest more.\n\nTurmeric and ginger are lovely in cooking. As pills, the research is small and mixed. If you take blood thinners, ask your pharmacist before taking turmeric or ginger capsules.", "try": "Cook one of the three meals this week, or buy one bag of frozen vegetables to keep in the freezer.", "watch": {"label": "Seated exercises you can do in a chair", "src": "Versus Arthritis", "url": "https://versusarthritis.org/news/2023/september/exercises-you-can-do-sitting-down"}, "check": {"q": "Are frozen vegetables a good choice?", "opts": ["Yes, and there's nothing to chop", "No, only fresh counts"], "a": 0, "why": "Right. Frozen is just as good and much easier on your hands."}}]}, {"n": 5, "name": "Getting stronger, gently", "aim": "Build the muscles that take weight off your joints, beside a chair.", "days": ["5 sit-to-stands", "Your morning routine and a walk", "The chair routine, one round", "A walk", "The chair routine, one round", "Your morning routine and a walk", "Notice: is standing up easier?"], "lessons": [{"id": "w5a", "title": "Your muscles are your joints' helpers", "open": "You're never too old to get stronger. People in their nineties do it.", "body": "Strong thigh muscles act like shock absorbers for the knee. Strong hip and back muscles take load off the hips and spine. When the muscles do more, the joints carry less.\n\n## How to get stronger safely\n- Move slowly. Count three up and three down.\n- Stay in the yellow zone: pain up to 5 out of 10 is okay. More than that, ease off.\n- Start with five of each move. Work up to ten.\n- Two or three days a week, with a rest day in between. Muscles grow on the rest days.\n\nA physical therapist can check how you're doing the moves and change them for you. That matters most if you've had a joint replaced.", "try": "Do 5 sit-to-stands from your favorite sturdy chair. Use your hands on the armrests if you need them. That's strength training.", "watch": {"label": "Resistance band workouts, seated and standing", "src": "Versus Arthritis, with Leon and his mum Janet", "url": "https://versusarthritis.org/about-arthritis/exercising-with-arthritis/resistance-band-workout-sessions"}, "check": {"q": "How often should you do strength moves?", "opts": ["Every day, as many as possible", "Two or three days a week"], "a": 1, "why": "Right. The rest days in between are when muscles grow."}}, {"id": "w5b", "title": "The chair routine", "open": "All you need is a sturdy chair without wheels.", "body": "Do one round. When that feels easy, do two.\n\n- Seated march: sit tall and lift one knee, then the other, for a minute.\n- Sit to stand: stand up and sit back down slowly. Five to ten times.\n- Knee straightening: seated, straighten one leg, hold for five seconds, lower. Ten each side.\n- Heel raises: hold the chair back, rise onto your toes, lower. Ten times. Seated version: lift your heels while sitting.\n- Side leg lift: hold the chair back and lift one leg out to the side. Eight each side. Seated version: slide one foot out and back.\n- Wall push-ups: hands on a wall at shoulder height, bend your elbows, press back. Eight to ten.\n- Hand opening and thumb touches: soft fist, spread your fingers, then touch your thumb to each fingertip.\n\nBreathe out on the effort. Stop short of sharp pain.\n\nThe Gentle Stretch app in your Toolkit talks you through chair moves with a calm voice, if you'd rather follow along than read.", "try": "Do one round of the chair routine today, or open the Gentle Stretch app and follow one routine.", "watch": {"label": "Knee and hip exercises, follow along", "src": "Versus Arthritis stretching series", "url": "https://versusarthritis.org/news/2021/october/new-stretching-videos-to-help-keep-moving-and-manage-your-arthritis"}, "check": {"q": "What do you do on the effort part of a move?", "opts": ["Hold your breath", "Breathe out"], "a": 1, "why": "Yes. Breathe out as you push or lift."}}, {"id": "w5c", "title": "Balance, so you can trust your feet", "open": "Being afraid of falling makes people move less. Better balance gives that confidence back.", "body": "Balance is a skill, and it improves with practice at any age. Tai chi has good research behind it for both balance and arthritis comfort.\n\n## Three balance moves beside the kitchen counter\n- Stand with your feet close together, holding the counter, for 20 seconds.\n- Stand with one foot slightly in front of the other, holding on, for 20 seconds. Then swap.\n- Stand on one foot, holding on with both hands, for 10 seconds. Then the other foot.\n\nAs each one gets easier, hold on with fingertips instead of your whole hand.\n\n## Around the house\n- Clear loose rugs and cords from the paths you walk.\n- Put a nightlight between the bed and the bathroom.\n- Grab bars by the toilet and in the shower help a great deal.\n\nIf you've fallen in the last year, or feel unsteady often, tell your doctor. A physical therapist can help with a balance plan just for you.", "try": "Do the first balance move while the kettle boils, holding the counter.", "watch": [{"label": "Tai chi for sore joints, with Dr Paul Lam", "src": "Tai Chi for Health Institute (YouTube)", "yt": "tAOuEpa01j4", "len": "A follow-along class.", "what": "A calm follow-along class with Dr Paul Lam, a doctor who has taught tai chi to people with arthritis for many years. The moves are slow and flowing, standing or in a chair.", "why": "Tai chi gets a strong yes in the American College of Rheumatology guideline for knees and hips. It builds balance, strength and calm at the same time, without jarring your joints. It's the best next step after this lesson's counter moves."}], "check": {"q": "Where should you practice balance moves?", "opts": ["In the middle of the room", "Beside something steady, like the kitchen counter"], "a": 1, "why": "Right. Always beside something steady you can hold."}}]}, {"n": 6, "name": "Doing more with less strain", "aim": "Keep doing the things you love by changing how you do them.", "days": ["Cut one big job in half", "Try one tool from the list", "Your morning routine and a walk", "Plan tomorrow's top 3 jobs", "Sit down for one job you usually stand for", "The chair routine", "Write down the one change that helped most"], "lessons": [{"id": "w6a", "title": "Spread your energy across the day", "open": "Think of your energy like butter on toast. Spread it out instead of using it all in one corner.", "body": "## Plan\nEach evening, pick your top three jobs for tomorrow. The rest can wait.\n\n## Switch\nGo between heavy jobs and light ones. Vacuum one room, then fold laundry sitting down.\n\n## Break it up\nClean one room, then rest. Garden for 15 minutes, then sit with a drink. Cut a big job in half and put a rest in the middle.\n\n## Sit when you can\nIroning, chopping, washing up and drying your hair can all be done sitting on a stool.\n\nNone of this is giving in. It's how people with arthritis keep gardening, cooking for the family and getting out with friends for years.", "try": "Pick one job you dread this week. Cut it in half and rest in the middle.", "watch": {"label": "Two Minute Stretch: a seated starter routine", "src": "Great Western Hospitals NHS rheumatology", "url": "https://gwh.nhs.uk/wards-and-services/rheumatology/diet-and-exercise/exercise/exercise-with-the-rheumatology-department"}, "check": {"q": "You have a long cleaning job. What's the kinder way to do it?", "opts": ["All at once to get it over with", "In pieces, with rests in between"], "a": 1, "why": "Yes. Pieces and rests mean you can still move tomorrow."}}, {"id": "w6b", "title": "Little tools that make a big difference", "open": "A jar opener isn't defeat. It's just a better jar opener than your hand.", "body": "## For hands\n- Jar and bottle openers, including the rubber grip kind.\n- Fat-grip pens and cutlery, or foam tubes that slide over handles.\n- Lever taps instead of round knobs.\n- Electric can opener.\n\n## For knees and hips\n- A cane in the hand opposite the sore leg. The American College of Rheumatology guidelines strongly recommend one for knee and hip arthritis.\n- A raised toilet seat and a shower chair.\n- A long-handled shoehorn and a sock aid.\n- A reacher-grabber for things on the floor or high shelves.\n\n## For the whole body\n- Cushioned, supportive shoes.\n- A wheeled bag or cart instead of carrying.\n\nAn occupational therapist can visit or advise on what would help most in your home. Ask your doctor about a referral.", "try": "Choose one tool from this list that would help this week. Write it down or order it.", "watch": {"label": "Getting down to and up from the floor safely", "src": "Versus Arthritis, Let's Move with Leon", "url": "https://www.arthritis-uk.org/information-and-support/living-with-arthritis/health-and-wellbeing/exercising-with-arthritis/lets-move-with-Leon/"}, "check": {"q": "Do the arthritis guidelines recommend a cane for knee arthritis?", "opts": ["Yes, strongly", "No, never"], "a": 0, "why": "Right. Used in the opposite hand, it takes real load off the sore knee."}}, {"id": "w6c", "title": "Asking for help without feeling like a burden", "open": "This one is hard for a lot of people. Especially the ones who've always been the helper.", "body": "If you've spent your life looking after other people, asking for help can feel like losing something. But most family members want to help and don't know how. Giving them a clear job is a kindness to them too.\n\n## Make it easy to say yes\n- Be specific: \"Could you carry the laundry basket upstairs on Sundays?\" works better than \"I need more help.\"\n- Pick the jobs that cost you the most for the least reward: heavy shopping, high shelves, mowing.\n- Keep the jobs you love. If you love cooking, ask someone to do the chopping and keep the cooking for yourself.\n\n## For family members reading this\nThe best help is quiet and practical. Offer a specific job. Don't take over. And ask how today is, not how the arthritis is.", "try": "Ask one person for one specific bit of help this week.", "watch": {"label": "Neck and back stretches, follow along", "src": "Versus Arthritis stretching series", "url": "https://versusarthritis.org/news/2021/october/new-stretching-videos-to-help-keep-moving-and-manage-your-arthritis"}, "check": {"q": "Which request is easier for family to say yes to?", "opts": ["\"I need more help\"", "\"Could you carry the laundry up on Sundays?\""], "a": 1, "why": "Yes. A clear, small job is easy to say yes to."}}]}, {"n": 7, "name": "Better nights, calmer days", "aim": "Loosen the loop where pain spoils sleep and poor sleep turns pain up.", "days": ["Same bedtime as last night", "5 rounds of the 4-6 breath in bed", "Your morning routine and a walk", "Phone and TV off 30 minutes before bed", "A pillow between your knees tonight", "A walk in daylight", "Write down three good things from the week"], "lessons": [{"id": "w7a", "title": "Sleep turns the pain alarm down", "open": "Pain makes it hard to sleep, and poor sleep makes pain louder. Both are true, and both can be eased.", "body": "## Small changes for better nights\n- Go to bed and get up at about the same time every day, weekends too. This matters more than the exact hour.\n- Keep the room cool, dark and quiet.\n- A pillow between your knees helps hips and backs. A pillow under your knees helps if you sleep on your back.\n- A warm bath or shower an hour before bed loosens stiff joints.\n- Move in the daytime. A walk today helps sleep tonight.\n- Ease off caffeine after lunch.\n\n## If you wake in the night\nDon't lie there fighting it. After about 20 minutes, get up, sit somewhere dim and do something quiet until you feel sleepy.\n\nIf pain wakes you most nights, or you snore loudly and wake tired, tell your doctor. Both have treatments.", "try": "Pick a bedtime and keep it for the next three nights.", "watch": {"label": "More gentle tai chi", "src": "Arthritis Society Canada", "url": "https://arthritis.ca/healthy-living/tai-chi-to-help-arthritis/"}, "check": {"q": "What matters most for better sleep?", "opts": ["Going to bed at the same time each day", "Sleeping in on weekends"], "a": 0, "why": "Right. A steady bedtime does more than the exact number of hours."}}, {"id": "w7b", "title": "The 4-6 breath", "open": "A long, slow breath out tells your body it's safe. A body that feels safe feels less pain.", "body": "## How to do it\n- Sit or lie down. Put one hand on your belly.\n- Breathe in through your nose while you count to four.\n- Breathe out slowly through your mouth while you count to six.\n- Do it five times.\n\nThat's it. Use it in bed, in the doctor's waiting room, before a walk, or when a flare starts.\n\n## Why it helps\nWhen you're worried or in pain, the body tenses and breathing gets short and fast. Slow breathing, with the out-breath longer than the in-breath, calms that response. Tense muscles around a sore joint make the pain worse, so letting them soften helps.\n\nSome people like to add a word or a short prayer on the out-breath. Do whatever feels like yours.", "try": "Tonight in bed, do five rounds of the 4-6 breath.", "watch": {"label": "Pilates for arthritis, gentle full class", "src": "NHS Fitness Studio", "url": "https://www.nhs.uk/live-well/exercise/pilates-and-yoga/arthritis-pilates-exercise-video"}, "check": {"q": "Which breath calms the body?", "opts": ["Short, fast breaths", "In for 4, out for 6"], "a": 1, "why": "Yes. The long, slow breath out is the part that calms."}}, {"id": "w7c", "title": "When it gets you down", "open": "Feeling fed up, worried or low is common with long-term pain. It's not weakness, and it's not your fault.", "body": "Pain that goes on for months wears on anyone. You might miss things you used to do. You might worry about getting worse, or about being a burden. Those feelings make sense.\n\n## Things that help\n- Talking to someone: a friend, a faith leader, a support group.\n- A kind of talking therapy called CBT, which arthritis guidelines suggest for people living with long-term pain. Ask your doctor about it.\n- Writing it down. Even a few lines before bed can make the day feel lighter.\n- Noticing small good things. At the end of each day, write down three, however small.\n\n## Please tell your doctor if\n- You've felt low or lost interest in things for more than two weeks.\n- You're not sleeping or eating as you normally would.\n\nThat takes courage, and it's the right thing to do. If you ever feel like you can't go on, call or text 988 in the US to reach the Suicide and Crisis Lifeline.", "try": "Tonight, write down three good things from today. They can be very small.", "watch": {"label": "Arthritis Foundation videos and support (YES library)", "src": "Arthritis Foundation", "url": "https://www.arthritis.org/living-with-arthritis/tools-resources/your-exercise-solution/"}, "check": {"q": "You've felt low for more than two weeks. What's the right step?", "opts": ["Keep it to yourself", "Tell your doctor"], "a": 1, "why": "Yes. It's common, and there's help."}}]}, {"n": 8, "name": "Bad days and the long run", "aim": "Have a plan for flares, and make the habits that helped your own.", "days": ["Fill in your flare-up plan", "Put it on the fridge", "Your morning routine and a walk", "The chair routine", "Fill in your questions for the doctor", "Your morning routine and a walk", "Read the note you wrote in week 1"], "lessons": [{"id": "w8a", "title": "Your flare-up plan", "open": "Flares happen to everyone, even people doing everything right. A flare doesn't wipe out your progress.", "body": "## On a bad day\n- Do about half of what you normally would. Don't stop completely. Gentle movement helps a flare pass sooner than lying still.\n- Use heat for stiffness or a wrapped cold pack for a hot, puffy joint, for about 15 minutes.\n- Do your top one job only. Ask for help with the rest.\n- Do the 4-6 breath.\n- When it settles, build back up over a few days.\n\n## About pain medicine\nYour doctor or pharmacist knows which pain relief is safe with your other medicines. Only change a prescribed medicine after speaking with your doctor.\n\n## Call your doctor today if\n- A joint is hot, red and very swollen, especially with a fever.\n- You have sudden, severe pain after a fall or injury.\n- You can't put weight on a leg.\n- You have new numbness, weakness, or trouble with bladder or bowels.\n- A flare isn't settling after a week.\nChest pain or trouble breathing: call 911.", "try": "Fill in your flare-up plan in the Toolkit, print it and put it on the fridge.", "watch": {"label": "What a flare-up is and how to manage it", "src": "Torbay and South Devon NHS physiotherapy videos", "url": "https://www.torbayandsouthdevon.nhs.uk/services/physiotherapy/support-videos/managing-knee-and-hip-arthritis"}, "check": {"q": "During a flare, what's the best plan?", "opts": ["Stay in bed all week", "Do about half as much, then build back up"], "a": 1, "why": "Right. Less, but not nothing, then ease back in."}}, {"id": "w8b", "title": "Getting more from your doctor visits", "open": "Ten minutes with a doctor goes fast. A short list makes it count.", "body": "## Before you go\n- Fill in your questions sheet in the Toolkit.\n- Bring your pain log, or a few numbers from it.\n- Bring a list of every medicine, cream and supplement you take, including the natural ones.\n\n## Questions worth asking\n- Which kind of arthritis do I have, and how sure are we?\n- What's safe for me to do, and is there anything I should avoid?\n- Could a physical therapist or occupational therapist help me?\n- Is my pain relief safe with my other medicines?\n- Is there a local program, like Walk With Ease or tai chi for arthritis, you'd recommend?\n\n## Tell your doctor about this Program\nLet them know you're doing gentle movement, home comforts and food changes. If you take a medicine for rheumatoid arthritis or gout, keep taking it. That medicine protects your joints, and everything here works alongside it.", "try": "Fill in your questions sheet and put it with your next appointment card.", "watch": {"label": "Find a proven arthritis program near you", "src": "CDC", "url": "https://www.cdc.gov/arthritis/programs"}, "check": {"q": "What should you bring to your doctor?", "opts": ["Nothing, they'll know", "Your questions, your pain log and your list of medicines"], "a": 1, "why": "Yes. A short list makes a short visit count."}}, {"id": "w8c", "title": "Keep going, at your own pace", "open": "Eight weeks ago you opened the first lesson. Look at what's on your list now.", "body": "You have a morning routine, a walking habit, a chair routine, home comforts you trust, a few kitchen shortcuts, a bedtime, a breath for hard moments and a flare plan on the fridge. That's a lot.\n\n## Look back\nOpen your pain log and compare week 1 with this week. Even one point lower is real. If your number is the same but you're doing more, that's progress too.\n\n## Make it last\n- Tie each habit to something you already do: \"After coffee, I walk.\"\n- Keep the habits that helped. Drop the ones that didn't.\n- Walk with a friend, or join a class. It's easier with someone.\n- Come back to any week whenever you need it. The lessons stay here.\n\n## What's next, if you'd like it\nThe Hinge Care Club sends a new gentle routine, a simple recipe and a small weekend challenge every week, so you're never doing it alone.", "try": "Read the note you wrote before week 1. Then write one line to yourself about what's easier now.", "watch": {"label": "Knee problems pilates class", "src": "NHS Fitness Studio", "url": "https://www.nhs.uk/conditions/nhs-fitness-studio/pilates-and-yoga/knee-problems-pilates-exercise-video"}, "check": {"q": "What's the best way to keep a habit?", "opts": ["Wait until you feel like it", "Tie it to something you already do"], "a": 1, "why": "Right. \"After coffee, I walk.\" Simple hooks make habits stick."}}]}], "toolkit": {"safety": ["Every move has a seated version. You never have to get on the floor.", "Move slowly. A gentle pull is fine. Sharp or worsening pain means stop.", "The two-hour rule: if pain is worse than usual for more than two hours after moving, do a little less next time.", "Warm what's stiff. Cool what's swollen. About 15 to 20 minutes of either is enough.", "Only change a prescribed medicine after speaking with your doctor.", "Hot, red, very swollen joint, a fall, or new numbness or weakness: call your doctor today. Chest pain or trouble breathing: call 911."], "questions": ["Which kind of arthritis do I have, and how sure are we?", "What's safe for me to do, and is there anything I should avoid?", "Could a physical therapist or occupational therapist help me?", "Is my pain relief safe with my other medicines and supplements?", "Is there a local program, like Walk With Ease or tai chi for arthritis, you'd recommend?"], "flare": ["What usually sets off my flares:", "What helps me most on a bad day:", "My one job for a bad day:", "Who I can ask for help, and their number:", "My doctor's number:", "When I'll call the doctor:"]}, "disclaimer": "For general wellness, not medical advice. Check with your doctor before starting a new remedy or exercise.", "barb": "Barbara is a natural-health teacher, not a doctor. Her talks share her own views, and we haven't checked every claim in them. Enjoy them as ideas, keep your doctor in the loop, and only change a prescribed medicine after speaking with your doctor.", "sc": [{"id": "stiff", "q": "On most mornings, how long does the stiffness last?", "opts": ["Less than 15 minutes", "15 to 60 minutes", "More than an hour"]}, {"id": "chair", "q": "Can you stand up from a dining chair without using your hands?", "opts": ["Yes, easily", "Yes, but it's hard", "Not without my hands"]}, {"id": "stand", "q": "How long can you stand or walk before you need to sit?", "opts": ["More than 20 minutes", "5 to 20 minutes", "Less than 5 minutes"]}, {"id": "focus", "q": "Which part of you bothers you most?", "opts": ["Hands and wrists", "Knees", "Hips", "Back and neck"]}, {"id": "surgery", "q": "Have you had a joint replaced or other joint surgery in the last 12 months?", "opts": ["No", "Yes"]}], "tracks": {"gentle": {"name": "Gentle", "line": "You'll start with the smallest version of each move, mostly seated, and build slowly. That's the right place to begin, and plenty of people stay here."}, "regular": {"name": "Steady", "line": "You'll do the moves as written, with a seated option whenever you need it, and add a little each week."}, "stronger": {"name": "Stronger", "line": "You're ready for a bit more. You'll do extra rounds and longer walks, still slow and still safe."}}, "ver": {"w1b": {"gentle": "Do the lying-down moves only, three of each. Add the sitting moves next week.", "regular": "Do the full routine as written.", "stronger": "Do the full routine, then 5 slow sit-to-stands before breakfast."}, "w2b": {"gentle": "Start with 2 or 3 minutes indoors, holding on to furniture if you like. Add one minute a week.", "regular": "Start with 5 minutes and add a minute or two each week.", "stronger": "Start with 10 minutes, outdoors if you can, and add 2 to 3 minutes a week."}, "w5b": {"gentle": "Do every move seated, 5 of each. Skip the wall push-ups until week 6.", "regular": "One round as written. Add a second round when it feels easy.", "stronger": "Two rounds, 10 of each, with a short rest between rounds."}, "w5c": {"gentle": "Do the first move only, holding the counter with both hands.", "regular": "Do all three moves, holding on with one hand.", "stronger": "Do all three moves with fingertips only, then try the tai chi class."}, "w2c": {"gentle": "Set your amount from a bad-ish day, not a so-so one.", "regular": "Set your amount from a so-so day, as the lesson says.", "stronger": "Set your amount from a so-so day, and add a little every week, not every day."}}, "focus": {"Hands and wrists": {"title": "Extra care for hands and wrists", "body": "Hands do hundreds of small jobs a day, so they never really get to rest. A few minutes of care in the morning makes buttons, keys and jar lids easier.\n\n## Morning hand routine\n- Warm your hands in water for a minute or two.\n- Make a soft fist, then spread your fingers wide. Ten times.\n- Touch your thumb to each fingertip in turn. Twice.\n- Lay your hand flat on the table and lift each finger, one at a time.\n- Gently bend your wrist up and down, then side to side. Five each way.\n\n## Through the day\n- Use both hands to lift a full kettle or pan.\n- Choose fat-grip pens and cutlery, and lever taps.\n- Rest your hands for a minute between jobs that grip, like gardening or knitting.\n\nA hand therapist (an occupational therapist who works with hands) can make splints for night-time and suggest tools. Ask your doctor about a referral.", "try": "Do the morning hand routine after your first warm drink tomorrow."}, "Knees": {"title": "Extra care for knees", "body": "Strong thigh muscles are the best friend a sore knee has. They take the load before it reaches the joint.\n\n## Knee routine, beside a chair\n- Seated knee straightening: straighten one leg, hold for five seconds, lower. Ten each side.\n- Thigh squeeze: sit with your leg straight out on a stool, press the back of your knee down, hold for five seconds. Ten each side.\n- Sit to stand: five to ten, using your hands if you need them.\n- Heel slides: lying on your bed, slide your heel toward you and back. Ten each side.\n\n## Through the day\n- On stairs, go up with the good leg first and down with the sore leg first. \"Up with the good, down with the bad.\"\n- Avoid kneeling on hard floors. Use a garden kneeler.\n- Sit in chairs that aren't too low, so standing up is easier.", "try": "Do the seated knee straightening while you watch TV tonight."}, "Hips": {"title": "Extra care for hips", "body": "Hips like to move in every direction, and stiffness creeps in when they only go forward and back all day.\n\n## Hip routine, beside a chair\n- Side leg lift: hold the chair back and lift one leg out to the side. Eight each side.\n- Back leg lift: hold the chair, keep your back straight, and lift one leg gently behind you. Eight each side.\n- Seated knee lift: sit tall and lift one knee toward your chest. Eight each side.\n- Bridge (on the bed): lie on your back, knees bent, and lift your bottom a little off the bed. Five times.\n\n## Through the day\n- A pillow between your knees at night eases hip ache.\n- Sit in a higher chair, or add a firm cushion, so your knees are lower than your hips.\n- Use a cane in the hand opposite the sore hip on longer walks.\n\nIf you've had a hip replaced, ask your physical therapist which moves are right for you before you start.", "try": "Try the pillow between your knees tonight, and the side leg lift tomorrow."}, "Back and neck": {"title": "Extra care for back and neck", "body": "A stiff back and neck often come from staying in one position too long, especially sitting.\n\n## Back and neck routine, seated\n- Shoulder rolls: five backward, five forward.\n- Chin tuck: sit tall and gently draw your chin back, as if making a double chin. Hold for three seconds. Five times.\n- Seated twist: hand on the opposite knee, turn gently, hold for a slow breath. Three each side.\n- Side bend: slide one hand down the side of the chair. Three each side.\n- Cat and cow, seated: round your back, then gently arch it. Five times.\n\n## Through the day\n- Change position every half hour. Stand, walk to the kitchen, sit again.\n- Hold your phone at eye level instead of looking down.\n- Carry bags in both hands, or use a wheeled bag.\n\nBack pain with numbness, weakness in a leg, or trouble with bladder or bowels needs a doctor the same day.", "try": "Set a reminder to stand up every half hour tomorrow afternoon."}}, "routines": [{"id": "bed", "name": "The before-you-get-up routine", "where": "In bed, then on the edge of the bed", "steps": [["Lie on your back and get comfortable. We'll go slowly.", 8], ["Ankle circles. Circle your right ankle slowly, five times each way.", 25], ["Now your left ankle. Five times each way.", 25], ["Ankle pumps. Point your toes, then pull them back toward you. Keep going, slowly.", 25], ["Knee slides. Slide your right heel up toward you, then back down. Five times.", 25], ["Now the left heel. Five slow slides.", 25], ["Roll onto your side and sit up on the edge of the bed. Take your time.", 15], ["Shoulder rolls. Roll both shoulders backward five times, then forward five times.", 25], ["Hand opening. Make a soft fist, then spread your fingers wide. Ten times.", 25], ["Gentle neck turns. Look over one shoulder, then the other. Stop before anything pinches.", 20], ["Well done. Stand up slowly, with a hand on something steady.", 8]]}, {"id": "chair", "name": "The chair routine", "where": "Beside a sturdy chair without wheels", "steps": [["Sit tall on a sturdy chair. Feet flat on the floor.", 8], ["Seated march. Lift one knee, then the other. Keep a slow, steady rhythm.", 45], ["Sit to stand. Stand up and sit back down slowly. Use your hands if you need them. Go at your own pace.", 40], ["Knee straightening, right leg. Straighten it, hold for five seconds, and lower. Keep going.", 40], ["Now the left leg. Straighten, hold for five, lower.", 40], ["Heel raises. Hold the chair back and rise onto your toes, then lower. Or lift your heels while sitting.", 30], ["Side leg lift. Hold the chair back and lift your right leg out to the side. Eight times.", 30], ["Now the left leg. Eight times.", 30], ["Hand opening and thumb touches. Soft fist, spread your fingers, then thumb to each fingertip.", 30], ["Finish with the 4-6 breath. In for four. Out for six. Three times.", 30], ["That's one round. Well done. Have a glass of water.", 8]]}, {"id": "balance", "name": "Balance at the counter", "where": "Standing at the kitchen counter, holding on", "steps": [["Stand at the kitchen counter and hold on with both hands.", 8], ["Feet close together. Stand tall and breathe. Hold this.", 20], ["Now one foot slightly in front of the other. Keep holding on.", 20], ["Swap feet. The other foot in front.", 20], ["Stand on your right foot, holding on with both hands. Just a few seconds is fine.", 12], ["Now your left foot.", 12], ["Both feet down. That's it for today. Nice and steady.", 8]]}, {"id": "wind", "name": "The evening wind-down", "where": "In a comfortable chair or on the edge of the bed", "steps": [["Sit comfortably. Let your shoulders drop.", 8], ["Shoulder lifts. Lift your shoulders toward your ears, hold, and let them fall. Five times.", 30], ["Gentle side bend. Slide one hand down the side of the chair and lean a little. Then the other side.", 30], ["Hand stretch. Spread your fingers wide on your lap, then relax them.", 25], ["The 4-6 breath. Breathe in through your nose for four.", 5], ["And out slowly for six.", 7], ["In for four.", 5], ["Out for six.", 7], ["In for four.", 5], ["Out for six. Good. Time for bed.", 8]]}], "tests": [{"id": "sts", "label": "Sit-to-stands in 30 seconds", "help": "Sit in a sturdy chair, arms crossed if you can (hands are fine if you need them). Count how many times you stand up fully in 30 seconds.", "unit": "times"}, {"id": "stiff", "label": "How long morning stiffness lasted", "help": "Tomorrow morning, notice roughly how long until you feel loosened up.", "unit": "minutes"}, {"id": "pain", "label": "Pain on an average day", "help": "0 means no pain, 10 means the worst you can imagine.", "unit": "out of 10"}, {"id": "walk", "label": "How long you can walk comfortably", "help": "Roughly, before you need to sit down.", "unit": "minutes"}], "ciq": ["What got a little easier this week?", "What was hard?", "One small thing for next week:"], "family": "If someone you love lives with stiff, sore joints, you've probably felt it too: wanting to help and not knowing how, or helping and getting it wrong.\n\n## What helps\n- Ask how today is, not how the arthritis is.\n- Offer one specific job: \"I'll carry the laundry up on Sundays.\" That's easier to accept than \"Let me know if you need anything.\"\n- Walk with them. Ten minutes together is more fun than ten minutes alone, and it counts.\n- Notice the small wins out loud. \"You got up from that chair easily.\"\n- Learn their flare-up plan, so you know what to do on a bad day without asking.\n\n## What doesn't help\n- Taking over jobs they still enjoy doing, even if they're slower at them.\n- Pushing supplements or miracle cures you saw online.\n- Comparing them with someone else's arthritis.\n- Telling them to rest all the time. Gentle movement is what helps.\n\n## When to step in\nCall their doctor, or help them call, if a joint is hot, red and very swollen, especially with a fever; after a fall; or if they can't put weight on a leg. Chest pain or trouble breathing: call 911.\n\n## For you\nCaring for someone is tiring. Take your own breaks, and let other family members share the jobs."};
+const KEY='hcprogram-v2';
+let S={done:{},days:{},checks:{},log:[],plan:{},flare:{},q:{},myq:'',sc:{},tests:{},ci:{},name:''};
+try{const s=localStorage.getItem(KEY);if(s)S=Object.assign(S,JSON.parse(s));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+const app=document.getElementById('app');
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function md(t){
+  return t.split(/\n\n+/).map(b=>{
+    if(b.startsWith('## ')){const [h,...r]=b.split('\n');return '<h3>'+esc(h.slice(3))+'</h3>'+(r.length?md(r.join('\n')):'');}
+    const lines=b.split('\n');
+    if(lines.every(l=>l.startsWith('- ')))return '<ul>'+lines.map(l=>'<li>'+esc(l.slice(2))+'</li>').join('')+'</ul>';
+    if(lines[0].startsWith('- ')===false && lines.slice(1).length && lines.slice(1).every(l=>l.startsWith('- ')))return '<p>'+esc(lines[0])+'</p><ul>'+lines.slice(1).map(l=>'<li>'+esc(l.slice(2))+'</li>').join('')+'</ul>';
+    return '<p>'+esc(b).replace(/\n/g,'<br>')+'</p>';
+  }).join('');
+}
+const ALL=[{id:'welcome',week:0}];
+D.weeks.forEach(w=>w.lessons.forEach(l=>ALL.push({id:l.id,week:w.n})));
+function find(id){if(id==='welcome')return {l:D.welcome,w:null};for(const w of D.weeks)for(const l of w.lessons)if(l.id===id)return {l,w};}
+function total(){return ALL.length}
+function doneCount(){return ALL.filter(a=>S.done[a.id]).length}
+function nextId(){const n=ALL.find(a=>!S.done[a.id]);return n?n.id:null}
+const CAN_EMBED=!/claude|anthropic/i.test(location.hostname);
+const PH={1:'images/w1.jpg',2:'images/w2.jpg',3:'images/w3.jpg',4:'images/w4.jpg',5:'images/w5.jpg',6:'images/w6.jpg',7:'images/w7.jpg',8:'images/w8.jpg'};
+let FS=S.fs||19;document.documentElement.style.fontSize=FS+'px';
+function setFS(d){FS=Math.max(17,Math.min(26,FS+d));S.fs=FS;save();document.documentElement.style.fontSize=FS+'px';}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),2600);}
+function confetti(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const cols=['#2F5D3A','#F5B04A','#A4482C','#8DB58F','#FFFFFF'];const P=Array.from({length:110},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.4,r:4+Math.random()*5,vx:-1.5+Math.random()*3,vy:2+Math.random()*3,c:cols[Math.random()*5|0],a:Math.random()*6}));let f=0;(function t(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=.1;x.fillStyle=p.c;x.beginPath();x.ellipse(p.x,p.y,p.r,p.r*.55,p.a,0,7);x.fill()});if(++f<150)requestAnimationFrame(t);else x.clearRect(0,0,c.width,c.height)})();}
+function sizer(){return `<div class="sizer noprint">Text size <button type="button" data-fs="-1" aria-label="Smaller text">A−</button><button type="button" data-fs="1" aria-label="Bigger text">A+</button></div>`}
+function bindSizer(){app.querySelectorAll('[data-fs]').forEach(b=>b.onclick=()=>setFS(+b.dataset.fs));}
+function stop(){try{speechSynthesis.cancel()}catch(e){}}
+function halt(){stop();if(typeof PT!=='undefined')clearInterval(PT);}
+
+const ICON=document.querySelector('header.top .logo').outerHTML;
+function welcome(){
+  stop();document.querySelectorAll('.fabplay').forEach(e=>e.remove());document.body.dataset.view='welcome';setDock(null);document.body.classList.add('hide-foot');closeMenu();document.querySelector('header.top').classList.add('hide');
+  app.innerHTML=`<div class="welcome fade"><div class="in">${ICON}
+  <h1>Welcome. We're so glad you're here.</h1>
+  <p>Living with sore joints is tiring, and some mornings it can feel like nobody quite gets it. This Program was made for exactly those mornings.</p>
+  <p>You don't have to fix everything. You only have to do one small thing today.</p>
+  <button class="btn light" id="wgo" type="button">${doneCount()?'Carry on where I left off':'Let\'s begin'}</button>
+  <p class="under" style="color:#E4E0D6">Eight weeks · one small step a day · go at your own pace</p></div></div>`;
+  window.scrollTo(0,0);S.seen=true;save();
+  document.getElementById('wgo').onclick=()=>doneCount()?home():overview();
+}
+function overview(){
+  stop();document.querySelectorAll('.fabplay').forEach(e=>e.remove());document.body.dataset.view='ov';setDock(null);document.body.classList.remove('hide-foot');closeMenu();document.querySelector('header.top').classList.remove('hide');
+  let h=`<div class="leafband"></div><div class="wrap fade ov"><p class="crumb">The Program</p>${sizer()}<h1>What the next eight weeks look like</h1>
+  <p>Each week has one aim and three short lessons. Each day has one tiny step. That's the whole idea: small things, done often, at a pace that suits your body.</p>
+  <h2>How a lesson works</h2><ul><li>Read it, or press "Read this to me" and listen.</li><li>Try one small task, often in a chair.</li><li>Watch a short video from a trusted health group.</li><li>Answer one quick question, then press "I did it." The next lesson opens.</li></ul>
+  <h2>Your eight weeks</h2><ul class="ovweeks">`;
+  D.weeks.forEach(w=>{h+=`<li><img src="${PH[w.n]}" alt=""><div><b>Week ${w.n}: ${esc(w.name)}</b><span>${esc(w.aim)}</span></div></li>`});
+  h+=`</ul><h2>Made for you</h2><ul><li>A 2-minute starting check sets your level (Gentle, Steady or Stronger) and adds an extra lesson for your hands, knees, hips or back.</li><li>"Do it with me" routines: press start and a calm voice talks you through each move, with a countdown.</li><li>Progress checks at the start, week 4 and week 8, and a one-page report for your doctor.</li><li>A short check-in at the end of each week.</li></ul><h2>Also inside</h2><ul><li>Your Toolkit: pain log, weekly planner, flare-up plan and doctor questions.</li><li>Printables: an 8-week wall calendar, a fridge card and your certificate at the end.</li><li>A guide for family members who want to help.</li><li>The Gentle Stretch app.</li></ul>
+  <div class="nav2"><button class="btn" id="ovgo" type="button">Start the Program</button></div><p class="disc">${esc(D.disclaimer)}</p></div>`;
+  app.innerHTML=h;window.scrollTo(0,0);bindSizer();
+  document.getElementById('ovgo').onclick=()=>S.track?lesson('welcome'):startCheck();
+}
+function openMenu(){
+  const nx=nextId();S.mopen=S.mopen||{start:true};
+  const sec=(key,title,count,inner)=>`<div class="msec ${S.mopen[key]?'open':''}" data-sec="${key}"><button class="mhead" type="button" aria-expanded="${!!S.mopen[key]}">${title}<span class="cnt">${count}</span><span class="ch" aria-hidden="true">›</span></button><div class="mbody"><div>${inner}</div></div></div>`;
+  const TK='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2F5D3A"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const row=l=>`<button class="plink ${S.done[l.id]?'done':''}" data-l="${l.id}" type="button"><span class="t">${S.done[l.id]?TK:''}</span><span>${esc(l.title)}${nx===l.id?' <small style="color:var(--rust)">· next</small>':''}</span>${hasVid(l)?VB:''}</button>`;
+  let start=`<button class="plink nav" data-m="welcome-page" type="button"><span class="t" aria-hidden="true"></span>Welcome page</button>
+  <button class="plink nav" data-m="overview" type="button"><span class="t" aria-hidden="true"></span>Program overview</button>
+  <button class="plink nav" data-m="home" type="button"><span class="t" aria-hidden="true"></span>My weeks and progress</button>
+  <button class="plink ${S.done.welcome?'done':''}" data-l="welcome" type="button"><span class="t">${S.done.welcome?TK:''}</span>Before you start</button>
+  <button class="plink nav" data-m="sc" type="button"><span class="t" aria-hidden="true"></span>${S.track?'Retake my starting check':'Take my starting check'}</button>
+  ${S.track?`<button class="plink nav" data-m="focus" type="button"><span class="t" aria-hidden="true"></span>My extra lesson</button>`:''}`;
+  let h=sec('start','Welcome','Start here',start);
+  D.weeks.forEach(w=>{const d=w.lessons.filter(l=>S.done[l.id]).length;h+=sec('w'+w.n,`Week ${w.n}: ${esc(w.name)}`,`${d}/3`,w.lessons.map(row).join(''))});
+  const tk=[['badges','My badges'],['routines','Do it with me'],['checks','My progress checks'],['report','My report for the doctor'],['safety','Safety rules'],['log','My pain log'],['plan','My weekly planner'],['flare','My flare-up plan'],['doctor','Questions for my doctor'],['calendar','8-week wall calendar'],['fridge','Fridge card'],['family','For family members'],['cert','My certificate']].map(([k,t])=>`<button class="plink nav" data-t="${k}" type="button"><span class="t" aria-hidden="true"></span>${t}</button>`).join('')+`<a class="plink nav" href="https://gentlerootz.com/app/" target="_blank" rel="noopener"><span class="t" aria-hidden="true"></span>Gentle Stretch app ↗</a>`;
+  h+=sec('tk','Toolkit','14 tools',tk);
+  h+=sec('set','Settings','',`<button class="plink nav" data-m="fx" type="button"><span class="t" aria-hidden="true"></span>Sounds and buzz: ${S.fx.sound||S.fx.buzz?'on':'off'}</button>`);
+  const pl=document.getElementById('plist');pl.innerHTML=h;
+  pl.querySelectorAll('.mhead').forEach(hb=>hb.onclick=()=>{const sc=hb.parentElement,k=sc.dataset.sec,on=!sc.classList.contains('open');sc.classList.toggle('open',on);hb.setAttribute('aria-expanded',on);S.mopen[k]=on;save();});
+  pl.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>swap(()=>lesson(b.dataset.l)));
+  pl.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>toolkit(b.dataset.t));
+  pl.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>b.dataset.m==='fx'?(()=>{const on=!(S.fx.sound||S.fx.buzz);S.fx={sound:on,buzz:on};save();openMenu();if(on)FX.good();})():({'welcome-page':welcome,overview,home,sc:startCheck,focus:focusLesson})[b.dataset.m]());
+  document.getElementById('panel').classList.add('on');document.getElementById('shade').classList.add('on');
+  document.getElementById('panel').setAttribute('aria-hidden','false');document.getElementById('menuBtn').setAttribute('aria-expanded','true');
+  document.getElementById('menuClose').focus();
+}
+function closeMenu(){const p=document.getElementById('panel');if(!p)return;p.classList.remove('on');document.getElementById('shade').classList.remove('on');p.setAttribute('aria-hidden','true');document.getElementById('menuBtn').setAttribute('aria-expanded','false');}
+
+const RMAP={w1b:'bed',w5b:'chair',w5c:'balance',w7a:'wind',w7b:'wind',w1a:'bed'};
+function trackOf(){return S.track||null}
+function startCheck(){
+  stop();document.querySelectorAll('.fabplay').forEach(e=>e.remove());document.body.dataset.view='sc';setDock(null);document.body.classList.remove('hide-foot');closeMenu();document.querySelector('header.top').classList.remove('hide');
+  let h=`<div class="leafband"></div><div class="wrap fade"><p class="crumb">Make it yours · about 2 minutes</p>${sizer()}<h1>Your starting check</h1>
+  <p>Five quick questions. Your answers set the right starting level for the moves, and add extra lessons for the part of you that bothers you most. You can take it again any time.</p>`;
+  D.sc.forEach(q=>{h+=`<div class="q"><p>${esc(q.q)}</p>${q.opts.map((o,i)=>`<button class="opt ${S.sc[q.id]===i?'sel':''}" data-q="${q.id}" data-i="${i}" type="button">${esc(o)}</button>`).join('')}</div>`});
+  h+=`<div class="nav2"><button class="btn" id="scgo" type="button">See my plan</button></div><p class="under" id="scmsg" aria-live="polite"></p><p class="disc">${esc(D.disclaimer)}</p></div>`;
+  app.innerHTML=h;window.scrollTo(0,0);bindSizer();
+  app.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{S.sc[b.dataset.q]=+b.dataset.i;save();b.parentElement.querySelectorAll('.opt').forEach(x=>x.classList.toggle('sel',x===b));});
+  document.getElementById('scgo').onclick=()=>{
+    if(D.sc.some(q=>S.sc[q.id]===undefined)){document.getElementById('scmsg').textContent='Please answer all five questions.';return;}
+    const sc=S.sc.stiff+S.sc.chair+S.sc.stand;
+    S.track=(S.sc.surgery===1||sc>=4)?'gentle':(sc<=1?'stronger':'regular');
+    S.focus=D.sc.find(q=>q.id==='focus').opts[S.sc.focus];S.surgery=S.sc.surgery===1;save();planPage();FX.good();setTimeout(checkBadges,400);
+  };
+}
+function planPage(){
+  stop();const t=D.tracks[S.track];
+  let h=`<div class="leafband"></div><div class="wrap fade"><p class="crumb">Your plan</p>${sizer()}<h1>Your plan: ${esc(t.name)}</h1>
+  <div class="card soft"><p style="margin:0">${esc(t.line)}</p></div>
+  ${S.surgery?`<div class="ver"><b>Because of your recent surgery</b>Please check with your surgeon or physical therapist before doing the moves, and bring the chair routine to show them. Until then, the walking, warmth, food and sleep lessons are all safe to start.</div>`:''}
+  <h2>What this changes</h2><ul><li>Lessons with moves show a "Your version" box with the right amount for you.</li><li>You get an extra lesson: <b>${esc(D.focus[S.focus].title)}</b>.</li><li>Your progress checks at the start, week 4 and week 8 show how far you've come.</li></ul>
+  <div class="nav2"><button class="btn" id="pc" type="button">Do my first progress check</button><button class="btn ghost" id="pl" type="button">Skip for now and start reading</button></div><p class="disc">${esc(D.disclaimer)}</p></div>`;
+  app.innerHTML=h;window.scrollTo(0,0);bindSizer();
+  document.getElementById('pc').onclick=()=>toolkit('checks');document.getElementById('pl').onclick=()=>lesson('welcome');
+}
+function focusLesson(){
+  stop();document.querySelectorAll('.fabplay').forEach(e=>e.remove());closeMenu();const f=D.focus[S.focus];if(!f){startCheck();return;}
+  app.innerHTML=`<div class="leafband"></div><div class="wrap fade"><p class="crumb">Your extra lesson</p>${sizer()}<h1>${esc(f.title)}</h1><div id="ltext"><div class="body">${md(f.body)}</div><div class="try"><b>Try this today</b>${esc(f.try)}</div></div>
+  <div class="nav2"><button class="btn" id="back" type="button">Back to my weeks</button></div><p class="disc">${esc(D.disclaimer)}</p></div>`;
+  window.scrollTo(0,0);bindSizer();document.getElementById('back').onclick=home;
+}
+let PT=null;
+function player(rid){
+  stop();document.querySelectorAll('.fabplay').forEach(e=>e.remove());document.body.dataset.view='player';setDock(null);document.body.classList.add('hide-foot');closeMenu();clearInterval(PT);const r=D.routines.find(x=>x.id===rid);let i=0,left=r.steps[0][1],paused=false,voice=S.voice!==false;
+  function speak(t){if(!voice||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.rate=.88;speechSynthesis.speak(u);}catch(e){}}
+  function draw(){const st=r.steps[i],tot=st[1],C=2*Math.PI*48;
+    app.querySelector('#pbody').innerHTML=`<p class="stepn">Step ${i+1} of ${r.steps.length}</p><div class="ring"><svg width="110" height="110"><circle cx="55" cy="55" r="48" stroke="rgba(255,255,255,.25)" stroke-width="8" fill="none"/><circle cx="55" cy="55" r="48" stroke="#F5B04A" stroke-width="8" fill="none" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-left/tot)}" stroke-linecap="round"/></svg><span>${left}</span></div><p class="say">${esc(st[0])}</p>`;}
+  function go(n){i=n;if(i>=r.steps.length){finish();return;}left=r.steps[i][1];draw();speak(r.steps[i][0]);}
+  function finish(){clearInterval(PT);stop();confetti();FX.win();toast('Routine done. Well done.');S.routines=(S.routines||0)+1;mark();setTimeout(()=>{home();},1200);}
+  app.innerHTML=`<div class="leafband"></div><div class="wrap fade"><p class="crumb">Do it with me · ${esc(r.where)}</p><h1>${esc(r.name)}</h1>
+  <p>Press start and follow along. Each step is read out and counts down. Pause whenever you need to. Skip anything that hurts.</p>
+  <div class="player"><div id="pbody"></div><div class="pctl"><button class="btn light" id="pp" type="button">▶ Start</button><button class="btn ghost" style="color:#fff;border-color:#fff" id="pn" type="button">Next step</button><button class="btn ghost" style="color:#fff;border-color:#fff" id="pb" type="button">Back a step</button><button class="btn ghost" style="color:#fff;border-color:#fff" id="pv" type="button">Voice: ${voice?'on':'off'}</button></div></div>
+  <div class="nav2"><button class="btn ghost" id="back" type="button">Stop and go back</button></div><p class="disc">${esc(D.disclaimer)}</p></div>`;
+  window.scrollTo(0,0);draw();paused=true;
+  const pp=document.getElementById('pp');
+  pp.onclick=()=>{if(paused){paused=false;pp.textContent='❚❚ Pause';if(left===r.steps[i][1])speak(r.steps[i][0]);clearInterval(PT);PT=setInterval(()=>{if(paused)return;left--;if(left<=0)go(i+1);else draw();},1000);}else{paused=true;pp.textContent='▶ Carry on';stop();}};
+  document.getElementById('pn').onclick=()=>go(i+1);
+  document.getElementById('pb').onclick=()=>go(Math.max(0,i-1));
+  document.getElementById('pv').onclick=e=>{voice=!voice;S.voice=voice;save();e.target.textContent='Voice: '+(voice?'on':'off');if(!voice)stop();};
+  document.getElementById('back').onclick=()=>{clearInterval(PT);home();};
+}
+
+function dueCheck(){const wk=D.weeks.filter(w=>w.lessons.every(l=>S.done[l.id])).length;const t=S.tests||{};
+  if(!t.start||!Object.keys(t.start).length)return ['start','your starting check'];
+  if(wk>=3&&(!t.w4||!Object.keys(t.w4).length))return ['w4','your week 4 check'];
+  if(wk>=8&&(!t.w8||!Object.keys(t.w8).length))return ['w8','your week 8 check'];return null;}
+function planCard(){
+  if(!S.track)return `<div class="plan"><h2>Make it yours</h2><p>Take the 2-minute starting check. It sets the right level for the moves and adds an extra lesson for the part of you that bothers you most.</p><button class="btn light" data-go="sc" type="button">Take my starting check</button></div>`;
+  const t=D.tracks[S.track],dc=dueCheck();
+  return `<div class="plan"><h2>Your plan</h2><div class="chips"><span class="chip">Level: ${esc(t.name)}</span><span class="chip">Focus: ${esc(S.focus)}</span></div>
+  ${dc?`<p>Time for ${dc[1]}. It takes about 3 minutes and shows how far you've come.</p><button class="btn light" data-go="checks" type="button">Do ${dc[1]}</button>`:''}
+  <button class="btn light" data-go="focus" type="button">My extra lesson: ${esc(D.focus[S.focus].title)}</button>
+  <button class="btn ghost" style="color:#fff;border-color:#fff" data-go="routines" type="button">Do it with me: follow-along routines</button></div>`;
+}
+
+function todayKey(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+function mark(){S.act=S.act||{};S.act[todayKey()]=1;save();}
+function daysShown(){return Object.keys(S.act||{}).length}
+function curWeek(){const nx=nextId();if(!nx||nx==='welcome')return D.weeks[0];return find(nx).w||D.weeks[0];}
+function todayStep(){const w=curWeek();const i=w.days.findIndex((d,k)=>!S.days[w.n+'-'+k]);return {w,i,txt:i<0?null:w.days[i]};}
+const QUOTES=[];D.weeks.forEach(w=>w.lessons.forEach(l=>QUOTES.push(l.open)));
+function foot(){
+  const f=document.getElementById('plum');const t=todayStep();const q=QUOTES[(new Date().getDate()+doneCount())%QUOTES.length];
+  f.innerHTML=`<div class="wrap"><p class="quote">${esc(q)}</p>
+  <div class="today"><b>Today's small step · Week ${t.w.n}</b><p class="what">${t.txt?'Day '+(t.i+1)+': '+esc(t.txt):'You ticked every step this week. Well done.'}</p>
+  ${t.txt?`<button class="btn light" id="fdone" type="button">✓ I did today's step</button>`:''}</div>
+  <p>Days you've shown up so far: <b style="color:#fff">${daysShown()}</b>. Missed a day? Nothing is lost. Just pick up where you left off.</p>
+  <p class="fine">${esc(D.disclaimer)}<br>Questions? Email <a href="mailto:hello@gentlerootz.com">hello@gentlerootz.com</a>. © Hinge Care</p></div>`;
+  const b=document.getElementById('fdone');if(b)b.onclick=()=>{S.days[t.w.n+'-'+t.i]=true;mark();erupt(b);toast('Step done. That counts.');foot();checkBadges();if(app.querySelector('.today-card'))setTimeout(home,800);};
+}
+function todayCard(){
+  const t=todayStep(),w=t.w;
+  return `<div class="today-card"><p class="lbl">Today</p><h2>${t.txt?esc(t.txt):'Every step this week is done'}</h2>
+  ${t.txt?`<button class="btn" id="tdone" type="button">✓ I did it</button>`:''}
+  <div class="dots" aria-label="This week's steps">${w.days.map((d,k)=>`<i class="${S.days[w.n+'-'+k]?'on':''} ${k===t.i?'now':''}" title="Day ${k+1}">${S.days[w.n+'-'+k]?'✓':''}</i>`).join('')}</div>
+  <div class="stat"><span>Week ${w.n} of 8</span><span>${doneCount()} of ${total()} lessons</span><span>${daysShown()} days shown up</span></div></div>`;
+}
+function swap(fn){if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.startViewTransition(fn)}else fn();}
+let onScrollFn=null;
+function setDock(html,cb){const d=document.getElementById('dock');if(!html){d.classList.remove('show');d.innerHTML='';onScrollFn=null;return;}d.innerHTML=html;d.querySelector('button').onclick=cb;
+  onScrollFn=()=>{const h=document.documentElement;const pct=h.scrollTop/(h.scrollHeight-h.clientHeight||1);d.classList.toggle('show',pct>.25&&pct<.92);};onScrollFn();}
+let lastY=0;addEventListener('scroll',()=>{const y=scrollY,hd=document.querySelector('header.top');if(!document.getElementById('panel').classList.contains('on')){if(y>lastY+6&&y>140)hd.classList.add('away');else if(y<lastY-6||y<60)hd.classList.remove('away');}lastY=y;},{passive:true});
+addEventListener('scroll',()=>{const h=document.documentElement,rb=document.getElementById('readbar');if(document.body.dataset.view==='lesson'){rb.style.width=Math.min(100,h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+'%';}else rb.style.width='0';if(onScrollFn)onScrollFn();},{passive:true});
+new MutationObserver(()=>{foot();}).observe(document.getElementById('app'),{childList:true});
+
+/* ---------- feel: sound, buzz, bursts ---------- */
+S.fx=S.fx||{sound:true,buzz:true};
+let AC=null;
+function tone(seq){if(!S.fx.sound)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const t0=AC.currentTime;seq.forEach(([f,at,dur,vol])=>{const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t0+at);g.gain.linearRampToValueAtTime(vol||.08,t0+at+.015);g.gain.exponentialRampToValueAtTime(.0001,t0+at+dur);o.connect(g);g.connect(AC.destination);o.start(t0+at);o.stop(t0+at+dur+.05);});}catch(e){}}
+function buzz(p){if(!S.fx.buzz)return;try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}}
+const FX={tap(){buzz(8);tone([[880,0,.05,.025]]);},
+  good(){buzz([15,30,15]);tone([[660,0,.12],[880,.08,.16]]);},
+  win(){buzz([20,40,20,40,60]);tone([[523,0,.18],[659,.1,.18],[784,.2,.2],[1047,.32,.35,.1]]);},
+  soft(){buzz(25);tone([[330,0,.15,.05]]);}};
+function burst(x,y,n){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const c=document.getElementById('confetti'),g=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const cols=['#6B3F86','#B79BC9','#F5B04A','#2F5D3A','#8DB58F'];
+  const P=Array.from({length:n||36},()=>{const a=Math.random()*Math.PI*2,v=3+Math.random()*6;return {x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-2,r:3+Math.random()*4,c:cols[Math.random()*5|0],life:1}});
+  (function t(){g.clearRect(0,0,c.width,c.height);let alive=false;P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.25;p.vx*=.97;p.life-=.022;if(p.life>0){alive=true;g.globalAlpha=Math.max(0,p.life);g.fillStyle=p.c;g.beginPath();g.arc(p.x,p.y,p.r,0,7);g.fill();}});g.globalAlpha=1;if(alive)requestAnimationFrame(t);else g.clearRect(0,0,c.width,c.height);})();}
+function burstAt(el,n){const r=el.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,n);}
+function plus(el,txt){const r=el.getBoundingClientRect(),d=document.createElement('div');d.className='xp';d.textContent=txt;d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top-6)+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),1000);}
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('.btn,.opt,.lrow,.plink,.navbtn,.vplay,.day input');if(b)FX.tap();},{passive:true});
+/* ---------- garden: one leaf per step ---------- */
+function leafCount(){return doneCount()+Object.values(S.days).filter(Boolean).length}
+function leafMax(){return total()+D.weeks.length*7}
+function stageOf(n,max){const f=n/max;return f<.12?1:f<.35?2:f<.6?3:f<.88?4:5}
+function garden(){
+  const n=leafCount(),max=leafMax(),seen=S.seenLeaves||0,st=stageOf(n,max),prev=stageOf(seen,max);
+  const imgs=[1,2,3,4,5].map(k=>`<img src="tree/s${k}.jpg" alt="" class="tstage ${k===st?'on':''} ${k===prev&&prev!==st?'was':''}" loading="${k===st?'eager':'lazy'}">`).join('');
+  const sprouts=Math.max(0,Math.min(6,n-seen));let sp='';for(let i=0;i<sprouts;i++){const x=34+Math.random()*32,y=18+Math.random()*30;sp+=`<span class="sprout" style="left:${x}%;top:${y}%;animation-delay:${.6+i*.25}s"></span>`;}
+  setTimeout(()=>{S.seenLeaves=n;save();},60);
+  const msg=n===0?'Every step you take grows a leaf. Let\'s grow the first one.':(n>=max?'Your tree is full. Look at what you grew.':`${max-n} leaves to go. Your tree changes as you reach each new stage.`);
+  const pct=Math.round(n/max*100);
+  return `<div class="garden"><p class="lbl">Your tree</p><h2>${n} of ${max} leaves</h2><div class="tree" role="img" aria-label="Your tree, stage ${st} of 5, with ${n} of ${max} leaves">${imgs}${sp}</div>
+  <div class="tbar" aria-hidden="true"><i style="width:${pct}%"></i>${[12,35,60,88].map(t=>`<b style="left:${t}%" class="${pct>=t?'hit':''}"></b>`).join('')}</div>
+  <p class="under" style="margin:6px 0 0">${msg}</p></div>`;
+}
+/* ---------- badges ---------- */
+const BADGES=[
+ ['start','🌱','First leaf','You took your first step.',()=>leafCount()>=1],
+ ['lesson1','📖','First lesson','You finished your first lesson.',()=>D.weeks.some(w=>w.lessons.some(l=>S.done[l.id]))],
+ ['plan','🧭','Made it yours','You set your own plan.',()=>!!S.track],
+ ['days3','☀️','Three mornings','You showed up on 3 different days.',()=>daysShown()>=3],
+ ['routine','🎵','Moved with me','You finished a follow-along routine.',()=>(S.routines||0)>=1],
+ ['week1','🥇','Week 1 done','The first hour of the day, done.',()=>D.weeks[0].lessons.every(l=>S.done[l.id])],
+ ['days7','🔥','Seven mornings','You showed up on 7 different days.',()=>daysShown()>=7],
+ ['check','📏','Measured','You did a progress check.',()=>!!(S.tests&&S.tests.start&&Object.keys(S.tests.start).length)],
+ ['half','⛰️','Halfway','Four weeks done. Look back at week 1.',()=>D.weeks.slice(0,4).every(w=>w.lessons.every(l=>S.done[l.id]))],
+ ['days21','🌳','Three weeks of showing up','21 different days. That\'s a habit.',()=>daysShown()>=21],
+ ['all','🏆','Eight weeks','You finished The Hinge Care Program.',()=>ALL.every(a=>S.done[a.id])],
+];
+let celeQ=[];
+function checkBadges(){S.badges=S.badges||{};if(document.getElementById('cele').classList.contains('on'))return;const b=BADGES.find(x=>!S.badges[x[0]]&&x[4]());if(!b)return;S.badges[b[0]]=todayKey();save();celeQ=[b];showCele();}
+function showCele(){const b=celeQ.shift();if(!b)return;const c=document.getElementById('cele');document.getElementById('celeI').textContent=b[1];document.getElementById('celeT').textContent=b[2];document.getElementById('celeP').textContent=b[3];
+  c.classList.add('on');FX.win();setTimeout(()=>burst(innerWidth/2,innerHeight/2-60,70),150);document.getElementById('celeB').focus();}
+document.getElementById('celeB').onclick=()=>{document.getElementById('cele').classList.remove('on');};
+
+/* volcano: rumble then erupt upward */
+function erupt(el){if(!el)return;el.classList.remove('rumble');void el.offsetWidth;el.classList.add('rumble');buzz([10,25,10,25,10,25,40]);tone([[180,0,.3,.05],[220,.1,.25,.04]]);
+  setTimeout(()=>{const r=el.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;buzz([30,40,60]);tone([[523,0,.12],[784,.08,.22,.09]]);
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    for(let i=0;i<2;i++){const d=document.createElement('div');d.className='ripple';d.style.left=x+'px';d.style.top=y+'px';d.style.animationDelay=(i*.15)+'s';document.body.appendChild(d);setTimeout(()=>d.remove(),1100);}
+    const lf=document.createElement('div');lf.className='leaffly';lf.style.left=x+'px';lf.style.top=y+'px';lf.innerHTML='<svg viewBox="-12 -24 24 26"><defs><linearGradient id="lfg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FC173"/><stop offset="1" stop-color="#2F6B3A"/></linearGradient></defs><path d="M0 0 C9 -6 10 -16 0 -23 C-10 -16 -9 -6 0 0Z" fill="url(#lfg)"/><path d="M0 -1 L0 -21" stroke="rgba(255,255,255,.55)" stroke-width="1" fill="none"/></svg>';document.body.appendChild(lf);setTimeout(()=>lf.remove(),1400);
+  },480);}
+function hasVid(l){return !!l.watch&&(Array.isArray(l.watch)?l.watch:[l.watch]).some(v=>v.yt||/youtube/.test(v.url||''))}
+const VB=`<span class="vbadge" aria-label="Has a video" title="Has a video"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>`;
+
+function home(){
+  halt();document.querySelectorAll('.fabplay').forEach(e=>e.remove());document.querySelector('header.top').classList.remove('away');document.body.dataset.view='home';setDock(null);document.body.classList.remove('hide-foot');closeMenu();document.querySelector('header.top').classList.remove('hide');
+  const d=doneCount(),t=total(),pct=Math.round(d/t*100),nx=nextId();
+  let label=nx?(nx==='welcome'?'Start here':'Carry on: '+find(nx).l.title):'Look back over your eight weeks';
+  let h=`<div class="cover"><div class="wrap">
+  <span class="kicker">The Hinge Care Program</span>
+  <h1>Eight weeks. One small step a day.</h1>
+  <p>For the mornings when getting going is the hardest part. Go at your own pace. Nothing here expires.</p>
+  <div class="bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="Lessons finished"><i style="width:${pct}%"></i></div>
+  <p class="barlabel">${d} of ${t} lessons done</p>
+  <button class="btn light" id="go" type="button">${esc(label)}</button>
+  <p class="under">Every move has a seated version. Stop if anything feels sharp.</p>
+  </div></div>
+  <section class="fade"><div class="wrap">${sizer()}
+  ${todayCard()}
+  ${garden()}
+  ${planCard()}
+  <button class="lrow ${S.done.welcome?'done':''}" data-l="welcome" type="button"><span class="tick">${S.done.welcome?'✓':''}</span><span>Before you start<small>Read this first. About 3 minutes.</small></span></button>
+  <h2 style="margin-top:22px">Your eight weeks</h2>`;
+  D.weeks.forEach(w=>{
+    const wd=w.lessons.every(l=>S.done[l.id]);
+    const open=nx&&find(nx).w&&find(nx).w.n===w.n;
+    h+=`<details class="week" ${open?'open':''}><summary><div class="wphoto" style="background-image:url('${PH[w.n]}')"><span class="wnum ${wd?'done':''}">${wd?'✓':w.n}</span></div><div class="wrow"><span class="wtitle"><b>Week ${w.n}: ${esc(w.name)}</b><span>${w.lessons.filter(l=>S.done[l.id]).length} of 3 lessons done</span><div class="mini"><i style="width:${Math.round(w.lessons.filter(l=>S.done[l.id]).length/3*100)}%"></i></div></span><span class="chev" aria-hidden="true">›</span></div></summary>
+    <div class="wbody"><p class="aim">${esc(w.aim)}</p>`;
+    w.lessons.forEach((l,i)=>{h+=`<button class="lrow ${S.done[l.id]?'done':''}" data-l="${l.id}" type="button"><span class="tick">${S.done[l.id]?'✓':''}</span><span>${esc(l.title)}<small>Lesson ${i+1} of 3${hasVid(l)?' · video':''}</small></span>${hasVid(l)?VB:''}</button>`});
+    h+=`<div class="days"><h3>One small step a day</h3>`;
+    w.days.forEach((dy,i)=>{const k=w.n+'-'+i;h+=`<label class="day"><input type="checkbox" data-d="${k}" ${S.days[k]?'checked':''}><span><b>Day ${i+1}.</b> ${esc(dy)}</span></label>`});
+    if(w.lessons.every(l=>S.done[l.id])){const c=S.ci[w.n]||{};h+=`<div class="days ci"><h3>Week ${w.n} check-in</h3>`;D.ciq.forEach((q,qi)=>{h+=`<div class="field"><label for="ci${w.n}-${qi}">${esc(q)}</label><textarea id="ci${w.n}-${qi}" data-ci="${w.n}-${qi}">${esc(c[qi]||'')}</textarea></div>`});h+=`<p class="under">Saved on this device, and added to your report for the doctor.</p></div>`;}
+    h+=`</div></div></details>`;
+  });
+  h+=`<h2 style="margin-top:26px">Your Toolkit</h2>
+  <button class="lrow" data-t="safety" type="button"><span class="tick" aria-hidden="true"></span><span>Safety rules<small>Keep these in mind every day</small></span></button>
+  <button class="lrow" data-t="log" type="button"><span class="tick" aria-hidden="true"></span><span>My pain log<small>One number a day, so you can see change</small></span></button>
+  <button class="lrow" data-t="plan" type="button"><span class="tick" aria-hidden="true"></span><span>My weekly planner<small>Plan your walks and chair routines</small></span></button>
+  <button class="lrow" data-t="flare" type="button"><span class="tick" aria-hidden="true"></span><span>My flare-up plan<small>Fill it in on a good day, use it on a bad one</small></span></button>
+  <button class="lrow" data-t="doctor" type="button"><span class="tick" aria-hidden="true"></span><span>Questions for my doctor<small>Bring this to your next visit</small></span></button>
+  <button class="lrow" data-t="badges" type="button"><span class="tick" aria-hidden="true"></span><span>My badges<small>${Object.keys(S.badges||{}).length} of ${BADGES.length} earned</small></span></button>
+  <button class="lrow" data-t="routines" type="button"><span class="tick" aria-hidden="true"></span><span>Do it with me<small>Follow-along routines with a calm voice and a countdown</small></span></button>
+  <button class="lrow" data-t="checks" type="button"><span class="tick" aria-hidden="true"></span><span>My progress checks<small>At the start, week 4 and week 8</small></span></button>
+  <button class="lrow" data-t="report" type="button"><span class="tick" aria-hidden="true"></span><span>My report for the doctor<small>One printable page with your progress</small></span></button>
+  <button class="lrow" data-t="calendar" type="button"><span class="tick" aria-hidden="true"></span><span>8-week wall calendar<small>Print it and tick the boxes</small></span></button>
+  <button class="lrow" data-t="fridge" type="button"><span class="tick" aria-hidden="true"></span><span>Fridge card<small>The safety rules and red flags on one card</small></span></button>
+  <button class="lrow" data-t="family" type="button"><span class="tick" aria-hidden="true"></span><span>For family members<small>How to help without taking over</small></span></button>
+  <button class="lrow" data-t="cert" type="button"><span class="tick" aria-hidden="true"></span><span>My certificate<small>Yours when you finish all eight weeks</small></span></button>
+  <a class="lrow" href="https://gentlerootz.com/app/" target="_blank" rel="noopener"><span class="tick" aria-hidden="true"></span><span>Gentle Stretch app<small>Chair routines with a calm voice. Opens in a new tab.</small></span></a>
+  <p class="disc">${esc(D.disclaimer)}<br>Questions? Email hello@gentlerootz.com and a real person will reply.</p>
+  </div></section>`;
+  app.innerHTML=h;window.scrollTo(0,0);setTimeout(checkBadges,600);
+  const td=document.getElementById('tdone');if(td)td.onclick=()=>{const t=todayStep();S.days[t.w.n+'-'+t.i]=true;mark();const dot=app.querySelectorAll('.dots i')[t.i];if(dot){dot.classList.add('on');dot.textContent='✓';}erupt(dot||td);toast('Step done. That counts.');setTimeout(home,1500);};
+  bindSizer();document.getElementById('go').onclick=()=>nx?lesson(nx):toolkit('log');
+  app.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>swap(()=>lesson(b.dataset.l)));
+  app.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>toolkit(b.dataset.t));
+  app.querySelectorAll('[data-d]').forEach(c=>c.onchange=()=>{S.days[c.dataset.d]=c.checked;if(c.checked){mark();erupt(c);setTimeout(checkBadges,900);}save();foot();});
+  app.querySelectorAll('[data-ci]').forEach(c=>c.oninput=()=>{const [n,q]=c.dataset.ci.split('-');S.ci[n]=S.ci[n]||{};S.ci[n][q]=c.value;save();});
+  app.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>({sc:startCheck,checks:()=>toolkit('checks'),focus:focusLesson,routines:()=>toolkit('routines')})[b.dataset.go]());
+}
+
+function ytId(u){const m=u.match(/youtube\.com\/watch\?v=([\w-]{6,})/);return m?m[1]:null}
+
+function lesson(id){
+  halt();document.querySelector('header.top').classList.remove('away');document.body.dataset.view='lesson';document.body.classList.remove('hide-foot');closeMenu();document.querySelector('header.top').classList.remove('hide');
+  const {l,w}=find(id);const idx=ALL.findIndex(a=>a.id===id);const nxt=ALL[idx+1];
+  let crumb=w?`Week ${w.n}: ${esc(w.name)} · Lesson ${w.lessons.indexOf(l)+1} of 3`:'Start here';
+  let h=w?`<div class="lphoto" role="img" aria-label="" style="background-image:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 35%),url('${PH[w.n]}')"></div><div class="wrap fade">`:`<div class="leafband"></div><div class="wrap fade">`;
+  h+=`<p class="crumb">${crumb}</p>${sizer()}<h1>${esc(l.title)}</h1>
+  <div class="read"><button class="btn ghost" id="readBtn" type="button">▶ Read this to me</button></div>
+  <div id="ltext"><p class="open">${esc(l.open)}</p><div class="body">${md(l.body)}</div>
+  ${D.ver[id]&&S.track?`<div class="ver"><b>Your version (${esc(D.tracks[S.track].name)})</b>${esc(D.ver[id][S.track])}</div>`:(D.ver[id]?`<div class="ver"><b>Your version</b>Take the 2-minute starting check and this box will show the right amount for you.</div>`:'')}
+  <div class="try"><b>Try this today</b>${esc(l.try)}</div></div>
+  ${RMAP[id]?`<div class="nav2" style="margin-top:0"><button class="btn ghost" data-rt="${RMAP[id]}" type="button">▶ Do it with me: ${esc(D.routines.find(r=>r.id===RMAP[id]).name)}</button></div>`:''}`;
+  if(l.watch){
+    const list=Array.isArray(l.watch)?l.watch:[l.watch];
+    h+=`<h3>${list.length>1?'Watch with us':'Watch'}</h3>`;
+    let barb=false;
+    list.forEach((v,vi)=>{
+      const y=v.yt||ytId(v.url||'');
+      if(y){
+        if(v.barb)barb=true;
+        h+=`<div class="vcard">${v.what?`<p class="vlen">${esc(v.len||'')}</p>`:''}<b class="vt">${esc(v.label)}</b>
+        ${v.what?`<p><strong>What it is:</strong> ${esc(v.what)}</p><p><strong>Why you'd watch it:</strong> ${esc(v.why)}</p>`:''}
+        <button class="vplay" type="button" data-yt="${y}" aria-label="Play ${esc(v.label)}"><span class="pbtn" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span>Play</span></button>
+        <p class="under">From ${esc(v.src)}</p></div>`;
+      } else h+=`<a class="watch" href="${v.url}" target="_blank" rel="noopener"><b>${esc(v.label)} ↗</b><small>From ${esc(v.src)}. Opens their page in a new tab.</small></a>`;
+    });
+    if(barb)h+=`<p class="bnote">${esc(D.barb)}</p>`;
+  }
+  if(l.check){
+    const c=l.check,ans=S.checks[id];
+    h+=`<div class="check"><h3>Quick check</h3><p>${esc(c.q)}</p>`;
+    c.opts.forEach((o,i)=>{let cls=ans!==undefined?(i===c.a?'right':(i===ans?'wrong':'')):'';h+=`<button class="opt ${cls}" data-o="${i}" type="button">${esc(o)}</button>`});
+    h+=`<p class="why" id="why" aria-live="polite">${ans!==undefined?esc(ans===c.a?c.why:'Not quite. '+c.why.replace(/^(Right|Yes)\.\s*/,'')):''}</p></div>`;
+  }
+  if(nxt&&nxt.id!=='welcome'){const nf=find(nxt.id);h+=`<h3 style="margin-top:26px">Up next</h3><button class="upnext" id="upn" type="button"><img src="${PH[nf.w.n]}" alt=""><span><small>Week ${nf.w.n} · ${esc(nf.w.name)}</small><b>${esc(nf.l.title)}</b></span></button>`;}
+  h+=`<div class="nav2"><button class="btn" id="did" type="button">${S.done[id]?'✓ Done. Go to the next lesson':'I did it'}</button>
+  <button class="btn ghost" id="back" type="button">Back to my weeks</button></div>
+  <p class="disc">${esc(D.disclaimer)}</p></div>`;
+  app.innerHTML=h;window.scrollTo(0,0);
+  document.querySelectorAll('.fabplay').forEach(e=>e.remove());
+  if(hasVid(l)){const vc=(Array.isArray(l.watch)?l.watch:[l.watch]).filter(v=>v.yt||/youtube/.test(v.url||'')).length;const f=document.createElement('button');f.className='fabplay noprint';f.type='button';f.setAttribute('aria-label','Jump to the video');f.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>'+(vc>1?'<span>'+vc+'</span>':'');f.onclick=()=>{const v=app.querySelector('.vcard,.vid');if(v){v.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>{const pb=v.querySelector('.vplay');if(pb){pb.classList.add('rumble');setTimeout(()=>pb.classList.remove('rumble'),600);}},600);}};document.body.appendChild(f);}
+  app.querySelectorAll('[data-rt]').forEach(b=>b.onclick=()=>player(b.dataset.rt));
+  app.querySelectorAll('[data-yt]').forEach(b=>b.onclick=()=>{stop();const d=document.createElement('div');d.className='vid';d.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;b.replaceWith(d);});
+  app.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{const ok=+b.dataset.o===l.check.a;S.checks[id]=+b.dataset.o;save();const y=scrollY;lesson(id);scrollTo(0,y);const nb=app.querySelector('[data-o="'+b.dataset.o+'"]');if(ok){FX.good();burstAt(nb,30);}else FX.soft();});
+  const didFn=()=>{const first=!S.done[id];S.done[id]=true;mark();save();setDock(null);try{first&&navigator.vibrate&&navigator.vibrate([20,40,20])}catch(e){}
+    if(first){erupt(document.getElementById('did'));setTimeout(()=>{confetti();FX.win();},450);const wk=w&&w.lessons.every(x=>S.done[x.id]);toast(wk?('Week '+w.n+' done. Look how far you\'ve come.'):(nxt?'Lesson done. Nice work.':'You finished all eight weeks.'));}
+    setTimeout(()=>{swap(()=>{nxt?lesson(nxt.id):home();});setTimeout(checkBadges,500);},first?1400:0);};
+  document.getElementById('did').onclick=didFn;
+  if(!S.done[id])setDock(`<button class="btn" type="button">✓ I did it</button>`,didFn);else setDock(null);
+  const upn=document.getElementById('upn');if(upn)upn.onclick=()=>swap(()=>lesson(nxt.id));
+  bindSizer();
+  document.getElementById('back').onclick=home;
+  const rb=document.getElementById('readBtn');
+  if(!('speechSynthesis' in window)){rb.classList.add('hide')}else{
+    rb.onclick=()=>{if(speechSynthesis.speaking){stop();rb.textContent='▶ Read this to me';return;}
+      const u=new SpeechSynthesisUtterance(document.getElementById('ltext').innerText);u.rate=.9;u.onend=()=>rb.textContent='▶ Read this to me';speechSynthesis.speak(u);rb.textContent='■ Stop reading';};
+  }
+}
+
+function toolkit(which){
+  halt();document.querySelectorAll('.fabplay').forEach(e=>e.remove());document.querySelector('header.top').classList.remove('away');document.body.dataset.view='tk';setDock(null);document.body.classList.remove('hide-foot');closeMenu();document.querySelector('header.top').classList.remove('hide');
+  const T=D.toolkit;let h=`<div class="leafband"></div><div class="wrap tk fade"><p class="crumb">Your Toolkit</p>${sizer()}`;
+  if(which==='safety'){h+=`<h1>Safety rules</h1><div class="card"><ul>${T.safety.map(s=>'<li>'+esc(s)+'</li>').join('')}</ul></div>`;}
+  if(which==='log'){
+    h+=`<h1>My pain log</h1><p>Each evening, write one number from 0 (no pain) to 10 (the worst you can imagine). Add a few words if something stood out. Over the weeks, you'll see the pattern.</p><div class="card"><table class="log"><thead><tr><th>Date</th><th>Pain 0–10</th><th>Note</th></tr></thead><tbody>`;
+    const rows=Math.max(S.log.length+3,7);
+    for(let i=0;i<rows;i++){const r=S.log[i]||{};h+=`<tr><td><input type="date" data-r="${i}" data-k="d" value="${r.d||''}" aria-label="Date"></td><td><input type="number" min="0" max="10" inputmode="numeric" data-r="${i}" data-k="n" value="${r.n??''}" aria-label="Pain number"></td><td><input type="text" data-r="${i}" data-k="t" value="${esc(r.t||'')}" aria-label="Note"></td></tr>`}
+    h+=`</tbody></table><p class="saved" id="sv"></p></div>`;
+  }
+  if(which==='plan'){
+    const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+    h+=`<h1>My weekly planner</h1><p>Write what you'll do each day: a walk, the chair routine, a warm compress, a rest day. Keep it small. A so-so day is your guide, not your best day.</p><div class="card">`;
+    days.forEach(dy=>{h+=`<div class="field"><label for="p-${dy}">${dy}</label><input id="p-${dy}" data-p="${dy}" value="${esc(S.plan[dy]||'')}"></div>`});
+    h+=`<p class="saved" id="sv"></p></div>`;
+  }
+  if(which==='flare'){
+    h+=`<h1>My flare-up plan</h1><p>Fill this in on a good day. On a bad day, you won't have to think. Print it and put it on the fridge.</p><div class="card">`;
+    T.flare.forEach((f,i)=>{h+=`<div class="field"><label for="f${i}">${esc(f)}</label><textarea id="f${i}" data-f="${i}">${esc(S.flare[i]||'')}</textarea></div>`});
+    h+=`<p>On a bad day: do about half as much, use heat or a wrapped cold pack, do the 4-6 breath, and build back up over a few days. Call your doctor if it isn't settling after a week, or today for a hot, very swollen joint, a fall, or new numbness or weakness.</p><p class="saved" id="sv"></p></div>`;
+  }
+  if(which==='doctor'){
+    h+=`<h1>Questions for my doctor</h1><p>Tick the ones you want to ask, and add your own. Bring your pain log and a list of every medicine, cream and supplement you take.</p><div class="card">`;
+    T.questions.forEach((q,i)=>{h+=`<label class="day"><input type="checkbox" data-q="${i}" ${S.q[i]?'checked':''}><span>${esc(q)}</span></label>`});
+    h+=`<div class="field" style="margin-top:14px"><label for="myq">My own questions</label><textarea id="myq">${esc(S.myq||'')}</textarea></div><p class="saved" id="sv"></p></div>`;
+  }
+  if(which==='badges'){S.badges=S.badges||{};const got=BADGES.filter(b=>S.badges[b[0]]).length;h+=`<h1>My badges</h1><p>${got} of ${BADGES.length} earned. Every one comes from something real you did for your joints.</p><div class="badges">${BADGES.map(b=>`<div class="badge ${S.badges[b[0]]?'':'locked'}"><div class="ic">${S.badges[b[0]]?b[1]:'?'}</div><b>${esc(b[2])}</b><small>${esc(b[3])}</small></div>`).join('')}</div>`;}
+  if(which==='routines'){
+    h+=`<h1>Do it with me</h1><p>Press a routine and follow along. A calm voice reads each step and a countdown shows how long to keep going. Pause any time, and skip anything that hurts.</p>`;
+    D.routines.forEach(r=>{h+=`<button class="lrow" data-rt="${r.id}" type="button"><span class="tick" aria-hidden="true">▶</span><span>${esc(r.name)}<small>${esc(r.where)} · ${r.steps.length} steps</small></span></button>`});
+  }
+  if(which==='checks'){
+    const cols=[['start','Start'],['w4','Week 4'],['w8','Week 8']];
+    h+=`<h1>My progress checks</h1><p>Do these three times: now, at the end of week 4 and at the end of week 8. They take about three minutes. Don't push to get a better number. Just notice where you are.</p><div class="card"><table class="tests"><thead><tr><th>Check</th>${cols.map(c=>'<th>'+c[1]+'</th>').join('')}</tr></thead><tbody>`;
+    D.tests.forEach(t=>{h+=`<tr><td><b>${esc(t.label)}</b><br><small style="color:var(--soft)">${esc(t.help)}</small></td>${cols.map(c=>`<td><input type="number" min="0" inputmode="numeric" data-tc="${c[0]}" data-tt="${t.id}" value="${((S.tests||{})[c[0]]||{})[t.id]??''}" aria-label="${esc(t.label)}, ${c[1]}" placeholder="${esc(t.unit)}"></td>`).join('')}</tr>`});
+    h+=`</tbody></table><p class="saved" id="sv"></p></div><p>Every move in the sit-to-stand check can be done with your hands on the armrests. Stop if anything feels sharp.</p>`;
+  }
+  if(which==='report'){
+    const t=S.tests||{},nm=S.name||'';const avg=a=>a.length?(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1):'–';
+    const nums=(S.log||[]).filter(r=>r&&r.n!==''&&r.n!==undefined).map(r=>+r.n);const first=nums.slice(0,7),last=nums.length>7?nums.slice(-7):[];
+    h+=`<h1>My report for the doctor</h1><div class="field noprint"><label for="nm">My name</label><input id="nm" value="${esc(nm)}"></div><div class="card">
+    <h2>${esc(nm||'My')} progress, The Hinge Care Program</h2><p>Level: ${S.track?esc(D.tracks[S.track].name):'not set'} · Focus: ${esc(S.focus||'not set')} · Lessons done: ${doneCount()} of ${total()}</p>
+    <table class="tests"><thead><tr><th>Check</th><th>Start</th><th>Week 4</th><th>Week 8</th></tr></thead><tbody>${D.tests.map(x=>`<tr><td>${esc(x.label)} (${esc(x.unit)})</td><td>${(t.start||{})[x.id]??'–'}</td><td>${(t.w4||{})[x.id]??'–'}</td><td>${(t.w8||{})[x.id]??'–'}</td></tr>`).join('')}</tbody></table>
+    <p style="margin-top:14px"><b>Pain log:</b> average ${avg(first)} in the first week of entries${last.length?`, ${avg(last)} in the most recent week`:''}.</p>
+    <h3>Weekly notes</h3>${Object.keys(S.ci||{}).length?Object.entries(S.ci).map(([n,c])=>`<p><b>Week ${n}:</b> ${esc(c[0]||'')} ${c[1]?' · Hard: '+esc(c[1]):''}</p>`).join(''):'<p>No check-ins yet.</p>'}
+    <h3>Questions I want to ask</h3><ul>${D.toolkit.questions.filter((q,i)=>S.q[i]).map(q=>'<li>'+esc(q)+'</li>').join('')}${S.myq?'<li>'+esc(S.myq)+'</li>':''}</ul>
+    <p class="under">Made with The Hinge Care Program. General wellness information, not a medical record.</p></div>`;
+  }
+  if(which==='calendar'){
+    h+=`<h1>My 8-week wall calendar</h1><p>Print this and put it somewhere you'll see it every morning. Tick each day's small step.</p><div class="card"><table class="cal"><thead><tr><th>Week</th>${[1,2,3,4,5,6,7].map(d=>'<th>Day '+d+'</th>').join('')}</tr></thead><tbody>${D.weeks.map(w=>`<tr><th>${w.n}<br>${esc(w.name)}</th>${w.days.map(d=>'<td>☐ '+esc(d)+'</td>').join('')}</tr>`).join('')}</tbody></table></div>`;
+  }
+  if(which==='fridge'){
+    h+=`<h1>Fridge card</h1><div class="fridge"><h2>My joint-care rules</h2><ul>${D.toolkit.safety.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul><p><b>On a bad day:</b> half as much, heat or a wrapped cold pack, the 4-6 breath, then build back up.</p></div>`;
+  }
+  if(which==='family'){h+=`<h1>For family members</h1><div class="body">${md(D.family)}</div>`;}
+  if(which==='cert'){
+    const all=ALL.every(a=>S.done[a.id]);
+    h+=`<h1>My certificate</h1>`+(all?`<div class="cert"><p>This certifies that</p><div class="nm">${esc(S.name||'Your name')}</div><h1>finished The Hinge Care Program</h1><p>Eight weeks of small steps for kinder mornings.</p><p class="under">${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})} · Hinge Care</p></div><div class="field noprint" style="margin-top:14px"><label for="nm">Name on the certificate</label><input id="nm" value="${esc(S.name||'')}"></div>`:`<div class="card soft"><p style="margin:0">Your certificate appears here when you finish all ${total()} lessons. You've done ${doneCount()} so far. Keep going, one small step at a time.</p></div>`);
+  }
+  h+=`<div class="nav2"><button class="btn ghost" type="button" onclick="window.print()">Print this page</button><button class="btn" id="back" type="button">Back to my weeks</button></div><p class="disc">${esc(D.disclaimer)}</p></div>`;
+  app.innerHTML=h;window.scrollTo(0,0);
+  const sv=()=>{save();const e=document.getElementById('sv');if(e){e.textContent='Saved on this device.';}};
+  app.querySelectorAll('[data-r]').forEach(i=>i.oninput=()=>{const r=+i.dataset.r;S.log[r]=S.log[r]||{};S.log[r][i.dataset.k]=i.value;sv();});
+  app.querySelectorAll('[data-p]').forEach(i=>i.oninput=()=>{S.plan[i.dataset.p]=i.value;sv();});
+  app.querySelectorAll('[data-f]').forEach(i=>i.oninput=()=>{S.flare[i.dataset.f]=i.value;sv();});
+  app.querySelectorAll('[data-q]').forEach(i=>i.onchange=()=>{S.q[i.dataset.q]=i.checked;sv();});
+  const mq=document.getElementById('myq');if(mq)mq.oninput=()=>{S.myq=mq.value;sv();};
+  app.querySelectorAll('[data-tc]').forEach(i=>i.oninput=()=>{S.tests=S.tests||{};S.tests[i.dataset.tc]=S.tests[i.dataset.tc]||{};S.tests[i.dataset.tc][i.dataset.tt]=i.value;sv();});
+  app.querySelectorAll('[data-rt]').forEach(b=>b.onclick=()=>player(b.dataset.rt));
+  const nmi=document.getElementById('nm');if(nmi)nmi.onchange=()=>{S.name=nmi.value;save();toolkit(which);};
+  bindSizer();document.getElementById('back').onclick=home;
+}
+document.getElementById('menuBtn').onclick=openMenu;
+document.getElementById('menuClose').onclick=closeMenu;
+document.getElementById('shade').onclick=closeMenu;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+document.querySelector('header.top .brand').style.cursor='pointer';document.querySelector('header.top .brand').onclick=home;
+welcome();
+</script>
+</body>
+</html>
