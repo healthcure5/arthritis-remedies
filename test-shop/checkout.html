@@ -2,8 +2,8 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
 <title>Test checkout | Hinge Care (test store)</title>
 <link rel="icon" href="../brand/hinge-care-icon-green.svg" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shop.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shop.css?v=4">
 <style>
 .pg{max-width:760px;margin:0 auto;padding:36px 20px 56px}.pg h1{font-size:clamp(32px,5vw,46px);line-height:1.1;margin:0 0 12px}
 .box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin:18px 0}
@@ -14,8 +14,8 @@ textarea{min-height:96px}.pay{background:#F2E9DB;border-radius:14px;padding:16px
 .steps{padding-left:22px}.steps li{margin:8px 0}
 .small{font-size:16px;color:var(--soft)}
 </style></head><body>
-<div class="hc-testflag">Test store preview. Nothing is charged and nothing is sent. <a href="index.html">Store home</a> · <a href="../test/index.html">Test site</a> · <a href="emails/index.html">Test emails</a></div>
-<header class="hc-top"><div class="hc-wrap hc-top-in"><a class="hc-brand" href="index.html"><img src="../brand/hinge-care-icon-green.svg" alt="" width="40" height="40">Hinge Care</a><nav class="hc-nav" aria-label="Main"><a href="index.html#plans">Join</a><a href="sample-week.html">Free sample week</a><a href="index.html#faq">Questions</a></nav></div></header>
+<div class="hc-testflag">Test store: a stand-in for your Whop page. Nothing is charged and nothing is sent. <a href="index.html">Store home</a> · <a href="../test/index.html">Test site</a> · <a href="emails/index.html">Test emails</a></div>
+<header class="hc-top"><div class="hc-wrap hc-top-in"><a class="hc-brand" href="index.html"><img src="../brand/hinge-care-logo-green.svg" alt="" width="46" height="36">Hinge Care</a><nav class="hc-nav" aria-label="Main"><a href="index.html#inside">What's inside</a><a href="sample-week.html">Free sample week</a><a href="index.html#faq">Questions</a><a class="hc-btn" href="checkout.html?item=gift">Give the gift</a></nav></div></header>
 <main class="pg">
 <h1>Checkout</h1>
 <p class="small">In the real store this page is Whop's secure checkout. This test shows what the buyer sees, without taking a payment.</p>
@@ -28,7 +28,8 @@ textarea{min-height:96px}.pay{background:#F2E9DB;border-radius:14px;padding:16px
 <h2 style="margin-top:24px">Who is the gift for?</h2>
 <label for="gn">Their first name</label><input id="gn">
 <label for="ge">Their email</label><input id="ge" type="email">
-<label for="gm">A short message for the gift card (optional)</label><textarea id="gm" placeholder="Happy Christmas, Mom. Love, Sam"></textarea>
+<label for="gm">A short message for the gift card (optional)</label><textarea id="gm" placeholder="Merry Christmas, Mom. Love, Sam"></textarea>
+<label for="gd">When should their welcome email arrive? (optional)</label><input id="gd" type="date"><p class="small" style="margin:6px 0 0">Leave it blank and we send it within one day.</p>
 </div>
 <div class="pay" id="pay" style="margin-top:20px">Payment: in the real store you enter your card on Whop's secure page. This test skips payment, so no card is needed.</div>
 <button class="hc-btn" type="submit" id="go">Finish test order</button>
