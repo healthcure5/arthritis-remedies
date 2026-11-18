@@ -2,10 +2,10 @@
 // CHECKOUT LINKS: paste your payment provider's links between the quotes.
 // While a link is empty, the "Yes, I want..." button shows "Checkout opens soon".
 // ---------------------------------------------------------------
-var BOOK_URL = '';     // The Joint Reset
+var BOOK_URL = 'https://whop.com/checkout/plan_CqK2tFhCrJac5';     // The Joint Reset, $27 (Whop checkout link)
 var COURSE_URL = '';   // The Hinge Care Program
 var LETTER_URL = '';   // The Hinge Care Club, $7 a month
-var BOOK_OFFER_URL = '';   // The Joint Reset at $17, shown only on the thank-you page
+var BOOK_OFFER_URL = 'https://whop.com/checkout/plan_aaSComudkA9aV';   // The Joint Reset at $17, shown only on the thank-you page
 var COURSE_OFFER_URL = ''; // The Program at $77, shown only after someone buys the book
 var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
 
@@ -45,6 +45,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you'],
     ['club.html', 'The Hinge Care Club', 'A letter every Sunday, $7 a month'],
+    ['mornings.html', 'Easier Mornings', 'A gift for a parent, $19 a month'],
     ['circle.html', 'The Circle', 'Twelve Tuesdays with a small group']
   ];
   var LOGO = '<span class="gjc-mark" role="img" aria-label="Hinge Care"></span>';
@@ -110,6 +111,12 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
   var url = item === 'course' ? COURSE_URL : item === 'letter' ? LETTER_URL : BOOK_URL;
   if (url) {
     document.querySelectorAll('[data-open-sheet]').forEach(function (b) { b.href = url; b.replaceWith(b.cloneNode(true)); });
+    // Checkout is open: swap the "opening soon" wording in the box above the button
+    document.querySelectorAll('.getbox').forEach(function (g) {
+      var eye = g.querySelector('.eyebrow'), p = g.querySelector('p');
+      if (eye && /soon/i.test(eye.textContent)) { eye.textContent = 'Ready now'; }
+      if (p && /shortly/i.test(p.textContent)) { p.textContent = item === 'course' ? 'Tap below to pay securely on Whop. Your first lesson opens right after.' : 'Tap below to pay securely on Whop. Your book is ready to download right after.'; }
+    });
   }
   if (/[?&]waitlist=1/.test(location.search)) {
     var done = document.getElementById('wl-done'), wf = document.getElementById('co-form');
