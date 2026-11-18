@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you.html
+Disallow: /program-offer.html
+Disallow: /test/
+Disallow: /test-shop/
+Disallow: /b/
 
 Sitemap: https://gentlerootz.com/sitemap.xml
