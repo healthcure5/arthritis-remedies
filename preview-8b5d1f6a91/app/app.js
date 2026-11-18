@@ -54,6 +54,45 @@ const M=[
 {id:'soften',n:'Soften and let go',a:'calm',pic:'calm',calm:1,sides:1,h:60,steps:['Close your eyes if you like.','Notice your jaw, your shoulders and your hands.','Each time you breathe out, let one of them soften a little.'],tip:'Rest is part of looking after your joints.'}
 ];
 const MB={};M.forEach(m=>MB[m.id]=m);
+/* Cover photos for each move (free Pexels licence). If one fails to load, the drawing shows instead. */
+const COVER={
+"thumb-touch": "https://images.pexels.com/photos/5681439/pexels-photo-5681439.jpeg",
+"finger-walk": "https://images.pexels.com/photos/7272853/pexels-photo-7272853.jpeg",
+"wrist-lift": "https://images.pexels.com/photos/4498279/pexels-photo-4498279.jpeg",
+"palm-turns": "https://images.pexels.com/photos/4631065/pexels-photo-4631065.jpeg",
+"yes-nods": "https://images.pexels.com/photos/8727402/pexels-photo-8727402.jpeg",
+"shrug-drop": "https://images.pexels.com/photos/33715990/pexels-photo-33715990.jpeg",
+"finger-climb": "https://images.pexels.com/photos/4853072/pexels-photo-4853072.jpeg",
+"sit-stand": "https://images.pexels.com/photos/7265111/pexels-photo-7265111.jpeg",
+"heel-raise": "https://images.pexels.com/photos/8436694/pexels-photo-8436694.jpeg",
+"palm-press": "https://images.pexels.com/photos/7016520/pexels-photo-7016520.jpeg",
+"pelvic-rock": "https://images.pexels.com/photos/35877675/pexels-photo-35877675.jpeg",
+"long-out": "https://images.pexels.com/photos/8795388/pexels-photo-8795388.jpeg",
+"knees-open": "https://images.pexels.com/photos/6697186/pexels-photo-6697186.jpeg",
+"heel-curl": "https://images.pexels.com/photos/5149173/pexels-photo-5149173.jpeg",
+"bed-ankle": "https://images.pexels.com/photos/8057318/pexels-photo-8057318.jpeg",
+"toe-taps": "https://images.pexels.com/photos/4769479/pexels-photo-4769479.jpeg",
+"knee-hug": "https://images.pexels.com/photos/8038689/pexels-photo-8038689.jpeg",
+"tummy-brace": "https://images.pexels.com/photos/3790849/pexels-photo-3790849.jpeg",
+"weight-shift": "https://images.pexels.com/photos/13128635/pexels-photo-13128635.jpeg",
+"heel-slide": "https://images.pexels.com/photos/3791119/pexels-photo-3791119.jpeg",
+"side-leg": "https://images.pexels.com/photos/5163843/pexels-photo-5163843.jpeg",
+"ankle-alphabet": "https://images.pexels.com/photos/9486712/pexels-photo-9486712.jpeg",
+"warm-hands": "https://images.pexels.com/photos/12303426/pexels-photo-12303426.jpeg",
+"towel-scrunch": "https://images.pexels.com/photos/9146379/pexels-photo-9146379.jpeg",
+"front-raise": "https://images.pexels.com/videos/6970152/pexels-photo-6970152.jpeg",
+"elbow-circles": "https://images.pexels.com/videos/9465187/pexels-photo-9465187.jpeg",
+"side-reach": "https://images.pexels.com/videos/6891859/pexels-photo-6891859.jpeg",
+"wall-push": "https://images.pexels.com/videos/5034563/pexels-photo-5034563.jpeg",
+"towel-squeeze": "https://images.pexels.com/videos/25950159/pexels-photo-25950159.jpeg",
+"bed-rise": "https://images.pexels.com/videos/8090735/adult-bed-bedroom-blanket-8090735.jpeg",
+"belly-breath": "https://images.pexels.com/videos/8795165/health-health-care-healthcare-life-after-covid-8795165.jpeg",
+"soften": "https://images.pexels.com/videos/6205909/pexels-photo-6205909.jpeg",
+"seated-heel": "https://images.pexels.com/videos/8348871/pexels-photo-8348871.jpeg"
+};
+const RCOV={bedside:'bed-ankle',wake:'front-raise',hands:'warm-hands',upper:'elbow-circles',legs:'heel-slide',strength:'sit-stand',balance:'heel-raise',evening:'soften',easy:'long-out',breathe:'belly-breath'};
+function cov(x,big){const u=COVER[x.id];if(!u)return pic(x.pic,big);return`<div class="pict photo${big?' big':''}" aria-hidden="true">${PIC[x.pic]||PIC.seat}<img src="${u}?auto=compress&cs=tinysrgb&w=${big?400:200}&h=${big?400:200}&fit=crop" alt="" loading="lazy" onerror="this.remove()"></div>`}
+function rcov(id){const m=MB[RCOV[id]];return m?cov(m):pic(RPIC[id])}
 /* Real-person demo videos (free Pexels licence), shown where a clip matches the move */
 const VID={
  'elbow-circles':['https://videos.pexels.com/video-files/9465187/9465187-sd_640_360_25fps.mp4'],
@@ -297,7 +336,7 @@ function home(){
  if(soreRun())h+=`<div class="box warm"><h3 style="margin-bottom:6px">Your joints have been sore for a few days</h3><p>It may be worth checking in with your doctor or a physical therapist. In the meantime, Easy day and the Breathing break are here for you.</p><p style="margin-top:8px"><a href="#/safety">When to stop and get help</a></p></div>`;
  h+=`<ol class="session">
  <li><div class="num ${m?'done':''}">${m?'✓':'1'}</div><div><h3>How are your joints today?</h3><div class="faces" role="group" aria-label="How are your joints today">${MOODS.map((x,i)=>`<button data-m="${i+1}" class="${m===i+1?'on':''}" aria-pressed="${m===i+1}">${FACE[i]}<span>${x}</span></button>`).join('')}</div><p class="note" style="margin-top:8px">${m?'Saved. Tap another face to change it.':'Your answer shapes the routine below.'}</p></div></li>
- <li><div class="num ${moved?'done':''}">${moved?'✓':'2'}</div><div><h3>Move</h3><div class="box"><div class="move">${pic(RPIC[r.id])}<div><b style="font:700 21px var(--head)">${r.n}</b><p class="muted small">${moved?'You moved today. This one is ready if you\'d like more.':p.why}</p></div></div><p class="small" style="margin-top:10px"><b>You'll need:</b> ${need(r)}.</p><div class="btns" style="margin-top:14px"><button class="btn sun" id="go">Start &middot; ${mins(secs(r))} min</button><a class="textbtn" href="#/moves">Choose another</a></div></div>
+ <li><div class="num ${moved?'done':''}">${moved?'✓':'2'}</div><div><h3>Move</h3><div class="box"><div class="move">${rcov(r.id)}<div><b style="font:700 21px var(--head)">${r.n}</b><p class="muted small">${moved?'You moved today. This one is ready if you\'d like more.':p.why}</p></div></div><p class="small" style="margin-top:10px"><b>You'll need:</b> ${need(r)}.</p><div class="btns" style="margin-top:14px"><button class="btn sun" id="go">Start &middot; ${mins(secs(r))} min</button><a class="textbtn" href="#/moves">Choose another</a></div></div>
  ${m>=4&&p.r!=='strength'?`<p class="small" style="margin-top:10px">Feeling good? <a href="#/r/strength">Gentle strength</a> is ready if you'd like a little more.</p>`:''}</div></li>
  <li><div class="num ${readToday?'done':''}">${readToday?'✓':'3'}</div><div><h3>Learn something small</h3><details class="read" id="rd"><summary>${card.t}</summary><div class="in"><p>${card.b}</p><button class="say" id="say">${SPK} Read this to me</button></div></details></div></li></ol>`;
  h+=`<div class="box warm"><h3 style="margin-bottom:6px">Sore day or flare?</h3><p>Rest is part of looking after your joints. If you'd like to move, these are very gentle.</p><div class="btns" style="margin-top:12px"><a class="btn line sm" href="#/r/easy">Easy day</a><a class="btn line sm" href="#/r/breathe">Breathing break</a></div><p style="margin-top:10px"><a href="#/flare">What helps on flare days</a></p></div>`;
@@ -310,7 +349,7 @@ function home(){
  $('rd').addEventListener('toggle',()=>{if($('rd').open&&st.readOn!==ymd()){st.readOn=ymd();save();const n=document.querySelectorAll('.num')[2];n.classList.add('done');n.textContent='✓'}});
  $('say').onclick=()=>talk([learnSpeech(st.seen%LEARN.length)],true);
 }
-function rowR(id){const r=RB[id];return`<a class="row" href="#/r/${r.id}">${pic(RPIC[r.id])}<div><b>${r.n}</b><span class="muted">${mins(secs(r))} min &middot; ${esc(r.d)}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`}
+function rowR(id){const r=RB[id];return`<a class="row" href="#/r/${r.id}">${rcov(r.id)}<div><b>${r.n}</b><span class="muted">${mins(secs(r))} min &middot; ${esc(r.d)}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`}
 /* ================= flare & safety ================= */
 function flare(){shell('home',true);app.innerHTML=`<div class="stack"><h1>Flare days</h1><div class="box"><p><b>Flares happen, and they aren’t your fault.</b> One hard day doesn’t undo your progress.</p><ul style="padding-left:22px;margin:12px 0 0">
 <li>Try smaller movements, fewer repeats and seated positions.</li><li>Warmth before moving, like a warm shower or a warm (not hot) pack, may help.</li><li>Take rest breaks. Gentle movement is usually better than complete rest, but listen to your body.</li><li>Keep taking anything you have been prescribed.</li></ul></div>
@@ -332,14 +371,14 @@ function moves(){
  else{const list=M.filter(x=>(mvArea==='all'||(mvArea==='fav'?st.favs.includes(x.id):x.a===mvArea))&&!(st.seated&&x.stand));
   h+=`<label class="check box" style="padding:10px 16px"><input type="checkbox" id="seat" ${st.seated?'checked':''}><span><b>Seated only</b><br><span class="muted small">Hide standing moves, and use seated versions in routines</span></span></label>
   <div class="pills"><button data-a="all" class="${mvArea==='all'?'on':''}">All</button>${Object.keys(AREAS).map(k=>`<button data-a="${k}" class="${mvArea===k?'on':''}">${AREAS[k]}</button>`).join('')}<button data-a="fav" class="${mvArea==='fav'?'on':''}">Saved</button></div>
-  <div class="list">${list.length?list.map(x=>`<a class="row" href="#/m/${x.id}">${pic(x.pic)}<div><b>${x.n}</b><span class="muted">${AREAS[x.a]} &middot; ${hold(x)} sec${x.sides>1?' each side':''}${st.hidden.includes(x.id)?' &middot; not suggested':''}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`).join(''):'<div class="box">Nothing saved yet. Open a move and tap Save.</div>'}</div>`}
+  <div class="list">${list.length?list.map(x=>`<a class="row" href="#/m/${x.id}">${cov(x)}<div><b>${x.n}</b><span class="muted">${AREAS[x.a]} &middot; ${hold(x)} sec${x.sides>1?' each side':''}${st.hidden.includes(x.id)?' &middot; not suggested':''}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`).join(''):'<div class="box">Nothing saved yet. Open a move and tap Save.</div>'}</div>`}
  app.innerHTML=h+'</div>';
  on('.seg button',b=>{mv=b.dataset.v;moves()});on('.pills button',b=>{mvArea=b.dataset.a;moves()});
  if($('seat'))$('seat').onchange=e=>{st.seated=e.target.checked;save();moves()};
 }
 function move(id){
  const x=MB[id];if(!x)return go('#/moves');shell('moves',true);const fav=st.favs.includes(id),hid=st.hidden.includes(id);
- app.innerHTML=`<div class="stack"><div style="display:flex;gap:16px;align-items:center">${pic(x.pic,true)}<div style="min-width:0"><h1>${x.n}</h1><div style="margin-top:6px"><span class="tag">${AREAS[x.a]}</span>${x.stand?'<span class="tag stand">Standing, with support</span>':''}</div></div></div>${vslot(x)}
+ app.innerHTML=`<div class="stack"><div style="display:flex;gap:16px;align-items:center">${cov(x,true)}<div style="min-width:0"><h1>${x.n}</h1><div style="margin-top:6px"><span class="tag">${AREAS[x.a]}</span>${x.stand?'<span class="tag stand">Standing, with support</span>':''}</div></div></div>${vslot(x)}
  <div class="box"><h3>How to do it</h3><ol class="steps">${x.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><p style="margin-top:6px"><b>${x.calm?'Time':'Hold or repeat'}:</b> about ${hold(x)} seconds${x.sides>1?' on each side':''}.</p>
  <div class="box warm" style="margin-top:12px;padding:14px 16px"><b>Go gently:</b> ${esc(x.tip)}</div>
  ${x.alt?`<p style="margin-top:12px">Prefer to sit? Try <a href="#/m/${x.alt}">${MB[x.alt].n}</a> instead.</p>`:''}
@@ -357,7 +396,7 @@ function routine(id){
  app.innerHTML=`<div class="stack"><div><div class="label">Routine</div><h1 style="margin-top:4px">${r.n}</h1><p class="muted" style="margin-top:6px">${esc(r.d)}</p></div>
  <div class="box tint"><p><b>About ${mins(secs(r))} minutes</b> &middot; ${plural(ids.length,'move')}</p><p class="small" style="margin-top:4px"><b>You'll need:</b> ${need(r)}.</p></div>
  <button class="btn sun wide" id="go">Start</button>
- <div class="list">${ids.map((i,n)=>{const x=MB[i];return`<div class="row">${pic(x.pic)}<div><a href="#/m/${i}" style="text-decoration:none;color:inherit"><b>${n+1}. ${x.n}</b></a><span class="muted">${hold(x,r)} sec${x.sides>1?' each side':''}${x.stand?' &middot; standing, with support':''}</span></div>${x.calm?'<span></span>':`<button class="btn line sm" data-n="${n}" data-id="${i}" aria-label="Swap ${esc(x.n)} for a similar move">Swap</button>`}</div>`}).join('')}</div>
+ <div class="list">${ids.map((i,n)=>{const x=MB[i];return`<div class="row">${cov(x)}<div><a href="#/m/${i}" style="text-decoration:none;color:inherit"><b>${n+1}. ${x.n}</b></a><span class="muted">${hold(x,r)} sec${x.sides>1?' each side':''}${x.stand?' &middot; standing, with support':''}</span></div>${x.calm?'<span></span>':`<button class="btn line sm" data-n="${n}" data-id="${i}" aria-label="Swap ${esc(x.n)} for a similar move">Swap</button>`}</div>`}).join('')}</div>
  ${Object.keys(sw).length?'<button class="textbtn" id="reset">Put back the original moves</button>':''}
  ${r.easy||r.id==='breathe'?'':`<div class="box"><h3>Your pace</h3><p class="muted small" style="margin:4px 0 12px">How long to hold or repeat each move</p><div class="pills" id="lv">${LEVELS.map((v,i)=>`<button data-l="${i}" class="${st.level===i?'on':''}">${v[1]}</button>`).join('')}</div></div>`}</div>`;
  $('go').onclick=()=>startPlay(r);
@@ -498,7 +537,7 @@ function draw(){
  pl.innerHTML=`<div class="pbar"><button id="end">End</button><div class="t">${esc(P.r.n)}</div><button id="when">When to stop</button></div>
  <div class="segs" aria-hidden="true">${P.seg.map((_,i)=>`<i class="${i<P.i?'on':i===P.i?'now':''}"></i>`).join('')}</div>
  <div class="stage"><div class="phase">${prep?(P.i===0?'Get comfortable':'Next up'):'Move '+(P.i+1)+' of '+P.seg.length}${s.side?' &middot; '+s.side:''}</div><h2>${esc(s.x.n)}</h2>
- ${vslot(s.x)}<div class="timer">${VID[s.x.id]?'':pic(s.x.pic,true)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E6EEE3" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#FFC56B':'#2F5D3A'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
+ ${vslot(s.x)}<div class="timer">${VID[s.x.id]?'':cov(s.x,true)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E6EEE3" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#FFC56B':'#2F5D3A'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
  <p class="muted" style="font-weight:700">${prep?'Get into position':s.x.calm?'Breathe slowly':'Move gently'}</p>
  <ol class="steps how" style="text-align:left">${s.x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol><p class="tip">${esc(s.x.tip)}</p></div>
  <div class="ctl"><button id="prev">Back</button><button class="go" id="pp">${P.paused?'Resume':'Pause'}</button><button id="skip">Skip</button></div>
