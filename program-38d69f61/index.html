@@ -499,6 +499,10 @@ header.top .navbtn{min-height:44px}
 .vsoon small{color:#E4E0D6;font-size:1rem;max-width:420px}
 .welcome.wv .under{color:#E4E0D6;margin-top:14px}
 @media(max-width:600px){.vframe{border-radius:14px}.vsoon .vring{width:60px;height:60px}.vsoon b{font-size:1.1rem}.vsoon small{font-size:.9rem}}
+
+.vo{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:6px 0 14px}
+.vo b{font:600 .9rem Inter,sans-serif;color:var(--ink)}.vo small{color:var(--soft);font-size:.82rem}
+.vo audio{width:100%}
 </style>
 </head>
 <body>
@@ -1102,6 +1106,16 @@ welcome();
     sec.insertAdjacentHTML('afterbegin',html);
     for(const k of [3,6]){const c=document.getElementById('ci'+k);if(!c)continue;c.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{c.querySelectorAll('[data-a]').forEach(x=>x.classList.toggle('on',x===b));c.querySelector('.ans').textContent=ANS[b.dataset.a];S.ci2[k]=b.dataset.a;save();});}
   };
+})();
+</script>
+
+<script>
+(function(){
+  const VO={w1c:'https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/hf_20261119_223658_b442e91f-cfbd-4077-a431-2b795d4df2e2.mp3'};
+  window.HINGE_VO=VO;
+  const _l=lesson;
+  lesson=function(id){_l(id);const u=VO[id];if(!u)return;const r=document.querySelector('#app .read');if(!r)return;
+    r.outerHTML=`<div class="vo noprint"><b>Listen to this lesson</b><audio controls preload="none" src="${u}"></audio><small>Read by Celine</small></div>`;};
 })();
 </script>
 </body>
