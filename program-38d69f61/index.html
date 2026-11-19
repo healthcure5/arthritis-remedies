@@ -401,6 +401,20 @@ header.top .navbtn{min-height:44px}
 #app.enter .wrap>*:nth-child(8){animation-delay:0.420s}
 
 @media(prefers-reduced-motion:reduce){.vghost{display:none}#app.enter>*,#app.enter .wrap>*{animation:none!important}}
+
+/* Program accent: plum (matches its cover). Green stays the brand colour. */
+:root{--pl:#5C2C78;--pl2:#46205C;--pl3:#F1E9F5}
+.btn{background:var(--pl)}
+.btn.light{background:#fff;color:var(--pl2)}
+.btn.ghost{background:transparent;color:var(--pl);border-color:var(--pl);box-shadow:0 4px 0 rgba(92,44,120,.3)}
+#did,#tdone,#fdone,.dock .btn{background:linear-gradient(180deg,#70388F,#5C2C78)}
+.tick{border-color:var(--pl)}.tick.on,.lrow.done .tick{background:var(--pl)}
+.day input{border-color:var(--pl);box-shadow:0 3px 0 rgba(92,44,120,.3)}
+.day input:checked{background:linear-gradient(180deg,#70388F,#5C2C78);border-color:#5C2C78}
+.plan{background:linear-gradient(135deg,#5C2C78,#2A1733)}
+.try{background:var(--pl3);border-left-color:var(--pl)}
+.opt.sel{border-color:var(--pl);background:var(--pl3)}
+.sizer button{border-color:var(--pl);color:var(--pl2)}
 </style>
 </head>
 <body>
