@@ -1447,6 +1447,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
   const busy=(f,on,label)=>{const b=f.querySelector('.gbtn');if(on){b.dataset.t=b.textContent;b.textContent=label||'One moment…';b.disabled=true}else{b.textContent=b.dataset.t||b.textContent;b.disabled=false}};
   const notReady=f=>{err(f,"Sign-in isn't switched on yet. Please write to hingecare@gentlerootz.com and we'll help.");};
   let NAME='';window.hcName=()=>NAME;
+  const DAY=24*60*60*1000;const markAuth=()=>{try{localStorage.setItem('hc_authAt',String(Date.now()))}catch(e){}};
   function enter(user){
     NAME=(user&&user.user_metadata&&user.user_metadata.first_name)||'';
     de.classList.add('authed');window.scrollTo(0,0);try{home()}catch(e){}
@@ -1463,7 +1464,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
       const {data,error}=await sb.auth.signInWithPassword({email,password:p});
       busy(f,0);
       if(error)return err(f,"That username and password don't match. Try again, or tap Forgot password.");
-      enter(data.user);
+      markAuth();enter(data.user);
     }catch(x){busy(f,0);err(f,"Something went wrong on our side. Please try again in a minute.")}
   });
   // sign up
@@ -1483,8 +1484,8 @@ document.querySelector('header.top .brand').onclick=()=>home();
       const {data,error}=await sb.auth.signUp({email:em,password:p,options:{data:{first_name:n,username:u}}});
       busy(f,0);
       if(error)return err(f,/weak|short/i.test(error.message)?'Please pick a longer password.':"We couldn't make your account just now. Please try again, or write to hingecare@gentlerootz.com.");
-      if(data.session)return enter(data.user);
-      const r=await sb.auth.signInWithPassword({email:em,password:p});if(r.data&&r.data.user)return enter(r.data.user);
+      if(data.session){markAuth();return enter(data.user);}
+      const r=await sb.auth.signInWithPassword({email:em,password:p});if(r.data&&r.data.user){markAuth();return enter(r.data.user);}
       err(f,'Your account is made. Check your email to confirm it, then sign in.');
     }catch(x){busy(f,0);err(f,"Something went wrong on our side. Please try again in a minute.")}
   });
@@ -1502,16 +1503,21 @@ document.querySelector('header.top .brand').onclick=()=>home();
     const p=document.getElementById('nP').value;if(p.length<8)return err(f,'Your password needs 8 letters or more.');
     busy(f,1,'Saving…');const {data,error}=await sb.auth.updateUser({password:p});busy(f,0);
     if(error)return err(f,"That link has run out. Tap Forgot password to get a fresh one.");
-    history.replaceState(null,'',location.pathname);enter(data.user);
+    history.replaceState(null,'',location.pathname);markAuth();enter(data.user);
   });
-  window.hcSignOut=async function(){try{await sb.auth.signOut()}catch(e){}NAME='';de.classList.remove('authed');try{closeMenu()}catch(e){}show('vIn');window.scrollTo(0,0)};
+  window.hcSignOut=async function(){try{await sb.auth.signOut()}catch(e){}try{localStorage.removeItem('hc_authAt')}catch(e){}NAME='';de.classList.remove('authed');try{closeMenu()}catch(e){}show('vIn');window.scrollTo(0,0)};
   // start
   let recovering=/type=recovery/.test(location.hash);
   if(sb){
     sb.auth.onAuthStateChange((ev,ses)=>{if(ev==='PASSWORD_RECOVERY'){recovering=true;de.classList.remove('authed');show('vNew')}});
     sb.auth.getSession().then(({data})=>{
       if(recovering){de.classList.remove('authed');show('vNew');return}
-      if(data.session)enter(data.session.user);else{de.classList.remove('authed');show('vIn')}
+      if(data.session){
+        let at=0;try{at=+localStorage.getItem('hc_authAt')||0}catch(e){}
+        if(!at){markAuth();at=Date.now();}
+        if(Date.now()-at>DAY){sb.auth.signOut().catch(()=>{}).finally(()=>{try{localStorage.removeItem('hc_authAt')}catch(e){}de.classList.remove('authed');show('vIn')});return}
+        enter(data.session.user);
+      }else{de.classList.remove('authed');show('vIn')}
     });
   }else{de.classList.remove('authed');show('vIn')}
   // greet + sign out button
