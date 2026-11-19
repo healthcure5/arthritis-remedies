@@ -281,3 +281,10 @@ body{background:linear-gradient(180deg,#EFEAFB 0,#F7F1F4 420px,#F4F2FB 900px) no
 .rooms h3{text-align:center;margin:0 0 8px!important;font:400 22px/1.2 "DM Serif Display",Georgia,serif!important}
 .rooms li{font-size:17px}
 @media(max-width:560px){.rooms{grid-template-columns:1fr}}
+.pinit{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;margin:44px 0 10px;background:#fff;border-radius:26px;padding:20px;box-shadow:0 14px 34px -26px rgba(28,26,46,.45)}
+.pinit img{width:150px;border-radius:12px}
+.pinit .lab{font:800 12px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2452A}
+.pinit h3{margin:8px 0 4px!important;font:400 24px/1.2 "DM Serif Display",Georgia,serif!important}
+.pinit p{margin:0 0 12px!important;font-size:17px;color:var(--soft)}
+.pinit a{display:inline-block;background:#E60023;color:#fff;font:800 14px/1 Manrope,sans-serif;padding:13px 18px;border-radius:999px;text-decoration:none}
+@media(max-width:520px){.pinit{grid-template-columns:110px 1fr}.pinit img{width:110px}}
