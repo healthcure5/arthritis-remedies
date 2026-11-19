@@ -659,6 +659,49 @@ html.authed #gate{display:none}
 #gate .ghelp{margin:18px 0 0;text-align:center;color:#BFAFCB;font-size:.92rem;line-height:1.5}
 #gate .ghelp a{color:#E2CCF5}
 .signout{display:block;width:100%;margin:18px 0 4px;background:none;border:1px solid rgba(183,155,201,.3);color:#D9CCE0;border-radius:12px;padding:12px;font:500 .95rem Inter,sans-serif;min-height:48px;cursor:pointer}
+
+/* ===== Desktop sidebar toggle ===== */
+#sideTog{display:none}
+@media(min-width:1100px){
+  #sideTog{display:inline-flex;align-items:center;gap:10px;position:fixed;top:16px;left:16px;z-index:40;padding:6px 16px 6px 6px;border-radius:99px;border:1px solid rgba(214,190,236,.4);background:rgba(28,19,35,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#F6F0FA;font:600 1rem Inter,sans-serif;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.35);transition:left .6s cubic-bezier(.22,.8,.2,1),background .2s,transform .15s}
+  #sideTog:hover{background:rgba(58,34,78,.92)}
+  #sideTog:active{transform:scale(.97)}
+  #sideTog:focus-visible{outline:3px solid #CDB4E6;outline-offset:3px}
+  #sideTog .logo{width:36px;height:36px;border-radius:50%;flex:none}
+  #sideTog .ham{display:inline-flex;flex-direction:column;gap:4px;margin-left:2px}
+  #sideTog .ham i{display:block;width:18px;height:2px;border-radius:2px;background:currentColor;transition:transform .35s,opacity .25s}
+  body:not(.sidec) #sideTog{left:calc(var(--side) + 16px)}
+  body:not(.sidec) #sideTog .ham i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  body:not(.sidec) #sideTog .ham i:nth-child(2){opacity:0}
+  body:not(.sidec) #sideTog .ham i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  body.sidec .panel{transform:translateX(-102%)!important;opacity:0!important;pointer-events:none}
+  body.sidec #app,body.sidec footer{margin-left:0!important}
+  body.sidec .dock,body.sidec .readbar{left:0!important}
+  body.sidec .cover{padding-top:84px!important}
+  body.sidec #app>div.wrap.fade{margin-top:78px!important}
+  html:not(.authed) #sideTog{visibility:hidden}
+}
+
+/* gate: never scrolls */
+#gate{height:100vh;height:100dvh;overflow:hidden!important;overscroll-behavior:none;touch-action:none;padding:max(12px,env(safe-area-inset-top)) 16px max(12px,env(safe-area-inset-bottom))!important}
+#gate input,#gate button,#gate label{touch-action:manipulation}
+html:not(.authed),html:not(.authed) body{overflow:hidden!important;height:100%;overscroll-behavior:none}
+#gate .gbox{padding:20px 20px 16px!important;max-height:100%}
+#gate .glogo{margin:0 0 10px!important;font-size:1.1rem!important}
+#gate .glogo svg{width:34px!important;height:34px!important}
+#gate h1{font-size:1.5rem!important;margin:0 0 4px!important}
+#gate .gsub{margin:0 0 14px!important;font-size:.98rem!important}
+#gate .gf{margin:0 0 12px!important}
+#gate label.gl{margin:0 0 4px!important}
+#gate input[type=text],#gate input[type=password]{min-height:50px!important;padding:12px 14px!important}
+#gate .grem{margin:0 0 12px!important;min-height:40px!important}
+#gate .gerr{padding:10px 12px!important;margin:0 0 12px!important;font-size:.93rem!important}
+#gate .ghelp{margin:12px 0 0!important;font-size:.9rem!important}
+@media(max-height:620px){#gate .glogo{display:none!important}#gate .gsub{display:none!important}}
+
+#gate .gerr.on~.ghelp{display:none}
+@media(max-width:420px){#gate h1{font-size:1.35rem!important}}
+@media(max-height:600px){#gate .gsub{display:none!important}#gate .glogo{margin-bottom:6px!important}}
 </style>
 <script>(function(){try{var k='hc_auth',v=localStorage.getItem(k)||sessionStorage.getItem(k);if(v==='7fc65d63')document.documentElement.classList.add('authed');}catch(e){}})();</script>
 </head>
@@ -1310,17 +1353,17 @@ document.querySelector('header.top .brand').onclick=()=>home();
 <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gT">
  <form class="gbox" id="gForm" novalidate>
   <div class="glogo" id="gLogo"><span>Hinge Care</span></div>
-  <h1 id="gT">Welcome to your Program</h1>
-  <p class="gsub">Sign in once and you're in.</p>
+  <h1 id="gT">Come on in</h1>
+  <p class="gsub">Type your first name and the password from your welcome email.</p>
   <div class="gerr" id="gErr" role="alert"></div>
-  <div class="gf"><label class="gl" for="gName">Your name</label>
-   <input type="text" id="gName" autocomplete="username" autocapitalize="words" placeholder="For example, Linda" required></div>
+  <div class="gf"><label class="gl" for="gName">First name</label>
+   <input type="text" id="gName" autocomplete="username" autocapitalize="words" placeholder="Linda" required></div>
   <div class="gf"><label class="gl" for="gPw">Password</label>
    <div class="gpw"><input type="password" id="gPw" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" required>
    <button type="button" class="gshow" id="gShow" aria-label="Show password">Show</button></div></div>
-  <label class="grem"><input type="checkbox" id="gRem" checked> Remember me on this device</label>
-  <button type="submit" class="gbtn">Enter my Program</button>
-  <p class="ghelp">Your password is in your welcome email and on your Program page in Whop.<br>Can't find it? Email <a href="mailto:hingecare@gentlerootz.com">hingecare@gentlerootz.com</a> and a real person will reply.</p>
+  <label class="grem"><input type="checkbox" id="gRem" checked> Remember me</label>
+  <button type="submit" class="gbtn">Open my Program</button>
+  <p class="ghelp">Can't find the email? <a href="mailto:hingecare@gentlerootz.com">Write to us</a> and a real person will help.</p>
  </form>
 </div>
 <script>
@@ -1337,9 +1380,9 @@ document.querySelector('header.top .brand').onclick=()=>home();
   document.getElementById('gForm').addEventListener('submit',async e=>{
     e.preventDefault();er.classList.remove('on');
     const name=nm.value.trim(),p=pw.value.trim().toLowerCase();
-    if(!name){er.textContent='Please type your name so we know what to call you.';er.classList.add('on');nm.focus();return}
+    if(!name){er.textContent='Please type your first name.';er.classList.add('on');nm.focus();return}
     if(!p){er.textContent='Please type your password.';er.classList.add('on');pw.focus();return}
-    if(await sha('hingecare:'+p)!==H){er.textContent="That password doesn't match. Check your welcome email and try again. Capital letters don't matter.";er.classList.add('on');pw.select();return}
+    if(await sha('hingecare:'+p)!==H){er.textContent="That password didn't work. You'll find it in your welcome email from Hinge Care.";er.classList.add('on');pw.select();return}
     const st=document.getElementById('gRem').checked?localStorage:sessionStorage;
     try{localStorage.removeItem(K);sessionStorage.removeItem(K);st.setItem(K,'7fc65d63');st.setItem(N,name)}catch(e){}
     document.documentElement.classList.add('authed');window.scrollTo(0,0);
@@ -1351,6 +1394,18 @@ document.querySelector('header.top .brand').onclick=()=>home();
   const _h=home;home=function(){_h();const n=getName();const k=document.querySelector('#app .cover .kicker');if(n&&k)k.textContent='Welcome, '+n.split(' ')[0];};
   const _om=openMenu;openMenu=function(){_om.apply(this,arguments);const pn=document.getElementById('panel');if(pn&&!pn.querySelector('.signout')){const b=document.createElement('button');b.className='signout';b.type='button';b.textContent='Sign out';b.onclick=hcSignOut;(pn.querySelector('.pbody')||pn).appendChild(b)}};
   if(document.documentElement.classList.contains('authed'))home();
+})();
+</script>
+
+<script>
+(function(){
+  const b=document.createElement('button');b.id='sideTog';b.type='button';
+  b.innerHTML=ICON+'<span class="tl">Menu</span><span class="ham" aria-hidden="true"><i></i><i></i><i></i></span>';
+  document.body.appendChild(b);
+  const set=open=>{document.body.classList.toggle('sidec',!open);b.querySelector('.tl').textContent=open?'Hide menu':'Menu';b.setAttribute('aria-expanded',open?'true':'false');b.setAttribute('aria-label',open?'Hide the menu':'Show the menu');try{localStorage.setItem('hc_side',open?'1':'0')}catch(e){}};
+  let open=false;try{open=localStorage.getItem('hc_side')==='1'}catch(e){}
+  set(open);
+  b.onclick=()=>{open=!open;set(open);if(open){try{openMenu()}catch(e){}}};
 })();
 </script>
 </body>
