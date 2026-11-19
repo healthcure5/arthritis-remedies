@@ -469,6 +469,11 @@ header.top .navbtn{min-height:44px}
   .kbd{display:block;font-size:.8rem;color:var(--soft);margin:6px 0 0;text-align:center}
 }
 @media print{.notes,.pnav,.lprog,.panel{display:none!important}#app{margin:0!important}}
+
+.tech{display:inline-flex;align-items:center;gap:8px;margin:0 0 10px;padding:6px 12px;border-radius:999px;background:#EEF3EC;color:#1F3A27;font:600 .85rem Inter,sans-serif;border:1px solid #CFE0CC}
+.tech b{font-family:Fraunces,Georgia,serif;font-weight:700}
+.eight{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:18px 0}
+.eight ol{margin:8px 0 0;padding-left:22px}.eight li{margin:0 0 .5em}.eight li b{font-family:Fraunces,Georgia,serif}
 </style>
 </head>
 <body>
@@ -992,6 +997,27 @@ welcome();
   new MutationObserver(()=>{if(document.body.dataset.view!=='lesson')CUR=null;renderSide();}).observe(document.getElementById('app'),{childList:true});
   DESK.addEventListener('change',()=>{if(DESK.matches)renderSide();else _close();});
   renderSide();
+})();
+</script>
+
+<script>
+(function(){
+  const T={w1c:['The Warm-First Rule','Warm a joint before you ask it to move.'],
+    w2a:['The Two-Hour Test','Write your pain number before an activity and again two hours later.'],
+    w3b:['The Quiet Twenty','Twenty calm minutes with one comfort, nothing else.'],
+    w4a:['The One-Color Rule','Add one color to one meal. Take nothing away.'],
+    w5c:['The Kettle Balance','Practice balance while the kettle boils, one hand on the counter.'],
+    w6a:['Half, Rest, Half','Cut a hard job in two and rest in the middle.'],
+    w7b:['The 4-6 Breath','Breathe in for 4, out for 6, five times.'],
+    w8a:['The Fridge Plan','Your flare-up plan, printed and on the fridge before you need it.']};
+  window.HINGE_EIGHT=T;
+  const _l=lesson;
+  lesson=function(id){_l(id);const t=T[id];if(!t)return;const h=document.querySelector('#app>div.wrap h1');if(h)h.insertAdjacentHTML('beforebegin',`<span class="tech" title="${esc(t[1])}">Hinge Eight · <b>${esc(t[0])}</b></span>`);};
+  const _o=overview;
+  overview=function(){_o();const w=document.querySelector('#app .ov');if(!w)return;const hs=[...w.querySelectorAll('h2')];const at=hs[1]||hs[0];
+    const items=Object.entries(T).map(([id,[n,d]])=>{const f=find(id);return `<li><b>${esc(n)}</b>: ${esc(d)} <small style="color:var(--soft)">(Week ${f&&f.w?f.w.n:''})</small></li>`}).join('');
+    const box=`<div class="eight"><h2 style="margin-top:0">The Hinge Eight</h2><p>One small move from each week, with a name so it's easy to remember. Keep the ones that help you and let the rest go.</p><ol>${items}</ol></div>`;
+    if(at)at.insertAdjacentHTML('beforebegin',box);else w.insertAdjacentHTML('beforeend',box);};
 })();
 </script>
 </body>
