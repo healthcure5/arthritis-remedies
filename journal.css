@@ -288,3 +288,6 @@ body{background:linear-gradient(180deg,#EFEAFB 0,#F7F1F4 420px,#F4F2FB 900px) no
 .pinit p{margin:0 0 12px!important;font-size:17px;color:var(--soft)}
 .pinit a{display:inline-block;background:#E60023;color:#fff;font:800 14px/1 Manrope,sans-serif;padding:13px 18px;border-radius:999px;text-decoration:none}
 @media(max-width:520px){.pinit{grid-template-columns:110px 1fr}.pinit img{width:110px}}
+.aim{font:700 15px/1.55 Manrope,Arial,sans-serif;color:#8A2F52;border-left:4px solid #E4572E;padding:6px 0 6px 14px;margin:0 0 26px}
+.pinwrap{max-width:744px;margin:0 auto;padding:0 22px}
+.head .mtoc{margin:22px 0 0;text-align:left}
