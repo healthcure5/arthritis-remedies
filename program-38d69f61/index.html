@@ -574,6 +574,12 @@ body[data-view=welcome] #app{height:100vh;height:100dvh;overflow:hidden}
 }
 .wlogo{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 14px;color:#fff;font:700 1.25rem Fraunces,Georgia,serif}
 .wlogo .logo{width:44px;height:44px;border-radius:12px;background:none;padding:0;margin:0}
+
+.cover .wtop{display:flex;flex-direction:column;align-items:center;width:100%;margin:0 0 26px}
+.cover .wtop .vframe{max-width:760px;margin:0 auto}
+.cover .wtop .wlogo{margin:0 0 16px}
+.cover{min-height:0!important;padding-top:calc(76px + env(safe-area-inset-top))!important;padding-bottom:30px}
+@media(min-width:1100px){.cover{padding-top:40px!important}.cover .wtop .wlogo{display:none}}
 </style>
 </head>
 <body>
@@ -653,9 +659,7 @@ function openMenu(){
   const sec=(key,title,count,inner)=>`<div class="msec ${S.mopen[key]?'open':''}" data-sec="${key}"><button class="mhead" type="button" aria-expanded="${!!S.mopen[key]}">${title}<span class="cnt">${count}</span><span class="ch" aria-hidden="true">›</span></button><div class="mbody"><div>${inner}</div></div></div>`;
   const TK='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2F5D3A"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const row=l=>`<button class="plink ${S.done[l.id]?'done':''}" data-l="${l.id}" type="button"><span class="t">${S.done[l.id]?TK:''}</span><span>${esc(l.title)}${nx===l.id?' <small style="color:var(--rust)">· next</small>':''}</span>${hasVid(l)?VB:''}</button>`;
-  let start=`<button class="plink nav" data-m="welcome-page" type="button"><span class="t" aria-hidden="true"></span>Welcome page</button>
-  <button class="plink nav" data-m="overview" type="button"><span class="t" aria-hidden="true"></span>Program overview</button>
-  <button class="plink nav" data-m="home" type="button"><span class="t" aria-hidden="true"></span>My weeks and progress</button>
+  let start=`<button class="plink nav" data-m="home" type="button"><span class="t" aria-hidden="true"></span>Welcome and my progress</button>
   <button class="plink ${S.done.welcome?'done':''}" data-l="welcome" type="button"><span class="t">${S.done.welcome?TK:''}</span>Before you start</button>
   <button class="plink nav" data-m="sc" type="button"><span class="t" aria-hidden="true"></span>${S.track?'Retake my starting check':'Take my starting check'}</button>
   ${S.track?`<button class="plink nav" data-m="focus" type="button"><span class="t" aria-hidden="true"></span>My extra lesson</button>`:''}`;
@@ -1038,7 +1042,6 @@ welcome=wrap(welcome);overview=wrap(overview);home=wrap(home);lesson=wrap(lesson
 swap=function(fn){fn()};
 document.querySelector('header.top .brand').onclick=()=>home();
 })();
-welcome();
 </script>
 
 <script>
@@ -1199,6 +1202,29 @@ welcome();
 
 <script>
 (function(){const ph=document.querySelector('#panel .phead');if(!ph)return;const b=document.createElement('button');b.type='button';b.className='sidebrand';b.setAttribute('aria-label','Hinge Care, back to my weeks');b.innerHTML=ICON+'<span>Hinge Care</span>';b.onclick=()=>home();ph.parentNode.insertBefore(b,ph);})();
+</script>
+
+<script>
+(function(){
+  welcome=function(){home();};
+  overview=function(){home();};
+  const _h=home;
+  home=function(){
+    _h();
+    const cw=document.querySelector('#app .cover .wrap');
+    if(cw&&!cw.querySelector('.wtop')){
+      const WV=window.WELCOME_VIDEO||'';
+      cw.insertAdjacentHTML('afterbegin',`<div class="wtop"><div class="wlogo">${ICON}<span>Hinge Care</span></div><div class="vframe">${WV?`<video controls playsinline preload="metadata" src="${WV}"></video>`:`<div class="vsoon"><span class="vring" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><b>Your welcome video is on its way</b><small>A short voiceover that walks you through how the Program works.</small></div>`}</div></div>`);
+    }
+    const sec=document.querySelector('#app section .wrap');
+    if(sec&&window.HINGE_EIGHT&&!sec.querySelector('.eight')){
+      const T=window.HINGE_EIGHT;
+      const items=Object.entries(T).map(([id,[n,d]])=>{const f=find(id);return `<li><b>${esc(n)}</b>: ${esc(d)} <small style="color:var(--soft)">(Week ${f&&f.w?f.w.n:''})</small></li>`}).join('');
+      sec.insertAdjacentHTML('beforeend',`<div class="eight" style="grid-column:1/-1"><h2 style="margin-top:0">The Hinge Eight</h2><p>One small move from each week, with a name so it's easy to remember. Keep the ones that help you and let the rest go.</p><ol>${items}</ol></div>`);
+    }
+  };
+  home();
+})();
 </script>
 </body>
 </html>
