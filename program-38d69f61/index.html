@@ -420,6 +420,55 @@ header.top .navbtn{min-height:44px}
 .welcome{background:linear-gradient(165deg,#24573D 0%,#1A4230 45%,#12301F 100%)!important}
 .vghost.rollup{animation:rollup .85s cubic-bezier(.7,0,.2,1) forwards;box-shadow:0 18px 40px rgba(0,0,0,.45)}
 @keyframes rollup{to{transform:translateY(-104%)}}
+
+/* ===== Course layout v2: phone, tablet, laptop ===== */
+.lprog{display:flex;align-items:center;gap:12px;margin:4px 0 14px;font-size:.85rem;color:var(--soft)}
+.lprog .bar2{flex:1;height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.lprog .bar2 i{display:block;height:100%;background:var(--g2,#2F5D3A);border-radius:6px}
+.notes{margin:26px 0 6px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.notes h3{margin:0 0 4px}.notes p{margin:0 0 10px;font-size:.9rem;color:var(--soft)}
+.notes textarea{width:100%;box-sizing:border-box;min-height:110px;font:inherit;font-size:1rem;line-height:1.5;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#FCFAF6;resize:vertical}
+.notes small{display:block;margin-top:6px;color:var(--soft);min-height:1.2em}
+.pnav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 6px}
+.pnav button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-height:60px;cursor:pointer;font:inherit;color:var(--ink)}
+.pnav button small{color:var(--soft);font-size:.8rem}.pnav button b{font-family:Fraunces,Georgia,serif;font-size:1rem;line-height:1.25}
+.pnav button.nx{align-items:flex-end;text-align:right;grid-column:2}
+.pnav button:disabled{visibility:hidden}
+.sidetop{display:none}
+.plink.cur{outline:2.5px solid var(--g2,#2F5D3A);outline-offset:-2px;background:#EEF3EC}
+.kbd{display:none}
+@media(min-width:700px) and (max-width:1099px){
+  #app>div.wrap{max-width:760px}
+  .lphoto{height:calc(320px + env(safe-area-inset-top))}
+}
+@media(min-width:1100px){
+  :root{--side:330px}
+  body:not([data-view=welcome]) .panel{transform:none!important;left:0;right:auto;width:var(--side);box-shadow:none;border-right:1px solid var(--line);z-index:26;padding:20px 18px 40px;visibility:visible}
+  body:not([data-view=welcome]) .shade{display:none!important}
+  body:not([data-view=welcome]) #app{margin-left:var(--side)}
+  body:not([data-view=welcome]) header.top{display:none}
+  body:not([data-view=welcome]) .dock{left:var(--side)}
+  body:not([data-view=welcome]) .readbar{left:var(--side)}
+  body:not([data-view=welcome]) footer{margin-left:var(--side)}
+  footer p,footer small{font-size:.95rem}
+  body:not([data-view=welcome]) #menuBtn,body:not([data-view=welcome]) #menuClose{display:none!important}
+  body:not([data-view=welcome]) .phead h2{font-size:1.15rem}
+  .sidetop{display:block;margin:0 0 16px;padding:0 0 16px;border-bottom:1px solid var(--line)}
+  .sidetop .sp{font-size:.85rem;color:var(--soft);margin:0 0 6px}
+  .sidetop .bar2{height:8px;border-radius:8px;background:var(--line);overflow:hidden;margin:0 0 12px}
+  .sidetop .bar2 i{display:block;height:100%;background:var(--g2,#2F5D3A)}
+  .sidetop .btn{width:100%;justify-content:center;text-align:center}
+  #app>div.wrap{max-width:860px;padding:36px 48px 28px}
+  #app>div.wrap p,#app>div.wrap li{font-size:1.06rem}
+  #app>div.wrap h1{font-size:2.5rem}
+  .lphoto{height:340px}
+  .fabplay{right:28px}
+  .nav2{flex-direction:row;flex-wrap:wrap}
+  .nav2 .btn{flex:1 1 auto}
+  .welcome h1{font-size:2.8rem}.welcome p{font-size:1.2rem}.welcome .in{max-width:640px}
+  .kbd{display:block;font-size:.8rem;color:var(--soft);margin:6px 0 0;text-align:center}
+}
+@media print{.notes,.pnav,.lprog,.panel{display:none!important}#app{margin:0!important}}
 </style>
 </head>
 <body>
@@ -885,6 +934,65 @@ swap=function(fn){fn()};
 document.querySelector('header.top .brand').onclick=()=>home();
 })();
 welcome();
+</script>
+
+<script>
+(function(){
+  const DESK=matchMedia('(min-width:1100px)');
+  let CUR=null;
+  const _open=openMenu,_close=closeMenu,_lesson=lesson;
+  function sideTop(){
+    const d=doneCount(),t=total(),pct=Math.round(d/t*100),nx=nextId();
+    const lab=nx?(nx==='welcome'?'Start here':'Carry on: '+find(nx).l.title):'Look back over your eight weeks';
+    return `<div class="sidetop"><p class="sp">${d} of ${t} lessons done · ${pct}%</p><div class="bar2"><i style="width:${pct}%"></i></div><button class="btn" id="sideGo" type="button">${esc(lab)}</button></div>`;
+  }
+  function renderSide(){
+    if(!DESK.matches||document.body.dataset.view==='welcome')return;
+    const ae=document.activeElement;
+    if(CUR){const f=find(CUR);if(f&&f.w){S.mopen=S.mopen||{};S.mopen['w'+f.w.n]=true;}}
+    _open();
+    document.getElementById('shade').classList.remove('on');
+    const pl=document.getElementById('plist');
+    pl.insertAdjacentHTML('afterbegin',sideTop());
+    const h2=document.querySelector('.phead h2');if(h2)h2.textContent='The Hinge Care Program';
+    const g=document.getElementById('sideGo');if(g)g.onclick=()=>{const nx=nextId();nx?swap(()=>lesson(nx)):home();};
+    pl.querySelectorAll('.plink').forEach(b=>b.classList.toggle('cur',!!CUR&&b.dataset.l===CUR&&document.body.dataset.view==='lesson'));
+    const cur=pl.querySelector('.plink.cur');if(cur)cur.scrollIntoView({block:'nearest'});
+    if(ae&&ae!==document.body&&!document.getElementById('panel').contains(ae))ae.focus({preventScroll:true});else if(document.activeElement&&document.getElementById('panel').contains(document.activeElement))document.activeElement.blur();
+  }
+  openMenu=function(){ if(DESK.matches&&document.body.dataset.view!=='welcome'){renderSide();return;} _open(); };
+  closeMenu=function(){ if(DESK.matches&&document.body.dataset.view!=='welcome')return; _close(); };
+  lesson=function(id){
+    CUR=id;_lesson(id);
+    const idx=ALL.findIndex(a=>a.id===id),w=document.querySelector('#app>div.wrap');if(!w)return;
+    const n=idx+1,t=ALL.length,prev=ALL[idx-1],next=ALL[idx+1];
+    const cr=w.querySelector('.crumb');
+    if(cr)cr.insertAdjacentHTML('afterend',`<div class="lprog" aria-label="Lesson ${n} of ${t}"><span>${n} of ${t} in the Program</span><span class="bar2"><i style="width:${Math.round(n/t*100)}%"></i></span></div>`);
+    S.notes=S.notes||{};
+    const nav=w.querySelector('.nav2:last-of-type');
+    const ttl=a=>{if(!a)return '';const f=find(a.id);return f&&f.l?f.l.title:''};
+    const notes=`<div class="notes noprint"><h3>Your notes</h3><p>What did you notice today? Only you can see this. It stays on this device.</p><textarea id="lnote" aria-label="Your notes for this lesson" placeholder="For example: knees felt looser after the warm shower.">${esc(S.notes[id]||'')}</textarea><small id="lnsaved" aria-live="polite"></small></div>`;
+    const pn=`<div class="pnav noprint"><button type="button" id="pvB" ${prev?'':'disabled'}><small>‹ Previous lesson</small><b>${esc(ttl(prev))}</b></button><button type="button" class="nx" id="nxB" ${next?'':'disabled'}><small>Next lesson ›</small><b>${esc(ttl(next))}</b></button></div><p class="kbd">Tip: use the ← and → keys to move between lessons.</p>`;
+    const navs=w.querySelectorAll('.nav2');const last=navs[navs.length-1];
+    if(last){last.insertAdjacentHTML('beforebegin',notes);last.insertAdjacentHTML('afterend',pn);}
+    const ta=document.getElementById('lnote');let tm;
+    if(ta)ta.oninput=()=>{clearTimeout(tm);tm=setTimeout(()=>{S.notes[id]=ta.value;save();const sv=document.getElementById('lnsaved');if(sv)sv.textContent='Saved';},400);};
+    const pv=document.getElementById('pvB'),nb=document.getElementById('nxB');
+    if(pv&&prev)pv.onclick=()=>swap(()=>lesson(prev.id));
+    if(nb&&next)nb.onclick=()=>swap(()=>lesson(next.id));
+    renderSide();
+  };
+  addEventListener('keydown',e=>{
+    if(!DESK.matches||document.body.dataset.view!=='lesson'||!CUR)return;
+    if(/INPUT|TEXTAREA|SELECT/.test((e.target.tagName||''))||e.metaKey||e.ctrlKey||e.altKey)return;
+    const idx=ALL.findIndex(a=>a.id===CUR);
+    if(e.key==='ArrowRight'&&ALL[idx+1]){e.preventDefault();swap(()=>lesson(ALL[idx+1].id));}
+    if(e.key==='ArrowLeft'&&ALL[idx-1]){e.preventDefault();swap(()=>lesson(ALL[idx-1].id));}
+  });
+  new MutationObserver(()=>{if(document.body.dataset.view!=='lesson')CUR=null;renderSide();}).observe(document.getElementById('app'),{childList:true});
+  DESK.addEventListener('change',()=>{if(DESK.matches)renderSide();else _close();});
+  renderSide();
+})();
 </script>
 </body>
 </html>
