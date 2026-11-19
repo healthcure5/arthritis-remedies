@@ -474,6 +474,20 @@ header.top .navbtn{min-height:44px}
 .tech b{font-family:Fraunces,Georgia,serif;font-weight:700}
 .eight{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:18px 0}
 .eight ol{margin:8px 0 0;padding-left:22px}.eight li{margin:0 0 .5em}.eight li b{font-family:Fraunces,Georgia,serif}
+
+.coach{background:#fff;border:1px solid var(--line);border-left:5px solid #6B3E7A;border-radius:16px;padding:16px 18px;margin:22px 0}
+.coach h3{margin:0 0 4px}.coach>p{margin:0 0 10px}
+.coach .tag{display:inline-block;font:700 .72rem Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#6B3E7A;margin:0 0 6px}
+.coach label{display:block;font-weight:600;margin:12px 0 6px;font-size:.95rem}
+.coach textarea{width:100%;box-sizing:border-box;min-height:64px;font:inherit;font-size:1rem;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:#FCFAF6;resize:vertical}
+.coach .say{background:#F6F1E8;border-radius:12px;padding:10px 14px;margin:8px 0;font-size:1rem}
+.coach .say b{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:2px}
+.coach .opts{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.coach .opts button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;min-height:44px;font:600 .95rem Inter,sans-serif;cursor:pointer;color:var(--ink)}
+.coach .opts button.on{background:#6B3E7A;color:#fff;border-color:#6B3E7A}
+.coach .ans{margin:8px 0 0;font-size:1rem}
+.coach .rb{margin-top:6px}
+.qs ol{margin:6px 0 0;padding-left:22px}.qs li{margin:0 0 .5em}
 </style>
 </head>
 <body>
@@ -1018,6 +1032,65 @@ welcome();
     const items=Object.entries(T).map(([id,[n,d]])=>{const f=find(id);return `<li><b>${esc(n)}</b>: ${esc(d)} <small style="color:var(--soft)">(Week ${f&&f.w?f.w.n:''})</small></li>`}).join('');
     const box=`<div class="eight"><h2 style="margin-top:0">The Hinge Eight</h2><p>One small move from each week, with a name so it's easy to remember. Keep the ones that help you and let the rest go.</p><ol>${items}</ol></div>`;
     if(at)at.insertAdjacentHTML('beforebegin',box);else w.insertAdjacentHTML('beforeend',box);};
+})();
+</script>
+
+<script>
+(function(){
+  S.wins=S.wins||{};S.ci2=S.ci2||{};
+  function say(txt,btn){try{const ss=window.speechSynthesis;if(!ss)return;if(ss.speaking){ss.cancel();btn&&(btn.textContent='▶ Play it');return;}const u=new SpeechSynthesisUtterance(txt);u.rate=.85;u.onend=()=>{btn&&(btn.textContent='▶ Play it')};ss.speak(u);btn&&(btn.textContent='■ Stop');}catch(e){}}
+  const PIC={1:"Close your eyes if you like. It's tomorrow morning and you're still in bed. Before you move, you circle each ankle slowly, five times each way. You open and close your hands. You sit on the edge of the bed for a full minute and drink the water you left out. Nothing is rushed. Now picture standing up a little looser than usual. That's the morning you're practicing for.",
+   2:"Picture your next short walk. Before you go, you write down your pain number. You walk a little less than you think you could, and you stop while you still feel fine. Two hours later you check the number again. It's the same, or close to it. Notice how that feels: proof that moving didn't harm you.",
+   3:"Picture a quiet twenty minutes this week. A warm pack, a cup of tea, a chair you like. No phone, no list of jobs. Just warmth on the place that aches and a slow breath out. You've earned this as part of the plan, not as a treat.",
+   4:"Picture your next meal. You're not taking anything away. You're adding one color: a handful of berries, some spinach, a few carrots. It takes one minute. Picture doing it again tomorrow, and the day after.",
+   5:"Picture your favorite sturdy chair. You scoot forward, lean over your feet, and stand using your legs, hands on the armrests if you need them. You sit back down slowly. Five times. Picture the kettle boiling while you hold the counter and practice your balance. Small, safe, done.",
+   6:"Picture a job you've been dreading. Instead of doing it all at once, you do half. You sit down, rest, have a drink. Then you finish the other half. The job still gets done, and your evening is still yours.",
+   7:"Picture getting into bed tonight at the time you chose. The light goes off. You breathe in for four, and out slowly for six. Five times. Your shoulders drop a little each time. That's all you need to do.",
+   8:"Picture a bad morning, the kind that used to throw your whole week off. This time you know what to do. You open your fridge and your flare-up plan is right there. You follow step one. You're not starting over. You're using the plan you made on a good day."};
+  const WINQ=['What went well this week, even something small?','What got in the way?','What will you try next week?'];
+  const SAY={w6c:{h:'Practice saying it',p:'Asking is easier once the words have left your mouth once. Read these out loud, even to an empty room.',lines:[['Instead of','"Don\'t worry, I can manage."'],['Try','"Could you carry the laundry basket up for me on Saturdays? That would really help."'],['Instead of','"I hate being a burden."'],['Try','"Thank you. It means I\'ll have energy left for the things I enjoy."']]},
+   w8b:{h:'Practice saying it',p:'Doctor visits go fast. Say your first sentence out loud before you go, so it comes out clearly.',lines:[['Start with','"My mornings are the hardest part. I\'m stiff for about [number] minutes most days."'],['Then','"I\'ve been keeping a pain log. Can I show you the last two weeks?"'],['If you feel rushed','"Before we finish, I have one more question that matters to me."']]}};
+  const LASTOFWEEK=id=>/^w(\d)c$/.test(id)?+id[1]:0;
+  const _l=lesson;
+  lesson=function(id){
+    _l(id);
+    const w=document.querySelector('#app>div.wrap');if(!w)return;
+    const navs=w.querySelectorAll('.nav2');const anchor=w.querySelector('.notes')||navs[navs.length-1];if(!anchor)return;
+    let html='';
+    const f=find(id);const wk=f&&f.w?f.w.n:0;
+    if(/^w\da$/.test(id)&&PIC[wk]){
+      html+=`<div class="coach noprint"><span class="tag">Picture it first</span><h3>Rehearse this week in your head</h3><p>Seeing yourself do something makes it easier to start. Press play, close your eyes and listen. It takes about a minute.</p><button class="btn ghost rb" type="button" id="picB">▶ Play it</button></div>`;
+    }
+    if(SAY[id]){const s2=SAY[id];html+=`<div class="coach"><span class="tag">Practice</span><h3>${esc(s2.h)}</h3><p>${esc(s2.p)}</p>${s2.lines.map(([a,b])=>`<div class="say"><b>${esc(a)}</b>${esc(b)}</div>`).join('')}</div>`;}
+    const lw=LASTOFWEEK(id);
+    if(lw){const v=S.wins[lw]||[];html+=`<div class="coach noprint"><span class="tag">Small wins · Week ${lw}</span><h3>Look back before you move on</h3><p>Three quick questions. There are no wrong answers, and a week that didn't go to plan still counts.</p>${WINQ.map((q,i)=>`<label for="win${i}">${esc(q)}</label><textarea id="win${i}" data-i="${i}">${esc(v[i]||'')}</textarea>`).join('')}<small id="winS" aria-live="polite" style="color:var(--soft)"></small></div>`;}
+    if(!html)return;
+    anchor.insertAdjacentHTML('beforebegin',html);
+    const pb=document.getElementById('picB');if(pb)pb.onclick=()=>say(PIC[wk],pb);
+    if(lw){let tm;w.querySelectorAll('textarea[id^=win]').forEach(t=>t.oninput=()=>{clearTimeout(tm);tm=setTimeout(()=>{S.wins[lw]=S.wins[lw]||[];S.wins[lw][+t.dataset.i]=t.value;save();const z=document.getElementById('winS');if(z)z.textContent='Saved';},400);});}
+  };
+  const CI={3:'three weeks',6:'six weeks'};
+  const ANS={good:"That's what we hoped to hear. Keep the moves that are working, and don't add more just because you can. Steady beats fast.",
+    hard:"That's normal, and it's not a sign you're doing it wrong. Pick the one move from the Hinge Eight you like most and do only that for the next three days. Then add one more.",
+    hurt:"Ease off the move that's bothering you and swap in its seated version. If a joint is hot, red or very swollen, or the pain is new and sharp, call your doctor before you carry on."};
+  const _h=home;
+  home=function(){
+    _h();
+    const sec=document.querySelector('#app section .wrap')||document.querySelector('#app .wrap:not(.cover .wrap)');if(!sec)return;
+    let html='';
+    if(doneCount()===0){
+      html+=`<div class="coach qs"><span class="tag">Quick start</span><h3>Your first three days</h3><ol><li><b>Today:</b> read "Before you start" and take the 2-minute starting check.</li><li><b>Tomorrow morning:</b> do two ankle circles each way before you get up. That's the whole job.</li><li><b>Day three:</b> read the first lesson and press "I did it."</li></ol></div>`;
+    }
+    for(const k of [3,6]){
+      const done=D.weeks.filter(w=>w.n<=k).every(w=>w.lessons.every(l=>S.done[l.id]));
+      if(done&&!S.ci2[k]){
+        html+=`<div class="coach" id="ci${k}"><span class="tag">Check-in · ${CI[k]}</span><h3>How's it really going?</h3><p>You're ${CI[k]} in. Pick the answer that fits best.</p><div class="opts"><button type="button" data-a="good">Going well</button><button type="button" data-a="hard">Hard to keep up</button><button type="button" data-a="hurt">Something hurts</button></div><p class="ans" aria-live="polite"></p></div>`;
+      }
+    }
+    if(!html)return;
+    sec.insertAdjacentHTML('afterbegin',html);
+    for(const k of [3,6]){const c=document.getElementById('ci'+k);if(!c)continue;c.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{c.querySelectorAll('[data-a]').forEach(x=>x.classList.toggle('on',x===b));c.querySelector('.ans').textContent=ANS[b.dataset.a];S.ci2[k]=b.dataset.a;save();});}
+  };
 })();
 </script>
 </body>
