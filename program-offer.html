@@ -36,4 +36,13 @@
 <p><a href="guide.html">7 Bad Habits (free)</a> · <a href="book.html">The Joint Reset</a> · <a href="course-info.html">The Program</a> · <a href="club.html">The Club</a> · <a href="articles.html">Articles</a> · <a href="contact.html">Contact</a> · <a href="circle.html">The Circle</a> · <a href="shop/partners.html">Partners</a> · <a href="refund.html">Refunds</a> · <a href="privacy.html">Privacy</a></p>
 <p>Some photos and video from Pexels. © 2026 Hinge Care</p>
 </div></footer>
+<style>video.heroimg{background-size:cover;background-position:center}video::-webkit-media-controls,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}</style>
+<script>(function(){document.querySelectorAll('video[autoplay]').forEach(function(v){
+if(v.poster)v.style.backgroundImage='url("'+v.poster+'")';
+v.muted=true;v.loop=false;v.preload='auto';v.removeAttribute('controls');
+function go(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration-0.35){v.currentTime=0.05;go();}});
+v.addEventListener('ended',function(){v.currentTime=0.05;go();});
+['touchstart','scroll','click'].forEach(function(e){window.addEventListener(e,function(){if(v.paused)go();},{passive:true});});
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&v.paused)go();});go();});})();</script>
 </body></html>
