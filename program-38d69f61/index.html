@@ -702,8 +702,30 @@ html:not(.authed),html:not(.authed) body{overflow:hidden!important;height:100%;o
 #gate .gerr.on~.ghelp{display:none}
 @media(max-width:420px){#gate h1{font-size:1.35rem!important}}
 @media(max-height:600px){#gate .gsub{display:none!important}#gate .glogo{margin-bottom:6px!important}}
+
+#gate .gv[hidden]{display:none!important}
+#gate .grow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px}
+#gate .grow .grem{margin:0!important}
+#gate .glink{background:none;border:0;padding:6px 2px;color:#E2CCF5;font:600 .95rem Inter,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:40px}
+#gate .ghelp .glink{font-size:inherit;min-height:0;padding:4px 2px}
+#gate .gok{display:none;background:rgba(120,200,150,.14);border:1px solid rgba(120,200,150,.45);color:#D8F5E1;border-radius:12px;padding:10px 12px;margin:0 0 12px;font-size:.93rem;line-height:1.45}
+#gate .gok.on{display:block}
+#gate .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#gate .gbtn:disabled{opacity:.7;cursor:wait}
+#gate .gerr.on~.ghelp{display:block}
+@media(max-height:700px){#vUp .gsub{display:none!important}}
+@media(max-height:640px){#gate .glogo{display:none!important}#gate .gf{margin:0 0 9px!important}#gate input[type=text],#gate input[type=password],#gate input[type=email]{min-height:46px!important}}
+#gate input[type=email]{width:100%;font:400 17px Inter,sans-serif;padding:12px 14px;border-radius:12px;border:2px solid rgba(183,155,201,.35);background:#1d1424;color:#fff;min-height:50px;box-sizing:border-box}
+#gate input[type=email]:focus{outline:none;border-color:#A56BD6;box-shadow:0 0 0 3px rgba(165,107,214,.3)}
+
+#gate .gv:has(.gerr.on) .gsub,#gate .gv:has(.gok.on) .gsub{display:none!important}
+@media(max-height:760px){#gate .gbox:has(.gerr.on) .glogo{display:none!important}}
+@media(max-height:640px){#gate h1{font-size:1.25rem!important}#gate .gbtn{min-height:50px!important}#gate input[type=text],#gate input[type=password],#gate input[type=email]{min-height:44px!important;padding:10px 12px!important}#gate label.gl{font-size:.95rem}#gate .gbox{padding:16px 16px 12px!important}#gate .grem{min-height:36px!important}#gate .ghelp{margin-top:8px!important}}
+
+@media(max-height:600px){#gate .gf{margin:0 0 6px!important}#gate label.gl{margin:0 0 2px!important;font-size:.9rem}#gate .gerr,#gate .gok{padding:7px 10px!important;font-size:.86rem!important;margin:0 0 8px!important}#gate h1{margin:0 0 6px!important}#gate .grem{margin:0 0 6px!important}}
+#gate .grem{white-space:nowrap}
 </style>
-<script>(function(){try{var k='hc_auth',v=localStorage.getItem(k)||sessionStorage.getItem(k);if(v==='7fc65d63')document.documentElement.classList.add('authed');}catch(e){}})();</script>
+<script>(function(){try{var k='sb-xnlquerabczcsvoebgaf-auth-token';if(localStorage.getItem(k)||sessionStorage.getItem(k))document.documentElement.classList.add('authed');}catch(e){}})();</script>
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -1351,51 +1373,153 @@ document.querySelector('header.top .brand').onclick=()=>home();
 </script>
 
 <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gT">
- <form class="gbox" id="gForm" novalidate>
+ <div class="gbox">
   <div class="glogo" id="gLogo"><span>Hinge Care</span></div>
-  <h1 id="gT">Come on in</h1>
-  <p class="gsub">Type your first name and the password from your welcome email.</p>
-  <div class="gerr" id="gErr" role="alert"></div>
-  <div class="gf"><label class="gl" for="gName">First name</label>
-   <input type="text" id="gName" autocomplete="username" autocapitalize="words" placeholder="Linda" required></div>
-  <div class="gf"><label class="gl" for="gPw">Password</label>
-   <div class="gpw"><input type="password" id="gPw" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" required>
-   <button type="button" class="gshow" id="gShow" aria-label="Show password">Show</button></div></div>
-  <label class="grem"><input type="checkbox" id="gRem" checked> Remember me</label>
-  <button type="submit" class="gbtn">Open my Program</button>
-  <p class="ghelp">Can't find the email? <a href="mailto:hingecare@gentlerootz.com">Write to us</a> and a real person will help.</p>
- </form>
+  <!-- SIGN IN -->
+  <form class="gv" id="vIn" novalidate>
+   <h1 id="gT">Come on in</h1>
+   <p class="gsub">Sign in with the username and password you made.</p>
+   <div class="gerr" role="alert"></div>
+   <div class="gf"><label class="gl" for="iU">Username or email</label>
+    <input type="text" id="iU" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required></div>
+   <div class="gf"><label class="gl" for="iP">Password</label>
+    <div class="gpw"><input type="password" id="iP" autocomplete="current-password" required><button type="button" class="gshow">Show</button></div></div>
+   <div class="grow"><label class="grem"><input type="checkbox" class="rem" checked> Remember me</label><button type="button" class="glink" data-go="vForgot">Forgot password?</button></div>
+   <button type="submit" class="gbtn">Open my Program</button>
+   <p class="ghelp">First time here? <button type="button" class="glink" data-go="vUp">Make your account</button></p>
+  </form>
+  <!-- SIGN UP -->
+  <form class="gv" id="vUp" novalidate hidden>
+   <h1>Make your account</h1>
+   <p class="gsub">Use the email you bought the Program with.</p>
+   <div class="gerr" role="alert"></div>
+   <div class="g2">
+    <div class="gf"><label class="gl" for="uN">First name</label><input type="text" id="uN" autocomplete="given-name" autocapitalize="words" required></div>
+    <div class="gf"><label class="gl" for="uU">Username</label><input type="text" id="uU" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required></div>
+   </div>
+   <div class="gf"><label class="gl" for="uE">Email</label><input type="email" id="uE" autocomplete="email" inputmode="email" autocapitalize="none" required></div>
+   <div class="gf"><label class="gl" for="uP">Make up a password</label>
+    <div class="gpw"><input type="password" id="uP" autocomplete="new-password" minlength="8" placeholder="8 letters or more" required><button type="button" class="gshow">Show</button></div></div>
+   <label class="grem"><input type="checkbox" class="rem" checked> Remember me</label>
+   <button type="submit" class="gbtn">Make my account</button>
+   <p class="ghelp">Already have one? <button type="button" class="glink" data-go="vIn">Sign in</button></p>
+  </form>
+  <!-- FORGOT -->
+  <form class="gv" id="vForgot" novalidate hidden>
+   <h1>Forgot your password?</h1>
+   <p class="gsub">No problem. Type the email you bought the Program with and we'll send you a link to make a new one.</p>
+   <div class="gerr" role="alert"></div><div class="gok" role="status"></div>
+   <div class="gf"><label class="gl" for="fE">Email</label><input type="email" id="fE" autocomplete="email" inputmode="email" autocapitalize="none" required></div>
+   <button type="submit" class="gbtn">Send me the link</button>
+   <p class="ghelp">Still stuck? <a href="mailto:hingecare@gentlerootz.com?subject=Help%20signing%20in">Write to us</a> and a real person will help. · <button type="button" class="glink" data-go="vIn">Back</button></p>
+  </form>
+  <!-- NEW PASSWORD -->
+  <form class="gv" id="vNew" novalidate hidden>
+   <h1>Make a new password</h1>
+   <p class="gsub">Pick something you'll remember. 8 letters or more.</p>
+   <div class="gerr" role="alert"></div>
+   <div class="gf"><label class="gl" for="nP">New password</label>
+    <div class="gpw"><input type="password" id="nP" autocomplete="new-password" minlength="8" required><button type="button" class="gshow">Show</button></div></div>
+   <button type="submit" class="gbtn">Save and open my Program</button>
+  </form>
+ </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function(){
-  const K='hc_auth',N='hc_name',H='7fc65d63dc598ea6e2ee72ac9f0868fdbfe0c3cd589db14f4980eb9ba9fdcc68';
-  const g=document.getElementById('gate');
+  const SB_URL='https://xnlquerabczcsvoebgaf.supabase.co',SB_KEY='sb_publishable_FVQe_VxyvwK_RAwQm3n-mg_fPg8GeHv';
+  const de=document.documentElement,gate=document.getElementById('gate');
   try{document.getElementById('gLogo').insertAdjacentHTML('afterbegin',ICON)}catch(e){}
-  const getName=()=>{try{return localStorage.getItem(N)||sessionStorage.getItem(N)||''}catch(e){return ''}};
-  window.hcName=getName;
-  async function sha(t){if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}return ''}
-  const nm=document.getElementById('gName'),pw=document.getElementById('gPw'),er=document.getElementById('gErr');
-  if(getName())nm.value=getName();
-  document.getElementById('gShow').onclick=function(){const sh=pw.type==='password';pw.type=sh?'text':'password';this.textContent=sh?'Hide':'Show';this.setAttribute('aria-label',sh?'Hide password':'Show password')};
-  document.getElementById('gForm').addEventListener('submit',async e=>{
-    e.preventDefault();er.classList.remove('on');
-    const name=nm.value.trim(),p=pw.value.trim().toLowerCase();
-    if(!name){er.textContent='Please type your first name.';er.classList.add('on');nm.focus();return}
-    if(!p){er.textContent='Please type your password.';er.classList.add('on');pw.focus();return}
-    if(await sha('hingecare:'+p)!==H){er.textContent="That password didn't work. You'll find it in your welcome email from Hinge Care.";er.classList.add('on');pw.select();return}
-    const st=document.getElementById('gRem').checked?localStorage:sessionStorage;
-    try{localStorage.removeItem(K);sessionStorage.removeItem(K);st.setItem(K,'7fc65d63');st.setItem(N,name)}catch(e){}
-    document.documentElement.classList.add('authed');window.scrollTo(0,0);
-    try{home()}catch(e){}
+  const remOn=()=>{try{return localStorage.getItem('hc_rem')!=='0'}catch(e){return true}};
+  const store={getItem:k=>{try{return localStorage.getItem(k)??sessionStorage.getItem(k)}catch(e){return null}},
+    setItem:(k,v)=>{try{if(remOn()){localStorage.setItem(k,v);sessionStorage.removeItem(k)}else{sessionStorage.setItem(k,v);localStorage.removeItem(k)}}catch(e){}},
+    removeItem:k=>{try{localStorage.removeItem(k);sessionStorage.removeItem(k)}catch(e){}}};
+  let sb=null;
+  try{sb=window.supabase.createClient(SB_URL,SB_KEY,{auth:{storage:store,persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}})}catch(e){console.warn('auth not ready',e)}
+  window.hcSB=sb;
+  // views
+  function show(id){gate.querySelectorAll('.gv').forEach(v=>{v.hidden=v.id!==id;v.querySelectorAll('.gerr,.gok').forEach(x=>{x.classList.remove('on');x.textContent=''})});const f=document.getElementById(id).querySelector('input:not([type=checkbox])');if(f)setTimeout(()=>f.focus({preventScroll:true}),150)}
+  gate.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
+  gate.querySelectorAll('.gshow').forEach(b=>b.onclick=()=>{const i=b.previousElementSibling,sh=i.type==='password';i.type=sh?'text':'password';b.textContent=sh?'Hide':'Show'});
+  gate.querySelectorAll('.rem').forEach(c=>{c.checked=remOn();c.onchange=()=>{try{localStorage.setItem('hc_rem',c.checked?'1':'0')}catch(e){}gate.querySelectorAll('.rem').forEach(o=>o.checked=c.checked)}});
+  const err=(f,m)=>{const e=f.querySelector('.gerr');e.textContent=m;e.classList.add('on');f.querySelector('.gok')&&f.querySelector('.gok').classList.remove('on')};
+  const ok=(f,m)=>{const e=f.querySelector('.gok');e.textContent=m;e.classList.add('on');f.querySelector('.gerr').classList.remove('on')};
+  const busy=(f,on,label)=>{const b=f.querySelector('.gbtn');if(on){b.dataset.t=b.textContent;b.textContent=label||'One moment…';b.disabled=true}else{b.textContent=b.dataset.t||b.textContent;b.disabled=false}};
+  const notReady=f=>{err(f,"Sign-in isn't switched on yet. Please write to hingecare@gentlerootz.com and we'll help.");};
+  let NAME='';window.hcName=()=>NAME;
+  function enter(user){
+    NAME=(user&&user.user_metadata&&user.user_metadata.first_name)||'';
+    de.classList.add('authed');window.scrollTo(0,0);try{home()}catch(e){}
+  }
+  // sign in
+  document.getElementById('vIn').addEventListener('submit',async e=>{e.preventDefault();const f=e.currentTarget;if(!sb)return notReady(f);
+    const u=document.getElementById('iU').value.trim(),p=document.getElementById('iP').value;
+    if(!u)return err(f,'Please type your username or email.');if(!p)return err(f,'Please type your password.');
+    busy(f,1,'Opening…');
+    try{
+      let email=u.includes('@')?u:null;
+      if(!email){const r=await sb.rpc('login_email',{u,p});email=r.data||null}
+      if(!email){busy(f,0);return err(f,"That username and password don't match. Try again, or tap Forgot password.")}
+      const {data,error}=await sb.auth.signInWithPassword({email,password:p});
+      busy(f,0);
+      if(error)return err(f,"That username and password don't match. Try again, or tap Forgot password.");
+      enter(data.user);
+    }catch(x){busy(f,0);err(f,"Something went wrong on our side. Please try again in a minute.")}
   });
-  if(!document.documentElement.classList.contains('authed'))setTimeout(()=>{(nm.value?pw:nm).focus()},300);
-  window.hcSignOut=function(){try{[localStorage,sessionStorage].forEach(s=>{s.removeItem(K)})}catch(e){}pw.value='';document.documentElement.classList.remove('authed');try{closeMenu()}catch(e){}window.scrollTo(0,0)};
-  // greet by name + sign out in menu
-  const _h=home;home=function(){_h();const n=getName();const k=document.querySelector('#app .cover .kicker');if(n&&k)k.textContent='Welcome, '+n.split(' ')[0];};
-  const _om=openMenu;openMenu=function(){_om.apply(this,arguments);const pn=document.getElementById('panel');if(pn&&!pn.querySelector('.signout')){const b=document.createElement('button');b.className='signout';b.type='button';b.textContent='Sign out';b.onclick=hcSignOut;(pn.querySelector('.pbody')||pn).appendChild(b)}};
-  if(document.documentElement.classList.contains('authed'))home();
+  // sign up
+  document.getElementById('vUp').addEventListener('submit',async e=>{e.preventDefault();const f=e.currentTarget;if(!sb)return notReady(f);
+    const n=document.getElementById('uN').value.trim(),u=document.getElementById('uU').value.trim(),em=document.getElementById('uE').value.trim().toLowerCase(),p=document.getElementById('uP').value;
+    if(!n)return err(f,'Please type your first name.');
+    if(!/^[A-Za-z0-9._-]{3,24}$/.test(u))return err(f,'Pick a username of 3 to 24 letters or numbers, with no spaces.');
+    if(!/^\S+@\S+\.\S+$/.test(em))return err(f,'Please check your email address.');
+    if(p.length<8)return err(f,'Your password needs 8 letters or more.');
+    busy(f,1,'Making your account…');
+    try{
+      const c=await sb.rpc('can_sign_up',{e:em,u});
+      const st=c.data;
+      if(st==='not_buyer'){busy(f,0);return err(f,"We can't find a Program purchase with that email. Use the email from your Whop receipt, or write to hingecare@gentlerootz.com.")}
+      if(st==='has_account'){busy(f,0);return err(f,'You already have an account with that email. Tap Sign in, or Forgot password if you need a new one.')}
+      if(st==='username_taken'){busy(f,0);return err(f,'Someone already has that username. Try adding a number, like '+u+'2.')}
+      const {data,error}=await sb.auth.signUp({email:em,password:p,options:{data:{first_name:n,username:u}}});
+      busy(f,0);
+      if(error)return err(f,/weak|short/i.test(error.message)?'Please pick a longer password.':"We couldn't make your account just now. Please try again, or write to hingecare@gentlerootz.com.");
+      if(data.session)return enter(data.user);
+      const r=await sb.auth.signInWithPassword({email:em,password:p});if(r.data&&r.data.user)return enter(r.data.user);
+      err(f,'Your account is made. Check your email to confirm it, then sign in.');
+    }catch(x){busy(f,0);err(f,"Something went wrong on our side. Please try again in a minute.")}
+  });
+  // forgot
+  document.getElementById('vForgot').addEventListener('submit',async e=>{e.preventDefault();const f=e.currentTarget;if(!sb)return notReady(f);
+    const em=document.getElementById('fE').value.trim();if(!/^\S+@\S+\.\S+$/.test(em))return err(f,'Please check your email address.');
+    busy(f,1,'Sending…');
+    const {error}=await sb.auth.resetPasswordForEmail(em,{redirectTo:location.origin+location.pathname});
+    busy(f,0);
+    if(error&&/rate|limit|seconds/i.test(error.message))return err(f,'Please wait a minute before asking for another link.');
+    ok(f,"If that email has an account, the link is on its way. Look for an email called \"Reset your password\" and check your spam folder too.");
+  });
+  // new password
+  document.getElementById('vNew').addEventListener('submit',async e=>{e.preventDefault();const f=e.currentTarget;
+    const p=document.getElementById('nP').value;if(p.length<8)return err(f,'Your password needs 8 letters or more.');
+    busy(f,1,'Saving…');const {data,error}=await sb.auth.updateUser({password:p});busy(f,0);
+    if(error)return err(f,"That link has run out. Tap Forgot password to get a fresh one.");
+    history.replaceState(null,'',location.pathname);enter(data.user);
+  });
+  window.hcSignOut=async function(){try{await sb.auth.signOut()}catch(e){}NAME='';de.classList.remove('authed');try{closeMenu()}catch(e){}show('vIn');window.scrollTo(0,0)};
+  // start
+  let recovering=/type=recovery/.test(location.hash);
+  if(sb){
+    sb.auth.onAuthStateChange((ev,ses)=>{if(ev==='PASSWORD_RECOVERY'){recovering=true;de.classList.remove('authed');show('vNew')}});
+    sb.auth.getSession().then(({data})=>{
+      if(recovering){de.classList.remove('authed');show('vNew');return}
+      if(data.session)enter(data.session.user);else{de.classList.remove('authed');show('vIn')}
+    });
+  }else{de.classList.remove('authed');show('vIn')}
+  // greet + sign out button
+  const _h=home;home=function(){_h();const k=document.querySelector('#app .cover .kicker');if(NAME&&k)k.textContent='Welcome, '+NAME.split(' ')[0];};
+  const _om=openMenu;openMenu=function(){_om.apply(this,arguments);const pn=document.getElementById('panel');if(pn&&!pn.querySelector('.signout')){const b=document.createElement('button');b.className='signout';b.type='button';b.textContent='Sign out';b.onclick=hcSignOut;pn.appendChild(b)}};
 })();
 </script>
+
 
 <script>
 (function(){
