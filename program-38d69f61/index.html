@@ -488,6 +488,17 @@ header.top .navbtn{min-height:44px}
 .coach .ans{margin:8px 0 0;font-size:1rem}
 .coach .rb{margin-top:6px}
 .qs ol{margin:6px 0 0;padding-left:22px}.qs li{margin:0 0 .5em}
+
+.welcome.wv .in{max-width:880px;width:100%}
+.welcome.wv .wk{font:700 .8rem Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#CFE0CC;margin:0 0 16px}
+.vframe{position:relative;width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.18);box-shadow:0 20px 50px rgba(0,0,0,.35);margin:0 0 26px}
+.vframe video{width:100%;height:100%;display:block;background:#000}
+.vsoon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;text-align:center}
+.vsoon .vring{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding-left:5px;color:#fff;border:2px solid rgba(255,255,255,.8);background:rgba(255,255,255,.08)}
+.vsoon b{font-family:Fraunces,Georgia,serif;font-size:1.35rem;color:#fff}
+.vsoon small{color:#E4E0D6;font-size:1rem;max-width:420px}
+.welcome.wv .under{color:#E4E0D6;margin-top:14px}
+@media(max-width:600px){.vframe{border-radius:14px}.vsoon .vring{width:60px;height:60px}.vsoon b{font-size:1.1rem}.vsoon small{font-size:.9rem}}
 </style>
 </head>
 <body>
@@ -541,12 +552,12 @@ function halt(){stop();if(typeof PT!=='undefined')clearInterval(PT);}
 const ICON=document.querySelector('header.top .logo').outerHTML;
 function welcome(){
   stop();document.querySelectorAll('.fabplay').forEach(e=>e.remove());document.body.dataset.view='welcome';setDock(null);document.body.classList.add('hide-foot');closeMenu();document.querySelector('header.top').classList.add('hide');
-  app.innerHTML=`<div class="welcome fade"><div class="in">${ICON}
-  <h1>Welcome. We're so glad you're here.</h1>
-  <p>Living with sore joints is tiring, and some mornings it can feel like nobody quite gets it. This Program was made for exactly those mornings.</p>
-  <p>You don't have to fix everything. You only have to do one small thing today.</p>
-  <button class="btn light" id="wgo" type="button" style="margin-bottom:16px">${doneCount()?'Carry on where I left off':'Let\'s begin'}</button>
-  <p class="under" style="color:#E4E0D6">Eight weeks · one small step a day · go at your own pace</p></div></div>`;
+  const WV=window.WELCOME_VIDEO||'';
+  app.innerHTML=`<div class="welcome wv fade"><div class="in">
+  <p class="wk">The Hinge Care Program</p>
+  <div class="vframe">${WV?`<video controls playsinline preload="metadata" src="${WV}"></video>`:`<div class="vsoon"><span class="vring" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><b>Your welcome video is on its way</b><small>A short voiceover that walks you through how the Program works.</small></div>`}</div>
+  <button class="btn light" id="wgo" type="button">${doneCount()?'Carry on where I left off':'Start the Program'}</button>
+  <p class="under">Eight weeks · one small step a day · go at your own pace</p></div></div>`;
   window.scrollTo(0,0);S.seen=true;save();
   document.getElementById('wgo').onclick=()=>doneCount()?home():overview();
 }
