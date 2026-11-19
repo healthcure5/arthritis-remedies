@@ -535,7 +535,7 @@ function foot(){
   <div class="today"><b>Today's small step · Week ${t.w.n}</b><p class="what">${t.txt?'Day '+(t.i+1)+': '+esc(t.txt):'You ticked every step this week. Well done.'}</p>
   ${t.txt?`<button class="btn light" id="fdone" type="button">✓ I did today's step</button>`:''}</div>
   <p>Days you've shown up so far: <b style="color:#fff">${daysShown()}</b>. Missed a day? Nothing is lost. Just pick up where you left off.</p>
-  <p class="fine">${esc(D.disclaimer)}<br>Questions? Email <a href="mailto:hello@gentlerootz.com">hello@gentlerootz.com</a>. © Hinge Care</p></div>`;
+  <p class="fine">${esc(D.disclaimer)}<br>Questions? Email <a href="mailto:hingecare@gentlerootz.com">hingecare@gentlerootz.com</a>. © Hinge Care</p></div>`;
   const b=document.getElementById('fdone');if(b)b.onclick=()=>{S.days[t.w.n+'-'+t.i]=true;mark();erupt(b);toast('Step done. That counts.');foot();checkBadges();if(app.querySelector('.today-card'))setTimeout(home,800);};
 }
 function todayCard(){
@@ -658,7 +658,7 @@ function home(){
   <button class="lrow" data-t="family" type="button"><span class="tick" aria-hidden="true"></span><span>For family members<small>How to help without taking over</small></span></button>
   <button class="lrow" data-t="cert" type="button"><span class="tick" aria-hidden="true"></span><span>My certificate<small>Yours when you finish all eight weeks</small></span></button>
   <a class="lrow" href="https://gentlerootz.com/app/" target="_blank" rel="noopener"><span class="tick" aria-hidden="true"></span><span>Gentle Stretch app<small>Chair routines with a calm voice. Opens in a new tab.</small></span></a>
-  <p class="disc">${esc(D.disclaimer)}<br>Questions? Email hello@gentlerootz.com and a real person will reply.</p>
+  <p class="disc">${esc(D.disclaimer)}<br>Questions? Email hingecare@gentlerootz.com and a real person will reply.</p>
   </div></section>`;
   app.innerHTML=h;window.scrollTo(0,0);setTimeout(checkBadges,600);
   const td=document.getElementById('tdone');if(td)td.onclick=()=>{const t=todayStep();S.days[t.w.n+'-'+t.i]=true;mark();const dot=app.querySelectorAll('.dots i')[t.i];if(dot){dot.classList.add('on');dot.textContent='✓';}erupt(dot||td);toast('Step done. That counts.');setTimeout(home,1500);};
