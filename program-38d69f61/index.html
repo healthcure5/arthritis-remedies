@@ -580,6 +580,58 @@ body[data-view=welcome] #app{height:100vh;height:100dvh;overflow:hidden}
 .cover .wtop .wlogo{margin:0 0 16px}
 .cover{min-height:0!important;padding-top:calc(76px + env(safe-area-inset-top))!important;padding-bottom:30px}
 @media(min-width:1100px){.cover{padding-top:40px!important}.cover .wtop .wlogo{display:none}}
+
+/* ===== Phone fit (Nov 19) ===== */
+.garden h2{color:var(--plumtext,#F4EEF7)!important}
+button,.btn,a,summary,label{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+#celeB{min-height:48px}
+@media(max-width:700px){
+  header.top::before{background:linear-gradient(180deg,rgba(14,9,18,.88) 0%,rgba(14,9,18,.6) 70%,rgba(14,9,18,0) 100%)!important;height:calc(100% + 18px)!important}
+  header.top .wrap{min-height:58px}
+  /* welcome + progress */
+  .cover .wtop .wlogo{display:none}
+  .cover{padding-top:calc(66px + env(safe-area-inset-top))!important;padding-bottom:6px!important}
+  .cover .wrap{padding:14px 16px 18px!important}
+  .cover .wtop{margin-bottom:20px}
+  .cover .wtop .vframe{aspect-ratio:auto!important;min-height:0}
+  .cover .wtop .vsoon{position:relative!important;flex-direction:row;justify-content:flex-start;text-align:left;gap:14px;padding:14px 16px;display:grid;grid-template-columns:auto 1fr;align-items:center}
+  .cover .wtop .vsoon .vring{width:52px;height:52px;grid-row:span 2}
+  .cover .wtop .vsoon b{font-size:1.05rem;line-height:1.25}
+  .cover .wtop .vsoon small{font-size:.92rem;line-height:1.4}
+  .cover .wtop video{width:100%;aspect-ratio:16/9;display:block}
+  .cover h1{font-size:2.05rem!important;line-height:1.12}
+  .cover p{margin-bottom:14px}
+  .cover .btn{width:100%;min-height:56px}
+  section.fade{padding-top:6px!important}
+  section.fade>.wrap,#app>.wrap.fade{margin:8px 8px 18px!important;padding:16px 14px 14px!important;border-radius:18px}
+  .coach.qs{margin-top:4px!important}
+  .today-card,.garden,.plan,.eight{padding:16px!important}
+  .today-card .btn,.plan .btn{width:100%}
+  details.week .wphoto{height:112px!important}
+  details.week .wrow{padding:24px 16px 14px!important}
+  details.week .wbody{padding:0 14px 16px!important}
+  .day{padding:12px 0!important}
+  /* lessons */
+  .leafband{height:calc(58px + env(safe-area-inset-top))!important}
+  #app>.wrap.fade .crumb{margin-top:4px!important;font-size:.88rem}
+  #app>.wrap.fade h1{font-size:1.85rem!important;line-height:1.15}
+  .try{padding:16px!important}
+  .nav2 .btn{width:100%}
+  #app h3{margin-top:22px}
+  .check h3{margin-top:24px}
+  .opt{min-height:52px;text-align:left}
+  .pnav{gap:8px}
+  .pnav button{min-height:64px}
+  .notes textarea,.field input,.field textarea{font-size:16px!important}
+  .vo audio{width:100%}
+  /* footer */
+  #plum .wrap{padding-left:18px!important;padding-right:18px!important}
+  #plum{padding-bottom:calc(24px + env(safe-area-inset-bottom))!important}
+  #plum .btn{width:100%}
+  /* menu */
+  #panel{width:min(92vw,420px)!important}
+  #panel .plink,#panel summary{min-height:52px}
+}
 </style>
 </head>
 <body>
