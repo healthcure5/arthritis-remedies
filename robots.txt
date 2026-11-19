@@ -7,4 +7,3 @@ Disallow: /guide-files/
 Disallow: /read/
 
 Sitemap: https://gentlerootz.com/sitemap.xml
-Disallow: /preview-gw-3a91/
