@@ -415,6 +415,11 @@ header.top .navbtn{min-height:44px}
 .try{background:var(--pl3);border-left-color:var(--pl)}
 .opt.sel{border-color:var(--pl);background:var(--pl3)}
 .sizer button{border-color:var(--pl);color:var(--pl2)}
+
+/* welcome: plain green, rolls up to reveal the leaves */
+.welcome{background:linear-gradient(165deg,#24573D 0%,#1A4230 45%,#12301F 100%)!important}
+.vghost.rollup{animation:rollup .85s cubic-bezier(.7,0,.2,1) forwards;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+@keyframes rollup{to{transform:translateY(-104%)}}
 </style>
 </head>
 <body>
@@ -472,7 +477,7 @@ function welcome(){
   <h1>Welcome. We're so glad you're here.</h1>
   <p>Living with sore joints is tiring, and some mornings it can feel like nobody quite gets it. This Program was made for exactly those mornings.</p>
   <p>You don't have to fix everything. You only have to do one small thing today.</p>
-  <button class="btn light" id="wgo" type="button">${doneCount()?'Carry on where I left off':'Let\'s begin'}</button>
+  <button class="btn light" id="wgo" type="button" style="margin-bottom:16px">${doneCount()?'Carry on where I left off':'Let\'s begin'}</button>
   <p class="under" style="color:#E4E0D6">Eight weeks · one small step a day · go at your own pace</p></div></div>`;
   window.scrollTo(0,0);S.seen=true;save();
   document.getElementById('wgo').onclick=()=>doneCount()?home():overview();
@@ -873,7 +878,7 @@ document.querySelector('header.top .brand').style.cursor='pointer';document.quer
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let busy=0;
 function ghost(){if(RM||!app.firstElementChild)return;const g=app.cloneNode(true);g.removeAttribute('id');g.className='vghost';g.setAttribute('aria-hidden','true');
  g.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));g.querySelectorAll('iframe,video,audio,canvas').forEach(e=>e.remove());
- g.style.top=(-window.scrollY)+'px';document.body.appendChild(g);setTimeout(()=>g.remove(),450);}
+ g.style.top=(-window.scrollY)+'px';const w=!!g.querySelector('.welcome');if(w)g.classList.add('rollup');document.body.appendChild(g);setTimeout(()=>g.remove(),w?900:450);}
 function wrap(f){return function(){if(busy)return f.apply(this,arguments);busy=1;try{ghost();const r=f.apply(this,arguments);app.classList.remove('enter');void app.offsetWidth;app.classList.add('enter');return r;}finally{busy=0}}}
 welcome=wrap(welcome);overview=wrap(overview);home=wrap(home);lesson=wrap(lesson);toolkit=wrap(toolkit);planPage=wrap(planPage);player=wrap(player);startCheck=wrap(startCheck);
 swap=function(fn){fn()};
