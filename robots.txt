@@ -5,6 +5,5 @@ Disallow: /program-offer.html
 Disallow: /b/
 Disallow: /guide-files/
 Disallow: /read/
-Disallow: /7-everyday-habits.pdf
 
 Sitemap: https://gentlerootz.com/sitemap.xml
