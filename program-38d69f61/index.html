@@ -632,7 +632,35 @@ button,.btn,a,summary,label{-webkit-tap-highlight-color:transparent;touch-action
   #panel{width:min(92vw,420px)!important}
   #panel .plink,#panel summary{min-height:52px}
 }
+
+/* ===== Sign-in gate ===== */
+html:not(.authed) body{overflow:hidden!important}
+html:not(.authed) #app,html:not(.authed) header.top,html:not(.authed) #panel,html:not(.authed) #plum,html:not(.authed) footer{visibility:hidden}
+#gate{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:calc(20px + env(safe-area-inset-top)) 18px calc(20px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(14,9,18,.72),rgba(14,9,18,.9)),var(--leaf) center/cover,#140d18;overflow-y:auto}
+html.authed #gate{display:none}
+#gate .gbox{width:100%;max-width:420px;background:rgba(22,16,27,.94);border:1px solid rgba(183,155,201,.28);border-radius:22px;padding:28px 22px 22px;color:#F4EEF7;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+#gate .glogo{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 18px;font:600 1.25rem Fraunces,Georgia,serif}
+#gate .glogo svg{width:42px;height:42px}
+#gate h1{font:600 1.7rem/1.2 Fraunces,Georgia,serif;margin:0 0 6px;text-align:center;color:#fff}
+#gate .gsub{text-align:center;color:#D9CCE0;margin:0 0 22px;font-size:1rem;line-height:1.5}
+#gate label.gl{display:block;font-weight:600;margin:0 0 6px;font-size:1rem}
+#gate input[type=text],#gate input[type=password]{width:100%;font:400 17px Inter,sans-serif;padding:14px 14px;border-radius:12px;border:2px solid rgba(183,155,201,.35);background:#1d1424;color:#fff;min-height:54px;box-sizing:border-box}
+#gate input:focus{outline:none;border-color:#A56BD6;box-shadow:0 0 0 3px rgba(165,107,214,.3)}
+#gate .gf{margin:0 0 16px}
+#gate .gpw{position:relative}
+#gate .gpw input{padding-right:78px}
+#gate .gshow{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:#CDB4E6;font:600 .95rem Inter,sans-serif;padding:10px 12px;min-height:44px;cursor:pointer}
+#gate .grem{display:flex;align-items:center;gap:12px;margin:4px 0 20px;font-size:1rem;cursor:pointer;min-height:44px}
+#gate .grem input{width:24px;height:24px;accent-color:#A56BD6;flex:none}
+#gate .gbtn{width:100%;min-height:56px;border:0;border-radius:14px;background:linear-gradient(180deg,#A56BD6,#7A3FB0);color:#fff;font:600 1.1rem Inter,sans-serif;cursor:pointer;box-shadow:0 4px 0 #4E2475}
+#gate .gbtn:active{transform:translateY(2px);box-shadow:0 2px 0 #4E2475}
+#gate .gerr{display:none;background:rgba(220,90,110,.14);border:1px solid rgba(220,90,110,.45);color:#FFD7DE;border-radius:12px;padding:12px 14px;margin:0 0 16px;font-size:.98rem;line-height:1.45}
+#gate .gerr.on{display:block}
+#gate .ghelp{margin:18px 0 0;text-align:center;color:#BFAFCB;font-size:.92rem;line-height:1.5}
+#gate .ghelp a{color:#E2CCF5}
+.signout{display:block;width:100%;margin:18px 0 4px;background:none;border:1px solid rgba(183,155,201,.3);color:#D9CCE0;border-radius:12px;padding:12px;font:500 .95rem Inter,sans-serif;min-height:48px;cursor:pointer}
 </style>
+<script>(function(){try{var k='hc_auth',v=localStorage.getItem(k)||sessionStorage.getItem(k);if(v==='7fc65d63')document.documentElement.classList.add('authed');}catch(e){}})();</script>
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -1276,6 +1304,53 @@ document.querySelector('header.top .brand').onclick=()=>home();
     }
   };
   home();
+})();
+</script>
+
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gT">
+ <form class="gbox" id="gForm" novalidate>
+  <div class="glogo" id="gLogo"><span>Hinge Care</span></div>
+  <h1 id="gT">Welcome to your Program</h1>
+  <p class="gsub">Sign in once and you're in.</p>
+  <div class="gerr" id="gErr" role="alert"></div>
+  <div class="gf"><label class="gl" for="gName">Your name</label>
+   <input type="text" id="gName" autocomplete="username" autocapitalize="words" placeholder="For example, Linda" required></div>
+  <div class="gf"><label class="gl" for="gPw">Password</label>
+   <div class="gpw"><input type="password" id="gPw" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+   <button type="button" class="gshow" id="gShow" aria-label="Show password">Show</button></div></div>
+  <label class="grem"><input type="checkbox" id="gRem" checked> Remember me on this device</label>
+  <button type="submit" class="gbtn">Enter my Program</button>
+  <p class="ghelp">Your password is in your welcome email and on your Program page in Whop.<br>Can't find it? Email <a href="mailto:hingecare@gentlerootz.com">hingecare@gentlerootz.com</a> and a real person will reply.</p>
+ </form>
+</div>
+<script>
+(function(){
+  const K='hc_auth',N='hc_name',H='7fc65d63dc598ea6e2ee72ac9f0868fdbfe0c3cd589db14f4980eb9ba9fdcc68';
+  const g=document.getElementById('gate');
+  try{document.getElementById('gLogo').insertAdjacentHTML('afterbegin',ICON)}catch(e){}
+  const getName=()=>{try{return localStorage.getItem(N)||sessionStorage.getItem(N)||''}catch(e){return ''}};
+  window.hcName=getName;
+  async function sha(t){if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}return ''}
+  const nm=document.getElementById('gName'),pw=document.getElementById('gPw'),er=document.getElementById('gErr');
+  if(getName())nm.value=getName();
+  document.getElementById('gShow').onclick=function(){const sh=pw.type==='password';pw.type=sh?'text':'password';this.textContent=sh?'Hide':'Show';this.setAttribute('aria-label',sh?'Hide password':'Show password')};
+  document.getElementById('gForm').addEventListener('submit',async e=>{
+    e.preventDefault();er.classList.remove('on');
+    const name=nm.value.trim(),p=pw.value.trim().toLowerCase();
+    if(!name){er.textContent='Please type your name so we know what to call you.';er.classList.add('on');nm.focus();return}
+    if(!p){er.textContent='Please type your password.';er.classList.add('on');pw.focus();return}
+    if(await sha('hingecare:'+p)!==H){er.textContent="That password doesn't match. Check your welcome email and try again. Capital letters don't matter.";er.classList.add('on');pw.select();return}
+    const st=document.getElementById('gRem').checked?localStorage:sessionStorage;
+    try{localStorage.removeItem(K);sessionStorage.removeItem(K);st.setItem(K,'7fc65d63');st.setItem(N,name)}catch(e){}
+    document.documentElement.classList.add('authed');window.scrollTo(0,0);
+    try{home()}catch(e){}
+  });
+  if(!document.documentElement.classList.contains('authed'))setTimeout(()=>{(nm.value?pw:nm).focus()},300);
+  window.hcSignOut=function(){try{[localStorage,sessionStorage].forEach(s=>{s.removeItem(K)})}catch(e){}pw.value='';document.documentElement.classList.remove('authed');try{closeMenu()}catch(e){}window.scrollTo(0,0)};
+  // greet by name + sign out in menu
+  const _h=home;home=function(){_h();const n=getName();const k=document.querySelector('#app .cover .kicker');if(n&&k)k.textContent='Welcome, '+n.split(' ')[0];};
+  const _om=openMenu;openMenu=function(){_om.apply(this,arguments);const pn=document.getElementById('panel');if(pn&&!pn.querySelector('.signout')){const b=document.createElement('button');b.className='signout';b.type='button';b.textContent='Sign out';b.onclick=hcSignOut;(pn.querySelector('.pbody')||pn).appendChild(b)}};
+  if(document.documentElement.classList.contains('authed'))home();
 })();
 </script>
 </body>
