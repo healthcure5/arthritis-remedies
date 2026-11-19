@@ -1,4 +1,4 @@
-/* Gentle Stretch app */
+/* Hinge App */
 /* ================= pictures ================= */
 const PIC={
  seat:'<svg viewBox="0 0 64 64" fill="none" stroke="#15281F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#7FA08D"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 25l9 7"/></svg>',
@@ -231,7 +231,7 @@ function onboard(step){
  if(step===0)h=`<div class="stack"><div class="label">Welcome</div><h1>Gentle movement for stiff joints</h1>
  <p>Short, guided routines you can do in a chair. A calm voice talks you through each move, and you can stop or slow down any time.</p>
  <div class="box warm"><h3 style="margin-bottom:8px">Before you begin</h3><ul style="margin:0;padding-left:22px">
- <li>Gentle Stretch offers general movement ideas for wellbeing. It doesn’t diagnose or treat any condition and isn’t a substitute for advice from your doctor or physical therapist.</li>
+ <li>Hinge App offers general movement ideas for wellbeing. It doesn’t diagnose or treat any condition and isn’t a substitute for advice from your doctor or physical therapist.</li>
  <li style="margin-top:6px">If you have a new or unexplained joint problem, recent surgery or injury, or a doctor has told you to limit activity, check with them first.</li>
  <li style="margin-top:6px">Move slowly. A gentle pull is fine. Sharp, severe or worsening pain is a sign to stop.</li></ul>
  <p style="margin-top:12px"><a href="#/safety">When to stop and get help</a></p></div>
@@ -275,7 +275,7 @@ function home(){
  <li><div class="num ${readToday?'done':''}">${readToday?'✓':'3'}</div><div><h3>Learn something small</h3><details class="read" id="rd"><summary>${card.t}</summary><div class="in"><p>${card.b}</p><button class="say" id="say">${SPK} Read this to me</button></div></details></div></li></ol>`;
  h+=`<div class="box warm"><h3 style="margin-bottom:6px">Sore day or flare?</h3><p>Rest is part of looking after your joints. If you'd like to move, these are very gentle.</p><div class="btns" style="margin-top:12px"><a class="btn line sm" href="#/r/easy">Easy day</a><a class="btn line sm" href="#/r/breathe">Breathing break</a></div><p style="margin-top:10px"><a href="#/flare">What helps on flare days</a></p></div>`;
  if(st.focus.length){const ids=[...new Set(st.focus.map(f=>JOINTS[f][1]))];h+=`<h2 style="margin-top:6px">For your ${st.focus.map(f=>JOINTS[f][0].toLowerCase()).join(', ').replace(/, ([^,]*)$/,' and $1')}</h2><div class="list">${ids.map(rowR).join('')}</div>`}
- h+=`<p class="note">Gentle Stretch offers general wellness information, not medical advice. Move slowly, never push into sharp pain, and check with your doctor or physical therapist if you are unsure. <a href="#/safety">When to stop</a></p></div>`;
+ h+=`<p class="note">Hinge App offers general wellness information, not medical advice. Move slowly, never push into sharp pain, and check with your doctor or physical therapist if you are unsure. <a href="#/safety">When to stop</a></p></div>`;
  app.innerHTML=h;
  on('.faces button',b=>{const v=+b.dataset.m;st.checkins=st.checkins.filter(c=>c.date!==ymd());st.checkins.push({date:ymd(),m:v});save();home()});
  on('#fu button',b=>{const s=last();s.asked=true;s.worse=b.dataset.a==='yes';if(s.worse)st.lighten=ymd();save();home()});
@@ -367,13 +367,13 @@ function me(){
 function summary(){
  shell('me',true);const t=ymd(),ss=st.sessions.filter(s=>gap(s.date,t)<28),cc=st.checkins.filter(c=>gap(c.date,t)<28);
  app.innerHTML=`<div class="stack"><div class="noprint"><button class="btn sun sm" id="pr">Print this page</button></div>
- <div class="box"><h1 style="font-size:26px">Gentle Stretch summary</h1><p class="muted">Last 4 weeks, up to ${fmt(t,{year:'numeric',month:'long',day:'numeric'})}</p>
+ <div class="box"><h1 style="font-size:26px">Hinge App summary</h1><p class="muted">Last 4 weeks, up to ${fmt(t,{year:'numeric',month:'long',day:'numeric'})}</p>
  <h3 style="margin-top:18px">Activity</h3><p>${plural(new Set(ss.map(s=>s.date)).size,'day')} with a session, ${mins(ss.reduce((a,s)=>a+(s.sec||0),0))} minutes in total. Weekly goal: ${st.goal} days.</p>
  <h3 style="margin-top:16px">How joints felt (daily check-ins)</h3><p>${cc.length?MOODS.map((x,i)=>x+': '+cc.filter(c=>c.m===i+1).length).join(' &middot; '):'No check-ins recorded.'}</p>
  <h3 style="margin-top:16px">Harder sessions</h3><p>${ss.filter(s=>s.feel==='hard').length} felt too hard &middot; ${ss.filter(s=>s.worse).length} left joints worse for over two hours &middot; ${ss.filter(s=>s.hurt).length} included a "This hurts" stop</p>
  ${st.activity&&st.acts.length?`<h3 style="margin-top:16px">${esc(st.activity)} (0 = very hard, 10 = very easy)</h3><p>${st.acts.slice(-4).map(a=>fmt(a.date)+': '+a.v).join(' &middot; ')}</p>`:''}
  ${st.focus.length?`<h3 style="margin-top:16px">Joints of most concern</h3><p>${st.focus.map(f=>JOINTS[f][0]).join(', ')}</p>`:''}
- <p class="note" style="margin-top:18px">Self-reported by the person using the Gentle Stretch app, for discussion with a health professional.</p></div></div>`;
+ <p class="note" style="margin-top:18px">Self-reported by the person using the Hinge App, for discussion with a health professional.</p></div></div>`;
  $('pr').onclick=()=>window.print();
 }
 /* ================= settings ================= */
@@ -396,7 +396,7 @@ function settings(msg){
  <div class="box"><h3>Your data</h3><p class="muted small" style="margin:4px 0 12px">Everything stays on this device. Clearing your browser can erase it, so save a backup now and then.</p>
  <div class="btns"><button class="btn line sm" id="bk">Save a backup file</button><label class="btn line sm" for="rs" style="cursor:pointer">Restore a backup</label><input type="file" id="rs" accept=".json,application/json" hidden></div>
  <div id="clr" style="margin-top:12px"><button class="textbtn" id="clr1" style="color:var(--alert)">Clear all my data</button></div></div>
- <div class="box"><h3>Safety</h3><p style="margin-top:6px"><a href="#/safety">When to stop and get help</a></p><p class="note" style="margin-top:10px">Gentle Stretch offers general wellness information. It doesn’t diagnose or treat any condition and isn’t a substitute for advice from your doctor or physical therapist.</p></div></div>`;
+ <div class="box"><h3>Safety</h3><p style="margin-top:6px"><a href="#/safety">When to stop and get help</a></p><p class="note" style="margin-top:10px">Hinge App offers general wellness information. It doesn’t diagnose or treat any condition and isn’t a substitute for advice from your doctor or physical therapist.</p></div></div>`;
  on('[data-t]',b=>{st.text=+b.dataset.t;save();prefs();settings()});
  $('hc').onchange=e=>{st.hc=e.target.checked;save();prefs()};voiceWire();
  $('slow').onchange=e=>{st.slow=e.target.checked;save()};$('seat').onchange=e=>{st.seated=e.target.checked;save()};
@@ -406,7 +406,7 @@ function settings(msg){
  $('ics').onclick=()=>{if(!st.rem.days.length)return settings('Pick at least one day first.');ics();settings('Your calendar file is ready. Open it to add the reminder.')};
  on('[data-un]',b=>{st.hidden=st.hidden.filter(v=>v!==b.dataset.un);save();settings()});
  $('bk').onclick=()=>{dl('gentle-stretch-backup-'+ymd()+'.json','application/json',JSON.stringify(st,null,1));settings('Backup saved. Keep the file somewhere safe.')};
- $('rs').onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||!Array.isArray(d.sessions))throw 0;st=norm(d);save();prefs();settings('Your backup has been restored.')}catch(x){settings('That file couldn’t be read. Please choose a Gentle Stretch backup file.')}};rd.readAsText(f)};
+ $('rs').onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||!Array.isArray(d.sessions))throw 0;st=norm(d);save();prefs();settings('Your backup has been restored.')}catch(x){settings('That file couldn’t be read. Please choose a Hinge App backup file.')}};rd.readAsText(f)};
  $('clr1').onclick=()=>{$('clr').innerHTML=`<p><b>Clear everything?</b> This removes your sessions, check-ins and settings from this device. It can’t be undone.</p><div class="btns" style="margin-top:10px"><button class="btn line sm" id="no">Keep my data</button><button class="btn sm" id="yes" style="background:var(--alert)">Yes, clear it</button></div>`;
   $('no').onclick=()=>settings();$('yes').onclick=()=>{try{localStorage.removeItem(KEY)}catch(e){}st=norm({});prefs();go('#/start/0')}};
 }
@@ -439,7 +439,7 @@ function ics(){
  const [hh,mm]=st.rem.time.split(':').map(Number),order=['SU','MO','TU','WE','TH','FR','SA'];let d=new Date();d.setHours(hh,mm,0,0);
  for(let i=0;i<8;i++){if(st.rem.days.includes(order[d.getDay()])&&d>new Date())break;d.setDate(d.getDate()+1);d.setHours(hh,mm,0,0)}
  const f=x=>ymd(x).replace(/-/g,'')+'T'+String(x.getHours()).padStart(2,'0')+String(x.getMinutes()).padStart(2,'0')+'00',e=new Date(d.getTime()+6e5),now=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,''),url=location.href.split('#')[0];
- dl('gentle-stretch-reminder.ics','text/calendar',['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Gentle Stretch//EN','BEGIN:VEVENT','UID:gs-'+Date.now()+'@gentlestretch','DTSTAMP:'+now,'DTSTART:'+f(d),'DTEND:'+f(e),'RRULE:FREQ=WEEKLY;BYDAY='+st.rem.days.join(','),'SUMMARY:A gentle stretch','DESCRIPTION:A gentle stretch is ready when you are. '+url,'URL:'+url,'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:A gentle stretch is ready when you are','TRIGGER:PT0M','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n'))}
+ dl('gentle-stretch-reminder.ics','text/calendar',['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Hinge App//EN','BEGIN:VEVENT','UID:gs-'+Date.now()+'@gentlestretch','DTSTAMP:'+now,'DTSTART:'+f(d),'DTEND:'+f(e),'RRULE:FREQ=WEEKLY;BYDAY='+st.rem.days.join(','),'SUMMARY:A gentle stretch','DESCRIPTION:A gentle stretch is ready when you are. '+url,'URL:'+url,'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:A gentle stretch is ready when you are','TRIGGER:PT0M','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n'))}
 /* ================= player ================= */
 let P=null,tick=null,F=null;const pl=$('player');
 const prep1=()=>st.slow?12:8,prepN=()=>st.slow?9:6;

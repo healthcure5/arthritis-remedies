@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------
 var BOOK_URL = 'https://whop.com/checkout/plan_aaSComudkA9aV';     // The Joint Reset, $17 (Whop checkout link)
 var COURSE_URL = 'https://whop.com/checkout/plan_5mDXeVp9Kf7Zg';   // The Hinge Care Program, $97
-var LETTER_URL = '';   // The Hinge Care Club, $7 a month
+var LETTER_URL = '';   // The Club, $7 a month
 var BOOK_OFFER_URL = 'https://whop.com/checkout/plan_aaSComudkA9aV';   // The Joint Reset at $17, shown only on the thank-you page
 var COURSE_OFFER_URL = 'https://whop.com/checkout/plan_1gwKGEcMJhESM'; // The Program at $77, shown only after someone buys the book
 var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
@@ -44,7 +44,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
     ['guide.html', 'Free guide', 'A kind first step, on us'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
     ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you'],
-    ['club.html', 'The Hinge Care Club', 'A letter every Sunday, $7 a month'],
+    ['club.html', 'The Club', 'A letter every Sunday, $7 a month'],
     ['mornings.html', 'Easier Mornings', 'A gift for a parent, $19 a month'],
     ['circle.html', 'The Circle', 'Twelve Tuesdays with a small group']
   ];
