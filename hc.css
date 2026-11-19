@@ -87,3 +87,22 @@ label{display:block;min-height:24px}
 .b3:hover{background:#B5532F}
 ul.ticks li{padding-left:40px}
 ul.ticks li::before{top:.12em;width:26px;height:26px;border-radius:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%23A4482C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/26px no-repeat}
+
+/* --- Tap-to-open menu on all widths; Apple-style open state (logo over X) --- */
+.hd .nav{display:none}
+.mnav{display:block;position:relative;margin-left:4px}
+.mnav summary{list-style:none;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:72px;min-height:46px;padding:9px 16px;border:1.5px solid var(--g);border-radius:16px;background:transparent;color:var(--g);font:800 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s,box-shadow .25s,padding .2s}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav summary::before{content:"";display:block;width:22px;height:2.5px;margin:7px 0;background:currentColor;border-radius:2px;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
+.mnav summary::after{content:"";display:none}
+.mnav summary:hover{box-shadow:0 10px 24px -14px rgba(31,58,39,.5)}
+.mnav[open] summary{font-size:0;letter-spacing:0;gap:9px;padding:12px 16px 11px;background:#fff;border-color:transparent;color:var(--g);box-shadow:0 20px 46px -16px rgba(31,58,39,.55)}
+.mnav[open] summary::before{width:30px;height:30px;margin:0;border-radius:0;box-shadow:none;background:url(/brand/hinge-care-icon-green.svg) center/contain no-repeat}
+.mnav[open] summary::after{display:block;width:20px;height:20px;background:linear-gradient(45deg,transparent 43%,var(--g) 43%,var(--g) 57%,transparent 57%),linear-gradient(-45deg,transparent 43%,var(--g) 43%,var(--g) 57%,transparent 57%)}
+.mnav div{position:absolute;right:0;top:calc(100% + 12px);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 26px 60px -22px rgba(31,58,39,.5);padding:10px;display:flex;flex-direction:column;min-width:248px;z-index:60}
+.mnav div a{padding:14px 16px;color:var(--ink);text-decoration:none;font-weight:600;border-radius:12px}
+.mnav div a:hover,.mnav div a[aria-current]{background:var(--sand);color:var(--g)}
+
+/* --- Bigger welcome video on the homepage --- */
+.split>.welcome-vid{grid-column:1 / -1;aspect-ratio:16/9;max-width:100%;margin-top:30px}
+@media (max-width:860px){.split>.welcome-vid{aspect-ratio:16/10;margin-top:20px}}
