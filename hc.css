@@ -80,3 +80,5 @@ ul.crosses li::before{content:"";position:absolute;left:0;top:.2em;width:24px;he
 .brand{min-height:44px}.mnav summary{min-height:44px;display:flex;align-items:center}
 .check{min-height:44px;padding:4px 0;cursor:pointer}.check input{width:28px;height:28px}
 label{display:block;min-height:24px}
+
+.payline{font:600 15px/1.45 Inter,system-ui,sans-serif;color:var(--soft);margin:10px 0 0}
