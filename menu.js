@@ -2,7 +2,7 @@
 // CHECKOUT LINKS: paste your payment provider's links between the quotes.
 // While a link is empty, the "Yes, I want..." button shows "Checkout opens soon".
 // ---------------------------------------------------------------
-var BOOK_URL = 'https://whop.com/checkout/plan_CqK2tFhCrJac5';     // The Joint Reset, $27 (Whop checkout link)
+var BOOK_URL = 'https://whop.com/checkout/plan_aaSComudkA9aV';     // The Joint Reset, $17 (Whop checkout link)
 var COURSE_URL = 'https://whop.com/checkout/plan_5mDXeVp9Kf7Zg';   // The Hinge Care Program, $97
 var LETTER_URL = '';   // The Hinge Care Club, $7 a month
 var BOOK_OFFER_URL = 'https://whop.com/checkout/plan_aaSComudkA9aV';   // The Joint Reset at $17, shown only on the thank-you page
