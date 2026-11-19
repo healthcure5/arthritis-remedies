@@ -82,3 +82,6 @@ ul.crosses li::before{content:"";position:absolute;left:0;top:.2em;width:24px;he
 label{display:block;min-height:24px}
 
 .payline{font:600 15px/1.45 Inter,system-ui,sans-serif;color:var(--soft);margin:10px 0 0}
+
+.b3{background:#A4482C;color:#fff;box-shadow:0 4px 0 #7F361C}
+.b3:hover{background:#B5532F}
