@@ -87,6 +87,8 @@ label{display:block;min-height:24px}
 .b3:hover{background:#B5532F}
 ul.ticks li{padding-left:40px}
 ul.ticks li::before{top:.12em;width:26px;height:26px;border-radius:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%23A4482C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/26px no-repeat}
+ul.crosses li{padding-left:40px}
+ul.crosses li::before{top:.12em;width:26px;height:26px;border-radius:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6L18 18M18 6L6 18' fill='none' stroke='%23A4482C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/26px no-repeat}
 
 /* --- Tap-to-open menu on all widths; Apple-style open state (logo over X) --- */
 .hd .nav{display:none}
