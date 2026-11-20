@@ -750,6 +750,27 @@ html:not(.authed),html:not(.authed) body{overflow:hidden!important;height:100%;o
 
 @media(max-height:600px){#gate .gf{margin:0 0 6px!important}#gate label.gl{margin:0 0 2px!important;font-size:.9rem}#gate .gerr,#gate .gok{padding:7px 10px!important;font-size:.86rem!important;margin:0 0 8px!important}#gate h1{margin:0 0 6px!important}#gate .grem{margin:0 0 6px!important}}
 #gate .grem{white-space:nowrap}
+
+/* ===== Course polish (Nov 20) ===== */
+.quick{display:inline-flex;align-items:center;gap:8px;margin:2px 0 14px;background:rgba(165,107,214,.14);border:1px solid rgba(183,155,201,.35);color:#E9DDF3;border-radius:99px;padding:8px 14px;font:600 .92rem Inter,sans-serif;cursor:pointer;min-height:40px}
+.quick:hover{background:rgba(165,107,214,.24)}
+.try.flash{animation:tryflash 1.4s ease}
+@keyframes tryflash{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px rgba(165,107,214,.55)}}
+.recap{margin:24px 0 6px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px dashed rgba(183,155,201,.45)}
+.recap b{display:block;font:700 .75rem Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#CDB4E6;margin:0 0 6px}
+.recap p{margin:0;font-size:1.05rem;line-height:1.5}
+.wrapup{margin:26px 0 8px;padding:18px;border-radius:16px;background:linear-gradient(180deg,rgba(122,63,176,.22),rgba(122,63,176,.08));border:1px solid rgba(183,155,201,.4)}
+.wrapup h3{margin:0 0 4px!important}
+.wrapup ul{margin:8px 0 14px;padding-left:20px}.wrapup li{margin:0 0 6px;line-height:1.45}
+.wrapup .kq{font-weight:600;margin:0 0 8px}
+.wrapup .kopt{display:block;width:100%;text-align:left;margin:0 0 8px;padding:12px 14px;border-radius:12px;border:1px solid rgba(183,155,201,.4);background:rgba(20,13,25,.6);color:#F4EEF7;font:500 1rem Inter,sans-serif;cursor:pointer;min-height:48px}
+.wrapup .kopt.on{border-color:#A56BD6;background:rgba(165,107,214,.28)}
+.wrapup .kopt.on::before{content:"✓ ";color:#D9B8F5;font-weight:700}
+.wrapup .kmsg{margin:6px 0 0;color:#D9CCE0;font-size:.95rem}
+.keepline{margin:8px 0 0;font-size:.95rem;color:#D9CCE0}.keepline b{color:#F0E4FA}
+.syncnote{font-size:.85rem;color:#BFAFCB;text-align:center;margin:10px 0 0}
+.check{border:1px solid #3B2F47;border-radius:16px;padding:4px 16px 14px;margin:22px 0 0}
+.check h3{margin-top:12px!important}
 </style>
 <script>(function(){try{var k='sb-xnlquerabczcsvoebgaf-auth-token';if(localStorage.getItem(k)||sessionStorage.getItem(k))document.documentElement.classList.add('authed');}catch(e){}})();</script>
 </head>
@@ -1569,6 +1590,59 @@ document.querySelector('header.top .brand').onclick=()=>home();
   let open=false;try{open=localStorage.getItem('hc_side')==='1'}catch(e){}
   set(open);
   b.onclick=()=>{open=!open;set(open);if(open){try{openMenu()}catch(e){}}};
+})();
+</script>
+
+<script>
+(function(){
+  const REC={"w1a": "Your joints were still all night, so the fluid settled. A little movement before you stand gets it going again.", "w1b": "Move while you're still warm in bed, slowly, breathing out as you go. Your first steps will ask less of you.", "w1c": "Warm the joint first, then move it. Warmth makes the first movements easier.", "w2a": "Sore doesn't always mean harmed. Read the alarm with the traffic light instead of stopping everything.", "w2b": "Walking counts, even five minutes down the hallway. Start small and add a little each week.", "w2c": "Pick an amount you can manage on a so-so day, and stop there, even when you feel great.", "w3a": "Heat for stiffness, a wrapped cold pack for a hot, puffy joint. That's most of what you need to know.", "w3b": "A warm compress and 20 quiet minutes is comfort you can give yourself at home. Patch test anything new first.", "w3c": "Keep the creams that help and stop paying for the ones that don't. Ask your pharmacist before you add anything new.", "w4a": "Add color to your plate instead of cutting out the foods you love.", "w4b": "Every pound you lose takes about four pounds of pressure off your knees with each step. Small swaps add up.", "w4c": "Frozen, pre-cut and one-tray meals are still good food, and they're kinder to sore hands.", "w5a": "Stronger muscles carry more of the load, so your joints carry less. Go slowly and stay where it's comfortable.", "w5b": "One round of the chair routine is enough to start. Add a second round when the first feels easy.", "w5c": "Balance gets better with practice at any age. Hold the counter and practice while the kettle boils.", "w6a": "Pick your top three jobs, switch between heavy and light ones, and rest before you need to.", "w6b": "The right little tool can turn a hard job into an easy one. Start with the one that helps most right now.", "w6c": "Asking for one clear bit of help is a kindness to the people who want to help you.", "w7a": "Going to bed and getting up at the same time each day matters more than the exact hour.", "w7b": "In for four, out for six, five times. Use it in bed, in a waiting room, or when the pain spikes.", "w7c": "Feeling low when pain goes on is normal. Talk to someone, and notice three small good things each day.", "w8a": "On a bad day, do about half, not nothing. Keep your flare plan where you can see it.", "w8b": "Bring your questions, your numbers and your medicine list, and each visit will give you more.", "w8c": "You've built habits that are yours now. Keep the ones that help, at your own pace."};
+  S.keep=S.keep||{};
+  const ga=(n,p)=>{try{window.gtag&&gtag('event',n,p||{})}catch(e){}};
+  // lesson extras: short path, recap, week wrap-up, analytics
+  const _l=lesson;
+  lesson=function(id){
+    _l.apply(this,arguments);
+    const f=find(id),w=f&&f.w,wrap=document.querySelector('#app>div.wrap');if(!wrap)return;
+    ga('lesson_open',{lesson_id:id,week:w?w.n:0});
+    const h1=wrap.querySelector('h1'),tr=wrap.querySelector('.try');
+    if(h1&&tr&&!wrap.querySelector('.quick')){
+      h1.insertAdjacentHTML('afterend','<button class="quick" type="button">Only have a minute? Go to today\'s step ↓</button>');
+      wrap.querySelector('.quick').onclick=()=>{tr.scrollIntoView({behavior:'smooth',block:'center'});tr.classList.remove('flash');void tr.offsetWidth;tr.classList.add('flash')};
+    }
+    const anchor=wrap.querySelector('h3[style*="margin-top:26px"]')||wrap.querySelector('.nav2:last-of-type');
+    if(REC[id]&&anchor&&!wrap.querySelector('.recap'))anchor.insertAdjacentHTML('beforebegin',`<div class="recap"><b>In one line</b><p>${esc(REC[id])}</p></div>`);
+    if(w&&w.lessons[2]&&w.lessons[2].id===id&&anchor){
+      const k=S.keep['w'+w.n];
+      const box=document.createElement('div');box.className='wrapup';
+      box.innerHTML=`<h3>Week ${w.n} wrap-up</h3><p>This week in three lines:</p><ul>${w.lessons.map(x=>`<li>${esc(REC[x.id]||x.title)}</li>`).join('')}</ul><p class="kq">Which one will you keep doing?</p>${w.lessons.map(x=>`<button class="kopt${k===x.id?' on':''}" data-k="${x.id}" type="button">${esc(x.title)}</button>`).join('')}<p class="kmsg" aria-live="polite">${k?'Saved. You\'ll see it on your weeks page.':''}</p>`;
+      anchor.parentNode.insertBefore(box,anchor);
+      box.querySelectorAll('.kopt').forEach(b=>b.onclick=()=>{S.keep['w'+w.n]=b.dataset.k;save();box.querySelectorAll('.kopt').forEach(o=>o.classList.toggle('on',o===b));box.querySelector('.kmsg').textContent='Saved. You\'ll see it on your weeks page.';ga('week_keep',{week:w.n,lesson_id:b.dataset.k});try{FX.tap&&FX.tap()}catch(e){}});
+    }
+    const did=document.getElementById('did');
+    if(did)did.addEventListener('click',()=>{ga('lesson_done',{lesson_id:id,week:w?w.n:0});if(w&&w.lessons.every(x=>S.done[x.id]))ga('week_done',{week:w.n});if(doneCount()===total())ga('program_done',{})},{capture:true});
+  };
+  // show what they kept on the weeks page
+  const _h=home;
+  home=function(){
+    _h.apply(this,arguments);
+    document.querySelectorAll('details.week').forEach((d,i)=>{const w=D.weeks[i];if(!w)return;const k=S.keep['w'+w.n];const b=d.querySelector('.wbody');if(k&&b&&!b.querySelector('.keepline')){const f=find(k);b.querySelector('.aim').insertAdjacentHTML('afterend',`<p class="keepline">You're keeping: <b>${esc(f.l.title)}</b></p>`)}});
+  };
+  // progress follows your account to any device
+  let pushT=null,ready=false;
+  const _save=save;
+  save=function(){_save.apply(this,arguments);if(!ready||!window.hcSB)return;clearTimeout(pushT);pushT=setTimeout(push,1500)};
+  async function push(){try{const {data}=await hcSB.auth.getUser();if(!data||!data.user)return;await hcSB.from('profiles').update({progress:S,updated_at:new Date().toISOString()}).eq('id',data.user.id)}catch(e){}}
+  async function pull(user){
+    try{
+      const {data}=await hcSB.from('profiles').select('progress,first_name').eq('id',user.id).single();
+      const r=data&&data.progress||{};
+      const cnt=o=>Object.keys((o&&o.done)||{}).filter(k=>o.done[k]).length;
+      if(cnt(r)>cnt(S)){Object.assign(S,r);_save();try{document.body.dataset.view==='lesson'?null:home()}catch(e){}}
+      if(!S.name&&(data&&data.first_name||user.user_metadata&&user.user_metadata.first_name)){S.name=(data&&data.first_name)||user.user_metadata.first_name;_save()}
+      ready=true;push();
+    }catch(e){ready=true}
+  }
+  if(window.hcSB){hcSB.auth.onAuthStateChange((ev,ses)=>{if(ses&&ses.user&&(ev==='SIGNED_IN'||ev==='INITIAL_SESSION'))pull(ses.user);if(ev==='SIGNED_OUT')ready=false;})}
 })();
 </script>
 </body>
