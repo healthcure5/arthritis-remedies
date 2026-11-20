@@ -14,6 +14,7 @@
       if (first && first.value.trim()) body.append('fields[name]', first.value.trim());
       body.append('ml-submit', '1');
       body.append('anticsrf', 'true');
+      try { var hs = window.hcSource ? window.hcSource() : null; if (hs) { body.append('fields[signup_source]', hs.source); body.append('fields[signup_campaign]', hs.campaign); } } catch (x) {}
       var done = false;
       function go() { if (done) return; done = true; HTMLFormElement.prototype.submit.call(f); }
       try {

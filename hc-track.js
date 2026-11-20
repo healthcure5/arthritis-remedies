@@ -53,3 +53,24 @@
     });
   }, { passive: true });
 })();
+
+/* Remembers where a visitor came from (the tag in the link, or the site that sent them) for up to 30 days,
+   so the signup forms can save it with the subscriber. Only a short source label is stored in the browser. */
+(function () {
+  var KEY = 'hc-src';
+  function safe(v) { return (v || '').replace(/[^\w\s\-\/.:+]/g, '').trim().slice(0, 80); }
+  function read() { try { var v = JSON.parse(localStorage.getItem(KEY) || 'null'); return v && Date.now() - v.t < 2592000000 ? v : null; } catch (e) { return null; } }
+  function write(o) { try { o.t = Date.now(); localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  try {
+    var q = new URLSearchParams(location.search), s = safe(q.get('utm_source')), m = safe(q.get('utm_medium')), c = safe(q.get('utm_campaign'));
+    if (s) { write({ source: s + (m ? ' / ' + m : ''), campaign: c }); }
+    else if (!read() && document.referrer) {
+      var h = new URL(document.referrer).hostname.replace(/^www\./, '');
+      if (h && h !== location.hostname.replace(/^www\./, '')) write({ source: safe(h) + ' / referral', campaign: '' });
+    }
+  } catch (e) {}
+  window.hcSource = function () {
+    var v = read();
+    return v && v.source ? { source: v.source, campaign: v.campaign || '' } : { source: 'direct / unknown', campaign: '' };
+  };
+})();
