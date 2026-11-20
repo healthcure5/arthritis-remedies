@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hinge App</title>
-<meta name="description" content="Gentle, guided movement for stiff joints. A daily check-in, seated options, a calm voice, a weekly goal, and progress you can share with your doctor.">
+<meta name="description" content="Guided chair routines for stiff joints. A daily check-in, seated options, a calm voice, a weekly goal, and progress you can share with your doctor.">
 <meta name="theme-color" content="#F2F5F1">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -166,6 +166,13 @@ body.t3 main,body.t3 .stage,body.t3 .sheet{zoom:1.3}
 body.hc{--line:#5B6B61;--muted:#15281F}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media print{.top,.nav,.noprint{display:none!important}body{padding:0;background:#fff}main{max-width:none}.box{border-color:#999}}
+
+/* tap targets and text sizes (app-creation pass) */
+#app a:not(.btn):not(.choice):not(.card){display:inline-block;padding:11px 0;min-height:44px;box-sizing:border-box}
+#app input[type=checkbox],#app input[type=radio]{width:32px;height:32px;margin:6px 8px 6px 0;vertical-align:middle}
+#app label{min-height:44px}
+.top .by{font-size:14px}
+#app .moods span,#app .mood span,#app .feel span,#app .faces span{font-size:16px}
 </style>
 </head>
 <body>
@@ -178,6 +185,6 @@ body.hc{--line:#5B6B61;--muted:#15281F}
 <a href="#/me" data-tab="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progress</a>
 </nav>
 <div id="player" class="play" hidden></div>
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

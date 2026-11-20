@@ -22,44 +22,44 @@ const M=[
 {id:'thumb-touch',n:'Thumb touches',a:'hands',pic:'hand',sides:1,h:30,steps:['Rest your forearms on a table or your lap.','Touch your thumb to the tip of each finger in turn, making a soft "O" each time.','Go back and forth along your fingers, slowly.'],tip:'Light touches. There’s no need to press.'},
 {id:'finger-walk',n:'Finger walks',a:'hands',pic:'hand',sides:1,h:30,steps:['Lay your hand flat on a table.','Slowly walk your fingers sideways toward your thumb, one at a time.','Then walk them back to the start.'],tip:'Keep your palm resting on the table.'},
 {id:'wrist-lift',n:'Wrist lifts at the table',a:'hands',pic:'hand',sides:2,h:25,steps:['Rest your forearm on a table with your hand just past the edge, palm down.','Slowly lift your hand up, then lower it down.','Keep your forearm still on the table.'],tip:'Move only as far as is comfortable.'},
-{id:'towel-squeeze',n:'Soft towel squeeze',a:'hands',pic:'hand',sides:1,h:25,steps:['Roll a small hand towel into a tube.','Hold it in your hand and squeeze gently for a slow count of three.','Relax your grip fully, then squeeze again.'],tip:'A gentle squeeze is plenty. Never squeeze hard.'},
+{id:'towel-squeeze',n:'Soft towel squeeze',a:'hands',pic:'hand',sides:1,h:25,steps:['Roll a small hand towel into a tube.','Hold it in your hand and squeeze lightly for a slow count of three.','Relax your grip fully, then squeeze again.'],tip:'A light squeeze is plenty. Never squeeze hard.'},
 {id:'palm-turns',n:'Palm turns',a:'hands',pic:'seat',sides:1,h:25,steps:['Sit with your elbows bent at your sides.','Slowly turn your palms up to face the ceiling.','Then slowly turn them down to face the floor.'],tip:'Keep your elbows tucked in at your sides.'},
 {id:'yes-nods',n:'Small "yes" nods',a:'upper',pic:'seat',sides:1,h:20,steps:['Sit tall and look straight ahead.','Slowly lower your chin a little, as if nodding yes.','Lift it back to level. Keep the movement small.'],tip:'Don’t tip your head far back.'},
-{id:'shrug-drop',n:'Shrug and let go',a:'upper',pic:'seat',sides:1,h:25,steps:['Let your arms rest by your sides.','Slowly lift your shoulders up toward your ears.','Pause, then let them gently drop and relax.'],tip:'Breathe out as your shoulders drop.'},
+{id:'shrug-drop',n:'Shrug and let go',a:'upper',pic:'seat',sides:1,h:25,steps:['Let your arms rest by your sides.','Slowly lift your shoulders up toward your ears.','Pause, then let them drop and relax.'],tip:'Breathe out as your shoulders drop.'},
 {id:'elbow-circles',n:'Elbow circles',a:'upper',pic:'seat',sides:1,h:30,steps:['Rest your fingertips lightly on your shoulders.','Slowly draw circles with your elbows.','Halfway through, change direction.'],tip:'If your fingertips won’t reach, let your hands rest on your chest.'},
 {id:'front-raise',n:'Arm raises to the front',a:'upper',pic:'seat',sides:1,h:25,steps:['Sit tall with your arms by your sides, thumbs pointing forward.','Slowly raise both arms in front of you, no higher than your shoulders.','Lower them slowly.'],tip:'One arm at a time is fine too.'},
 {id:'finger-climb',n:'Wall finger climb',a:'upper',pic:'wall',sides:2,h:25,steps:['Sit or stand side-on to a wall, close enough to touch it.','Walk your fingers slowly up the wall as far as is comfortable.','Walk them back down.'],tip:'Stop before you feel any pinching in your shoulder.'},
-{id:'side-reach',n:'Seated side reach',a:'back',pic:'seat',sides:2,h:20,steps:['Sit tall with both feet flat on the floor.','Rest one hand on the chair seat.','Raise your other arm and lean gently away from it, reaching up and over.'],tip:'Keep both hips on the chair.'},
-{id:'pelvic-rock',n:'Pelvic rocks',a:'back',pic:'seat',sides:1,h:30,steps:['Sit near the front of your chair with your hands on your thighs.','Slowly tilt your hips back so your lower back rounds a little.','Then tilt them forward so your lower back arches a little. Keep rocking gently.'],tip:'This is a small, slow movement.'},
-{id:'tummy-brace',n:'Gentle tummy tighten',a:'back',pic:'seat',sides:1,h:20,steps:['Sit tall and breathe normally.','Gently draw your belly button in toward your spine.','Hold lightly for a count of five, then relax.'],tip:'Keep breathing the whole time.'},
+{id:'side-reach',n:'Seated side reach',a:'back',pic:'seat',sides:2,h:20,steps:['Sit tall with both feet flat on the floor.','Rest one hand on the chair seat.','Raise your other arm and lean slowly away from it, reaching up and over.'],tip:'Keep both hips on the chair.'},
+{id:'pelvic-rock',n:'Pelvic rocks',a:'back',pic:'seat',sides:1,h:30,steps:['Sit near the front of your chair with your hands on your thighs.','Slowly tilt your hips back so your lower back rounds a little.','Then tilt them forward so your lower back arches a little. Keep rocking slowly.'],tip:'This is a small, slow movement.'},
+{id:'tummy-brace',n:'Easy tummy tighten',a:'back',pic:'seat',sides:1,h:20,steps:['Sit tall and breathe normally.','Slowly draw your belly button in toward your spine.','Hold lightly for a count of five, then relax.'],tip:'Keep breathing the whole time.'},
 {id:'heel-slide',n:'Seated heel slides',a:'legs',pic:'seat',sides:2,h:25,steps:['Sit tall with your feet flat on the floor.','Slowly slide one foot forward along the floor, straightening the knee a little.','Slide it back under your chair as far as is comfortable.'],tip:'A sock on a smooth floor makes it easier.'},
-{id:'knees-open',n:'Knees open and close',a:'legs',pic:'seat',sides:1,h:25,steps:['Sit with your feet and knees together.','Slowly let your knees fall apart, keeping your feet on the floor.','Bring them gently back together.'],tip:'Go only as wide as feels comfortable for your hips.'},
+{id:'knees-open',n:'Knees open and close',a:'legs',pic:'seat',sides:1,h:25,steps:['Sit with your feet and knees together.','Slowly let your knees fall apart, keeping your feet on the floor.','Bring them slowly back together.'],tip:'Go only as wide as feels comfortable for your hips.'},
 {id:'knee-hug',n:'Seated knee lift and hold',a:'legs',pic:'seat',sides:2,h:20,steps:['Sit tall and hold the sides of your chair.','Slowly lift one knee a few inches.','Hold for a moment, then lower it slowly.'],tip:'Keep your back tall, not leaning back.'},
 {id:'toe-taps',n:'Toe lifts and taps',a:'feet',pic:'seat',sides:1,h:25,steps:['Sit with your heels on the floor.','Lift the front of your feet, then tap them down.','Keep a slow, steady rhythm.'],tip:'Good to do any time you have been sitting.'},
 {id:'ankle-alphabet',n:'Ankle alphabet',a:'feet',pic:'seat',sides:2,h:30,steps:['Lift one foot slightly off the floor, or rest your heel down.','Slowly draw the letters A, B, C in the air with your big toe.','Go as far through the alphabet as feels easy.'],tip:'Small letters are fine.'},
 {id:'towel-scrunch',n:'Towel toe scrunch',a:'feet',pic:'seat',sides:1,h:25,steps:['Place a small towel flat on the floor under your bare feet.','Slowly scrunch the towel toward you with your toes.','Relax and spread your toes, then scrunch again.'],tip:'If your toes cramp, stop and wiggle them.'},
 {id:'sit-stand',n:'Sit to stand',a:'strength',pic:'seat',stand:1,alt:'knee-hug',sides:1,h:30,steps:['Sit near the front of a sturdy chair that won’t slide, feet flat and hip-width apart.','Lean forward a little and press through your feet to stand up slowly. Use the armrests if you need to.','Pause, then sit back down slowly and with control.','Repeat at an easy pace, resting whenever you like.'],tip:'Using your hands is completely fine. Stop if your knees or hips hurt sharply.'},
 {id:'heel-raise',n:'Heel raises at the counter',a:'strength',pic:'stand',stand:1,alt:'seated-heel',sides:1,h:25,steps:['Stand facing a kitchen counter or the back of a sturdy chair and hold on with both hands.','Slowly rise up onto your toes.','Pause, then lower your heels slowly.','Repeat at an easy pace.'],tip:'Keep holding on the whole time.'},
-{id:'seated-heel',n:'Seated heel raises',a:'strength',pic:'seat',sides:1,h:25,steps:['Sit tall with your feet flat on the floor.','Lift both heels, keeping your toes on the floor.','Lower slowly and repeat.'],tip:'Press gently through the balls of your feet.'},
-{id:'wall-push',n:'Wall push-ups',a:'strength',pic:'wall',stand:1,alt:'palm-press',sides:1,h:25,steps:['Stand an arm\'s length from a wall with your feet hip-width apart.','Place your palms flat on the wall at shoulder height.','Slowly bend your elbows to bring your chest toward the wall.','Push gently back to the start. Repeat at an easy pace.'],tip:'Stand closer to the wall to make it easier.'},
-{id:'palm-press',n:'Seated palm press',a:'strength',pic:'seat',sides:1,h:20,steps:['Sit tall and press your palms together in front of your chest.','Press gently for a slow count of five, then relax.','Repeat until the timer ends.'],tip:'Keep breathing. Don’t hold your breath.'},
+{id:'seated-heel',n:'Seated heel raises',a:'strength',pic:'seat',sides:1,h:25,steps:['Sit tall with your feet flat on the floor.','Lift both heels, keeping your toes on the floor.','Lower slowly and repeat.'],tip:'Press lightly through the balls of your feet.'},
+{id:'wall-push',n:'Wall push-ups',a:'strength',pic:'wall',stand:1,alt:'palm-press',sides:1,h:25,steps:['Stand an arm\'s length from a wall with your feet hip-width apart.','Place your palms flat on the wall at shoulder height.','Slowly bend your elbows to bring your chest toward the wall.','Push slowly back to the start. Repeat at an easy pace.'],tip:'Stand closer to the wall to make it easier.'},
+{id:'palm-press',n:'Seated palm press',a:'strength',pic:'seat',sides:1,h:20,steps:['Sit tall and press your palms together in front of your chest.','Press lightly for a slow count of five, then relax.','Repeat until the timer ends.'],tip:'Keep breathing. Don’t hold your breath.'},
 {id:'weight-shift',n:'Side-to-side weight shifts',a:'balance',pic:'stand',stand:1,alt:'pelvic-rock',sides:1,h:25,steps:['Stand at a counter and hold on with both hands, feet hip-width apart.','Slowly shift your weight onto one foot, then over to the other.','Keep both feet on the floor.'],tip:'Hold on the whole time.'},
 {id:'side-leg',n:'Side leg lifts at the counter',a:'balance',pic:'stand',stand:1,alt:'knees-open',sides:2,h:20,steps:['Stand at a counter and hold on with both hands.','Slowly lift one leg out to the side a few inches, keeping your toes pointing forward.','Lower it slowly.'],tip:'Stand tall. Don’t lean over to lift higher.'},
 {id:'heel-curl',n:'Standing heel curls',a:'balance',pic:'stand',stand:1,alt:'heel-slide',sides:2,h:20,steps:['Stand at a counter and hold on with both hands.','Slowly bend one knee to bring your heel up behind you.','Lower it slowly.'],tip:'Keep your knees side by side.'},
 {id:'belly-breath',n:'Slow belly breathing',a:'calm',pic:'calm',calm:1,sides:1,h:60,steps:['Get comfortable and rest one hand on your belly.','Breathe in slowly through your nose and feel your belly rise.','Breathe out slowly, as if through a straw.'],tip:'There’s no right way. Just slow down a little.'},
-{id:'long-out',n:'Longer breath out',a:'calm',pic:'calm',calm:1,sides:1,h:60,steps:['Breathe in gently for a count of four.','Breathe out slowly for a count of six.','Let your shoulders drop each time you breathe out.'],tip:'If counting feels like work, just make the breath out a little longer.'},
+{id:'long-out',n:'Longer breath out',a:'calm',pic:'calm',calm:1,sides:1,h:60,steps:['Breathe in softly for a count of four.','Breathe out slowly for a count of six.','Let your shoulders drop each time you breathe out.'],tip:'If counting feels like work, just make the breath out a little longer.'},
 {id:'soften',n:'Soften and let go',a:'calm',pic:'calm',calm:1,sides:1,h:60,steps:['Close your eyes if you like.','Notice your jaw, your shoulders and your hands.','Each time you breathe out, let one of them soften a little.'],tip:'Rest is part of looking after your joints.'}
 ];
 const MB={};M.forEach(m=>MB[m.id]=m);
 const R=[
-{id:'wake',n:'Wake up gently',d:'Loosen up from head to toe, all seated.',ids:['yes-nods','shrug-drop','elbow-circles','pelvic-rock','heel-slide','toe-taps']},
+{id:'wake',n:'Morning wake-up',d:'Loosen up from head to toe, all seated.',ids:['yes-nods','shrug-drop','elbow-circles','pelvic-rock','heel-slide','toe-taps']},
 {id:'hands',n:'Hands that work',d:'For stiff fingers, thumbs and wrists.',ids:['thumb-touch','finger-walk','wrist-lift','palm-turns','towel-squeeze']},
 {id:'upper',n:'Neck & shoulders',d:'Ease tension in your upper body.',ids:['yes-nods','shrug-drop','elbow-circles','front-raise','finger-climb','side-reach']},
-{id:'legs',n:'Hips & knees',d:'Gentle movement for your lower body.',ids:['heel-slide','knees-open','knee-hug','pelvic-rock','ankle-alphabet','toe-taps']},
-{id:'strength',n:'Gentle strength',d:'Simple moves that help with everyday things, like getting up from a chair.',ids:['toe-taps','sit-stand','heel-raise','wall-push','palm-press','tummy-brace']},
+{id:'legs',n:'Hips & knees',d:'Easy movement for your lower body.',ids:['heel-slide','knees-open','knee-hug','pelvic-rock','ankle-alphabet','toe-taps']},
+{id:'strength',n:'Easy strength',d:'Simple moves that help with everyday things, like getting up from a chair.',ids:['toe-taps','sit-stand','heel-raise','wall-push','palm-press','tummy-brace']},
 {id:'balance',n:'Steady on your feet',d:'Supported balance moves at the kitchen counter.',ids:['weight-shift','heel-raise','side-leg','heel-curl']},
 {id:'evening',n:'Evening ease',d:'Slow and calming before bed.',ids:['pelvic-rock','side-reach','shrug-drop','ankle-alphabet','long-out','soften']},
-{id:'easy',n:'Easy day',d:'Very gentle and fully seated, with short holds. For sore days and flare days.',ids:['long-out','thumb-touch','yes-nods','shrug-drop','toe-taps','soften'],easy:1},
+{id:'easy',n:'Easy day',d:'Very easy and fully seated, with short holds. For sore days and flare days.',ids:['long-out','thumb-touch','yes-nods','shrug-drop','toe-taps','soften'],easy:1},
 {id:'breathe',n:'Breathing break',d:'Three calm minutes. No movement needed.',ids:['belly-breath','long-out','soften']}
 ];
 const RB={};R.forEach(r=>RB[r.id]=r);
@@ -70,27 +70,27 @@ const ACTS=['Getting up from a chair','Walking','Climbing stairs','Opening jars 
 const DAYS=[['MO','Mon'],['TU','Tue'],['WE','Wed'],['TH','Thu'],['FR','Fri'],['SA','Sat'],['SU','Sun']];
 const LEVELS=[[0.7,'Shorter'],[1,'Standard'],[1.3,'A little longer'],[1.6,'Longer']];
 const LEARN=[
-{t:'Why gentle movement helps',b:'Joints are made to move. Regular, gentle movement keeps the muscles around them working and can make everyday tasks feel a little easier. Little and often tends to suit stiff joints better than a lot all at once.'},
+{t:'Why moving helps',b:'Joints are made to move. Regular, easy movement keeps the muscles around them working and can make everyday tasks feel a little easier. Little and often tends to suit stiff joints better than a lot all at once.'},
 {t:'A little soreness can be normal',b:'When you start moving more, you may feel some mild soreness. That’s common, and it usually settles as your body gets used to it. Sharp, severe or worsening pain is different. That’s a sign to stop and ease off.'},
 {t:'The two-hour check',b:'Notice how your joints feel about two hours after you move. If they feel worse than before you started, do a little less next time: shorter holds, fewer moves, or the Easy day routine. You don’t need to stop moving altogether.'},
-{t:'How much should a move feel?',b:'Aim for a gentle pull or light effort, never pain. Think of a scale from 0 (nothing) to 10 (the worst pain you can imagine). From 0 to 3 is fine. At 4 or 5, go gentler or shorter. Above 5, or if pain is sharp or getting worse as you move, stop that move.'},
+{t:'How much should a move feel?',b:'Aim for a mild pull or light effort, never pain. Think of a scale from 0 (nothing) to 10 (the worst pain you can imagine). From 0 to 3 is fine. At 4 or 5, go easier or shorter. Above 5, or if pain is sharp or getting worse as you move, stop that move.'},
 {t:'Flare days happen',b:'Flares aren’t your fault, and one bad day doesn’t undo your progress. On those days, smaller movements, seated moves, warmth and rest breaks can help you get through. The Easy day routine and the Breathing break are there for exactly this.'},
 {t:'Warm up first',b:'Stiff joints often loosen after a few minutes of easy movement. A warm shower, or a warm (not hot) pack for a few minutes before you start, may also help you feel looser.'},
-{t:'Missing a day is fine',b:'This app counts your week, not unbroken days. Missing a day, or a few, is part of real life. Whenever you come back, start gently and pick up where you are.'},
+{t:'Missing a day is fine',b:'This app counts your week, not unbroken days. Missing a day, or a few, is part of real life. Whenever you come back, start small and pick up where you are.'},
 {t:'Breathe while you move',b:'It’s easy to hold your breath while you concentrate. Try breathing slowly in through your nose and out through your mouth. A relaxed breath helps your muscles relax too.'},
-{t:'Strength matters too',b:'Stretching helps you move, and gentle strength work helps your muscles support your joints. Simple moves like standing up from a chair or heel raises at a counter count. You’ll find them in the Gentle strength routine.'},
+{t:'Strength matters too',b:'Stretching helps you move, and light strength work helps your muscles support your joints. Simple moves like standing up from a chair or heel raises at a counter count. You’ll find them in the Easy strength routine.'},
 {t:'Pacing your day',b:'Spread bigger jobs across the day and the week. Break a large task into smaller pieces, with rests in between. Stopping before you are worn out often lets you do more across the day.'},
 {t:'Sleep and stiff joints',b:'Poor sleep can make pain feel louder, and pain can make sleep harder. A regular bedtime, a calm wind-down and the Evening ease routine may help you settle.'},
 {t:'Walking counts',b:'Short, easy walks are good for your whole body. Start with what feels comfortable, even a few minutes, and build slowly. Supportive shoes and level paths make it easier.'},
 {t:'Be kind to your hands',b:'Tools with bigger handles, jar openers and lifting with two hands can take strain off sore fingers and wrists. Small changes to how you do everyday jobs add up.'},
 {t:'Notice what helps',b:'The Progress page shows the days you moved and how your joints felt. Over a few weeks, you may start to notice patterns, like which routines or times of day suit you best.'},
-{t:'Mood and pain are linked',b:'Living with pain can wear you down, and feeling low can make pain harder to cope with. Gentle activity, time outdoors and talking with people you trust can all help. If low mood lasts, please talk to your doctor.'},
+{t:'Mood and pain are linked',b:'Living with pain can wear you down, and feeling low can make pain harder to cope with. Light activity, time outdoors and talking with people you trust can all help. If low mood lasts, please talk to your doctor.'},
 {t:'Talking with your doctor',b:'The Progress page has a one-page summary of your sessions and how your joints have felt. You can print it or show it on your phone at your next appointment.'},
-{t:'Medicines and movement',b:'Keep taking anything you have been prescribed. Only change or reduce a medicine after speaking with your doctor. Gentle movement works alongside your care, not instead of it.'},
+{t:'Medicines and movement',b:'Keep taking anything you have been prescribed. Only change or reduce a medicine after speaking with your doctor. Movement works alongside your care, not instead of it.'},
 {t:'Cold weather and stiffness',b:'Many people feel stiffer when it’s cold or damp. Warm layers, gloves and a few extra minutes of warm-up can make those days easier.'},
 {t:'Celebrate small wins',b:'Opening a jar more easily or getting up from a chair with less effort is real progress. Take a moment to notice it.'},
 {t:'Steady on your feet',b:'For any standing move, hold a sturdy counter or chair back. Clear the floor around you, wear non-slip shoes and make sure the room is well lit. You can switch on "Seated only" at any time.'},
-{t:'When to get help',b:'Most aches settle with rest and gentle movement. Some signs need a doctor quickly, like a joint that’s suddenly hot, red and swollen, or not being able to put weight on a leg. The full list is on the "When to stop" page.'}
+{t:'When to get help',b:'Most aches settle with rest and easy movement. Some signs need a doctor quickly, like a joint that’s suddenly hot, red and swollen, or not being able to put weight on a leg. The full list is on the "When to stop" page.'}
 ];
 /* ================= storage ================= */
 const KEY='gjc_stretch_v1';
@@ -138,7 +138,7 @@ function greet(){const h=new Date().getHours();return h<12?'Good morning':h<18?'
 function plan(){
  const m=todayMood(),h=new Date().getHours();
  if(st.lighten===ymd())return{r:'easy',why:'Your last session left your joints sore for a while, so today is a lighter one.'};
- if(m===1)return{r:'easy',why:'Thanks for telling us. Let\'s keep it very gentle today. Rest is fine too.'};
+ if(m===1)return{r:'easy',why:'Thanks for telling us. Let\'s keep it very easy today. Rest is fine too.'};
  if(m===2)return{r:'wake',why:'Let\'s loosen up slowly, from head to toe.'};
  let r=h<11?'wake':h<18?'strength':'evening';
  if(st.focus.length&&h>=11&&h<18&&new Date().getDate()%2){r=JOINTS[st.focus[new Date().getDate()%st.focus.length]][1]}
@@ -168,9 +168,9 @@ const LINES={
  intro:['Get comfortable, and let\'s begin.'],
  next:['Next up.','Now, the next one.','On to the next move.'],
  other:['Now the other side.','And switch sides.','Same again, on the other side.'],
- begin:['Begin when you\'re ready. Nice and slow.','Off you go. Gentle and easy.','Begin. Breathe out as you move.','Go ahead. Slow and steady.'],
+ begin:['Begin when you\'re ready. Nice and slow.','Off you go. Slow and easy.','Begin. Breathe out as you move.','Go ahead. Slow and steady.'],
  beginCalm:['Begin. Let your breath slow down.','Begin. There\'s no rush.'],
- half:['Halfway there.','You\'re doing well. Keep breathing.','Nice and easy. Stay relaxed.','Keep it gentle.','Lovely. Keep going at your own pace.'],
+ half:['Halfway there.','You\'re doing well. Keep breathing.','Nice and easy. Stay relaxed.','Keep it easy.','Lovely. Keep going at your own pace.'],
  halfCalm:['Breathe in slowly, and out.','Let your shoulders soften.'],
  rest:['And rest.','Good. Let that go.','Lovely. Relax for a moment.','Well done. Rest.'],
  easier:['Okay. Let\'s try an easier one instead.'],
@@ -228,22 +228,22 @@ function onboard(step){
  const pr='<div class="prog" aria-hidden="true">'+[1,2,3,4].map(i=>`<i class="${i<=step?'on':''}"></i>`).join('')+'</div>';
  const skip='<button class="textbtn" id="skip">Skip this question</button>';
  let h='';
- if(step===0)h=`<div class="stack"><div class="label">Welcome</div><h1>Gentle movement for stiff joints</h1>
+ if(step===0)h=`<div class="stack"><div class="label">Welcome</div><h1>Loosen stiff joints from your chair</h1>
  <p>Short, guided routines you can do in a chair. A calm voice talks you through each move, and you can stop or slow down any time.</p>
  <div class="box warm"><h3 style="margin-bottom:8px">Before you begin</h3><ul style="margin:0;padding-left:22px">
- <li>Hinge App offers general movement ideas for wellbeing. It doesn’t diagnose or treat any condition and isn’t a substitute for advice from your doctor or physical therapist.</li>
+ <li>Hinge App shares general movement ideas. It doesn’t diagnose or treat anything, and it doesn’t replace your doctor or physical therapist.</li>
  <li style="margin-top:6px">If you have a new or unexplained joint problem, recent surgery or injury, or a doctor has told you to limit activity, check with them first.</li>
- <li style="margin-top:6px">Move slowly. A gentle pull is fine. Sharp, severe or worsening pain is a sign to stop.</li></ul>
+ <li style="margin-top:6px">Move slowly. A mild pull is fine. Sharp, severe or worsening pain is a sign to stop.</li></ul>
  <p style="margin-top:12px"><a href="#/safety">When to stop and get help</a></p></div>
  <button class="btn sun wide" id="ok">I understand. Let's begin</button></div>`;
- if(step===1)h=pr+`<div class="stack"><h1>Which joints bother you most?</h1><p class="muted">Pick up to three. You can change this later.</p>`
+ if(step===1)h=pr+`<div class="stack"><div class="label">Question 1 of 4</div><h1>Which joints bother you most?</h1><p class="muted">Pick up to three. You can change this later.</p>`
  +Object.keys(JOINTS).map(k=>`<button class="choice ${st.focus.includes(k)?'on':''}" data-k="${k}" aria-pressed="${st.focus.includes(k)}">${JOINTS[k][0]}</button>`).join('')
  +`<button class="btn wide" id="next">Next</button>${skip}</div>`;
- if(step===2)h=pr+`<div class="stack"><h1>How do you feel about standing for five minutes?</h1>`
+ if(step===2)h=pr+`<div class="stack"><div class="label">Question 2 of 4</div><h1>How do you feel about standing for five minutes?</h1>`
  +[['yes','I can stand comfortably'],['hold','I can stand if I hold on to something'],['sit','I\'d rather stay seated','You\'ll get seated versions of every move']].map(o=>`<button class="choice" data-v="${o[0]}">${o[1]}${o[2]?'<small>'+o[2]+'</small>':''}</button>`).join('')+skip+`</div>`;
- if(step===3)h=pr+`<div class="stack"><h1>What would you most like to find easier?</h1><p class="muted">Every couple of weeks we'll ask how this is going, so you can see your progress.</p>`
+ if(step===3)h=pr+`<div class="stack"><div class="label">Question 3 of 4</div><h1>What would you most like to find easier?</h1><p class="muted">Every couple of weeks we'll ask how this is going, so you can see your progress.</p>`
  +ACTS.map(a=>`<button class="choice ${st.activity===a?'on':''}" data-v="${esc(a)}">${esc(a)}</button>`).join('')+skip+`</div>`;
- if(step===4)h=pr+`<div class="stack"><h1>How many days a week would you like to move?</h1><p class="muted">Any session counts, even one minute. Three days a week is a good number to aim for.</p>`
+ if(step===4)h=pr+`<div class="stack"><div class="label">Question 4 of 4</div><h1>How many days a week would you like to move?</h1><p class="muted">Any session counts, even one minute. Three days a week is a good number to aim for.</p>`
  +[2,3,4,5].map(n=>`<button class="choice ${st.goal===n?'on':''}" data-v="${n}">${n} days a week${n===3?'<small>Suggested</small>':''}</button>`).join('')+`</div>`;
  if(step===5)h=`<div class="stack" style="text-align:center;padding-top:16px"><div class="endtick" aria-hidden="true">${TICK}</div><h1>You're all set</h1>
  <p>Your goal is <b>${st.goal} days a week</b>. Each day, tell us how your joints feel and we'll suggest a routine to match.</p>
@@ -271,9 +271,9 @@ function home(){
  h+=`<ol class="session">
  <li><div class="num ${m?'done':''}">${m?'✓':'1'}</div><div><h3>How are your joints today?</h3><div class="faces" role="group" aria-label="How are your joints today">${MOODS.map((x,i)=>`<button data-m="${i+1}" class="${m===i+1?'on':''}" aria-pressed="${m===i+1}">${FACE[i]}<span>${x}</span></button>`).join('')}</div><p class="note" style="margin-top:8px">${m?'Saved. Tap another face to change it.':'Your answer shapes the routine below.'}</p></div></li>
  <li><div class="num ${moved?'done':''}">${moved?'✓':'2'}</div><div><h3>Move</h3><div class="box"><div class="move">${pic(RPIC[r.id])}<div><b style="font:700 21px var(--head)">${r.n}</b><p class="muted small">${moved?'You moved today. This one is ready if you\'d like more.':p.why}</p></div></div><p class="small" style="margin-top:10px"><b>You'll need:</b> ${need(r)}.</p><div class="btns" style="margin-top:14px"><button class="btn sun" id="go">Start &middot; ${mins(secs(r))} min</button><a class="textbtn" href="#/moves">Choose another</a></div></div>
- ${m>=4&&p.r!=='strength'?`<p class="small" style="margin-top:10px">Feeling good? <a href="#/r/strength">Gentle strength</a> is ready if you'd like a little more.</p>`:''}</div></li>
+ ${m>=4&&p.r!=='strength'?`<p class="small" style="margin-top:10px">Feeling good? <a href="#/r/strength">Easy strength</a> is ready if you'd like a little more.</p>`:''}</div></li>
  <li><div class="num ${readToday?'done':''}">${readToday?'✓':'3'}</div><div><h3>Learn something small</h3><details class="read" id="rd"><summary>${card.t}</summary><div class="in"><p>${card.b}</p><button class="say" id="say">${SPK} Read this to me</button></div></details></div></li></ol>`;
- h+=`<div class="box warm"><h3 style="margin-bottom:6px">Sore day or flare?</h3><p>Rest is part of looking after your joints. If you'd like to move, these are very gentle.</p><div class="btns" style="margin-top:12px"><a class="btn line sm" href="#/r/easy">Easy day</a><a class="btn line sm" href="#/r/breathe">Breathing break</a></div><p style="margin-top:10px"><a href="#/flare">What helps on flare days</a></p></div>`;
+ h+=`<div class="box warm"><h3 style="margin-bottom:6px">Sore day or flare?</h3><p>Rest is part of looking after your joints. If you'd like to move, these are very easy.</p><div class="btns" style="margin-top:12px"><a class="btn line sm" href="#/r/easy">Easy day</a><a class="btn line sm" href="#/r/breathe">Breathing break</a></div><p style="margin-top:10px"><a href="#/flare">What helps on flare days</a></p></div>`;
  if(st.focus.length){const ids=[...new Set(st.focus.map(f=>JOINTS[f][1]))];h+=`<h2 style="margin-top:6px">For your ${st.focus.map(f=>JOINTS[f][0].toLowerCase()).join(', ').replace(/, ([^,]*)$/,' and $1')}</h2><div class="list">${ids.map(rowR).join('')}</div>`}
  h+=`<p class="note">Hinge App offers general wellness information, not medical advice. Move slowly, never push into sharp pain, and check with your doctor or physical therapist if you are unsure. <a href="#/safety">When to stop</a></p></div>`;
  app.innerHTML=h;
@@ -286,14 +286,14 @@ function home(){
 function rowR(id){const r=RB[id];return`<a class="row" href="#/r/${r.id}">${pic(RPIC[r.id])}<div><b>${r.n}</b><span class="muted">${mins(secs(r))} min &middot; ${esc(r.d)}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`}
 /* ================= flare & safety ================= */
 function flare(){shell('home',true);app.innerHTML=`<div class="stack"><h1>Flare days</h1><div class="box"><p><b>Flares happen, and they aren’t your fault.</b> One hard day doesn’t undo your progress.</p><ul style="padding-left:22px;margin:12px 0 0">
-<li>Try smaller movements, fewer repeats and seated positions.</li><li>Warmth before moving, like a warm shower or a warm (not hot) pack, may help.</li><li>Take rest breaks. Gentle movement is usually better than complete rest, but listen to your body.</li><li>Keep taking anything you have been prescribed.</li></ul></div>
+<li>Try smaller movements, fewer repeats and seated positions.</li><li>Warmth before moving, like a warm shower or a warm (not hot) pack, may help.</li><li>Take rest breaks. Easy movement is usually better than complete rest, but listen to your body.</li><li>Keep taking anything you have been prescribed.</li></ul></div>
 <div class="box alert"><b>Call your doctor</b> if a joint is suddenly hot, red and very swollen, or if you have a fever or feel unwell.</div>
 <div class="btns"><a class="btn sun" href="#/play/easy">Start Easy day</a><a class="btn line" href="#/play/breathe">Breathing break</a></div><p><a href="#/safety">When to stop and get help</a></p></div>`}
-function flags(){return`<div class="flags"><p>Most aches settle with rest and gentle movement. These signs need attention.</p>
+function flags(){return`<div class="flags"><p>Most aches settle with rest and easy movement. These signs need attention.</p>
 <h3>Call 911 (or your local emergency number) for:</h3><ul><li>Chest pain or pressure</li><li>Severe shortness of breath</li><li>Fainting</li><li>Sudden weakness or numbness of the face, arm or leg, or slurred speech</li></ul>
 <h3>Stop and contact a doctor the same day if you have:</h3><ul><li>A joint that’s suddenly hot, red and swollen, especially with a fever or feeling unwell</li><li>Not being able to put weight on a leg, or a joint that looks out of shape after a fall or twist</li><li>New numbness or tingling in both legs, numbness around the groin or buttocks, or new bladder or bowel problems</li><li>A painful, swollen, warm calf</li><li>A joint that keeps giving way or locking</li></ul>
-<h3>See your doctor soon if you have:</h3><ul><li>Pain that wakes you at night or keeps getting worse over weeks</li><li>Unexplained weight loss or fever</li><li>Several swollen joints with morning stiffness that lasts more than about half an hour</li><li>Pain that’s still worse a day or two after gentle movement</li></ul>
-<h3>While you move</h3><div class="zones"><div class="z1">0 to 3 out of 10: a gentle pull or light effort. Fine to continue.</div><div class="z2">4 to 5 out of 10: go gentler or shorter.</div><div class="z3">Above 5, sharp, or getting worse: stop that move.</div></div>
+<h3>See your doctor soon if you have:</h3><ul><li>Pain that wakes you at night or keeps getting worse over weeks</li><li>Unexplained weight loss or fever</li><li>Several swollen joints with morning stiffness that lasts more than about half an hour</li><li>Pain that’s still worse a day or two after easy movement</li></ul>
+<h3>While you move</h3><div class="zones"><div class="z1">0 to 3 out of 10: a mild pull or light effort. Fine to continue.</div><div class="z2">4 to 5 out of 10: go easier or shorter.</div><div class="z3">Above 5, sharp, or getting worse: stop that move.</div></div>
 <p style="margin-top:12px">If your joints hurt more two hours after moving than before, do less next time. You don’t need to stop moving altogether.</p></div>`}
 function safety(){if(!st.safety){nav.hidden=true;backBtn.hidden=false}else shell('',true);app.innerHTML=`<div class="stack"><h1>When to stop and get help</h1><div class="box">${flags()}</div><p class="note">General information only. If you are ever unsure, contact your doctor.</p></div>`}
 /* ================= moves ================= */
@@ -314,7 +314,7 @@ function move(id){
  const x=MB[id];if(!x)return go('#/moves');shell('moves',true);const fav=st.favs.includes(id),hid=st.hidden.includes(id);
  app.innerHTML=`<div class="stack"><div style="display:flex;gap:16px;align-items:center">${pic(x.pic,true)}<div style="min-width:0"><h1>${x.n}</h1><div style="margin-top:6px"><span class="tag">${AREAS[x.a]}</span>${x.stand?'<span class="tag stand">Standing, with support</span>':''}</div></div></div>
  <div class="box"><h3>How to do it</h3><ol class="steps">${x.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><p style="margin-top:6px"><b>${x.calm?'Time':'Hold or repeat'}:</b> about ${hold(x)} seconds${x.sides>1?' on each side':''}.</p>
- <div class="box warm" style="margin-top:12px;padding:14px 16px"><b>Go gently:</b> ${esc(x.tip)}</div>
+ <div class="box warm" style="margin-top:12px;padding:14px 16px"><b>Take care:</b> ${esc(x.tip)}</div>
  ${x.alt?`<p style="margin-top:12px">Prefer to sit? Try <a href="#/m/${x.alt}">${MB[x.alt].n}</a> instead.</p>`:''}
  <button class="say" id="say">${SPK} Read this to me</button></div>
  <div class="btns"><button class="btn sun" id="try">Try it now</button><button class="btn line sm" id="fav" aria-pressed="${fav}">${fav?'Saved':'Save'}</button></div>
@@ -350,7 +350,7 @@ function me(){
  for(let j=0;j<28;j++){const k=ymd(d);cal+=`<div><i class="${o[k]?'on':''}${j===27?' today':''}" aria-label="${fmt(k)}${o[k]?', moved':''}">${d.getDate()}</i></div>`;d.setDate(d.getDate()+1)}
  const ck=st.checkins.slice(-7),good=a=>a.length?a.filter(c=>c.m>=4).length/a.length:0;
  const r2=st.checkins.filter(c=>gap(c.date,t)<14),p2=st.checkins.filter(c=>{const x=gap(c.date,t);return x>=14&&x<28});
- let trend='';if(r2.length>=3&&p2.length>=3){const a=good(r2),b=good(p2);trend=a>b+.1?'Your joints felt "Good" or "Great" more often in the last two weeks.':a<b-.1?'Your joints have felt sore more often lately. Go gently, and try Easy day on harder days.':'How your joints feel has been fairly steady this month.'}
+ let trend='';if(r2.length>=3&&p2.length>=3){const a=good(r2),b=good(p2);trend=a>b+.1?'Your joints felt "Good" or "Great" more often in the last two weeks.':a<b-.1?'Your joints have felt sore more often lately. Go easy, and try Easy day on harder days.':'How your joints feel has been fairly steady this month.'}
  const la=st.acts[st.acts.length-1],fa=st.acts[0],due=st.activity&&(!la||gap(la.date,t)>=14);
  let h=`<div class="stack"><h1>Your progress</h1><div class="stats"><div><b>${monthDays()}</b><span>days moved this month</span></div><div><b>${weekStreak()}</b><span>weeks in a row at your goal</span></div><div><b>${mins(total)}</b><span>minutes in total</span></div></div>
  <div class="box week"><div style="flex:1;min-width:0"><b>This week:</b> ${Math.min(wc,st.goal)} of ${st.goal} days</div>${dotsHTML(wc)}</div>`;
@@ -405,7 +405,7 @@ function settings(msg){
  $('rt').onchange=e=>{st.rem.time=e.target.value||'09:00';save()};
  $('ics').onclick=()=>{if(!st.rem.days.length)return settings('Pick at least one day first.');ics();settings('Your calendar file is ready. Open it to add the reminder.')};
  on('[data-un]',b=>{st.hidden=st.hidden.filter(v=>v!==b.dataset.un);save();settings()});
- $('bk').onclick=()=>{dl('gentle-stretch-backup-'+ymd()+'.json','application/json',JSON.stringify(st,null,1));settings('Backup saved. Keep the file somewhere safe.')};
+ $('bk').onclick=()=>{dl('hinge-app-backup-'+ymd()+'.json','application/json',JSON.stringify(st,null,1));settings('Backup saved. Keep the file somewhere safe.')};
  $('rs').onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||!Array.isArray(d.sessions))throw 0;st=norm(d);save();prefs();settings('Your backup has been restored.')}catch(x){settings('That file couldn’t be read. Please choose a Hinge App backup file.')}};rd.readAsText(f)};
  $('clr1').onclick=()=>{$('clr').innerHTML=`<p><b>Clear everything?</b> This removes your sessions, check-ins and settings from this device. It can’t be undone.</p><div class="btns" style="margin-top:10px"><button class="btn line sm" id="no">Keep my data</button><button class="btn sm" id="yes" style="background:var(--alert)">Yes, clear it</button></div>`;
   $('no').onclick=()=>settings();$('yes').onclick=()=>{try{localStorage.removeItem(KEY)}catch(e){}st=norm({});prefs();go('#/start/0')}};
@@ -439,7 +439,7 @@ function ics(){
  const [hh,mm]=st.rem.time.split(':').map(Number),order=['SU','MO','TU','WE','TH','FR','SA'];let d=new Date();d.setHours(hh,mm,0,0);
  for(let i=0;i<8;i++){if(st.rem.days.includes(order[d.getDay()])&&d>new Date())break;d.setDate(d.getDate()+1);d.setHours(hh,mm,0,0)}
  const f=x=>ymd(x).replace(/-/g,'')+'T'+String(x.getHours()).padStart(2,'0')+String(x.getMinutes()).padStart(2,'0')+'00',e=new Date(d.getTime()+6e5),now=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,''),url=location.href.split('#')[0];
- dl('gentle-stretch-reminder.ics','text/calendar',['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Hinge App//EN','BEGIN:VEVENT','UID:gs-'+Date.now()+'@gentlestretch','DTSTAMP:'+now,'DTSTART:'+f(d),'DTEND:'+f(e),'RRULE:FREQ=WEEKLY;BYDAY='+st.rem.days.join(','),'SUMMARY:A gentle stretch','DESCRIPTION:A gentle stretch is ready when you are. '+url,'URL:'+url,'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:A gentle stretch is ready when you are','TRIGGER:PT0M','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n'))}
+ dl('hinge-app-reminder.ics','text/calendar',['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Hinge App//EN','BEGIN:VEVENT','UID:gs-'+Date.now()+'@hingeapp','DTSTAMP:'+now,'DTSTART:'+f(d),'DTEND:'+f(e),'RRULE:FREQ=WEEKLY;BYDAY='+st.rem.days.join(','),'SUMMARY:Your chair routine','DESCRIPTION:Your chair routine is ready when you are. '+url,'URL:'+url,'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Your chair routine is ready when you are','TRIGGER:PT0M','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n'))}
 /* ================= player ================= */
 let P=null,tick=null,F=null;const pl=$('player');
 const prep1=()=>st.slow?12:8,prepN=()=>st.slow?9:6;
@@ -460,13 +460,13 @@ function draw(){
  const s=P.seg[P.i],prep=P.ph==='prep',dur=P.dur||(prep?prepN():s.sec),frac=Math.max(0,P.left/dur),C=2*Math.PI*52;
  let sh='';
  if(P.sheet==='hurt')sh=`<div class="sheetwrap"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh"><h2 id="sh" style="font-size:24px">Let's ease off</h2><p style="margin:6px 0 14px">Sharp or worsening pain is a sign to stop. What would you like to do?</p>
- <button class="choice" data-o="gentle">Try a gentler version<small>${s.x.alt?'Switch to '+MB[s.x.alt].n:'Shorter time, and only move half as far'}</small></button><button class="choice" data-o="skip">Skip this move</button><button class="choice" data-o="stop">Stop for today<small>What you've done still counts</small></button><button class="textbtn" data-o="back">It's okay now, keep going</button></div></div>`;
+ <button class="choice" data-o="gentle">Try an easier version<small>${s.x.alt?'Switch to '+MB[s.x.alt].n:'Shorter time, and only move half as far'}</small></button><button class="choice" data-o="skip">Skip this move</button><button class="choice" data-o="stop">Stop for today<small>What you've done still counts</small></button><button class="textbtn" data-o="back">It's okay now, keep going</button></div></div>`;
  if(P.sheet==='safe')sh=`<div class="sheetwrap"><div class="sheet" role="dialog" aria-modal="true" aria-label="When to stop"><h2 style="font-size:24px">When to stop</h2>${flags()}<button class="btn wide" data-o="back" style="margin-top:14px">Back to my routine</button></div></div>`;
  pl.innerHTML=`<div class="pbar"><button id="end">End</button><div class="t">${esc(P.r.n)}</div><button id="when">When to stop</button></div>
  <div class="segs" aria-hidden="true">${P.seg.map((_,i)=>`<i class="${i<P.i?'on':i===P.i?'now':''}"></i>`).join('')}</div>
  <div class="stage"><div class="phase">${prep?(P.i===0?'Get comfortable':'Next up'):'Move '+(P.i+1)+' of '+P.seg.length}${s.side?' &middot; '+s.side:''}</div><h2>${esc(s.x.n)}</h2>
  <div class="timer">${pic(s.x.pic,true)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E2EEE6" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#F4B740':'#1D6B4F'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
- <p class="muted" style="font-weight:700">${prep?'Get into position':s.x.calm?'Breathe slowly':'Move gently'}</p>
+ <p class="muted" style="font-weight:700">${prep?'Get into position':s.x.calm?'Breathe slowly':'Move slowly'}</p>
  <ol class="steps how" style="text-align:left">${s.x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol><p class="tip">${esc(s.x.tip)}</p></div>
  <div class="ctl"><button id="prev">Back</button><button class="go" id="pp">${P.paused?'Resume':'Pause'}</button><button id="skip">Skip</button></div>
  <button class="hurt" id="hurt">This hurts</button>${sh}`;
