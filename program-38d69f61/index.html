@@ -506,6 +506,7 @@ header.top .navbtn{min-height:44px}
 .vo{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:6px 0 14px}
 .vo b{font:600 .9rem Inter,sans-serif;color:var(--ink)}.vo small{color:var(--soft);font-size:.82rem}
 .vo audio{width:100%}
+.vopick{display:flex;align-items:center;gap:10px;font:600 1rem Inter,sans-serif}.vopick select{flex:1;min-height:48px;font:inherit;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:#fff;color:var(--ink)}
 
 /* ===== Night-violet theme (course only) ===== */
 :root{--leaf:url('images/couch.jpg');--cream:#141017;--sand:#251C2D;--card:#1D1623;--ink:#F3EEF7;--soft:#CBBFD6;--g:#F6F0FA;--g2:#A56BD6;--g3:#2A1F34;--line:#3B2F47;--pl:#9B5BD0;--pl2:#7A3FB0;--pl3:#2B1F37;--gold:#D6B4F2;--rust:#E3A6C8;--plum:#120C16;--lav:#D9BDF0}
@@ -1357,9 +1358,14 @@ document.querySelector('header.top .brand').onclick=()=>home();
 (function(){
   const B='https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/';const VO={welcome:B+'hf_20261119_224001_84b5f7e2-578a-4ebf-b2b9-433eebed2529.mp3',w1a:B+'hf_20261119_224035_7394c4b8-8502-4348-8022-c5bafed8bf65.mp3',w1b:B+'hf_20261119_224002_317a38dd-3e30-4c0e-b303-6c04dd066226.mp3',w1c:B+'hf_20261119_223658_b442e91f-cfbd-4077-a431-2b795d4df2e2.mp3',w2a:B+'hf_20261119_224002_b97d91dd-41d2-4290-858d-5e6a2d629b3c.mp3',w2b:B+'hf_20261119_224001_18c8e901-48c0-404c-a45c-eb42940b44d3.mp3',w2c:B+'hf_20261119_224002_8ac73a31-7627-4e6a-b760-e848e8ea0e08.mp3'};try{const ss=window.speechSynthesis;if(ss){const pick=()=>{const vs=ss.getVoices().filter(v=>/^en/i.test(v.lang));const pref=[/Natural/i,/Neural/i,/Google US English/i,/Samantha/i,/Aria/i,/Jenny/i,/Google UK English Female/i];for(const r of pref){const v=vs.find(v=>r.test(v.name));if(v)return v;}return vs[0]||null};const _sp=ss.speak.bind(ss);ss.speak=u=>{try{if(!u.voice){const v=pick();if(v)u.voice=v;}if(u.rate>0.92)u.rate=0.92;}catch(e){}return _sp(u);};}}catch(e){}
   window.HINGE_VO=VO;
+  /* Readers. Add a reader as {id,name,clips:{lessonId:url}}; the voice chooser shows once two or more have a recording for the lesson. */
+  const READERS=[{id:'celine',name:'Celine',clips:VO}];window.HINGE_READERS=READERS;
+  const getR=()=>{try{return localStorage.getItem('hc_reader')||''}catch(e){return''}},setR=v=>{try{localStorage.setItem('hc_reader',v)}catch(e){}};
   const _l=lesson;
-  lesson=function(id){_l(id);const u=VO[id];if(!u)return;const r=document.querySelector('#app .read');if(!r)return;
-    r.outerHTML=`<div class="vo noprint"><b>Listen to this lesson</b><audio controls preload="none" src="${u}"></audio><small>Read by Celine</small></div>`;};
+  lesson=function(id){_l(id);const have=READERS.filter(x=>x.clips[id]);if(!have.length)return;const r=document.querySelector('#app .read');if(!r)return;
+    const cur=have.find(x=>x.id===getR())||have[0];
+    r.outerHTML=`<div class="vo noprint"><b>Listen to this lesson</b><audio controls preload="none" src="${cur.clips[id]}"></audio>${have.length>1?`<label class="vopick">Voice <select aria-label="Choose who reads to you">${have.map(x=>`<option value="${x.id}"${x===cur?' selected':''}>${x.name}</option>`).join('')}</select></label>`:`<small>Read by ${cur.name}</small>`}</div>`;
+    const sel=document.querySelector('#app .vo select');if(sel)sel.onchange=()=>{setR(sel.value);const a=document.querySelector('#app .vo audio'),x=have.find(y=>y.id===sel.value);if(a&&x){a.src=x.clips[id];a.play().catch(()=>{})}};};
 })();
 </script>
 

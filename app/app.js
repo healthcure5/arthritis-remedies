@@ -182,8 +182,10 @@ const LINES={
 function L(k,i){const a=LINES[k];if(i===undefined)i=Math.floor(Math.random()*a.length);return{k:k+'-'+i,t:a[i]}}
 function mvSpeech(x){return{k:'mv-'+x.id,t:(x.n+'. '+x.steps.join(' ')+' '+x.tip).replace(/"/g,'')}}
 function learnSpeech(i){const c=LEARN[i];return{k:'learn-'+i,t:c.t+'. '+c.b}}
-let CLIPS=null;
-try{fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.clips){CLIPS=j;if(location.hash.indexOf('settings')>-1&&!P&&!F)settings()}}).catch(()=>{})}catch(e){}
+let CLIPS=null,VSET=[];
+/* voice/index.json: {default:'gia',voices:[{id,name,clips:{key:seconds},urls:{key:address}}]} (one voice on its own also works) */
+function pickClips(){CLIPS=VSET.find(v=>v.id===st.rvoice)||VSET.find(v=>v.id===VSET.def)||VSET[0]||null}
+try{fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&(j.clips||j.voices)){VSET=j.voices||[j];VSET.def=j.default;pickClips();if(location.hash.indexOf('settings')>-1&&!P&&!F)settings()}}).catch(()=>{})}catch(e){}
 function hasClips(parts){return!!(CLIPS&&st.natural!==false&&parts.every(p=>CLIPS.clips[p.k]!=null))}
 const au=new Audio();au.preload='auto';
 let qId=0,qT=null,ka=null;
@@ -423,7 +425,7 @@ function voiceBox(){
  const list=voiceList().slice(0,8),cur=bestVoice();
  return`<div class="box"><h3>Voice</h3>
  <label class="check"><input type="checkbox" id="voice" ${st.voice?'checked':''}><span>Talk me through each move out loud</span></label>
- ${CLIPS?`<label class="check"><input type="checkbox" id="nat" ${st.natural?'checked':''}><span>Use Celine's recorded voice<br><span class="muted small">The same voice as the Hinge Care Program</span></span></label><button class="say" id="nattest" style="margin-top:0">${SPK} Hear the recorded voice</button>`:''}
+ ${CLIPS?`<label class="check"><input type="checkbox" id="nat" ${st.natural?'checked':''}><span>Use a recorded voice<br><span class="muted small">Clear, and the same on every phone</span></span></label>${VSET.length>1?`<div class="pills" id="rv" style="margin:4px 0 12px">${VSET.map(v=>`<button data-r="${esc(v.id)}" class="${CLIPS===v?'on':''}" aria-pressed="${CLIPS===v}">${esc(v.name)}</button>`).join('')}</div>`:''}<button class="say" id="nattest" style="margin-top:0">${SPK} Hear the recorded voice</button>`:''}
  <p style="margin:14px 0 8px"><b>Speed</b></p><div class="pills" id="vs">${RATES.map((x,i)=>`<button data-s="${i}" class="${st.speed===i?'on':''}" aria-pressed="${st.speed===i}">${x[1]}</button>`).join('')}</div>
  <p style="margin:16px 0 8px"><b>${CLIPS?'Phone voice':'Choose a voice'}</b> <span class="muted small">(${CLIPS?'used when the recorded voice is off. ':''}tap one to hear it)</span></p>
  ${list.length?`<div class="list" id="vl">${list.map((v,i)=>`<button class="choice ${cur&&cur.name===v.name?'on':''}" data-v="${i}" aria-pressed="${!!(cur&&cur.name===v.name)}">${esc(vLabel(v))}${i===0?'<small>Most natural on this device</small>':''}</button>`).join('')}</div>`:'<p class="muted">Your device is still loading its voices. Come back to this page in a moment.</p>'}
@@ -433,6 +435,7 @@ function voiceWire(){
  const SAMPLE='Hello. I\'ll guide you through each move, nice and slowly. | Breathe out as you move, and stop if anything hurts.';
  if($('voice'))$('voice').onchange=e=>{st.voice=e.target.checked;save()};
  if($('nat'))$('nat').onchange=e=>{st.natural=e.target.checked;save()};
+ on('#rv button',b=>{st.rvoice=b.dataset.r;st.natural=true;save();pickClips();settings();talk([L('sample',0)],true)});
  if($('nattest'))$('nattest').onclick=()=>{const was=st.natural;st.natural=true;talk([L('sample',0)],true);st.natural=was};
  on('#vs button',b=>{st.speed=+b.dataset.s;save();document.querySelectorAll('#vs button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});talk([L('sample',0)],true)});
  const list=voiceList().slice(0,8);
