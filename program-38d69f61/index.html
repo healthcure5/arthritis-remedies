@@ -709,6 +709,26 @@ html:not(.authed),html:not(.authed) body{overflow:hidden!important;height:100%;o
 #gate .glink{background:none;border:0;padding:6px 2px;color:#E2CCF5;font:600 .95rem Inter,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:40px}
 #gate .ghelp .glink{font-size:inherit;min-height:0;padding:4px 2px}
 #gate .gok{display:none;background:rgba(120,200,150,.14);border:1px solid rgba(120,200,150,.45);color:#D8F5E1;border-radius:12px;padding:10px 12px;margin:0 0 12px;font-size:.93rem;line-height:1.45}
+
+/* --- Refined sign-in: smaller header, eye toggle, smooth view changes --- */
+#gate .gbox{max-width:400px}
+#gate .grow{gap:8px}
+#gate .grow .glink{white-space:nowrap;font-size:.9rem}
+#gate .grow .grem{font-size:.95rem}
+#gate .glogo{font-size:.98rem!important;gap:8px;margin:0 0 12px!important}
+#gate .glogo svg{width:28px!important;height:28px!important}
+#gate h1{font-size:1.32rem!important}
+#gate .gsub{font-size:.95rem!important}
+#gate .gpw input{padding-right:48px!important}
+#gate .gshow{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:40px;height:40px;min-height:0;padding:0;border-radius:10px;color:#C7ABE2;background:none;border:0;cursor:pointer;transition:background .15s ease,color .15s ease}
+#gate .gshow:hover{background:rgba(183,155,201,.16);color:#F0E4FA}
+#gate .gshow svg{position:absolute;inset:0;margin:auto;width:21px;height:21px;transition:opacity .18s ease,transform .18s ease}
+#gate .gshow .i-off{opacity:0;transform:scale(.72)}
+#gate .gshow.on .i-on{opacity:0;transform:scale(.72)}
+#gate .gshow.on .i-off{opacity:1;transform:scale(1)}
+@keyframes gfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#gate .gv.gin{animation:gfade .26s cubic-bezier(.22,.61,.36,1)}
+@media(prefers-reduced-motion:reduce){#gate .gv.gin{animation:none}#gate .gshow svg{transition:none}}
 #gate .gok.on{display:block}
 #gate .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 #gate .gbtn:disabled{opacity:.7;cursor:wait}
@@ -1438,9 +1458,11 @@ document.querySelector('header.top .brand').onclick=()=>home();
   try{sb=window.supabase.createClient(SB_URL,SB_KEY,{auth:{storage:store,persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}})}catch(e){console.warn('auth not ready',e)}
   window.hcSB=sb;
   // views
-  function show(id){gate.querySelectorAll('.gv').forEach(v=>{v.hidden=v.id!==id;v.querySelectorAll('.gerr,.gok').forEach(x=>{x.classList.remove('on');x.textContent=''})});const f=document.getElementById(id).querySelector('input:not([type=checkbox])');if(f)setTimeout(()=>f.focus({preventScroll:true}),150)}
+  function show(id){gate.querySelectorAll('.gv').forEach(v=>{v.hidden=v.id!==id;v.querySelectorAll('.gerr,.gok').forEach(x=>{x.classList.remove('on');x.textContent=''})});const cur=document.getElementById(id);cur.classList.remove('gin');void cur.offsetWidth;cur.classList.add('gin');const f=cur.querySelector('input:not([type=checkbox])');if(f)setTimeout(()=>f.focus({preventScroll:true}),150)}
   gate.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
-  gate.querySelectorAll('.gshow').forEach(b=>b.onclick=()=>{const i=b.previousElementSibling,sh=i.type==='password';i.type=sh?'text':'password';b.textContent=sh?'Hide':'Show'});
+  const EYE='<svg class="i-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+  const EYEOFF='<svg class="i-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 17.9A10.1 10.1 0 0 1 12 20c-7 0-11-8-11-8a18.5 18.5 0 0 1 5.1-5.9m3.3-1.7A9.1 9.1 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.2 3.2M1 1l22 22"/></svg>';
+  gate.querySelectorAll('.gshow').forEach(b=>{b.setAttribute('aria-label','Show password');b.innerHTML=EYE+EYEOFF;b.onclick=()=>{const i=b.previousElementSibling,sh=i.type==='password';i.type=sh?'text':'password';b.classList.toggle('on',sh);b.setAttribute('aria-label',sh?'Hide password':'Show password');};});
   gate.querySelectorAll('.rem').forEach(c=>{c.checked=remOn();c.onchange=()=>{try{localStorage.setItem('hc_rem',c.checked?'1':'0')}catch(e){}gate.querySelectorAll('.rem').forEach(o=>o.checked=c.checked)}});
   const err=(f,m)=>{const e=f.querySelector('.gerr');e.textContent=m;e.classList.add('on');f.querySelector('.gok')&&f.querySelector('.gok').classList.remove('on')};
   const ok=(f,m)=>{const e=f.querySelector('.gok');e.textContent=m;e.classList.add('on');f.querySelector('.gerr').classList.remove('on')};
