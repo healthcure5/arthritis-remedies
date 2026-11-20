@@ -106,3 +106,13 @@ ul.ticks li::before{top:.12em;width:26px;height:26px;border-radius:0;background:
 /* --- Bigger welcome video on the homepage --- */
 .split>.welcome-vid{grid-column:1 / -1;aspect-ratio:16/9;max-width:100%;margin-top:30px}
 @media (max-width:860px){.split>.welcome-vid{aspect-ratio:16/10;margin-top:20px}}
+
+/* --- Smoother interactions across the site --- */
+@media (prefers-reduced-motion:no-preference){
+  a,.b,.nav a,.mnav div a,.q summary,.hd-cta,.brand,details summary{transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .22s ease,transform .2s ease}
+  .card{transition:transform .25s cubic-bezier(.22,.61,.36,1),box-shadow .25s ease}
+  .card:hover{transform:translateY(-5px);box-shadow:0 22px 44px -26px rgba(31,58,39,.45)}
+  .card img{transition:transform .4s ease}
+  .card:hover img{transform:scale(1.03)}
+  .b1:active,.b2:active,.b3:active,.hd-cta:active{transform:translateY(1px)}
+}
