@@ -658,7 +658,9 @@ html.authed #gate{display:none}
 #gate .gerr.on{display:block}
 #gate .ghelp{margin:18px 0 0;text-align:center;color:#BFAFCB;font-size:.92rem;line-height:1.5}
 #gate .ghelp a{color:#E2CCF5}
-.signout{display:block;width:100%;margin:18px 0 4px;background:none;border:1px solid rgba(183,155,201,.3);color:#D9CCE0;border-radius:12px;padding:12px;font:500 .95rem Inter,sans-serif;min-height:48px;cursor:pointer}
+.signout{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin:22px 0 6px;background:none;border:1px solid rgba(183,155,201,.3);color:#D9CCE0;border-radius:12px;padding:12px;font:600 .98rem Inter,sans-serif;min-height:50px;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.signout:hover{background:rgba(183,155,201,.12);color:#fff;border-color:rgba(183,155,201,.5)}
+.signout .loico{width:19px;height:19px;flex:none}
 
 /* ===== Desktop sidebar toggle ===== */
 #sideTog{display:none}
@@ -1469,7 +1471,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
   const busy=(f,on,label)=>{const b=f.querySelector('.gbtn');if(on){b.dataset.t=b.textContent;b.textContent=label||'One moment…';b.disabled=true}else{b.textContent=b.dataset.t||b.textContent;b.disabled=false}};
   const notReady=f=>{err(f,"Sign-in isn't switched on yet. Please write to hingecare@gentlerootz.com and we'll help.");};
   let NAME='';window.hcName=()=>NAME;
-  const SPAN=12*60*60*1000;const OWNER='cgmandre@icloud.com';const markAuth=()=>{try{localStorage.setItem('hc_authAt',String(Date.now()))}catch(e){}};
+  const SPAN=12*60*60*1000;const markAuth=()=>{try{localStorage.setItem('hc_authAt',String(Date.now()))}catch(e){}};
   function enter(user){
     NAME=(user&&user.user_metadata&&user.user_metadata.first_name)||'';
     de.classList.add('authed');window.scrollTo(0,0);try{home()}catch(e){}
@@ -1500,7 +1502,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
     try{
       const c=await sb.rpc('can_sign_up',{e:em,u});
       const st=c.data;
-      if(st==='not_buyer'&&em!==OWNER){busy(f,0);return err(f,"We can't find a Program purchase with that email. Use the email from your Whop receipt, or write to hingecare@gentlerootz.com.")}
+      if(st==='not_buyer'){busy(f,0);return err(f,"We can't find a Program purchase with that email. Use the email from your Whop receipt, or write to hingecare@gentlerootz.com.")}
       if(st==='has_account'){busy(f,0);return err(f,'You already have an account with that email. Tap Sign in, or Forgot password if you need a new one.')}
       if(st==='username_taken'){busy(f,0);return err(f,'Someone already has that username. Try adding a number, like '+u+'2.')}
       const {data,error}=await sb.auth.signUp({email:em,password:p,options:{data:{first_name:n,username:u}}});
@@ -1544,7 +1546,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
   }else{de.classList.remove('authed');show('vIn')}
   // greet + sign out button
   const _h=home;home=function(){_h();const k=document.querySelector('#app .cover .kicker');if(NAME&&k)k.textContent='Welcome, '+NAME.split(' ')[0];};
-  const _om=openMenu;openMenu=function(){_om.apply(this,arguments);const pn=document.getElementById('panel');if(pn&&!pn.querySelector('.signout')){const b=document.createElement('button');b.className='signout';b.type='button';b.textContent='Sign out';b.onclick=hcSignOut;pn.appendChild(b)}};
+  const _om=openMenu;openMenu=function(){_om.apply(this,arguments);const pn=document.getElementById('panel');if(pn&&!pn.querySelector('.signout')){const b=document.createElement('button');b.className='signout';b.type='button';b.innerHTML='<svg class="loico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>Log out</span>';b.onclick=hcSignOut;pn.appendChild(b)}};
 })();
 </script>
 
