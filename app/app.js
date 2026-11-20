@@ -185,7 +185,7 @@ function learnSpeech(i){const c=LEARN[i];return{k:'learn-'+i,t:c.t+'. '+c.b}}
 let CLIPS=null,VSET=[];
 /* voice/index.json: {default:'gia',voices:[{id,name,clips:{key:seconds},urls:{key:address}}]} (one voice on its own also works) */
 function pickClips(){CLIPS=VSET.find(v=>v.id===st.rvoice)||VSET.find(v=>v.id===VSET.def)||VSET[0]||null}
-try{fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&(j.clips||j.voices)){VSET=j.voices||[j];VSET.def=j.default;pickClips();if(location.hash.indexOf('settings')>-1&&!P&&!F)settings()}}).catch(()=>{})}catch(e){}
+try{fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&(j.clips||j.voices)){VSET=j.voices||[j];VSET.def=j.default||'gia';pickClips();if(location.hash.indexOf('settings')>-1&&!P&&!F)settings()}}).catch(()=>{})}catch(e){}
 function hasClips(parts){return!!(CLIPS&&st.natural!==false&&parts.every(p=>CLIPS.clips[p.k]!=null))}
 const au=new Audio();au.preload='auto';
 let qId=0,qT=null,ka=null;
