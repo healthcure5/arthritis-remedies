@@ -1,18 +1,18 @@
 /* Hinge App */
 /* ================= pictures ================= */
 const PIC={
- seat:'<svg viewBox="0 0 64 64" fill="none" stroke="#15281F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#7FA08D"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 25l9 7"/></svg>',
- stand:'<svg viewBox="0 0 64 64" fill="none" stroke="#15281F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M40 27h20M56 27v29" stroke="#7FA08D"/><circle cx="22" cy="11" r="5"/><path d="M22 17v19M22 36l-4 20M22 36l4 20M22 22l18 5"/></svg>',
- wall:'<svg viewBox="0 0 64 64" fill="none" stroke="#15281F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M52 6v52" stroke="#7FA08D"/><circle cx="30" cy="13" r="5"/><path d="M30 19l-4 18M26 37l-4 19M26 37l4 19M29 24h23"/></svg>',
- calm:'<svg viewBox="0 0 64 64" fill="none" stroke="#15281F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#7FA08D"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 26l6 6"/><path d="M42 16c3 2 3 6 0 8M48 12c5 4 5 12 0 16" stroke="#1D6B4F"/></svg>',
- hand:'<svg viewBox="0 0 64 64" fill="none" stroke="#15281F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 54h48" stroke="#7FA08D"/><path d="M20 54V30c0-3 5-3 5 0V18c0-3 5-3 5 0v10V14c0-3 5-3 5 0v14V18c0-3 5-3 5 0v16c3-4 8-2 6 2l-6 12v6"/></svg>'
+ seat:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#8A9EC4"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 25l9 7"/></svg>',
+ stand:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M40 27h20M56 27v29" stroke="#8A9EC4"/><circle cx="22" cy="11" r="5"/><path d="M22 17v19M22 36l-4 20M22 36l4 20M22 22l18 5"/></svg>',
+ wall:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M52 6v52" stroke="#8A9EC4"/><circle cx="30" cy="13" r="5"/><path d="M30 19l-4 18M26 37l-4 19M26 37l4 19M29 24h23"/></svg>',
+ calm:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#8A9EC4"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 26l6 6"/><path d="M42 16c3 2 3 6 0 8M48 12c5 4 5 12 0 16" stroke="#27498A"/></svg>',
+ hand:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 54h48" stroke="#8A9EC4"/><path d="M20 54V30c0-3 5-3 5 0V18c0-3 5-3 5 0v10V14c0-3 5-3 5 0v14V18c0-3 5-3 5 0v16c3-4 8-2 6 2l-6 12v6"/></svg>'
 };
 const FACE=[
  '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#FCE8E1" stroke="#9B2C12" stroke-width="2"/><path d="M11 14l4 2M25 14l-4 2M12 26c3-3 9-3 12 0" stroke="#9B2C12" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
  '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#FCF0D2" stroke="#8A5A00" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#8A5A00"/><circle cx="23" cy="15" r="2" fill="#8A5A00"/><path d="M12 25c4-2 8-2 12 0" stroke="#8A5A00" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
- '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#F1F3EF" stroke="#45574D" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#45574D"/><circle cx="23" cy="15" r="2" fill="#45574D"/><path d="M12 24h12" stroke="#45574D" stroke-width="2.4" stroke-linecap="round"/></svg>',
- '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#E2EEE6" stroke="#1D6B4F" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#1D6B4F"/><circle cx="23" cy="15" r="2" fill="#1D6B4F"/><path d="M12 22c3 3 9 3 12 0" stroke="#1D6B4F" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
- '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#D4EBDC" stroke="#14513B" stroke-width="2"/><path d="M10 15c1.5-2 4.5-2 6 0M20 15c1.5-2 4.5-2 6 0" stroke="#14513B" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M11 21h14c-1 5-4 7-7 7s-6-2-7-7z" fill="#14513B"/></svg>'
+ '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#F1F3F8" stroke="#46526A" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#46526A"/><circle cx="23" cy="15" r="2" fill="#46526A"/><path d="M12 24h12" stroke="#46526A" stroke-width="2.4" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#E4EBF7" stroke="#27498A" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#27498A"/><circle cx="23" cy="15" r="2" fill="#27498A"/><path d="M12 22c3 3 9 3 12 0" stroke="#27498A" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#D5E0F3" stroke="#1B3566" stroke-width="2"/><path d="M10 15c1.5-2 4.5-2 6 0M20 15c1.5-2 4.5-2 6 0" stroke="#1B3566" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M11 21h14c-1 5-4 7-7 7s-6-2-7-7z" fill="#1B3566"/></svg>'
 ];
 const SPK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9c1.5 1.5 1.5 4.5 0 6M19 6c3 3 3 9 0 12"/></svg>';
 const TICK='<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
@@ -192,7 +192,7 @@ function talk(parts,always){
  if(hasClips(parts)){const id=++qId;let i=0;
   const next=()=>{if(id!==qId||i>=parts.length)return;const p=parts[i++];
    au.onended=()=>{if(id===qId)qT=setTimeout(next,300)};au.onerror=au.onended;
-   au.src='voice/'+p.k+'.mp3'+(CLIPS.v?'?v='+CLIPS.v:'');au.defaultPlaybackRate=au.playbackRate=clipRate();
+   au.src=(CLIPS.urls&&CLIPS.urls[p.k])||('voice/'+p.k+'.mp3'+(CLIPS.v?'?v='+CLIPS.v:''));au.defaultPlaybackRate=au.playbackRate=clipRate();
    const pr=au.play();if(pr&&pr.catch)pr.catch(()=>{if(id===qId){qId++;sayText(parts.slice(i-1).map(x=>x.t).join(' '))}})};
   next();return}
  sayText(parts.map(p=>p.t).join(' '))}
@@ -214,7 +214,10 @@ function platform(){const u=navigator.userAgent||'';if(/iPhone|iPad|iPod/.test(u
 function chime(){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=523;g.gain.setValueAtTime(.07,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.5);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.5);setTimeout(()=>c.close(),700)}catch(e){}}
 function prefs(){document.body.classList.remove('t1','t2','t3');document.body.classList.add('t'+st.text);document.body.classList.toggle('hc',st.hc)}
 function dl(name,type,text){const b=new Blob([text],{type}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},600)}
-function pic(k,big){return`<div class="pict${big?' big':''}" aria-hidden="true">${PIC[k]||PIC.seat}</div>`}
+/* Real photos, by move id. A move without a photo shows its line drawing. */
+const PHB='https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/';
+const PHOTO={'front-raise':PHB+'hf_20261120_010004_5a123700-2bb6-4b19-938f-57b0fea08cf5.png'};
+function pic(k,big,id){const ph=id&&PHOTO[id];return`<div class="pict${big?' big':''}${ph?' ph':''}" aria-hidden="true">${PIC[k]||PIC.seat}${ph?`<img src="${ph}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('ph');this.remove()">`:''}</div>`}
 function todaysCard(){return LEARN[st.seen%LEARN.length]}
 /* ================= shell ================= */
 const app=document.getElementById('app'),backBtn=document.getElementById('back'),nav=document.querySelector('.nav');
@@ -225,7 +228,8 @@ function $(id){return document.getElementById(id)}
 /* ================= onboarding ================= */
 function onboard(step){
  step=+step||0;nav.hidden=true;backBtn.hidden=true;
- const pr='<div class="prog" aria-hidden="true">'+[1,2,3,4].map(i=>`<i class="${i<=step?'on':''}"></i>`).join('')+'</div>';
+ const first=!st.onboarded,qn=first?2:4;
+ const pr='<div class="prog" aria-hidden="true">'+(first?[1,2]:[1,2,3,4]).map(i=>`<i class="${i<=step?'on':''}"></i>`).join('')+'</div>';
  const skip='<button class="textbtn" id="skip">Skip this question</button>';
  let h='';
  if(step===0)h=`<div class="stack"><div class="label">Welcome</div><h1>Loosen stiff joints from your chair</h1>
@@ -236,20 +240,20 @@ function onboard(step){
  <li style="margin-top:6px">Move slowly. A mild pull is fine. Sharp, severe or worsening pain is a sign to stop.</li></ul>
  <p style="margin-top:12px"><a href="#/safety">When to stop and get help</a></p></div>
  <button class="btn sun wide" id="ok">I understand. Let's begin</button></div>`;
- if(step===1)h=pr+`<div class="stack"><div class="label">Question 1 of 4</div><h1>Which joints bother you most?</h1><p class="muted">Pick up to three. You can change this later.</p>`
+ if(step===1)h=pr+`<div class="stack"><div class="label">Question 1 of ${qn}</div><h1>Which joints bother you most?</h1><p class="muted">Pick up to three. You can change this later.</p>`
  +Object.keys(JOINTS).map(k=>`<button class="choice ${st.focus.includes(k)?'on':''}" data-k="${k}" aria-pressed="${st.focus.includes(k)}">${JOINTS[k][0]}</button>`).join('')
  +`<button class="btn wide" id="next">Next</button>${skip}</div>`;
- if(step===2)h=pr+`<div class="stack"><div class="label">Question 2 of 4</div><h1>How do you feel about standing for five minutes?</h1>`
+ if(step===2)h=pr+`<div class="stack"><div class="label">Question 2 of ${qn}</div><h1>Can you stand for five minutes?</h1>`
  +[['yes','I can stand comfortably'],['hold','I can stand if I hold on to something'],['sit','I\'d rather stay seated','You\'ll get seated versions of every move']].map(o=>`<button class="choice" data-v="${o[0]}">${o[1]}${o[2]?'<small>'+o[2]+'</small>':''}</button>`).join('')+skip+`</div>`;
- if(step===3)h=pr+`<div class="stack"><div class="label">Question 3 of 4</div><h1>What would you most like to find easier?</h1><p class="muted">Every couple of weeks we'll ask how this is going, so you can see your progress.</p>`
+ if(step===3)h=pr+`<div class="stack"><div class="label">Question 3 of ${qn}</div><h1>What would you most like to find easier?</h1><p class="muted">Every couple of weeks we'll ask how this is going, so you can see your progress.</p>`
  +ACTS.map(a=>`<button class="choice ${st.activity===a?'on':''}" data-v="${esc(a)}">${esc(a)}</button>`).join('')+skip+`</div>`;
- if(step===4)h=pr+`<div class="stack"><div class="label">Question 4 of 4</div><h1>How many days a week would you like to move?</h1><p class="muted">Any session counts, even one minute. Three days a week is a good number to aim for.</p>`
+ if(step===4)h=pr+`<div class="stack"><div class="label">Question 4 of ${qn}</div><h1>How many days a week would you like to move?</h1><p class="muted">Any session counts, even one minute. Three days a week is a good number to aim for.</p>`
  +[2,3,4,5].map(n=>`<button class="choice ${st.goal===n?'on':''}" data-v="${n}">${n} days a week${n===3?'<small>Suggested</small>':''}</button>`).join('')+`</div>`;
  if(step===5)h=`<div class="stack" style="text-align:center;padding-top:16px"><div class="endtick" aria-hidden="true">${TICK}</div><h1>You're all set</h1>
- <p>Your goal is <b>${st.goal} days a week</b>. Each day, tell us how your joints feel and we'll suggest a routine to match.</p>
- <p class="muted">Want a reminder? You can add one to your phone's calendar from the Progress page.</p><button class="btn sun wide" id="ok">Go to today</button></div>`;
+ <p>Each day, tell the app how your joints feel and it picks a routine to match.</p>
+ <p class="muted">Your goal starts at ${st.goal} days a week. You can change it, or set a reminder, on the Progress page.</p><button class="btn sun wide" id="ok">Go to today</button></div>`;
  app.innerHTML=h;window.scrollTo(0,0);
- const nx=()=>go('#/start/'+(step+1));
+ const nx=()=>go('#/start/'+(first&&step===2?5:step+1));
  if($('ok'))$('ok').onclick=()=>{if(step===0){st.safety=true;save();nx()}else{st.onboarded=true;save();go('#/home')}};
  if($('skip'))$('skip').onclick=nx;if($('next'))$('next').onclick=nx;
  if(step===1)on('.choice',b=>{const k=b.dataset.k,i=st.focus.indexOf(k);if(i>-1)st.focus.splice(i,1);else{if(st.focus.length>=3)st.focus.shift();st.focus.push(k)}save();onboard(1)});
@@ -305,14 +309,14 @@ function moves(){
  else{const list=M.filter(x=>(mvArea==='all'||(mvArea==='fav'?st.favs.includes(x.id):x.a===mvArea))&&!(st.seated&&x.stand));
   h+=`<label class="check box" style="padding:10px 16px"><input type="checkbox" id="seat" ${st.seated?'checked':''}><span><b>Seated only</b><br><span class="muted small">Hide standing moves, and use seated versions in routines</span></span></label>
   <div class="pills"><button data-a="all" class="${mvArea==='all'?'on':''}">All</button>${Object.keys(AREAS).map(k=>`<button data-a="${k}" class="${mvArea===k?'on':''}">${AREAS[k]}</button>`).join('')}<button data-a="fav" class="${mvArea==='fav'?'on':''}">Saved</button></div>
-  <div class="list">${list.length?list.map(x=>`<a class="row" href="#/m/${x.id}">${pic(x.pic)}<div><b>${x.n}</b><span class="muted">${AREAS[x.a]} &middot; ${hold(x)} sec${x.sides>1?' each side':''}${st.hidden.includes(x.id)?' &middot; not suggested':''}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`).join(''):'<div class="box">Nothing saved yet. Open a move and tap Save.</div>'}</div>`}
+  <div class="list">${list.length?list.map(x=>`<a class="row" href="#/m/${x.id}">${pic(x.pic,0,x.id)}<div><b>${x.n}</b><span class="muted">${AREAS[x.a]} &middot; ${hold(x)} sec${x.sides>1?' each side':''}${st.hidden.includes(x.id)?' &middot; not suggested':''}</span></div><span aria-hidden="true" style="font-size:26px;color:var(--green)">&rsaquo;</span></a>`).join(''):'<div class="box">Nothing saved yet. Open a move and tap Save.</div>'}</div>`}
  app.innerHTML=h+'</div>';
  on('.seg button',b=>{mv=b.dataset.v;moves()});on('.pills button',b=>{mvArea=b.dataset.a;moves()});
  if($('seat'))$('seat').onchange=e=>{st.seated=e.target.checked;save();moves()};
 }
 function move(id){
  const x=MB[id];if(!x)return go('#/moves');shell('moves',true);const fav=st.favs.includes(id),hid=st.hidden.includes(id);
- app.innerHTML=`<div class="stack"><div style="display:flex;gap:16px;align-items:center">${pic(x.pic,true)}<div style="min-width:0"><h1>${x.n}</h1><div style="margin-top:6px"><span class="tag">${AREAS[x.a]}</span>${x.stand?'<span class="tag stand">Standing, with support</span>':''}</div></div></div>
+ app.innerHTML=`<div class="stack"><div style="display:flex;gap:16px;align-items:center">${pic(x.pic,true,x.id)}<div style="min-width:0"><h1>${x.n}</h1><div style="margin-top:6px"><span class="tag">${AREAS[x.a]}</span>${x.stand?'<span class="tag stand">Standing, with support</span>':''}</div></div></div>
  <div class="box"><h3>How to do it</h3><ol class="steps">${x.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><p style="margin-top:6px"><b>${x.calm?'Time':'Hold or repeat'}:</b> about ${hold(x)} seconds${x.sides>1?' on each side':''}.</p>
  <div class="box warm" style="margin-top:12px;padding:14px 16px"><b>Take care:</b> ${esc(x.tip)}</div>
  ${x.alt?`<p style="margin-top:12px">Prefer to sit? Try <a href="#/m/${x.alt}">${MB[x.alt].n}</a> instead.</p>`:''}
@@ -330,7 +334,7 @@ function routine(id){
  app.innerHTML=`<div class="stack"><div><div class="label">Routine</div><h1 style="margin-top:4px">${r.n}</h1><p class="muted" style="margin-top:6px">${esc(r.d)}</p></div>
  <div class="box tint"><p><b>About ${mins(secs(r))} minutes</b> &middot; ${plural(ids.length,'move')}</p><p class="small" style="margin-top:4px"><b>You'll need:</b> ${need(r)}.</p></div>
  <button class="btn sun wide" id="go">Start</button>
- <div class="list">${ids.map((i,n)=>{const x=MB[i];return`<div class="row">${pic(x.pic)}<div><a href="#/m/${i}" style="text-decoration:none;color:inherit"><b>${n+1}. ${x.n}</b></a><span class="muted">${hold(x,r)} sec${x.sides>1?' each side':''}${x.stand?' &middot; standing, with support':''}</span></div>${x.calm?'<span></span>':`<button class="btn line sm" data-n="${n}" data-id="${i}" aria-label="Swap ${esc(x.n)} for a similar move">Swap</button>`}</div>`}).join('')}</div>
+ <div class="list">${ids.map((i,n)=>{const x=MB[i];return`<div class="row">${pic(x.pic,0,i)}<div><a href="#/m/${i}" style="text-decoration:none;color:inherit"><b>${n+1}. ${x.n}</b></a><span class="muted">${hold(x,r)} sec${x.sides>1?' each side':''}${x.stand?' &middot; standing, with support':''}</span></div>${x.calm?'<span></span>':`<button class="btn line sm" data-n="${n}" data-id="${i}" aria-label="Swap ${esc(x.n)} for a similar move">Swap</button>`}</div>`}).join('')}</div>
  ${Object.keys(sw).length?'<button class="textbtn" id="reset">Put back the original moves</button>':''}
  ${r.easy||r.id==='breathe'?'':`<div class="box"><h3>Your pace</h3><p class="muted small" style="margin:4px 0 12px">How long to hold or repeat each move</p><div class="pills" id="lv">${LEVELS.map((v,i)=>`<button data-l="${i}" class="${st.level===i?'on':''}">${v[1]}</button>`).join('')}</div></div>`}</div>`;
  $('go').onclick=()=>startPlay(r);
@@ -411,20 +415,20 @@ function settings(msg){
   $('no').onclick=()=>settings();$('yes').onclick=()=>{try{localStorage.removeItem(KEY)}catch(e){}st=norm({});prefs();go('#/start/0')}};
 }
 function voiceBox(){
- const tips={ios:'Open your iPhone Settings, then Accessibility, then Spoken Content (called Read & Speak on newer iPhones), then Voices, then English. Download a voice marked Enhanced or Premium, such as Ava or Zoe. Come back here and choose it below.',
- android:'Open your phone Settings and search for "Text-to-speech". Choose Speech Services by Google, then download a voice for English. Come back here and choose it below.',
- edge:'Microsoft Edge has very natural voices. Look for names marked "Natural" below.',
- desktop:'Your computer\'s voices are listed below. For the most natural voices on a computer, open this page in Microsoft Edge, or use Chrome and choose a "Google" voice.'};
+ const tips={ios:'Your iPhone has smoother voices you can add for free. Open Settings, search for "Spoken Content", tap Voices, then English, and add one marked Enhanced. It will show up in the list above.',
+ android:'Open your phone\'s Settings, search for "Text-to-speech" and add an English voice. It will show up in the list above.',
+ edge:'The voices marked Natural in the list above sound the smoothest.',
+ desktop:'On a computer, the smoothest voices are in the Microsoft Edge browser. Open this page in Edge and pick a voice marked Natural.'};
  if(!HAS_TTS)return`<div class="box"><h3>Voice</h3><p class="muted" style="margin-top:6px">This browser can't speak out loud. Try Safari on an iPhone, or Chrome or Edge.</p></div>`;
  const list=voiceList().slice(0,8),cur=bestVoice();
  return`<div class="box"><h3>Voice</h3>
  <label class="check"><input type="checkbox" id="voice" ${st.voice?'checked':''}><span>Talk me through each move out loud</span></label>
- ${CLIPS?`<label class="check"><input type="checkbox" id="nat" ${st.natural?'checked':''}><span>Use the natural recorded voice (recommended)<br><span class="muted small">Sounds smooth and the same on every phone</span></span></label><button class="say" id="nattest" style="margin-top:0">${SPK} Hear the recorded voice</button>`:''}
+ ${CLIPS?`<label class="check"><input type="checkbox" id="nat" ${st.natural?'checked':''}><span>Use Celine's recorded voice<br><span class="muted small">The same voice as the Hinge Care Program</span></span></label><button class="say" id="nattest" style="margin-top:0">${SPK} Hear the recorded voice</button>`:''}
  <p style="margin:14px 0 8px"><b>Speed</b></p><div class="pills" id="vs">${RATES.map((x,i)=>`<button data-s="${i}" class="${st.speed===i?'on':''}" aria-pressed="${st.speed===i}">${x[1]}</button>`).join('')}</div>
  <p style="margin:16px 0 8px"><b>${CLIPS?'Phone voice':'Choose a voice'}</b> <span class="muted small">(${CLIPS?'used when the recorded voice is off. ':''}tap one to hear it)</span></p>
  ${list.length?`<div class="list" id="vl">${list.map((v,i)=>`<button class="choice ${cur&&cur.name===v.name?'on':''}" data-v="${i}" aria-pressed="${!!(cur&&cur.name===v.name)}">${esc(vLabel(v))}${i===0?'<small>Most natural on this device</small>':''}</button>`).join('')}</div>`:'<p class="muted">Your device is still loading its voices. Come back to this page in a moment.</p>'}
  <button class="say" id="vtest">${SPK} Hear a sample</button>
- <div class="box warm" style="margin-top:14px;padding:14px 16px"><b>Want a smoother voice?</b><p class="small" style="margin-top:4px">${tips[platform()]}</p></div></div>`}
+ <details class="read" style="margin-top:14px"><summary>Want a smoother voice?</summary><div class="in"><p class="small">${tips[platform()]}</p></div></details></div>`}
 function voiceWire(){
  const SAMPLE='Hello. I\'ll guide you through each move, nice and slowly. | Breathe out as you move, and stop if anything hurts.';
  if($('voice'))$('voice').onchange=e=>{st.voice=e.target.checked;save()};
@@ -465,7 +469,7 @@ function draw(){
  pl.innerHTML=`<div class="pbar"><button id="end">End</button><div class="t">${esc(P.r.n)}</div><button id="when">When to stop</button></div>
  <div class="segs" aria-hidden="true">${P.seg.map((_,i)=>`<i class="${i<P.i?'on':i===P.i?'now':''}"></i>`).join('')}</div>
  <div class="stage"><div class="phase">${prep?(P.i===0?'Get comfortable':'Next up'):'Move '+(P.i+1)+' of '+P.seg.length}${s.side?' &middot; '+s.side:''}</div><h2>${esc(s.x.n)}</h2>
- <div class="timer">${pic(s.x.pic,true)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E2EEE6" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#F4B740':'#1D6B4F'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
+ <div class="timer">${pic(s.x.pic,true,s.x.id)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E4EBF7" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#F4B740':'#27498A'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
  <p class="muted" style="font-weight:700">${prep?'Get into position':s.x.calm?'Breathe slowly':'Move slowly'}</p>
  <ol class="steps how" style="text-align:left">${s.x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol><p class="tip">${esc(s.x.tip)}</p></div>
  <div class="ctl"><button id="prev">Back</button><button class="go" id="pp">${P.paused?'Resume':'Pause'}</button><button id="skip">Skip</button></div>

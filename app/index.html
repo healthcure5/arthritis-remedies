@@ -7,18 +7,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hinge App</title>
 <meta name="description" content="Guided chair routines for stiff joints. A daily check-in, seated options, a calm voice, a weekly goal, and progress you can share with your doctor.">
-<meta name="theme-color" content="#F2F5F1">
+<meta name="theme-color" content="#F3F5FA">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
 <style>
 /* Layout: one calm column; Today is a numbered session (check in, move, learn); light, flat, high-contrast for older eyes */
 :root{
- --bg:#F2F5F1;--surface:#FFFFFF;--line:#D3DDD5;--ink:#15281F;--muted:#45574D;
- --green:#1D6B4F;--green-dk:#14513B;--green-soft:#E2EEE6;--sun:#F4B740;--sun-soft:#FCF0D2;
+ --bg:#F3F5FA;--surface:#FFFFFF;--line:#D3DAE6;--ink:#141E30;--muted:#46526A;
+ --green:#27498A;--green-dk:#1B3566;--green-soft:#E4EBF7;--sun:#F4B740;--sun-soft:#FCF0D2;
  --alert:#9B2C12;--alert-soft:#FCE8E1;
  --body:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;--head:Literata,Georgia,"Times New Roman",serif;
  --r:18px;
@@ -33,7 +33,7 @@ a{color:var(--green-dk);text-underline-offset:3px}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:8px}
 .top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:12px max(18px,env(safe-area-inset-right)) 12px max(18px,env(safe-area-inset-left));display:flex;align-items:center;gap:12px;min-height:68px}
-.top .logo{width:38px;height:38px;flex:none}
+.top .logo{width:40px;height:40px;flex:none;border-radius:11px}
 .top .name{font:700 20px var(--head)}
 .top .by{display:block;font-size:13px;color:var(--muted);font-family:var(--body);font-weight:400}
 .top .back{margin-right:4px;border:0;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--line);border-radius:12px;min-height:48px;padding:0 16px;font-weight:700}
@@ -157,34 +157,61 @@ details.read .in{padding:0 18px 18px}
 .ctl button{border:0;border-radius:14px;min-height:64px;font-weight:700;font-size:18px;background:var(--bg)}
 .ctl .go{background:var(--sun);color:var(--ink);font-size:20px}
 .hurt{display:block;width:100%;max-width:560px;margin:10px auto 0;border:2px solid var(--alert);background:var(--surface);color:var(--alert);border-radius:14px;min-height:60px;font-weight:700;font-size:19px}
-.sheetwrap{position:fixed;inset:0;background:rgba(21,40,31,.55);display:flex;align-items:flex-end;justify-content:center;z-index:30;padding:12px}
+.sheetwrap{position:fixed;inset:0;background:rgba(20,30,48,.55);display:flex;align-items:flex-end;justify-content:center;z-index:30;padding:12px}
 .sheet{background:var(--surface);border-radius:22px;padding:22px;width:100%;max-width:560px;max-height:92%;overflow:auto}
 .sheet .choice{margin-bottom:10px;background:var(--bg)}
 .endtick{width:80px;height:80px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin:8px auto}
 body.t2 main,body.t2 .stage,body.t2 .sheet{zoom:1.15}
 body.t3 main,body.t3 .stage,body.t3 .sheet{zoom:1.3}
-body.hc{--line:#5B6B61;--muted:#15281F}
+body.hc{--line:#5A6478;--muted:#141E30}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media print{.top,.nav,.noprint{display:none!important}body{padding:0;background:#fff}main{max-width:none}.box{border-color:#999}}
 
 /* tap targets and text sizes (app-creation pass) */
-#app a:not(.btn):not(.choice):not(.card){display:inline-block;padding:11px 0;min-height:44px;box-sizing:border-box}
+#app a:not(.btn):not(.choice):not(.card):not(.row){display:inline-block;padding:11px 0;min-height:44px;box-sizing:border-box}
 #app input[type=checkbox],#app input[type=radio]{width:32px;height:32px;margin:6px 8px 6px 0;vertical-align:middle}
 #app label{min-height:44px}
 .top .by{font-size:14px}
 #app .moods span,#app .mood span,#app .feel span,#app .faces span{font-size:16px}
+
+/* photos of the moves */
+.pict{position:relative;overflow:hidden}
+.pict.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.pict.big.ph{width:160px;height:160px}
+/* tablets */
+@media (min-width:700px){
+ main{max-width:780px;padding-top:28px}
+ h1{font-size:34px}
+ .pict.big.ph{width:220px;height:220px}
+ .stage{max-width:640px}.ctl,.hurt{max-width:640px}
+ .sheetwrap{align-items:center}
+}
+/* laptops, desktops and tablets on their side: menu moves to the left, lists go two across */
+@media (min-width:1000px){
+ body{padding-left:240px;padding-bottom:32px}
+ .top{margin-left:-240px;padding-left:24px;z-index:8}
+ .nav{top:69px;right:auto;bottom:0;width:240px;flex-direction:column;justify-content:flex-start;gap:6px;border-top:0;border-right:1.5px solid var(--line);padding:18px 14px}
+ .nav a{flex:none;flex-direction:row;justify-content:flex-start;gap:14px;padding:0 16px;font-size:18px;min-height:58px}
+ main{max-width:1000px;padding-left:32px;padding-right:32px}
+ .list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ body:has(.nav[hidden]){padding-left:0}
+ body:has(.nav[hidden]) .top{margin-left:0}
+ body:has(.nav[hidden]) main{max-width:720px}
+ .play{padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right))}
+}
+@media print{body{padding-left:0}}
 </style>
 </head>
 <body>
-<header class="top"><button class="back" id="back" hidden>&larr; Back</button><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#1D6B4F"/><circle cx="24" cy="22" r="8" fill="#F4B740"/><path d="M6 36c6-6 12-8 18-8s12 2 18 8v6H6z" fill="#E2EEE6"/></svg><div><span class="name">Hinge App</span><span class="by">by Hinge Care</span></div></header>
+<header class="top"><button class="back" id="back" hidden>&larr; Back</button><img class="logo" src="icon-192.png" width="38" height="38" alt=""><div><span class="name">Hinge App</span><span class="by">by Hinge Care</span></div></header>
 <main id="app"></main>
 <nav class="nav" aria-label="Main">
-<a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Today</a>
-<a href="#/moves" data-tab="moves"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M12 7v7M7 10l5-1 5 1M12 14l-3 7M12 14l3 7"/></svg>Moves</a>
+<a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17a5 5 0 0 1 10 0M12 5v3M4.6 9.6l2 2M19.4 9.6l-2 2M2 17h3M19 17h3M5 21h14"/></svg>Today</a>
+<a href="#/moves" data-tab="moves"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="4.5" r="2"/><path d="M10 8v6h6v7M10 10.5l5 1.5M5 9v12M5 15.5h5M10 15.5V21"/></svg>Moves</a>
 <a href="#/learn" data-tab="learn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3zM21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/></svg>Learn</a>
 <a href="#/me" data-tab="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progress</a>
 </nav>
 <div id="player" class="play" hidden></div>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>
