@@ -852,7 +852,7 @@ function overview(){
   document.getElementById('ovgo').onclick=()=>S.track?lesson('welcome'):startCheck();
 }
 function openMenu(){
-  const nx=nextId();S.mopen=S.mopen||{start:true};
+  const nx=nextId();S.mopen=S.mopen||{start:true};{const ks=Object.keys(S.mopen).filter(k=>S.mopen[k]);if(ks.length>1){const keep=ks[ks.length-1];S.mopen={};S.mopen[keep]=true;}}
   const sec=(key,title,count,inner)=>`<div class="msec ${S.mopen[key]?'open':''}" data-sec="${key}"><button class="mhead" type="button" aria-expanded="${!!S.mopen[key]}">${title}<span class="cnt">${count}</span><span class="ch" aria-hidden="true">›</span></button><div class="mbody"><div>${inner}</div></div></div>`;
   const TK='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2F5D3A"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const row=l=>`<button class="plink ${S.done[l.id]?'done':''}" data-l="${l.id}" type="button"><span class="t">${S.done[l.id]?TK:''}</span><span>${esc(l.title)}${nx===l.id?' <small style="color:var(--rust)">· next</small>':''}</span>${hasVid(l)?VB:''}</button>`;
@@ -873,7 +873,7 @@ function openMenu(){
   h+=sec('set','Settings','',`<button class="plink nav" data-m="fx" type="button"><span class="t" aria-hidden="true"></span>Sounds and buzz: ${S.fx.sound||S.fx.buzz?'on':'off'}</button>`);
   h=`<div class="pinbar"><button type="button" data-m="lib">📚 Library<small>Lessons for my kind</small></button><button type="button" data-m="type">🩺 My kind<small>${S.type&&D.types[S.type]?esc(D.types[S.type].name):'Pick yours'}</small></button></div>`+h;
   const pl=document.getElementById('plist');pl.innerHTML=h;
-  pl.querySelectorAll('.mhead').forEach(hb=>hb.onclick=()=>{const sc=hb.parentElement,k=sc.dataset.sec,on=!sc.classList.contains('open');sc.classList.toggle('open',on);hb.setAttribute('aria-expanded',on);S.mopen[k]=on;save();});
+  pl.querySelectorAll('.mhead').forEach(hb=>hb.onclick=()=>{const sc=hb.parentElement,k=sc.dataset.sec,on=!sc.classList.contains('open');if(on){pl.querySelectorAll('.msec.open').forEach(o=>{if(o!==sc){o.classList.remove('open');const h2=o.querySelector('.mhead');if(h2)h2.setAttribute('aria-expanded','false');}});S.mopen={};}sc.classList.toggle('open',on);hb.setAttribute('aria-expanded',on);S.mopen[k]=on;save();if(on)setTimeout(()=>{try{hb.scrollIntoView({block:'nearest',behavior:'smooth'})}catch(e){}},260);});
   pl.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>swap(()=>lesson(b.dataset.l)));
   pl.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>toolkit(b.dataset.t));
   pl.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>b.dataset.m==='fx'?(()=>{const on=!(S.fx.sound||S.fx.buzz);S.fx={sound:on,buzz:on};save();openMenu();if(on)FX.good();})():({'welcome-page':welcome,overview,home,sc:startCheck,focus:focusLesson,type:()=>typePicker(),lib:()=>library(),grad:()=>graduation()})[b.dataset.m]());
@@ -1263,7 +1263,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
   function renderSide(){
     if(!DESK.matches||document.body.dataset.view==='welcome')return;
     const ae=document.activeElement;
-    if(CUR){const f=find(CUR);if(f&&f.w){S.mopen=S.mopen||{};S.mopen['w'+f.w.n]=true;}}
+    if(CUR){const f=find(CUR);const key=f&&f.w?'w'+f.w.n:(f&&f.m?'m-'+f.m.k:null);if(key&&!(S.mopen||{})[key]){S.mopen={};S.mopen[key]=true;}}
     _open();
     document.getElementById('shade').classList.remove('on');
     const pl=document.getElementById('plist');
