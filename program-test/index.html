@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E4A40">
+<title>The Hinge Care Program</title>
+<link rel="icon" href="/brand/hinge-care-icon-green.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF6EC; --surface:#FFFFFF; --sand:#F3EBDC;
+  --ink:#23201A; --muted:#6A6356; --faint:#978F7F; --line:#E6DDCB;
+  --green:#1E4A40; --green2:#2C6354; --greenSoft:#E7F0EB;
+  --ochre:#BE7A32; --plum:#6B4A72; --plumSoft:#EFE7F1;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --maxw:760px;
+}
+*{box-sizing:border-box}
+html{font-size:19px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:500;color:var(--ink);line-height:1.12;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--green2)}
+img,svg{max-width:100%}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+.eyebrow{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green2);font-weight:700;display:inline-flex;align-items:center;gap:.6em}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--ochre);border-radius:2px;display:inline-block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--green);color:#fff;border:0;border-radius:14px;font:600 1rem var(--sans);padding:16px 26px;min-height:56px;cursor:pointer;text-decoration:none;transition:background .2s,transform .1s}
+.btn:hover{background:var(--green2)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--green);border:2px solid var(--line)}
+.btn.ghost:hover{border-color:var(--green2);background:transparent}
+.btn.plum{background:var(--plum)}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+
+/* ===== Welcome gate ===== */
+#welcome{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding:48px max(20px,env(safe-area-inset-left)) calc(48px + env(safe-area-inset-bottom));
+  background:radial-gradient(120% 80% at 50% 0%,#28574B 0%,var(--green) 55%,#163A32 100%);color:#F6F1E7;text-align:center}
+#welcome .inner{max-width:560px;margin-inline:auto}
+#welcome .mark{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;margin:0 auto 26px}
+#welcome .mark img{width:38px;height:38px;filter:brightness(0) invert(1)}
+#welcome .eyebrow{color:#C9E3D7;justify-content:center;margin-bottom:16px}
+#welcome .eyebrow::before{background:#E0A45A}
+#welcome h1{color:#fff;font-weight:400;font-size:clamp(2.3rem,7vw,3.3rem);line-height:1.04}
+#welcome p{color:#DDE8E0;font-size:1.14rem;margin:20px auto 0;max-width:34em}
+#welcome .go{margin-top:34px}
+#welcome .go .btn{background:#F6F1E7;color:var(--green);min-width:240px}
+#welcome .go .btn:hover{background:#fff}
+#welcome .tiny{margin-top:22px;font-size:.82rem;color:#A9C6BA}
+
+/* ===== App shell ===== */
+#app{display:none}
+body.entered #welcome{display:none}
+body.entered #app{display:block}
+header.bar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;gap:12px;min-height:60px}
+header.bar .brand{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:600;font-size:1.05rem;margin-right:auto}
+header.bar .brand img{width:30px;height:30px}
+header.bar .mini{display:flex;align-items:center;gap:9px;font-size:.82rem;color:var(--muted)}
+header.bar .mini .ring{width:30px;height:30px}
+
+/* views */
+.view{display:none}
+.view.on{display:block}
+section{padding:26px 0}
+
+/* progress hero */
+.phero{background:var(--surface);border-bottom:1px solid var(--line)}
+.phero .wrap{display:flex;gap:22px;align-items:center;padding:26px 20px}
+.phero .plantwrap{flex:none;width:96px;height:112px}
+.phero .copy{flex:1;min-width:0}
+.phero .copy .eyebrow{margin-bottom:8px}
+.phero h1{font-size:clamp(1.6rem,4.5vw,2.1rem);font-weight:500}
+.phero .barrow{margin-top:12px}
+.pbar{height:12px;border-radius:99px;background:var(--sand);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green2),var(--ochre));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.pbar-label{font-size:.86rem;color:var(--muted);margin-top:7px}
+
+/* My Path accordion */
+.path h2.secttl{font-size:1.1rem;letter-spacing:.02em;margin:26px 0 12px;color:var(--muted);font-family:var(--sans);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.14em}
+details.sect{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin:0 0 14px;overflow:hidden;box-shadow:0 8px 24px rgba(30,74,64,.05)}
+details.sect>summary{list-style:none;cursor:pointer;display:flex;gap:16px;align-items:center;padding:20px;min-height:68px}
+details.sect>summary::-webkit-details-marker{display:none}
+.snum{flex:none;width:46px;height:46px;border-radius:14px;background:var(--greenSoft);color:var(--green);display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:1.05rem}
+.snum.done{background:var(--green);color:#fff}
+.stitle{flex:1;min-width:0}
+.stitle b{display:block;font-family:var(--display);font-size:1.18rem;color:var(--ink);font-weight:600}
+.stitle span{font-size:.86rem;color:var(--muted)}
+.chev{flex:none;color:var(--green2);font-size:1.5rem;line-height:1;transition:transform .25s}
+details.sect[open] .chev{transform:rotate(90deg)}
+.sbody{padding:4px 20px 20px;border-top:1px solid var(--line)}
+.sbody .intro{color:var(--muted);margin:14px 0 14px}
+.lrow{display:flex;align-items:center;gap:14px;width:100%;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:15px 16px;margin:0 0 10px;min-height:58px;font:500 1rem var(--sans);color:var(--ink);text-align:left;cursor:pointer;transition:border-color .2s}
+.lrow:hover{border-color:var(--green2)}
+.lrow .tick{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--green2);display:grid;place-items:center;color:#fff;font-size:.95rem;transition:background .2s}
+.lrow.done .tick{background:var(--green2)}
+.lrow .lt{flex:1;min-width:0}
+.lrow .lt small{display:block;color:var(--muted);font-size:.82rem;font-weight:400;margin-top:1px}
+.lrow .arr{color:var(--faint);font-size:1.2rem}
+
+/* lesson view */
+.lesson .crumb{display:flex;align-items:center;gap:8px;font-size:.84rem;color:var(--muted);margin:24px 0 10px;background:none;border:0;cursor:pointer;padding:0;font-family:var(--sans)}
+.lesson .crumb:hover{color:var(--green2)}
+.lesson .after{background:var(--greenSoft);border-radius:14px;padding:14px 18px;color:var(--green);font-weight:500;margin:0 0 22px}
+.lesson h1{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:500;margin:0 0 6px}
+.lesson .read{margin:16px 0 22px}
+.lesson .read .btn{min-height:46px;padding:10px 18px;font-size:.9rem;background:var(--sand);color:var(--green)}
+.lesson .read .btn:hover{background:var(--line)}
+.lesson p.body{font-size:1.08rem;margin:0 0 16px}
+.block{border-radius:14px;padding:16px 18px;margin:20px 0}
+.block .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:7px}
+.block.ex{background:var(--surface);border:1px solid var(--line)}
+.block.ex .k{color:var(--ochre)}
+.block.today{background:var(--plumSoft);border:1px solid color-mix(in srgb,var(--plum) 30%,transparent)}
+.block.today .k{color:var(--plum)}
+.block.today p{color:#3c2a41;font-weight:500}
+.recap{color:var(--muted);font-style:italic;margin:18px 0}
+.wellness{font-size:.86rem;color:var(--faint);border-top:1px solid var(--line);padding-top:14px;margin-top:18px}
+.lessnav{display:flex;gap:12px;margin:26px 0 10px;flex-wrap:wrap}
+.lessnav .btn{flex:1;min-width:150px}
+.donemsg{display:none;background:var(--greenSoft);border:1px solid var(--green2);border-radius:14px;padding:14px 18px;color:var(--green);font-weight:500;margin:18px 0}
+.donemsg.show{display:block}
+
+/* chips (pick your path) */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:11px 18px;font:600 .92rem var(--sans);color:var(--green);cursor:pointer}
+.chip:hover{border-color:var(--green2)}
+
+/* generic content cards */
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 14px}
+.tcard h3{font-size:1.2rem;margin-bottom:6px}
+.tcard p{color:var(--muted)}
+.daily-col{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.daily-col .d{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.daily-col .d:last-child{border-bottom:0}
+.daily-col .d b{color:var(--green)}
+.leaftag{display:inline-block;background:var(--greenSoft);color:var(--green);border-radius:99px;padding:3px 11px;font-size:.78rem;font-weight:600;margin-left:8px}
+.vid{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:0 0 14px}
+.vid .frame{aspect-ratio:16/9;background:linear-gradient(135deg,#243f38,#17302a);display:grid;place-items:center;color:#cfe0d8;font-size:.9rem;text-align:center;padding:16px}
+.vid .vb{padding:18px 20px}
+.vid .vb h3{font-size:1.15rem;margin-bottom:6px}
+.vid .vb p{color:var(--muted);font-size:.96rem}
+.vid .why{margin-top:10px;font-size:.9rem;color:var(--green);font-weight:500}
+.mlist{list-style:none;padding:0;margin:4px 0 0}
+.mlist li{padding:14px 0;border-bottom:1px solid var(--line)}
+.mlist li:last-child{border-bottom:0}
+.mlist a{font-weight:600;text-decoration:none}
+.mlist small{display:block;color:var(--muted);margin-top:2px}
+.note{font-size:.84rem;color:var(--faint);font-style:italic}
+.testtag{position:fixed;left:12px;bottom:12px;z-index:40;background:var(--plum);color:#fff;border-radius:99px;font-size:.72rem;font-weight:600;padding:5px 12px;opacity:.9}
+
+/* badge toast */
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);z-index:50;background:var(--ink);color:#fff;border-radius:16px;padding:16px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 14px 40px rgba(0,0,0,.28);max-width:90vw;transition:transform .45s cubic-bezier(.2,.9,.2,1)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast .bdg{flex:none;width:42px;height:42px;border-radius:50%;background:var(--ochre);display:grid;place-items:center;font-size:1.3rem}
+.toast b{display:block;font-family:var(--display)}
+.toast span{font-size:.86rem;color:#cfc9bd}
+footer.foot{border-top:1px solid var(--line);margin-top:30px;background:var(--surface)}
+footer.foot .wrap{padding:26px 20px;color:var(--faint);font-size:.84rem;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===================== WELCOME ===================== -->
+<div id="welcome">
+  <div class="inner">
+    <div class="mark"><img src="/brand/hinge-care-icon-green.svg" alt=""></div>
+    <span class="eyebrow">The Hinge Care Program</span>
+    <h1>Welcome. Let's make the mornings easier.</h1>
+    <p>Eight small moves and one short daily routine, built around the joints that bother you most. No rushing, no falling behind. You can start today, right where you are.</p>
+    <div class="go"><button class="btn" id="enterBtn">Enter the Program</button></div>
+    <p class="tiny">For general wellness, not medical advice.</p>
+  </div>
+</div>
+
+<!-- ===================== APP ===================== -->
+<div id="app">
+  <header class="bar"><div class="wrap">
+    <a class="brand" href="#" id="homeLink"><img src="/brand/hinge-care-icon-green.svg" alt="">Hinge Care</a>
+    <div class="mini"><svg class="ring" id="miniRing" viewBox="0 0 36 36" aria-hidden="true"></svg><span id="miniPct">0%</span></div>
+  </div></header>
+
+  <!-- HOME VIEW -->
+  <div class="view on" id="view-home">
+    <div class="phero"><div class="wrap">
+      <div class="plantwrap"><svg id="plant" viewBox="0 0 96 112" aria-hidden="true"></svg></div>
+      <div class="copy">
+        <span class="eyebrow">Your path</span>
+        <h1>Your Daily Hinge is growing</h1>
+        <div class="barrow"><div class="pbar"><i id="pbarFill"></i></div><div class="pbar-label" id="pbarLabel">0 of 12 steps done</div></div>
+      </div>
+    </div></div>
+
+    <section class="path"><div class="wrap" id="pathList"></div></section>
+    <footer class="foot"><div class="wrap">The Hinge Care Program &middot; test preview. For general wellness, not medical advice. Check with your doctor before starting a new remedy or exercise.</div></footer>
+  </div>
+
+  <!-- LESSON VIEW -->
+  <div class="view" id="view-lesson"><div class="wrap lesson" id="lessonBody"></div></div>
+
+  <!-- SIMPLE CONTENT VIEW -->
+  <div class="view" id="view-page"><div class="wrap" id="pageBody"></div></div>
+</div>
+
+<div class="toast" id="toast"><div class="bdg" id="toastBdg">&#10003;</div><div><b id="toastT">Badge earned</b><span id="toastS"></span></div></div>
+<div class="testtag">Test preview</div>
+
+<script>
+/* ============== CONTENT ============== */
+var W = "For general wellness, not medical advice. Check with your doctor before starting a new remedy or exercise.";
+function L(id,title,sub,after,teach,example,today,recap,wellness){
+  return {id:id,title:title,sub:sub,after:after,teach:teach,example:example,today:today,recap:recap,wellness:wellness!==false};
+}
+var SECTIONS = [
+ {id:'start', label:'Start here', sub:'Begin here, from wherever you are', lessons:[
+   L('a1','A word for today','A gentle start',
+     "Feel that someone who gets it is in your corner, and that small and steady is the whole idea.",
+     ["If you are reading this on a stiff morning, with the jar lid winning and the first step out of bed taking a minute, you are in the right place.",
+      "This program is not about pushing through the pain or fixing everything at once. It is about small, steady moves that add up. You do not have to believe that yet. You only have to start.",
+      "I have watched someone close to me live with sore hands and stiff knees for years. The thing that helped most was never one big cure. It was a handful of small habits, kept up on the ordinary days."],
+     "On a bad day, nothing here will ask for more than you have. That is the promise.",
+     "Nothing to do but read this and take one slow breath. You have already started.",
+     "Small and steady. That is the whole idea, and it begins now.", false),
+   L('a2','How the Program works','Find your way around',
+     "Open and close a section, read a short lesson, mark it done, and watch your path grow.",
+     ["Everything lives in Your Path on the home screen. Tap a section to open it, tap it again to close it.",
+      "Each lesson is short and takes one idea. At the end you tap I did this. A leaf is added to your plant, and your progress moves along.",
+      "You can stop any time and pick up where you left off. Nothing is lost, and there is no falling behind."],
+     "Tap Start here to open it. Tap a lesson to read it. Tap I did this at the end. That is the whole rhythm.",
+     "Open one lesson and mark it done, just to see your plant move.",
+     "Open, read, mark done. You have the rhythm now.", false),
+   L('a3','Pick your path','Start where it hurts most',
+     "Choose where to begin, from the spot that bothers you most.",
+     ["There is no single right order. Start from whatever is hardest for you right now, and the rest will still be here.",
+      "Use the buttons below to jump to a good first move for your worst spot. You can always come back and do the others."],
+     "Stiff hands in the morning are a different problem from a sore knee on the stairs. Start with yours.",
+     "Pick your path below. One tap, and you are moving.",
+     "You chose your starting point. That is the hardest part of starting, done.", false),
+   L('a4','Your first win, today','A real win in one sitting',
+     "Warm your worst joint before you move it, and feel the difference the same day.",
+     ["Here is something you can feel today. Stiff joints move better once they are warm. Cold, still joints are at their worst first thing and after sitting a long while.",
+      "Before you ask a sore joint to work, warm it. Warm water over the hands, a warm shower, a wheat bag, or a warm cloth. Then move it slowly a few times. Keep the heat comfortable, never hot enough to hurt."],
+     "Hands that will not cooperate at the sink: run warm water over them for a little, then open and close them slowly a few times.",
+     "Warm your stiffest joint once today, before its first job.",
+     "That is The Warm-First Rule, and it is your first win. The next section takes it further.", true)
+ ]},
+ {id:'p1', label:'Part 1 · Warm and loosen', sub:'Mornings and stiffness', lessons:[
+   L('m1','The Warm-First Rule','Move 1',
+     "Warm a stiff joint before you ask it to move, so first steps and mornings feel easier.",
+     ["Warmth brings blood and ease to a joint, and a warm joint simply moves better than a cold one. This is why mornings and the first minutes after sitting are the stiffest.",
+      "So lead with warmth. Warm the joint first, then move it, gently and slowly, before you load it with a task or your weight. A warm shower, a wheat or rice bag, warm water for the hands, or a warm cloth all work. Keep it comfortable.",
+      "This becomes your morning anchor. Warm first, move slow, then go."],
+     "Knees stiff getting out of bed: sit on the edge, warm them with your hands or a wheat bag, then bend and straighten them slowly a few times before you stand.",
+     "Pick your stiffest joint and warm it before its first job today.",
+     "The Warm-First Rule now joins your Daily Hinge as the way you start the morning.", true),
+   L('m2','The Quiet Twenty','Move 2',
+     "Keep a short, calm daily round of easy movement that leaves you looser.",
+     ["This is not exercise that wears you out. It is a quiet, unhurried round of moving each main joint through the range that feels comfortable. Joints stay healthier when they are moved, not when they are spared.",
+      "You can do all of it seated. Move slowly, stay inside the range that feels easy, and stop at anything sharp. The point is calm, regular movement, not effort."],
+     "Seated: circle the ankles, roll the shoulders back, open and close the hands, and turn your head slowly side to side. A few easy times each.",
+     "Do one quiet round of easy movement today, seated if you like.",
+     "The Quiet Twenty joins your Daily Hinge as your calm, loosening round.", true)
+ ]},
+ {id:'p2', label:'Part 2 · Move through the day', sub:'Activity and pacing', lessons:[
+   L('m3','The Two-Hour Test','Move 3',
+     "Break up long sitting so stiffness never gets the chance to settle in.",
+     ["Joints stiffen when they stay still too long. You can feel it: the longer you sit, the harder it is to get up and get going again.",
+      "The test is simple. Notice how stiff you feel after a long stretch in the chair. The fix is just as simple. Do not let a joint sit still too long. Get up and move a little, and do it often rather than once in a big burst."],
+     "Watching television or reading: at the next natural break, stand up, walk to the kitchen and back, then settle in again.",
+     "Once today, after a long sit, get up and move before the stiffness sets.",
+     "The Two-Hour Test joins your Daily Hinge as the habit that keeps the day from seizing up.", true),
+   L('m4','Half, Rest, Half','Move 4',
+     "Split a tiring task so you avoid the flare that comes from doing too much at once.",
+     ["Overdoing it on a good day often buys you a bad day after. The trick is not to do less. It is to pace.",
+      "Do half of the task. Sit and rest. Then do the other half. The job still gets done, but your joints never hit the wall that brings on a flare. On a hard day, make the halves smaller."],
+     "A sink full of dishes or a bed of weeds: do half, sit and rest, and finish the rest a little later.",
+     "Take one task you would normally push straight through, and split it in two.",
+     "Half, Rest, Half joins your Daily Hinge as the way you get things done without paying for it later.", true)
+ ]},
+ {id:'p3', label:'Part 3 · Eat for easier joints', sub:'Simple food habits', lessons:[
+   L('m5','The One-Color Rule','Move 5',
+     "Add one more colorful plant to each plate, the simplest food habit for calmer joints.",
+     ["You do not need to overhaul how you eat. You just need to add color. The deep colors in berries, leafy greens, orange squash and red cabbage carry the compounds tied to calmer inflammation.",
+      "So make it a rule you can actually keep: one more color on every plate. Small, repeatable, and no foods banned."],
+     "Breakfast gets a handful of berries. Dinner gets a green or an orange vegetable on the side.",
+     "Add one color to your next plate.",
+     "The One-Color Rule joins your Daily Hinge as the easiest food habit to keep.", true),
+   L('m6','The Fridge Plan','Move 6',
+     "Set your kitchen up so the easy choice is the joint-friendly one.",
+     ["Willpower runs out. A good kitchen does not. Set yours up so the better choice is the one already in front of you.",
+      "A few swaps to start. Use Celtic salt in place of ordinary iodized table salt. Celtic salt keeps its natural minerals and skips the anti-caking additives that come with heavily processed table salt. Keep the natural oils Barbara O'Neill favors on hand in place of the heavily processed ones, and keep her alternatives nearby so a swap is easy. Put the colorful plants where you will see them first.",
+      "One more thing, said plainly. If you are thinking about changing a medicine or a supplement, only after speaking with your doctor."],
+     "Swap the table salt for Celtic salt, and move the berries to the shelf at eye level.",
+     "Make one swap on your next shop.",
+     "The Fridge Plan joins your Daily Hinge so the right choice is always the easy one.", true)
+ ]},
+ {id:'p4', label:'Part 4 · Steady and calm', sub:'Balance, breath and rest', lessons:[
+   L('m7','The Kettle Balance','Move 7',
+     "Build a little steadiness during an everyday pause, safely.",
+     ["Steadiness on your feet keeps you confident and helps prevent falls, and it fades quietly if we never use it. The good news is you can build it back in the small pauses of the day.",
+      "Use a pause you already have, like waiting for the kettle. Stand tall, keep a hand on the counter, and ease a little of your weight onto one foot, then the other. Always hold something sturdy, and stop if you feel unsteady."],
+     "At the counter with a hand resting on it, shift your weight gently from foot to foot while the kettle heats.",
+     "Do one steadiness pause at the counter today, holding on.",
+     "The Kettle Balance joins your Daily Hinge as the habit that keeps you steady on your feet.", true),
+   L('m8','The 4-6 Breath','Move 8',
+     "Use one slow breath to settle your body when pain or stress rises.",
+     ["When pain spikes, the body tenses and the pain feels louder. A slow breath tells the body it is safe, and the tension lets go a little.",
+      "Breathe in for a count of four, and out for a count of six. The longer out-breath is the part that calms you. Use it in a painful moment, or to wind down at the end of the day."],
+     "A flare in the evening: sit back, breathe in for four and out for six, a few rounds, and let your shoulders drop.",
+     "Do one round of the 4-6 breath today.",
+     "The 4-6 Breath joins your Daily Hinge as the way you settle a hard moment. That is all eight moves.", true)
+ ]}
+];
+
+var PAGES = {
+ daily:{label:'The Daily Hinge', render:function(){
+   return '<button class="crumb" onclick="go(\'home\')">&#8592; Your path</button>'+
+   '<span class="eyebrow">Every day</span><h1 style="margin:10px 0 6px">The Daily Hinge</h1>'+
+   '<p class="body" style="color:var(--muted)">Once you have learned the moves, they fold into one short routine you actually keep. Here is where they land in a day. Do what you can. Imagine where you could be if you started.</p>'+
+   '<div class="tcard"><h3>Morning</h3><div class="daily-col">'+
+     '<div class="d"><span><b>Warm first.</b> Warm your stiffest joint, then move it slowly. <span class="leaftag">Move 1</span></span></div>'+
+     '<div class="d"><span><b>A quiet round.</b> Move each main joint gently through its easy range. <span class="leaftag">Move 2</span></span></div>'+
+   '</div></div>'+
+   '<div class="tcard"><h3>Through the day</h3><div class="daily-col">'+
+     '<div class="d"><span><b>Do not sit too long.</b> Get up and move a little, often. <span class="leaftag">Move 3</span></span></div>'+
+     '<div class="d"><span><b>Half, rest, half.</b> Split the tiring jobs. <span class="leaftag">Move 4</span></span></div>'+
+     '<div class="d"><span><b>One more color.</b> Add a colorful plant to each plate. <span class="leaftag">Move 5</span></span></div>'+
+     '<div class="d"><span><b>A steadiness pause.</b> Balance at the counter, holding on. <span class="leaftag">Move 7</span></span></div>'+
+   '</div></div>'+
+   '<div class="tcard"><h3>Evening</h3><div class="daily-col">'+
+     '<div class="d"><span><b>Settle it down.</b> A few rounds of the 4-6 breath. <span class="leaftag">Move 8</span></span></div>'+
+     '<div class="d"><span><b>Set up tomorrow.</b> One Fridge Plan swap when you shop. <span class="leaftag">Move 6</span></span></div>'+
+   '</div></div>'+
+   '<p class="wellness">'+W+'</p>';
+ }},
+ videos:{label:'The work begins', render:function(){
+   return '<button class="crumb" onclick="go(\'home\')">&#8592; Your path</button>'+
+   '<span class="eyebrow">Watch</span><h1 style="margin:10px 0 6px">The work begins</h1>'+
+   '<p class="body" style="color:var(--muted)">This is the side of the Program where the talks live. Each one gets a short note on what it covers and why it is worth your time, so you always know what you are about to watch.</p>'+
+   vid('Barbara O\'Neill on food and inflammation','A longer talk on how everyday food choices feed or calm inflammation, in plain terms.','Why watch: it puts the One-Color Rule and the Fridge Plan in a bigger picture, in her own words.')+
+   vid('Barbara O\'Neill on natural oils','Her thinking on the oils she favors and the ones she steers people away from, with her alternatives.','Why watch: it is the reasoning behind the oil swaps in your Fridge Plan.')+
+   vid('Barbara O\'Neill: her mother\'s story','The personal story behind her work, and why it stays with me.','Why watch: a reminder that steady, simple habits are the heart of all of this.')+
+   '<p class="note">Videos are added by Andre. Every talk will carry captions and a written version. '+W+'</p>';
+ }},
+ app:{label:'The Hinge App', render:function(){
+   return '<button class="crumb" onclick="go(\'home\')">&#8592; Your path</button>'+
+   '<span class="eyebrow">Move</span><h1 style="margin:10px 0 6px">The Hinge App</h1>'+
+   '<p class="body" style="color:var(--muted)">Your follow-along stretches live here, with a real person showing each move so it is easy to copy. Every move has a version you can do seated.</p>'+
+   '<div class="tcard"><h3>Follow along, at your pace</h3><p>Pick a short set, press play, and move with it. Stop at anything sharp, and keep a chair or counter nearby for balance. '+W+'</p></div>'+
+   '<a class="btn" href="/app/" >Open the Hinge App</a>';
+ }},
+ toolkit:{label:'The Toolkit', render:function(){
+   return '<button class="crumb" onclick="go(\'home\')">&#8592; Your path</button>'+
+   '<span class="eyebrow">Keep</span><h1 style="margin:10px 0 6px">The Toolkit</h1>'+
+   '<p class="body" style="color:var(--muted)">Large-print pages to print and keep on the fridge or by the chair.</p>'+
+   tool('The eight moves, one page','A single sheet with all eight Hinge moves and what each one is for.')+
+   tool('The Fridge Plan','Your swaps at a glance: Celtic salt, the oils, and the colors to keep in view.')+
+   tool('The Flare-Up Plan','What to do on a bad day: warmth, Half-Rest-Half, the 4-6 breath, and when to call your doctor.')+
+   tool('The nine everyday habits','The book\'s SUSTAIN ME list on one page, to read down whenever you need it.');
+ }},
+ more:{label:'More to explore', render:function(){
+   return '<button class="crumb" onclick="go(\'home\')">&#8592; Your path</button>'+
+   '<span class="eyebrow">Bonus</span><h1 style="margin:10px 0 6px">More to explore</h1>'+
+   '<p class="body" style="color:var(--muted)">A few trustworthy places to read further. These are outside Hinge Care, kept here at the back so they never pull you away mid-practice.</p>'+
+   '<ul class="mlist">'+
+     mlink('Arthritis Foundation','arthritis.org','https://www.arthritis.org')+
+     mlink('CDC: Arthritis','cdc.gov/arthritis','https://www.cdc.gov/arthritis')+
+     mlink('Versus Arthritis','versusarthritis.org','https://www.versusarthritis.org')+
+   '</ul>'+
+   '<p class="note" style="margin-top:14px">We do not control these sites. Always weigh what you read against your own doctor\'s advice.</p>';
+ }}
+};
+function vid(t,p,why){return '<div class="vid"><div class="frame">Video to be added</div><div class="vb"><h3>'+t+'</h3><p>'+p+'</p><p class="why">'+why+'</p></div></div>';}
+function tool(t,p){return '<div class="tcard"><h3>'+t+'</h3><p>'+p+'</p></div>';}
+function mlink(t,d,u){return '<li><a href="'+u+'" target="_blank" rel="noopener">'+t+'</a><small>'+d+'</small></li>';}
+
+/* path sections after the four parts */
+var EXTRA = [
+ {id:'daily', label:'The Daily Hinge', sub:'Your moves in one short routine'},
+ {id:'videos', label:'The work begins', sub:'The talks, with a note on each'},
+ {id:'app', label:'The Hinge App', sub:'Follow-along stretches'},
+ {id:'toolkit', label:'The Toolkit', sub:'Pages to print and keep'},
+ {id:'more', label:'More to explore', sub:'Trusted places to read further'}
+];
+
+/* ============== STATE ============== */
+var DONE = {};
+try{ DONE = JSON.parse(localStorage.getItem('hingeTestDone')||'{}')||{}; }catch(e){ DONE = {}; }
+function save(){ try{ localStorage.setItem('hingeTestDone', JSON.stringify(DONE)); }catch(e){} }
+var coreLessons = [];
+SECTIONS.forEach(function(s){ s.lessons.forEach(function(l){ coreLessons.push({sec:s.id,id:l.id}); }); });
+var TOTAL = coreLessons.length;
+function doneCount(){ var n=0; coreLessons.forEach(function(c){ if(DONE[c.id]) n++; }); return n; }
+function sectionDone(sec){ var s=byId(sec); if(!s||!s.lessons) return false; return s.lessons.every(function(l){return DONE[l.id];}); }
+function byId(id){ for(var i=0;i<SECTIONS.length;i++) if(SECTIONS[i].id===id) return SECTIONS[i]; return null; }
+function lessonById(id){ for(var i=0;i<SECTIONS.length;i++){ var s=SECTIONS[i]; for(var j=0;j<s.lessons.length;j++) if(s.lessons[j].id===id) return {sec:s,les:s.lessons[j],idx:j}; } return null; }
+
+/* ============== RENDER HOME ============== */
+function renderHome(){
+  var host=document.getElementById('pathList');
+  var html='';
+  SECTIONS.forEach(function(s,i){
+    var open = (i===0 && doneCount()===0) ? ' open':'';
+    var sdone = sectionDone(s.id);
+    html+='<details class="sect"'+open+'><summary><span class="snum'+(sdone?' done':'')+'">'+(sdone?'✓':(i+1))+'</span>'+
+      '<span class="stitle"><b>'+s.label+'</b><span>'+s.sub+'</span></span><span class="chev">›</span></summary>'+
+      '<div class="sbody">';
+    s.lessons.forEach(function(l){
+      html+='<button class="lrow'+(DONE[l.id]?' done':'')+'" onclick="openLesson(\''+l.id+'\')">'+
+        '<span class="tick">✓</span><span class="lt">'+l.title+'<small>'+l.sub+'</small></span><span class="arr">›</span></button>';
+    });
+    html+='</div></details>';
+  });
+  EXTRA.forEach(function(s){
+    html+='<details class="sect"><summary><span class="snum">•</span>'+
+      '<span class="stitle"><b>'+s.label+'</b><span>'+s.sub+'</span></span><span class="chev">›</span></summary>'+
+      '<div class="sbody"><p class="intro">Open this section to read it.</p>'+
+      '<button class="lrow" onclick="openPage(\''+s.id+'\')"><span class="tick" style="border-color:var(--plum)"></span><span class="lt">Open '+s.label+'</span><span class="arr">›</span></button>'+
+      '</div></details>';
+  });
+  host.innerHTML=html;
+  updateProgress();
+}
+
+/* ============== PROGRESS VISUALS ============== */
+function updateProgress(){
+  var n=doneCount(), pct=Math.round(n/TOTAL*100);
+  var fill=document.getElementById('pbarFill'); if(fill) fill.style.width=pct+'%';
+  var lab=document.getElementById('pbarLabel'); if(lab) lab.textContent=n+' of '+TOTAL+' steps done';
+  document.getElementById('miniPct').textContent=pct+'%';
+  drawRing(document.getElementById('miniRing'),pct);
+  drawPlant(n);
+}
+function drawRing(svg,pct){
+  if(!svg) return;
+  var r=15.5, c=2*Math.PI*r, off=c*(1-pct/100);
+  svg.innerHTML='<circle cx="18" cy="18" r="'+r+'" fill="none" stroke="#E6DDCB" stroke-width="3"/>'+
+    '<circle cx="18" cy="18" r="'+r+'" fill="none" stroke="#2C6354" stroke-width="3" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+off+'" transform="rotate(-90 18 18)"/>';
+}
+function drawPlant(n){
+  var svg=document.getElementById('plant'); if(!svg) return;
+  var stemH = 20 + Math.round((n/TOTAL)*52);
+  var topY = 96 - stemH;
+  var s='<rect x="30" y="98" width="36" height="12" rx="4" fill="#BE7A32"/>'+
+    '<rect x="33" y="92" width="30" height="8" rx="3" fill="#CE8B42"/>'+
+    '<line x1="48" y1="92" x2="48" y2="'+topY+'" stroke="#2C6354" stroke-width="4" stroke-linecap="round"/>';
+  var leaves=Math.min(n, TOTAL);
+  for(var i=0;i<leaves;i++){
+    var y = 90 - (i*(52/TOTAL)) - 6;
+    var left = i%2===0;
+    var lx = left? 48 : 48;
+    var dir = left? -1 : 1;
+    s+='<path d="M48 '+y+' q '+(dir*20)+' -8 '+(dir*2)+' -18 q '+(dir*-14)+' 6 '+(dir*-2)+' 18 z" fill="'+(i>=leaves-1&&n>0?'#2C6354':'#3C7D6A')+'"/>';
+  }
+  if(n>=TOTAL){ s+='<circle cx="48" cy="'+(topY-2)+'" r="7" fill="#E0A45A"/>'; }
+  svg.innerHTML=s;
+}
+
+/* ============== VIEWS ============== */
+function show(view){
+  ['home','lesson','page'].forEach(function(v){ document.getElementById('view-'+v).classList.toggle('on', v===view); });
+  window.scrollTo(0,0);
+}
+function go(where){ if(where==='home'){ renderHome(); show('home'); } }
+document.getElementById('homeLink').addEventListener('click',function(e){e.preventDefault();go('home');});
+
+function openPage(id){
+  var p=PAGES[id]; if(!p) return;
+  document.getElementById('pageBody').innerHTML=p.render();
+  show('page');
+}
+
+function openLesson(id){
+  var found=lessonById(id); if(!found) return;
+  var l=found.les, sec=found.sec;
+  stopRead();
+  var teachHtml=l.teach.map(function(t){return '<p class="body">'+t+'</p>';}).join('');
+  var html='<button class="crumb" onclick="go(\'home\')">&#8592; Your path</button>'+
+    '<span class="eyebrow">'+sec.label.split(' · ')[0]+'</span>'+
+    '<h1 style="margin:10px 0 0">'+l.title+'</h1>'+
+    '<div class="read"><button class="btn" id="readBtn" onclick="toggleRead()">&#9654;&nbsp; Read this to me</button></div>'+
+    '<div class="after">After this: '+l.after+'</div>'+
+    '<div id="lessonText">'+teachHtml+
+    '<div class="block ex"><div class="k">For example</div><p>'+l.example+'</p></div>'+
+    '<div class="block today"><div class="k">Try this today</div><p>'+l.today+'</p></div>'+
+    '<p class="recap">'+l.recap+'</p>'+
+    (l.wellness?'<p class="wellness">'+W+'</p>':'')+'</div>'+
+    '<div class="donemsg" id="doneMsg">Nicely done. This move is now part of your Daily Hinge.</div>'+
+    '<div class="lessnav">'+
+      '<button class="btn'+(DONE[l.id]?' ghost':'')+'" id="doneBtn" onclick="markDone(\''+l.id+'\')">'+(DONE[l.id]?'✓ Done':'I did this')+'</button>'+
+      nextBtn(found)+
+    '</div>';
+  document.getElementById('lessonBody').innerHTML=html;
+  show('lesson');
+}
+function nextBtn(found){
+  var next=nextLesson(found);
+  if(next) return '<button class="btn ghost" onclick="openLesson(\''+next+'\')">Next lesson →</button>';
+  return '<button class="btn ghost" onclick="go(\'home\')">Back to your path</button>';
+}
+function nextLesson(found){
+  var flat=[]; SECTIONS.forEach(function(s){ s.lessons.forEach(function(l){ flat.push(l.id); }); });
+  var pos=flat.indexOf(found.les.id);
+  return (pos>=0 && pos<flat.length-1) ? flat[pos+1] : null;
+}
+function markDone(id){
+  var was=DONE[id];
+  DONE[id]=true; save();
+  try{ if(navigator.vibrate) navigator.vibrate([18,40,22]); }catch(e){}
+  var btn=document.getElementById('doneBtn'); if(btn){ btn.textContent='✓ Done'; btn.classList.add('ghost'); }
+  var dm=document.getElementById('doneMsg'); if(dm) dm.classList.add('show');
+  if(!was){
+    var f=lessonById(id);
+    if(f && sectionDone(f.sec.id)) badge(f.sec);
+    else if(doneCount()===TOTAL) {}
+  }
+  updateProgress();
+}
+function badge(sec){
+  var t=document.getElementById('toast');
+  document.getElementById('toastT').textContent='Part complete';
+  document.getElementById('toastS').textContent=sec.label.replace(/^Part \d+ · /,'')+' — a new leaf on your plant.';
+  t.classList.add('show');
+  try{ if(navigator.vibrate) navigator.vibrate([30,60,30,60,40]); }catch(e){}
+  setTimeout(function(){ t.classList.remove('show'); }, 3800);
+}
+
+/* ============== READ ALOUD ============== */
+var reading=false;
+function plainText(){
+  var el=document.getElementById('lessonText'); if(!el) return '';
+  return el.innerText.replace(/\s+/g,' ').trim();
+}
+function toggleRead(){ if(reading) stopRead(); else startRead(); }
+function startRead(){
+  if(!('speechSynthesis' in window)){ return; }
+  var u=new SpeechSynthesisUtterance(plainText());
+  u.rate=0.95; u.pitch=1;
+  u.onend=function(){ reading=false; setReadBtn(); };
+  window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+  reading=true; setReadBtn();
+}
+function stopRead(){ try{ window.speechSynthesis.cancel(); }catch(e){} reading=false; setReadBtn(); }
+function setReadBtn(){ var b=document.getElementById('readBtn'); if(b) b.innerHTML=(reading?'■&nbsp; Stop reading':'▶&nbsp; Read this to me'); }
+
+/* path chips for a3 */
+function jumpTo(id){ openLesson(id); }
+/* enrich a3 after render is handled in openLesson via example; add chips inline */
+var _openLesson=openLesson;
+openLesson=function(id){
+  _openLesson(id);
+  if(id==='a3'){
+    var host=document.getElementById('lessonText');
+    if(host){
+      var chips='<div class="chips">'+
+        chip('Stiff hands','m1')+chip('Sore knees','m1')+chip('Stiff mornings','m1')+
+        chip('Just diagnosed','a2')+chip('Eating better','m5')+chip('Short on time','m8')+'</div>';
+      host.insertAdjacentHTML('afterbegin', chips);
+    }
+  }
+};
+function chip(t,target){ return '<button class="chip" onclick="openLesson(\''+target+'\')">'+t+'</button>'; }
+
+/* ============== ENTER ============== */
+document.getElementById('enterBtn').addEventListener('click',function(){
+  document.body.classList.add('entered');
+  renderHome();
+  try{ localStorage.setItem('hingeTestEntered','1'); }catch(e){}
+  window.scrollTo(0,0);
+});
+try{ if(localStorage.getItem('hingeTestEntered')==='1'){ document.body.classList.add('entered'); renderHome(); } }catch(e){}
+</script>
+</body>
+</html>
