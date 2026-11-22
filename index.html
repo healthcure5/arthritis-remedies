@@ -62,8 +62,9 @@
 <p>Some photos and video from Pexels. © 2026 Hinge Care</p>
 </div></footer>
 <style>video.heroimg{background-size:cover;background-position:center}video::-webkit-media-controls,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}</style>
-<script>(function(){document.querySelectorAll('video[autoplay]').forEach(function(v){
+<script>(function(){var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelectorAll('video[autoplay]').forEach(function(v){
 if(v.poster)v.style.backgroundImage='url("'+v.poster+'")';
+if(RM){v.removeAttribute('autoplay');try{v.pause();}catch(e){}return;}
 v.muted=true;v.loop=false;v.preload='auto';v.removeAttribute('controls');
 function go(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
 v.addEventListener('timeupdate',function(){if(v.duration&&v.currentTime>v.duration-0.35){v.currentTime=0.05;go();}});
