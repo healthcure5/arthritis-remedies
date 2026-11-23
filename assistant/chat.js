@@ -39,7 +39,7 @@
     '<form class="row"><input type="text" placeholder="Type your question" aria-label="Your question" maxlength="400"><button class="send" type="submit">Ask</button></form>' +
     '<div class="fine">General wellness, not medical advice.</div>';
   document.body.appendChild(btn); document.body.appendChild(box);
-  var log = box.querySelector('.log'), input = box.querySelector('.row input'), data = null, started = false, last = '';
+  var log = box.querySelector('.log'), input = box.querySelector('.row input'), data = null, started = false, last = '', hist = [];
 
   function add(html, who) { var d = document.createElement('div'); d.className = 'm ' + (who || 'bot'); d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; }
   function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -68,6 +68,7 @@
     add(esc(q), 'me'); last = q;
     if (!direct && /^\s*(hi|hello|hey|good (morning|afternoon|evening))\b/i.test(q) && q.length < 25) { setTimeout(function () { add('Hello! What can I help you with today?'); chips(data.chips, true); }, 300); return; }
     if (!direct && /^\s*(thanks|thank you|ok|okay|great|perfect)\b/i.test(q) && q.length < 30) { setTimeout(function () { add('You\'re welcome. I\'m here if anything else comes up.'); }, 300); return; }
+    if (!direct && data.ai_url) { aiAsk(q); return; }
     var hits = direct ? [[9, direct]] : score(q);
     setTimeout(function () {
       if (!hits.length || hits[0][0] < 2) { add(data.fallback); person(q); return; }
@@ -82,6 +83,16 @@
       chips(more, true);
       track('chat_answer', a.id);
     }, 350);
+  }
+  function linkify(t) { return esc(t).replace(/(https:\/\/[^\s<)]+[^\s<).,])/g, '<a href="$1">$1</a>').replace(/\n/g, '<br>'); }
+  function aiAsk(q) {
+    hist.push({ role: 'user', content: q });
+    var dots = add('<span aria-label="Typing">. . .</span>');
+    var ctl = window.AbortController ? new AbortController() : null; var to = setTimeout(function () { if (ctl) ctl.abort(); }, 25000);
+    fetch(data.ai_url, { method: 'POST', body: JSON.stringify({ messages: hist.slice(-10) }), headers: { 'Content-Type': 'text/plain;charset=utf-8' }, signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { clearTimeout(to); dots.remove(); var a = (j && j.reply) || data.fallback; hist.push({ role: 'assistant', content: a }); add(linkify(a)); chips([], true); track('chat_ai', 'answer'); })
+      .catch(function () { clearTimeout(to); dots.remove(); hist.pop(); var hits = score(q); if (hits.length && hits[0][0] >= 2) { add(hits[0][1].a); chips([], true); } else { add(data.fallback); person(q); } });
   }
   function person(q) {
     var f = document.createElement('form'); f.className = 'ask';

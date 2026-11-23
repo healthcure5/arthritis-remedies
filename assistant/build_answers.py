@@ -160,7 +160,8 @@ FALLBACK = "I don't have a good answer for that one yet. Send it to us below and
 GREETING = "Hi, I'm the Hinge Care help box. Ask me about your order, the books, the Program or easing arthritis, and I'll answer right away."
 CHIPS = ["free-guide-missing", "book-access", "where-start", "prices", "morning-stiffness", "refund-policy"]
 
-out = dict(greeting=GREETING, fallback=FALLBACK, chips=CHIPS, answers=A)
+AI_URL = ""  # Google Apps Script web app address, once deployed
+out = dict(ai_url=AI_URL, greeting=GREETING, fallback=FALLBACK, chips=CHIPS, answers=A)
 d = pathlib.Path('/home/claude/arthritis-remedies/assistant'); d.mkdir(exist_ok=True)
 (d / 'answers.json').write_text(json.dumps(out, ensure_ascii=False, indent=1))
 print(len(A), 'answers')
