@@ -71,6 +71,11 @@
     var hits = direct ? [[9, direct]] : score(q);
     setTimeout(function () {
       if (!hits.length || hits[0][0] < 2) { add(data.fallback); person(q); return; }
+      if (!direct && q.split(/\s+/).length > 14) {
+        add('That sounds like something a person should answer properly. These might help in the meantime:');
+        chips(hits.slice(0, 3).map(function (h) { return h[1].id; }), false);
+        add('Or send it to us and a real person will reply within one day.'); person(q); return;
+      }
       var a = hits[0][1]; add(a.a);
       var more = hits.slice(1, 3).filter(function (h) { return h[0] >= 2; }).map(function (h) { return h[1].id; });
       add('Did that answer it? If not, ask another way or write to a person.');
@@ -84,18 +89,19 @@
       '<label>Your email<input name="email" type="email" required autocomplete="email"></label>' +
       '<label>Your message<textarea name="message" rows="3" required></textarea></label><button type="submit">Send to a person</button>';
     f.querySelector('textarea').value = q || last || '';
-    f.onsubmit = function (e) {
-      e.preventDefault(); var b = f.querySelector('button'); b.disabled = true; b.textContent = 'Sending...';
-      var fd = new FormData(f);
-      fd.append('_subject', '[Website chat] ' + (fd.get('message') || '').toString().slice(0, 60));
-      fd.append('source', 'Website chat');
-      fd.append('page', location.href);
-      fd.append('_template', 'box');
-      fd.append('_captcha', 'false');
-      fd.append('_autoresponse', 'Thank you for writing to Hinge Care. Your message reached us, and a real person will reply within one day. Hinge Care support');
-      fetch(TO, { method: 'POST', body: fd, headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }).then(function () {
-        f.remove(); add('Thank you. Your message is on its way, and a person will reply to ' + esc(fd.get('email').toString()) + ' within one day.'); track('chat_handoff', 'sent');
-      }).catch(function () { b.disabled = false; b.textContent = 'Send to a person'; add('That didn\'t send. Please try again, or email hingecare@gentlerootz.com.'); });
+    f.action = 'https://formsubmit.co/hingecare@gentlerootz.com'; f.method = 'POST'; f.target = 'hcc-ifr';
+    var hid = { _subject: '[Website chat] ' + (q || last || 'Question').slice(0, 60), source: 'Website chat', page: location.href, _template: 'box', _captcha: 'false', _next: location.origin + '/assistant/sent.html',
+      _autoresponse: 'Thank you for writing to Hinge Care. Your message reached us, and a real person will reply within one day. Hinge Care support' };
+    Object.keys(hid).forEach(function (k) { var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = hid[k]; f.appendChild(i); });
+    var ifr = document.getElementById('hcc-ifr');
+    if (!ifr) { ifr = document.createElement('iframe'); ifr.id = 'hcc-ifr'; ifr.name = 'hcc-ifr'; ifr.title = 'Message sender'; ifr.style.display = 'none'; document.body.appendChild(ifr); }
+    f.onsubmit = function () {
+      var b = f.querySelector('button[type=submit]'), em = f.querySelector('[name=email]').value;
+      f.querySelector('[name=_subject]').value = '[Website chat] ' + f.querySelector('textarea').value.slice(0, 60);
+      b.disabled = true; b.textContent = 'Sending...';
+      var done = false, ok = function () { if (done) return; done = true; f.remove(); add('Thank you. Your message is on its way, and a person will reply to ' + esc(em) + ' within one day.'); track('chat_handoff', 'sent'); };
+      ifr.onload = ok; setTimeout(function () { if (!done) { b.disabled = false; b.textContent = 'Send to a person'; add('That is taking a while. If it doesn\'t go through, please email hingecare@gentlerootz.com.'); } }, 20000);
+      return true;
     };
     log.appendChild(f); log.scrollTop = log.scrollHeight; f.querySelector('input').focus();
   }
