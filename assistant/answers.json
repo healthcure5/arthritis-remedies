@@ -1,0 +1,310 @@
+{
+ "greeting": "Hi, I'm the Hinge Care help box. Ask me about your order, the books, the Program or easing arthritis, and I'll answer right away.",
+ "fallback": "I don't have a good answer for that one yet. Send it to us below and a real person will reply within one day.",
+ "chips": [
+  "free-guide-missing",
+  "book-access",
+  "where-start",
+  "prices",
+  "morning-stiffness",
+  "refund-policy"
+ ],
+ "answers": [
+  {
+   "id": "free-guide-missing",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "I signed up but didn't get my free guide",
+   "keys": "free guide didn't get never got not arrived missing signed up where is my guide email 7 bad habits download",
+   "a": "Sorry about that. The guide usually arrives within a few minutes from hingecare@gentlerootz.com. Check your Promotions or Spam folder and search for \"Hinge Care\". You can also open it straight away here: <a href=\"https://gentlerootz.com/guide-files/7-bad-habits-that-keep-you-stuck.pdf\">7 Bad Habits for Arthritis</a>."
+  },
+  {
+   "id": "book-access",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "I bought The Joint Reset. Where is it?",
+   "keys": "bought book joint reset where find open download purchased paid can't find get my book pdf",
+   "a": "Your book is in your Whop account. Go to <a href=\"https://whop.com/hingecare\">whop.com/hingecare</a>, sign in with the email you used to pay, and you'll find The Joint Reset under your purchases. It opens on any phone, tablet or computer, and you can download and print it."
+  },
+  {
+   "id": "program-access",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "How do I open the Hinge Care Program?",
+   "keys": "program open access course start lessons where how get into find program bought",
+   "a": "The Program lives in your Whop account. Go to <a href=\"https://whop.com/hingecare\">whop.com/hingecare</a>, sign in with the email you used to buy it, and open The Hinge Care Program. Pick your kind of arthritis and the Next button takes you through the lessons that fit you."
+  },
+  {
+   "id": "login",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "I can't sign in",
+   "keys": "can't sign in log in login password forgot locked out code doesn't work account",
+   "a": "On the Whop sign-in page, type the email you used to pay and ask for a sign-in code, or tap \"Forgot password\". The code comes by email within a minute or two, so check Spam too. Still stuck? Send us a note with the email you paid with and we'll sort it out within one day."
+  },
+  {
+   "id": "receipt",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "I paid but didn't get a receipt or email",
+   "keys": "paid no receipt no email confirmation order didn't receive charged nothing came",
+   "a": "Whop sends the receipt, so look for an email from Whop, including in Spam and Promotions. Your purchase is already in your account at whop.com/hingecare when you sign in with the same email. If you can't see it there, tell us the email you paid with and we'll check."
+  },
+  {
+   "id": "app",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "Where is the Hinge App?",
+   "keys": "app hinge app chair routine download install phone app store",
+   "a": "The Hinge App comes with the Program. It opens right in your web browser, so there's nothing to install. Open the Program in your Whop account and you'll find the Hinge App inside."
+  },
+  {
+   "id": "devices",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "Will it work on my phone, tablet or computer?",
+   "keys": "phone tablet ipad computer laptop kindle work device android iphone",
+   "a": "Yes. The books, the Program and the Hinge App all work on phones, tablets and computers. The books are PDFs, so you can also print them."
+  },
+  {
+   "id": "bigger-text",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "The writing is too small",
+   "keys": "text too small bigger larger font size read eyes eyesight hard to read zoom",
+   "a": "The free guide has a bigger-text version with A+ and A- buttons: <a href=\"https://gentlerootz.com/read/7-bad-habits.html\">read it with bigger text</a>. In any PDF you can also spread two fingers on the screen to zoom, or print it out. If something is still hard to read, tell us which page and we'll help."
+  },
+  {
+   "id": "print",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "Can I print it?",
+   "keys": "print printer paper copy printout",
+   "a": "Yes. The guides and The Joint Reset are PDFs you keep, so download them and print as many copies as you like for your own use."
+  },
+  {
+   "id": "tech",
+   "cat": "Getting your things",
+   "kind": "simple",
+   "q": "A page or video won't load",
+   "keys": "page won't load video not playing broken error blank stuck not working glitch freeze",
+   "a": "Try refreshing the page first, then try another browser like Chrome or Safari. If a video still won't play, check your internet connection. Still not working? Tell us which page or lesson and what you see, and we'll fix it."
+  },
+  {
+   "id": "prices",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "phrases": [
+    "how much",
+    "cost",
+    "price"
+   ],
+   "q": "What does everything cost?",
+   "keys": "price prices cost how much what does it cost expensive cheap pay",
+   "a": "The 7 Bad Habits guide is free. <a href=\"https://gentlerootz.com/book.html\">The Joint Reset</a> is $17. <a href=\"https://gentlerootz.com/course-info.html\">The Hinge Care Program</a> is $97 ($77 if you already have the book). <a href=\"https://gentlerootz.com/club.html\">The Club</a> is $9 a month for the first 50 members, then $19. <a href=\"https://gentlerootz.com/circle.html\">The Circle</a> is $297. The book and Program are paid once and yours to keep."
+  },
+  {
+   "id": "where-start",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "Where should I start?",
+   "keys": "where start begin new first which one recommend best for me what should i get",
+   "a": "Start with the free guide, <a href=\"https://gentlerootz.com/guide.html\">7 Bad Habits for Arthritis</a>. It shows the habits that keep joints stiff and an easy fix for each. If it helps, The Joint Reset ($17) goes deeper on what's worth your money, and the Program walks you through doing it one small step a day."
+  },
+  {
+   "id": "book-vs-program",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "What's the difference between the book and the Program?",
+   "keys": "difference book program which one compare vs versus both",
+   "a": "The Joint Reset tells you what helps, so it's great for looking things up. The Program helps you actually do it: eight weeks, one small step a day, with short videos, a path for your kind of arthritis and the Hinge App. Book owners get the Program for $77 instead of $97."
+  },
+  {
+   "id": "pay-methods",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "How can I pay?",
+   "keys": "pay payment card credit debit apple pay google pay paypal checkout",
+   "a": "You can pay by card, Apple Pay or Google Pay at checkout. Checkout runs through Whop, which also keeps your purchases in one account."
+  },
+  {
+   "id": "club",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "What is the Club?",
+   "keys": "club membership monthly what is the club weekly letter recipe routine",
+   "a": "The Club is weekly arthritis help: a seated routine on Monday, a simple recipe on Wednesday, a small weekend win on Friday and a Sunday letter that explains one arthritis headline in plain words. It's $9 a month for the first 50 members, then $19, or $90 a year. Cancel any time. <a href=\"https://gentlerootz.com/club.html\">See the Club</a>."
+  },
+  {
+   "id": "circle",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "What is the Circle?",
+   "keys": "circle group live calls small group zoom tuesday join waitlist",
+   "a": "The Circle is a small live arthritis group of twenty people that meets by video on five Tuesday evenings at 7 pm Eastern. It's $297 for all five, and the first round starts in early January 2027. It's best once you've started the Program or the Club. <a href=\"https://gentlerootz.com/circle.html\">Ask to join the January list</a>."
+  },
+  {
+   "id": "gift",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "Can I give this as a gift?",
+   "keys": "gift present mom dad parent christmas birthday give someone gift card",
+   "a": "Yes. Gifts are paid once and never renew, and there's a printable gift card you can hand over or tuck in a card. <a href=\"https://gentlerootz.com/shop/gift-card.html\">See the gift card</a>. If the gift hasn't been opened, you can get a full refund within 30 days."
+  },
+  {
+   "id": "parent",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "I'm asking for my mom or dad",
+   "keys": "my mom my dad mother father parent grandmother grandfather help them caring for",
+   "a": "That's kind of you. We wrote a free guide just for sons and daughters: <a href=\"https://gentlerootz.com/free-guide-parent.html\">7 Well-Meant Mistakes</a>. It covers the things we do out of love that can make a parent stop trying, and what helps instead."
+  },
+  {
+   "id": "refund-policy",
+   "cat": "Refunds and account",
+   "kind": "care",
+   "phrases": [
+    "money back",
+    "refund"
+   ],
+   "q": "Can I get a refund?",
+   "keys": "refund money back return not happy doesn't work for me want refund guarantee",
+   "a": "Yes. For the book, the Program and the bundle, email us within 30 days and we refund you in full, no forms and no questions. Send us a note with the email you paid with and a person will take care of it within one day. <a href=\"https://gentlerootz.com/refund.html\">Our refund promise</a>."
+  },
+  {
+   "id": "cancel-club",
+   "cat": "Refunds and account",
+   "kind": "simple",
+   "q": "How do I cancel the Club?",
+   "keys": "cancel club membership stop subscription stop charging unsubscribe billing renew",
+   "a": "Sign in at whop.com/hingecare, open your memberships and choose Cancel. It takes a few clicks and you won't be charged again. If you'd rather we do it for you, just send us a note with the email you paid with."
+  },
+  {
+   "id": "unsubscribe",
+   "cat": "Refunds and account",
+   "kind": "simple",
+   "q": "How do I stop the emails?",
+   "keys": "stop emails unsubscribe too many emails remove me mailing list opt out",
+   "a": "Every email has an Unsubscribe link at the bottom, and one tap takes you off the list. Or send us a note and we'll remove you ourselves."
+  },
+  {
+   "id": "privacy",
+   "cat": "Refunds and account",
+   "kind": "simple",
+   "q": "Please delete my details",
+   "keys": "delete my details remove my data privacy information gdpr erase",
+   "a": "Of course. Send us a note with the email address to remove and we'll delete your details and confirm within one day. We never sell or share them. <a href=\"https://gentlerootz.com/privacy.html\">Privacy policy</a>."
+  },
+  {
+   "id": "reply-time",
+   "cat": "Refunds and account",
+   "kind": "simple",
+   "q": "How do I reach a person?",
+   "keys": "talk to a person human someone contact email phone reply how long speak",
+   "a": "Write to hingecare@gentlerootz.com or use the message box below. A real person reads every note and replies within one day."
+  },
+  {
+   "id": "morning-stiffness",
+   "cat": "Arthritis questions",
+   "kind": "simple",
+   "q": "My joints are so stiff in the morning",
+   "keys": "morning stiff stiffness wake up mornings hard to get out of bed first hour",
+   "a": "Mornings are often the hardest part. A few things many people find help: move your fingers, ankles and knees slowly before you get up, take a warm shower, and have something warm to drink. The free guide covers the habits that make mornings worse: <a href=\"https://gentlerootz.com/guide.html\">7 Bad Habits for Arthritis</a>."
+  },
+  {
+   "id": "food",
+   "cat": "Arthritis questions",
+   "kind": "simple",
+   "q": "What should I eat for arthritis?",
+   "keys": "food eat diet foods anti inflammatory what to eat avoid nutrition sugar",
+   "a": "Build your plate around vegetables, fruit, beans, nuts, seeds, whole grains and olive oil, and go easy on sugar and heavily processed food. Ginger, turmeric and garlic are easy to add. The Joint Reset has a full food chapter and a joint-friendly kitchen list."
+  },
+  {
+   "id": "herbs",
+   "cat": "Arthritis questions",
+   "kind": "care",
+   "q": "Do turmeric, ginger or other herbs help?",
+   "keys": "turmeric ginger herbs boswellia herbal tea curcumin spice natural remedy remedies",
+   "a": "Turmeric and ginger are two of the best-studied kitchen remedies for joint pain, and they're easy to add to food or tea. If you take blood thinners or other prescriptions, check with your doctor or pharmacist first. The Joint Reset gives a plain verdict on each herb and how people use it."
+  },
+  {
+   "id": "supplements",
+   "cat": "Arthritis questions",
+   "kind": "care",
+   "q": "Which supplements should I take?",
+   "keys": "supplement supplements glucosamine fish oil omega vitamin d collagen chondroitin pills take",
+   "a": "You don't need a cupboard full of pills. The Joint Reset goes through the popular supplements one by one, says which have real support and which to skip, and gives plant-based options. Before adding any, check with your doctor or pharmacist, especially if you take other medicines."
+  },
+  {
+   "id": "exercise",
+   "cat": "Arthritis questions",
+   "kind": "simple",
+   "q": "What exercise is safe for arthritis?",
+   "keys": "exercise exercises movement stretch stretches walking safe chair yoga swimming moves",
+   "a": "Short, steady movement helps most people: chair moves, walking and water exercise are good places to start. Move slowly, a mild pull is fine, and stop if pain is sharp or getting worse. Here are some easy ones: <a href=\"https://gentlerootz.com/gentle-exercises-for-arthritis-seniors.html\">exercises you can do in a chair</a>."
+  },
+  {
+   "id": "castor",
+   "cat": "Arthritis questions",
+   "kind": "simple",
+   "q": "How do I use a castor oil pack?",
+   "keys": "castor oil pack packs how to use warm compress",
+   "a": "Here's a simple step-by-step: <a href=\"https://gentlerootz.com/castor-oil-pack-for-joints.html\">castor oil packs for sore joints</a>. Don't use one on broken skin, and check with your doctor first if you're pregnant."
+  },
+  {
+   "id": "pain-pills",
+   "cat": "Arthritis questions",
+   "kind": "care",
+   "q": "Should I stop my pain pills or medicine?",
+   "keys": "stop medicine medication pills pain pills ibuprofen tylenol prescription methotrexate reduce come off",
+   "a": "We'd never ask you to stop a medicine. Pain pills help, and any change to a medicine should happen only after speaking with your doctor. What our books focus on are the daily habits, food and movement that work alongside your care."
+  },
+  {
+   "id": "kinds",
+   "cat": "Arthritis questions",
+   "kind": "simple",
+   "q": "Is this for my kind of arthritis?",
+   "keys": "rheumatoid osteoarthritis gout psoriatic lupus kind type my arthritis fibromyalgia ankylosing",
+   "a": "Yes. The Program starts by asking which kind you have: osteoarthritis, rheumatoid arthritis, gout, psoriatic arthritis, lupus, back arthritis and more, each with its own section. Then it leads you to the lessons that fit."
+  },
+  {
+   "id": "copper",
+   "cat": "Arthritis questions",
+   "kind": "simple",
+   "q": "Do copper bracelets or magnets work?",
+   "keys": "copper bracelet magnet magnetic wristband",
+   "a": "In a 2013 University of York trial, copper bracelets and magnetic straps did no better than a fake bracelet for pain, swelling or getting around. Our verdict: save your money."
+  },
+  {
+   "id": "cure",
+   "cat": "Arthritis questions",
+   "kind": "care",
+   "q": "Can arthritis go away?",
+   "keys": "cure cured go away reverse heal healed permanently get rid of",
+   "a": "Many people get their mornings back and move with far less pain once the right daily habits are in place. The Joint Reset explains what the research says about turning things around, and the Program helps you build those habits one small step at a time."
+  },
+  {
+   "id": "doctor",
+   "cat": "Arthritis questions",
+   "kind": "care",
+   "q": "Are you doctors?",
+   "keys": "doctor are you doctors medical advice qualified nurse diagnosis diagnose",
+   "a": "No. Hinge Care shares general wellness information, not personal medical advice, and everything we make works alongside your doctor's care. For a diagnosis or changes to your treatment, your doctor is the right person."
+  },
+  {
+   "id": "urgent",
+   "cat": "Arthritis questions",
+   "kind": "care",
+   "phrases": [
+    "hot",
+    "swollen",
+    "fever",
+    "emergency",
+    "fell"
+   ],
+   "q": "My joint is hot, red and swollen",
+   "keys": "hot red swollen fever sudden severe pain fall emergency can't walk infection worse quickly",
+   "a": "Please don't wait on this one. A hot, red, very swollen joint, a fever, sudden severe pain or pain after a fall needs a doctor today. Call your doctor or urgent care, or 911 if it's an emergency."
+  }
+ ]
+}
