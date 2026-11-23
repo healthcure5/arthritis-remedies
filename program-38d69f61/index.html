@@ -1843,5 +1843,77 @@ document.querySelector('header.top .brand').onclick=()=>home();
 })();
 </script>
 
+
+<style>
+#wtabs{display:none;position:sticky;top:0;z-index:60;background:rgba(20,13,24,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(183,155,201,.25);padding:10px 12px 10px 190px;overflow-x:auto;white-space:nowrap}
+body[data-view="home"] #wtabs,body[data-view="tool"] #wtabs,body[data-view="ov"] #wtabs{display:block}
+#wtabs .wt{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;margin-right:6px;border-radius:12px;border:1px solid transparent;background:none;color:#E9DFF0;font:600 1rem Inter,sans-serif;cursor:pointer;text-decoration:none}
+#wtabs .wt:hover{background:rgba(165,107,214,.18)}
+#wtabs .wt.on{background:rgba(165,107,214,.32);border-color:rgba(183,155,201,.5);color:#fff}
+@media(max-width:760px){#wtabs{padding:70px 10px 8px}}
+.hubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:8px 0 18px}
+.hubcard{display:flex;flex-direction:column;gap:6px;text-align:left;padding:16px;border-radius:16px;border:1px solid rgba(183,155,201,.3);background:rgba(36,26,44,.85);color:#F4EEF7;font:inherit;cursor:pointer;min-height:132px}
+.hubcard b{font:600 1.15rem Fraunces,Georgia,serif}
+.hubcard small{color:#CFC1D8;font-size:.95rem;line-height:1.4}
+.hubcard .meta{margin-top:auto;color:#D9B8F5;font-weight:600;font-size:.9rem}
+.hubcard.mine{border-color:#A56BD6;background:rgba(88,52,120,.45)}
+a.hubcard{text-decoration:none}
+.hubh{margin:22px 0 6px;font:700 .8rem Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#CDB4E6}
+.kmeta{color:#CFC1D8}
+.seclist details{border:1px solid rgba(183,155,201,.28);border-radius:14px;margin:8px 0;background:rgba(36,26,44,.7)}
+.seclist summary{padding:14px 16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;gap:10px}
+.seclist ul{margin:0;padding:0 16px 14px 36px}
+.seclist li{margin:6px 0;color:#E6DCEC}
+</style>
+<script>
+(function(){
+  const NAV=document.createElement('nav');NAV.id='wtabs';NAV.setAttribute('aria-label','Program sections');
+  const TABS=[['courses','Courses'],['coaching','Coaching'],['library','Library'],['programs','Programs'],['talk','Talk to us']];
+  NAV.innerHTML=TABS.map(([k,t])=>`<button class="wt" type="button" data-wt="${k}">${t}</button>`).join('');
+  document.body.insertBefore(NAV,document.body.firstChild);
+  const E=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const mark=k=>NAV.querySelectorAll('.wt').forEach(b=>b.classList.toggle('on',b.dataset.wt===k));
+  const page=(k,inner)=>{try{halt()}catch(e){}document.body.dataset.view='tool';try{closeMenu()}catch(e){}const hd=document.querySelector('header.top');if(hd){hd.classList.remove('hide');hd.classList.remove('away')}document.body.classList.remove('hide-foot');mark(k);app.innerHTML=`<div class="leafband"></div><div class="wrap fade">${inner}<p class="disc">Be kind to yourself today. This is general information, not personal medical advice. Check with your doctor before you try anything new.</p></div>`;window.scrollTo(0,0);};
+  const kind=k=>{S.type=k;save();buildAll();try{ga&&ga('pick_type',{type:k})}catch(e){}};
+  const secs=k=>(CN.tracks[k]||CN.tracks.other);
+  const nLess=k=>secs(k).reduce((a,s)=>a+s.ids.length,0);
+  const nDone=k=>secs(k).reduce((a,s)=>a+s.ids.filter(i=>S.done[i]).length,0);
+  function card(k){const t=D.types[k],n=nLess(k),d=nDone(k);return `<button class="hubcard ${S.type===k?'mine':''}" type="button" data-kc="${k}"><b>${E(t.name)}</b><small>${E(t.short)}</small><span class="meta">${d?d+' of '+n+' lessons done':n+' lessons'}${S.type===k?' · your course':''}</span></button>`;}
+  function courses(){
+    let h=`<p class="crumb">Courses</p><h1>Pick your kind of arthritis</h1><p>Each kind has its own course with its own sections. Choose yours and we take you to the right lessons, in the right order.</p>`;
+    if(S.type&&D.types[S.type]){const k=S.type,n=nLess(k),d=nDone(k);h+=`<div class="coach" style="border-left-color:var(--g2)"><span class="tag" style="color:var(--g2)">My course</span><h3>${E(D.types[k].name)}</h3><p>${d} of ${n} lessons done.</p><button class="btn" type="button" id="hcont">${d?'Carry on':'Start my course'}</button></div>`;}
+    CN.groups.forEach(([g,ks])=>{h+=`<p class="hubh">${E(g)}</p><div class="hubgrid">${ks.map(card).join('')}</div>`;});
+    h+=`<p class="kmeta">Not sure which kind you have? <a href="#" id="hns">Start with "Not sure yet"</a>, or ask your doctor.</p>`;
+    page('courses',h);
+    app.querySelectorAll('[data-kc]').forEach(b=>b.onclick=()=>kindCourse(b.dataset.kc));
+    const c=document.getElementById('hcont');if(c)c.onclick=()=>{buildAll();const n=nextId();swap(()=>lesson(n||'welcome'));};
+    const ns=document.getElementById('hns');if(ns)ns.onclick=e=>{e.preventDefault();kindCourse('other');};
+  }
+  function kindCourse(k){
+    const t=D.types[k],n=nLess(k),d=nDone(k),ss=secs(k);
+    let h=`<p class="crumb"><a href="#" id="hback">Courses</a> · ${E(t.name)}</p><h1>${E(t.name)} course</h1><p>${E(t.short)}.</p><p class="kmeta">${n} lessons in ${ss.length} sections. One small step at a time.</p>`;
+    h+=`<div class="nav2" style="margin:12px 0 18px"><button class="btn" type="button" id="hstart">${S.type===k&&d?'Carry on this course':'Start this course'}</button></div><div class="seclist">`;
+    ss.forEach(s=>{const dd=s.ids.filter(i=>S.done[i]).length;h+=`<details><summary><span>${E(s.name)}</span><span class="kmeta">${dd}/${s.ids.length}</span></summary><ul>${s.ids.map(i=>`<li>${E(CN.lessons[i].title)}${S.done[i]?' ✓':''}</li>`).join('')}</ul></details>`;});
+    h+=`</div>`;
+    page('courses',h);
+    document.getElementById('hback').onclick=e=>{e.preventDefault();courses();};
+    document.getElementById('hstart').onclick=()=>{kind(k);const nx=nextId();swap(()=>lesson(nx||'welcome'));};
+  }
+  function coaching(){
+    const C=D.circle;
+    page('coaching',`<p class="crumb">Coaching</p><h1>Learn alongside real people</h1><p>The Circle is a small live group for people who finished the Program or are well into it. Everyone is known by name, and someone notices when you miss a week.</p><div class="coach" style="border-left-color:var(--g2)"><span class="tag" style="color:var(--g2)">The Circle</span><h3>${E(C.price)} for all five evenings</h3><p>${E(C.what)}</p><p>${E(C.when)}</p><a class="btn" href="${C.url}" target="_blank" rel="noopener">See The Circle</a></div><h2>Have a question first?</h2><p>Write to us and a real person replies.</p><a class="btn ghost" href="mailto:hingecare@gentlerootz.com?subject=A%20question%20about%20the%20Circle">Write to us</a>`);
+  }
+  function programs(){
+    const P=[['The Hinge Care Program','You are here. Your kind of arthritis, in short lessons, one small step a day.','You have it',null],['The Joint Reset','A large-print book about easing arthritis, to read slowly with the lamp on.','$17','https://gentlerootz.com/book.html'],['The Hinge Care Club','A short letter each month with something to try. Cancel any time.','$9 a month','https://gentlerootz.com/club.html'],['The Circle','A small live group for five Tuesday evenings, by video.','$297','https://gentlerootz.com/circle.html'],['The Hinge App','Short chair routines on your phone.','Free','https://gentlerootz.com/app/']];
+    page('programs',`<p class="crumb">Programs</p><h1>Everything from Hinge Care</h1><p>The Program you're in is one part. Here is the rest.</p><div class="hubgrid">${P.map(([n,d,m,u])=>u?`<a class="hubcard" href="${u}" target="_blank" rel="noopener"><b>${E(n)}</b><small>${E(d)}</small><span class="meta">${E(m)} ↗</span></a>`:`<div class="hubcard mine"><b>${E(n)}</b><small>${E(d)}</small><span class="meta">${E(m)}</span></div>`).join('')}</div>`);
+  }
+  NAV.querySelectorAll('.wt').forEach(b=>b.onclick=()=>{const k=b.dataset.wt;if(k==='courses')courses();else if(k==='coaching')coaching();else if(k==='programs')programs();else if(k==='library'){window.library();mark('library');}else if(k==='talk'){location.href='mailto:hingecare@gentlerootz.com?subject=Hello%20from%20the%20Program';}});
+  window.hcCourses=courses;
+  // old "type" screens lead to the new hub
+  const _tp=window.typePicker;window.typePicker=function(){courses();};
+  // the Menu pill: add Courses to the pinned bar
+  const _om=openMenu;
+})();
+</script>
 </body>
 </html>
