@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Hinge Care">
-<title>The Hinge Care Program for arthritis</title><link rel="icon" href="/brand/favicon-blue.ico?v=6" sizes="any"><link rel="icon" href="/brand/hinge-care-icon-blue.svg?v=6" type="image/svg+xml"><link rel="apple-touch-icon" href="/brand/apple-touch-icon-blue.png?v=6">
+<title>The Hinge Care Program for arthritis</title><link rel="icon" href="/brand/favicon-blue.ico?v=7" sizes="any"><link rel="icon" href="/brand/hinge-care-icon-blue.svg?v=7" type="image/svg+xml"><link rel="apple-touch-icon" href="/brand/apple-touch-icon-blue.png?v=7">
 <meta name="description" content="Eight weeks, one small step a day, for stiff mornings and sore joints.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
@@ -569,7 +569,7 @@ body[data-view=welcome] #app{height:100vh;height:100dvh;overflow:hidden}
 @media(prefers-reduced-motion:reduce){.panel,#app,footer{transition:none!important}}
 
 /* Hinge Care logo, purple */
-.logo rect{fill:#3F7BB0}
+.logo rect{fill:#1E4FA8}
 .sidebrand{display:none}
 @media(min-width:1100px){
   .sidebrand{display:flex;align-items:center;gap:10px;margin:0 0 14px;cursor:pointer;background:none;border:0;padding:0;color:#F0F5FA;font:700 1.15rem Bricolage Grotesque,Georgia,serif}
@@ -1914,9 +1914,23 @@ header.top{display:none!important}
 /* ===== page backgrounds: each tab has its own ===== */
 body[data-bg=courses]::before{background:radial-gradient(1100px 650px at 12% -8%,rgba(61,141,205,.38),transparent 62%),radial-gradient(900px 600px at 105% 8%,rgba(61,141,205,.2),transparent 58%),linear-gradient(180deg,#0B1A34,#071022)!important;filter:none!important}
 body[data-bg=mine]::before{background:linear-gradient(180deg,rgba(8,20,44,.66),rgba(7,16,34,.92)),url(images/w1.jpg) center/cover no-repeat,#071022!important;filter:none!important}
-body[data-bg=circle]::before{background:linear-gradient(180deg,rgba(34,18,6,.58),rgba(9,13,28,.9)),url(../images/part-4.jpg) center 40%/cover no-repeat,#0a0f1e!important;filter:none!important}
+body[data-bg=circle]::before{background:linear-gradient(180deg,rgba(34,18,6,.58),rgba(9,13,28,.9)),url(images/w8.jpg) center 55%/cover no-repeat,#0a0f1e!important;filter:none!important}
 body[data-bg=talk]::before{background:linear-gradient(180deg,rgba(5,28,32,.62),rgba(6,16,28,.92)),url(../images/part-1.jpg) center 45%/cover no-repeat,#07141e!important;filter:none!important}
 body[data-bg=courses] .hubpage,body[data-bg=circle] .hubpage,body[data-bg=talk] .hubpage{background:none!important}
+/* ===== logo: deeper blue ===== */
+#gbar .gbrand .logo{box-shadow:0 0 0 2px rgba(130,180,240,.55)}
+/* ===== My course: richer blues + seamless hero-to-panel blend ===== */
+body[data-bg=mine] .cover{background:linear-gradient(180deg,rgba(8,14,28,.15) 0%,rgba(8,14,28,.5) 40%,rgba(8,14,28,.72) 72%,rgba(8,14,28,0) 100%)!important}
+body[data-bg=mine] #app>section{padding-top:0!important;margin-top:-2px}
+body[data-bg=mine] #app>section>.wrap{margin-top:0!important;border-color:transparent!important;border-top-left-radius:0!important;border-top-right-radius:0!important;background:linear-gradient(180deg,rgba(11,19,35,0) 0,rgba(11,19,35,.94) 240px)!important;box-shadow:none!important}
+body[data-bg=mine] .today-card{background:linear-gradient(145deg,#1D55B5,#0E2A5C)!important;border-color:#4E8FE0!important}
+body[data-bg=mine] .today-card .lbl{color:#BFD9FF!important}
+body[data-bg=mine] .coach{background:linear-gradient(145deg,#173F86,#0B1F45)!important;border-color:#3B6FC8!important}
+body[data-bg=mine] .coach .tag{color:#9CC4FF!important}
+body[data-bg=mine] .wnum{background:#1F5FC8!important;color:#fff!important;border-color:#0B1530!important}
+body[data-bg=mine] .wnum.done{background:#3FA7F0!important}
+body[data-bg=mine] .bar i,body[data-bg=mine] .bar2 i{background:linear-gradient(90deg,#2A7BE0,#55C0FF)!important}
+body[data-bg=mine] .week{border-color:#27508F!important}
 #gbar{position:fixed;top:0;left:0;right:0;height:var(--bar);z-index:30;display:flex;align-items:center;gap:6px;padding:0 14px;background:#0A1222;border-bottom:1px solid rgba(150,178,225,.28);box-shadow:0 6px 24px rgba(0,0,0,.35);padding-top:env(safe-area-inset-top);box-sizing:content-box}
 #gbar .gbrand{display:inline-flex;align-items:center;gap:10px;flex:0 0 auto;min-height:48px;padding:0 12px 0 4px;margin-right:6px;color:#fff;text-decoration:none;font:600 1.2rem Bricolage Grotesque,Georgia,serif}
 #gbar .gbrand .logo{width:38px;height:38px;border-radius:50%}
