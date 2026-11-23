@@ -5,6 +5,5 @@ Disallow: /program-offer.html
 Disallow: /b/
 Disallow: /guide-files/
 Disallow: /read/
-Disallow: /assistant/
 
 Sitemap: https://myhingecare.com/sitemap.xml
