@@ -1911,6 +1911,12 @@ html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-be
 /* ===== global top bar: on every page of the Program ===== */
 :root{--bar:68px}
 header.top{display:none!important}
+/* ===== page backgrounds: each tab has its own ===== */
+body[data-bg=courses]::before{background:radial-gradient(1100px 650px at 12% -8%,rgba(61,141,205,.38),transparent 62%),radial-gradient(900px 600px at 105% 8%,rgba(61,141,205,.2),transparent 58%),linear-gradient(180deg,#0B1A34,#071022)!important;filter:none!important}
+body[data-bg=mine]::before{background:linear-gradient(180deg,rgba(8,20,44,.66),rgba(7,16,34,.92)),url(images/w1.jpg) center/cover no-repeat,#071022!important;filter:none!important}
+body[data-bg=circle]::before{background:linear-gradient(180deg,rgba(34,18,6,.58),rgba(9,13,28,.9)),url(../images/part-4.jpg) center 40%/cover no-repeat,#0a0f1e!important;filter:none!important}
+body[data-bg=talk]::before{background:linear-gradient(180deg,rgba(5,28,32,.62),rgba(6,16,28,.92)),url(../images/part-1.jpg) center 45%/cover no-repeat,#07141e!important;filter:none!important}
+body[data-bg=courses] .hubpage,body[data-bg=circle] .hubpage,body[data-bg=talk] .hubpage{background:none!important}
 #gbar{position:fixed;top:0;left:0;right:0;height:var(--bar);z-index:30;display:flex;align-items:center;gap:6px;padding:0 14px;background:#0A1222;border-bottom:1px solid rgba(150,178,225,.28);box-shadow:0 6px 24px rgba(0,0,0,.35);padding-top:env(safe-area-inset-top);box-sizing:content-box}
 #gbar .gbrand{display:inline-flex;align-items:center;gap:10px;flex:0 0 auto;min-height:48px;padding:0 12px 0 4px;margin-right:6px;color:#fff;text-decoration:none;font:600 1.2rem Bricolage Grotesque,Georgia,serif}
 #gbar .gbrand .logo{width:38px;height:38px;border-radius:50%}
@@ -1942,7 +1948,7 @@ body[data-view=welcome] #app{box-sizing:border-box}
   NAV.innerHTML=`<a class="gbrand wt0" href="#" data-brand aria-label="Hinge Care, all courses">${LOGO}<span>Hinge Care</span></a><div class="gtabs">${TABS.map(([k,t])=>`<button class="wt" type="button" data-wt="${k}">${t}</button>`).join('')}</div><button class="gmenu" type="button" id="gmenu" aria-label="Open the lesson menu">Menu ☰</button>`;
   document.body.insertBefore(NAV,document.body.firstChild);
   const E=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const mark=k=>NAV.querySelectorAll('.wt').forEach(b=>{if(b.dataset.wt===k)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+  const mark=k=>{document.body.dataset.bg=k;NAV.querySelectorAll('.wt').forEach(b=>{if(b.dataset.wt===k)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});};
   const page=(k,inner,ac)=>{try{halt()}catch(e){}document.body.dataset.view='tool';try{closeMenu()}catch(e){}document.body.classList.remove('hide-foot');mark(k);app.innerHTML=`<div class="hubpage fade" style="--ac:${ac||'#8ABCE8'}"><div class="hubin">${inner}<p class="disc">Be kind to yourself today. This is general information, not personal medical advice. Check with your doctor before you try anything new.</p></div></div>`;window.scrollTo(0,0);};
   const kind=k=>{S.type=k;save();buildAll();try{ga&&ga('pick_type',{type:k})}catch(e){}};
   const secs=k=>(CN.tracks[k]||CN.tracks.other);
