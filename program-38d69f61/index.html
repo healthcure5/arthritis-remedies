@@ -2014,7 +2014,7 @@ body[data-view=welcome] #app{box-sizing:border-box}
   window.hcCourses=courses;
   // load every background and course picture early, so nothing pops in after a click
   const warm=()=>{['images/w1.jpg','../images/w8.jpg','../images/part-1.jpg'].concat(Object.keys(D.types).map(k=>'../images/courses/'+k+'.jpg'),['circle','talk'].map(k=>'../images/courses/'+k+'.jpg')).forEach(u=>{const i=new Image();i.decoding='async';i.src=u;});};
-  (window.requestIdleCallback||setTimeout)(warm,300);
+  if(window.requestIdleCallback)requestIdleCallback(warm);else setTimeout(warm,300);
   const _ls=lesson;lesson=function(id){setHash('#/l/'+id);return _ls.apply(this,arguments);};
   window.hcRoute=h=>{let m;if(h==='#/courses'){courses();return true;}if(h==='#/circle'){circlePage();return true;}if(h==='#/talk'){talk();return true;}
     if((m=/^#\/k\/([a-z]+)$/.exec(h))&&D.types[m[1]]&&CN.tracks[m[1]]){kindCourse(m[1]);return true;}
