@@ -478,7 +478,7 @@ header.top .navbtn{min-height:44px}
 .eight{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:18px 0}
 .eight ol{margin:8px 0 0;padding-left:22px}.eight li{margin:0 0 .5em}.eight li b{font-family:Fraunces,Georgia,serif}
 
-.coach{background:#fff;border:1px solid var(--line);border-left:5px solid #6B3E7A;border-radius:16px;padding:16px 18px;margin:22px 0}
+.coach{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:22px 0}
 .coach h3{margin:0 0 4px}.coach>p{margin:0 0 10px}
 .coach .tag{display:inline-block;font:700 .72rem Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#6B3E7A;margin:0 0 6px}
 .coach label{display:block;font-weight:600;margin:12px 0 6px;font-size:.95rem}
@@ -523,7 +523,7 @@ p,li,label,small,td,th{color:inherit}
 .garden{background:#1E1626!important}
 .try{background:#2B1F37!important;border-left-color:#B67BE6!important;color:#F3EEF7}
 .ver{border-left:6px solid #D6B4F2!important}
-.coach{border-left-color:#B67BE6!important}.coach .tag,.tech{color:#E2C8F7!important}
+.coach .tag,.tech{color:#E2C8F7!important}
 .tech{background:#2B1F37!important;border-color:#4A3A58!important}
 .say{background:#2B1F37!important;color:#F3EEF7}
 textarea,input,select{background:#17111C!important;color:#F3EEF7!important;border-color:#4A3A58!important}
@@ -1752,7 +1752,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
     if(restoring){setTimeout(()=>{try{if(v.v==='lib')library();else if(v.v==='grad')graduation();else if(v.v==='type')typePicker();else if(v.v==='lesson'&&find(v.id))lesson(v.id);}catch(e){}},0);}else if(document.documentElement.classList.contains('authed'))setView('home');
     const sec=document.querySelector('#app section .wrap')||document.querySelector('#app .wrap:not(.cover .wrap)');if(!sec)return;
     const t=S.type,d=doneCount(),tt=total();
-    let html=`<div class="coach" style="border-left-color:var(--g2)"><span class="tag" style="color:var(--g2)">${t?'Your path':'Make it yours'}</span>`;
+    let html=`<div class="coach" ><span class="tag" style="color:var(--g2)">${t?'Your path':'Make it yours'}</span>`;
     html+=t?`<h3>Your kind: ${esc(D.types[t].name)}</h3><p>Your lessons are lined up for your kind. Press Next in any lesson to keep going.</p>`:`<h3>Which kind of arthritis do you have?</h3><p>Pick it once, and the Program lines up the lessons that fit you. Not sure is fine too.</p>`;
     html+=`<div class="opts"><button type="button" id="hType">${t?'Change my kind':'Pick my kind'}</button><button type="button" id="hLib">Open the library</button>${d>=tt?'<button type="button" id="hGrad">🎓 My graduation</button>':''}</div></div>`;
     sec.insertAdjacentHTML('afterbegin',html);
@@ -1949,7 +1949,7 @@ body[data-view=welcome] #app{box-sizing:border-box}
   }
   function coaching(){
     const C=D.circle;
-    page('coaching',`<p class="crumb">Coaching</p><h1>Learn alongside real people</h1><p class="lede">The Circle is a small live group for people who finished the Program or are well into it. Everyone is known by name, and someone notices when you miss a week.</p><div class="coach" style="border-left-color:var(--g2)"><span class="tag" style="color:var(--g2)">The Circle</span><h3>${E(C.price)} for all five evenings</h3><p>${E(C.what)}</p><p>${E(C.when)}</p><a class="btn" href="${C.url}" target="_blank" rel="noopener">See The Circle</a></div><h2>Have a question first?</h2><p>Write to us and a real person replies.</p><a class="btn ghost" href="mailto:hingecare@gentlerootz.com?subject=A%20question%20about%20the%20Circle">Write to us</a>`);
+    page('coaching',`<p class="crumb">Coaching</p><h1>Learn alongside real people</h1><p class="lede">The Circle is a small live group for people who finished the Program or are well into it. Everyone is known by name, and someone notices when you miss a week.</p><div class="coach" ><span class="tag" style="color:var(--g2)">The Circle</span><h3>${E(C.price)} for all five evenings</h3><p>${E(C.what)}</p><p>${E(C.when)}</p><a class="btn" href="${C.url}" target="_blank" rel="noopener">See The Circle</a></div><h2>Have a question first?</h2><p>Write to us and a real person replies.</p><a class="btn ghost" href="mailto:hingecare@gentlerootz.com?subject=A%20question%20about%20the%20Circle">Write to us</a>`);
   }
   function programs(){
     const P=[['The Hinge Care Program','You are here. Your kind of arthritis, in short lessons, one small step a day.','You have it',null],['The Joint Reset','A large-print book about easing arthritis, to read slowly with the lamp on.','$17','https://gentlerootz.com/book.html'],['The Hinge Care Club','A short letter each month with something to try. Cancel any time.','$9 a month','https://gentlerootz.com/club.html'],['The Circle','A small live group for five Tuesday evenings, by video.','$297','https://gentlerootz.com/circle.html'],['The Hinge App','Short chair routines on your phone.','Free','https://gentlerootz.com/app/']];
