@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Hinge Care">
-<title>The Hinge Care Program for arthritis</title><link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" href="/brand/hinge-care-icon-green.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<title>The Hinge Care Program for arthritis</title><link rel="icon" href="/favicon.ico?v=4" sizes="any"><link rel="icon" href="/brand/hinge-care-icon-purple.svg?v=4" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 <meta name="description" content="Eight weeks, one small step a day, for stiff mornings and sore joints.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -877,7 +877,7 @@ function openMenu(){
   const tk=[['badges','My badges'],['routines','Do it with me'],['checks','My progress checks'],['report','My report for the doctor'],['safety','Safety rules'],['log','My pain log'],['plan','My weekly planner'],['flare','My flare-up plan'],['doctor','Questions for my doctor'],['calendar','8-week wall calendar'],['fridge','Fridge card'],['family','For family members'],['cert','My certificate']].map(([k,t])=>`<button class="plink nav" data-t="${k}" type="button"><span class="t" aria-hidden="true"></span>${t}</button>`).join('')+`<a class="plink nav" href="https://gentlerootz.com/app/" target="_blank" rel="noopener"><span class="t" aria-hidden="true"></span>Hinge App ↗</a>`;
   h+=sec('tk','Toolkit','14 tools',tk);
   h+=sec('set','Settings','',`<button class="plink nav" data-m="fx" type="button"><span class="t" aria-hidden="true"></span>Sounds and buzz: ${S.fx.sound||S.fx.buzz?'on':'off'}</button>`);
-  h=`<div class="pinbar"><button type="button" data-m="lib">📚 Library<small>Lessons for my kind</small></button><button type="button" data-m="type">🩺 My kind<small>${S.type&&D.types[S.type]?esc(D.types[S.type].name):'Pick yours'}</small></button></div>`+h;
+  h=`<div class="pinbar"><button type="button" data-m="type">🩺 My kind<small>${S.type&&D.types[S.type]?esc(D.types[S.type].name):'Pick yours'}</small></button></div>`+h;
   const pl=document.getElementById('plist');pl.innerHTML=h;
   pl.querySelectorAll('.mhead').forEach(hb=>hb.onclick=()=>{const sc=hb.parentElement,k=sc.dataset.sec,on=!sc.classList.contains('open');if(on){pl.querySelectorAll('.msec.open').forEach(o=>{if(o!==sc){o.classList.remove('open');const h2=o.querySelector('.mhead');if(h2)h2.setAttribute('aria-expanded','false');}});S.mopen={};}sc.classList.toggle('open',on);hb.setAttribute('aria-expanded',on);S.mopen[k]=on;save();if(on)setTimeout(()=>{try{hb.scrollIntoView({block:'nearest',behavior:'smooth'})}catch(e){}},260);});
   pl.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>swap(()=>lesson(b.dataset.l)));
@@ -1736,9 +1736,9 @@ document.querySelector('header.top .brand').onclick=()=>home();
     h+=all?`<div class="cert" style="margin-top:18px"><p>This certifies that</p><div class="nm">${esc(S.name||'Your name')}</div><h1>graduated from The Hinge Care Program</h1><p>Small steps, kept up, for kinder mornings.</p><p class="under">${new Date(S.graduated||Date.now()).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})} · Hinge Care</p></div><div class="field noprint" style="margin-top:14px;text-align:left"><label for="gnm">Name on the certificate</label><input id="gnm" value="${esc(S.name||'')}"></div>`:`<div class="cert" style="opacity:.55;margin-top:18px"><p>This certifies that</p><div class="nm">${esc(S.name||'Your name')}</div><h1>graduated from The Hinge Care Program</h1><p class="under">Unlocks when you finish all ${tt} lessons</p></div>`;
     h+=`</div>`;
     if(all)h+=`<div class="circlecard"><span class="tag">For graduates · The Circle</span><h2 style="margin-top:0">Want company for what comes next?</h2><p>${esc(C.what)} Bring a question, practice a move together, and hear how the others are doing. ${esc(C.price)} for all five evenings.</p><p>${esc(C.when)}</p><a class="btn" href="${C.url}" target="_blank" rel="noopener">Ask to join the January list</a><p style="font-size:.95rem;color:var(--soft);margin-bottom:0">Not for everyone, and that's fine. Everything you learned here is yours to keep.</p></div>`;
-    h+=`<div class="libsec"><h2>Keep going</h2><button class="lrow" type="button" id="glib"><span class="tk">📚</span><span>Open the library<small>Jump back to any lesson for your kind</small></span></button></div>`;
+    h+=``;
     shell(h);
-    const gl=document.getElementById('glib');if(gl)gl.onclick=()=>library();
+    
     const n=document.getElementById('gnm');if(n)n.onchange=()=>{S.name=n.value;save();graduation();};
   };
   const _l=lesson;
@@ -1754,9 +1754,9 @@ document.querySelector('header.top .brand').onclick=()=>home();
     const t=S.type,d=doneCount(),tt=total();
     let html=`<div class="coach" ><span class="tag" style="color:var(--g2)">${t?'Your path':'Make it yours'}</span>`;
     html+=t?`<h3>Your kind: ${esc(D.types[t].name)}</h3><p>Your lessons are lined up for your kind. Press Next in any lesson to keep going.</p>`:`<h3>Which kind of arthritis do you have?</h3><p>Pick it once, and the Program lines up the lessons that fit you. Not sure is fine too.</p>`;
-    html+=`<div class="opts"><button type="button" id="hType">${t?'Change my kind':'Pick my kind'}</button><button type="button" id="hLib">Open the library</button>${d>=tt?'<button type="button" id="hGrad">🎓 My graduation</button>':''}</div></div>`;
+    html+=`<div class="opts"><button type="button" id="hType">${t?'Change my kind':'Pick my kind'}</button>${d>=tt?'<button type="button" id="hGrad">🎓 My graduation</button>':''}</div></div>`;
     sec.insertAdjacentHTML('afterbegin',html);
-    document.getElementById('hType').onclick=()=>typePicker();document.getElementById('hLib').onclick=()=>library();const hg=document.getElementById('hGrad');if(hg)hg.onclick=()=>graduation();
+    document.getElementById('hType').onclick=()=>typePicker();const hg=document.getElementById('hGrad');if(hg)hg.onclick=()=>graduation();
   };
   if(document.documentElement.classList.contains('authed'))setTimeout(()=>{try{home()}catch(e){}},50);
 })();
@@ -1886,6 +1886,28 @@ a.hubcard{text-decoration:none}
 @media(max-width:760px){.hubpage{padding:100px 18px 50px}.secgrid{grid-template-columns:1fr}}
 
 #sideTog{display:none!important}
+
+.hubcard{padding:0!important;overflow:hidden;min-height:0!important;border-top:0!important;border:1px solid rgba(183,155,201,.28)!important;border-bottom:5px solid var(--ac,#A56BD6)!important}
+.hubcard .pic{display:block;width:100%;aspect-ratio:3/2;background-size:cover;background-position:center;background-color:#2a1d34}
+.hubcard .cbody{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px;flex:1}
+.hubcard .meta{color:var(--ac,#D9B8F5)!important}
+.hubcard.mine{box-shadow:0 0 0 3px var(--ac,#A56BD6)}
+.hubpage .hubh{color:var(--ac,#CDB4E6)!important;display:flex;align-items:center;gap:10px}
+.hubpage .hubh::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--ac)}
+.hubpage .hubgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))!important}
+.hubpage h1{border-bottom:0}
+.khero{border-radius:24px;padding:44px 40px;background-size:cover;background-position:center;margin:0 0 6px;min-height:300px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;border-left:0}
+.khero h1{max-width:20ch}
+.khero .lede{max-width:34rem}
+.khero .btn{margin-top:14px;text-decoration:none;display:inline-flex;align-items:center}
+.secbox{border-top:4px solid var(--ac,#A56BD6)!important}
+.secbox h3 span{color:var(--ac,#CDB4E6)!important}
+.mycourse{border-color:var(--ac,#A56BD6)!important}
+.hubpage .btn:not(.ghost){background:linear-gradient(180deg,var(--ac,#A56BD6),color-mix(in srgb,var(--ac,#A56BD6) 72%,#000))!important;color:#1B0F22!important;font-weight:700;box-shadow:0 4px 0 color-mix(in srgb,var(--ac,#A56BD6) 45%,#000)!important}
+.hubpage .btn.ghost{background:none;color:#fff;border:2px solid var(--ac);box-shadow:none}
+@media(max-width:760px){.khero{padding:28px 22px;min-height:260px}}
+@media(prefers-reduced-motion:no-preference){.hubcard,.btn,#gbar .wt{transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease}.hubcard:active,.btn:active{transform:scale(.98)}}
+html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* ===== global top bar: on every page of the Program ===== */
 :root{--bar:68px}
 header.top{display:none!important}
@@ -1916,53 +1938,50 @@ body[data-view=welcome] #app{box-sizing:border-box}
 (function(){
   const LOGO=document.querySelector('header.top .logo').outerHTML;
   const NAV=document.createElement('nav');NAV.id='gbar';NAV.setAttribute('aria-label','Hinge Care Program');
-  const TABS=[['courses','Courses'],['mine','My course'],['coaching','Coaching'],['library','Library'],['programs','Programs'],['talk','Talk to us']];
+  const TABS=[['courses','Courses'],['mine','My course'],['circle','The Circle'],['talk','Talk to us']];
   NAV.innerHTML=`<a class="gbrand wt0" href="#" data-brand aria-label="Hinge Care, all courses">${LOGO}<span>Hinge Care</span></a><div class="gtabs">${TABS.map(([k,t])=>`<button class="wt" type="button" data-wt="${k}">${t}</button>`).join('')}</div><button class="gmenu" type="button" id="gmenu" aria-label="Open the lesson menu">Menu ☰</button>`;
   document.body.insertBefore(NAV,document.body.firstChild);
   const E=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const mark=k=>NAV.querySelectorAll('.wt').forEach(b=>{if(b.dataset.wt===k)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
-  const page=(k,inner)=>{try{halt()}catch(e){}document.body.dataset.view='tool';try{closeMenu()}catch(e){}document.body.classList.remove('hide-foot');mark(k);app.innerHTML=`<div class="hubpage fade"><div class="hubin">${inner}<p class="disc">Be kind to yourself today. This is general information, not personal medical advice. Check with your doctor before you try anything new.</p></div></div>`;window.scrollTo(0,0);};
+  const page=(k,inner,ac)=>{try{halt()}catch(e){}document.body.dataset.view='tool';try{closeMenu()}catch(e){}document.body.classList.remove('hide-foot');mark(k);app.innerHTML=`<div class="hubpage fade" style="--ac:${ac||'#B98AE8'}"><div class="hubin">${inner}<p class="disc">Be kind to yourself today. This is general information, not personal medical advice. Check with your doctor before you try anything new.</p></div></div>`;window.scrollTo(0,0);};
   const kind=k=>{S.type=k;save();buildAll();try{ga&&ga('pick_type',{type:k})}catch(e){}};
   const secs=k=>(CN.tracks[k]||CN.tracks.other);
   const nLess=k=>secs(k).reduce((a,s)=>a+s.ids.length,0);
   const nDone=k=>secs(k).reduce((a,s)=>a+s.ids.filter(i=>S.done[i]).length,0);
-  function card(k){const t=D.types[k],n=nLess(k),d=nDone(k);return `<button class="hubcard ${S.type===k?'mine':''}" type="button" data-kc="${k}"><b>${E(t.name)}</b><small>${E(t.short)}</small><span class="meta">${d?d+' of '+n+' lessons done':n+' lessons'}${S.type===k?' · your course':''} →</span></button>`;}
+  const IMG={"oa": "walk", "ra": "hands", "gout": "bowl", "psa": "part-2", "as": "chair", "lupus": "p-170859", "ibd": "p-163402", "pmr": "p-010547", "juvenile": "p-170857", "cppd": "part-1", "fibro": "p-163404", "soft": "part-3", "carpal": "p-010439", "septic": "p-170859", "lyme": "p-170857", "reactive": "part-3", "other": "part-4"};
+  const ACC={'Most common':'#B98AE8','Immune system kinds':'#EE86B0','Crystals':'#F0B455','Pain near the joint, nerves and muscles':'#5CC4B8','From an infection':'#7FB0EC','Still finding out':'#A8CC86'};
+  const accOf=k=>{for(const [g,ks] of CN.groups){if(ks.includes(k))return ACC[g]||'#B98AE8';}return '#B98AE8';};
+  const pic=k=>`url(../images/courses/${k}.jpg),url(../images/${IMG[k]||'part-4'}.jpg)`;
+  function card(k){const t=D.types[k],n=nLess(k),d=nDone(k);return `<button class="hubcard ${S.type===k?'mine':''}" type="button" data-kc="${k}" style="--ac:${accOf(k)}"><span class="pic" style="background-image:${pic(k)}"></span><span class="cbody"><b>${E(t.name)}</b><small>${E(t.short)}</small><span class="meta">${d?d+' of '+n+' lessons done':n+' short lessons'}${S.type===k?' · your course':''}</span></span></button>`;}
   function courses(){
-    let h=`<p class="crumb">Courses</p><h1>Pick your kind of arthritis</h1><p class="lede">Each kind has its own course with its own sections. Choose yours and we take you to the right lessons, in the right order.</p>`;
-    if(S.type&&D.types[S.type]){const k=S.type,n=nLess(k),d=nDone(k);h+=`<div class="mycourse"><div><p class="crumb">My course</p><h3>${E(D.types[k].name)}</h3><p>${d} of ${n} lessons done.</p></div><button class="btn" type="button" id="hcont">${d?'Carry on where I left off':'Start my course'}</button></div>`;}
-    CN.groups.forEach(([g,ks])=>{h+=`<p class="hubh">${E(g)}</p><div class="hubgrid">${ks.map(card).join('')}</div>`;});
-    h+=`<p class="kmeta">Not sure which kind you have? <a href="#" id="hns">Start with "Not sure yet"</a>, or ask your doctor.</p>`;
-    page('courses',h);
-    app.querySelectorAll('[data-kc]').forEach(b=>b.onclick=()=>kindCourse(b.dataset.kc));
+    let h=`<p class="crumb">Courses</p><h1>Which kind of arthritis do you have?</h1><p class="lede">Pick yours. Each kind has its own course, written for that kind, and we take you straight to the right lessons. Not sure? That's fine. Choose "Not sure yet" and start there.</p>`;
+    if(S.type&&D.types[S.type]){const k=S.type,n=nLess(k),d=nDone(k);h+=`<div class="mycourse" style="--ac:${accOf(k)}"><div><p class="crumb">Your course</p><h3>${E(D.types[k].name)}</h3><p>${d} of ${n} lessons done.</p></div><button class="btn" type="button" id="hcont">${d?'Carry on where I left off':'Start my course'}</button></div>`;}
+    CN.groups.forEach(([g,ks])=>{h+=`<p class="hubh" style="--ac:${ACC[g]||'#B98AE8'}">${E(g)}</p><div class="hubgrid">${ks.map(card).join('')}</div>`;});
+    page('courses',h,'#B98AE8');
+    app.querySelectorAll('[data-kc]').forEach(b=>b.onclick=()=>swap(()=>kindCourse(b.dataset.kc)));
     const c=document.getElementById('hcont');if(c)c.onclick=()=>{buildAll();const n=nextId();swap(()=>lesson(n||'welcome'));};
-    const ns=document.getElementById('hns');if(ns)ns.onclick=e=>{e.preventDefault();kindCourse('other');};
   }
   function kindCourse(k){
-    const t=D.types[k],n=nLess(k),d=nDone(k),ss=secs(k);
-    let h=`<p class="crumb"><a href="#" id="hback">Courses</a> · ${E(t.name)}</p><h1>${E(t.name)} course</h1><p class="lede">${E(t.short)}. ${n} lessons in ${ss.length} sections. One small step at a time.</p>`;
-    h+=`<div style="margin:0 0 10px"><button class="btn" type="button" id="hstart">${S.type===k&&d?'Carry on this course':'Start this course'}</button></div><h2>What's inside</h2><div class="secgrid">`;
-    ss.forEach(s=>{const dd=s.ids.filter(i=>S.done[i]).length;h+=`<div class="secbox"><h3>${E(s.name)}<span>${dd}/${s.ids.length}</span></h3><ul>${s.ids.map(i=>`<li>${E(CN.lessons[i].title)}${S.done[i]?' ✓':''}</li>`).join('')}</ul></div>`;});
+    const t=D.types[k],n=nLess(k),d=nDone(k),ss=secs(k),ac=accOf(k);
+    let h=`<div class="khero" style="--ac:${ac};background-image:linear-gradient(90deg,rgba(14,9,20,.92) 8%,rgba(14,9,20,.55) 60%,rgba(14,9,20,.15)),${pic(k)}"><p class="crumb"><a href="#" id="hback">Courses</a> › ${E(t.name)}</p><h1>${E(t.name)}</h1><p class="lede">${E(t.short)}.</p><p class="kmeta">${n} short lessons in ${ss.length} sections. One small step at a time.</p><button class="btn" type="button" id="hstart">${S.type===k&&d?'Carry on this course':'Start this course'}</button></div><h2>What's inside</h2><div class="secgrid" style="--ac:${ac}">`;
+    ss.forEach(x=>{const dd=x.ids.filter(i=>S.done[i]).length;h+=`<div class="secbox"><h3>${E(x.name)}<span>${dd}/${x.ids.length}</span></h3><ul>${x.ids.map(i=>`<li>${E(CN.lessons[i].title)}${S.done[i]?' ✓':''}</li>`).join('')}</ul></div>`;});
     h+=`</div>`;
-    page('courses',h);
-    document.getElementById('hback').onclick=e=>{e.preventDefault();courses();};
+    page('courses',h,ac);
+    document.getElementById('hback').onclick=e=>{e.preventDefault();swap(courses);};
     document.getElementById('hstart').onclick=()=>{kind(k);const nx=nextId();swap(()=>lesson(nx||'welcome'));};
   }
-  function coaching(){
+  function circlePage(){
     const C=D.circle;
-    page('coaching',`<p class="crumb">Coaching</p><h1>Learn alongside real people</h1><p class="lede">The Circle is a small live group for people who finished the Program or are well into it. Everyone is known by name, and someone notices when you miss a week.</p><div class="coach" ><span class="tag" style="color:var(--g2)">The Circle</span><h3>${E(C.price)} for all five evenings</h3><p>${E(C.what)}</p><p>${E(C.when)}</p><a class="btn" href="${C.url}" target="_blank" rel="noopener">See The Circle</a></div><h2>Have a question first?</h2><p>Write to us and a real person replies.</p><a class="btn ghost" href="mailto:hingecare@gentlerootz.com?subject=A%20question%20about%20the%20Circle">Write to us</a>`);
+    page('circle',`<div class="khero warm" style="--ac:#F0B455;background-image:linear-gradient(90deg,rgba(26,14,8,.93) 8%,rgba(26,14,8,.6) 62%,rgba(26,14,8,.2)),url(../images/part-4.jpg)"><p class="crumb">The Circle</p><h1>You don't have to do this alone</h1><p class="lede">${E(C.what)}</p><p class="kmeta">${E(C.when)}</p><a class="btn" href="${C.url}" target="_blank" rel="noopener">See The Circle · ${E(C.price)}</a></div><h2>What it feels like</h2><div class="secgrid" style="--ac:#F0B455"><div class="secbox"><h3>A small group</h3><ul><li>Twenty seats, so everyone is known by name.</li><li>Live by video, with a real person leading.</li><li>Someone notices when you miss a week.</li></ul></div><div class="secbox"><h3>Who it suits</h3><ul><li>People who finished the Program, or are well into it.</li><li>Anyone who does better with company than alone.</li><li>Family members who help a parent with arthritis.</li></ul></div><div class="secbox"><h3>Not ready yet?</h3><ul><li>That's fine. The course stays yours.</li><li>Write to us first and ask anything.</li></ul><p style="margin:12px 0 0"><a class="btn ghost" href="mailto:hingecare@gentlerootz.com?subject=A%20question%20about%20the%20Circle">Ask us a question</a></p></div></div>`,'#F0B455');
   }
-  function programs(){
-    const P=[['The Hinge Care Program','You are here. Your kind of arthritis, in short lessons, one small step a day.','You have it',null],['The Joint Reset','A large-print book about easing arthritis, to read slowly with the lamp on.','$17','https://gentlerootz.com/book.html'],['The Hinge Care Club','A short letter each month with something to try. Cancel any time.','$9 a month','https://gentlerootz.com/club.html'],['The Circle','A small live group for five Tuesday evenings, by video.','$297','https://gentlerootz.com/circle.html'],['The Hinge App','Short chair routines on your phone.','Free','https://gentlerootz.com/app/']];
-    page('programs',`<p class="crumb">Programs</p><h1>Everything from Hinge Care</h1><p class="lede">The Program you're in is one part. Here is the rest.</p><div class="hubgrid">${P.map(([n,d,m,u])=>u?`<a class="hubcard" href="${u}" target="_blank" rel="noopener"><b>${E(n)}</b><small>${E(d)}</small><span class="meta">${E(m)} ↗</span></a>`:`<div class="hubcard mine"><b>${E(n)}</b><small>${E(d)}</small><span class="meta">${E(m)}</span></div>`).join('')}</div>`);
-  }
-  function talk(){page('talk',`<p class="crumb">Talk to us</p><h1>A real person writes back</h1><p class="lede">Questions about a lesson, your kind of arthritis, the Circle, or something not working? Write to us. We read every message and reply by email.</p><div class="mycourse"><div><p class="crumb">Email</p><h3>hingecare@gentlerootz.com</h3><p>Tell us which lesson you were on, so we can help faster.</p></div><a class="btn" href="mailto:hingecare@gentlerootz.com?subject=Hello%20from%20the%20Program">Write to us</a></div><p class="kmeta">For health questions about your own situation, please ask your doctor. We can't give personal medical advice.</p>`);}
+  function talk(){page('talk',`<div class="khero warm" style="--ac:#5CC4B8;background-image:linear-gradient(90deg,rgba(8,22,22,.93) 8%,rgba(8,22,22,.6) 62%,rgba(8,22,22,.2)),url(../images/part-2.jpg)"><p class="crumb">Talk to us</p><h1>A real person writes back</h1><p class="lede">Stuck on a lesson? Not sure which kind to pick? Something not working? Write to us. We read every message.</p><p class="kmeta">hingecare@gentlerootz.com. Tell us which lesson you were on and we can help faster.</p><a class="btn" href="mailto:hingecare@gentlerootz.com?subject=Hello%20from%20the%20Program">Write to us</a></div><p class="kmeta" style="margin-top:22px">For health questions about your own situation, please ask your doctor. We can't give personal medical advice.</p>`,'#5CC4B8');}
   function mine(){const k=kindNow();if(S.type&&D.types[S.type]){buildAll();document.body.dataset.view='home';home();mark('mine');}else courses();}
-  const go=k=>swap(()=>{if(k==='courses')courses();else if(k==='mine')mine();else if(k==='coaching')coaching();else if(k==='programs')programs();else if(k==='library'){window.library();mark('library');}else if(k==='talk')talk();});
+  const go=k=>swap(()=>{if(k==='courses')courses();else if(k==='mine')mine();else if(k==='circle')circlePage();else if(k==='talk')talk();});
   NAV.addEventListener('click',e=>{const b=e.target.closest('[data-wt],[data-brand]');if(!b)return;e.preventDefault();go(b.dataset.wt||'courses');});
   document.getElementById('gmenu').onclick=()=>{const t=document.getElementById('sideTog');if(matchMedia('(min-width:900px)').matches&&document.body.dataset.view!=='welcome'&&t){t.click();}else{const m=document.getElementById('menuBtn');if(m)m.click();}};
   document.addEventListener('click',e=>{const c=e.target.closest('[data-crumb]');if(!c)return;e.preventDefault();swap(()=>{if(c.dataset.crumb==='kind'&&D.types[kindNow()])kindCourse(kindNow());else courses();});});
-  new MutationObserver(()=>{const v=document.body.dataset.view;if(v&&v!=='tool')mark(v==='lib'?'library':'mine');}).observe(document.body,{attributes:true,attributeFilter:['data-view']});
-  const _lib=window.library;if(_lib)window.library=function(){const r=_lib.apply(this,arguments);mark('library');return r;};
+  new MutationObserver(()=>{const v=document.body.dataset.view;if(v&&v!=='tool')mark('mine');}).observe(document.body,{attributes:true,attributeFilter:['data-view']});
+  window.library=function(){courses();};
   mark(S.type?'mine':'courses');
   window.hcCourses=courses;
   // old "type" screens lead to the new hub
