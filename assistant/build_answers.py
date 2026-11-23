@@ -3,7 +3,7 @@
 #       "care"   = needs a warmer, human reply, and a person looks before it goes out.
 import json, pathlib
 
-S = "https://gentlerootz.com"
+S = "https://myhingecare.com"
 W = "https://whop.com/hingecare"
 
 A = [

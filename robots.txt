@@ -6,4 +6,4 @@ Disallow: /b/
 Disallow: /guide-files/
 Disallow: /read/
 
-Sitemap: https://gentlerootz.com/sitemap.xml
+Sitemap: https://myhingecare.com/sitemap.xml
