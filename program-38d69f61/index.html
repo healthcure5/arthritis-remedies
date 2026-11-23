@@ -667,7 +667,7 @@ html.authed #gate{display:none}
 .signout .loico{width:19px;height:19px;flex:none}
 
 /* ===== Desktop sidebar toggle ===== */
-#sideTog{display:none}
+#sideTog{display:none!important}
 @media(min-width:1100px){
   #sideTog{display:inline-flex;align-items:center;gap:10px;position:fixed;top:16px;left:16px;z-index:40;padding:6px 16px 6px 6px;border-radius:99px;border:1px solid rgba(214,190,236,.4);background:rgba(28,19,35,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#F6F0FA;font:600 1rem Inter,sans-serif;cursor:pointer;box-shadow:0 6px 22px rgba(0,0,0,.35);transition:left .6s cubic-bezier(.22,.8,.2,1),background .2s,transform .15s}
   #sideTog:hover{background:rgba(58,34,78,.92)}
@@ -1108,7 +1108,7 @@ function ytId(u){const m=u.match(/youtube\.com\/watch\?v=([\w-]{6,})/);return m?
 function lesson(id){
   halt();document.querySelector('header.top').classList.remove('away');document.body.dataset.view='lesson';document.body.classList.remove('hide-foot');closeMenu();document.querySelector('header.top').classList.remove('hide');
   const {l,w,m}=find(id);const nxt=nextAfter(id);
-  let crumb=m?`${esc(m.name)} · Lesson ${m.lessons.indexOf(l)+1} of ${m.lessons.length}`:(w?`Week ${w.n}: ${esc(w.name)}`:'Start here');
+  const cl=`<a href="#" data-crumb="courses">Courses</a> › <a href="#" data-crumb="kind">${esc((D.types[kindNow()]||{}).name||'My course')}</a> › `;let crumb=cl+(m?`${esc(m.name)} · Lesson ${m.lessons.indexOf(l)+1} of ${m.lessons.length}`:(w?`Week ${w.n}: ${esc(w.name)}`:'Start here'));
   let h=w?`<div class="lphoto" role="img" aria-label="" style="background-image:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 35%),url('${PH[w.n]}')"></div><div class="wrap fade">`:`<div class="leafband"></div><div class="wrap fade">`;
   h+=`<p class="crumb">${crumb}</p>${sizer()}<h1>${esc(l.title)}</h1>
   <div class="read"><button class="btn ghost" id="readBtn" type="button">▶ Read this to me</button></div>
@@ -1845,12 +1845,6 @@ document.querySelector('header.top .brand').onclick=()=>home();
 
 
 <style>
-#wtabs{display:none;position:absolute;top:0;left:0;right:0;z-index:24;background:rgba(20,13,24,.55);border-bottom:1px solid rgba(183,155,201,.25);padding:10px 12px 10px 190px;overflow-x:auto;white-space:nowrap}
-body[data-view="home"] #wtabs,body[data-view="tool"] #wtabs,body[data-view="ov"] #wtabs{display:block}
-#wtabs .wt{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;margin-right:6px;border-radius:12px;border:1px solid transparent;background:none;color:#E9DFF0;font:600 1rem Inter,sans-serif;cursor:pointer;text-decoration:none}
-#wtabs .wt:hover{background:rgba(165,107,214,.18)}
-#wtabs .wt.on{background:rgba(165,107,214,.32);border-color:rgba(183,155,201,.5);color:#fff}
-@media(max-width:760px){#wtabs{padding:70px 10px 8px}}
 .hubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:8px 0 18px}
 .hubcard{display:flex;flex-direction:column;gap:6px;text-align:left;padding:16px;border-radius:16px;border:1px solid rgba(183,155,201,.3);background:rgba(36,26,44,.85);color:#F4EEF7;font:inherit;cursor:pointer;min-height:132px}
 .hubcard b{font:600 1.15rem Fraunces,Georgia,serif}
@@ -1890,16 +1884,44 @@ a.hubcard{text-decoration:none}
 .secbox ul{margin:0;padding-left:20px}.secbox li{margin:6px 0;font-size:1.05rem;color:#E6DCEC}
 .hubpage .disc{margin-top:40px;color:#CFC1D8}
 @media(max-width:760px){.hubpage{padding:100px 18px 50px}.secgrid{grid-template-columns:1fr}}
+
+#sideTog{display:none!important}
+/* ===== global top bar: on every page of the Program ===== */
+:root{--bar:68px}
+header.top{display:none!important}
+#gbar{position:fixed;top:0;left:0;right:0;height:var(--bar);z-index:30;display:flex;align-items:center;gap:6px;padding:0 14px;background:#150E1B;border-bottom:1px solid rgba(183,155,201,.28);box-shadow:0 6px 24px rgba(0,0,0,.35);padding-top:env(safe-area-inset-top);box-sizing:content-box}
+#gbar .gbrand{display:inline-flex;align-items:center;gap:10px;flex:0 0 auto;min-height:48px;padding:0 12px 0 4px;margin-right:6px;color:#fff;text-decoration:none;font:600 1.2rem Fraunces,Georgia,serif}
+#gbar .gbrand .logo{width:38px;height:38px;border-radius:50%}
+#gbar .gtabs{display:flex;gap:4px;flex:1 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none;align-items:stretch;height:100%}
+#gbar .gtabs::-webkit-scrollbar{display:none}
+#gbar .wt{position:relative;flex:0 0 auto;display:inline-flex;align-items:center;min-height:48px;margin:auto 0;padding:0 16px;border:0;border-radius:12px;background:none;color:#EADFF2;font:600 1.08rem Inter,sans-serif;cursor:pointer;white-space:nowrap}
+#gbar .wt:hover{background:rgba(165,107,214,.2);color:#fff}
+#gbar .wt[aria-current=page]{color:#fff;background:rgba(165,107,214,.28)}
+#gbar .wt[aria-current=page]::after{content:"";position:absolute;left:16px;right:16px;bottom:4px;height:3px;border-radius:3px;background:#D9B8F5}
+#gbar .gmenu{display:inline-flex;flex:0 0 auto;min-height:48px;padding:0 16px;border-radius:12px;border:1px solid rgba(183,155,201,.5);background:rgba(165,107,214,.2);color:#fff;font:600 1.05rem Inter,sans-serif;cursor:pointer}
+#gbar :focus-visible,.hubpage :focus-visible{outline:3px solid #FFD98A;outline-offset:2px}
+#gbar .gmenu{display:inline-flex;align-items:center}
+@media(max-width:899px){#gbar .gtabs{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:18px}#gbar .gmenu{display:inline-flex;align-items:center}#gbar .gbrand span{display:none}#gbar .gbrand{padding:0 4px;margin-right:0}#gbar{padding-left:8px;padding-right:8px}}
+#app{padding-top:calc(var(--bar) + env(safe-area-inset-top))}
+body[data-view=welcome] #app{box-sizing:border-box}
+.leafband{height:24px!important}
+.readbar{top:calc(var(--bar) + env(safe-area-inset-top))!important}
+@media(min-width:900px){body:not([data-view=welcome]) .panel{top:calc(var(--bar) + env(safe-area-inset-top))!important}}
+.hubpage{padding-top:44px!important;min-height:calc(100vh - var(--bar))}
+.crumb a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(prefers-reduced-motion:no-preference){::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}}
+@media(prefers-reduced-motion:reduce){.hubpage .hubcard{transition:none}}
 </style>
 <script>
 (function(){
-  const NAV=document.createElement('nav');NAV.id='wtabs';NAV.setAttribute('aria-label','Program sections');
-  const TABS=[['courses','Courses'],['coaching','Coaching'],['library','Library'],['programs','Programs'],['talk','Talk to us']];
-  NAV.innerHTML=TABS.map(([k,t])=>`<button class="wt" type="button" data-wt="${k}">${t}</button>`).join('');
+  const LOGO=document.querySelector('header.top .logo').outerHTML;
+  const NAV=document.createElement('nav');NAV.id='gbar';NAV.setAttribute('aria-label','Hinge Care Program');
+  const TABS=[['courses','Courses'],['mine','My course'],['coaching','Coaching'],['library','Library'],['programs','Programs'],['talk','Talk to us']];
+  NAV.innerHTML=`<a class="gbrand wt0" href="#" data-brand aria-label="Hinge Care, all courses">${LOGO}<span>Hinge Care</span></a><div class="gtabs">${TABS.map(([k,t])=>`<button class="wt" type="button" data-wt="${k}">${t}</button>`).join('')}</div><button class="gmenu" type="button" id="gmenu" aria-label="Open the lesson menu">Menu ☰</button>`;
   document.body.insertBefore(NAV,document.body.firstChild);
   const E=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const mark=k=>NAV.querySelectorAll('.wt').forEach(b=>b.classList.toggle('on',b.dataset.wt===k));
-  const page=(k,inner)=>{try{halt()}catch(e){}document.body.dataset.view='tool';try{closeMenu()}catch(e){}const hd=document.querySelector('header.top');if(hd){hd.classList.remove('hide');hd.classList.remove('away')}document.body.classList.remove('hide-foot');mark(k);app.innerHTML=`<div class="hubpage fade"><div class="hubin">${inner}<p class="disc">Be kind to yourself today. This is general information, not personal medical advice. Check with your doctor before you try anything new.</p></div></div>`;window.scrollTo(0,0);};
+  const mark=k=>NAV.querySelectorAll('.wt').forEach(b=>{if(b.dataset.wt===k)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+  const page=(k,inner)=>{try{halt()}catch(e){}document.body.dataset.view='tool';try{closeMenu()}catch(e){}document.body.classList.remove('hide-foot');mark(k);app.innerHTML=`<div class="hubpage fade"><div class="hubin">${inner}<p class="disc">Be kind to yourself today. This is general information, not personal medical advice. Check with your doctor before you try anything new.</p></div></div>`;window.scrollTo(0,0);};
   const kind=k=>{S.type=k;save();buildAll();try{ga&&ga('pick_type',{type:k})}catch(e){}};
   const secs=k=>(CN.tracks[k]||CN.tracks.other);
   const nLess=k=>secs(k).reduce((a,s)=>a+s.ids.length,0);
@@ -1933,7 +1955,15 @@ a.hubcard{text-decoration:none}
     const P=[['The Hinge Care Program','You are here. Your kind of arthritis, in short lessons, one small step a day.','You have it',null],['The Joint Reset','A large-print book about easing arthritis, to read slowly with the lamp on.','$17','https://gentlerootz.com/book.html'],['The Hinge Care Club','A short letter each month with something to try. Cancel any time.','$9 a month','https://gentlerootz.com/club.html'],['The Circle','A small live group for five Tuesday evenings, by video.','$297','https://gentlerootz.com/circle.html'],['The Hinge App','Short chair routines on your phone.','Free','https://gentlerootz.com/app/']];
     page('programs',`<p class="crumb">Programs</p><h1>Everything from Hinge Care</h1><p class="lede">The Program you're in is one part. Here is the rest.</p><div class="hubgrid">${P.map(([n,d,m,u])=>u?`<a class="hubcard" href="${u}" target="_blank" rel="noopener"><b>${E(n)}</b><small>${E(d)}</small><span class="meta">${E(m)} ↗</span></a>`:`<div class="hubcard mine"><b>${E(n)}</b><small>${E(d)}</small><span class="meta">${E(m)}</span></div>`).join('')}</div>`);
   }
-  NAV.querySelectorAll('.wt').forEach(b=>b.onclick=()=>{const k=b.dataset.wt;if(k==='courses')courses();else if(k==='coaching')coaching();else if(k==='programs')programs();else if(k==='library'){window.library();mark('library');}else if(k==='talk'){location.href='mailto:hingecare@gentlerootz.com?subject=Hello%20from%20the%20Program';}});
+  function talk(){page('talk',`<p class="crumb">Talk to us</p><h1>A real person writes back</h1><p class="lede">Questions about a lesson, your kind of arthritis, the Circle, or something not working? Write to us. We read every message and reply by email.</p><div class="mycourse"><div><p class="crumb">Email</p><h3>hingecare@gentlerootz.com</h3><p>Tell us which lesson you were on, so we can help faster.</p></div><a class="btn" href="mailto:hingecare@gentlerootz.com?subject=Hello%20from%20the%20Program">Write to us</a></div><p class="kmeta">For health questions about your own situation, please ask your doctor. We can't give personal medical advice.</p>`);}
+  function mine(){const k=kindNow();if(S.type&&D.types[S.type]){buildAll();document.body.dataset.view='home';home();mark('mine');}else courses();}
+  const go=k=>swap(()=>{if(k==='courses')courses();else if(k==='mine')mine();else if(k==='coaching')coaching();else if(k==='programs')programs();else if(k==='library'){window.library();mark('library');}else if(k==='talk')talk();});
+  NAV.addEventListener('click',e=>{const b=e.target.closest('[data-wt],[data-brand]');if(!b)return;e.preventDefault();go(b.dataset.wt||'courses');});
+  document.getElementById('gmenu').onclick=()=>{const t=document.getElementById('sideTog');if(matchMedia('(min-width:900px)').matches&&document.body.dataset.view!=='welcome'&&t){t.click();}else{const m=document.getElementById('menuBtn');if(m)m.click();}};
+  document.addEventListener('click',e=>{const c=e.target.closest('[data-crumb]');if(!c)return;e.preventDefault();swap(()=>{if(c.dataset.crumb==='kind'&&D.types[kindNow()])kindCourse(kindNow());else courses();});});
+  new MutationObserver(()=>{const v=document.body.dataset.view;if(v&&v!=='tool')mark(v==='lib'?'library':'mine');}).observe(document.body,{attributes:true,attributeFilter:['data-view']});
+  const _lib=window.library;if(_lib)window.library=function(){const r=_lib.apply(this,arguments);mark('library');return r;};
+  mark(S.type?'mine':'courses');
   window.hcCourses=courses;
   // old "type" screens lead to the new hub
   const _tp=window.typePicker;window.typePicker=function(){courses();};
