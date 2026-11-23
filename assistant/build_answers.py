@@ -11,7 +11,7 @@ A = [
 dict(id="free-guide-missing", cat="Getting your things", kind="simple",
  q="I signed up but didn't get my free guide",
  keys="free guide didn't get never got not arrived missing signed up where is my guide email 7 bad habits download",
- a=f"Sorry about that. The guide usually arrives within a few minutes from hingecare@gentlerootz.com. Check your Promotions or Spam folder and search for \"Hinge Care\". You can also open it straight away here: <a href=\"{S}/guide-files/7-bad-habits-that-keep-you-stuck.pdf\">7 Bad Habits for Arthritis</a>."),
+ a=f"Sorry about that. The guide usually arrives within a few minutes from arthritis@myhingecare.com. Check your Promotions or Spam folder and search for \"Hinge Care\". You can also open it straight away here: <a href=\"{S}/guide-files/7-bad-habits-that-keep-you-stuck.pdf\">7 Bad Habits for Arthritis</a>."),
 dict(id="book-access", cat="Getting your things", kind="simple",
  q="I bought The Joint Reset. Where is it?",
  keys="bought book joint reset where find open download purchased paid can't find get my book pdf",
@@ -103,7 +103,7 @@ dict(id="privacy", cat="Refunds and account", kind="simple",
 dict(id="reply-time", cat="Refunds and account", kind="simple",
  q="How do I reach a person?",
  keys="talk to a person human someone contact email phone reply how long speak",
- a="Write to hingecare@gentlerootz.com or use the message box below. A real person reads every note and replies within one day."),
+ a="Write to arthritis@myhingecare.com or use the message box below. A real person reads every note and replies within one day."),
 
 # ---------- Arthritis questions ----------
 dict(id="morning-stiffness", cat="Arthritis questions", kind="simple",

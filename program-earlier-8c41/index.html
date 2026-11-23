@@ -962,7 +962,7 @@ function foot(){
   <div class="today"><b>Today's small step · Week ${t.w.n}</b><p class="what">${t.txt?'Day '+(t.i+1)+': '+esc(t.txt):'You ticked every step this week. Well done.'}</p>
   ${t.txt?`<button class="btn light" id="fdone" type="button">✓ I did today's step</button>`:''}</div>
   <p>Days you've shown up so far: <b style="color:#fff">${daysShown()}</b>. Missed a day? Nothing is lost. Just pick up where you left off.</p>
-  <p class="fine">${esc(D.disclaimer)}<br>Questions? Email <a href="mailto:hingecare@gentlerootz.com">hingecare@gentlerootz.com</a>. © Hinge Care</p></div>`;
+  <p class="fine">${esc(D.disclaimer)}<br>Questions? Email <a href="mailto:arthritis@myhingecare.com">arthritis@myhingecare.com</a>. © Hinge Care</p></div>`;
   const b=document.getElementById('fdone');if(b)b.onclick=()=>{S.days[t.w.n+'-'+t.i]=true;mark();erupt(b);toast('Step done. That counts.');foot();checkBadges();if(app.querySelector('.today-card'))setTimeout(home,800);};
 }
 function todayCard(){
@@ -1085,7 +1085,7 @@ function home(){
   <button class="lrow" data-t="family" type="button"><span class="tick" aria-hidden="true"></span><span>For family members<small>How to help without taking over</small></span></button>
   <button class="lrow" data-t="cert" type="button"><span class="tick" aria-hidden="true"></span><span>My certificate<small>Yours when you finish all eight weeks</small></span></button>
   <a class="lrow" href="https://myhingecare.com/app/" target="_blank" rel="noopener"><span class="tick" aria-hidden="true"></span><span>Hinge App<small>Chair routines with a calm voice. Opens in a new tab.</small></span></a>
-  <p class="disc">Questions? Email hingecare@gentlerootz.com and a real person will reply.</p>
+  <p class="disc">Questions? Email arthritis@myhingecare.com and a real person will reply.</p>
   </div></section>`;
   app.innerHTML=h;window.scrollTo(0,0);setTimeout(checkBadges,600);
   const td=document.getElementById('tdone');if(td)td.onclick=()=>{const t=todayStep();S.days[t.w.n+'-'+t.i]=true;mark();const dot=app.querySelectorAll('.dots i')[t.i];if(dot){dot.classList.add('on');dot.textContent='✓';}erupt(dot||td);toast('Step done. That counts.');setTimeout(home,1500);};
@@ -1477,7 +1477,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
    <div class="gerr" role="alert"></div><div class="gok" role="status"></div>
    <div class="gf"><label class="gl" for="fE">Email</label><input type="email" id="fE" autocomplete="email" inputmode="email" autocapitalize="none" required></div>
    <button type="submit" class="gbtn">Send me the link</button>
-   <p class="ghelp">Still stuck? <a href="mailto:hingecare@gentlerootz.com?subject=Help%20signing%20in">Write to us</a> and a real person will help. · <button type="button" class="glink" data-go="vIn">Back</button></p>
+   <p class="ghelp">Still stuck? <a href="mailto:arthritis@myhingecare.com?subject=Help%20signing%20in">Write to us</a> and a real person will help. · <button type="button" class="glink" data-go="vIn">Back</button></p>
   </form>
   <!-- NEW PASSWORD -->
   <form class="gv" id="vNew" novalidate hidden>
@@ -1513,7 +1513,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
   const err=(f,m)=>{const e=f.querySelector('.gerr');e.textContent=m;e.classList.add('on');f.querySelector('.gok')&&f.querySelector('.gok').classList.remove('on')};
   const ok=(f,m)=>{const e=f.querySelector('.gok');e.textContent=m;e.classList.add('on');f.querySelector('.gerr').classList.remove('on')};
   const busy=(f,on,label)=>{const b=f.querySelector('.gbtn');if(on){b.dataset.t=b.textContent;b.textContent=label||'One moment…';b.disabled=true}else{b.textContent=b.dataset.t||b.textContent;b.disabled=false}};
-  const notReady=f=>{err(f,"Sign-in isn't switched on yet. Please write to hingecare@gentlerootz.com and we'll help.");};
+  const notReady=f=>{err(f,"Sign-in isn't switched on yet. Please write to arthritis@myhingecare.com and we'll help.");};
   let NAME='';window.hcName=()=>NAME;
   const SPAN=12*60*60*1000;const markAuth=()=>{try{localStorage.setItem('hc_authAt',String(Date.now()))}catch(e){}};
   function enter(user){
@@ -1546,12 +1546,12 @@ document.querySelector('header.top .brand').onclick=()=>home();
     try{
       const c=await sb.rpc('can_sign_up',{e:em,u});
       const st=c.data;
-      if(st==='not_buyer'){busy(f,0);return err(f,"We can't find a Program purchase with that email. Use the email from your Whop receipt, or write to hingecare@gentlerootz.com.")}
+      if(st==='not_buyer'){busy(f,0);return err(f,"We can't find a Program purchase with that email. Use the email from your Whop receipt, or write to arthritis@myhingecare.com.")}
       if(st==='has_account'){busy(f,0);return err(f,'You already have an account with that email. Tap Sign in, or Forgot password if you need a new one.')}
       if(st==='username_taken'){busy(f,0);return err(f,'Someone already has that username. Try adding a number, like '+u+'2.')}
       const {data,error}=await sb.auth.signUp({email:em,password:p,options:{data:{first_name:n,username:u}}});
       busy(f,0);
-      if(error)return err(f,/weak|short/i.test(error.message)?'Please pick a longer password.':"We couldn't make your account just now. Please try again, or write to hingecare@gentlerootz.com.");
+      if(error)return err(f,/weak|short/i.test(error.message)?'Please pick a longer password.':"We couldn't make your account just now. Please try again, or write to arthritis@myhingecare.com.");
       if(data.session){markAuth();return enter(data.user);}
       const r=await sb.auth.signInWithPassword({email:em,password:p});if(r.data&&r.data.user){markAuth();return enter(r.data.user);}
       err(f,'Your account is made. Check your email to confirm it, then sign in.');
