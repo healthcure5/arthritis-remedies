@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>window.__bootHash=location.hash</script>
+<head><script>window.__bootHash=location.hash;if(/^#\/(courses|circle|talk|k\/[a-z]+|l\/[\w-]+)$/.test(location.hash)){document.documentElement.classList.add('hcboot');setTimeout(function(){document.documentElement.classList.remove('hcboot')},3500)}</script><style>html.hcboot #app,html.hcboot .dock,html.hcboot footer{visibility:hidden!important}</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2EM6YK5LY"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J2EM6YK5LY');</script><script defer src="/hc-track.js"></script>
 <meta name="robots" content="noindex,nofollow">
 <meta charset="utf-8">
@@ -1749,7 +1749,7 @@ document.querySelector('header.top .brand').onclick=()=>home();
   const _h=home;
   home=function(){buildAll();_h();
     const v=S.view;const BH=window.__bootHash||'';const hv=/^#\/(courses|circle|talk|k\/[a-z]+|l\/[\w-]+)$/.test(BH);const restoring=!userNav&&Date.now()-LOADED<15000&&document.documentElement.classList.contains('authed')&&((v&&v.v&&v.v!=='home')||hv);
-    if(restoring){setTimeout(()=>{try{if(hv&&window.hcRoute&&window.hcRoute(BH))return;if(v&&v.v==='lib')library();else if(v&&v.v==='grad')graduation();else if(v&&v.v==='type')typePicker();else if(v&&v.v==='lesson'&&find(v.id))lesson(v.id);}catch(e){}},0);}else if(document.documentElement.classList.contains('authed'))setView('home');
+    if(restoring){setTimeout(()=>{try{if(hv&&window.hcRoute&&window.hcRoute(BH)){document.documentElement.classList.remove('hcboot');return;}document.documentElement.classList.remove('hcboot');if(v&&v.v==='lib')library();else if(v&&v.v==='grad')graduation();else if(v&&v.v==='type')typePicker();else if(v&&v.v==='lesson'&&find(v.id))lesson(v.id);}catch(e){}},0);}else if(document.documentElement.classList.contains('authed'))setView('home');
     const sec=document.querySelector('#app section .wrap')||document.querySelector('#app .wrap:not(.cover .wrap)');if(!sec)return;
     const t=S.type,d=doneCount(),tt=total();
     let html=`<div class="coach" ><span class="tag" style="color:var(--g2)">${t?'Your path':'Make it yours'}</span>`;
