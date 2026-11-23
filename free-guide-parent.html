@@ -60,5 +60,5 @@ try{sessionStorage.setItem('ar-email',email);}catch(x){}
 var done=false;function go(){if(done){return;}done=true;HTMLFormElement.prototype.submit.call(f);}
 var ml=new URLSearchParams();ml.append('fields[email]',email);ml.append('fields[name]',first);ml.append('ml-submit','1');ml.append('anticsrf','true');try{var hs=window.hcSource?window.hcSource():null;if(hs){ml.append('fields[signup_source]',hs.source);ml.append('fields[signup_campaign]',hs.campaign);}}catch(x){}
 try{fetch('https://assets.mailerlite.com/jsonp/2784798/forms/204884459487495465/subscribe',{method:'POST',mode:'no-cors',body:ml,keepalive:true}).then(go,go);}catch(x){go();}setTimeout(go,4000);});})();</script>
-<script defer src="/assistant/chat.js?v=1"></script>
+<script defer src="/assistant/chat.js?v=2"></script>
 </body></html>
