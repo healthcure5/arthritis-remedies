@@ -1,0 +1,68 @@
+title: Arthritis Pain at Night: Causes and Sleep Tips
+h1: Arthritis pain at night: why it can wake you and what helps you sleep
+dek: Pain that finds you at 2 a.m., a hip you can't lie on, hands that ache under the covers. Why night pain happens with arthritis, positions and bedtime habits that ease it, and when it needs a doctor.
+cat: Sleep
+hero: dawn-bedroom.jpg | Illustration of a bedroom at sunrise with a glass of water, glasses and slippers ready beside the bed
+desc: Why arthritis hurts at night, sleeping positions for hips, knees, back and hands, bedtime tips, and when night pain needs a doctor.
+blurb: Sleeping positions and bedtime habits, plus when night pain needs a doctor.
+updated: 2026-11-23
+related: heat-or-ice-for-arthritis, stiff-hips-and-knees-when-walking, morning-joint-stiffness
+feel: Comfort (slow, soft, no pressure)
+@take
+- Arthritis pain can make it hard to fall asleep and to stay asleep. You're not doing sleep wrong.
+- Pillows in the right places can take pressure off the neck, back, hips and knees.
+- A warm bath or shower before bed, and a mattress that doesn't sag, may help.
+- Pain that wakes you at night has more than one possible cause. It's worth telling your doctor, especially if it's new.
+- Changing position during the night is fine. Staying still can make joints stiffer.
+@lead
+It's 2 a.m. and you're awake again. The hip you're lying on has started to ache, and turning over makes the other one complain. You do the sums on how many hours are left. Night pain is exhausting in a way daytime pain isn't, and many people with arthritis know it well.
+@body
+## Why night can be hard {#why}
+
+Arthritis pain can make it hard to fall asleep and stay asleep, the Arthritis Foundation says.[^1] NIAMS notes that with osteoarthritis, pain may ease with rest in the early stages but can sometimes be worse at night in later stages. It also names sleep problems and fatigue as common effects of osteoarthritis.[^2]
+
+Night pain isn't one thing. Gout attacks often begin suddenly at night.[^3] Carpal tunnel numbness is often worse at night.[^4] Pain from spine inflammation that wakes you at night is one of the signs doctors look for in a condition called ankylosing spondylitis.[^5] That's why a doctor's visit is worth it if night pain is new or growing.
+
+## Positions that can help {#positions}
+
+The Arthritis Foundation suggests these, and says to experiment with how many pillows work best:[^1]
+
+- **Knees:** On your back, a pillow under the knees. On your side, a pillow between them.
+- **Hips:** On your side, lie on the pain-free hip and put pillows between your legs. On your back, a pillow under the knees.
+- **Lower back:** On your back, a pillow under the small of the back and under the knees. On your side, a pillow at the waist and between the knees.
+- **Neck:** Keep the neck level. Back sleepers can use a thin pillow, side sleepers a taller one.
+- **Shoulders:** On your side, lie on the pain-free side with a thick pillow under the sore arm.
+- **Hands and wrists:** A splint from an occupational therapist can hold the joint in a less painful position, and compression gloves may help with swelling at night.
+- **Feet:** A blanket lifter keeps the weight of the covers off sore feet.
+
+## Bedtime habits {#habits}
+
+The Arthritis Foundation also suggests:[^1]
+
+- A warm bath or shower before bed.
+- A microwavable hot pack on sore joints, or a gel pack wrapped in a towel on an inflamed one.
+- Replacing or rotating a mattress that sags.
+- Smooth sheets and pajamas in cotton, silk or microfiber, since friction can add to morning stiffness.
+
+Don't use anything that holds you in one position all night. Staying still can make joints stiffer, and moving during sleep is fine.[^1] If you've had joint surgery, ask your surgeon which positions to avoid.[^1]
+
+For heat safety, see [heat or ice](heat-or-ice-for-arthritis.html).
+
+!warn Tell your doctor if night pain is new, keeps getting worse, or comes with a joint that is hot, red and swollen. A hot, inflamed joint with a fever needs care right away.
+@faq
+Q: Why does arthritis hurt more at night?
+A: It can make it hard to fall and stay asleep. With osteoarthritis, NIAMS says pain can sometimes be worse at night in later stages. Other conditions, like gout, often cause attacks at night, so new night pain is worth mentioning to your doctor.
+Q: What is the best way to sleep with arthritis pain?
+A: It depends on the joint. Pillows between or under the knees help hip and knee pain, and a pillow under the knees and lower back helps back sleepers. The Arthritis Foundation suggests trying one to three pillows.
+Q: Can a mattress help arthritis pain?
+A: A sagging mattress can add to pain. The Arthritis Foundation suggests replacing or rotating one with dips where you lie.
+Q: Should I use a heating pad at night?
+A: A warm bath or microwavable hot pack before bed can help. Don't fall asleep on a heating pad, and check your skin afterward.
+Q: When is night pain a sign of something serious?
+A: Tell your doctor if night pain is new, worsening, or comes with a hot, red, swollen joint, and seek care right away if there is also a fever.
+@refs
+Arthritis Foundation: Arthritis pain at night, tips to position yourself | https://www.arthritis.org/health-wellness/healthy-living/managing-pain/fatigue-sleep/arthritis-pain-at-night-tips-to-position-yourself
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+Mayo Clinic: Gout, symptoms and causes | https://www.mayoclinic.org/diseases-conditions/gout/symptoms-causes/syc-20372897
+Arthritis Foundation: Hand arthritis, carpal tunnel syndrome or both? | https://www.arthritis.org/diseases/more-about/arthritis-vs-carpal-tunnel
+Mayo Clinic: Ankylosing spondylitis | https://www.mayoclinic.org/diseases-conditions/ankylosing-spondylitis/symptoms-causes/syc-20354808

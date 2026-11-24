@@ -1,0 +1,76 @@
+title: Arthritis A to Z: Plain Meanings of Hard Words
+h1: Arthritis A to Z: the hard words, in plain English
+dek: Doctors use a lot of long words. Here are the common ones you may hear or read, with short, plain meanings.
+cat: Glossary
+hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
+desc: A plain-English glossary of arthritis words: osteoarthritis, rheumatoid, gout, rheumatologist, Heberden's nodes, flare, urate, tophi, NSAIDs and more.
+blurb: Plain meanings for the long words doctors use.
+updated: 2026-11-23
+related: types-of-arthritis, joint-pain-what-does-it-mean, does-this-sound-like-arthritis
+feel: Relief (the words stop being scary)
+@take
+- You don't need to memorize anything. This page is for looking things up.
+- Definitions are short and based on NIAMS, the CDC and the Mayo Clinic.
+- If a word is about your own diagnosis, ask your doctor to explain it too. That is always allowed.
+@lead
+Hearing a long word in a doctor's office is stressful. Here is a short list, in plain words, to keep beside you.
+@body
+## The conditions {#conditions}
+
+- **Arthritis:** a word for joint pain and joint disease. The CDC says there are more than 100 types.[^1]
+- **Osteoarthritis (OA):** the most common type. The joint tissues gradually break down over time.[^2] See [osteoarthritis](osteoarthritis.html).
+- **Rheumatoid arthritis (RA):** an autoimmune disease in which the immune system attacks the lining of the joints.[^3] See [rheumatoid arthritis](rheumatoid-arthritis.html).
+- **Gout:** an inflammatory arthritis caused by urate crystals in and around a joint.[^4] See [gout](gout.html).
+- **Psoriatic arthritis:** an inflammatory arthritis linked to psoriasis.[^5] See [psoriatic arthritis](psoriatic-arthritis.html).
+- **Ankylosing spondylitis (axial spondyloarthritis):** an inflammatory disease that mainly affects the spine.[^6] See [ankylosing spondylitis](ankylosing-spondylitis.html).
+
+## The body words {#body}
+
+- **Cartilage:** the smooth tissue that cushions the ends of bones in a joint.
+- **Inflammation:** the body's response that can cause swelling, warmth, redness and pain.
+- **Autoimmune:** when the immune system mistakenly attacks the body's own tissue.[^3]
+- **Range of motion:** how far a joint can move.
+- **Crepitus:** a crackling or grinding feel or sound when a joint moves.
+- **Entheses:** the places where tendons and ligaments attach to bone.[^5]
+
+## The signs {#signs}
+
+- **Flare:** a time when symptoms get worse, followed by calmer periods.
+- **Heberden's and Bouchard's nodes:** firm bumps near the finger joints in hand osteoarthritis.[^7]
+- **Urate:** the substance that can form crystals in gout.[^4]
+- **Tophi:** firm lumps of urate crystals under the skin, from long-standing gout.[^8]
+- **Uveitis:** eye inflammation. It needs prompt care.[^5]
+- **HLA-B27:** a gene linked with ankylosing spondylitis. Many people who have it never develop the disease.[^6]
+
+## The people and the care {#care}
+
+- **Rheumatologist:** a doctor who specializes in arthritis and related conditions.
+- **Physical therapist:** helps you move and strengthen safely.
+- **Occupational therapist:** helps with daily tasks, grip aids and joint-friendly ways of doing things.
+- **Orthotics:** shoe inserts or braces that support a joint.
+- **Joint protection:** ways of using joints that lower strain, such as using bigger joints for lifting and avoiding repeated motions.
+- **NSAIDs:** non-steroidal anti-inflammatory drugs, such as ibuprofen and naproxen. Ask your doctor or pharmacist what is right for you.
+
+Back to the big picture: [types of arthritis](types-of-arthritis.html), or [what joint pain can mean](joint-pain-what-does-it-mean.html).
+
+!warn This is general information, not personal medical advice. If a word is about your own diagnosis, ask your doctor to explain it.
+@faq
+Q: What is the difference between arthritis and osteoarthritis?
+A: Arthritis is the general word for joint disease. Osteoarthritis is one type, the most common, in which joint tissues gradually break down.
+Q: What is a rheumatologist?
+A: A doctor who specializes in arthritis and related conditions, including autoimmune types like rheumatoid arthritis.
+Q: What is a flare?
+A: A period when symptoms worsen, usually followed by calmer periods.
+Q: What is an autoimmune disease?
+A: A condition where the immune system mistakenly attacks the body's own tissue, as in rheumatoid arthritis.
+Q: What are tophi?
+A: Firm lumps of urate crystals under the skin that can form with long-standing gout.
+@refs
+CDC: Arthritis basics | https://www.cdc.gov/arthritis/basics/index.html
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+NIAMS: Rheumatoid arthritis | https://www.niams.nih.gov/health-topics/rheumatoid-arthritis
+NIAMS: Gout | https://www.niams.nih.gov/health-topics/gout
+NIAMS: Psoriatic arthritis | https://www.niams.nih.gov/health-topics/psoriatic-arthritis
+Mayo Clinic: Ankylosing spondylitis | https://www.mayoclinic.org/diseases-conditions/ankylosing-spondylitis/symptoms-causes/syc-20354808
+Arthritis Foundation: Osteoarthritis of the hands | https://www.arthritis.org/diseases/more-about/osteoarthritis-of-the-hands
+Mayo Clinic: Gout, symptoms and causes | https://www.mayoclinic.org/diseases-conditions/gout/symptoms-causes/syc-20372897

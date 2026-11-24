@@ -1,0 +1,65 @@
+title: Types of Arthritis: A Plain Guide
+h1: Types of arthritis: a plain guide to osteoarthritis, rheumatoid, gout and more
+dek: "Arthritis" is a family of conditions, not one disease. The main kinds, how they tend to differ, and where to read more about each.
+cat: Types
+hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
+desc: How many kinds of arthritis are there? A plain guide to osteoarthritis, rheumatoid arthritis, gout, psoriatic arthritis and ankylosing spondylitis.
+blurb: Osteoarthritis, rheumatoid, gout, psoriatic and spondylitis in plain words.
+updated: 2026-11-23
+related: joint-pain-what-does-it-mean, osteoarthritis, rheumatoid-arthritis
+feel: Clarity and calm (it has a name, and names help)
+@take
+- About 54 million U.S. adults, roughly 1 in 5, have arthritis, according to the CDC.
+- There are more than 100 types. The ones people hear about most are osteoarthritis, rheumatoid arthritis, gout, psoriatic arthritis and ankylosing spondylitis.
+- Types differ in cause, in which joints they affect and in how they're treated, so the name matters.
+- Only a doctor can tell which kind you have. Early treatment matters most for the inflammatory types.
+@lead
+"I have arthritis" can mean very different things. The word is a bit like "fruit": true of an apple and a lemon, and not much help when you're deciding what to do with either. Here is a short tour of the main kinds, with a link to each.
+@body
+## How common is it? {#common}
+
+The CDC says about 54 million adults in the U.S. have arthritis, about 1 in 5. It lists more than 100 types, and its pages cover osteoarthritis, rheumatoid arthritis, gout and childhood arthritis.[^1] Symptoms vary by type but usually include joint pain and stiffness.[^1]
+
+## Osteoarthritis {#oa}
+
+The most common type, and more common with age. The joint tissues break down gradually. It often affects the finger ends and thumb base, knees, hips, neck and lower back, and stiffness usually lasts under 30 minutes.[^2] NIAMS says it isn't simply wear and tear.[^2] Read more: [osteoarthritis](osteoarthritis.html).
+
+## Rheumatoid arthritis {#ra}
+
+An autoimmune disease, where the immune system attacks the lining of the joints. It often affects matching joints on both sides, brings morning stiffness longer than 30 minutes, and can cause fatigue and low-grade fever.[^3] Early treatment matters. Read more: [rheumatoid arthritis](rheumatoid-arthritis.html).
+
+## Gout {#gout}
+
+An inflammatory arthritis caused by urate crystals in and around a joint. Attacks tend to come on suddenly, often at night, most often in the big toe.[^4] Read more: [gout](gout.html).
+
+## Psoriatic arthritis {#psa}
+
+An inflammatory arthritis linked to psoriasis. It can bring joint pain and stiffness, swollen "sausage" fingers or toes, and nail changes.[^5] Read more: [psoriatic arthritis](psoriatic-arthritis.html).
+
+## Ankylosing spondylitis {#as}
+
+Also called axial spondyloarthritis. It mainly affects the spine, usually starting in late adolescence or early adulthood, with back pain and stiffness that's often worse in the morning or after rest.[^6] Read more: [ankylosing spondylitis](ankylosing-spondylitis.html).
+
+## Not sure which one? {#unsure}
+
+That's normal. Doctors use your history, an exam, imaging such as X-rays and sometimes blood tests.[^2] Our guides on [what joint pain can mean](joint-pain-what-does-it-mean.html) and [stories that sound like arthritis](does-this-sound-like-arthritis.html) can help you describe what you feel. Unfamiliar word? See the [arthritis A to Z](arthritis-words-explained.html).
+
+!warn This page is a map, not a diagnosis. See your doctor for joint pain that lasts, comes back, or comes with swelling, redness, warmth or fever.
+@faq
+Q: How many types of arthritis are there?
+A: The CDC says more than 100. The best known are osteoarthritis, rheumatoid arthritis, gout, psoriatic arthritis and ankylosing spondylitis.
+Q: What is the most common type of arthritis?
+A: Osteoarthritis, according to NIAMS. It is more common in older people.
+Q: What is the difference between osteoarthritis and rheumatoid arthritis?
+A: Osteoarthritis is a gradual breakdown of joint tissues, often in one or a few joints, with stiffness that usually passes in under 30 minutes. Rheumatoid arthritis is autoimmune, often affects matching joints on both sides, and brings longer morning stiffness.
+Q: Is gout a type of arthritis?
+A: Yes. It's an inflammatory arthritis caused by urate crystals in and around joints.
+Q: How do doctors tell which type I have?
+A: They use your history, an exam, imaging like X-rays, and sometimes blood tests or joint fluid tests.
+@refs
+CDC: Arthritis basics | https://www.cdc.gov/arthritis/basics/index.html
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+NIAMS: Rheumatoid arthritis | https://www.niams.nih.gov/health-topics/rheumatoid-arthritis
+NIAMS: Gout | https://www.niams.nih.gov/health-topics/gout
+NIAMS: Psoriatic arthritis | https://www.niams.nih.gov/health-topics/psoriatic-arthritis
+Mayo Clinic: Ankylosing spondylitis | https://www.mayoclinic.org/diseases-conditions/ankylosing-spondylitis/symptoms-causes/syc-20354808

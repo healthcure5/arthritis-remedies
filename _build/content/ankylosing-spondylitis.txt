@@ -1,0 +1,57 @@
+title: Ankylosing Spondylitis: Back Pain and Stiffness
+h1: Ankylosing spondylitis: when back pain and stiffness are more than a sore back
+dek: Also called axial spondyloarthritis. A spine-focused inflammatory arthritis that often starts in early adulthood. The signs that set it apart and when to ask for help.
+cat: Types
+hero: walk-together.jpg | Illustration of a younger woman walking arm in arm with an older man who uses a cane, at sunset
+desc: Ankylosing spondylitis (axial spondyloarthritis): back pain and stiffness that is worse after rest, who gets it, warning signs and when to see a doctor.
+blurb: Back pain that's worse after rest and eases with movement.
+updated: 2026-11-23
+related: types-of-arthritis, arthritis-pain-at-night, joint-pain-what-does-it-mean
+feel: Clarity and reassurance
+@take
+- Ankylosing spondylitis (AS), also called axial spondyloarthritis, is an inflammatory disease that mainly affects the spine.
+- It usually starts in late adolescence or early adulthood, with low back and hip pain and stiffness worse in the morning or after rest.
+- Pain that wakes you at night, improves with exercise and worsens with rest is a clue.
+- There's no cure, but treatment can reduce symptoms and may slow progression.
+- A red, painful eye with light sensitivity or blurred vision needs an eye specialist right away.
+@lead
+Most back pain is muscle trouble and it settles. A smaller group has a back that's stiffest after rest and eases with movement, often starting young. If that sounds familiar, it's worth knowing the name.
+@body
+## What it is {#what}
+
+The Mayo Clinic says ankylosing spondylitis is an inflammatory disease that mainly affects the spine. Over time, inflammation can cause vertebrae to fuse, reducing flexibility and sometimes leading to a hunched posture. There are two forms: AS, which shows on X-ray, and nonradiographic axial spondyloarthritis, diagnosed through symptoms, blood tests and imaging such as MRI.[^1]
+
+## Signs {#signs}
+
+- Onset usually in early adulthood
+- Back pain and stiffness, mainly in the lower back and hips, often worse in the morning or after inactivity
+- Neck pain and fatigue
+- Eye pain or vision changes, skin rashes or stomach pain in some people
+- Symptoms that flare and then ease[^1]
+
+## When to see a doctor {#see}
+
+The Mayo Clinic lists slowly worsening low back or buttock pain, and pain that is worse in the morning, wakes you at night, improves with exercise and worsens with rest.[^1]
+
+Get an eye specialist right away for a red, painful eye, light sensitivity or blurry vision, because it can mean eye inflammation.[^1]
+
+## Causes and outlook {#outlook}
+
+The exact cause is unknown, though genes play a role. A gene called HLA-B27 greatly raises risk, but many people with the gene never develop AS, and some people with AS don't have it.[^1] Possible complications include eye inflammation, spinal compression fractures, heart problems and stiff rib joints that make deep breathing harder.[^1]
+
+There's no cure. Treatment aims to reduce symptoms, manage pain and possibly slow progression.[^1] Staying active is part of care, and a rheumatologist can guide the plan. See our page on [exercise and arthritis](will-exercise-make-arthritis-worse.html).
+
+!warn See a doctor for slowly worsening back pain that is worse after rest and eases with movement, or for sudden back pain, which can signal a fracture. Eye pain with light sensitivity is urgent.
+@faq
+Q: What is ankylosing spondylitis?
+A: An inflammatory disease that mainly affects the spine, also called axial spondyloarthritis. Over time inflammation can fuse vertebrae and reduce flexibility.
+Q: What are the early signs of ankylosing spondylitis?
+A: Low back and hip pain and stiffness, worse in the morning or after rest, usually starting in early adulthood.
+Q: How is it different from ordinary back pain?
+A: Pain that is worse after rest, wakes you at night and improves with exercise is a clue, according to the Mayo Clinic.
+Q: Is ankylosing spondylitis hereditary?
+A: Genes play a role, especially one called HLA-B27, but many people with the gene never develop it.
+Q: Can ankylosing spondylitis be cured?
+A: No, but treatment can reduce symptoms, manage pain and possibly slow progression.
+@refs
+Mayo Clinic: Ankylosing spondylitis, symptoms and causes | https://www.mayoclinic.org/diseases-conditions/ankylosing-spondylitis/symptoms-causes/syc-20354808

@@ -1,0 +1,61 @@
+title: Heat or Ice for Arthritis Pain: Which to Use
+h1: Heat or ice for arthritis pain: which one, and for how long
+dek: A warm shower feels like a hug. An ice pack feels like a shock. What the Mayo Clinic and the Arthritis Foundation say about each, and a few safety rules for your skin.
+cat: Remedies
+hero: warm-mug-hands.jpg | Illustration of older hands wrapped around a warm mug in morning sunlight
+desc: Heat or ice for arthritis? When each helps, how long to use it, and safety tips for your skin, based on Mayo Clinic and Arthritis Foundation advice.
+blurb: When warmth helps, when ice helps, and how to use both safely.
+updated: 2026-11-23
+related: morning-joint-stiffness, arthritis-pain-at-night, stiff-hands-in-the-morning
+feel: Comfort (permission to use the thing that feels good)
+@take
+- Heat can temporarily ease joint pain and stiffness. Think heating pads, hot baths and showers.
+- Ice packs can reduce pain and inflammation, especially after activity.
+- Keep a heating pad to 20 minutes at a time, and put a thin towel between ice and your skin.
+- The Mayo Clinic suggests heat for about 20 minutes before exercise and ice for up to 20 minutes after, if needed.
+- A joint that is hot, red and swollen, especially with a fever, needs a doctor, not a heating pad.
+@lead
+A hot shower in the morning can be the best part of the day. An ice pack on a sore knee at night can be a close second. People argue about which is "right," and the truth is that both have a place. The trick is knowing which one to reach for, and when to leave both alone.
+@body
+## Heat: for stiffness {#heat}
+
+The Mayo Clinic says heat can temporarily ease joint pain. Options include heating pads, hot baths or showers, and warm paraffin wax. With a heating pad, limit use to 20 minutes at a time, so you don't burn your skin.[^1] The Arthritis Foundation explains that warming a sore joint widens blood vessels, which brings more blood to the area and relaxes stiff muscles and joints. It suggests a long, warm shower in the morning to reduce stiffness and improve range of motion, and about 20 minutes for a warm compress.[^2]
+
+Heat is a good fit before you move. The Mayo Clinic suggests about 20 minutes of heat before exercise to loosen up.[^3]
+
+## Ice: for sore, worked joints {#ice}
+
+Ice packs can reduce pain and inflammation, especially after physical activity. Always put a thin towel between the ice pack and your skin.[^1] The Mayo Clinic suggests ice for up to 20 minutes after exercise if you need it.[^3] For mild joint pain, it also suggests cold for 15 to 20 minutes several times a day, such as a bag of frozen peas.[^4]
+
+## A simple way to choose {#choose}
+
+- **Stiff and slow?** Try warmth first: a shower, a warm mug in both hands, a heating pad.
+- **Sore after a busy day, or a joint that feels worked up?** Try a wrapped ice pack.
+- **A sudden flare with swelling and redness?** The Arthritis Foundation suggests cold for a few days, and a call to your doctor.
+- **Not sure?** Pick the one that feels better. If one makes pain worse, stop.
+
+## Safety first {#safe}
+
+The Arthritis Foundation says to avoid heat for a sudden injury or flare. For sudden swelling and redness it recommends cold for a few days, and it suggests waiting a couple of hours between hot and cold sessions instead of switching right away.[^2] It also says to keep water from getting too hot if you have heart problems, and to drink water before and after a warm soak.[^2]
+
+The sources say little about diabetes or poor circulation, and numb skin can't tell you it's burning. If you have either, ask your doctor before using heat or cold. Check your skin after each use, never fall asleep on a heating pad, and never put ice straight on the skin.
+
+See [stiff mornings](morning-joint-stiffness.html) and [pain at night](arthritis-pain-at-night.html) for ways to use warmth through the day.
+
+!warn A joint that is hot, red and swollen, especially with a fever, needs a doctor right away, not a heating pad or an ice pack.
+@faq
+Q: Is heat or ice better for arthritis?
+A: Both can help. Heat can ease stiffness and pain for a while, and ice can reduce pain and inflammation, especially after activity. Pick the one that feels better to you.
+Q: How long should I use a heating pad on arthritis?
+A: The Mayo Clinic says to limit a heating pad to 20 minutes at a time.
+Q: How long should I ice a sore joint?
+A: Up to 20 minutes after exercise, according to the Mayo Clinic, with a thin towel between the ice pack and your skin.
+Q: Is a hot shower good for arthritis?
+A: Many people find it helps. The Mayo Clinic lists hot baths and showers as ways to ease joint pain, and the Arthritis Foundation suggests one to ease morning stiffness.
+Q: Can I use heat if my joint is swollen?
+A: The Arthritis Foundation says to avoid heat for a sudden injury or flare and to use cold for a few days instead. If a joint is hot, red and swollen, see a doctor, particularly if you have a fever.
+@refs
+Mayo Clinic: Arthritis pain, do's and don'ts | https://www.mayoclinic.org/diseases-conditions/arthritis/in-depth/arthritis/art-20046440
+Arthritis Foundation: Heat therapy helps relax stiff joints | https://www.arthritis.org/health-wellness/healthy-living/managing-pain/pain-relief-solutions/heat-therapy-helps-relax-stiff-joints
+Mayo Clinic: Exercise helps ease arthritis pain and stiffness | https://www.mayoclinic.org/diseases-conditions/arthritis/in-depth/arthritis/art-20047971
+Mayo Clinic: Joint pain, when to see a doctor | https://www.mayoclinic.org/symptoms/joint-pain/basics/when-to-see-doctor/sym-20050668

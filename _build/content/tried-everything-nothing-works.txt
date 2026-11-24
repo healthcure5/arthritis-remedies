@@ -1,0 +1,60 @@
+title: Tried Everything for Arthritis? What Works Best
+h1: "I've tried everything and nothing works": what has the best support for arthritis
+dek: The creams, the pills, the bracelets, the shots. If you've spent real money and still ache, here is what the major health bodies say is worth your effort, in plain order.
+cat: Hope
+hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
+desc: Tried everything for arthritis and nothing helps? What the CDC and NIH say has the best support: movement, weight, self-management classes and your doctor.
+blurb: What the CDC and NIH put first when products haven't worked.
+updated: 2026-11-23
+related: does-glucosamine-or-turmeric-help-arthritis, will-exercise-make-arthritis-worse, free-guide-money
+feel: Relief and renewed hope without hype
+@take
+- If supplements, gels and gadgets haven't helped, you're not failing. Many of them have little proof behind them.
+- The CDC names five self-management steps: learn self-management skills, be active, keep a healthy weight, see a provider, and protect your joints.
+- Low-cost self-management workshops teach pain management and safe exercise, about $25 to $35 each according to the CDC.
+- Even a small weight loss can reduce arthritis pain for people who carry extra weight.
+- Medicines and procedures from a doctor are a real part of the picture. They work alongside these steps, not instead of them.
+@lead
+You've bought the cream, the supplement, the sleeve, maybe the bracelet. You've waited a month, then another. Some of it helped for a day. Most of it didn't. By now you may be wondering whether anything will. That tired question is a fair one, and it deserves a straight answer.
+@body
+## First, a kind word about the money {#money}
+
+A lot of arthritis products are sold on hope. When one doesn't work, people tend to blame themselves, and they shouldn't. Even some of the best-known supplements have mixed results in large studies. Our page on [glucosamine and turmeric](does-glucosamine-or-turmeric-help-arthritis.html) shows how the evidence looks.
+
+## What the CDC puts first {#cdc}
+
+The CDC lists five self-management strategies for arthritis.[^1] None of them comes in a bottle.
+
+1. **Learn self-management skills.** Low-cost workshops, about $25 to $35, teach pain management, safe exercise and how to gain more control of arthritis.[^1]
+2. **Be active.** Physical activity reduces pain, improves physical function and can delay limits caused by arthritis. Short sessions count.[^1]
+3. **Keep a healthy weight.** For people who carry extra weight, even a small loss reduces arthritis pain and disability. The CDC's example: 5%, or 12 pounds, for someone who weighs 250.[^1]
+4. **See a health care provider.** Early detection matters, especially for inflammatory arthritis. Providers can suggest non-drug options and prescribe medicines when needed.[^1]
+5. **Protect your joints.** Preventing joint injuries can keep arthritis from getting worse.[^1]
+
+NIAMS agrees on the main points for osteoarthritis. Exercise and weight management come first, followed by braces or orthotics, medicines for some people, and surgery only if other treatments fail.[^2]
+
+## "But I already tried exercise" {#tried}
+
+Sometimes that means something that didn't fit: too hard, too long, too soon. The Arthritis Foundation notes that a physical therapist can check how you move and tailor exercises to your joints.[^3] Try again with short sessions in a form you enjoy. Walking in 10-minute pieces, water exercise and tai chi are all on the list.[^3]
+
+## When something else is going on {#else}
+
+Pain that keeps getting worse despite good effort deserves a fresh look. It could be a different type of arthritis, or one that needs medicine. Rheumatoid arthritis, for example, needs treatment to protect the joints.[^4] A visit to your doctor, and sometimes a specialist called a rheumatologist, is the right next step.
+
+!warn Never stop a prescribed medicine because of something you read online. If you want to add a supplement, ask your doctor or pharmacist first, because some interact with other medicines.
+@faq
+Q: What is the most effective treatment for arthritis?
+A: It depends on the type. For osteoarthritis, NIAMS puts exercise and weight management first, with medicines, braces and surgery as other options. For inflammatory types like rheumatoid arthritis, early treatment from a doctor matters.
+Q: What can I do when nothing seems to work for my arthritis pain?
+A: Ask your doctor to review your whole plan, try a self-management workshop, build up gentle movement in short sessions, and ask about physical or occupational therapy.
+Q: Are arthritis self-management classes worth it?
+A: The CDC describes them as low-cost, about $25 to $35, and says they teach pain management, safe exercise and how to gain control of arthritis.
+Q: Does losing weight help arthritis pain?
+A: For people who carry extra weight, the CDC says even a small loss helps reduce arthritis pain and disability.
+Q: Should I see a specialist for arthritis?
+A: If pain is getting worse or your treatment isn't working, ask your doctor about a rheumatologist, a doctor who specializes in arthritis.
+@refs
+CDC: Self-care for arthritis, five ways to manage your symptoms | https://www.cdc.gov/arthritis/caring/index.html
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+Arthritis Foundation: Physical therapy for osteoarthritis | https://www.arthritis.org/health-wellness/treatment/complementary-therapies/physical-therapies/osteoarthritis-physical-therapy
+NIAMS: Rheumatoid arthritis | https://www.niams.nih.gov/health-topics/rheumatoid-arthritis

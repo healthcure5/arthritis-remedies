@@ -1,0 +1,58 @@
+title: Does Cold Weather Make Arthritis Worse?
+h1: Does cold or damp weather make arthritis worse? What the studies found
+dek: Plenty of people can feel a storm coming in their knees. Science has been slower to agree. What a large smartphone study found, why you may feel it anyway, and how to keep moving on gray days.
+cat: Weather
+hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
+desc: Does cold, damp or rainy weather make arthritis pain worse? What studies found about humidity, air pressure and temperature, and tips for gray days.
+blurb: What a study of 2,600 people found about humidity, pressure and arthritis pain.
+updated: 2026-11-23
+related: heat-or-ice-for-arthritis, arthritis-pain-at-night, morning-joint-stiffness
+feel: Validation first, then calm
+@take
+- You're not imagining it. Many people report more pain in certain weather, and a large study found a real but modest link.
+- In that 2019 study of more than 2,600 people, pain was linked to humidity, air pressure and wind speed. Temperature on its own was not.
+- Why it happens isn't settled. Mood and activity on gray days may play a part.
+- Staying active, staying warm indoors and looking after your mood are sensible steps for any weather.
+@lead
+Your grandmother said she could feel the rain coming, and you smiled and let her have it. Now it's your knee that aches before the storm. If you've wondered whether weather really changes arthritis pain, you're in good company. The answer from the research is "a little, and it's complicated."
+@body
+## What the research found {#research}
+
+The Arthritis Foundation says there is little firm scientific evidence that weather affects arthritis, even though many people report it. Earlier studies were small and short.[^1]
+
+A larger one came in 2019. More than 2,600 people logged their symptoms on smartphones for 15 months, while GPS pulled in local weather. The researchers found a "significant yet modest" link between pain and relative humidity, air pressure and wind speed, even after allowing for mood and physical activity. Higher humidity or wind speed went with higher odds of a pain event, and higher air pressure went with lower odds. Temperature had no significant link on its own.[^1]
+
+So "cold" may not be the whole story. Damp and windy days showed more than the thermometer did.
+
+## Other patterns {#seasons}
+
+The same Arthritis Foundation article mentions that gout attacks happened more often from March to July in one review, and rheumatoid arthritis activity was higher in spring and lower in fall in a database study. Neither study could say which changes in weather caused it.[^1]
+
+## Why you might feel it {#why}
+
+Nobody knows for certain. One doctor quoted by the Arthritis Foundation says the link is probably indirect and has many parts. Cloudy days may lower mood, which can sharpen the focus on pain. Windy or rainy days may keep you indoors and less active, which can worsen pain and stiffness.[^1]
+
+## What helps on gray days {#helps}
+
+The research doesn't give a weather-specific list, but the basics hold in any season:
+
+- **Keep moving.** The CDC says activity reduces joint pain and improves mood, and sessions of 5 or 10 minutes count.[^2] A [chair routine](gentle-exercises-for-arthritis-seniors.html) works on a day you can't get out.
+- **Warm up first.** A warm shower or a heating pad for up to 20 minutes can ease stiff joints. See [heat or ice](heat-or-ice-for-arthritis.html).
+- **Mind your mood.** Call a friend, open the curtains, play music. It's not a small thing, because mood and pain feed each other.
+- **Tell your doctor** if a pattern worries you or keeps getting stronger.
+
+!warn Weather can explain a day of extra aching. It doesn't explain a joint that is hot, red or swollen, pain that wakes you at night, or stiffness that lasts over 30 minutes most mornings. Tell your doctor about those.
+@faq
+Q: Does cold weather make arthritis worse?
+A: Many people say so, but the evidence is mixed. In a 2019 study of more than 2,600 people, temperature on its own was not linked to pain, while humidity, air pressure and wind speed were, modestly.
+Q: Can arthritis predict rain?
+A: Some people feel pain change before weather shifts. The study found higher humidity and wind linked to more pain events and higher air pressure linked to fewer, but the link was modest.
+Q: Is damp weather worse for arthritis than dry weather?
+A: Higher humidity was linked to higher odds of a pain event in the 2019 study. That doesn't mean everyone feels it, and the study couldn't say what causes the link.
+Q: Should I move to a warmer climate for arthritis?
+A: The research doesn't support a move on weather alone. The effects found were modest, and staying active matters more in any climate. Talk with your doctor.
+Q: How do I cope with arthritis pain in winter?
+A: Stay active in short sessions, warm up joints with a shower or heating pad, and watch your mood. Tell your doctor if pain changes or new symptoms appear.
+@refs
+Arthritis Foundation: The weather and arthritis connection | https://www.arthritis.org/health-wellness/healthy-living/managing-pain/understanding-pain/weather-arthritis-connection
+CDC: About physical activity and arthritis | https://www.cdc.gov/arthritis/prevention/index.html

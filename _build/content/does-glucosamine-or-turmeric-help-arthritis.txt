@@ -1,0 +1,60 @@
+title: Do Glucosamine and Turmeric Help Arthritis?
+h1: Do glucosamine and turmeric help arthritis? What the research says
+dek: Two of the best-selling arthritis supplements, checked against the National Institutes of Health. What the studies found, what is safe, and what to ask your pharmacist.
+cat: Remedies
+hero: castor-evening.jpg | Illustration of a cozy armchair at sunset with a knitted hot water bottle cover, a folded towel, a small brown bottle and a candle
+desc: Do glucosamine, chondroitin and turmeric work for arthritis? What NIH research shows, safety notes, and questions to ask your pharmacist before buying.
+blurb: Glucosamine, chondroitin and turmeric, checked against the NIH.
+updated: 2026-11-23
+related: tried-everything-nothing-works, castor-oil-pack-for-joints, free-guide-money
+feel: Reassurance and straight talk
+@take
+- NIH's National Center for Complementary and Integrative Health says it's still uncertain whether glucosamine and chondroitin help knee osteoarthritis.
+- No major safety problems have been found in large studies of these two, but glucosamine can interact with the blood thinner warfarin.
+- For turmeric, NCCIH says we don't know enough to say if it's beneficial for any health purpose. Early studies on knee pain are promising, and better studies are needed.
+- Highly concentrated curcumin products have been linked to liver problems in some people.
+- Tell your doctor or pharmacist about every supplement you take.
+@lead
+Walk down the supplement aisle and the shelves are full of promises: joint comfort, flexibility, "support." Two names come up most often, glucosamine with chondroitin, and turmeric. Before you spend another dollar, here is what the National Institutes of Health says about each.
+@body
+## Glucosamine and chondroitin {#gluco}
+
+These two are among the best-selling joint supplements. NCCIH's verdict is that "it's still uncertain whether glucosamine and chondroitin are helpful for knee osteoarthritis symptoms."[^1]
+
+Here is what's behind that:[^1]
+
+- In the large U.S. GAIT trial of 572 people over two years, joint space width did not differ between the placebo group and the groups that took glucosamine, chondroitin or both.
+- Later analyses had mixed results. A 2018 review of 29 studies found that glucosamine or chondroitin alone reduced overall pain, while the combination did not, and the individual studies disagreed. NCCIH also points out that reviews finding better results for prescription-grade products were based on studies with design weaknesses and drug-company funding.
+- For hip osteoarthritis, a 2017 guideline from the American Academy of Orthopaedic Surgeons said moderate-strength evidence does not support glucosamine sulfate.
+
+On safety, NCCIH says no major problems have turned up in large studies. Glucosamine may raise blood sugar in some people, and it's linked to a higher bleeding risk in people who take the blood thinner warfarin.[^1]
+
+## Turmeric and curcumin {#turmeric}
+
+Several reviews of oral turmeric or curcumin show early positive results for knee osteoarthritis pain, stiffness and mobility, but NCCIH says higher-quality evidence is needed. For rheumatoid arthritis it reports no clear findings. Its overall conclusion: "We don't know enough to definitively conclude if turmeric or curcumin is beneficial for any health purposes."[^2]
+
+On safety, ordinary oral turmeric is likely safe in typical amounts for up to two or three months. Highly bioavailable curcumin products may harm the liver, and liver damage has been reported in some users. If you notice fatigue, nausea, poor appetite, dark urine or yellowing of the skin or eyes, stop and contact your provider.[^2]
+
+## Three questions before you buy {#ask}
+
+1. Has it been tested in people with my kind of arthritis?
+2. Could it clash with my medicines? Pharmacists are good at this one.
+3. What else could the same money buy that has stronger support? Our page on [what has the best support](tried-everything-nothing-works.html) lists the CDC's five steps.
+
+Our free guide [7 things not to buy for arthritis](free-guide-money.html) goes further.
+
+!warn Don't stop a prescribed medicine for a supplement. Tell your doctor or pharmacist about everything you take, including vitamins and herbs, because some interact with prescriptions.
+@faq
+Q: Does glucosamine work for arthritis?
+A: NCCIH says it's still uncertain whether glucosamine and chondroitin help knee osteoarthritis. Large trials have not shown clear benefit, and results across studies are mixed.
+Q: Is glucosamine safe?
+A: No major safety problems have been found in large studies, according to NCCIH. It may raise blood sugar in some people and may increase bleeding risk with warfarin.
+Q: Does turmeric help arthritis?
+A: Early studies show possible benefit for knee osteoarthritis pain, but NCCIH says better studies are needed and we don't know enough to say it helps.
+Q: Can turmeric supplements harm the liver?
+A: Highly bioavailable curcumin products have been linked to liver damage in some people, according to NCCIH. Stop and call your provider if you have fatigue, nausea, poor appetite, dark urine or yellowing skin or eyes.
+Q: Should I take supplements for arthritis?
+A: Talk to your doctor or pharmacist first. The strongest support for osteoarthritis is for exercise and weight management, according to NIAMS.
+@refs
+NCCIH: Glucosamine and chondroitin for osteoarthritis | https://www.nccih.nih.gov/health/glucosamine-and-chondroitin-for-osteoarthritis-what-you-need-to-know
+NCCIH: Turmeric, usefulness and safety | https://www.nccih.nih.gov/health/turmeric

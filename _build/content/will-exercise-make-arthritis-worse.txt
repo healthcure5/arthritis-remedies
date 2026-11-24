@@ -1,0 +1,64 @@
+title: Will Exercise Make Arthritis Worse? What to Know
+h1: Will exercise make my arthritis worse? And am I too old to start?
+dek: The fear is common and fair: it already hurts, so why move? What the CDC, the Mayo Clinic and the Arthritis Foundation say about starting gently, and how to tell normal soreness from a warning sign.
+cat: Movement
+hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
+desc: Afraid exercise will make arthritis worse? What the CDC and Mayo Clinic say about safe movement, how to start gently at any age, and when to stop.
+blurb: The honest answer on exercise, soreness and starting late in life.
+updated: 2026-11-23
+related: gentle-exercises-for-arthritis-seniors, tried-everything-nothing-works, why-are-stairs-so-hard-with-arthritis
+feel: Hope, with permission to go slowly
+@take
+- The CDC says physical activity is safe for people with arthritis and can reduce joint pain and improve function and mood.
+- You can start with as little as 5 minutes. There's no age limit on starting.
+- Some soreness after starting something new is normal. Pain that is sharp, or worse than your usual joint pain, is a reason to stop and ask.
+- Consistency matters more than intensity. Short sessions count.
+- Talk with your doctor or a physical therapist first, especially if you've been inactive.
+@lead
+It already hurts to move, so doing more of it sounds like a bad idea. Many people with arthritis think exactly that, and for a long time. The honest answer is a little more hopeful, and it comes with a few rules that keep you safe.
+@body
+## What the experts say {#says}
+
+The CDC says that physical activity can help people with arthritis reduce joint pain and improve function and mood, and that it is safe for people with arthritis.[^1] The Mayo Clinic gives a reason: strong muscles support your joints, and weak muscles can increase joint stress and pain.[^2] Exercise can also help with energy, sleep, weight and balance.[^2]
+
+NIAMS lists exercise among the main treatments for osteoarthritis. It can reduce pain and stiffness and improve flexibility and strength, and it says to start slowly and talk to a doctor or physical therapist.[^3]
+
+## Soreness, or a warning sign? {#sore}
+
+The CDC says some pain, stiffness or swelling is normal after starting a new program, and arthritis pain from activity should improve over time. If it doesn't, contact your health care provider.[^1]
+
+The Mayo Clinic is more specific:[^2]
+
+- Pain that gets worse or lasts after exercise may mean you're doing too much. Try shorter or less frequent sessions.
+- Stop if you feel pain. Sharp pain, or pain worse than your usual joint pain, may signal a problem.
+- Slow down if you notice swelling or skin color changes around a joint.
+- During a rheumatoid arthritis flare, your care team may suggest only range-of-motion or water exercise.
+
+The Arthritis Foundation adds that you should see a physical therapist if pain increases after exercise and lasts more than a day or two.[^4]
+
+## How to start, whatever your age {#start}
+
+The CDC says you can begin with just 5 minutes, and that sessions of 5 or 10 minutes are beneficial.[^1] The goal for adults, including those with arthritis, is 150 minutes a week of moderate activity, plus muscle strengthening on 2 days a week, and balance work for older adults. If that's out of reach, any amount of activity still has some benefit.[^1][^5]
+
+The Mayo Clinic suggests a warm-up of 5 to 10 minutes of gentle range-of-motion moves, and "consistency in your exercise is more important than intensity."[^2] Activities the CDC lists as easy on the joints include brisk walking, cycling, light gardening, dancing, tai chi and swimming.[^1] The best one is whichever you'll actually keep doing.
+
+Not ready for the floor or the street? Start in a chair with our [chair exercises](gentle-exercises-for-arthritis-seniors.html).
+
+!warn Talk with your doctor or a physical therapist before starting, especially if you've been inactive, have a heart condition, or have had joint surgery. Stop and call if pain is sharp, a joint swells or changes color, or pain is worse than usual and doesn't settle within a day or two.
+@faq
+Q: Will exercise make my arthritis worse?
+A: For most people, no. The CDC says physical activity is safe for people with arthritis and can reduce pain and improve function. Pain that is sharp or lasts long after exercise is a sign to ease off and ask your provider.
+Q: Am I too old to start exercising with arthritis?
+A: There's no age cutoff in the CDC's advice. It says you can start with just 5 minutes and build up slowly, and that older adults should also include balance activities.
+Q: How do I know if the pain is normal or a problem?
+A: Mild soreness after something new is normal and should improve. Sharp pain, pain worse than your usual joint pain, or swelling and color change around a joint are signs to stop and call your provider.
+Q: How much exercise do I need with arthritis?
+A: The CDC's goal for adults is 150 minutes a week of moderate activity, split into sessions of 5 or 10 minutes if you like, plus muscle strengthening on 2 days a week. Any amount helps.
+Q: What is the safest exercise for arthritis?
+A: Low-impact choices like walking, swimming, water exercise, cycling, tai chi and chair exercises are easy on the joints. Your doctor or a physical therapist can tailor the choice to your joints.
+@refs
+CDC: About physical activity and arthritis | https://www.cdc.gov/arthritis/prevention/index.html
+Mayo Clinic: Exercise helps ease arthritis pain and stiffness | https://www.mayoclinic.org/diseases-conditions/arthritis/in-depth/arthritis/art-20047971
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+Arthritis Foundation: Physical therapy for osteoarthritis | https://www.arthritis.org/health-wellness/treatment/complementary-therapies/physical-therapies/osteoarthritis-physical-therapy
+CDC: Self-care for arthritis, five ways to manage your symptoms | https://www.cdc.gov/arthritis/caring/index.html

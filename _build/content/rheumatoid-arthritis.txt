@@ -1,0 +1,66 @@
+title: Rheumatoid Arthritis: Symptoms and What to Know
+h1: Rheumatoid arthritis: symptoms, who gets it and why early care matters
+dek: An autoimmune kind of arthritis that can cause long morning stiffness, swelling and tiredness. How it differs from osteoarthritis, and when to see a doctor.
+cat: Types
+hero: warm-mug-hands.jpg | Illustration of older hands wrapped around a warm mug in morning sunlight
+desc: Rheumatoid arthritis explained: symptoms, how it differs from osteoarthritis, who gets it, and why early treatment matters, from NIAMS and the Arthritis Foundation.
+blurb: Long morning stiffness, matching joints and why early treatment matters.
+updated: 2026-11-23
+related: types-of-arthritis, osteoarthritis, stiff-hands-in-the-morning
+feel: Calm and clarity (serious, but treatable)
+@take
+- Rheumatoid arthritis (RA) is an autoimmune disease. The immune system attacks the lining of the joints.
+- Typical signs: pain, swelling, warmth, morning stiffness longer than 30 minutes, and often matching joints on both sides.
+- It can cause tiredness, a low fever and loss of appetite, and can affect organs beyond the joints.
+- Untreated RA can worsen and cause joint damage and disability. Early treatment matters.
+- Only a doctor can diagnose it. See one if you have these signs.
+@lead
+Long stiff mornings, both hands aching, and a tiredness that sleep doesn't touch. If that sounds like you, it deserves a doctor's attention, and sooner is better. This page explains what RA is and how it differs from the more common osteoarthritis.
+@body
+## What it is {#what}
+
+NIAMS says rheumatoid arthritis is a chronic autoimmune disease in which the immune system attacks the lining of the joints, damaging the cartilage and bone inside them. Doctors don't know what triggers it.[^1]
+
+## Symptoms {#symptoms}
+
+- Joint pain at rest and during movement, with tenderness, swelling and warmth
+- Morning stiffness lasting longer than 30 minutes
+- Symmetrical joints: if one hand is affected, the other often is too
+- Most often the wrists, hands and feet, but also elbows, shoulders, knees, spine and jaw
+- Fatigue, occasional low-grade fever and loss of appetite
+- Possible effects beyond the joints, on the heart, lungs, blood, nerves, eyes and skin[^1]
+
+## Who gets it {#who}
+
+Risk rises with age, though it can start at any age. Women are about two to three times as likely as men to have it. Family history, smoking, obesity, gum disease and lung disease are linked to higher risk.[^1]
+
+## RA or osteoarthritis? {#vs}
+
+The Arthritis Foundation lists the main differences:[^2]
+
+- **Cause:** RA is autoimmune. Osteoarthritis is a degenerative breakdown of cartilage.
+- **Onset:** RA can appear suddenly at any age. OA develops gradually, and is more common in older adults.
+- **Pattern:** RA usually affects matching joints, often small joints of the hands and feet. OA often starts in a single joint.
+- **Morning stiffness:** RA commonly lasts over 30 minutes. OA typically eases within 30.
+- **Whole-body signs:** RA can cause deep fatigue, low fevers and appetite loss. OA is mostly limited to the joints.
+
+## Why early treatment matters {#early}
+
+NIAMS says that if RA isn't treated, or treatment isn't working, it can worsen and affect more joints, causing more damage and disability. The goal of treatment is remission or near remission, and it says current treatments can help people lead productive lives.[^1] Gentle movement is part of living well with RA. During a flare, the Mayo Clinic says your care team may suggest only range-of-motion or water exercise.[^3]
+
+!warn See your doctor soon for stiffness longer than 30 minutes most mornings, swollen warm joints on both sides, or unexplained tiredness with joint pain. Get care right away for a hot, swollen joint with fever. Never stop a prescribed medicine without talking to your doctor.
+@faq
+Q: What are the first signs of rheumatoid arthritis?
+A: Joint pain, swelling and warmth, often in matching joints on both sides, with morning stiffness longer than 30 minutes, plus tiredness. A doctor can tell if it's RA.
+Q: What causes rheumatoid arthritis?
+A: It's an autoimmune disease, and doctors don't know what triggers it. Family history, smoking, obesity and gum disease are linked to higher risk.
+Q: How is rheumatoid arthritis different from osteoarthritis?
+A: RA is autoimmune and often affects matching joints with longer morning stiffness. OA is gradual cartilage breakdown, often starting in a single joint with shorter stiffness.
+Q: Can rheumatoid arthritis be treated?
+A: Yes. NIAMS says current treatments can help people lead productive lives, and early treatment aims at remission or near remission.
+Q: Who is most likely to get rheumatoid arthritis?
+A: Risk rises with age, and women are about two to three times as likely as men to have it.
+@refs
+NIAMS: Rheumatoid arthritis | https://www.niams.nih.gov/health-topics/rheumatoid-arthritis
+Arthritis Foundation: Is it rheumatoid arthritis or osteoarthritis? | https://www.arthritis.org/diseases/more-about/differences-between-rheumatoid-osteoarthritis
+Mayo Clinic: Exercise helps ease arthritis pain and stiffness | https://www.mayoclinic.org/diseases-conditions/arthritis/in-depth/arthritis/art-20047971

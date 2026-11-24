@@ -1,0 +1,74 @@
+title: Does This Sound Like Arthritis? Everyday Stories
+h1: Does this sound like arthritis? Eight everyday stories
+dek: Short, familiar stories of joint trouble, and what kind of problem each one can point to. Not a diagnosis. A way to put words to what you feel before you talk to a doctor.
+cat: Symptoms
+hero: warm-mug-hands.jpg | Illustration of older hands wrapped around a warm mug in morning sunlight
+desc: Eight everyday stories of morning stiffness, swollen toes, sausage fingers, back pain and more, and what each can point to. A plain guide, not a diagnosis.
+blurb: Eight familiar stories of stiff, sore joints and what they can point to.
+updated: 2026-11-23
+related: joint-pain-what-does-it-mean, types-of-arthritis, arthritis-words-explained
+feel: Recognition and calm
+@take
+- Many people describe their joint trouble as a story: "I wake up stiff," "my toe woke me at 3 a.m."
+- Each pattern can point toward certain conditions, but many overlap.
+- Only a doctor can say what is happening. These stories help you describe it.
+- A hot, swollen joint with a fever is never a "wait and see" problem.
+@lead
+Most people don't say "I have a degenerative joint condition." They say, "My hands are stiff when I get up," or "I can't get my wedding ring off anymore." Here are eight stories like that, with what each can point to. They are patterns, not verdicts.
+@body
+## 1. "I wake up stiff, but it eases up after I get moving." {#story1}
+
+Stiffness that clears within about 30 minutes is the pattern NIAMS describes for osteoarthritis, which often affects hands, knees, hips and the back.[^1] See [stiff hands in the morning](stiff-hands-in-the-morning.html).
+
+## 2. "Both my hands are stiff for over an hour, and I'm worn out." {#story2}
+
+Longer morning stiffness in matching joints on both sides, with tiredness, is a pattern linked with rheumatoid arthritis.[^2] It is a reason to see a doctor soon rather than wait. Read [rheumatoid arthritis](rheumatoid-arthritis.html).
+
+## 3. "My big toe woke me at 3 a.m., red, hot and too sore for the sheet to touch." {#story3}
+
+Sudden night-time pain, swelling, redness and warmth, often in the big toe, is the classic picture of gout.[^3] Read [gout](gout.html). If it comes with a fever, get care right away.
+
+## 4. "One whole finger swelled up like a sausage. I also have scaly skin patches and pitted nails." {#story4}
+
+A whole swollen finger or toe, plus psoriasis and nail changes, is a pattern NIAMS lists for psoriatic arthritis.[^4] Read [psoriatic arthritis](psoriatic-arthritis.html).
+
+## 5. "My lower back has hurt for months. It's worst after sitting and better when I move." {#story5}
+
+Slowly worsening back pain that is worse after rest and improves with exercise, especially starting young, is a clue the Mayo Clinic lists for ankylosing spondylitis.[^5] Read [ankylosing spondylitis](ankylosing-spondylitis.html).
+
+## 6. "My thumb-side fingers go numb at night and I shake my hand to wake it up." {#story6}
+
+Numbness and tingling in the thumb, index and middle fingers, often worse at night, is a classic sign of carpal tunnel syndrome, which affects a nerve in the wrist rather than the joints.[^6] It is common to mix up with arthritis, which is why a doctor's view helps.
+
+## 7. "My groin and thigh ache, and I've started to limp." {#story7}
+
+Pain in the groin or thigh with a limp can come from the hip, and the Mayo Clinic lists hip pain among the places osteoarthritis can cause trouble.[^7] A doctor can check the hip and decide on tests. See [stiff hips and knees when walking](stiff-hips-and-knees-when-walking.html).
+
+## 8. "My knees ache on the stairs and after a long day on my feet." {#story8}
+
+Pain that builds with use and eases with rest is a pattern NIAMS describes for osteoarthritis.[^1] See [why stairs are so hard](why-are-stairs-so-hard-with-arthritis.html).
+
+## None of these fit? {#none}
+
+That's fine. Real life is messier than any list. Try [what joint pain can mean](joint-pain-what-does-it-mean.html) for the details that matter most, and the [arthritis A to Z](arthritis-words-explained.html) for any new words.
+
+!warn These stories are not a diagnosis. See your doctor for pain that lasts, comes back, or comes with swelling, redness, warmth or fever. A hot, swollen joint with a fever needs care right away.
+@faq
+Q: How do I know if my joint pain is arthritis?
+A: You can't tell from symptoms alone. Patterns such as morning stiffness, swelling and which joints are affected are clues, and a doctor uses history, an exam and sometimes tests.
+Q: Does morning stiffness mean arthritis?
+A: It can. Stiffness under 30 minutes fits osteoarthritis, and longer stiffness fits inflammatory types like rheumatoid arthritis. A doctor can tell which.
+Q: Could numb fingers at night be arthritis?
+A: Possibly not. Numbness in the thumb-side fingers is a classic sign of carpal tunnel syndrome, a wrist nerve problem. A doctor can sort it out.
+Q: What does gout feel like?
+A: Sudden, intense pain with swelling, redness and warmth, often in the big toe, often starting at night.
+Q: Which story sounds most like mine?
+A: Only a doctor can say. Use the stories to describe your symptoms, and write down when and where it hurts.
+@refs
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+NIAMS: Rheumatoid arthritis | https://www.niams.nih.gov/health-topics/rheumatoid-arthritis
+NIAMS: Gout | https://www.niams.nih.gov/health-topics/gout
+NIAMS: Psoriatic arthritis | https://www.niams.nih.gov/health-topics/psoriatic-arthritis
+Mayo Clinic: Ankylosing spondylitis | https://www.mayoclinic.org/diseases-conditions/ankylosing-spondylitis/symptoms-causes/syc-20354808
+Mayo Clinic: Carpal tunnel syndrome | https://www.mayoclinic.org/diseases-conditions/carpal-tunnel-syndrome/symptoms-causes/syc-20355603
+Mayo Clinic: Arthritis, symptoms and causes | https://www.mayoclinic.org/diseases-conditions/arthritis/symptoms-causes/syc-20350772

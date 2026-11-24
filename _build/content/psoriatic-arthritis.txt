@@ -1,0 +1,57 @@
+title: Psoriatic Arthritis: Symptoms and Early Signs
+h1: Psoriatic arthritis: swollen fingers, nail changes and joint pain
+dek: An inflammatory arthritis linked to psoriasis. The signs to look for, who gets it, and why seeing a doctor early matters.
+cat: Types
+hero: dawn-bedroom.jpg | Illustration of a bedroom at sunrise with a glass of water, glasses and slippers ready beside the bed
+desc: Psoriatic arthritis explained: joint pain, sausage-like swollen fingers or toes, nail changes and skin patches, who gets it, and why early care matters.
+blurb: Swollen fingers, pitted nails and joint pain linked to psoriasis.
+updated: 2026-11-23
+related: types-of-arthritis, rheumatoid-arthritis, joint-pain-what-does-it-mean
+feel: Calm clarity
+@take
+- Psoriatic arthritis is a progressive inflammatory condition affecting joints and the places where tendons attach to bone.
+- Signs include joint pain, stiffness and swelling, a whole finger or toe swelling like a sausage, nail pitting and scaly skin patches.
+- Most people already have psoriasis, typically for 7 to 10 years, before arthritis appears.
+- There's no cure, but treatment can slow progression, reduce pain and protect joints.
+- Early treatment is linked to better outcomes. See a doctor soon if joint symptoms appear.
+@lead
+Sore, stiff joints are bad enough. When you also have scaly patches on your skin and odd changes to your nails, it's reasonable to wonder whether they're connected. For some people, they are.
+@body
+## What it is {#what}
+
+NIAMS describes psoriatic arthritis as a progressive inflammatory condition affecting the joints and the entheses, the places where tendons and ligaments attach to bone. The immune system becomes overactive for reasons scientists don't fully understand. There is no cure, but treatments can slow progression, reduce pain and protect joints.[^1]
+
+## Signs to look for {#signs}
+
+Symptoms vary, and may include:[^1]
+
+- Scaly, inflamed patches of skin, often on the scalp, elbows or knees
+- Joint pain, stiffness and swelling, including in the neck, lower back and hips, often worse in the morning or after rest
+- Fatigue
+- Tenderness where tendons meet bone, commonly the back of the heel and the sole of the foot
+- Painful, sausage-like swelling of a whole finger or toe
+- Nail pitting, crumbling, or separation from the nail bed
+- Eye inflammation (uveitis), which needs prompt treatment to prevent vision loss
+
+## Who gets it {#who}
+
+It's most common in adults and affects men and women equally. Most people already have psoriasis, typically for 7 to 10 years, before arthritis appears. Obesity and severe psoriasis are linked to higher risk, and family history, stress, joint injury and infections may play a part.[^1]
+
+## What to do {#do}
+
+NIAMS advises seeing a doctor soon if joint symptoms appear, since early treatment is linked to better outcomes and less joint damage.[^1] If you have psoriasis, mention any joint pain or swelling at your next visit. A rheumatologist, a doctor who specializes in arthritis, often helps with diagnosis and treatment.
+
+!warn Tell a doctor promptly about a red, painful eye, light sensitivity or blurred vision. These can signal eye inflammation that needs fast treatment.
+@faq
+Q: What are the first signs of psoriatic arthritis?
+A: Joint pain, stiffness and swelling, often worse in the morning, along with psoriasis patches, nail pitting, or a whole finger or toe swelling like a sausage.
+Q: Can you have psoriatic arthritis without psoriasis?
+A: Most people already have psoriasis first, typically for 7 to 10 years, according to NIAMS. A doctor can sort out your own case.
+Q: Is psoriatic arthritis the same as rheumatoid arthritis?
+A: No. Both are inflammatory, but psoriatic arthritis is linked to psoriasis and can affect tendon attachment points and nails. A doctor can tell them apart.
+Q: Is there a cure for psoriatic arthritis?
+A: No, but treatment can slow progression, reduce pain and protect the joints.
+Q: Why does early treatment matter?
+A: NIAMS says early treatment is linked to better outcomes and less joint damage.
+@refs
+NIAMS: Psoriatic arthritis | https://www.niams.nih.gov/health-topics/psoriatic-arthritis

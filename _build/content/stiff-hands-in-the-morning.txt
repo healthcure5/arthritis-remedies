@@ -1,0 +1,75 @@
+title: Stiff, Sore Hands in the Morning: What It Means
+h1: Stiff, sore hands in the morning: what it can mean and what eases it
+dek: Fingers that won't close all the way, a thumb that aches, knuckles that look bigger than they used to. The usual causes, what helps, and when to see a doctor.
+cat: Hands
+hero: warm-mug-hands.jpg | Illustration of older hands wrapped around a warm mug in morning sunlight
+desc: Stiff, achy or swollen hands in the morning? Learn the common causes, including hand arthritis, what eases stiff fingers, and when to see your doctor.
+blurb: Hand arthritis, stiff fingers and a sore thumb: what to look for and what eases it.
+updated: 2026-11-23
+related: dropping-things-and-opening-jars, morning-joint-stiffness, heat-or-ice-for-arthritis
+feel: Relief (name it, then lift the weight)
+@take
+- Stiff hands in the morning are common. Arthritis is one possible cause, and only a doctor can tell you which.
+- Osteoarthritis in the hand often shows up at the base of the thumb and in the finger joints. Its stiffness usually passes within 30 minutes.
+- Warmth first, then slowly opening and closing your fingers, helps many people ease in.
+- Aching joints and numb, tingling fingers point to different problems. Mention both to your doctor.
+- Stiffness that lasts longer than 30 minutes, hot or red joints, or both hands swelling together are worth a visit.
+@lead
+You reach for the kettle and your fingers won't close all the way. Or you go to button a shirt and the base of your thumb already hurts. It's an ordinary morning, and it can feel like a small insult. You're not imagining it, and you're not alone.
+@body
+## What stiff hands can feel like {#feel}
+
+Hands are busy joints, and arthritis can show up in them as aching, stiffness, swelling and a weaker grip. The Arthritis Foundation says osteoarthritis of the hand usually appears in three places: the base of the thumb, the joint closest to the fingertip, and the middle joint of the finger.[^2] The pain often comes and goes at first, gets worse with use, and eases with rest. Many people say it's worst in the morning.[^2]
+
+Some people notice firm bumps. Heberden's nodes form at the joint closest to the fingertip, and Bouchard's nodes form at the middle joint. Others hear a click or a grinding sound when they bend a finger.[^2]
+
+Bumps, clicks and swollen knuckles can look alarming. They are also well known to doctors, and there's plenty a doctor can do about them.
+
+## Is it arthritis, or just getting older? {#aging}
+
+From the inside, you can't tell. Age does raise the chance of osteoarthritis, but the National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS) says it isn't simply wear and tear, and not everyone gets it.[^1] The Arthritis Foundation says about half of women and one quarter of men will have hand osteoarthritis by age 85.[^2] That's common enough to be easy to wave away. It's also a good reason to ask.
+
+One clue is how long the stiffness lasts. Osteoarthritis stiffness usually passes in under 30 minutes.[^1] Rheumatoid arthritis, an autoimmune kind, commonly causes stiffness that lasts longer than 30 minutes and tends to affect matching joints on both sides of the body.[^3][^4]
+
+A clue is not a diagnosis. Doctors use your history, an exam and sometimes X-rays.[^1]
+
+## Aching, or numb and tingling? {#numb}
+
+These are different problems. Carpal tunnel syndrome causes numbness, tingling and sometimes sharp, shock-like pain in the wrist and thumb-side fingers, and it's often worse at night. Arthritis aches in the joints themselves, with stiffness and swelling.[^5] Both can happen at the same time.[^5]
+
+If numbness or tingling becomes constant, or wakes you at night, tell your doctor.
+
+## What eases it in the morning {#ease}
+
+Heat can temporarily ease joint pain. The Mayo Clinic lists heating pads, hot baths and showers, and limits a heating pad to 20 minutes at a time so you don't burn your skin.[^6] The Arthritis Foundation lists hand exercises and heat or cold among the non-drug ways to ease hand osteoarthritis.[^2]
+
+A gentle way to begin:
+
+1. Warm your hands under warm water, or hold a warm mug with both hands.
+2. Slowly open and close your fingers a few times.
+3. Wait a few minutes before anything that needs a strong grip, like a jar lid or a tight button.
+
+Our page on [morning joint stiffness](morning-joint-stiffness.html) has a full half-hour plan, and [opening jars and holding things](dropping-things-and-opening-jars.html) covers easier tools.
+
+!warn Tell your doctor if stiffness lasts longer than 30 minutes most mornings, if a joint looks red, feels hot or stays swollen, or if both hands swell at once. The Arthritis Foundation suggests a visit if joint symptoms last three days or more, or come back several times in a month.[^7] A hot, swollen joint with a fever needs care right away.
+@faq
+Q: Why are my hands so stiff in the morning?
+A: Joints that stay still overnight are often stiffest when you wake. Arthritis is one common cause. With osteoarthritis the stiffness usually passes in under 30 minutes. If it lasts longer, tell your doctor.
+Q: What does arthritis in the hands feel like?
+A: Aching or stiffness at the base of the thumb or in the finger joints, often worst in the morning. Some people also have swelling, a weaker grip, a clicking feeling, or firm bumps on the joints.
+Q: Do stiff hands in the morning always mean arthritis?
+A: No. Arthritis is one cause, and carpal tunnel syndrome and other problems can also affect the hands. Only a doctor can tell which one you have.
+Q: How do I loosen stiff fingers?
+A: Warm them first with warm water or a warm mug, then slowly open and close your hands. Heat can temporarily ease joint pain. Use a heating pad for no more than 20 minutes at a time.
+Q: Can hand arthritis go away?
+A: Osteoarthritis is a long-term condition with no cure, but heat, hand exercises, joint protection and treatments from your doctor can help manage the symptoms.
+Q: Why are my knuckles swollen?
+A: Swelling can come with arthritis, and it has other causes too. Swelling in both hands at once, or a joint that is hot and red, is worth a call to your doctor.
+@refs
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+Arthritis Foundation: Osteoarthritis of the hands | https://www.arthritis.org/diseases/more-about/osteoarthritis-of-the-hands
+NIAMS: Rheumatoid arthritis | https://www.niams.nih.gov/health-topics/rheumatoid-arthritis
+Arthritis Foundation: Is it rheumatoid arthritis or osteoarthritis? | https://www.arthritis.org/diseases/more-about/differences-between-rheumatoid-osteoarthritis
+Arthritis Foundation: Hand arthritis, carpal tunnel syndrome or both? | https://www.arthritis.org/diseases/more-about/arthritis-vs-carpal-tunnel
+Mayo Clinic: Arthritis pain, do's and don'ts | https://www.mayoclinic.org/diseases-conditions/arthritis/in-depth/arthritis/art-20046440
+Arthritis Foundation: When to see your doctor about joint pain | https://www.arthritis.org/health-wellness/about-arthritis/understanding-arthritis/when-joint-pain-means-its-time

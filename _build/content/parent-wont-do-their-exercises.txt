@@ -1,0 +1,64 @@
+title: When a Parent With Arthritis Won't Exercise
+h1: When Mom or Dad with arthritis won't exercise: gentle ways to help
+dek: You've suggested the walks, the stretches, the class. You get a wave of the hand. Why a parent may say no, and what actually helps, from the Arthritis Foundation, AARP and the CDC.
+cat: Caregivers
+hero: walk-together.jpg | Illustration of a younger woman walking arm in arm with an older man who uses a cane, at sunset
+desc: A parent with arthritis who won't exercise? Gentle, respectful ways to encourage movement, based on advice from the Arthritis Foundation, AARP and the CDC.
+blurb: Why a parent says no, and small, kind ways to say yes together.
+updated: 2026-11-23
+related: help-parent-with-arthritis, gifts-for-a-parent-with-arthritis, will-exercise-make-arthritis-worse
+feel: Belonging and relief (you're not the only one, and it's not your fault)
+@take
+- A parent who won't exercise may be afraid of pain, afraid of falling, or tired of being told what to do. All three are reasonable.
+- Start very small, pick something they enjoy, and do it together.
+- Fold movement into things they already do, like marching during commercials or chair squats after meals.
+- Let a doctor or physical therapist say it. Some parents listen better to a professional.
+- Stay patient and light. A power struggle is the fastest way to end the conversation.
+@lead
+You've said it kindly. You've said it twice. Mom still says her knees are too sore, or Dad says he'll "do it later." You worry, because you know movement helps, and you also know that pushing makes it worse. If that's where you are, you're in a very large crowd.
+@body
+## Why the answer is often no {#why}
+
+Pain, for one, and the worry that moving will hurt more. Fear of falling can drive reluctance too.[^1] Pride is another. Nobody likes being supervised. The Arthritis Foundation reminds families that pain isn't always visible, even on days a loved one seems fine, and that comparing it to someone else's doesn't help.[^2]
+
+## What helps, in small steps {#small}
+
+AARP's advice for motivating a less active older adult is simple and kind:[^1]
+
+- **Start small.** A little movement at first. Each bit builds toward lasting benefit.
+- **Choose what they enjoy.** Pair movement with a favorite podcast, audiobook or TV show, like pedaling a stationary bike while listening.
+- **Make it social.** Regular walks, a yoga class or gardening with friends or neighbors.
+- **Join them.** Do it together, such as chair tai chi, so they have someone to copy.
+- **Build it into the day.** Chair squats after meals, toe taps while the coffee brews, marching in place during commercials.
+- **Let them pick the outing.** Gardens, museums or a farmers market, with some walking built in.
+- **Bring in the grandchildren.** Gentle games like cornhole or freeze dance.
+- **Point out the good.** "You seem brighter after that walk."
+- **Keep it light.** Staying patient, calm and lighthearted avoids a power struggle.
+- **Allow aids.** A cane or rollator on walks is fine, since fear of falling often drives reluctance.
+
+The Arthritis Foundation adds that you can suggest low-impact options like walks or swims in a heated pool, sign up for a yoga or tai chi class together, and adjust plans on days when pain flares.[^2]
+
+## Let a professional say it {#pro}
+
+Some older adults are skeptical of family advice but listen to a doctor or physical therapist.[^1] The CDC suggests that people talk to a health care provider before starting, and a physical therapist can help them begin.[^3] You can offer to drive them or sit in on the appointment.[^2]
+
+## And if it's still a no {#no}
+
+Keep checking in, and let them know you're ready when they are. The Arthritis Foundation puts it well: stay persistent, even when they don't want help or company.[^2] Look after yourself too. Our [field guide for grown children](help-parent-with-arthritis.html) has ideas, and the free guide [7 well-meant mistakes](free-guide-parent.html) covers what to say instead.
+
+!warn If your parent has new, severe or worsening pain, a hot or swollen joint, a fever, or a recent fall, call their doctor before encouraging any new activity.
+@faq
+Q: Why won't my parent with arthritis exercise?
+A: Common reasons are fear of pain, fear of falling, and not wanting to be told what to do. Starting very small and choosing something they enjoy usually works better than pushing.
+Q: How can I motivate an elderly parent to move?
+A: AARP suggests starting small, pairing movement with something they enjoy, doing it together, building it into daily routines and keeping things lighthearted.
+Q: What exercises are safe for an older parent with arthritis?
+A: Low-impact choices like walking, tai chi, swimming or a heated-pool class, and chair exercises. A doctor or physical therapist can pick moves that fit their joints.
+Q: Should I nag my mom about her arthritis exercises?
+A: Nagging tends to cause power struggles. Offer a specific, easy plan, like "walk with me Saturday," and let a doctor or physical therapist reinforce it.
+Q: How can I help a parent with arthritis day to day?
+A: Ask what they need most, offer specific help like groceries or rides, respect their independence, and take their pain seriously even on good days.
+@refs
+AARP: Motivate sedentary older adults with daily strategies | https://www.aarp.org/caregiving/basics/caregiving-sedentary-adults/
+Arthritis Foundation: How to help a loved one with arthritis | https://www.arthritis.org/health-wellness/healthy-living/family-relationships/caregiving/how-to-help-loved-one-diagnosed-with-arthritis
+CDC: About physical activity and arthritis | https://www.cdc.gov/arthritis/prevention/index.html

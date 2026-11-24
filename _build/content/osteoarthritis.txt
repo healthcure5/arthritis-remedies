@@ -1,0 +1,73 @@
+title: Osteoarthritis: Symptoms, Causes and What Helps
+h1: Osteoarthritis: symptoms, causes and what helps
+dek: The most common kind of arthritis. What it feels like, who gets it, what we know about its causes, and the everyday steps that help, in plain words.
+cat: Types
+hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
+desc: Osteoarthritis explained: symptoms, causes, risk factors, how it is diagnosed, and what helps, from NIAMS, CDC and the Arthritis Foundation.
+blurb: Symptoms, causes and everyday steps for the most common arthritis.
+updated: 2026-11-23
+related: types-of-arthritis, will-exercise-make-arthritis-worse, stiff-hips-and-knees-when-walking
+feel: Calm and capable
+@take
+- Osteoarthritis (OA) is the most common type of arthritis. The joint tissues gradually break down over time.
+- It often affects the finger ends and thumb base, knees, hips, neck and lower back.
+- Stiffness usually lasts under 30 minutes, in the morning or after rest.
+- NIAMS says it is not simply wear and tear. Age, extra weight, past injuries, overuse and family history all play a part.
+- Exercise and weight management are first-line steps. There is no cure, but symptoms can be managed.
+@lead
+If a doctor has said "osteoarthritis," or you suspect it, you've probably heard it called wear and tear. The reality is a little different, and a little more hopeful. Here is what the NIH and others say, in plain words.
+@body
+## What it is {#what}
+
+NIAMS describes osteoarthritis as a joint disease in which the joint tissues gradually break down over time. It is the most common type of arthritis and is more common in older people. Women are more likely than men to have it, especially after age 50. Younger people can develop it, usually after a joint injury or a problem with how the joint formed.[^1]
+
+## Symptoms {#symptoms}
+
+It tends to start slowly, in one or a few joints. NIAMS lists:[^1]
+
+- Pain during use that may ease with rest, and sometimes is worse at night in later stages
+- Stiffness that usually lasts under 30 minutes, in the morning or after rest
+- Swelling, especially after heavy use
+- Less range of motion
+- A feeling that the joint is loose or unstable
+
+The joints most affected are the finger ends and thumb joints, knees, hips, neck and lower back. As it progresses, stairs, sitting down, standing up and gripping can become hard. Pain can also lead to fatigue, sleep problems and low mood.[^1] In the hand, you may see firm bumps called Heberden's and Bouchard's nodes, and hear clicking or grinding.[^2]
+
+## Causes and risk factors {#causes}
+
+NIAMS says it isn't simply wear and tear. Risk factors include aging, excess weight, past joint injury or surgery, repeated overuse, malformed joints and family history.[^1]
+
+## How it's diagnosed {#diagnosis}
+
+There's no single test. Doctors use your medical history, a physical exam, X-rays or MRI, blood tests to rule out other causes, and sometimes joint fluid tests to check for infection or gout.[^1]
+
+## What helps {#helps}
+
+OA is long-term with no cure, but NIAMS lists these ways to manage it:[^1]
+
+- **Exercise**, which can reduce pain and stiffness and improve flexibility and strength. Start slowly. See [will exercise make it worse?](will-exercise-make-arthritis-worse.html)
+- **Weight management**, which lowers joint stress and can ease knee and hip pain
+- **Braces or orthotics**, fitted by a health professional
+- **Medicines** for some people, and surgery only if other treatments fail
+- **Self-care**: heat and cold, canes or walkers, grip aids like jar openers, avoiding repeated motions, and classes or support groups
+
+The CDC adds low-cost self-management workshops and a goal of 150 minutes of activity a week, in short sessions if you like.[^3]
+
+!warn See your doctor if joint pain is new or worsening, if a joint is hot, red or swollen, or if morning stiffness lasts longer than 30 minutes most days. A hot joint with a fever needs care right away.
+@faq
+Q: What is osteoarthritis?
+A: A joint disease in which the joint tissues gradually break down over time. It's the most common type of arthritis, according to NIAMS.
+Q: What are the first signs of osteoarthritis?
+A: Often pain with use, stiffness that usually passes in under 30 minutes, some swelling and less movement in one or a few joints.
+Q: What causes osteoarthritis?
+A: NIAMS says it's not simply wear and tear. Aging, extra weight, past injury, overuse, malformed joints and family history all raise the risk.
+Q: Can osteoarthritis be cured?
+A: No. It's long-term, but exercise, weight management, self-care and medical treatment can manage the symptoms.
+Q: Which joints does osteoarthritis affect most?
+A: The finger ends and thumb joints, knees, hips, neck and lower back.
+Q: Is osteoarthritis the same as arthritis?
+A: It's one type of arthritis, the most common. Others include rheumatoid arthritis, gout and psoriatic arthritis.
+@refs
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+Arthritis Foundation: Osteoarthritis of the hands | https://www.arthritis.org/diseases/more-about/osteoarthritis-of-the-hands
+CDC: Self-care for arthritis, five ways to manage your symptoms | https://www.cdc.gov/arthritis/caring/index.html

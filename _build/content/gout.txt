@@ -1,0 +1,62 @@
+title: Gout: Symptoms, Causes and When to See a Doctor
+h1: Gout: sudden, severe joint pain, what causes it and when to get help
+dek: A red, hot, painful big toe in the middle of the night is the classic picture. What gout is, who is at risk, how long attacks last, and why a hot joint with a fever is an emergency.
+cat: Types
+hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
+desc: Gout explained: sudden joint pain often in the big toe, causes, risk factors, how long attacks last, and when to see a doctor, from NIAMS and Mayo Clinic.
+blurb: Sudden night-time pain, risk factors and when gout needs urgent care.
+updated: 2026-11-23
+related: types-of-arthritis, arthritis-pain-at-night, joint-pain-what-does-it-mean
+feel: Reassurance and clarity (painful, understood, manageable)
+@take
+- Gout is an inflammatory arthritis caused by urate crystals in and around a joint.
+- Attacks often start suddenly at night, most often in the big toe, with pain, swelling, redness and warmth.
+- Pain is typically worst in the first 8 to 12 hours, and flares usually settle in a week or two.
+- Risk rises with alcohol, sugary drinks, some foods, extra weight, some medicines and conditions like high blood pressure and kidney disease.
+- A hot, inflamed joint with a fever needs medical care immediately.
+@lead
+You went to bed fine. At 3 a.m. your big toe feels like it's on fire, and even the bedsheet hurts. That's the classic picture of a gout attack. It's painful, it's common, and it's well understood.
+@body
+## What gout is {#what}
+
+NIAMS says gout is an inflammatory arthritis. Urate builds up over a long time and forms needle-shaped crystals in and around joints, causing inflammation. Many people with high urate levels never get gout.[^1]
+
+## What an attack looks like {#attack}
+
+- Pain, swelling, redness and warmth in a joint, usually one
+- Often the big toe or another part of the lower limb, though any joint can be affected
+- Flares often begin suddenly at night, with pain strong enough to wake you[^1]
+- Pain is typically worst in the first 8 to 12 hours, and lingering discomfort can last from a few days to a few weeks[^2]
+- Redness is harder to see on Black or brown skin[^2]
+
+Flares typically settle over a week or two, with no symptoms in between.[^1]
+
+## Who is at risk {#risk}
+
+NIAMS and the Mayo Clinic list high urate levels, family history, male sex, menopause and age, as well as alcohol (especially beer), sugary drinks, red meat and shellfish, overweight, high blood pressure, diabetes, kidney disease and some medicines such as diuretics and low-dose aspirin. Injury or surgery can trigger an attack.[^1][^2] Men are more likely to develop it from about age 30 to 50, and women more often after age 60.[^2]
+
+## Complications {#complications}
+
+Repeated untreated gout can damage joints. Firm lumps of urate crystals called tophi can form under the skin, and urate crystals can cause kidney stones.[^2] NIAMS says early diagnosis, treatment and lifestyle changes help control gout and reduce flare severity.[^1]
+
+## When to get help {#help}
+
+Call your doctor for sudden, intense joint pain. Get medical care immediately if a hot, inflamed joint comes with a fever, since it can signal infection.[^2]
+
+Not every sudden hot joint is gout, so don't treat it yourself without a diagnosis. Read more in [what joint pain can mean](joint-pain-what-does-it-mean.html).
+
+!warn A hot, red, swollen joint with a fever is an emergency. Don't wait it out. Never stop or start medicines for gout without your doctor's advice.
+@faq
+Q: What does a gout attack feel like?
+A: Sudden, intense pain with swelling, redness and warmth in a joint, most often the big toe, often starting at night. The pain is typically worst in the first 8 to 12 hours.
+Q: What causes gout?
+A: Urate builds up and forms needle-shaped crystals in and around joints. Risk rises with alcohol, sugary drinks, some foods, extra weight, some medicines and conditions like high blood pressure and kidney disease.
+Q: How long does a gout attack last?
+A: Flares typically settle over a week or two, according to NIAMS. Lingering discomfort can last from a few days to a few weeks, according to Mayo Clinic.
+Q: Does gout only affect the big toe?
+A: It's most often the big toe, but any joint can be affected, including ankles, knees, elbows, wrists and fingers.
+Q: When is a gout attack an emergency?
+A: When a hot, inflamed joint comes with a fever. That can signal infection and needs care immediately.
+@refs
+NIAMS: Gout | https://www.niams.nih.gov/health-topics/gout
+Mayo Clinic: Gout, symptoms and causes | https://www.mayoclinic.org/diseases-conditions/gout/symptoms-causes/syc-20372897

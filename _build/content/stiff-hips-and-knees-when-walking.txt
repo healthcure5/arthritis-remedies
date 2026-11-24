@@ -1,0 +1,58 @@
+title: Stiff Hips and Knees When Walking: What Helps
+h1: Stiff hips and knees when you walk: what it can mean and what helps
+dek: A groin ache that follows you across the room, a knee that complains after sitting, a walk that has turned into a limp. What hip and knee osteoarthritis can feel like, and the steps that help.
+cat: Knees and hips
+hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
+desc: Stiff hips and knees when walking or standing up? Learn what hip and knee osteoarthritis can feel like, what helps, and when to see your doctor.
+blurb: Groin pain, knee stiffness and a limp: what hip and knee arthritis can feel like.
+updated: 2026-11-23
+related: why-are-stairs-so-hard-with-arthritis, will-exercise-make-arthritis-worse, arthritis-pain-at-night
+feel: Calm and hope (small steps, real options)
+@take
+- Pain in the groin is the most common sign of hip osteoarthritis. It can also be felt in the thigh, buttock or down to the knee.
+- Hip and knee stiffness often feels worse in the morning and after sitting or resting.
+- Low-impact exercise, a healthy weight, physical therapy and walking aids are all ways to ease it.
+- Walking is one of the activities the Arthritis Foundation recommends, in short pieces if you need to.
+- A limp that is new, a joint that locks, or severe pain are good reasons to see a doctor.
+@lead
+You stand up from the couch and your first few steps are slow and careful, like walking onto ice. After a minute you loosen up and carry on. Then you sit again and it starts over. This is a pattern many people with hip or knee arthritis describe, and it's one you can work with.
+@body
+## What hip and knee arthritis can feel like {#feel}
+
+The Arthritis Foundation says pain in the groin is the most common sign of hip osteoarthritis, and it can also show up in the thigh, the buttocks or down the leg to the knee. The hip can feel stiff, which makes walking and bending harder, and the symptoms are often worse in the morning or after sitting or resting. Some people feel a grinding or a "sticking" in the joint, and a limp can develop.[^1]
+
+NIAMS describes the general pattern for osteoarthritis: pain during use that may ease with rest, stiffness that usually lasts under 30 minutes in the morning or after rest, swelling, less range of motion, and sometimes a feeling that the joint is loose or unstable.[^2]
+
+## What helps day to day {#helps}
+
+None of these is a cure. Together they can make walking easier.
+
+- **Low-impact exercise.** The Arthritis Foundation lists water aerobics and swimming as especially good for the hip.[^1] Walking at a moderate pace for 30 to 60 minutes a day is the goal, and beginners can split it into 10-minute pieces.[^3]
+- **Weight.** NIAMS says weight management lowers joint stress and can ease knee and hip pain.[^2]
+- **Walking aids.** A cane or walker can add stability, and braces or orthotics can be fitted by a health professional.[^2]
+- **Heat or cold.** Heat can ease stiff joints for a while. Ice packs can calm soreness after activity, with a thin towel between the ice and your skin.[^4]
+- **Physical or occupational therapy.** Both are listed as non-drug options for the hip.[^1]
+
+## When the choice is bigger {#bigger}
+
+If pain keeps getting in the way of daily life despite self-care, medicines can help. For hip osteoarthritis, the Arthritis Foundation lists pain relievers, topical gels and steroid injections. Surgery, including hip replacement, is considered if pain persists despite the other treatments.[^1] That is a conversation for you and your doctor, and nothing on this page replaces it.
+
+See also [why stairs are so hard](why-are-stairs-so-hard-with-arthritis.html) and the [chair exercises](gentle-exercises-for-arthritis-seniors.html).
+
+!warn See your doctor if hip or knee pain is new or getting worse, if the joint locks, gives way or looks swollen, red or hot, or if pain wakes you at night. A hot joint with a fever needs care right away.
+@faq
+Q: Why are my hips so stiff when I get up from sitting?
+A: Stiffness that is worse after sitting or resting is a common pattern with hip osteoarthritis, according to the Arthritis Foundation. Moving a little usually helps it ease.
+Q: Where do you feel hip arthritis pain?
+A: Most often in the groin. It can also be felt in the thigh, the buttocks, or down the leg to the knee.
+Q: How do I walk easier with stiff knees?
+A: Low-impact exercise, a healthy weight, a cane or brace if a professional fits one, and warmth before you walk can all help. Beginners can split walks into 10-minute pieces.
+Q: Is walking good for hip and knee arthritis?
+A: Yes for most people. The Arthritis Foundation recommends 30 to 60 minutes a day at a moderate pace, built up slowly. Check with your doctor first.
+Q: When should I see a doctor about hip or knee pain?
+A: When pain is new, getting worse, wakes you at night, or comes with a hot, red or swollen joint. Fever with a hot joint needs care right away.
+@refs
+Arthritis Foundation: Osteoarthritis of the hip | https://www.arthritis.org/health-wellness/about-arthritis/understanding-arthritis/hip-osteoarthritis
+NIAMS: Osteoarthritis | https://www.niams.nih.gov/health-topics/osteoarthritis
+Arthritis Foundation: Physical therapy for osteoarthritis | https://www.arthritis.org/health-wellness/treatment/complementary-therapies/physical-therapies/osteoarthritis-physical-therapy
+Mayo Clinic: Arthritis pain, do's and don'ts | https://www.mayoclinic.org/diseases-conditions/arthritis/in-depth/arthritis/art-20046440
