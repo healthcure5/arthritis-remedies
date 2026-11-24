@@ -3,7 +3,7 @@ h1: Dropping things and struggling with jar lids: easier ways to use sore hands
 dek: A cup slips, a lid won't turn, a pen is too small to hold. What hand arthritis does to grip, and the simple tools and habits that take the strain off your joints.
 cat: Hands
 hero: easy-kitchen.jpg | Illustration of a sunny kitchen counter with a kettle, mugs, large-handled spoons and a rubber jar opener
-desc: Dropping things or can't open jars? How arthritis weakens grip, and the tools and habits Mayo Clinic and the Arthritis Foundation suggest to protect your hands.
+desc: Dropping things or can't open jars? How arthritis weakens grip, and the tools and habits Mayo Clinic and the Arthritis Foundation suggest for your hands.
 blurb: Easier jars, pens, knives and doors: tools and habits that spare sore hands.
 updated: 2026-11-23
 related: stiff-hands-in-the-morning, gifts-for-a-parent-with-arthritis, help-parent-with-arthritis

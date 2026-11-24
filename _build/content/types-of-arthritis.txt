@@ -1,9 +1,9 @@
 title: Types of Arthritis: A Plain Guide
 h1: Types of arthritis: a plain guide to osteoarthritis, rheumatoid, gout and more
-dek: "Arthritis" is a family of conditions, not one disease. The main kinds, how they tend to differ, and where to read more about each.
+dek: "Arthritis" is a family of more than 100 conditions, not one disease. Here are the main kinds, how they tend to differ, and where to read more about each.
 cat: Types
 hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
-desc: How many kinds of arthritis are there? A plain guide to osteoarthritis, rheumatoid arthritis, gout, psoriatic arthritis and ankylosing spondylitis.
+desc: How many kinds of arthritis are there? The CDC counts more than 100. Osteoarthritis, rheumatoid, gout, psoriatic and spondylitis, in plain words.
 blurb: Osteoarthritis, rheumatoid, gout, psoriatic and spondylitis in plain words.
 updated: 2026-11-23
 related: joint-pain-what-does-it-mean, osteoarthritis, rheumatoid-arthritis

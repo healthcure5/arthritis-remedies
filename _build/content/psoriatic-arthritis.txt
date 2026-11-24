@@ -1,6 +1,6 @@
 title: Psoriatic Arthritis: Symptoms and Early Signs
 h1: Psoriatic arthritis: swollen fingers, nail changes and joint pain
-dek: An inflammatory arthritis linked to psoriasis. The signs to look for, who gets it, and why seeing a doctor early matters.
+dek: Sore joints, scaly skin and odd changes to the nails can be linked. The signs of psoriatic arthritis, who gets it, and why seeing a doctor early matters.
 cat: Types
 hero: dawn-bedroom.jpg | Illustration of a bedroom at sunrise with a glass of water, glasses and slippers ready beside the bed
 desc: Psoriatic arthritis explained: joint pain, sausage-like swollen fingers or toes, nail changes and skin patches, who gets it, and why early care matters.

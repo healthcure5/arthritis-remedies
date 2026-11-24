@@ -1,9 +1,9 @@
 title: Will Exercise Make Arthritis Worse? What to Know
 h1: Will exercise make my arthritis worse? And am I too old to start?
-dek: The fear is common and fair: it already hurts, so why move? What the CDC, the Mayo Clinic and the Arthritis Foundation say about starting gently, and how to tell normal soreness from a warning sign.
+dek: The fear is common and fair: it already hurts, so why move? What the CDC, the Mayo Clinic and the Arthritis Foundation say about starting slowly, and how to tell normal soreness from a warning sign.
 cat: Movement
 hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
-desc: Afraid exercise will make arthritis worse? What the CDC and Mayo Clinic say about safe movement, how to start gently at any age, and when to stop.
+desc: Afraid exercise will make arthritis worse? What the CDC and Mayo Clinic say about safe movement, how to start slowly at any age, and when to stop.
 blurb: The honest answer on exercise, soreness and starting late in life.
 updated: 2026-11-23
 related: gentle-exercises-for-arthritis-seniors, tried-everything-nothing-works, why-are-stairs-so-hard-with-arthritis

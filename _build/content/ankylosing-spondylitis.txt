@@ -1,9 +1,9 @@
 title: Ankylosing Spondylitis: Back Pain and Stiffness
 h1: Ankylosing spondylitis: when back pain and stiffness are more than a sore back
-dek: Also called axial spondyloarthritis. A spine-focused inflammatory arthritis that often starts in early adulthood. The signs that set it apart and when to ask for help.
+dek: Back pain that is worse after rest and eases when you move is a clue worth knowing. Also called axial spondyloarthritis, it often starts in early adulthood. The signs, and when to ask for help.
 cat: Types
 hero: walk-together.jpg | Illustration of a younger woman walking arm in arm with an older man who uses a cane, at sunset
-desc: Ankylosing spondylitis (axial spondyloarthritis): back pain and stiffness that is worse after rest, who gets it, warning signs and when to see a doctor.
+desc: Back pain worse after rest and better with movement? Signs of ankylosing spondylitis (axial spondyloarthritis), who gets it, and when to see a doctor.
 blurb: Back pain that's worse after rest and eases with movement.
 updated: 2026-11-23
 related: types-of-arthritis, arthritis-pain-at-night, joint-pain-what-does-it-mean

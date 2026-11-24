@@ -1,9 +1,9 @@
 title: Does This Sound Like Arthritis? Everyday Stories
 h1: Does this sound like arthritis? Eight everyday stories
-dek: Short, familiar stories of joint trouble, and what kind of problem each one can point to. Not a diagnosis. A way to put words to what you feel before you talk to a doctor.
+dek: Short, familiar stories of joint trouble, and the kind of problem each can point to. Use them to find words for what you feel before you see a doctor.
 cat: Symptoms
 hero: warm-mug-hands.jpg | Illustration of older hands wrapped around a warm mug in morning sunlight
-desc: Eight everyday stories of morning stiffness, swollen toes, sausage fingers, back pain and more, and what each can point to. A plain guide, not a diagnosis.
+desc: Eight everyday stories of morning stiffness, a swollen toe, sausage fingers and back pain, and what each can point to. Find the one that sounds like you.
 blurb: Eight familiar stories of stiff, sore joints and what they can point to.
 updated: 2026-11-23
 related: joint-pain-what-does-it-mean, types-of-arthritis, arthritis-words-explained

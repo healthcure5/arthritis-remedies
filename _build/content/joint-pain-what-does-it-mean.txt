@@ -1,9 +1,9 @@
 title: Joint Pain: What It Means and When to Get Help
 h1: Joint pain: what it can mean, and when to see a doctor
-dek: Aching, stiff, swollen or hot joints can have many causes. A plain guide to what the signs can point to, what needs care quickly, and what to expect at the visit.
+dek: Aching, stiff, swollen or hot joints have many causes. Here is what the signs can point to, which ones need care quickly, and what to expect at the visit.
 cat: Symptoms
 hero: dawn-bedroom.jpg | Illustration of a bedroom at sunrise with a glass of water, glasses and slippers ready beside the bed
-desc: Joint pain explained in plain words: what different symptoms can mean, red flags that need care quickly, and what to expect when you see a doctor.
+desc: What does joint pain mean? What stiff, swollen or hot joints can point to, the signs that need care quickly, and what to expect when you see a doctor.
 blurb: What aching, stiff, swollen or hot joints can mean, and when to get help.
 updated: 2026-11-23
 related: types-of-arthritis, does-this-sound-like-arthritis, arthritis-words-explained
@@ -54,7 +54,7 @@ NIAMS says doctors usually start with your history and an exam, and may add X-ra
 
 ## While you wait {#wait}
 
-Gentle steps many people use include warmth, short walks and joint-friendly aids. Our pages on [heat or ice](heat-or-ice-for-arthritis.html) and [pain at night](arthritis-pain-at-night.html) cover them, with sources.
+Easy steps many people use include warmth, short walks and joint-friendly aids. Our pages on [heat or ice](heat-or-ice-for-arthritis.html) and [pain at night](arthritis-pain-at-night.html) cover them, with sources.
 @faq
 Q: What does joint pain usually mean?
 A: It can mean arthritis, but also an injury, overuse, infection or another condition. A doctor can tell which from your history, an exam and sometimes tests.

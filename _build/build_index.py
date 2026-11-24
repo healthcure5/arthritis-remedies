@@ -20,7 +20,7 @@ def shell(slug, title, desc, h1, dek, body, extra_ld=''):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Hinge Care"><meta property="og:title" content="{e(h1)}"><meta property="og:description" content="{e(desc)}">
-<link rel="stylesheet" href="journal.css?v=11">{extra_ld}</head><body><a class="skip" href="#main">Skip to content</a><div id="prog"></div>{hdr}<main id="main"><header class="ihead"><div class="kick"><a href="articles.html">Journal</a></div><h1>{e(h1)}</h1><p class="dek" style="margin:0;max-width:720px">{dek}</p></header>{body}</main>{bj.footer}</body></html>
+<link rel="stylesheet" href="journal.css?v=12">{extra_ld}</head><body><a class="skip" href="#main">Skip to content</a><div id="prog"></div>{hdr}<main id="main"><header class="ihead"><div class="kick"><a href="articles.html">Journal</a></div><h1>{e(h1)}</h1><p class="dek" style="margin:0;max-width:720px">{dek}</p></header>{body}</main>{bj.footer}</body></html>
 '''
 # --- questions index
 order = ['Types', 'Symptoms', 'Mornings', 'Movement', 'Remedies', 'Caregivers', 'Glossary']

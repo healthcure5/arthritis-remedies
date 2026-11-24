@@ -1,6 +1,6 @@
 title: Osteoarthritis: Symptoms, Causes and What Helps
 h1: Osteoarthritis: symptoms, causes and what helps
-dek: The most common kind of arthritis. What it feels like, who gets it, what we know about its causes, and the everyday steps that help, in plain words.
+dek: If a doctor has said osteoarthritis, or you suspect it, here is what it is, what causes it, and the everyday steps that help. The NIH says it is not simply wear and tear.
 cat: Types
 hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
 desc: Osteoarthritis explained: symptoms, causes, risk factors, how it is diagnosed, and what helps, from NIAMS, CDC and the Arthritis Foundation.

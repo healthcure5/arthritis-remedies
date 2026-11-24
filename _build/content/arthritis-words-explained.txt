@@ -1,6 +1,6 @@
 title: Arthritis A to Z: Plain Meanings of Hard Words
 h1: Arthritis A to Z: the hard words, in plain English
-dek: Doctors use a lot of long words. Here are the common ones you may hear or read, with short, plain meanings.
+dek: Long words in a doctor's office can stop anyone cold. Here are the common ones in short, plain meanings, so you can keep up and ask better questions.
 cat: Glossary
 hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
 desc: A plain-English glossary of arthritis words: osteoarthritis, rheumatoid, gout, rheumatologist, Heberden's nodes, flare, urate, tophi, NSAIDs and more.

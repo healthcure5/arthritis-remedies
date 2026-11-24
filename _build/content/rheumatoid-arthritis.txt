@@ -1,9 +1,9 @@
 title: Rheumatoid Arthritis: Symptoms and What to Know
 h1: Rheumatoid arthritis: symptoms, who gets it and why early care matters
-dek: An autoimmune kind of arthritis that can cause long morning stiffness, swelling and tiredness. How it differs from osteoarthritis, and when to see a doctor.
+dek: Long stiff mornings, both hands aching and a tiredness sleep doesn't touch. What rheumatoid arthritis is, how it differs from osteoarthritis, and why seeing a doctor early matters.
 cat: Types
 hero: warm-mug-hands.jpg | Illustration of older hands wrapped around a warm mug in morning sunlight
-desc: Rheumatoid arthritis explained: symptoms, how it differs from osteoarthritis, who gets it, and why early treatment matters, from NIAMS and the Arthritis Foundation.
+desc: Rheumatoid arthritis explained: symptoms, how it differs from osteoarthritis, who gets it, and why early treatment matters, per NIAMS and the Arthritis Foundation.
 blurb: Long morning stiffness, matching joints and why early treatment matters.
 updated: 2026-11-23
 related: types-of-arthritis, osteoarthritis, stiff-hands-in-the-morning
@@ -46,7 +46,7 @@ The Arthritis Foundation lists the main differences:[^2]
 
 ## Why early treatment matters {#early}
 
-NIAMS says that if RA isn't treated, or treatment isn't working, it can worsen and affect more joints, causing more damage and disability. The goal of treatment is remission or near remission, and it says current treatments can help people lead productive lives.[^1] Gentle movement is part of living well with RA. During a flare, the Mayo Clinic says your care team may suggest only range-of-motion or water exercise.[^3]
+NIAMS says that if RA isn't treated, or treatment isn't working, it can worsen and affect more joints, causing more damage and disability. The goal of treatment is remission or near remission, and it says current treatments can help people lead productive lives.[^1] Staying active is part of living well with RA. During a flare, the Mayo Clinic says your care team may suggest only range-of-motion or water exercise.[^3]
 
 @faq
 Q: What are the first signs of rheumatoid arthritis?
