@@ -43,7 +43,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
   var PROGRAMS = [
     ['guide.html', 'Free guide', 'A kind first step, on us'],
     ['book.html', 'The Joint Reset', 'Stop guessing. Feel calm and clear.'],
-    ['course-info.html', 'The Hinge Care Program', 'Eight weeks to feeling more like you'],
+    ['course-info.html', 'The Hinge Care Program', 'One small step at a time, toward feeling like you'],
     ['club.html', 'The Club', 'A letter every Sunday, $7 a month'],
     ['mornings.html', 'Easier Mornings', 'A gift for a parent, $19 a month'],
     ['circle.html', 'The Circle', 'Twelve Tuesdays with a small group']
