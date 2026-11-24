@@ -1,0 +1,81 @@
+{
+"name": "Margaret",
+"made_for": "Osteoarthritis in both knees and her hands",
+"goal": "Spend a morning in the garden again without paying for it all evening",
+"date": "Sample plan",
+"sample_note": "This is a sample plan for a made-up reader, to show what a Personal Joint Plan looks like. Your own plan is written from your answers.",
+"note": [
+  "Margaret, thank you for telling us about your mornings. The 40 stiff minutes before your knees wake up. The jar lids. The way the garden used to be the best part of your day, and now it's the part you put off.",
+  "This plan doesn't ask you to change your life. It fits around the one you have. Coffee at 7, the radio, your sister's call on Thursdays. We built everything around those.",
+  "You told us the heating pad helps and glucosamine didn't. So we kept the warmth and left the pills out. You also said you'd rather move than sit. Good. That's the strongest thing in this plan.",
+  "Start small. Some days you'll do all three anchors. Some days one. Both count."
+],
+"how_to_use": [
+  "Read pages 3 and 4 first. That's your day.",
+  "Stick the two fridge cards on the fridge.",
+  "Tick the 30-day sheet each time you do an anchor.",
+  "Reply to our check-in emails. That's how your plan gets better."
+],
+"anchors": [
+  {"title": "Warm up before you stand", "short": "Bed moves", "why": "Five minutes under the covers so your knees aren't cold and stiff when they take your weight."},
+  {"title": "The garden, in short visits", "short": "Garden", "why": "Fifteen minutes on a kneeling pad, then rest. Short visits you can repeat beat one long one you pay for."},
+  {"title": "Six chair stands after lunch", "short": "Chair stands", "why": "Strong thigh muscles carry weight your knees don't have to."}
+],
+"routine": [
+  {"when": "Before you get up", "steps": ["Circle each ankle 5 times each way.", "Pump your feet: point the toes, then pull them back, 10 times.", "Slide one heel up toward you and back down, 5 times each leg.", "Sit on the edge of the bed. Make 10 soft fists, opening your fingers wide each time."]},
+  {"when": "Morning, with your coffee", "steps": ["Warm shower, or a heat pad on the stiffer knee for 15 minutes.", "Hands in a bowl of warm water for one minute, then touch your thumb to each fingertip."]},
+  {"when": "After breakfast", "steps": ["Garden for 15 minutes on a kneeling pad or a low stool.", "Come in, sit, and wrap the knee in a warm towel for 10 minutes.", "If you feel good, go back out for another 15. Stop while you still feel fine."]},
+  {"when": "After lunch", "steps": ["Six slow chair stands from your kitchen chair, hands on the table. Count 3 up and 3 down.", "A 10-minute walk to the mailbox and around the block."]},
+  {"when": "Evening", "steps": ["Rub cayenne (capsaicin) cream on the sorest knee. Wash your hands after.", "Five slow breaths in bed: in for 4, out for 6."]}
+],
+"weeks": [
+  {"title": "Week 1. Just the anchors.", "text": "Bed moves every morning, one 15-minute garden visit, and 4 chair stands after lunch. Nothing more. You're building the habit, not the muscle."},
+  {"title": "Week 2. Add the walk.", "text": "Keep the anchors and add the 10-minute walk after lunch. Chair stands go up to 5."},
+  {"title": "Week 3. Two garden visits.", "text": "Try two 15-minute visits with a warm-towel rest between. Chair stands go up to 6."},
+  {"title": "Week 4. Make it yours.", "text": "Keep what helped, drop what didn't, and tell us at your check-in. We'll write your next steps."}
+],
+"checkins": [
+  {"when": "Day 7", "what": "How are the morning moves and the garden visits going?"},
+  {"when": "Day 14", "what": "What feels easier, and what still bothers you?"},
+  {"when": "Day 28", "what": "Your plan for the month after this one."}
+],
+"comforts_intro": "You told us warmth helps. These build on that, in the order we'd try them.",
+"comforts": [
+  {"name": "1. Warm and cool water for your hands", "how": "Warm water for 3 minutes, cold for 30 seconds, three times, ending on cold. Then open and close your hands while they're loose. Great before opening jars."},
+  {"name": "2. Cayenne cream for your knee", "how": "A thin layer on the sorest knee 3 or 4 times a day. It stings for the first week or two, then the relief builds. Give it 3 weeks before you decide."},
+  {"name": "3. A castor oil compress at night", "how": "Soft cotton soaked in castor oil, wrapped round the knee, covered and left on overnight. Barbara O'Neill swears by it. It's soothing and costs very little."},
+  {"name": "You can skip", "how": "Glucosamine. You tried it and felt nothing, and the biggest studies agree with you."}
+],
+"food_intro": "You eat toast and coffee for breakfast, a sandwich at lunch and pasta most nights. These swaps keep the foods you like and add more of what's kind to joints.",
+"food_swaps": [
+  {"from": "white toast", "to": "whole-grain toast with mashed avocado, or oats with berries and a spoon of ground flaxseed"},
+  {"from": "a deli-meat sandwich", "to": "a hummus and roasted-vegetable sandwich, or lentil soup with a slice of good bread"},
+  {"from": "pasta with cream sauce", "to": "pasta with tomatoes, olive oil, garlic and spinach"},
+  {"from": "cookies in the afternoon", "to": "a handful of walnuts and a bowl of tart cherries, fresh or frozen"},
+  {"from": "plain table salt", "to": "Celtic salt, a little at a time. Check with your doctor first, since you take a blood-pressure medicine"}
+],
+"drinks": "Keep your morning coffee. Add a glass of water before each meal, about 8 glasses a day in all. Warm water with lemon is a nice start to the day.",
+"flare": [
+  "Do half of what you'd normally do. Don't stop completely.",
+  "Cold pack wrapped in a cloth on a puffy, hot knee, 15 minutes. Warmth if it's just stiff.",
+  "Skip the garden, keep the bed moves.",
+  "Five slow breaths, out longer than in.",
+  "Ask your sister to bring the groceries on Thursday.",
+  "When it settles, build back up over a few days."
+],
+"call_doctor": [
+  "A knee turns hot, red and very swollen, mostly with a fever.",
+  "You fall and can't put weight on your leg.",
+  "A bad spell isn't easing after a week."
+],
+"lessons": [
+  {"title": "Osteoarthritis: what is happening in your joint", "why": "Why moving feeds your knees."},
+  {"title": "A routine you can do before you stand up", "why": "Your bed moves, step by step."},
+  {"title": "The chair routine", "why": "Your chair stands and a few more for later."},
+  {"title": "Heat, cold and water", "why": "The warm and cool water swap for your hands."},
+  {"title": "Osteoarthritis: food, weight and your knees", "why": "The thinking behind your food swaps."},
+  {"title": "Your flare-up plan", "why": "So bad days don't undo the good ones."}
+],
+"fridge_morning": ["Bed moves before I stand", "Warm shower or heat pad", "Hands in warm water, thumb to each finger", "Garden 15 minutes, then a warm towel", "6 chair stands after lunch"],
+"fridge_flare": ["Half, not nothing", "Cold if hot, warm if stiff", "Bed moves only", "5 slow breaths", "Call Sue for groceries", "Doctor if hot, red and swollen with fever"]
+}
