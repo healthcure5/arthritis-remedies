@@ -51,15 +51,28 @@ def build(P):
     anchors = ''.join('<div class="anchor"><b>%s</b>%s</div>' % (e(a['title']), e(a['why'])) for a in P['anchors'])
     checks = ''.join('<li><b>%s:</b> %s</li>' % (e(c['when']), e(c['what'])) for c in P['checkins'])
     sample = '<p class="sample">%s</p>' % e(P['sample_note']) if P.get('sample_note') else ''
+    D = P.get('doctor') or {}
+    doctor_page = ''
+    if D:
+        qs = ''.join('<li>%s</li>' % e(q) for q in D.get('questions', [])) + '<li>&nbsp;</li><li>&nbsp;</li>'
+        doctor_page = ('<section class="page"><h2>For your next doctor visit</h2><p class="small">Print this page and take it with you. Add anything new before you go.</p>'
+            '<div class="box"><p><b>Name:</b> %s</p><p><b>Joints that bother me:</b> %s</p><p><b>Morning stiffness:</b> %s</p><p><b>Usual pain:</b> %s</p><p><b>What I\'ve tried:</b> %s</p><p><b>What I\'m doing now:</b> %s</p></div>'
+            '<h3>My questions</h3><ul>%s</ul><h3>What the doctor said</h3><div class="box" style="height:1.0in;background:#fff"></div></section>') % (e(P['name']), e(D.get('joints','')), e(D.get('stiffness','')), e(D.get('pain','')), e(D.get('tried','')), e(D.get('doing_now','')), qs)
+    family_page = ''
+    if P.get('family'):
+        family_page = '<section class="page"><h2>For your family</h2><p>A page to share with the people who care about you. It tells them how to help, without taking over.</p>%s</section>' % ul(P['family'])
+    changes_box = ''
+    if P.get('changes'):
+        changes_box = '<div class="box gold"><h3 style="margin-top:0">What changed in this plan</h3>%s</div>' % ul(P['changes'])
     return f"""<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>{CSS}</style></head><body>
 <section class="page cover"><p class="eye">Hinge Care · Your Personal Joint Plan</p><h1>{e(name)}'s 30-day plan</h1>
-<p class="meta">Written for: <b>{e(P['made_for'])}</b><br>Your goal: <b>{e(P['goal'])}</b><br>Plan date: <b>{e(P['date'])}</b></p>{sample}</section>
+<p class="meta">Written for: <b>{e(P['made_for'])}</b><br>Your goal: <b>{e(P['goal'])}</b><br>Plan date: <b>{e(P['date'])}</b>{('<br>Version: <b>'+e(P['version'])+'</b>') if P.get('version') else ''}</p>{sample}</section>
 
-<section class="page"><h2>A note before you start</h2>{''.join('<p>%s</p>' % e(x) for x in P['note'])}
+<section class="page">{changes_box}<h2>A note before you start</h2>{''.join('<p>%s</p>' % e(x) for x in P['note'])}
 <p class="sig">Hinge Care</p>
-<div class="box gold"><h3 style="margin-top:0">How to use this plan</h3>{ul(P['how_to_use'])}</div></section>
+<div class="box gold"><h3 style="margin-top:0">How to use this plan</h3>{ul(P['how_to_use'])}</div><div class="box"><h3 style="margin-top:0">Your plan online</h3><p style="margin:0">Open myhingecare.com/my-plan each morning for today\'s three things and a video for each.</p></div></section>
 
 <section class="page"><h2>Your three daily anchors</h2><p>If you only do three things a day, do these. Everything else in this plan is extra.</p>
 <div class="anchors">{anchors}</div>
@@ -78,7 +91,7 @@ def build(P):
 <div class="box gold"><h3 style="margin-top:0">Call your doctor the same day if</h3>{ul(P['call_doctor'])}</div>
 </section>
 
-<section class="page"><h2>Your 30-day tick sheet</h2><p class="small">Tick a box each time you do an anchor. A day with one tick still counts.</p>
+{doctor_page}{family_page}<section class="page"><h2>Your 30-day tick sheet</h2><p class="small">Tick a box each time you do an anchor. A day with one tick still counts.</p>
 <table><tr><th>Day</th>{tick_head}</tr>{rows}</table></section>
 
 <section class="page"><div class="card"><h2>{e(name)}'s mornings</h2>{ul(P['fridge_morning'])}</div>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>My Plan | Hinge Care</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B1A2E;--panel:#102540;--card:#14304F;--line:rgba(140,190,235,.25);--ink:#F2F7FC;--soft:#BFD3E6;--blue:#3D8DCD;--blue2:#2B6FA8;--gold:#F5B04A;--ok:#7FD1A0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 19px/1.6 "Atkinson Hyperlegible",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0 0 .45em;color:#fff}
+h1{font-size:2rem}h2{font-size:1.45rem}h3{font-size:1.15rem}
+a{color:#9FD0F5}
+button{font:inherit}
+header{position:sticky;top:0;z-index:10;background:rgba(11,26,46,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hb{max-width:820px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px max(16px,env(safe-area-inset-right)) 10px max(16px,env(safe-area-inset-left))}
+.brand{font:700 1.15rem "Bricolage Grotesque",sans-serif;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand i{width:34px;height:34px;border-radius:9px;background:var(--blue2);display:inline-flex;align-items:center;justify-content:center;font-style:normal}
+.sp{flex:1}
+.hbtn{min-height:46px;padding:0 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:#fff;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+main{max-width:820px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right)) 60px max(16px,env(safe-area-inset-left))}
+.demo{background:var(--gold);color:#2b1d05;font-weight:700;text-align:center;padding:8px 12px;font-size:.92rem}
+.hero{background:linear-gradient(160deg,#1C4A78,#102540);border:1px solid var(--line);border-radius:22px;padding:24px 22px;margin-bottom:18px}
+.eye{font:700 .8rem "Atkinson Hyperlegible",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#9FD0F5;margin:0 0 6px}
+.days{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:14px 0 4px}
+.days span{aspect-ratio:1;border-radius:7px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--soft)}
+.days span.done{background:var(--ok);color:#0b2a17;font-weight:700}.days span.part{background:rgba(127,209,160,.35);color:#fff}.days span.today{outline:3px solid var(--gold);color:#fff}
+.focus{background:rgba(245,176,74,.12);border:1.5px solid rgba(245,176,74,.5);border-radius:16px;padding:14px 16px;margin:16px 0}
+.focus b{color:var(--gold)}
+.anchor{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:16px;margin:0 0 14px}
+.arow{display:flex;gap:14px;align-items:flex-start}
+.tick{flex:0 0 52px;height:52px;border-radius:50%;border:3px solid var(--blue);background:transparent;color:#fff;font-size:1.5rem;cursor:pointer}
+.tick.on{background:var(--ok);border-color:var(--ok);color:#0b2a17}
+.anchor h3{margin:2px 0 4px}.amt{color:var(--gold);font-weight:700}
+.anchor p{margin:4px 0 0;color:var(--soft)}
+.vbtn{margin-top:12px;display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px;color:#fff;cursor:pointer}
+.vbtn .th{flex:0 0 120px;aspect-ratio:16/9;border-radius:10px;background:#000 center/cover no-repeat;position:relative}
+.vbtn .th::after{content:"▶";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:rgba(0,0,0,.35);border-radius:10px}
+.vbtn small{display:block;color:var(--soft)}
+.vid{position:relative;aspect-ratio:16/9;margin-top:12px}.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:0 0 14px}
+.pain{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pain button{width:46px;height:46px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:#fff;font-weight:700;cursor:pointer}
+.pain button.on{background:var(--blue);border-color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;border-radius:14px;border:0;background:var(--blue);color:#fff;font-weight:700;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;border:1.5px solid var(--line)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 12px}
+.tabs button{min-height:46px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:#fff;font-weight:700;cursor:pointer}
+.tabs button.on{background:var(--blue);border-color:var(--blue)}
+.sec ul{padding-left:22px}.sec li{margin-bottom:6px}
+.time{font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;margin:16px 0 2px}
+.report{background:linear-gradient(160deg,#1E5A3A,#102540);border:1px solid rgba(127,209,160,.5);border-radius:20px;padding:20px;margin:16px 0}
+.big{font:700 2.4rem "Bricolage Grotesque",sans-serif;color:#fff}
+.cert{background:#fff;color:#14304F;border:8px double var(--blue);border-radius:10px;padding:24px 16px;text-align:center;margin-top:14px}
+.cert h2{color:#14304F}.cert .nm{font:700 1.6rem "Bricolage Grotesque",sans-serif;color:#9a4b1c;border-bottom:2px solid #ddd;display:inline-block;min-width:60%;padding:6px 0;margin:6px 0 10px}
+form.sign{max-width:440px;margin:30px auto}
+form.sign label{display:block;font-weight:700;margin:14px 0 6px}
+form.sign input{width:100%;min-height:54px;border-radius:12px;border:1.5px solid var(--line);background:var(--panel);color:#fff;font-size:1.05rem;padding:0 14px}
+.err{color:#FFB4A8;margin-top:10px;min-height:1.2em}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(140px);background:#1C4A78;border:1px solid var(--line);color:#fff;padding:12px 18px;border-radius:12px;transition:transform .3s;font-weight:700;z-index:30}
+.toast.on{transform:translateX(-50%)}
+@media(max-width:520px){h1{font-size:1.65rem}body{font-size:18px}.vbtn .th{flex-basis:96px}.days{gap:4px}}
+</style>
+</head>
+<body>
+<div id="demobar" class="demo" hidden>Sample plan for a made-up reader. Your own My Plan page is written from your answers.</div>
+<header><div class="hb"><a class="brand" href="/program-38d69f61/"><i>🌿</i>Hinge Care</a><span class="sp"></span><a class="hbtn" href="/program-38d69f61/">Course</a></div></header>
+<main id="app"><p>Loading your plan…</p></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+const SB_URL='https://xnlquerabczcsvoebgaf.supabase.co',SB_KEY='sb_publishable_FVQe_VxyvwK_RAwQm3n-mg_fPg8GeHv';
+const store={getItem:k=>{try{return localStorage.getItem(k)??sessionStorage.getItem(k)}catch(e){return null}},setItem:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},removeItem:k=>{try{localStorage.removeItem(k);sessionStorage.removeItem(k)}catch(e){}}};
+let sb=null;try{sb=supabase.createClient(SB_URL,SB_KEY,{auth:{storage:store,persistSession:true,autoRefreshToken:true}})}catch(e){}
+const app=document.getElementById('app');
+const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DEMO=/[?&]demo=1/.test(location.search);
+let P=null,G={start:'',ticks:{},pain:{}},USER=null,tab='today';
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2200);}
+const todayStr=()=>new Date().toISOString().slice(0,10);
+function dayNum(){if(!G.start){G.start=todayStr();save();}const d=Math.floor((new Date(todayStr())-new Date(G.start))/864e5)+1;return Math.max(1,Math.min(30,d));}
+function save(){try{localStorage.setItem('hcplan-'+(DEMO?'demo':(USER&&USER.id)),JSON.stringify(G))}catch(e){}if(!DEMO&&sb&&USER){clearTimeout(save._t);save._t=setTimeout(()=>sb.from('profiles').update({plan_progress:G}).eq('id',USER.id).then(()=>{},()=>{}),1200);}}
+function load(){try{const r=JSON.parse(localStorage.getItem('hcplan-'+(DEMO?'demo':(USER&&USER.id)))||'null');if(r)G=Object.assign(G,r);}catch(e){}}
+function hush(except){document.querySelectorAll('iframe.yt').forEach(f=>{if(f!==except)try{f.contentWindow.postMessage(JSON.stringify({event:'command',func:'pauseVideo',args:[]}),'*')}catch(e){}});if(except!=='speech'&&window.speechSynthesis&&speechSynthesis.speaking)speechSynthesis.cancel();}
+addEventListener('message',e=>{if(!/youtube/.test(e.origin||''))return;let d;try{d=typeof e.data==='string'?JSON.parse(e.data):e.data}catch(x){return}if(d&&d.info&&d.info.playerState===1){const f=[...document.querySelectorAll('iframe.yt')].find(x=>x.contentWindow===e.source);if(f)hush(f);}});
+function vbtn(v){return `<button class="vbtn" type="button" data-yt="${v.yt}"><span class="th" style="background-image:url(https://i.ytimg.com/vi/${v.yt}/hqdefault.jpg)"></span><span><b>${esc(v.title)}</b><small>${v.len?esc(v.len)+' · ':''}${esc(v.src)}</small></span></button>`;}
+function bindVideos(){app.querySelectorAll('[data-yt]').forEach(b=>b.onclick=()=>{hush(null);const d=document.createElement('div');d.className='vid';d.innerHTML=`<iframe class="yt" src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(location.origin)}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video"></iframe>`;b.replaceWith(d);const f=d.querySelector('iframe');f.addEventListener('load',()=>{try{f.contentWindow.postMessage(JSON.stringify({event:'listening',id:'hc'}),'*')}catch(e){}});});}
+const weekOf=d=>Math.min(3,Math.floor((d-1)/7));
+function dayState(d){const t=G.ticks[d]||{};const n=P.anchors.filter((a,i)=>t[i]).length;return n===0?'':n===P.anchors.length?'done':'part';}
+function render(){
+  const d=dayNum(),wk=weekOf(d),w=P.weeks[wk];const t=G.ticks[d]=G.ticks[d]||{};
+  const daysDone=Object.keys(G.ticks).filter(k=>dayState(+k)).length;
+  let h=`<section class="hero"><p class="eye">My Plan · ${esc(P.version||'')}</p><h1>${esc(P.name)}, here's day ${d} of 30</h1><p style="margin:0;color:var(--soft)">Your goal: ${esc(P.goal)}</p>
+  <div class="days" aria-label="Your 30 days">${Array.from({length:30},(_,i)=>`<span class="${dayState(i+1)} ${i+1===d?'today':''}">${i+1}</span>`).join('')}</div><p style="margin:6px 0 0;color:var(--soft);font-size:.92rem">${daysDone} day${daysDone===1?'':'s'} with at least one tick. A day with one tick still counts.</p></section>`;
+  h+=`<div class="tabs" role="tablist">${[['today','Today'],['day','My day'],['comfort','Comforts and food'],['bad','Bad days'],['more','Doctor and family']].map(([k,n])=>`<button type="button" class="${tab===k?'on':''}" data-tab="${k}">${n}</button>`).join('')}</div><div id="sec" class="sec">`;
+  if(tab==='today'){
+    h+=`<div class="focus"><b>${esc(w.title)}</b> ${esc(w.text)}</div>`;
+    if(P.changes&&P.changes.length)h+=`<div class="card"><h3>What changed in your plan</h3><ul>${P.changes.map(c=>'<li>'+esc(c)+'</li>').join('')}</ul></div>`;
+    h+=`<h2>Your three things today</h2>`;
+    P.anchors.forEach((a,i)=>{h+=`<div class="anchor"><div class="arow"><button class="tick ${t[i]?'on':''}" type="button" data-tk="${i}" aria-pressed="${!!t[i]}" aria-label="Done: ${esc(a.title)}">${t[i]?'✓':''}</button><div><h3>${esc(a.title)}</h3>${a.by_week?`<div class="amt">This week: ${esc(a.by_week[wk])}</div>`:''}<p>${esc(a.why)}</p></div></div>${a.video?vbtn(a.video):''}</div>`;});
+    const tp=(P.day_tips||[])[d-1];if(tp)h+=`<div class="card"><p class="eye">Today's tip · ${esc(tp.theme||'')}</p><p style="margin:0">${esc(tp.tip||tp)}</p>${tp.video?vbtn(tp.video):''}</div>`;
+    h+=`<div class="card"><h3>How are your joints today?</h3><p style="margin:0;color:var(--soft)">0 is no pain, 10 is the worst. Tap a number.</p><div class="pain">${Array.from({length:11},(_,i)=>`<button type="button" class="${G.pain[d]===i?'on':''}" data-pn="${i}">${i}</button>`).join('')}</div></div>`;
+    if(d>=28||daysDone>=25)h+=report();
+  }
+  if(tab==='day'){h+=`<h2>Your day, start to finish</h2>`+P.routine.map(r=>`<p class="time">${esc(r.when)}</p><ul>${r.steps.map(s=>'<li>'+esc(s)+'</li>').join('')}</ul>`).join('')+`<h2 style="margin-top:22px">Lessons to open first</h2><ul>${P.lessons.map(l=>`<li><b>${esc(l.title)}.</b> ${esc(l.why)}</li>`).join('')}</ul>`;}
+  if(tab==='comfort'){h+=`<h2>Home comforts</h2><p>${esc(P.comforts_intro)}</p>`+P.comforts.map(c=>`<h3>${esc(c.name)}</h3><p>${esc(c.how)}</p>`).join('')+`<h2 style="margin-top:22px">Five food swaps</h2><p>${esc(P.food_intro)}</p><ul>${P.food_swaps.map(s=>`<li><b>Instead of ${esc(s.from)}:</b> ${esc(s.to)}</li>`).join('')}</ul><p><b>Drinks.</b> ${esc(P.drinks)}</p>`+(P.extra_videos||[]).map(vbtn).join('');}
+  if(tab==='bad'){h+=`<h2>Your plan for bad days</h2><ul>${P.flare.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul><div class="focus"><b>Call your doctor the same day if</b><ul style="margin:6px 0 0">${P.call_doctor.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul></div>`;}
+  if(tab==='more'){const D=P.doctor||{};h+=`<h2>For your next doctor visit</h2><div class="card"><p><b>Joints:</b> ${esc(D.joints)}</p><p><b>Morning stiffness:</b> ${esc(D.stiffness)}</p><p><b>Usual pain:</b> ${esc(D.pain)}</p><p><b>What I've tried:</b> ${esc(D.tried)}</p><p><b>What I'm doing now:</b> ${esc(D.doing_now)}</p><p><b>My questions:</b></p><ul>${(D.questions||[]).map(q=>'<li>'+esc(q)+'</li>').join('')}</ul></div><p style="color:var(--soft)">This sheet is also in your plan PDF, ready to print and take with you.</p><h2 style="margin-top:22px">For your family</h2><ul>${(P.family||[]).map(x=>'<li>'+esc(x)+'</li>').join('')}</ul>`;}
+  h+=`</div><p style="margin-top:22px"><button class="btn ghost" id="read" type="button">▶ Read this to me</button></p>`;
+  app.innerHTML=h;bindVideos();
+  app.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;hush(null);render();});
+  app.querySelectorAll('[data-tk]').forEach(b=>b.onclick=()=>{const i=b.dataset.tk;t[i]=!t[i];save();if(t[i]){try{navigator.vibrate&&navigator.vibrate(25)}catch(e){}toast(P.anchors.every((a,j)=>t[j])?'All three done today. Lovely.':'Done. Nice work.');}render();});
+  app.querySelectorAll('[data-pn]').forEach(b=>b.onclick=()=>{G.pain[d]=+b.dataset.pn;save();render();toast('Saved for today.');});
+  const rb=document.getElementById('read');if(!('speechSynthesis' in window))rb.hidden=true;else rb.onclick=()=>{if(speechSynthesis.speaking){speechSynthesis.cancel();rb.textContent='▶ Read this to me';return;}hush('speech');const u=new SpeechSynthesisUtterance(document.getElementById('sec').innerText);u.rate=.9;u.onend=()=>rb.textContent='▶ Read this to me';speechSynthesis.speak(u);rb.textContent='■ Stop reading';};
+}
+function report(){
+  const ks=Object.keys(G.pain).map(Number).sort((a,b)=>a-b);if(ks.length<2)return `<div class="report"><h2>Your 30-day report</h2><p style="margin:0">Tap your pain number each day, and your report fills in here at the end of your 30 days.</p></div>`;
+  const first=G.pain[ks[0]],last=G.pain[ks[ks.length-1]];const days=Object.keys(G.ticks).filter(k=>dayState(+k)).length;const ticks=Object.values(G.ticks).reduce((n,t)=>n+Object.values(t).filter(Boolean).length,0);
+  return `<div class="report"><p class="eye" style="color:#bff0d2">Your 30-day report</p><h2>Look how far you've come, ${esc(P.name)}</h2><p>Your pain on day ${ks[0]}: <span class="big">${first}</span> &nbsp; Most recent: <span class="big">${last}</span></p><p>You showed up on <b>${days}</b> days and ticked off <b>${ticks}</b> small things.</p><div class="cert"><p style="margin:0">This certifies that</p><div class="nm">${esc(P.name)}</div><h2>completed a 30-day Personal Joint Plan</h2><p style="margin:0;color:#555">${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})} · Hinge Care</p></div></div>`;
+}
+function signIn(msg){
+  app.innerHTML=`<form class="sign" id="sf"><h1>Open My Plan</h1><p style="color:var(--soft)">${msg||'Sign in with the same username or email and password you use for the Hinge Care Program. New here? Make your account on the Program page with the email you used to buy, then come back.'}</p><label for="u">Username or email</label><input id="u" autocomplete="username" required><label for="p">Password</label><input id="p" type="password" autocomplete="current-password" required><p style="margin-top:18px"><button class="btn" type="submit">Open my plan</button></p><p class="err" id="er" role="alert"></p><p><a href="/program-38d69f61/">Make an account or reset your password</a></p></form>`;
+  document.getElementById('sf').onsubmit=async e=>{e.preventDefault();const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value,er=document.getElementById('er');er.textContent='Opening…';
+    try{let email=u.includes('@')?u:null;if(!email){const r=await sb.rpc('login_email',{u,p});email=r.data||null;}if(!email){er.textContent="That username and password don't match.";return;}const {data,error}=await sb.auth.signInWithPassword({email,password:p});if(error){er.textContent="That username and password don't match.";return;}USER=data.user;fetchPlan();}catch(x){er.textContent='Something went wrong. Please try again in a minute.';}};
+}
+async function fetchPlan(){
+  try{const {data}=await sb.from('profiles').select('plan,plan_progress').eq('id',USER.id).single();
+    if(!data||!data.plan){app.innerHTML=`<section class="hero"><h1>Your plan is on its way</h1><p style="margin:0">Your My Plan page appears here within 3 days of sending your answers. Haven't answered yet? <a href="/personal-plan-start.html">Answer your plan questions</a>.</p></section>`;return;}
+    P=data.plan;load();if(data.plan_progress&&Object.keys(data.plan_progress.ticks||{}).length>Object.keys(G.ticks).length)G=Object.assign(G,data.plan_progress);render();
+  }catch(e){app.innerHTML='<p>We couldn\'t open your plan just now. Please refresh in a minute.</p>';}
+}
+(async()=>{
+  if(DEMO){document.getElementById('demobar').hidden=false;P=await fetch('demo.json',{cache:'no-store'}).then(r=>r.json());load();render();return;}
+  if(!sb){app.innerHTML='<p>Please refresh the page.</p>';return;}
+  const {data}=await sb.auth.getSession();if(data&&data.session){USER=data.session.user;fetchPlan();}else signIn();
+})();
+</script>
+</body>
+</html>
