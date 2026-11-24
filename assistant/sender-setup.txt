@@ -1,0 +1,141 @@
+/**
+ * Hinge Care sender. Free: runs in your own Google account, no AI, no paid plan.
+ *
+ * How the whole tool works:
+ *  - Every hour (7 am to 10 pm Eastern), your Claude scheduled task reads new Hinge Care
+ *    messages, sorts them, and writes a reply for each as a Gmail draft.
+ *      "Hinge Care/Reply ready"   = safe to send by itself.
+ *      "Hinge Care/Approve first" = waits for your OK.
+ *      "Hinge Care/Needs you"     = a person must do something (for example issue a refund).
+ *  - Every 15 minutes, this script sends the Reply ready drafts after safety checks,
+ *    and emails you about anything labeled Approve first or Needs you.
+ *  - To approve a held reply: open the draft in Gmail and tap Send, or add the label
+ *    "Hinge Care/Reply ready" to it and it goes out within 15 minutes.
+ *
+ * SETUP (once, about 5 minutes):
+ *  1. script.google.com (signed in as cgmandrez@gmail.com) > New project > paste this file > Save.
+ *  2. Project Settings (gear): set Time zone to (GMT-05:00) Eastern Time.
+ *  3. Pick "setup" in the menu at the top, press Run, then Allow.
+ * To pause it any time, open Triggers (clock icon) and delete the trigger.
+ */
+
+const CFG = {
+  readyLabel: 'Hinge Care/Reply ready',
+  approveLabel: 'Hinge Care/Approve first',
+  holdLabel: 'Hinge Care/Needs you',
+  sentLabel: 'Hinge Care/Auto-replied',
+  doneLabel: 'Hinge Care/Done',
+  notifyTo: 'cgmandrez@gmail.com',
+  fromName: 'Hinge Care support',
+  brandAddress: 'arthritis@myhingecare.com',
+  maxPerRun: 40,          // safety cap per 15-minute run
+  maxPerDay: 200,         // safety cap per day
+  okLinks: /^(https?:\/\/)?([a-z0-9-]+\.)*(myhingecare\.com|gentlerootz\.com|whop\.com|988lifeline\.org)(\/|$)/i
+};
+
+function setup() {
+  [CFG.readyLabel, CFG.approveLabel, CFG.holdLabel, CFG.sentLabel, CFG.doneLabel].forEach(n => { if (!GmailApp.getUserLabelByName(n)) GmailApp.createLabel(n); });
+  ScriptApp.getProjectTriggers().forEach(t => ScriptApp.deleteTrigger(t));
+  ScriptApp.newTrigger('run').timeBased().everyMinutes(15).create();
+  // Remember everything already flagged, so you aren't emailed about old items.
+  const p = PropertiesService.getScriptProperties();
+  [CFG.approveLabel, CFG.holdLabel].forEach(n => GmailApp.getUserLabelByName(n).getThreads(0, 200).forEach(t => p.setProperty('told_' + t.getId(), '1')));
+  Logger.log('Ready. Checking every 15 minutes.');
+}
+
+function run() {
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(5000)) return;
+  try { sendReady_(); notify_(); } finally { lock.releaseLock(); }
+}
+
+/* ---------- send the Reply ready drafts ---------- */
+function sendReady_() {
+  const L = n => GmailApp.getUserLabelByName(n);
+  const ready = L(CFG.readyLabel), hold = L(CFG.holdLabel), approve = L(CFG.approveLabel), sent = L(CFG.sentLabel), done = L(CFG.doneLabel);
+  if (!ready) return;
+  const readyIds = {};
+  ready.getThreads(0, 200).forEach(t => readyIds[t.getId()] = 1);
+  if (!Object.keys(readyIds).length) return;
+
+  let count = 0;
+  GmailApp.getDrafts().forEach(d => {
+    if (count >= CFG.maxPerRun) return;
+    const msg = d.getMessage(), thread = msg.getThread();
+    if (!readyIds[thread.getId()]) return;
+    const why = problem_(msg, thread);
+    if (why) {                                             // held: ask you instead
+      thread.removeLabel(ready); thread.addLabel(approve);
+      PropertiesService.getScriptProperties().setProperty('why_' + thread.getId(), why);
+      return;
+    }
+    if (!dayOk_()) return;
+    try {
+      d.send(); count++;
+      thread.removeLabel(ready); if (approve) thread.removeLabel(approve);
+      thread.addLabel(sent); thread.addLabel(done);
+    } catch (e) { thread.addLabel(approve); console.error(e); }
+  });
+  // Threads still marked Reply ready but with no draft left (for example the original website-form message) are finished.
+  ready.getThreads(0, 200).forEach(t => { if (!t.getMessages().some(m => m.isDraft())) { t.removeLabel(ready); t.addLabel(done); } });
+}
+
+/* ---------- email you about items that need you ---------- */
+function notify_() {
+  const p = PropertiesService.getScriptProperties();
+  const items = [];
+  [[CFG.approveLabel, 'Approve first: a reply is written and waiting for your OK'], [CFG.holdLabel, 'Needs you: something only you can do']].forEach(([name, kind]) => {
+    const lab = GmailApp.getUserLabelByName(name);
+    if (!lab) return;
+    lab.getThreads(0, 100).forEach(t => {
+      if (p.getProperty('told_' + t.getId())) return;
+      const first = t.getMessages().filter(m => !m.isDraft())[0] || t.getMessages()[0];
+      const hasDraft = t.getMessages().some(m => m.isDraft());
+      items.push({ kind: kind, subject: t.getFirstMessageSubject() || '(no subject)', from: first.getFrom(), snippet: (first.getPlainBody() || '').replace(/\s+/g, ' ').slice(0, 220),
+        why: p.getProperty('why_' + t.getId()) || '', link: 'https://mail.google.com/mail/u/0/#all/' + t.getId(), draft: hasDraft });
+      p.setProperty('told_' + t.getId(), '1');
+    });
+  });
+  if (!items.length) return;
+  const lines = items.map((x, i) => (i + 1) + '. ' + x.kind + '\n   From: ' + x.from + '\n   About: ' + x.subject + '\n   "' + x.snippet + '"' +
+    (x.why ? '\n   Held because: ' + x.why : '') + (x.draft ? '\n   A reply draft is ready in Gmail.' : '') + '\n   Open: ' + x.link);
+  const body = 'Hi Mardochee,\n\n' + items.length + ' Hinge Care message' + (items.length > 1 ? 's need' : ' needs') + ' you:\n\n' + lines.join('\n\n') +
+    '\n\nTo approve a held reply, open the draft and tap Send, or add the label "Hinge Care/Reply ready" and it goes out within 15 minutes.\n\nYour Hinge Care assistant';
+  GmailApp.sendEmail(CFG.notifyTo, 'Hinge Care: ' + items.length + ' message' + (items.length > 1 ? 's need' : ' needs') + ' you', body, { name: 'Hinge Care assistant' });
+}
+
+/* ---------- safety checks: returns a reason to hold, or '' if fine ---------- */
+function problem_(msg, thread) {
+  const to = String(msg.getTo() || ''), full = msg.getPlainBody() || '';
+  const body = full.split(/\r?\nOn [^\n]*wrote:|\r?\n>/)[0];   // our reply only, not the quoted message
+  const addrs = to.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi) || [];
+  if (addrs.length !== 1) return 'it needs exactly one recipient';
+  if (msg.getCc() || msg.getBcc()) return 'it has cc or bcc';
+  if (msg.getAttachments().length) return 'it has an attachment';
+  if (body.length < 40) return 'it is too short';
+  if (body.indexOf('Hinge Care support') < 0) return 'it is missing the "Hinge Care support" sign-off';
+  if (/—/.test(body)) return 'it contains an em dash';
+  const links = body.match(/https?:\/\/[^\s)>\]]+/gi) || [];
+  for (let i = 0; i < links.length; i++) if (!CFG.okLinks.test(links[i])) return 'it links outside Hinge Care: ' + links[i];
+  const who = addrs[0].toLowerCase();
+  const wroteHere = thread.getMessages().some(m => !m.isDraft() && (m.getFrom() + ' ' + (m.getReplyTo() || '')).toLowerCase().indexOf(who) >= 0);
+  if (wroteHere) return '';
+  const viaForm = GmailApp.search('from:submissions@formsubmit.co newer_than:5d "' + who + '"', 0, 1).length > 0;
+  return viaForm ? '' : 'the person it is addressed to never wrote to Hinge Care';
+}
+
+function dayOk_() {
+  const p = PropertiesService.getScriptProperties(), k = 'sent_' + Utilities.formatDate(new Date(), 'America/New_York', 'yyyyMMdd');
+  const n = Number(p.getProperty(k) || 0);
+  if (n >= CFG.maxPerDay) return false;
+  p.setProperty(k, String(n + 1));
+  return true;
+}
+
+/* Optional: see what would be sent, without sending anything. */
+function preview() {
+  const ready = GmailApp.getUserLabelByName(CFG.readyLabel);
+  if (!ready) return Logger.log('No Reply ready label yet.');
+  const ids = {}; ready.getThreads(0, 200).forEach(t => ids[t.getId()] = 1);
+  GmailApp.getDrafts().forEach(d => { const m = d.getMessage(); if (ids[m.getThread().getId()]) Logger.log((problem_(m, m.getThread()) || 'OK to send') + ' | ' + m.getTo() + ' | ' + m.getSubject()); });
+}
