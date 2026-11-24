@@ -129,7 +129,7 @@ function signIn(msg){
 }
 async function fetchPlan(){
   try{const {data}=await sb.from('profiles').select('plan,plan_progress').eq('id',USER.id).single();
-    if(!data||!data.plan){app.innerHTML=`<section class="hero"><h1>Your plan is on its way</h1><p style="margin:0">Your My Plan page appears here within 3 days of sending your answers. Haven't answered yet? <a href="/personal-plan-start.html">Answer your plan questions</a>.</p></section>`;return;}
+    if(!data||!data.plan){app.innerHTML=`<section class="hero"><h1>Your plan is on its way</h1><p style="margin:0">Your My Plan page appears here within 3 days of sending your answers. Haven't answered yet? <a href="/personal-plan-start.html">Answer your plan questions</a>.</p><p style="margin:10px 0 0">Don't have a plan yet? <a href="/personal-plan.html">See what's in the Personal Joint Plan</a>.</p></section>`;return;}
     P=data.plan;load();if(data.plan_progress&&Object.keys(data.plan_progress.ticks||{}).length>Object.keys(G.ticks).length)G=Object.assign(G,data.plan_progress);render();
   }catch(e){app.innerHTML='<p>We couldn\'t open your plan just now. Please refresh in a minute.</p>';}
 }
