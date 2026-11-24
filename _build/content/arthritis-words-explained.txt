@@ -53,7 +53,6 @@ Hearing a long word in a doctor's office is stressful. Here is a short list, in 
 
 Back to the big picture: [types of arthritis](types-of-arthritis.html), or [what joint pain can mean](joint-pain-what-does-it-mean.html).
 
-!warn This is general information, not personal medical advice. If a word is about your own diagnosis, ask your doctor to explain it.
 @faq
 Q: What is the difference between arthritis and osteoarthritis?
 A: Arthritis is the general word for joint disease. Osteoarthritis is one type, the most common, in which joint tissues gradually break down.

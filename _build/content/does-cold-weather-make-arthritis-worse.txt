@@ -41,7 +41,6 @@ The research doesn't give a weather-specific list, but the basics hold in any se
 - **Mind your mood.** Call a friend, open the curtains, play music. It's not a small thing, because mood and pain feed each other.
 - **Tell your doctor** if a pattern worries you or keeps getting stronger.
 
-!warn Weather can explain a day of extra aching. It doesn't explain a joint that is hot, red or swollen, pain that wakes you at night, or stiffness that lasts over 30 minutes most mornings. Tell your doctor about those.
 @faq
 Q: Does cold weather make arthritis worse?
 A: Many people say so, but the evidence is mixed. In a 2019 study of more than 2,600 people, temperature on its own was not linked to pain, while humidity, air pressure and wind speed were, modestly.

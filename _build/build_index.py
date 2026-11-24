@@ -32,12 +32,11 @@ for c in order + [c for c in groups if c not in order]:
     items = ''.join(f'<li><a href="{s}.html"><b>{e(m["h1"])}</b></a><br>{e(m["blurb"])}</li>' for s, m in sorted(groups[c]))
     sec += f'<section class="body" style="max-width:760px;margin:0 auto 28px;padding:0 16px"><h2>{e(c)}</h2><ul>{items}</ul></section>'
 ld = '<script type="application/ld+json">' + json.dumps({"@context":"https://schema.org","@type":"CollectionPage","name":"Arthritis questions answered | Hinge Care","url":SITE+"/arthritis-questions.html","isPartOf":{"@type":"WebSite","name":"Hinge Care","url":SITE+"/"}}) + '</script>'
-open(f'{ROOT}/arthritis-questions.html','w',encoding='utf-8').write(shell('arthritis-questions','Arthritis Questions Answered in Plain Words | Hinge Care','Every Hinge Care page in one place: types of arthritis, symptoms, mornings, movement, remedies, caregiving and a plain glossary. Each answer links its sources.','Arthritis questions, answered in plain words','Pick the question closest to yours. Every page links its sources, and none replaces your doctor.',sec,ld))
+open(f'{ROOT}/arthritis-questions.html','w',encoding='utf-8').write(shell('arthritis-questions','Arthritis Questions Answered in Plain Words | Hinge Care','Every Hinge Care page in one place: types of arthritis, symptoms, mornings, movement, remedies, caregiving and a plain glossary. Each answer links its sources.','Arthritis questions, answered in plain words','Pick the question closest to yours. Every page links its sources,.',sec,ld))
 # --- about
 about = '''<section class="body" style="max-width:760px;margin:0 auto 40px;padding:0 16px">
 <h2>What Hinge Care is</h2>
 <p>Hinge Care is a small team that writes plain-spoken help for people living with arthritis and for the grown children who worry about them. We read what the NIH, the CDC, the Mayo Clinic and the Arthritis Foundation say, and put it in words you can use at the kitchen table. Every journal page links its sources.</p>
-<p>We are not a medical practice and we are not a doctor. Our pages are general information, not personal medical advice. Please check with your doctor before trying anything new.</p>
 <h2>Start here, free</h2>
 <ul>
 <li><a href="guide.html"><b>7 Bad Habits for Arthritis That Keep You Stuck</b></a>: a free guide to seven everyday habits and the fix for each.</li>
