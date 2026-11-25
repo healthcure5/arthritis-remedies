@@ -2038,10 +2038,9 @@ body[data-view=welcome] #app{box-sizing:border-box}
 .vplay2 svg{width:30px;height:30px;margin-left:4px;fill:#000}
 .vlink:hover .vplay2,.vlink:focus-visible .vplay2{transform:scale(1.06)}
 .vmin{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.8);color:#fff;font-size:.85rem;font-weight:700;padding:3px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.25)}
-.pnav button{overflow:hidden}
-.pnav img.pimg{display:block;width:calc(100% + 28px);margin:-12px -14px 8px;aspect-ratio:16/9;object-fit:cover;max-width:none}
 .cmpl{display:block;width:100%;margin:16px 0 4px;min-height:58px;border-radius:16px;border:2px solid #7FD1A4;background:transparent;color:#7FD1A4;font:700 1.05rem Atkinson Hyperlegible,sans-serif;cursor:pointer}
 .cmpl.on{background:#7FD1A4;color:#0B1424}
+a.vlinkp{position:relative;text-decoration:none;margin:4px 0 8px}
 </style>
 <script>(function(){
 /* Nov 25 changes on top of the original design */
@@ -2067,18 +2066,12 @@ function post(id){
   cards.forEach((c,i)=>{
     const v=vids[i];if(!v||c.dataset.p25)return;c.dataset.p25='1';
     const y=v.yt||ytId(v.url||''),len=MINS(v);
-    c.innerHTML=`<b class="vt">${esc(v.label)}</b>${v.what?`<p class="vwhat">${esc(v.what)}</p>`:''}<a class="vlink" href="https://www.youtube.com/watch?v=${y}" target="_blank" rel="noopener" aria-label="Play ${esc(v.label)} on YouTube"><span class="vplay2">${PLAY}</span>${len?`<span class="vmin">${esc(len)}</span>`:''}</a><p class="under">From ${esc(v.src)}</p>`;
+    c.innerHTML=`<b class="vt">${esc(v.label)}</b>${v.what?`<p class="vwhat">${esc(v.what)}</p>`:''}<a class="vplay vlinkp" href="https://www.youtube.com/watch?v=${y}" target="_blank" rel="noopener" aria-label="Play ${esc(v.label)} on YouTube"><span class="pbtn" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span>Play</span>${len?`<span class="vmin">${esc(len)}</span>`:''}</a><p class="under">From ${esc(v.src)}</p>`;
   });
   if(cards.length){
     const h=[...w.querySelectorAll('h3')].find(x=>/^Watch/.test(x.textContent.trim()));
     if(h&&!w.querySelector('.vintro'))h.insertAdjacentHTML('afterend',`<p class="vintro">${cards.length>1?'Want to hear more? These videos go into more detail, in plain words.':'Want to hear more? This video goes into more detail, in plain words.'}</p>`);
   }
-  // 4. Pictures on the previous and next lesson buttons
-  w.querySelectorAll('.pnav button').forEach(b=>{
-    if(b.querySelector('img.pimg'))return;const t=(b.querySelector('b')||{}).textContent||'';const tid=byTitle[t]||(t===D.welcome.title?'welcome':null);
-    if(!tid&&!/graduation/i.test(t))return;
-    b.insertAdjacentHTML('afterbegin',`<img class="pimg" src="${tid?picFor(tid):'images/leaf.jpg'}" alt="">`);
-  });
   // 5. Completed, at the very bottom under previous and next
   if(!w.querySelector('#cmpl')){
     const pn=w.querySelector('.pnav'),anchor=pn||w.querySelector('.nav2');
