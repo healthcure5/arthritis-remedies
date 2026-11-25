@@ -2045,11 +2045,10 @@ a.vlinkp{position:relative;text-decoration:none;margin:4px 0 8px}
 .ltop{position:relative;margin:-6px -22px 0;padding:16px 22px 54px;background:linear-gradient(180deg,rgba(70,125,190,.62) 0%,rgba(45,90,145,.38) 55%,rgba(20,40,70,0) 100%);border-radius:18px 18px 0 0}
 .ltop .lprog{margin:0 0 10px}
 .ltop .sizer{margin:0}
-.ltop::after{content:"";position:absolute;left:22px;right:22px;bottom:24px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(127,179,224,0),rgba(170,210,245,.8),rgba(127,179,224,0))}
+.ltop::after{content:"";position:absolute;left:var(--pl,22px);right:var(--pr,22px);bottom:24px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(127,179,224,0),rgba(170,210,245,.8),rgba(127,179,224,0))}
 h1.lhead{margin-top:2px;animation:lheadIn .7s ease-out both}
 @keyframes lheadIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){h1.lhead{animation:none}}
-@media (min-width:1100px){.ltop{margin:-14px -48px 0;padding:22px 48px 50px}.ltop::after{left:48px;right:48px}}
 </style>
 <script>(function(){
 /* Nov 25 changes on top of the original design */
@@ -2066,10 +2065,11 @@ function post(id){
   const cr=w.querySelector('.crumb'),sz=w.querySelector('.sizer'),h1=w.querySelector('h1');
   if(cr&&h1){if(!cr.classList.contains('crumbband'))cr.classList.add('crumbband');
     let top=w.querySelector('.ltop');
-    if(!top){top=document.createElement('div');top.className='ltop';h1.before(top);}
+    if(!top){top=document.createElement('div');top.className='ltop';w.prepend(top);}
     const lp=w.querySelector('.lprog');
     [lp,sz,cr].forEach(e=>{if(e&&e.parentNode!==top)top.appendChild(e);});
     if(top.nextElementSibling!==h1)h1.before(top);
+    if(top.parentNode===w&&top===w.firstElementChild){const cs=getComputedStyle(w),pt=cs.paddingTop,pl=cs.paddingLeft,pr=cs.paddingRight,rd=cs.borderTopLeftRadius;const st=`margin:-${pt} -${pr} 0 -${pl};padding:calc(${pt} + 4px) ${pr} 54px ${pl};border-radius:${rd} ${rd} 0 0;--pl:${pl};--pr:${pr}`;if(top.getAttribute('style')!==st)top.setAttribute('style',st);}
     if(!h1.classList.contains('lhead'))h1.classList.add('lhead');}
   // 2. Remove the quick button, Try this today, Up next, I did it, key tips, Be kind line
   w.querySelectorAll('.quick,.try,.upnext,#did,#back,.kbd').forEach(e=>e.remove());
