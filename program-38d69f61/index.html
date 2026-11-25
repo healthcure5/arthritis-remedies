@@ -2057,7 +2057,8 @@ function post(id){
   const cr=w.querySelector('.crumb'),sz=w.querySelector('.sizer'),h1=w.querySelector('h1');
   if(cr&&h1){if(!cr.classList.contains('crumbband'))cr.classList.add('crumbband');if(cr.nextElementSibling!==h1)h1.before(cr);if(sz&&cr.previousElementSibling!==sz)cr.before(sz);}
   // 2. Remove the quick button, Try this today, Up next, I did it, key tips, Be kind line
-  w.querySelectorAll('.quick,.try,.upnext,#did,.kbd').forEach(e=>e.remove());
+  w.querySelectorAll('.quick,.try,.upnext,#did,#back,.kbd').forEach(e=>e.remove());
+  w.querySelectorAll('.nav2').forEach(n=>{if(!n.querySelector('button,a'))n.remove();});
   w.querySelectorAll('h3').forEach(h=>{if(/^Up next$/i.test(h.textContent.trim()))h.remove();});
   w.querySelectorAll('p.disc').forEach(p=>{if(/be kind to yourself/i.test(p.textContent))p.remove();});
   // 3. Videos: short summary, black box that opens YouTube, time inside the box
