@@ -1,7 +1,7 @@
 /* Hinge Care help box: instant answers from /assistant/answers.json, hand-off to a person by email. No AI cost. */
 (function () {
   if (window.__hcChat) return; window.__hcChat = 1;
-  var TO = 'https://formsubmit.co/ajax/arthritis@myhingecare.com';
+  var TO = 'https://hinge-forms.cgmandre.workers.dev';
   var css = '\
 #hcc-btn{position:fixed;right:18px;bottom:18px;z-index:9998;display:flex;align-items:center;gap:10px;background:#1F3A27;color:#fff;border:0;border-radius:999px;padding:14px 20px;font:600 17px Inter,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer}\
 #hcc-btn svg{width:22px;height:22px}\
@@ -100,7 +100,7 @@
       '<label>Your email<input name="email" type="email" required autocomplete="email"></label>' +
       '<label>Your message<textarea name="message" rows="3" required></textarea></label><button type="submit">Send to a person</button>';
     f.querySelector('textarea').value = q || last || '';
-    f.action = 'https://formsubmit.co/arthritis@myhingecare.com'; f.method = 'POST'; f.target = 'hcc-ifr';
+    f.action = 'https://hinge-forms.cgmandre.workers.dev'; f.method = 'POST'; f.target = 'hcc-ifr';
     var hid = { _subject: '[Website chat] ' + (q || last || 'Question').slice(0, 60), source: 'Website chat', page: location.href, _template: 'box', _captcha: 'false', _next: location.origin + '/assistant/sent.html',
       _autoresponse: 'Thank you for writing to Hinge Care. Your message reached us, and a real person will reply within one day. Hinge Care support' };
     Object.keys(hid).forEach(function (k) { var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = hid[k]; f.appendChild(i); });
