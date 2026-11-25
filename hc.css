@@ -1,6 +1,7 @@
 :root{--g:#1F3A27;--g2:#2F5D3A;--ink:#26332A;--soft:#4A5A4E;--cream:#FAF6EF;--sand:#F2ECE1;--line:#E2DACB;--gold:#FFC56B;--gold2:#F5B04A;--rust:#A4482C}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;font:400 19px/1.65 Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+@media (prefers-reduced-motion:no-preference){body{animation:hcfade .5s ease both}}@keyframes hcfade{from{opacity:0}to{opacity:1}}
 img,video{max-width:100%;height:auto}
 a{color:var(--g2)}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #1F6FEB;outline-offset:2px}
 h1,h2,h3{font-family:Fraunces,Lora,Georgia,serif;color:var(--g);font-weight:600;letter-spacing:-.01em;margin:0}
