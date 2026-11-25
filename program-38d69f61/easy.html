@@ -467,7 +467,7 @@ function lesson(id){
   const s=secOf(id),ids=s?s.ids.filter(x=>lessonOf(x)):[id],pos=ids.indexOf(id)+1;
   const all=order(),i=all.indexOf(id),nx=all[i+1],pv=all[i-1];
   const note=(CN.tnote[id]||{})[kind()];
-  const vids=(l.watch||[]).filter(v=>!/o.neill/i.test(v.src||''));
+  const vids=(l.watch||[]);
   let h=`<p class="crumb"><a href="#/">Contents</a> › ${esc(s?s.name:'')} · Lesson ${pos} of ${ids.length}</p>
   <article class="lesson"><h1>${esc(l.title)}</h1>
   ${l.open?`<p class="open">${esc(l.open)}</p>`:''}
