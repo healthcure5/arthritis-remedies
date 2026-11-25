@@ -2,10 +2,10 @@
 // CHECKOUT LINKS: paste your payment provider's links between the quotes.
 // While a link is empty, the "Yes, I want..." button shows "Checkout opens soon".
 // ---------------------------------------------------------------
-var BOOK_URL = 'https://whop.com/checkout/plan_aaSComudkA9aV';     // The Joint Reset, $17 (Whop checkout link)
+var BOOK_URL = '/shop/book-checkout.html';     // The Joint Reset, $17 (Whop checkout link)
 var COURSE_URL = 'https://whop.com/checkout/plan_5mDXeVp9Kf7Zg';   // The Hinge Care Program, $97
 var LETTER_URL = '';   // The Club, $7 a month
-var BOOK_OFFER_URL = 'https://whop.com/checkout/plan_aaSComudkA9aV';   // The Joint Reset at $17, shown only on the thank-you page
+var BOOK_OFFER_URL = '/shop/book-checkout.html';   // The Joint Reset at $17, shown only on the thank-you page
 var COURSE_OFFER_URL = 'https://whop.com/checkout/plan_1gwKGEcMJhESM'; // The Program at $77, shown only after someone buys the book
 var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
 
@@ -115,7 +115,7 @@ var BUNDLE_URL = '';       // Black Friday gift bundle: book + Program for $97
     document.querySelectorAll('.getbox').forEach(function (g) {
       var eye = g.querySelector('.eyebrow'), p = g.querySelector('p');
       if (eye && /soon/i.test(eye.textContent)) { eye.textContent = 'Ready now'; }
-      if (p && /shortly/i.test(p.textContent)) { p.textContent = item === 'course' ? 'Tap below to pay securely on Whop. Your first lesson opens right after.' : 'Tap below to pay securely on Whop. Your book is ready to download right after.'; }
+      if (p && /shortly/i.test(p.textContent)) { p.textContent = item === 'course' ? 'Tap below to pay securely on Whop. Your first lesson opens right after.' : 'Tap below to pay securely. Your book is ready to download right after.'; }
     });
   }
   if (/[?&]waitlist=1/.test(location.search)) {
