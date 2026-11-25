@@ -92,6 +92,30 @@ details[open] .chev{transform:rotate(90deg)}
 h1:focus{outline:none}
 .home-link span{white-space:nowrap}
 @media (max-width:420px){.bar .wrap{gap:6px}.tbtn{padding:0 10px;min-width:44px}.home-link{font-size:.95rem}.home-link svg{width:34px;height:34px}}
+.crumb{display:block;background:#1D3A5C;border:1px solid rgba(127,179,224,.35);color:#DCE8F3;border-radius:12px;padding:10px 14px;margin:0 0 22px;font-size:.95rem;line-height:1.45}
+.crumb a{color:#fff;font-weight:700}
+.vids{margin:34px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
+.vintro{font-size:1.08rem;color:#fff;margin:0 0 18px}
+.vitem{margin:0 0 26px}
+.vwhat{color:var(--soft);margin:0 0 10px}
+.vbox .screen{display:grid}
+.vlen{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.8);color:#fff;font-size:.85rem;font-weight:700;padding:3px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.25)}
+.vcap{margin:10px 2px 0}
+.vcap b{display:block;color:#fff}
+.vcap span{color:var(--soft);font-size:.92rem}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.pn .nnext{grid-column:2}
+.ncard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);min-height:44px}
+.ncard:hover{border-color:var(--accent)}
+.nimg{display:block;aspect-ratio:16/9;background:#000 center/cover}
+.ntxt{padding:10px 12px 12px}
+.ntxt small{display:block;color:var(--accent);font-weight:700;font-size:.85rem}
+.ntxt b{display:block;color:#fff;font-size:.95rem;line-height:1.35;margin-top:2px}
+.ncard.nnext .ntxt{text-align:right}
+.done{display:block;width:100%;margin:18px 0 0;min-height:58px;border-radius:16px;border:2px solid var(--done);background:transparent;color:var(--done);font-weight:700;font-size:1.05rem;cursor:pointer}
+.done.on{background:var(--done);color:#0B1424}
+@media (max-width:420px){.ntxt b{font-size:.88rem}}
+.pn .ncard{padding:0;color:var(--ink)}
 
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 html.hcboot body>*:not(#gbar):not(#gate):not(script):not(style),html.hcboot #app,html.hcboot .dock,html.hcboot footer{visibility:hidden!important}
@@ -457,32 +481,40 @@ function home(){
 
 /* one lesson */
 const PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
+function mins(v){const t=(v.len||v.label||'')+'';let m=t.match(/(\d+)\s*minute/i);if(m)return m[1]+' min';if(/hour/i.test(t))return '1 hr';return '';}
 function vbox(v){
-  const url=v.yt?'https://www.youtube.com/watch?v='+v.yt:v.url;
-  const len=v.len?String(v.len).split('.')[0]:'';
-  return `<a class="vbox" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.label)} from ${esc(v.src)}, opens YouTube"><span class="screen"><span class="play">${PLAY}</span></span><span class="cap"><b>${esc(v.label)}</b><span>${esc(v.src)}${len?' · '+esc(len):''} · opens on YouTube</span></span></a>`;
+  const url=v.yt?'https://www.youtube.com/watch?v='+v.yt:v.url,len=mins(v);
+  const label=v.label.replace(/\s*\(full talk, about an hour\)/i,'');
+  return `<div class="vitem">${v.what?`<p class="vwhat">${esc(v.what)}</p>`:''}<a class="vbox" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Play ${esc(label)} from ${esc(v.src)} on YouTube"><span class="screen"><span class="play">${PLAY}</span>${len?`<span class="vlen">${esc(len)}</span>`:''}</span></a><p class="vcap"><b>${esc(label)}</b><span>${esc(v.src)}</span></p></div>`;
+}
+const PIC={start:'leaf',kind:'leaf',morn:'w1',move:'w2',comfort:'w3',food:'w4',herb:'w3',supp:'w4',strong:'w5',day:'w6',sleep:'w7',flare:'w8',finish:'w8'};
+function anySec(id){const s=secOf(id);if(s)return s;for(const k in CN.tracks){const f=CN.tracks[k].find(q=>q.ids.includes(id));if(f)return f;}}
+function navCard(id,dir){
+  const s=anySec(id),img='images/'+((s&&PIC[s.key])||'leaf')+'.jpg';
+  return `<a class="ncard n${dir}" href="#/l/${id}"><span class="nimg" style="background-image:url('${img}')"></span><span class="ntxt"><small>${dir==='prev'?'‹ Previous lesson':'Next lesson ›'}</small><b>${esc(lessonOf(id).title)}</b></span></a>`;
 }
 function lesson(id){
   const l=lessonOf(id);if(!l)return home();
-  const s=secOf(id),ids=s?s.ids.filter(x=>lessonOf(x)):[id],pos=ids.indexOf(id)+1;
-  const all=order(),i=all.indexOf(id),nx=all[i+1],pv=all[i-1];
+  let s=secOf(id);
+  if(!s){for(const k in CN.tracks){const f=CN.tracks[k].find(q=>q.ids.includes(id));if(f){s={key:f.key,name:f.key==='kind'?'Your kind of arthritis':f.name,ids:f.ids.slice()};break;}}}
+  const ids=s?s.ids.filter(x=>lessonOf(x)):[id],pos=ids.indexOf(id)+1;
+  let all=order();if(!all.includes(id))all=ids;
+  const i=all.indexOf(id),nx=all[i+1],pv=all[i-1];
   const note=(CN.tnote[id]||{})[kind()];
   const vids=(l.watch||[]);
-  let h=`<p class="crumb"><a href="#/">Contents</a> › ${esc(s?s.name:'')} · Lesson ${pos} of ${ids.length}</p>
+  let h=`<p class="crumb"><a href="#/">My course</a><span aria-hidden="true"> › </span>${esc(s?s.name:'')}<span aria-hidden="true"> · </span>Lesson ${pos} of ${ids.length}</p>
   <article class="lesson"><h1>${esc(l.title)}</h1>
   ${l.open?`<p class="open">${esc(l.open)}</p>`:''}
   <div class="body">${md(l.body)}</div>
   ${note?`<p class="knote">${esc(note)}</p>`:''}
-  ${l.try?`<div class="step"><h2>Today's step</h2><p>${esc(l.try)}</p></div>`:''}
-  ${vids.length?`<div class="vids">${vids.map(vbox).join('')}</div>`:''}
+  ${vids.length?`<section class="vids" aria-label="Videos"><p class="vintro">${vids.length>1?'Want to hear more? These videos go into more detail, in plain words.':'Want to hear more? This video goes into more detail, in plain words.'}</p>${vids.map(vbox).join('')}</section>`:''}
   </article>
-  <div class="next">`;
-  if(nx){h+=`<p class="upn">Up next: <b>${esc(lessonOf(nx).title)}</b></p><button type="button" class="btn" id="go">${S.done[id]?'Next lesson':'Done. Next lesson'}</button>`;}
-  else{h+=`<button type="button" class="btn" id="go">${S.done[id]?'See your last page':'Done. Finish the course'}</button>`;}
-  h+=`<div class="pn">${pv?`<a href="#/l/${pv}">‹ Previous</a>`:'<span></span>'}<a href="#/">Contents</a></div></div>
+  <nav class="pn" aria-label="Lessons">${pv?navCard(pv,'prev'):''}${nx?navCard(nx,'next'):`<a class="ncard nnext" href="#/finish"><span class="nimg" style="background-image:url('images/w8.jpg')"></span><span class="ntxt"><small>Last page ›</small><b>You've reached the end</b></span></a>`}</nav>
+  <button type="button" class="done${S.done[id]?' on':''}" id="done" aria-pressed="${S.done[id]?'true':'false'}">${S.done[id]?'✓ Completed':'Mark as completed'}</button>
   <p class="disc">${esc(CN.disc)}</p>`;
   show(`<div class="wrap">${h}</div>`,'lesson');
-  document.getElementById('go').onclick=()=>{S.done[id]=true;save();location.hash=nx?'#/l/'+nx:'#/finish';};
+  const d=document.getElementById('done');
+  d.onclick=()=>{S.done[id]=!S.done[id];save();d.classList.toggle('on',!!S.done[id]);d.setAttribute('aria-pressed',S.done[id]?'true':'false');d.textContent=S.done[id]?'✓ Completed':'Mark as completed';};
 }
 
 function safety(){
