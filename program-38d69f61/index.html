@@ -2051,6 +2051,9 @@ h1.lhead{margin-top:2px;animation:lheadIn .7s ease-out both}
 @media (prefers-reduced-motion:reduce){h1.lhead{animation:none}}
 /* The Circle: blue tops on the boxes, no yellow */
 .secgrid[style*="F0B455"]{--ac:#6BA4D6!important}
+/* No sales cards on the graduation page */
+.grad .circlecard{display:none!important}
+.offer25{margin:26px 0 8px}
 </style>
 <script>(function(){
 /* Nov 25 changes on top of the original design */
@@ -2090,6 +2093,11 @@ function post(id){
     const h=[...w.querySelectorAll('h3')].find(x=>/^Watch/.test(x.textContent.trim()));
     if(h&&!w.querySelector('.vintro'))h.insertAdjacentHTML('afterend',`<p class="vintro">${cards.length>1?'Want to hear more? These videos go into more detail, in plain words.':'Want to hear more? This video goes into more detail, in plain words.'}</p>`);
   }
+  // 4. An offer at the end of Start here, before the lessons on your kind of arthritis
+  try{const f=find(id);if(f&&f.m&&f.m.k==='start'&&f.m.lessons.length&&f.m.lessons[f.m.lessons.length-1].id===id&&!w.querySelector('.offer25')){
+    const at=w.querySelector('.pnav')||w.querySelector('#cmpl');
+    if(at)at.insertAdjacentHTML('beforebegin',`<div class="circlecard offer25"><span class="tag">Before you start the lessons on your kind of arthritis</span><h2 style="margin-top:0">Want a plan written around your joints?</h2><p>The lessons ahead are written for everyone with your kind of arthritis. If you'd rather be told exactly what to do each morning, the Personal Joint Plan is written around your joints, your mornings and the one thing you want to get back to. For 30 days, your three things for the day and a short video are waiting for you each morning.</p><p>One payment of $247, with a full refund within 30 days if it isn't right for you.</p><a class="btn" href="/personal-plan.html" target="_blank" rel="noopener">See the Personal Joint Plan</a><p style="font-size:.95rem;margin:14px 0 0">Prefer company? <a href="/circle.html" target="_blank" rel="noopener">The Circle</a> is a small live group by video, starting in January.</p><p style="font-size:.95rem;color:var(--soft);margin:8px 0 0">Not right now? That's fine. Carry on below. Everything in your course is yours either way.</p></div>`);
+  }}catch(e){}
   // 5. Completed, at the very bottom under previous and next
   if(!w.querySelector('#cmpl')){
     const pn=w.querySelector('.pnav'),anchor=pn||w.querySelector('.nav2');
