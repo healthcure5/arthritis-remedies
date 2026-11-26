@@ -2049,6 +2049,8 @@ a.vlinkp{position:relative;text-decoration:none;margin:4px 0 8px}
 h1.lhead{margin-top:2px;animation:lheadIn .7s ease-out both}
 @keyframes lheadIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){h1.lhead{animation:none}}
+/* The Circle: blue tops on the boxes, no yellow */
+.secgrid[style*="F0B455"]{--ac:#6BA4D6!important}
 </style>
 <script>(function(){
 /* Nov 25 changes on top of the original design */
@@ -2094,15 +2096,24 @@ function post(id){
     if(anchor){
       anchor.insertAdjacentHTML('afterend',`<button type="button" class="cmpl${S.done[id]?' on':''}" id="cmpl" aria-pressed="${S.done[id]?'true':'false'}">${S.done[id]?'✓ Completed':'Mark as completed'}</button>`);
       const b=w.querySelector('#cmpl');
-      b.onclick=()=>{S.done[id]=!S.done[id];try{mark()}catch(e){}save();b.classList.toggle('on',!!S.done[id]);b.setAttribute('aria-pressed',S.done[id]?'true':'false');b.textContent=S.done[id]?'✓ Completed':'Mark as completed';try{if(S.done[id]&&typeof FX!=='undefined'&&FX.good)FX.good()}catch(e){}};
+      b.onclick=()=>{S.done[id]=!S.done[id];if(S.done[id])S.lastDone=id;try{mark()}catch(e){}save();b.classList.toggle('on',!!S.done[id]);b.setAttribute('aria-pressed',S.done[id]?'true':'false');b.textContent=S.done[id]?'✓ Completed':'Mark as completed';try{if(S.done[id]&&typeof FX!=='undefined'&&FX.good)FX.good()}catch(e){}};
     }
   }
 }
+// Home: Start here for a new member, then Continue here, which opens the lesson after the last one marked completed
+function contTarget(){const ids=ALL.map(a=>a.id);const k=ids.indexOf(S.lastDone);if(k>=0){for(let j=k+1;j<ids.length;j++)if(!S.done[ids[j]])return ids[j];}return nextId();}
+function fixHome(){
+  if(document.body.dataset.view!=='home')return;const g=document.getElementById('go');if(!g||g.dataset.p25)return;
+  if(!doneCount())return;const t=contTarget();if(!t)return;
+  const n=g.cloneNode(false);n.dataset.p25='1';n.innerHTML='Continue here';n.setAttribute('aria-label','Continue here: '+((find(t)||{}).l||{}).title);
+  n.onclick=e=>{e.preventDefault();lesson(t);};g.replaceWith(n);
+}
+const _h=home;home=function(){const r=_h.apply(this,arguments);fixHome();setTimeout(fixHome,0);setTimeout(fixHome,400);return r;};
 const _l=lesson;
 lesson=function(id){const r=_l.apply(this,arguments);post(id);setTimeout(()=>post(id),0);setTimeout(()=>post(id),400);return r;};
 // Older code may re-render; keep watching the page
-let tq=0;new MutationObserver(()=>{if(tq)return;tq=requestAnimationFrame(()=>{tq=0;const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)post(m[1]);});}).observe(document.getElementById('app'),{childList:true,subtree:true});
-const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)setTimeout(()=>post(m[1]),600);
+let tq=0;new MutationObserver(()=>{if(tq)return;tq=requestAnimationFrame(()=>{tq=0;const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)post(m[1]);fixHome();});}).observe(document.getElementById('app'),{childList:true,subtree:true});
+const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)setTimeout(()=>post(m[1]),600);setTimeout(fixHome,800);
 })();
 </script>
 </body>
