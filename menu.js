@@ -4,6 +4,9 @@
   function setup(d){
     if(d.dataset.smooth) return; d.dataset.smooth='1';
     var s=d.querySelector('summary'), p=d.querySelector(':scope>div'), busy=false;
+    if(!p.id) p.id='site-menu'; s.setAttribute('aria-controls',p.id); s.setAttribute('aria-expanded','false'); s.setAttribute('aria-label','Menu'); p.setAttribute('aria-label','Site menu');
+    function sync(){ s.setAttribute('aria-expanded', d.classList.contains('is-open')?'true':'false'); }
+    new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['class']});
     function open(){ d.setAttribute('open',''); void p.offsetHeight; d.classList.add('is-open'); }
     function close(){
       if(!d.hasAttribute('open')) return;
@@ -21,7 +24,7 @@
       if(e.target===d){ e.stopImmediatePropagation(); close(); }
       else if(e.target.closest('a')){ e.stopImmediatePropagation(); d.classList.remove('is-open'); }
     },true);
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&d.classList.contains('is-open')){ close(); s.focus(); } });
     /* On a computer: once the mouse has been inside the menu, moving it out closes the menu */
     if(window.matchMedia&&matchMedia('(hover: hover) and (pointer: fine)').matches){
       var inside=false,t=null;

@@ -27,6 +27,6 @@
     });
   });
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){ [].forEach.call(document.querySelectorAll('details.mnav[open]'),function(d){d.removeAttribute('open');}); }
+    if(e.key==='Escape'){ [].forEach.call(document.querySelectorAll('details.mnav[open]'),function(d){d.classList.remove('is-open');d.removeAttribute('open');}); }
   });
 })();
