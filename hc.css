@@ -162,3 +162,10 @@ ul.crosses li::before{top:.12em;width:26px;height:26px;border-radius:0;backgroun
   .card:hover img{transform:scale(1.03)}
   .b1:active,.b2:active,.b3:active,.hd-cta:active{transform:translateY(1px)}
 }
+
+/* Buy buttons: gold with a shine (any button that goes to a checkout) */
+a.b[href*="checkout"]{position:relative;overflow:hidden;background:linear-gradient(180deg,#FFD47E,#F5B04A)!important;color:#1F3A27!important;border-color:transparent!important;box-shadow:0 4px 0 #D99A2B,0 8px 22px rgba(245,176,74,.45)!important}
+a.b[href*="checkout"]:hover{background:linear-gradient(180deg,#FFDC92,#F7BA5C)!important}
+a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:buyshine 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes buyshine{0%,55%{left:-60%}85%,100%{left:130%}}
+@media (prefers-reduced-motion:reduce){a.b[href*="checkout"]::after{animation:none;display:none}}
