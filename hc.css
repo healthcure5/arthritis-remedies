@@ -91,7 +91,7 @@ textarea{min-height:140px}.check{display:flex;gap:12px;align-items:flex-start;fo
 @keyframes hcdraw{to{stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.js .finale .stroke path{stroke-dasharray:none;stroke-dashoffset:0;animation:none}}
 .finale .w{position:relative;z-index:1}
-.finale-logo{position:absolute;top:50%;left:50%;width:min(560px,80%);transform:translate(-50%,-50%);opacity:.14;filter:brightness(0) invert(1);pointer-events:none;z-index:0}
+.finale-logo{position:absolute;top:50%;left:50%;width:min(520px,72%);height:auto;transform:translate(-50%,-50%);opacity:.16;filter:brightness(0) invert(1);pointer-events:none;z-index:0}
 .finale h2 span{display:inline-block}
 .js .finale-logo{opacity:0;transform:translate(-50%,-50%) scale(.985)}
 .js .finale.in .finale-logo{animation:hclogo 1.5s ease .15s forwards}
