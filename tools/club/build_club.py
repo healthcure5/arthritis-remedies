@@ -147,7 +147,7 @@ def page():
     return """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Members' library | The Hinge Care Club</title><meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="../favicon.ico"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../hc.css?v=24"><style>%s</style></head><body>
+<link rel="stylesheet" href="../hc.css?v=26"><style>%s</style></head><body>
 <header class="hd"><div class="w hd-in"><a class="brand" href="../index.html"><span>Hinge Care</span></a><span class="members">Club members</span></div></header>
 <main><div class="w libwide">
 <div class="welcome noprint"><p class="eye">The Hinge Care Club</p><h1>Your members' library</h1>

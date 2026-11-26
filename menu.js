@@ -20,6 +20,17 @@
       else if(e.target.closest('a')){ e.stopImmediatePropagation(); d.classList.remove('is-open'); }
     },true);
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+    /* On a computer: once the mouse has been inside the menu, moving it out closes the menu */
+    if(window.matchMedia&&matchMedia('(hover: hover) and (pointer: fine)').matches){
+      var inside=false,t=null;
+      p.addEventListener('mouseenter',function(){inside=true;clearTimeout(t);});
+      p.addEventListener('mouseleave',function(e){
+        if(!inside||!d.classList.contains('is-open')) return;
+        if(e.relatedTarget&&s.contains(e.relatedTarget)) return;
+        t=setTimeout(function(){inside=false;close();},250);
+      });
+      s.addEventListener('mouseenter',function(){clearTimeout(t);});
+    }
   }
   function init(){ [].forEach.call(document.querySelectorAll('details.mnav'),setup); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();

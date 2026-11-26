@@ -211,3 +211,10 @@ a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:
 .mnav>div>.mlinks{display:flex!important;flex-direction:column;gap:2px;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;max-height:none!important;overflow:visible!important}
 .mnav>div>.mprev{display:block!important;padding:0!important;background:#EFE7D8!important;border:0!important;border-radius:22px!important;box-shadow:0 20px 50px -24px rgba(31,58,39,.4)!important;overflow:hidden!important}
 @media (max-width:760px){.mnav>div>.mprev{display:none!important}}
+
+/* Menu slides in from the right (same big panel: links on the left, picture on the right) */
+.mnav>div{top:0!important;bottom:0!important;left:auto!important;right:0!important;width:min(1000px,100vw)!important;height:100dvh!important;max-height:none!important;border-radius:28px 0 0 28px!important;padding:110px clamp(20px,4vw,56px) 40px!important;align-content:center;clip-path:none!important;opacity:1!important;transform:translateX(102%)!important;box-shadow:-40px 0 80px -40px rgba(31,58,39,.45)!important;transition:transform .55s cubic-bezier(.22,.61,.36,1),visibility 0s linear .55s!important;will-change:transform}
+.mnav.is-open>div{transform:translateX(0)!important;transition:transform .55s cubic-bezier(.22,.61,.36,1),visibility 0s!important}
+@media (max-width:760px){.mnav>div{border-radius:0!important;padding:96px 16px 24px!important;align-content:start}}
+.mnav .mlinks a[aria-current]{color:#1F3A27!important;background:transparent!important}
+.mnav .mlinks a[aria-current].on,.mnav .mlinks a[aria-current]:hover{background:#F1E9DA!important}
