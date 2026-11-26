@@ -24,3 +24,34 @@
   function init(){ [].forEach.call(document.querySelectorAll('details.mnav'),setup); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
+
+/* Big menu: links on the left, a picture and one line on the right that change as you point at each link */
+(function(){
+  var M={
+    'guide':['/images/cover-habits-rust.jpg','7 Bad Habits for Arthritis, free in your inbox.'],
+    'book':['/images/cover-joint-reset.jpg','The Joint Reset: what to try, and how to start.'],
+    'course-info':['https://images.pexels.com/photos/7530853/pexels-photo-7530853.jpeg?auto=compress&cs=tinysrgb&w=900','The Program: one small step a day, at your own pace.'],
+    'club':['https://images.pexels.com/photos/6975186/pexels-photo-6975186.jpeg?auto=compress&cs=tinysrgb&w=900','The Club: one focus a month, from $9 a month.'],
+    'shop':['/images/chair.jpg','Every price in one place. Nothing added at checkout.'],
+    '#shop':['/images/chair.jpg','Every price in one place. Nothing added at checkout.'],
+    'about-hinge-care':['/images/walk.jpg','A small wellness company that names every source.'],
+    'contact':['https://images.pexels.com/photos/5257613/pexels-photo-5257613.jpeg?auto=compress&cs=tinysrgb&w=900','Write to us. A real person writes back.'],
+    'circle':['/images/hands.jpg','The Circle: a small group, opening in January 2027.']
+  };
+  function key(h){h=h||'';if(h.indexOf('#shop')>-1)return '#shop';var m=h.replace(/^.*\//,'').replace(/\.html.*$/,'').replace(/#.*$/,'');return m;}
+  function build(d){
+    var p=d.querySelector(':scope>div'); if(!p||p.querySelector('.mlinks')) return;
+    var links=[].slice.call(p.querySelectorAll(':scope>a')); if(!links.length) return;
+    var L=document.createElement('div'); L.className='mlinks'; links.forEach(function(a){L.appendChild(a);});
+    var R=document.createElement('div'); R.className='mprev'; R.setAttribute('aria-hidden','true');
+    var im=document.createElement('img'); im.alt=''; im.loading='lazy'; var cap=document.createElement('p');
+    R.appendChild(im); R.appendChild(cap); p.appendChild(L); p.appendChild(R);
+    function show(a){var k=M[key(a.getAttribute('href'))]||M['guide'];
+      if(im.getAttribute('src')!==k[0]){R.classList.add('swap');setTimeout(function(){im.src=k[0];cap.textContent=k[1];R.classList.remove('swap');},140);}else{cap.textContent=k[1];}
+      links.forEach(function(x){x.classList.toggle('on',x===a);});}
+    links.forEach(function(a){a.addEventListener('mouseenter',function(){show(a)});a.addEventListener('focus',function(){show(a)});});
+    show(links[0]);
+  }
+  function init(){[].forEach.call(document.querySelectorAll('details.mnav'),build);}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
