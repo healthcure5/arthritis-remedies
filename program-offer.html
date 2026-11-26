@@ -53,6 +53,6 @@ v.addEventListener('ended',function(){v.currentTime=0.05;go();});
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&v.paused)go();});go();});})();</script>
 
 <script src="/smooth.js?v=1" defer></script>
-<script src="/menu.js?v=6" defer></script>
+<script src="/menu.js?v=7" defer></script>
 <script>(function(){var v=[].slice.call(document.querySelectorAll('video[data-lazy]'));if(!v.length)return;var still=(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)||(navigator.connection&&navigator.connection.saveData);if(still||!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){var m=e.target;if(e.isIntersecting){m.preload='auto';var p=m.play();if(p&&p.catch)p.catch(function(){})}else{m.pause()}})},{rootMargin:'200px 0px'});v.forEach(function(m){io.observe(m)})})();</script>
 </body></html>
