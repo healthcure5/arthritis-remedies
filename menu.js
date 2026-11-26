@@ -12,7 +12,7 @@
       busy=true;
       var done=function(){ if(!d.classList.contains('is-open')) d.removeAttribute('open'); busy=false; p.removeEventListener('transitionend',onEnd); };
       var onEnd=function(e){ if(e.target===p) done(); };
-      p.addEventListener('transitionend',onEnd); setTimeout(done,600);
+      p.addEventListener('transitionend',onEnd); setTimeout(done,800);
     }
     var hoverOpenedAt=0;
     s.addEventListener('click',function(e){ e.preventDefault(); e.stopImmediatePropagation(); if(busy) return;

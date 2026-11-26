@@ -246,7 +246,6 @@ a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:
 .steps li,.card,.stat{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .steps li:hover,.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(31,58,39,.12);border-color:var(--g2)}
 .steps h3,.card h3{color:var(--g)}
-.steps li,.card{border-top:3px solid transparent}.steps li:hover,.card:hover{border-top-color:var(--g2)}
 @media(prefers-reduced-motion:reduce){.steps li,.card{transition:none}.steps li:hover,.card:hover{transform:none}}
 .sources{text-align:center}.sources .sub{max-width:60ch;margin-left:auto;margin-right:auto}
 .srcs{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -254,3 +253,14 @@ a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:
 .srcs a:hover{border-color:var(--g2);box-shadow:0 4px 12px rgba(31,58,39,.10)}
 .signoff{margin:26px 0 0;color:var(--soft);font-size:18px}
 .sig{display:block;font:400 64px/1.1 "Pinyon Script","Snell Roundhand","Apple Chancery","Brush Script MT",cursive;color:var(--g);margin-top:6px;transform:rotate(-3deg);letter-spacing:.01em}@media(max-width:600px){.sig{font-size:54px}}
+
+/* Menu: no logo/X swap. The button stays the same. Panel and dim background move together, fast at first then slowing to a soft stop, in and out */
+.mnav[open] summary{font-size:10.5px;letter-spacing:.14em;gap:6px;padding:9px 16px;background:transparent;border-color:var(--g);color:var(--g);box-shadow:none}
+.mnav[open] summary::before{width:22px;height:2.5px;margin:7px 0;border-radius:2px;background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
+.mnav[open] summary::after{display:none}
+.mnav>div{transition:transform .65s cubic-bezier(.16,1,.3,1),visibility 0s linear .65s!important}
+.mnav.is-open>div{transition:transform .75s cubic-bezier(.16,1,.3,1),visibility 0s!important}
+.mnav[open]::after{opacity:0;transition:opacity .65s cubic-bezier(.16,1,.3,1)!important}
+.mnav.is-open::after{opacity:1}
+.mnav>div a{transition:opacity .35s ease,transform .6s cubic-bezier(.16,1,.3,1),background-color .2s}
+@media(prefers-reduced-motion:reduce){.mnav>div,.mnav[open]::after,.mnav>div a{transition:none!important}}
