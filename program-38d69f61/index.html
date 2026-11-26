@@ -2055,6 +2055,19 @@ h1.lhead{margin-top:2px;animation:lheadIn .7s ease-out both}
 .grad .circlecard{display:none!important}
 .offer25{margin:26px 0 8px}
 s.was{color:#9aa6b2;font-weight:400;text-decoration-thickness:2px;margin-right:.15em}
+/* Menu panel on the right side (desktop sidebar) */
+@media(min-width:1100px){
+  .panel{left:auto!important;right:0!important;border-right:0!important;border-left:1px solid #2A3D5E!important}
+  body:not([data-view=welcome]) #app{margin-left:0!important;margin-right:var(--side)}
+  body:not([data-view=welcome]) footer{margin-left:0!important;margin-right:var(--side)}
+  body:not([data-view=welcome]) .dock{left:0!important;right:var(--side)}
+  body:not([data-view=welcome]) .readbar{left:0!important}
+  body[data-view=welcome] .panel,body.sidec .panel{transform:translateX(102%)!important}
+  body.sidec #app,body.sidec footer{margin-right:0!important}
+  body.sidec .dock{right:0!important}
+  #sideTog{left:auto!important;right:16px}
+  body:not(.sidec) #sideTog{right:calc(var(--side) + 16px)}
+}
 </style>
 <script>(function(){
 /* Nov 25 changes on top of the original design */
