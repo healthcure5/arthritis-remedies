@@ -218,3 +218,11 @@ a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:
 @media (max-width:760px){.mnav>div{border-radius:0!important;padding:96px 16px 24px!important;align-content:start}}
 .mnav .mlinks a[aria-current]{color:#1F3A27!important;background:transparent!important}
 .mnav .mlinks a[aria-current].on,.mnav .mlinks a[aria-current]:hover{background:#F1E9DA!important}
+
+/* Menu half the size: narrower panel, smaller links, smaller picture */
+.mnav>div{width:min(520px,100vw)!important;grid-template-columns:1fr 1fr!important;gap:18px!important;padding:96px 22px 28px!important;align-content:center;border-radius:22px 0 0 22px!important}
+.mnav .mlinks a{font-size:18px!important;padding:9px 12px!important;border-radius:10px}
+.mnav .mlinks a::after{font-size:15px}
+.mnav>div>.mprev{aspect-ratio:4/5;border-radius:16px!important}
+.mnav .mprev p{left:8px;right:8px;bottom:8px;padding:8px 10px;font-size:13px;border-radius:10px}
+@media (max-width:760px){.mnav>div{width:100vw!important;grid-template-columns:1fr!important;border-radius:0!important;align-content:start}.mnav .mlinks a{font-size:20px!important}}

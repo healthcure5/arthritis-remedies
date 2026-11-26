@@ -45,5 +45,5 @@ var links=[].slice.call(document.querySelectorAll('.toc a'));if(!links.length)re
 var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
 addEventListener('scroll',function(){var y=scrollY+130,i=0;secs.forEach(function(s,k){if(s&&s.offsetTop<=y)i=k});links.forEach(function(a,k){a.classList.toggle('on',k===i)})},{passive:true});})();
 </script>
-<script src="/menu.js?v=3" defer></script>
+<script src="/menu.js?v=4" defer></script>
 </body></html>

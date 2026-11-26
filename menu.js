@@ -14,7 +14,9 @@
       var onEnd=function(e){ if(e.target===p) done(); };
       p.addEventListener('transitionend',onEnd); setTimeout(done,600);
     }
-    s.addEventListener('click',function(e){ e.preventDefault(); e.stopImmediatePropagation(); if(busy) return; d.classList.contains('is-open')?close():open(); });
+    var hoverOpenedAt=0;
+    s.addEventListener('click',function(e){ e.preventDefault(); e.stopImmediatePropagation(); if(busy) return;
+      if(d.classList.contains('is-open')){ if(Date.now()-hoverOpenedAt<700) return; close(); } else open(); });
     d.addEventListener('click',function(e){
       if(e.target===d){ e.stopImmediatePropagation(); close(); }
       else if(e.target.closest('a')){ e.stopImmediatePropagation(); d.classList.remove('is-open'); }
@@ -29,7 +31,11 @@
         if(e.relatedTarget&&s.contains(e.relatedTarget)) return;
         t=setTimeout(function(){inside=false;close();},250);
       });
-      s.addEventListener('mouseenter',function(){clearTimeout(t);});
+      s.addEventListener('mouseenter',function(){clearTimeout(t); if(!d.classList.contains('is-open')&&!busy){ open(); hoverOpenedAt=Date.now(); }});
+      s.addEventListener('mouseleave',function(e){
+        if(e.relatedTarget&&p.contains(e.relatedTarget)) return;
+        clearTimeout(t); t=setTimeout(function(){ if(!inside) close(); },350);
+      });
     }
   }
   function init(){ [].forEach.call(document.querySelectorAll('details.mnav'),setup); }
