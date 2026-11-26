@@ -133,14 +133,14 @@ def page():
 <header class="hd"><div class="w hd-in"><a class="brand" href="../index.html"><span>Hinge Care</span></a><span class="members">Club members</span></div></header>
 <main><div class="w narrow">
 <div class="welcome noprint"><p class="eye">The Hinge Care Club</p><h1>Your members' library</h1>
-<p class="lede2" style="margin-bottom:0">Everything from the Club in one place: this month's plan and tracker, every routine and recipe, the weekend challenges, and the short version of every Sunday letter. Save this page to your home screen so it's one tap away.</p>
+<p class="lede2" style="margin-bottom:0">Everything from the Club in one place: this month's plan and tracker, every routine and recipe, the weekend challenges, and the short version of every Sunday letter. And as a member, you can write to the Hinge Care team about your own joints any time, and get an answer back by email. Save this page to your home screen so it's one tap away.</p>
 <div class="jump"><a href="#month">This month</a><a href="#library">The library</a><a href="#ask">Ask Andre</a></div></div>
 %s
 <section id="library" class="noprint"><p class="eye">The library</p><h2>Every routine, recipe and letter</h2><p class="sub">Tap any title to open it. New items are added each month.</p>
 <div class="filters" role="group" aria-label="Show"><button type="button" data-k="all" aria-pressed="true">Everything</button><button type="button" data-k="routine" aria-pressed="false">Routines</button><button type="button" data-k="recipe" aria-pressed="false">Recipes</button><button type="button" data-k="challenge" aria-pressed="false">Weekend challenges</button><button type="button" data-k="letter" aria-pressed="false">Sunday letters</button></div>
 <div class="list">%s</div></section>
-<section class="ask noprint" id="ask"><p class="eye">Ask Andre</p><h2>Send me your question</h2>
-<p class="sub" style="margin-bottom:6px">Ask anything about your joints, a remedy you've seen, or something from a letter. I answer members' questions in writing in the Q&amp;A at the end of each month, and your name is never shared.</p>
+<section class="ask noprint" id="ask"><p class="eye">Ask Andre · members only</p><h2>Send us your question</h2>
+<p class="sub" style="margin-bottom:6px">Ask anything about your joints, a remedy you've seen, or something from a letter. You get your own answer back by email, written for you. The Hinge Care team uses AI tools to help write answers. Good questions may also go in the month's Q&amp;A, and your name is never shared.</p>
 <div class="thanks" id="asked">Thank you. Your question is in, and you'll see the answer in this month's Q&amp;A.</div>
 <form action="%s" method="POST"><input type="hidden" name="_subject" value="Ask Andre: a question from a Club member"><input type="hidden" name="_next" value="%s?asked=1#ask"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <label for="an">First name</label><input id="an" name="First name" autocomplete="given-name" required>
@@ -203,7 +203,7 @@ def welcome_email(m):
     b += p('Each month has its own focus. This month it\'s <b>%s</b>, and your first Sunday email arrives this weekend.' % e(m['theme']))
     b += p('You also get your members\' library. It has this month\'s plan and a tracker you can print, every routine, recipe and challenge from the Club so far, and the short version of every Sunday letter. You can start there today.')
     b += '<p style="margin:0 0 24px"><a href="%s" style="%s">Open your library &rarr;</a></p>' % (LIB_URL, BTN)
-    b += p('Got a question? Use Ask Andre at the bottom of the library page. I answer members\' questions in writing at the end of each month. And Morning Coffee, the members\' chat, is open on Whop whenever you\'d like company.')
+    b += p('Got a question about your own joints? Use Ask Andre at the bottom of the library page, and you\'ll get your own answer back by email. And Morning Coffee, the members\' chat, is open on Whop whenever you\'d like company.')
     b += p('One tip: save the library page to your phone\'s home screen, so it\'s one tap away on a stiff morning.')
     return shell('Your library is open, and your first Sunday email arrives this weekend.', 'Welcome', 'Welcome to the Club', b)
 
