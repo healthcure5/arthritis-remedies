@@ -73,11 +73,11 @@ def month_html(m):
     days = ''.join('<div class="day"><span>%d</span></div>' % d for d in range(1, 32))
     return ('<section class="month" id="month"><p class="eye">This month · %s</p><h2>%s</h2><p class="lede2">%s</p>'
             '<div class="mgrid"><div class="box"><h3>Your four weeks</h3><ol class="plan">%s</ol></div>'
-            '<div class="box"><h3>%s</h3><ol>%s</ol><p class="safe">%s</p></div></div>'
+            '<div class="box"><h3>%s</h3><ol>%s</ol><p class="safe">%s</p></div>'
             '<div class="tracker" id="tracker"><div class="trhead"><h3>%s tracker: %s</h3><button class="b b2 noprint" type="button" onclick="window.print()">Print the tracker</button></div>'
             '<p class="fine">Tick a box each day you do your routine. A day with a little still counts.</p><div class="days">%s</div>'
-            '<p class="fine">Total ticks this month: ______ &nbsp; One thing my hands do more easily now: ______________________</p></div>'
-            '<h3 class="noprint" style="margin:30px 0 10px">This month\'s Sunday emails</h3><div class="list noprint">%s</div></section>') % (
+            '<p class="fine">Total ticks this month: ______ &nbsp; One thing my hands do more easily now: ______________________</p></div></div>'
+            '<h3 class="noprint" style="margin:30px 0 10px">This month\'s Sunday emails</h3><div class="list grid noprint">%s</div></section>') % (
         e(m['month']), e(m['theme']), e(m['intro']), plan, e(r['title']), ''.join('<li>%s</li>' % e(s) for s in r['steps']), e(r['safety']),
         e(m['month']), e(m['theme']), days, weeks)
 
@@ -114,14 +114,32 @@ main{padding:34px 0 60px}.lede2{font-size:20px;color:var(--soft);max-width:60ch;
 .ask{background:var(--sand);border-radius:22px;padding:26px;margin:34px 0 0}
 .ask label{display:block;font-weight:600;margin:14px 0 6px}.ask input,.ask textarea{width:100%;font:400 19px Inter,sans-serif;padding:12px 14px;border:2px solid #C9C0AE;border-radius:12px;background:#fff}
 .ask textarea{min-height:140px}.ask .b{margin-top:16px}.thanks{display:none;background:#EEF4EA;border-radius:12px;padding:14px 16px;font-weight:600;margin:0 0 16px}
+.libwide{display:block;max-width:1240px}
+.list.grid.collapsed>.it:nth-child(n+9){display:none!important}
+.showall{display:block;margin:16px auto 0;min-height:52px;padding:12px 26px;border-radius:999px;border:2px solid var(--g);background:#fff;color:var(--g);font:700 18px Inter,sans-serif;cursor:pointer}
+.showall:hover{background:var(--g);color:#fff}
+.welcome{display:grid;grid-template-columns:1fr auto;gap:10px 30px;align-items:end}
+.welcome .jump{flex-direction:column;margin:0}.welcome .jump a{text-align:center}
+.mgrid{grid-template-columns:1fr 1fr 1fr;align-items:stretch}
+.mgrid .tracker{margin:0;background:#fff}
+.mgrid .tracker .days{gap:5px}.mgrid .tracker .day{font-size:12px;padding:2px 4px;border-radius:7px}
+.mgrid .tracker .trhead{flex-direction:column;align-items:flex-start}
+.list.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-items:start}
+.list.grid details[open]{grid-column:1/-1}
+#month .list.grid{grid-template-columns:repeat(4,1fr)}
+.bottom{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;margin:34px 0 0;align-items:start}
+.bottom .ask{margin:0}.bottom .more{grid-template-columns:1fr;margin:0}
+@media (max-width:1000px){.mgrid{grid-template-columns:1fr 1fr}.mgrid .tracker{grid-column:1/-1}#month .list.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.welcome{grid-template-columns:1fr}.welcome .jump{flex-direction:row;margin-top:12px}.mgrid,.bottom{grid-template-columns:1fr}#month .list.grid{grid-template-columns:1fr}}
 .more{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0 0}.more .box{background:#fff;border:1px solid var(--line)}
 @media (max-width:760px){.mgrid,.more{grid-template-columns:1fr}.month,.ask{padding:18px}.days{gap:5px}.vid img{width:110px}}
-@media print{.hd,.noprint,.filters,#library,.ask,.more,.welcome,footer{display:none!important}body{background:#fff}.month{border:0;padding:0}.mgrid{display:none}.month>.eye,.month>h2,.month>.lede2{display:none}.tracker{border:0}}
+@media print{.hd,.noprint,.filters,#library,.ask,.more,.welcome,footer{display:none!important}body{background:#fff}.month{border:0;padding:0}.mgrid{display:block}.mgrid>.box{display:none}.month>.eye,.month>h2,.month>.lede2{display:none}.tracker{border:0}}
 """
 
 JS = """
 (function(){var bs=document.querySelectorAll('.filters button'),its=document.querySelectorAll('#library .it');
-bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');var k=b.dataset.k;its.forEach(function(i){i.style.display=(k==='all'||i.dataset.kind===k)?'':'none'})})});
+bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');var k=b.dataset.k;var L=document.getElementById('liblist'),S=document.getElementById('showall');if(k!=='all'){L.classList.remove('collapsed');S.hidden=true}its.forEach(function(i){i.style.display=(k==='all'||i.dataset.kind===k)?'':'none'})})});
+var S=document.getElementById('showall');if(S)S.addEventListener('click',function(){document.getElementById('liblist').classList.remove('collapsed');S.hidden=true});
 if(/[?&]asked=1/.test(location.search)){var t=document.getElementById('asked');if(t){t.style.display='block';document.getElementById('ask').scrollIntoView()}}})();
 """
 
@@ -131,15 +149,15 @@ def page():
 <link rel="icon" href="../favicon.ico"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../hc.css?v=11"><style>%s</style></head><body>
 <header class="hd"><div class="w hd-in"><a class="brand" href="../index.html"><span>Hinge Care</span></a><span class="members">Club members</span></div></header>
-<main><div class="w narrow">
+<main><div class="w libwide">
 <div class="welcome noprint"><p class="eye">The Hinge Care Club</p><h1>Your members' library</h1>
 <p class="lede2" style="margin-bottom:0">Everything from the Club in one place: this month's plan and tracker, every routine and recipe, the weekend challenges, and the short version of every Sunday letter. And as a member, you can write to the Hinge Care team about your own joints any time, and get an answer back by email. Save this page to your home screen so it's one tap away.</p>
 <div class="jump"><a href="#month">This month</a><a href="#library">The library</a><a href="#ask">Ask Andre</a></div></div>
 %s
 <section id="library" class="noprint"><p class="eye">The library</p><h2>Every routine, recipe and letter</h2><p class="sub">Tap any title to open it. New items are added each month.</p>
 <div class="filters" role="group" aria-label="Show"><button type="button" data-k="all" aria-pressed="true">Everything</button><button type="button" data-k="routine" aria-pressed="false">Routines</button><button type="button" data-k="recipe" aria-pressed="false">Recipes</button><button type="button" data-k="challenge" aria-pressed="false">Weekend challenges</button><button type="button" data-k="letter" aria-pressed="false">Sunday letters</button></div>
-<div class="list">%s</div></section>
-<section class="ask noprint" id="ask"><p class="eye">Ask Andre · members only</p><h2>Send us your question</h2>
+<div class="list grid collapsed" id="liblist">%s</div><button type="button" class="showall" id="showall">Show all %d</button></section>
+<div class="bottom"><section class="ask noprint" id="ask"><p class="eye">Ask Andre · members only</p><h2>Send us your question</h2>
 <p class="sub" style="margin-bottom:6px">Ask anything about your joints, a remedy you've seen, or something from a letter. You get your own answer back by email, written for you. Good questions may also go in the month's Q&amp;A, and your name is never shared.</p>
 <div class="thanks" id="asked">Thank you. Your question is in, and you'll see the answer in this month's Q&amp;A.</div>
 <form action="%s" method="POST"><input type="hidden" name="_subject" value="Ask Andre: a question from a Club member"><input type="hidden" name="_next" value="%s?asked=1#ask"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -149,9 +167,9 @@ def page():
 <button class="b b1" type="submit">Send my question</button></form>
 <p class="fine">This is general information, not personal medical advice. For anything urgent, please call your doctor.</p></section>
 <div class="more noprint"><div class="box"><h3>Morning Coffee</h3><p>The members' chat, where you can say hello, share a win or ask other members what helps them. We check it every weekday.</p><a class="b b2" href="https://whop.com/hingecare/" target="_blank" rel="noopener">Open Morning Coffee</a></div>
-<div class="box"><h3>Need a break?</h3><p>Life gets busy, and some months are hard. Reply PAUSE to any Club email and we'll hold your spot. To change or cancel your membership, open your Whop account.</p><a class="b b2" href="https://whop.com/@me/settings/memberships/" target="_blank" rel="noopener">Manage membership</a></div></div>
+<div class="box"><h3>Need a break?</h3><p>Life gets busy, and some months are hard. Reply PAUSE to any Club email and we'll hold your spot. To change or cancel your membership, open your Whop account.</p><a class="b b2" href="https://whop.com/@me/settings/memberships/" target="_blank" rel="noopener">Manage membership</a></div></div></div>
 <p class="fine" style="margin-top:30px">This is general information, not personal medical advice. Be kind to yourself today, and check with your doctor before you try anything new.</p>
-</div></main><script>%s</script></body></html>""" % (CSS, month_html(cur), items_html(), FORM, LIB_URL, JS)
+</div></main><script>%s</script></body></html>""" % (CSS, month_html(cur), items_html(), len(lib), FORM, LIB_URL, JS)
 
 os.makedirs(os.path.join(ROOT, LIB_DIR), exist_ok=True)
 open(os.path.join(ROOT, LIB_DIR, 'index.html'), 'w').write(page())
