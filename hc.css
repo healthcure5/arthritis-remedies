@@ -90,6 +90,19 @@ textarea{min-height:140px}.check{display:flex;gap:12px;align-items:flex-start;fo
 .js .finale.in .stroke path{animation:hcdraw 1.4s ease .15s forwards}
 @keyframes hcdraw{to{stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.js .finale .stroke path{stroke-dasharray:none;stroke-dashoffset:0;animation:none}}
+.finale .w{position:relative;z-index:1}
+.finale-logo{position:absolute;top:50%;left:50%;width:min(560px,80%);transform:translate(-50%,-50%);opacity:.14;filter:brightness(0) invert(1);pointer-events:none;z-index:0}
+.finale h2 span{display:inline-block}
+.js .finale-logo{opacity:0;transform:translate(-50%,-50%) scale(.985)}
+.js .finale.in .finale-logo{animation:hclogo 1.5s ease .15s forwards}
+@keyframes hclogo{to{opacity:.14;transform:translate(-50%,-50%) scale(1)}}
+.js .finale h2 span{opacity:0;transform:translateY(16px)}
+.js .finale.in h2 span{animation:hcword .6s ease forwards}
+.js .finale.in h2 span:nth-child(1){animation-delay:.08s}.js .finale.in h2 span:nth-child(2){animation-delay:.18s}.js .finale.in h2 span:nth-child(3){animation-delay:.28s}.js .finale.in h2 span:nth-child(4){animation-delay:.38s}
+@keyframes hcword{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.js .finale h2 span{opacity:1;transform:none;animation:none}.js .finale-logo{opacity:.14;transform:translate(-50%,-50%);animation:none}}
+.vids figcaption b{display:block;color:var(--g);font-weight:600;font-size:16px}
+.vids figcaption .vd{display:block;color:var(--soft);font-size:14.5px;line-height:1.45;margin-top:4px}
 @media (max-width:860px){.hero .w,.wide,.split{grid-template-columns:1fr}.cards,.cards.two,ol.steps{grid-template-columns:1fr}.heroimg{aspect-ratio:16/10}.hero{padding:26px 0 30px}.card img{aspect-ratio:16/10}.hero .cover{width:min(240px,62%)}}
 @media (max-width:600px){.btns .b{flex:1 1 100%}}
 
@@ -126,9 +139,15 @@ ul.crosses li::before{top:.12em;width:26px;height:26px;border-radius:0;backgroun
 .mnav[open] summary{font-size:0;letter-spacing:0;gap:9px;padding:12px 16px 11px;background:#fff;border-color:transparent;color:var(--g);box-shadow:0 20px 46px -16px rgba(31,58,39,.55)}
 .mnav[open] summary::before{width:30px;height:30px;margin:0;border-radius:0;box-shadow:none;background:url(/brand/hinge-care-icon-green.svg) center/contain no-repeat}
 .mnav[open] summary::after{display:block;width:20px;height:20px;background:linear-gradient(45deg,transparent 43%,var(--g) 43%,var(--g) 57%,transparent 57%),linear-gradient(-45deg,transparent 43%,var(--g) 43%,var(--g) 57%,transparent 57%)}
-.mnav div{position:absolute;right:0;top:calc(100% + 12px);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 26px 60px -22px rgba(31,58,39,.5);padding:10px;display:flex;flex-direction:column;min-width:248px;z-index:60}
-.mnav div a{padding:14px 16px;color:var(--ink);text-decoration:none;font-weight:600;border-radius:12px}
-.mnav div a:hover,.mnav div a[aria-current]{background:var(--sand);color:var(--g)}
+/* Menu: full-height panel that slides in smoothly from the left */
+.mnav>div{position:fixed;top:0;left:0;right:auto;height:100dvh;width:min(380px,86vw);background:#fff;border:0;border-radius:0;box-shadow:0 0 70px -10px rgba(31,58,39,.45);padding:88px 18px 28px;display:flex!important;flex-direction:column;gap:2px;z-index:60;transform:translateX(-100%);visibility:hidden;transition:transform .36s cubic-bezier(.22,.61,.36,1),visibility .36s;overflow-y:auto;overscroll-behavior:contain}
+.mnav[open]>div{transform:translateX(0);visibility:visible}
+.mnav>div a{padding:15px 16px;color:var(--ink);text-decoration:none;font-weight:600;font-size:18px;border-radius:12px}
+.mnav>div a:hover,.mnav>div a[aria-current]{background:var(--sand);color:var(--g)}
+.mnav[open]::after{content:"";position:fixed;inset:0;background:rgba(20,30,22,.42);z-index:55;animation:hcfadein .36s ease both}
+.mnav[open] summary{position:relative;z-index:61}
+@keyframes hcfadein{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.mnav>div{transition:none}.mnav[open]::after{animation:none}}
 
 /* --- Bigger welcome video on the homepage --- */
 .split>.welcome-vid{grid-column:1 / -1;aspect-ratio:16/9;max-width:100%;margin-top:30px}
