@@ -213,7 +213,8 @@ const pick=a=>a[Math.floor(Math.random()*a.length)];
 let wake=null;function wakeOn(){try{navigator.wakeLock&&navigator.wakeLock.request('screen').then(w=>wake=w).catch(()=>{})}catch(e){}}
 function wakeOff(){try{wake&&wake.release()}catch(e){}wake=null}
 function platform(){const u=navigator.userAgent||'';if(/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&'ontouchend' in document))return'ios';if(/Android/.test(u))return'android';if(/Edg\//.test(u))return'edge';return'desktop'}
-function chime(){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=523;g.gain.setValueAtTime(.07,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.5);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.5);setTimeout(()=>c.close(),700)}catch(e){}}
+function buzz(p){try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}}
+function chime(){buzz(14);try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=523;g.gain.setValueAtTime(.07,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.5);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.5);setTimeout(()=>c.close(),700)}catch(e){}}
 function prefs(){document.body.classList.remove('t1','t2','t3');document.body.classList.add('t'+st.text);document.body.classList.toggle('hc',st.hc)}
 function dl(name,type,text){const b=new Blob([text],{type}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},600)}
 /* Real photos, by move id. A move without a photo shows its line drawing. */
@@ -495,7 +496,7 @@ function finish(early){
  clearInterval(tick);wakeOff();const r=P.r,sec=Math.max(early?P.spent:total(),30),hurt=P.hurt;P=null;
  const sess={date:ymd(),name:r.n,rid:r.id,sec};if(hurt)sess.hurt=hurt;if(early)sess.partial=true;st.sessions.push(sess);
  if(hurt){const t=new Date();t.setDate(t.getDate()+1);st.lighten=ymd(t)}
- const ci=st.seen%LEARN.length,card=LEARN[ci];st.readOn=ymd();st.seen++;save();
+ const ci=st.seen%LEARN.length,card=LEARN[ci];st.readOn=ymd();st.seen++;save();buzz([16,70,16]);
  F={sess,card,ci,feel:'',offer:'',early,hurt};talk([early?L('early',0):L('done')]);drawEnd();
 }
 function drawEnd(){
@@ -532,3 +533,21 @@ function render(){
 window.addEventListener('hashchange',()=>{if(!P&&!F)render()});
 prefs();render();
 if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+/* ===== Add to Home Screen ===== */
+(function(){
+ var bar=document.getElementById('a2hs');if(!bar)return;
+ var standalone=false;try{standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){}
+ var dismissed=false;try{dismissed=localStorage.getItem('gjc_a2hs')==='1'}catch(e){}
+ if(standalone||dismissed)return;
+ var deferred=null;
+ function close(){bar.hidden=true;try{localStorage.setItem('gjc_a2hs','1')}catch(e){}}
+ function show(html,btn){
+  bar.innerHTML='<img src="icon-192.png" alt=""><div class="x">'+html+'</div>'+(btn?'<button id="a2go">'+btn+'</button>':'')+'<button class="dismiss" id="a2x" aria-label="Not now">×</button>';
+  bar.hidden=false;document.getElementById('a2x').onclick=close;
+  if(btn)document.getElementById('a2go').onclick=function(){if(!deferred)return;deferred.prompt();deferred.userChoice.then(close);deferred=null};
+ }
+ window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;show('<b>Add Hinge App to your home screen</b>Open it with one tap, and use it even offline.','Install');});
+ window.addEventListener('appinstalled',close);
+ var isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&'ontouchend' in document);
+ if(isIOS)setTimeout(function(){if(bar.hidden&&!deferred)show('<b>Add Hinge App to your home screen</b>Tap the Share button, then “Add to Home Screen.”')},3800);
+})();
