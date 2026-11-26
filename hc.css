@@ -173,3 +173,14 @@ a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:
 /* Site menu opens from the right, next to the Menu button */
 .mnav>div{left:auto!important;right:0!important;transform:translateX(100%);box-shadow:0 0 70px -10px rgba(31,58,39,.45)}
 .mnav[open]>div{transform:translateX(0)}
+
+/* Menu drops down from the top (smooth open and close, no jumps) */
+.mnav>div{left:0!important;right:0!important;top:0!important;width:100%!important;height:auto!important;max-height:100dvh;padding:96px max(20px,calc((100vw - 1120px)/2 + 20px)) 28px!important;background:#FAF6EF!important;border-radius:0 0 26px 26px!important;box-shadow:0 30px 60px -30px rgba(31,58,39,.45)!important;display:grid!important;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 18px;transform:translateY(-104%)!important;visibility:hidden;transition:transform .5s cubic-bezier(.22,.61,.36,1),visibility 0s linear .5s!important}
+.mnav.is-open>div{transform:translateY(0)!important;visibility:visible;transition:transform .5s cubic-bezier(.22,.61,.36,1),visibility 0s!important}
+.mnav>div a{opacity:0;transform:translateY(-8px);transition:opacity .3s ease,transform .3s ease,background-color .2s}
+.mnav.is-open>div a{opacity:1;transform:none}
+.mnav.is-open>div a:nth-child(1){transition-delay:.12s}.mnav.is-open>div a:nth-child(2){transition-delay:.16s}.mnav.is-open>div a:nth-child(3){transition-delay:.2s}.mnav.is-open>div a:nth-child(4){transition-delay:.24s}.mnav.is-open>div a:nth-child(5){transition-delay:.28s}.mnav.is-open>div a:nth-child(6){transition-delay:.32s}.mnav.is-open>div a:nth-child(n+7){transition-delay:.36s}
+.mnav[open]::after{opacity:0;transition:opacity .4s ease;animation:none!important}
+.mnav.is-open::after{opacity:1}
+@media (prefers-reduced-motion:reduce){.mnav>div,.mnav>div a,.mnav[open]::after{transition:none!important}}
+.mnav.is-open~*,.hd:has(.mnav[open]) .brand{position:relative;z-index:61}
