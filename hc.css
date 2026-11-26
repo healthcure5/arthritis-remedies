@@ -184,3 +184,11 @@ a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:
 .mnav.is-open::after{opacity:1}
 @media (prefers-reduced-motion:reduce){.mnav>div,.mnav>div a,.mnav[open]::after{transition:none!important}}
 .mnav.is-open~*,.hd:has(.mnav[open]) .brand{position:relative;z-index:61}
+
+/* Menu: a green panel that drops down on the right, under the Menu button */
+.mnav>div{position:absolute!important;top:calc(100% + 12px)!important;right:0!important;left:auto!important;width:min(340px,calc(100vw - 32px))!important;max-height:calc(100dvh - 110px);overflow-y:auto;padding:14px!important;display:flex!important;flex-direction:column;gap:2px!important;background:#1F3A27!important;border-radius:22px!important;box-shadow:0 26px 60px -18px rgba(15,34,22,.55)!important;transform:translateY(-10px)!important;clip-path:inset(0 0 100% 0 round 22px);opacity:0;visibility:hidden;transition:clip-path .48s cubic-bezier(.22,.61,.36,1),transform .48s cubic-bezier(.22,.61,.36,1),opacity .3s ease,visibility 0s linear .48s!important}
+.mnav.is-open>div{transform:none!important;clip-path:inset(0 0 0 0 round 22px);opacity:1;visibility:visible;transition:clip-path .48s cubic-bezier(.22,.61,.36,1),transform .48s cubic-bezier(.22,.61,.36,1),opacity .25s ease,visibility 0s!important}
+.mnav>div a{color:#F4EFE6!important;font-size:18px;padding:14px 16px!important;border-radius:14px}
+.mnav>div a:hover,.mnav>div a[aria-current]{background:rgba(255,197,107,.16)!important;color:#FFC56B!important}
+.mnav[open]::after{background:rgba(20,30,22,.25)!important}
+@media (prefers-reduced-motion:reduce){.mnav>div{transition:none!important}}
