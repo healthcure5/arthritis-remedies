@@ -224,7 +224,10 @@ function dl(name,type,text){const b=new Blob([text],{type}),u=URL.createObjectUR
 /* Real photos, by move id. A move without a photo shows its line drawing. */
 const PHB='https://d8j0ntlcm91z4.cloudfront.net/user_3LEItPPXyE9nIyHVmOAD1tXaTYL/';
 const PHOTO={'front-raise':PHB+'hf_20261120_010004_5a123700-2bb6-4b19-938f-57b0fea08cf5.png'};
-function pic(k,big,id){const ph=id&&PHOTO[id];return`<div class="pict${big?' big':''}${ph?' ph':''}" aria-hidden="true">${PIC[k]||PIC.seat}${ph?`<img src="${ph}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('ph');this.remove()">`:''}</div>`}
+/* Real photos by body area (seniors stretching at home, Pexels). Per-move PHOTO wins; line drawing is the fallback. */
+const PX=id=>'https://images.pexels.com/photos/'+id+'/pexels-photo-'+id+'.jpeg?auto=compress&cs=tinysrgb&w=640';
+const PHOTO_AREA={upper:PX('7530425'),back:PX('7530425'),legs:PX('7500424'),feet:PX('7500424'),calm:PX('8374603')};
+function pic(k,big,id){let ph=id&&PHOTO[id];if(!ph&&id&&MB[id])ph=PHOTO_AREA[MB[id].a];return`<div class="pict${big?' big':''}${ph?' ph':''}" aria-hidden="true">${PIC[k]||PIC.seat}${ph?`<img src="${ph}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('ph');this.remove()">`:''}</div>`}
 function todaysCard(){return LEARN[st.seen%LEARN.length]}
 /* ================= shell ================= */
 const app=document.getElementById('app'),backBtn=document.getElementById('back'),nav=document.querySelector('.nav');
