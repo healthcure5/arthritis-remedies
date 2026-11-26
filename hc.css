@@ -239,3 +239,18 @@ a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:
 .faqbook .q[open] summary::after{transform:rotate(45deg)}
 .faqbook .q p{padding:0 24px 22px;font-size:17px;line-height:1.65;border-top:0}
 .faqbook .btns{justify-content:center;display:flex}
+
+/* polish: Nov 26 */
+.vids figcaption{margin-top:14px}.vids figcaption b{display:block;font:600 22px/1.25 Fraunces,Georgia,serif;color:var(--g);margin-bottom:6px}.vids figcaption .vd{display:block;font-size:17.5px;line-height:1.55;color:var(--soft)}
+.finale{padding:46px 0}.finale h2{font-size:clamp(30px,5vw,46px);margin:0 0 10px}.finale p{margin:0 auto 20px}
+.steps li,.card,.stat{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.steps li:hover,.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(31,58,39,.12);border-color:var(--g2)}
+.steps h3,.card h3{color:var(--g)}
+.steps li,.card{border-top:3px solid transparent}.steps li:hover,.card:hover{border-top-color:var(--g2)}
+@media(prefers-reduced-motion:reduce){.steps li,.card{transition:none}.steps li:hover,.card:hover{transform:none}}
+.sources{text-align:center}.sources .sub{max-width:60ch;margin-left:auto;margin-right:auto}
+.srcs{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.srcs a{display:block;padding:12px 18px;background:#fff;border:1px solid var(--line);border-radius:999px;color:var(--g);font-weight:600;font-size:16px;text-decoration:none}
+.srcs a:hover{border-color:var(--g2);box-shadow:0 4px 12px rgba(31,58,39,.10)}
+.signoff{margin:26px 0 0;color:var(--soft);font-size:18px}
+.sig{display:block;font:700 44px/1.1 Caveat,"Segoe Script","Brush Script MT",cursive;color:var(--g);margin-top:4px;transform:rotate(-2deg)}
