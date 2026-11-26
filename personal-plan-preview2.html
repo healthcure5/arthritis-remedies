@@ -103,6 +103,11 @@
 .pp .pcard .heads{list-style:none;margin:6px 0 0;padding:0}
 .pp .pcard .heads li{font:600 19px/1.35 Fraunces,Georgia,serif;padding:11px 0;border-top:1px solid rgba(31,58,39,.12)}
 .pp .pc-you .heads li{border-top-color:rgba(255,255,255,.16);color:#fff}
+.pp a.b3[href*="plan-checkout"]{position:relative;overflow:hidden;background:linear-gradient(180deg,#FFD47E,#F5B04A);color:#1F3A27;box-shadow:0 4px 0 #D99A2B,0 8px 22px rgba(245,176,74,.45)}
+.pp a.b3[href*="plan-checkout"]:hover{background:linear-gradient(180deg,#FFDC92,#F7BA5C)}
+.pp a.b3[href*="plan-checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%,55%{left:-60%}85%,100%{left:130%}}
+@media (prefers-reduced-motion:reduce){.pp a.b3[href*="plan-checkout"]::after{animation:none;display:none}}
 </style>
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
