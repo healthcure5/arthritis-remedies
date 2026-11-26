@@ -2111,11 +2111,19 @@ function fixHome(){
   const n=g.cloneNode(false);n.dataset.p25='1';n.innerHTML='Continue here';n.setAttribute('aria-label','Continue here: '+((find(t)||{}).l||{}).title);
   n.onclick=e=>{e.preventDefault();lesson(t);};g.replaceWith(n);
 }
-const _h=home;home=function(){const r=_h.apply(this,arguments);fixHome();setTimeout(fixHome,0);setTimeout(fixHome,400);return r;};
+const _h=home;home=function(){const r=_h.apply(this,arguments);fixHome();tidyHome();setTimeout(()=>{fixHome();tidyHome();},0);setTimeout(()=>{fixHome();tidyHome();},400);return r;};
+// My course page: no Toolkit list and no Hinge Eight (the toolkit stays in the menu)
+function tidyHome(){
+  if(document.body.dataset.view!=='home')return;
+  document.querySelectorAll('#app .eight').forEach(e=>e.remove());
+  document.querySelectorAll('#app h2').forEach(h=>{if(/^Your Toolkit$/.test(h.textContent.trim())){let n=h.nextElementSibling;while(n&&n.classList.contains('lrow')){const x=n.nextElementSibling;n.remove();n=x;}const box=h.parentElement;h.remove();if(box&&!box.textContent.trim()){const sec=box.closest('section');(sec&&!sec.textContent.trim()?sec:box).remove();}}});
+}
+// The Hinge Care logo opens My course
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#gbar .gbrand');if(!b)return;e.preventDefault();e.stopImmediatePropagation();const mc=[...document.querySelectorAll('#gbar a,#gbar button')].find(x=>x!==b&&/^My course$/i.test(x.textContent.trim()));if(mc)mc.click();else{location.hash='#/mine';home();}},true);
 const _l=lesson;
 lesson=function(id){const r=_l.apply(this,arguments);post(id);setTimeout(()=>post(id),0);setTimeout(()=>post(id),400);return r;};
 // Older code may re-render; keep watching the page
-let tq=0;new MutationObserver(()=>{if(tq)return;tq=requestAnimationFrame(()=>{tq=0;const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)post(m[1]);fixHome();});}).observe(document.getElementById('app'),{childList:true,subtree:true});
+let tq=0;new MutationObserver(()=>{if(tq)return;tq=requestAnimationFrame(()=>{tq=0;const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)post(m[1]);fixHome();tidyHome();});}).observe(document.getElementById('app'),{childList:true,subtree:true});
 const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)setTimeout(()=>post(m[1]),600);setTimeout(fixHome,800);
 })();
 </script>
