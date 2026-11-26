@@ -11,7 +11,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <meta property="og:type" content="website"><meta property="og:site_name" content="Hinge Care"><meta property="og:title" content="Your plan questions | Hinge Care"><meta property="og:description" content="Answer a few questions and we write your 30-day arthritis plan."><meta property="og:image" content="https://myhingecare.com/brand/hinge-care-wordmark-cream.png">
-<link rel="stylesheet" href="hc.css?v=18"><style>.formbox fieldset{border:0;padding:0;margin:0 0 6px}.formbox legend{font:600 23px Fraunces,Georgia,serif;margin:26px 0 8px;color:var(--g)}.formbox .opt{display:flex;flex-wrap:wrap;gap:8px 14px;margin:4px 0 10px}.formbox .opt label{display:flex;align-items:center;gap:8px;font-weight:500;min-height:44px;margin:0}.formbox .opt input{width:22px;height:22px;margin:0}.formbox .hint{font-size:17px;color:var(--soft);margin:-2px 0 6px}.ppform{max-width:720px;margin:0 auto}</style>
+<link rel="stylesheet" href="hc.css?v=18"><style>.formbox fieldset{border:0;padding:0;margin:0 0 6px}.formbox legend{font:600 23px Fraunces,Georgia,serif;margin:26px 0 8px;color:var(--g)}.formbox .opt{display:flex;flex-wrap:wrap;gap:8px 14px;margin:4px 0 10px}.formbox .opt label{display:flex;align-items:center;gap:8px;font-weight:500;min-height:44px;margin:0}.formbox .opt input{width:22px;height:22px;margin:0}.formbox .hint{font-size:17px;color:var(--soft);margin:-2px 0 6px}.ppform{max-width:720px;margin:0 auto}
+.ppform .formbox{background:transparent;border:0;box-shadow:none;padding:0}
+.parts-note{font-weight:600;color:var(--g);margin:-8px 0 18px}
+.pbar{display:none}
+.js .pbar{display:block;position:sticky;top:72px;z-index:5;background:var(--cream);padding:12px 0 14px;margin-bottom:8px}
+.pbar-top{font:600 16px Inter,sans-serif;color:var(--g);margin-bottom:8px}
+.pbar-track{height:10px;border-radius:999px;background:#E3EAE0;overflow:hidden}
+.pbar-fill{height:100%;width:14.3%;border-radius:999px;background:linear-gradient(90deg,#2F5D3A,#5E8F5F);transition:width .4s ease}
+.formbox fieldset.part{scroll-margin-top:170px;background:#fff;border:1px solid #E6E0D4;border-radius:22px;padding:6px 26px 24px;margin:0 0 16px;box-shadow:0 8px 24px rgba(31,58,39,.06)}
+.formbox fieldset.part legend{float:left;width:100%;margin:22px 0 12px;font-size:25px;outline:none}
+.formbox fieldset.part legend+*{clear:both}
+.formbox fieldset.part.done legend::after{content:"\2713";display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;margin-left:10px;border-radius:50%;background:#2F5D3A;color:#fff;font:700 16px Inter,sans-serif;vertical-align:4px}
+.formbox input[type=text],.formbox input[type=email],.formbox select,.formbox textarea{border-radius:14px;border:1.5px solid #D5CDBE;background:#FCFBF8;font-size:18px;min-height:52px;transition:border-color .2s,box-shadow .2s}
+.formbox input:focus,.formbox select:focus,.formbox textarea:focus{border-color:#2F5D3A;box-shadow:0 0 0 4px rgba(47,93,58,.18);outline:none;background:#fff}
+.formbox .opt label{background:#F4F1EA;border:1.5px solid transparent;border-radius:999px;padding:6px 16px 6px 12px}
+.formbox .opt label:has(input:checked){background:#E6EFE2;border-color:#2F5D3A}
+.formbox .opt input{accent-color:#2F5D3A}
+.nextpart{display:none}
+.js .nextpart{display:flex;width:100%;justify-content:center;align-items:center;gap:10px;min-height:60px;margin:0 0 16px;border:0;border-radius:999px;background:#1F3A27;color:#fff;font:700 19px Inter,sans-serif;cursor:pointer;box-shadow:0 4px 0 #0F2216}
+.js .nextpart::after{content:"\2193";font-size:20px}
+.js .nextpart:hover{background:#2F5D3A}
+.js .nextpart:focus-visible{outline:3px solid #1F6FEB;outline-offset:3px}
+.js .formbox fieldset.part.locked,.js .formbox .nextpart.locked,.js .formbox .sendwrap.locked{display:none}
+.js .formbox fieldset.part.opening{animation:partin .45s ease both}
+@keyframes partin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.js .formbox fieldset.part.opening{animation:none}.pbar-fill{transition:none}}
+@media(max-width:640px){.formbox fieldset.part{padding:4px 16px 20px}}
+.sendwrap .b1{width:100%;min-height:60px;border-radius:999px;font-size:20px}
+</style>
 <script>document.documentElement.classList.add('js')</script>
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
@@ -25,6 +53,8 @@
 <section class="hero"><div class="w" style="grid-template-columns:1fr">
 <div class="ppform"><p class="eye">Your Personal Joint Plan</p><h1>Tell us about your joints and your day.</h1>
 <p class="lede">These questions take about ten minutes. Answer in your own words. Short answers are fine. Your plan reaches your inbox within 3 days.</p>
+<p class="parts-note">There are 7 short parts. Finish one, and the next one opens.</p>
+<div class="pbar" aria-hidden="true"><div class="pbar-top"><span id="pbar-label">Part 1 of 7</span></div><div class="pbar-track"><div class="pbar-fill" id="pbar-fill"></div></div></div>
 <div class="ok" id="sent" hidden><h2 style="margin-top:0">Thank you. Your answers are in.</h2><p>We're writing your plan now. Within 3 days your My Plan page opens, your morning emails begin, and your plan arrives from arthritis@myhingecare.com.</p><p><b>One thing to do now:</b> if you don't have a Hinge Care account yet, <a href="program-38d69f61/">make one here</a> with this same email. That's how your My Plan page knows it's you.</p></div>
 <form class="formbox" id="pp-form" action="https://hinge-forms.cgmandre.workers.dev" method="POST">
 <input type="hidden" name="_captcha" value="false">
@@ -34,14 +64,16 @@
 <input type="hidden" name="_autoresponse" value="Thank you. Your answers reached us, and your Personal Joint Plan will be in your inbox within 3 days. Hinge Care support">
 <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
 
-<fieldset><legend>1. About you</legend>
+<fieldset class="part"><legend tabindex="-1">1. About you</legend>
 <label for="f-name">Your first name</label><input id="f-name" name="First name" type="text" required autocomplete="given-name">
 <label for="f-email">The email you used to buy</label><input id="f-email" name="email" type="email" required autocomplete="email">
 <label for="f-for">Who is the plan for?</label><select id="f-for" name="Plan is for"><option>Me</option><option>My mom or dad</option><option>My husband or wife</option><option>Someone else</option></select>
 <label for="f-who">If it's for someone else, their first name</label><input id="f-who" name="Plan person's first name" type="text">
 <label for="f-age">Age</label><select id="f-age" name="Age"><option>Under 50</option><option>50 to 59</option><option selected>60 to 69</option><option>70 to 79</option><option>80 or older</option></select></fieldset>
 
-<fieldset><legend>2. Your arthritis</legend>
+<button type="button" class="nextpart" data-next="2">On to part 2: Your arthritis</button>
+
+<fieldset class="part"><legend tabindex="-1">2. Your arthritis</legend>
 <label for="f-kind">What kind of arthritis is it?</label><select id="f-kind" name="Kind of arthritis"><option>Osteoarthritis (wear and repair)</option><option>Rheumatoid arthritis</option><option>Gout</option><option>Pseudogout (CPPD)</option><option>Psoriatic arthritis</option><option>Back arthritis (ankylosing spondylitis)</option><option>Lupus</option><option>Polymyalgia rheumatica</option><option>Arthritis with Crohn's or colitis</option><option>Fibromyalgia</option><option>Bursitis or tendinitis</option><option>Carpal tunnel</option><option>More than one kind</option><option>Not sure yet</option></select>
 <label for="f-dx">Has a doctor told you which kind?</label><select id="f-dx" name="Doctor confirmed"><option>Yes</option><option>No</option><option>Not sure</option></select>
 <p class="hint" style="margin-top:14px"><b>Which joints bother you?</b> Tick all that fit.</p>
@@ -50,35 +82,60 @@
 <label for="f-stiff">How long are you stiff in the morning?</label><select id="f-stiff" name="Morning stiffness"><option>Not stiff</option><option>Under 30 minutes</option><option>30 to 60 minutes</option><option>More than an hour</option></select>
 <label for="f-pain">On a usual day, how much does it hurt? (0 is none, 10 is the worst)</label><select id="f-pain" name="Usual pain 0-10"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></fieldset>
 
-<fieldset><legend>3. Your day</legend>
+<button type="button" class="nextpart" data-next="3">On to part 3: Your day</button>
+
+<fieldset class="part"><legend tabindex="-1">3. Your day</legend>
 <label for="f-wake">What time do you usually get up and go to bed?</label><input id="f-wake" name="Wake and bed times" type="text" placeholder="For example: up at 7, bed at 10:30">
 <label for="f-day">What does a usual day look like?</label><p class="hint">Work, home, grandchildren, the garden, the couch. Anything is useful.</p><textarea id="f-day" name="Usual day" required></textarea>
 <label for="f-move">How much can you move right now?</label><select id="f-move" name="Movement now"><option>Standing for long is hard</option><option>I get around the house</option><option>I can walk about 10 minutes</option><option>I can walk 30 minutes or more</option><option>I exercise most weeks</option></select>
 <label for="f-aid">Do you use a cane or walker?</label><select id="f-aid" name="Cane or walker"><option>No</option><option>A cane sometimes</option><option>A cane most days</option><option>A walker</option></select>
 <label for="f-falls">Have you fallen in the past year?</label><select id="f-falls" name="Fall in past year"><option>No</option><option>Once</option><option>More than once</option></select></fieldset>
 
-<fieldset><legend>4. Food</legend>
+<button type="button" class="nextpart" data-next="4">On to part 4: Food</button>
+
+<fieldset class="part"><legend tabindex="-1">4. Food</legend>
 <label for="f-eat">What do you usually eat and drink in a day?</label><p class="hint">Breakfast, lunch, supper and snacks. Coffee and tea count too.</p><textarea id="f-eat" name="Usual food"></textarea>
 <label for="f-noeat">Foods you won't eat, can't eat or are allergic to</label><input id="f-noeat" name="Foods to avoid" type="text"></fieldset>
 
-<fieldset><legend>5. What you've tried</legend>
+<button type="button" class="nextpart" data-next="5">On to part 5: What you've tried</button>
+
+<fieldset class="part"><legend tabindex="-1">5. What you've tried</legend>
 <label for="f-helped">What has helped, even a little?</label><textarea id="f-helped" name="What helped"></textarea>
 <label for="f-nothelp">What hasn't helped?</label><textarea id="f-nothelp" name="What did not help"></textarea></fieldset>
 
-<fieldset><legend>6. Medicines and health</legend>
+<button type="button" class="nextpart" data-next="6">On to part 6: Medicines and health</button>
+
+<fieldset class="part"><legend tabindex="-1">6. Medicines and health</legend>
 <p class="hint">We ask so we never suggest a herb, rub or food that doesn't mix well with what you take. Keep taking what your doctor prescribed.</p>
 <label for="f-meds">Medicines, vitamins and supplements you take</label><textarea id="f-meds" name="Medicines and supplements"></textarea>
 <label for="f-health">Anything else about your health we should know?</label><p class="hint">For example diabetes, heart or blood pressure, a joint replacement, or a recent surgery.</p><textarea id="f-health" name="Other health"></textarea></fieldset>
 
-<fieldset><legend>7. The thing that matters most</legend>
+<button type="button" class="nextpart" data-next="7">On to part 7: The thing that matters most</button>
+
+<fieldset class="part"><legend tabindex="-1">7. The thing that matters most</legend>
 <label for="f-goal">What's the one thing you want to do again, or do more easily?</label><p class="hint">Picking up a grandchild, the stairs, a walk with a friend, opening jars, the garden.</p><textarea id="f-goal" name="Main goal" required></textarea>
 <label for="f-else">Anything else you'd like us to know?</label><textarea id="f-else" name="Anything else"></textarea></fieldset>
 
-<button class="b b1" type="submit">Send my answers</button>
-<p class="fine">Your answers go only to our private inbox. We never share or sell them. <a href="privacy.html">Privacy policy</a></p>
+<div class="sendwrap"><button class="b b1" type="submit">Send my answers</button>
+<p class="fine">Your answers go only to our private inbox. We never share or sell them. <a href="privacy.html">Privacy policy</a></p></div>
 </form></div></div></section>
 <script>if(/[?&]sent=1/.test(location.search)){document.getElementById('sent').hidden=false;document.getElementById('pp-form').hidden=true;}
-document.getElementById('pp-form').addEventListener('submit',function(){var n=this.querySelector('[name="First name"]').value;this.querySelector('[name=_subject]').value='[Personal plan] New answers from '+n;});</script>
+document.getElementById('pp-form').addEventListener('submit',function(){var n=this.querySelector('[name="First name"]').value;this.querySelector('[name=_subject]').value='[Personal plan] New answers from '+n;});
+(function(){var f=document.getElementById('pp-form');if(!f)return;
+var parts=[].slice.call(f.querySelectorAll('fieldset.part')),btns=[].slice.call(f.querySelectorAll('.nextpart')),send=f.querySelector('.sendwrap'),
+lab=document.getElementById('pbar-label'),fill=document.getElementById('pbar-fill'),N=parts.length;
+parts.forEach(function(p,i){if(i>0)p.classList.add('locked');});btns.forEach(function(b,i){if(i>0)b.classList.add('locked');});send.classList.add('locked');
+function prog(k){lab.textContent='Part '+k+' of '+N;fill.style.width=(k/N*100)+'%';}
+btns.forEach(function(b,i){b.addEventListener('click',function(){
+ var cur=parts[i],els=cur.querySelectorAll('input,select,textarea');
+ for(var j=0;j<els.length;j++){if(!els[j].checkValidity()){els[j].reportValidity();return;}}
+ cur.classList.add('done');b.classList.add('locked');
+ var nx=parts[i+1];nx.classList.remove('locked');nx.classList.add('opening');
+ if(btns[i+1])btns[i+1].classList.remove('locked');else send.classList.remove('locked');
+ prog(i+2);var lg=nx.querySelector('legend');
+ setTimeout(function(){nx.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});lg.focus({preventScroll:true});},60);
+});});})();
+</script>
 </main>
 <footer class="ft"><div class="w">
 <div class="ft-cols">
