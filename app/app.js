@@ -1,18 +1,18 @@
 /* Hinge App */
 /* ================= pictures ================= */
 const PIC={
- seat:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#8A9EC4"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 25l9 7"/></svg>',
- stand:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M40 27h20M56 27v29" stroke="#8A9EC4"/><circle cx="22" cy="11" r="5"/><path d="M22 17v19M22 36l-4 20M22 36l4 20M22 22l18 5"/></svg>',
- wall:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M52 6v52" stroke="#8A9EC4"/><circle cx="30" cy="13" r="5"/><path d="M30 19l-4 18M26 37l-4 19M26 37l4 19M29 24h23"/></svg>',
- calm:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#8A9EC4"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 26l6 6"/><path d="M42 16c3 2 3 6 0 8M48 12c5 4 5 12 0 16" stroke="#27498A"/></svg>',
- hand:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 54h48" stroke="#8A9EC4"/><path d="M20 54V30c0-3 5-3 5 0V18c0-3 5-3 5 0v10V14c0-3 5-3 5 0v14V18c0-3 5-3 5 0v16c3-4 8-2 6 2l-6 12v6"/></svg>'
+ seat:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#6FB0B6"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 25l9 7"/></svg>',
+ stand:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M40 27h20M56 27v29" stroke="#6FB0B6"/><circle cx="22" cy="11" r="5"/><path d="M22 17v19M22 36l-4 20M22 36l4 20M22 22l18 5"/></svg>',
+ wall:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M52 6v52" stroke="#6FB0B6"/><circle cx="30" cy="13" r="5"/><path d="M30 19l-4 18M26 37l-4 19M26 37l4 19M29 24h23"/></svg>',
+ calm:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v34M14 40h26M16 40v16M38 40v16" stroke="#6FB0B6"/><circle cx="24" cy="13" r="5"/><path d="M24 19v19h15v15h6M24 26l6 6"/><path d="M42 16c3 2 3 6 0 8M48 12c5 4 5 12 0 16" stroke="#0B6B74"/></svg>',
+ hand:'<svg viewBox="0 0 64 64" fill="none" stroke="#141E30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 54h48" stroke="#6FB0B6"/><path d="M20 54V30c0-3 5-3 5 0V18c0-3 5-3 5 0v10V14c0-3 5-3 5 0v14V18c0-3 5-3 5 0v16c3-4 8-2 6 2l-6 12v6"/></svg>'
 };
 const FACE=[
  '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#FCE8E1" stroke="#9B2C12" stroke-width="2"/><path d="M11 14l4 2M25 14l-4 2M12 26c3-3 9-3 12 0" stroke="#9B2C12" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
  '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#FCF0D2" stroke="#8A5A00" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#8A5A00"/><circle cx="23" cy="15" r="2" fill="#8A5A00"/><path d="M12 25c4-2 8-2 12 0" stroke="#8A5A00" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
- '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#F1F3F8" stroke="#46526A" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#46526A"/><circle cx="23" cy="15" r="2" fill="#46526A"/><path d="M12 24h12" stroke="#46526A" stroke-width="2.4" stroke-linecap="round"/></svg>',
- '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#E4EBF7" stroke="#27498A" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#27498A"/><circle cx="23" cy="15" r="2" fill="#27498A"/><path d="M12 22c3 3 9 3 12 0" stroke="#27498A" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
- '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#D5E0F3" stroke="#1B3566" stroke-width="2"/><path d="M10 15c1.5-2 4.5-2 6 0M20 15c1.5-2 4.5-2 6 0" stroke="#1B3566" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M11 21h14c-1 5-4 7-7 7s-6-2-7-7z" fill="#1B3566"/></svg>'
+ '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#ECF4F4" stroke="#47574F" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#47574F"/><circle cx="23" cy="15" r="2" fill="#47574F"/><path d="M12 24h12" stroke="#47574F" stroke-width="2.4" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#DBEDEE" stroke="#0B6B74" stroke-width="2"/><circle cx="13" cy="15" r="2" fill="#0B6B74"/><circle cx="23" cy="15" r="2" fill="#0B6B74"/><path d="M12 22c3 3 9 3 12 0" stroke="#0B6B74" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>',
+ '<svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="#C7E3E5" stroke="#06525A" stroke-width="2"/><path d="M10 15c1.5-2 4.5-2 6 0M20 15c1.5-2 4.5-2 6 0" stroke="#06525A" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M11 21h14c-1 5-4 7-7 7s-6-2-7-7z" fill="#06525A"/></svg>'
 ];
 const SPK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9c1.5 1.5 1.5 4.5 0 6M19 6c3 3 3 9 0 12"/></svg>';
 const TICK='<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
@@ -60,10 +60,14 @@ const R=[
 {id:'balance',n:'Steady on your feet',d:'Supported balance moves at the kitchen counter.',ids:['weight-shift','heel-raise','side-leg','heel-curl']},
 {id:'evening',n:'Evening ease',d:'Slow and calming before bed.',ids:['pelvic-rock','side-reach','shrug-drop','ankle-alphabet','long-out','soften']},
 {id:'easy',n:'Easy day',d:'Very easy and fully seated, with short holds. For sore days and flare days.',ids:['long-out','thumb-touch','yes-nods','shrug-drop','toe-taps','soften'],easy:1},
-{id:'breathe',n:'Breathing break',d:'Three calm minutes. No movement needed.',ids:['belly-breath','long-out','soften']}
+{id:'breathe',n:'Breathing break',d:'Three calm minutes. No movement needed.',ids:['belly-breath','long-out','soften']},
+{id:'feet',n:'Happy feet',d:'For stiff ankles, toes and tired feet.',ids:['toe-taps','ankle-alphabet','towel-scrunch','heel-slide','seated-heel']},
+{id:'back',n:'Easy back',d:'Loosen a stiff lower back and sides, all seated.',ids:['pelvic-rock','tummy-brace','side-reach','knees-open','shrug-drop']},
+{id:'quick',n:'Two-minute loosen',d:'A quick seated reset for when you only have a minute.',ids:['shrug-drop','elbow-circles','pelvic-rock','toe-taps']},
+{id:'full',n:'Head to toe',d:'A longer seated routine that works your whole body.',ids:['yes-nods','shrug-drop','elbow-circles','wrist-lift','side-reach','knees-open','heel-slide','ankle-alphabet','toe-taps']}
 ];
 const RB={};R.forEach(r=>RB[r.id]=r);
-const RPIC={wake:'seat',hands:'hand',upper:'seat',legs:'seat',strength:'wall',balance:'stand',evening:'calm',easy:'seat',breathe:'calm'};
+const RPIC={wake:'seat',hands:'hand',upper:'seat',legs:'seat',strength:'wall',balance:'stand',evening:'calm',easy:'seat',breathe:'calm',feet:'seat',back:'seat',quick:'seat',full:'seat'};
 const JOINTS={hands:['Hands & wrists','hands'],neck:['Neck','upper'],shoulders:['Shoulders','upper'],back:['Back','evening'],hips:['Hips','legs'],knees:['Knees','legs'],feet:['Ankles & feet','legs']};
 const MOODS=['Sore','Stiff','Okay','Good','Great'];
 const ACTS=['Getting up from a chair','Walking','Climbing stairs','Opening jars and bottles','Getting dressed','Gardening','Reaching up high','Picking things up from the floor'];
@@ -270,7 +274,7 @@ function home(){
  shell('home');const p=plan(),r=RB[p.r],m=todayMood(),ls=last(),wc=thisWeek(),moved=daysSet()[ymd()],readToday=st.readOn===ymd(),card=todaysCard();
  const away=ls&&gap(ls.date,ymd())>3;
  let h='<div class="stack">';
- h+=`<div><p class="muted">${away?'Welcome back':greet()}</p><h1>Today's session</h1></div>`;
+ h+=`<div class="hero"><div><p class="muted">${away?'Welcome back':greet()}</p><h1>Today's session</h1><p class="muted small" style="margin-top:4px">${new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})}</p></div></div>`;
  h+=`<div class="box week"><div style="flex:1;min-width:0"><b>This week:</b> ${Math.min(wc,st.goal)} of ${st.goal} days${wc>=st.goal?'. Goal reached.':''}</div>${dotsHTML(wc)}</div>`;
  const fu=followUp();
  if(fu)h+=`<div class="box tint" id="fu"><h3 style="margin-bottom:6px">A quick question</h3><p>After your last session (${esc(fu.name)}), did your joints feel worse for more than two hours afterwards?</p><div class="btns" style="margin-top:12px"><button class="btn line sm" data-a="yes">Yes</button><button class="btn line sm" data-a="no">No</button><button class="btn line sm" data-a="unsure">Not sure</button></div></div>`;
@@ -473,7 +477,7 @@ function draw(){
  pl.innerHTML=`<div class="pbar"><button id="end">End</button><div class="t">${esc(P.r.n)}</div><button id="when">When to stop</button></div>
  <div class="segs" aria-hidden="true">${P.seg.map((_,i)=>`<i class="${i<P.i?'on':i===P.i?'now':''}"></i>`).join('')}</div>
  <div class="stage"><div class="phase">${prep?(P.i===0?'Get comfortable':'Next up'):'Move '+(P.i+1)+' of '+P.seg.length}${s.side?' &middot; '+s.side:''}</div><h2>${esc(s.x.n)}</h2>
- <div class="timer">${pic(s.x.pic,true,s.x.id)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#E4EBF7" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#F4B740':'#27498A'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
+ <div class="timer">${pic(s.x.pic,true,s.x.id)}<div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#DBEDEE" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${prep?'#F4B740':'#0B6B74'}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-frac)).toFixed(1)}"/></svg><b>${P.left}</b></div></div>
  <p class="muted" style="font-weight:700">${prep?'Get into position':s.x.calm?'Breathe slowly':'Move slowly'}</p>
  <ol class="steps how" style="text-align:left">${s.x.steps.map(t=>`<li>${esc(t)}</li>`).join('')}</ol><p class="tip">${esc(s.x.tip)}</p></div>
  <div class="ctl"><button id="prev">Back</button><button class="go" id="pp">${P.paused?'Resume':'Pause'}</button><button id="skip">Skip</button></div>

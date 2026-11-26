@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hinge App</title>
 <meta name="description" content="Guided chair routines for stiff joints. A daily check-in, seated options, a calm voice, a weekly goal, and progress you can share with your doctor.">
-<meta name="theme-color" content="#F3F5FA">
+<meta name="theme-color" content="#F1F6F5">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -21,8 +21,8 @@
 <style>
 /* Layout: one calm column; Today is a numbered session (check in, move, learn); light, flat, high-contrast for older eyes */
 :root{
- --bg:#F3F5FA;--surface:#FFFFFF;--line:#D3DAE6;--ink:#141E30;--muted:#46526A;
- --green:#27498A;--green-dk:#1B3566;--green-soft:#E4EBF7;--sun:#F4B740;--sun-soft:#FCF0D2;
+ --bg:#F1F6F5;--surface:#FFFFFF;--line:#CFDBD9;--ink:#141E30;--muted:#47574F;
+ --green:#0B6B74;--green-dk:#06525A;--green-soft:#DBEDEE;--sun:#F4B740;--sun-soft:#FCF0D2;
  --alert:#9B2C12;--alert-soft:#FCE8E1;
  --body:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;--head:Literata,Georgia,"Times New Roman",serif;
  --r:18px;
@@ -204,6 +204,13 @@ body.hc{--line:#5A6478;--muted:#141E30}
  .play{padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right))}
 }
 @media print{body{padding-left:0}}
+/* Home hero */
+.hero{background:linear-gradient(135deg,var(--green) 0%,var(--green-dk) 100%);color:#fff;border-radius:22px;padding:22px 22px 20px;position:relative;overflow:hidden}
+.hero>div{position:relative;z-index:1}
+.hero h1{color:#fff;margin:3px 0 2px}
+.hero .muted{color:#CDEBEC}
+.hero:after{content:"";position:absolute;right:-34px;top:-34px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.09)}
+.hero:before{content:"";position:absolute;right:26px;bottom:-40px;width:92px;height:92px;border-radius:50%;background:rgba(255,255,255,.06)}
 /* Add to Home Screen banner */
 .a2hs{position:fixed;left:0;right:0;bottom:calc(74px + env(safe-area-inset-bottom));z-index:9;margin:0 auto;width:calc(100% - 28px);max-width:540px;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:16px;padding:12px 12px 12px 14px;box-shadow:0 16px 42px -14px rgba(20,30,48,.65)}
 .a2hs[hidden]{display:none}
@@ -226,6 +233,6 @@ body.hc{--line:#5A6478;--muted:#141E30}
 </nav>
 <div id="a2hs" class="a2hs" hidden></div>
 <div id="player" class="play" hidden></div>
-<script src="app.js?v=11"></script>
+<script src="app.js?v=12"></script>
 </body>
 </html>
