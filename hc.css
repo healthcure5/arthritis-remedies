@@ -169,3 +169,7 @@ a.b[href*="checkout"]:hover{background:linear-gradient(180deg,#FFDC92,#F7BA5C)!i
 a.b[href*="checkout"]::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:buyshine 3.2s ease-in-out infinite;pointer-events:none}
 @keyframes buyshine{0%,55%{left:-60%}85%,100%{left:130%}}
 @media (prefers-reduced-motion:reduce){a.b[href*="checkout"]::after{animation:none;display:none}}
+
+/* Site menu opens from the right, next to the Menu button */
+.mnav>div{left:auto!important;right:0!important;transform:translateX(100%);box-shadow:0 0 70px -10px rgba(31,58,39,.45)}
+.mnav[open]>div{transform:translateX(0)}
