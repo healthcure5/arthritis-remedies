@@ -2120,6 +2120,18 @@ function tidyHome(){
 }
 // The Hinge Care logo opens My course
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#gbar .gbrand');if(!b)return;e.preventDefault();e.stopImmediatePropagation();const mc=[...document.querySelectorAll('#gbar a,#gbar button')].find(x=>x!==b&&/^My course$/i.test(x.textContent.trim()));if(mc)mc.click();else{location.hash='#/mine';home();}},true);
+// The Hinge Eight gets its own section in the menu
+function addEight(){
+  const pl=document.getElementById('plist');if(!pl||pl.querySelector('[data-sec="eight25"]')||!window.HINGE_EIGHT)return;
+  const tk=pl.querySelector('[data-sec="tk"],[data-sec="tools"]')||[...pl.children].find(c=>/^Toolkit/.test((c.querySelector('.mhead')||{}).textContent||''));
+  const rows=Object.entries(HINGE_EIGHT).map(([id,[n,d]])=>`<button class="plink" type="button" data-e8="${id}"><span class="t" aria-hidden="true"></span><span><b>${esc(n)}</b><br><small style="color:var(--soft)">${esc(d)}</small></span></button>`).join('');
+  const html=`<div class="msec" data-sec="eight25"><button class="mhead" type="button" aria-expanded="false">The Hinge Eight<span class="cnt">8</span><span class="ch" aria-hidden="true">›</span></button><div class="mbody"><div>${rows}</div></div></div>`;
+  if(tk)tk.insertAdjacentHTML('beforebegin',html);else pl.insertAdjacentHTML('beforeend',html);
+  const sec=pl.querySelector('[data-sec="eight25"]');
+  sec.querySelector('.mhead').onclick=e=>{e.stopPropagation();const o=!sec.classList.contains('open');sec.classList.toggle('open',o);sec.querySelector('.mhead').setAttribute('aria-expanded',o?'true':'false');};
+  sec.querySelectorAll('[data-e8]').forEach(b=>b.onclick=e=>{e.stopPropagation();try{closeMenu()}catch(x){}location.hash='#/l/'+b.dataset.e8;lesson(b.dataset.e8);});
+}
+let eq=0;new MutationObserver(()=>{if(eq)return;eq=requestAnimationFrame(()=>{eq=0;addEight();});}).observe(document.body,{childList:true,subtree:true});
 const _l=lesson;
 lesson=function(id){const r=_l.apply(this,arguments);post(id);setTimeout(()=>post(id),0);setTimeout(()=>post(id),400);return r;};
 // Older code may re-render; keep watching the page
