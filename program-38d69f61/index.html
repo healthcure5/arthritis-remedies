@@ -2054,6 +2054,7 @@ h1.lhead{margin-top:2px;animation:lheadIn .7s ease-out both}
 /* No sales cards on the graduation page */
 .grad .circlecard{display:none!important}
 .offer25{margin:26px 0 8px}
+s.was{color:#9aa6b2;font-weight:400;text-decoration-thickness:2px;margin-right:.15em}
 </style>
 <script>(function(){
 /* Nov 25 changes on top of the original design */
@@ -2132,10 +2133,17 @@ function addEight(){
   sec.querySelectorAll('[data-e8]').forEach(b=>b.onclick=e=>{e.stopPropagation();try{closeMenu()}catch(x){}location.hash='#/l/'+b.dataset.e8;lesson(b.dataset.e8);});
 }
 let eq=0;new MutationObserver(()=>{if(eq)return;eq=requestAnimationFrame(()=>{eq=0;addEight();});}).observe(document.body,{childList:true,subtree:true});
+// Circle price shows its regular price crossed out
+function circlePrice(){
+  const app=document.getElementById('app');if(!app)return;
+  const tw=document.createTreeWalker(app,NodeFilter.SHOW_TEXT);const hits=[];let t;
+  while((t=tw.nextNode())){if(!/\$297\b/.test(t.nodeValue)||t.parentNode.closest('s'))continue;let pv=t.previousSibling;if(pv&&pv.nodeType===3&&!pv.nodeValue.trim())pv=pv.previousSibling;if(t.nodeValue.trim().startsWith('$297')&&pv&&pv.classList&&pv.classList.contains('was'))continue;hits.push(t);}
+  hits.forEach(n=>{const i=n.nodeValue.indexOf('$297');const after=n.splitText(i);const w=document.createElement('s');w.className='was';w.setAttribute('aria-label','regular price $397');w.textContent='$397';after.parentNode.insertBefore(w,after);after.parentNode.insertBefore(document.createTextNode(' '),after);});
+}
 const _l=lesson;
 lesson=function(id){const r=_l.apply(this,arguments);post(id);setTimeout(()=>post(id),0);setTimeout(()=>post(id),400);return r;};
 // Older code may re-render; keep watching the page
-let tq=0;new MutationObserver(()=>{if(tq)return;tq=requestAnimationFrame(()=>{tq=0;const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)post(m[1]);fixHome();tidyHome();});}).observe(document.getElementById('app'),{childList:true,subtree:true});
+let tq=0;new MutationObserver(()=>{if(tq)return;tq=requestAnimationFrame(()=>{tq=0;const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)post(m[1]);fixHome();tidyHome();circlePrice();});}).observe(document.getElementById('app'),{childList:true,subtree:true});
 const m=location.hash.match(/^#\/l\/([\w-]+)/);if(m)setTimeout(()=>post(m[1]),600);setTimeout(fixHome,800);
 })();
 </script>
