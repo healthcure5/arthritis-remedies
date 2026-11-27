@@ -343,19 +343,15 @@ footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 .wide{border-radius:8px}
 .srcs a{border-radius:6px}
 /* Nov 27: side-sliding rows (photos and books), Start free in the phone header */
+@media (max-width:760px){
 .slide{display:flex!important;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:8px 2px 14px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .slide>*{flex:0 0 min(440px,82%);scroll-snap-align:start;min-width:0}
 .slide:focus-visible{outline:3px solid #1E6670;outline-offset:4px}
-.slidenav{display:flex;justify-content:flex-end;gap:10px;margin:10px 0 4px;grid-column:1 / -1}
-.slidenav[hidden]{display:none}
-.slidenav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--g);background:#fff;color:var(--g);font:400 28px/1 Georgia,serif;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
-.slidenav button:hover:not(:disabled){background:var(--g);color:#fff}
-.slidenav button:disabled{opacity:.35;cursor:default}
-.slidenav button:focus-visible{outline:3px solid #1E6670;outline-offset:2px}
 @media (prefers-reduced-motion:no-preference){.slide{scroll-behavior:smooth}}
+}
 @media (max-width:760px){.hd-cta{display:inline-flex!important;align-items:center;white-space:nowrap;padding:8px 12px!important;min-height:44px!important;font-size:15px!important}.hd-in{gap:8px}.mnav summary{min-width:60px;padding:8px 10px}}
 @media (max-width:420px){.brand{font-size:21px;gap:7px}.brand svg{width:34px;height:auto}}
-.slide .card img{aspect-ratio:4/5}
+@media (max-width:760px){.slide .card img{aspect-ratio:4/5}}
 @media (max-width:380px){.brand{font-size:19px}.brand svg{width:30px}.hd-cta{padding:8px 10px!important}.mnav summary{min-width:54px;padding:8px 8px}.hd-in{gap:6px}}
 #shop{scroll-margin-top:84px}
 /* Nov 27 menu fix: the panel and its words slide in together (no words before the panel), picture shows on phones and tablets */
