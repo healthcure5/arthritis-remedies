@@ -8,7 +8,11 @@ B = os.path.join(ROOT, '_build')
 SITE = 'https://myhingecare.com'
 header = open(f'{B}/parts/header.html', encoding='utf-8').read()
 footer = open(f'{B}/parts/footer.html', encoding='utf-8').read()
-avatar = open(f'{B}/parts/avatar.html', encoding='utf-8').read()
+avatar = '<div class="av" aria-hidden="true"></div>'
+PHOTOS = json.load(open(f'{B}/photos.json', encoding='utf-8'))
+def px(slug, w=1200):
+    i = PHOTOS[slug][0]
+    return f'https://images.pexels.com/photos/{i}/pexels-photo-{i}.jpeg?auto=compress&cs=tinysrgb&w={w}'
 # existing hand-made pages, for "keep reading" cards
 EXISTING = {
  'morning-joint-stiffness': dict(h1='Arthritis and morning stiffness: why you wake up stiff, and the 30 minutes that ease it', cat='Mornings', img='dawn-bedroom.jpg', blurb='What happens to your joints overnight, and a plan for the first half hour.'),
@@ -83,7 +87,7 @@ def build(path, registry):
     d = parse(path); slug = os.path.splitext(os.path.basename(path))[0]
     title = d['title'] + ' | Hinge Care'
     assert len(title) <= 62, (slug, len(title))
-    img, _, alt = d['hero'].partition('|'); img = img.strip(); alt = alt.strip()
+    _, alt, cap = PHOTOS[slug]; img = px(slug)
     body, toc = render_body(d['body'])
     toc.append(('faq', 'Questions people ask')); toc.append(('refs', 'Sources'))
     tocs = ''.join(f'<a href="#{i}">{inline(t)}</a>' for i, t in toc)
@@ -95,10 +99,10 @@ def build(path, registry):
     for r in [x.strip() for x in d.get('related', '').split(',') if x.strip()][:3]:
         if r not in registry: continue
         m = registry[r]
-        cards += f'<a class="card" href="{r}.html"><img src="journal-img/{m["img"]}" alt="" loading="lazy"><span>{e(m["cat"])}</span><h3>{e(m["h1"])}</h3><p>{e(m["blurb"])}</p></a>'
+        cards += f'<a class="card" href="{r}.html"><img src="{px(r, 600)}" alt="" loading="lazy" width="600" height="400"><span>{e(m["cat"])}</span><h3>{e(m["h1"])}</h3><p>{e(m["blurb"])}</p></a>'
     url = f'{SITE}/{slug}.html'
     plain = lambda t: re.sub(r'<[^>]+>', '', re.sub(r'\[\^\d+\]', '', re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', t))).replace('**', '')
-    art = {"@context": "https://schema.org", "@type": "Article", "headline": d['h1'], "description": d['desc'], "image": f"{SITE}/journal-img/{img}", "datePublished": upd, "dateModified": upd,
+    art = {"@context": "https://schema.org", "@type": "Article", "headline": d['h1'], "description": d['desc'], "image": img, "datePublished": upd, "dateModified": upd,
            "author": {"@type": "Organization", "name": "Hinge Care", "url": SITE + "/"}, "publisher": {"@type": "Organization", "name": "Hinge Care", "logo": {"@type": "ImageObject", "url": SITE + "/brand/icon-512.png"}}, "mainEntityOfPage": url}
     faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(a)}} for q, a in d['faq']]}
     bc = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -116,10 +120,10 @@ def build(path, registry):
 <link rel="canonical" href="{url}">
 <link rel="icon" href="/favicon.ico?v=5" sizes="any"><link rel="icon" href="/brand/hinge-care-icon-green.svg?v=5" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<meta property="og:type" content="article"><meta property="og:site_name" content="Hinge Care"><meta property="og:title" content="{e(d['title'])}"><meta property="og:description" content="{e(d['desc'])}"><meta property="og:image" content="{SITE}/journal-img/{img}"><meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="journal.css?v=13">
-{ld}</head><body><a class="skip" href="#main">Skip to content</a><div id="prog"></div>{hdr}<main id="main"><header class="head"><div><div class="kick"><a href="articles.html">Journal</a> / {e(d['cat'])}</div><h1 class="t">{e(d['h1'], quote=False)}</h1><p class="dek">{inline(d['dek'])}</p><div class="by">{avatar}<div><b>The Hinge Care team</b><br>Updated {nice} · <a class="chk" href="#refs">Every fact linked to its source</a></div></div><details class="mtoc"><summary>In this article</summary>{tocs}</details></div><figure class="hero"><img src="journal-img/{img}" alt="{e(alt)}" fetchpriority="high"><figcaption>Illustration made for Hinge Care</figcaption></figure></header><div class="wrap"><article class="body"><section class="take"><h2>The short answer</h2><ul>{take}</ul></section><p class="lead">{inline(d['lead'])}</p>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Hinge Care"><meta property="og:title" content="{e(d['title'])}"><meta property="og:description" content="{e(d['desc'])}"><meta property="og:image" content="{img}"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="journal.css?v=20">
+{ld}</head><body><a class="skip" href="#main">Skip to content</a><div id="prog"></div>{hdr}<main id="main"><header class="head"><div><div class="kick"><a href="articles.html">Journal</a> / {e(d['cat'])}</div><h1 class="t">{e(d['h1'], quote=False)}</h1><p class="dek">{inline(d['dek'])}</p><div class="by">{avatar}<div><b>The Hinge Care team</b><br>Updated {nice}. <a class="chk" href="#refs">Every fact linked to its source</a></div></div><details class="mtoc"><summary>In this article</summary>{tocs}</details></div><figure class="hero"><img src="{img}" srcset="{px(slug, 800)} 800w, {img} 1200w, {px(slug, 1800)} 1800w" sizes="(max-width:1240px) 100vw, 1160px" alt="{e(alt)}" width="1200" height="600" fetchpriority="high"><figcaption>{e(cap)} <small>Photo: Pexels</small></figcaption></figure></header><div class="wrap"><article class="body"><section class="take"><h2>The short answer</h2><ul>{take}</ul></section><p class="lead">{inline(d['lead'])}</p>
 {body}
 <aside class="signup"><img src="images/cover-habits-rust.jpg?v=9" alt="Cover of the free book 7 Bad Habits for Arthritis That Keep You Stuck" loading="lazy"><div><div class="lab">Free book</div><h3>Find the everyday habits keeping you stiff</h3><p>Seven common habits keep joints stiff, and most of us have at least one. The free book shows each one with a swap you can start today, and most of the swaps cost nothing. Large print, sent by email in a minute or two.</p><a href="guide.html">Get the free book</a></div></aside>
 <h2 id="faq">Questions people ask</h2><div class="faq">{faq_html}</div><section class="refs" id="refs"><h2>Sources</h2><ol>{refs}</ol></section><section class="author"><h2>About this article</h2><p>Written by the Hinge Care team from the public health sources listed above. We update a page when the guidance changes. If something looks wrong, <a href="contact.html">tell us</a> and we'll check the source.</p></section></article><aside class="side"><nav class="toc" aria-label="In this article"><p>In this article</p>{tocs}</nav>{sidecta}</aside></div><section class="rel"><h2>Keep reading</h2><div class="cards">{cards}</div></section></main>{footer}<script src="/menu.js?v=4" defer></script></body></html>
