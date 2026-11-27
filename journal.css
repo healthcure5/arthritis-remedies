@@ -45,7 +45,7 @@ h1.t em,.ihead h1 em{font-style:italic;color:inherit;background:none}
 .av::before{content:"HC"}
 .chk,a.chk{color:var(--wine)}
 .hero{margin:30px 0 0}
-.hero img{width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:2px;background:var(--paper)}
+.hero img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover;border-radius:2px;background:var(--paper)}
 .hero figcaption,.inline-img figcaption{font:italic 400 16px/1.5 "Source Serif 4",Georgia,serif;color:var(--soft);margin-top:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 .hero figcaption small,.inline-img figcaption small{font-style:normal;font-size:14px;margin-left:6px;color:#6A655F}
 @media(max-width:640px){.hero img{aspect-ratio:3/2}.head{padding-top:28px}}
@@ -101,7 +101,7 @@ sup a{font:600 14px "Source Serif 4",Georgia,serif;text-decoration:none;color:va
 .stat b{font:700 52px/1 "Playfair Display",Georgia,serif;color:var(--wine)}
 .stat span{font-size:18px;line-height:1.5;color:var(--soft)}
 .inline-img{margin:36px 0}
-.inline-img img{aspect-ratio:3/2;object-fit:cover;width:100%;border-radius:2px;background:var(--paper)}
+.inline-img img{height:auto;aspect-ratio:3/2;object-fit:cover;width:100%;border-radius:2px;background:var(--paper)}
 
 /* Free book box */
 .signup{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);padding:26px 0;margin:46px 0;display:grid;grid-template-columns:110px 1fr;gap:24px;align-items:center}
@@ -134,7 +134,7 @@ sup a{font:600 14px "Source Serif 4",Georgia,serif;text-decoration:none;color:va
 .rel h2{font:700 30px/1.2 "Playfair Display",Georgia,serif;border-top:3px solid var(--ink);padding-top:14px;margin:30px 0 24px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px 28px}
 .card{text-decoration:none;color:var(--ink);display:block}
-.card img{width:100%;aspect-ratio:3/2;object-fit:cover;margin-bottom:12px;border-radius:2px;background:var(--paper)}
+.card img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;margin-bottom:12px;border-radius:2px;background:var(--paper)}
 .card span{font:600 16px/1 "Source Serif 4",Georgia,serif;color:var(--wine)}
 .card h3{font:700 22px/1.25 "Playfair Display",Georgia,serif;margin:8px 0 6px}
 .card:hover{color:var(--ink)}.card:hover h3{color:var(--wine);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
@@ -142,7 +142,7 @@ sup a{font:600 14px "Source Serif 4",Georgia,serif;text-decoration:none;color:va
 .ihead{max-width:1200px;margin:0 auto;padding:46px 22px 26px;border-bottom:1px solid var(--ink)}
 .ihead h1{font:700 clamp(42px,6.4vw,76px)/1.04 "Playfair Display",Georgia,serif;letter-spacing:-.01em;margin:10px 0 14px}
 .feat{max-width:1200px;margin:0 auto;padding:34px 22px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
-.feat img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:2px;background:var(--paper)}
+.feat img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:2px;background:var(--paper)}
 .feat h2{font:700 clamp(30px,3.8vw,44px)/1.12 "Playfair Display",Georgia,serif;margin:10px 0 12px}
 .feat:hover{color:var(--ink)}.feat:hover h2{color:var(--wine)}
 .feat p{color:var(--soft);font-size:20px}
