@@ -327,3 +327,18 @@ footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 .hero.full .w>div{display:flex;flex-direction:column}
 .hero.full h1{order:1}.hero.full .btns{order:2;margin-top:14px}.hero.full .trust{order:3;margin-top:12px}.hero.full .lede{order:4;margin:18px 0 0}
 }
+/* Nov 27: flatter sections, more space, labels in normal letters (carries the new hero look down the page) */
+.eye,.ft-cols h4,.faqeye{text-transform:none;letter-spacing:0;font-size:16px;font-weight:600}
+.s{padding:84px 0}
+@media (max-width:760px){.s{padding:56px 0}}
+.cards{gap:40px 36px}
+.card,.steps li,.val .vgrid>div{background:transparent;border:0;border-top:2px solid var(--line);border-radius:0;padding:24px 0 0;box-shadow:none}
+.card:hover,.steps li:hover{transform:none;box-shadow:none;border-top-color:var(--g2)}
+.val .vgrid{gap:40px}.val .vget{border-top:3px solid var(--gold)}.val .vcost{border-top:3px solid #1E6670}
+.card img{border-radius:6px}
+.faqbook .q{border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;margin:0}
+.faqbook .q:first-of-type{border-top:1px solid var(--line)}
+.faqbook .q:hover,.faqbook .q[open]{box-shadow:none;border-color:var(--line)}
+.faqbook .q summary,.faqbook .q p{padding-left:0;padding-right:0}
+.wide{border-radius:8px}
+.srcs a{border-radius:6px}
