@@ -25,4 +25,5 @@ h1{font-family:Fraunces,Georgia,serif;font-size:clamp(30px,6vw,40px);line-height
 <div id="no" hidden><h1>The payment didn't go through.</h1><p>Nothing was charged. <a href="/shop/book-checkout.html">Try again</a>, or write to arthritis@myhingecare.com and we'll help.</p></div>
 </div>
 <script>var s=new URLSearchParams(location.search).get('status');document.getElementById(s==='succeeded'?'ok':'no').hidden=false;if(s==='succeeded'&&window.gtag)gtag('event','purchase',{value:17,currency:'USD',items:[{item_name:'The Joint Reset'}]});</script>
+<script src="/haptics.js?v=1" defer></script>
 </body></html>
