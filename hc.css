@@ -420,3 +420,9 @@ h3,h4,.vids figcaption b,details.q summary,.mnav .mlinks a{font-weight:700!impor
 .heroimg,.card img,.vids img,.vids video,.wide video,.clubvid,.mnav .mprev,.mnav>div>.mprev,.inline-img img,figure img{border-radius:8px!important}
 .cover{border-radius:4px!important}
 .hero.full .heroimg{border-radius:0!important}
+/* Checkout buttons: flat teal like every other main button, no shine animation (nothing moving that can't be paused) */
+html a.b[href*="checkout"]{background:#1E6670!important;background-image:none!important;color:#fff!important;border-color:#1E6670!important;box-shadow:none!important}
+html a.b[href*="checkout"]:hover{background:#14474E!important}
+html a.b[href*="checkout"]::after{content:none!important;animation:none!important;display:none!important}
+html .wide a.b[href*="checkout"]{background:#fff!important;color:#1F3A27!important;border-color:#fff!important}
+html .wide a.b[href*="checkout"]:hover{background:#E3EEF0!important}
