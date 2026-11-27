@@ -310,15 +310,15 @@ s.was{color:#5f6560!important}
 footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 .mnav summary{font-size:12px}
 .vidbtn{font:600 15px/1 Inter,system-ui,sans-serif}
-/* Nov 27: full-width photo hero on the home page (person front and center, no rounded frame) */
-.hero.full{position:relative;padding:0;min-height:min(80vh,760px);display:flex;align-items:center;overflow:hidden;background:#F2F0EA}
-.hero.full .heroimg{position:absolute;inset:0;width:100%;height:100%;max-width:none;aspect-ratio:auto;border-radius:0;object-fit:cover;object-position:62% 30%;margin:0}
-.hero.full::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(250,250,247,.97) 0%,rgba(250,250,247,.95) 40%,rgba(250,250,247,.8) 52%,rgba(250,250,247,0) 70%)}
+/* Nov 27: full-bleed photo hero on the home page (photo runs to the edges, person front and center, no rounded frame) */
+.hero.full{position:relative;padding:0;min-height:min(78vh,720px);display:flex;align-items:center;overflow:hidden;background:var(--cream)}
+.hero.full .heroimg{position:absolute;top:0;bottom:0;right:0;left:44%;width:auto;height:100%;max-width:none;aspect-ratio:auto;border-radius:0;object-fit:cover;object-position:55% 22%;margin:0}
+.hero.full::before{content:"";position:absolute;top:0;bottom:0;left:44%;width:140px;z-index:1;background:linear-gradient(90deg,var(--cream),rgba(250,250,247,0))}
 .hero.full .w{position:relative;z-index:2;display:block;width:100%}
-.hero.full .w>div{max-width:540px;padding:64px 0}
+.hero.full .w>div{max-width:min(500px,40vw);padding:60px 0}
 @media (max-width:860px){
-.hero.full{display:block;min-height:0;background:var(--cream)}
-.hero.full .heroimg{position:relative;inset:auto;height:auto;aspect-ratio:4/3;object-position:64% 30%}
+.hero.full{display:block;min-height:0}
+.hero.full .heroimg{position:relative;inset:auto;left:auto;width:100%;height:auto;aspect-ratio:4/3;object-position:55% 25%}
 .hero.full::before{display:none}
 .hero.full .w>div{max-width:none;padding:22px 0 30px}
 }
