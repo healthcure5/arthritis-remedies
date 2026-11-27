@@ -438,3 +438,14 @@ html a.b[href*="checkout"] ~ a.b[href*="checkout"]{background:transparent!import
 .ft-cols h4{color:#1F3A27!important}
 .ft-fine,.ft p{color:#455659!important}
 .ft a:focus-visible,footer a:focus-visible{outline:3px solid #17575F!important;outline-offset:2px}
+/* Nov 27: closing band in deep teal (the button color) instead of dark green; white words, white leaf watermark */
+.finale{background:#17575F!important;color:#E6F1F2!important}
+.finale h2{color:#fff!important}
+.finale p{color:#D6E9EB!important}
+.finale .b3,.finale .b1{background:#fff!important;color:#17575F!important;border-color:#fff!important}
+.finale .b3:hover,.finale .b1:hover{background:#E3EEF0!important;color:#0F3F45!important}
+.finale .b2{color:#fff!important;border-color:#fff!important;background:transparent!important}
+.finale .b2:hover{background:rgba(255,255,255,.12)!important}
+.finale .stroke path{stroke:#9FD3D9}
+/* footer links one per line */
+.ft-cols a{display:block!important;min-height:0!important;padding:8px 0!important;line-height:1.4}
