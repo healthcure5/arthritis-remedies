@@ -387,3 +387,8 @@ details.q summary:hover::after{background-color:#E3EEF0!important}
 details.q p,.faqbook details.q p{padding:0 54px 24px 2px!important;margin:0;font-size:18px;line-height:1.65;color:var(--soft);max-width:65ch}
 @media (max-width:600px){details.q summary,.faqbook details.q summary{font-size:18px;padding:18px 0!important;gap:14px}details.q p,.faqbook details.q p{padding:0 0 20px!important;font-size:17px}}
 @media (prefers-reduced-motion:reduce){details.q summary::after{transition:none}}
+/* Nov 27: flat See prices button in the home hero (no raised shadow) */
+.hero .btns .b3,.hero .btns .b3:hover,.hero .btns .b3:active,.hero .btns .b3:focus-visible{box-shadow:none!important;background-image:none!important;transform:none!important}
+.hero .btns .b3{background:#1E6670!important;border:0!important;border-radius:12px}
+.hero .btns .b3:hover{background:#14474E!important}
+.hero .btns .b3:focus-visible{outline:3px solid #1E6670;outline-offset:3px}
