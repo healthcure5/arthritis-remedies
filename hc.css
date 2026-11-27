@@ -275,3 +275,10 @@ footer a,.ft a{display:inline-block;padding:7px 0}
 .ft-cols a,.ft-cols p a{min-height:32px}
 s.was{color:#5f6560!important}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+/* Nov 27: on phones and small tablets, the book or product picture sits above the price and buy button */
+@media (max-width:860px){
+.hero .w:has(.buy){row-gap:0}
+.hero .w:has(.buy)>div:first-child{display:contents}
+.hero .w:has(.buy) .cover,.hero .w:has(.buy) .heroimg{order:1;margin:8px auto 24px}
+.hero .w:has(.buy) .buy{order:2}
+}
