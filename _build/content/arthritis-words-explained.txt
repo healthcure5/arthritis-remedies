@@ -1,6 +1,6 @@
 title: Arthritis A to Z: Plain Meanings of Hard Words
 h1: Arthritis A to Z: the hard words, in plain English
-dek: Long words in a doctor's office can stop anyone cold. Here are the common ones in short, plain meanings, so you can keep up and ask better questions.
+dek: Long words in a doctor's office can stop anyone cold. These are the common ones, each in a line or two, so you can keep up and ask better questions.
 cat: Glossary
 hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
 desc: A plain-English glossary of arthritis words: osteoarthritis, rheumatoid, gout, rheumatologist, Heberden's nodes, flare, urate, tophi, NSAIDs and more.
@@ -9,11 +9,11 @@ updated: 2026-11-23
 related: types-of-arthritis, joint-pain-what-does-it-mean, does-this-sound-like-arthritis
 feel: Relief (the words stop being scary)
 @take
-- You don't need to memorize anything. This page is for looking things up.
+- You don't need to memorize anything. Use it to look things up.
 - Definitions are short and based on NIAMS, the CDC and the Mayo Clinic.
 - If a word is about your own diagnosis, ask your doctor to explain it too. That is always allowed.
 @lead
-Hearing a long word in a doctor's office is stressful. Here is a short list, in plain words, to keep beside you.
+A long word in a doctor's office can make you stop listening, right when you most need to follow along. Keep this short list beside you.
 @body
 ## The conditions {#conditions}
 

@@ -292,3 +292,19 @@ body{background:linear-gradient(180deg,#EFEAFB 0,#F7F1F4 420px,#F4F2FB 900px) no
 .pinwrap{max-width:744px;margin:0 auto;padding:0 22px}
 .head .mtoc{margin:22px 0 0;text-align:left}
 :focus-visible{outline:3px solid #1C1A2E;outline-offset:3px}
+/* Nov 27: professional edition. Sentence-case labels, no drop cap, quieter headings, solid buttons, author box */
+.strip,.mnav,.sub,.kick,.toc p,.sidecta a,.mtoc summary,.take h2,.signup .lab,.signup a,.refs h2,.rel h2,.card span,.sidecta .lab,.myth .lab,.tryit .lab,.verdict .lab,.verdict dt,.glance span,.saythis th,.pinit .lab{text-transform:none!important;letter-spacing:.01em!important}
+.strip{font-weight:500}.mnav{font-size:16px;font-weight:600}.kick{font-size:16px;font-weight:700}
+.take h2,.refs h2,.toc p{font-size:15px!important}.rel h2{font-size:22px;font-family:"DM Serif Display",Georgia,serif;font-weight:400}
+.lead::first-letter{float:none;font:inherit;margin:0;color:inherit}
+.lead{font-size:22px;line-height:1.6;color:var(--ink)}
+.body h2::before{display:none!important}
+.body h2{margin:48px 0 14px;padding-top:6px}
+.sidecta a,.sub{background:#C2452A!important;background-image:none!important;font-size:15px}
+.signup a{font-size:16px;padding:15px 22px}
+.hero figcaption{font-style:italic;font-size:13px}
+a.chk{color:#C2452A;text-decoration:underline;text-underline-offset:3px}
+.author{margin-top:34px;padding:22px 24px;border-top:3px solid var(--ink);background:rgba(255,255,255,.55)}
+.author h2{font:700 15px/1.2 Manrope,Arial,sans-serif!important;margin:0 0 8px!important;padding:0!important}
+.author p{margin:0;font-size:18px;color:var(--soft)}
+.signup a{background:#C2452A!important;background-image:none!important;color:#fff!important}

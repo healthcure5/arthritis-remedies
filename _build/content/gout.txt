@@ -15,9 +15,9 @@ feel: Reassurance and clarity (painful, understood, manageable)
 - Risk rises with alcohol, sugary drinks, some foods, extra weight, some medicines and conditions like high blood pressure and kidney disease.
 - A hot, inflamed joint with a fever needs medical care immediately.
 @lead
-You went to bed fine. At 3 a.m. your big toe feels like it's on fire, and even the bedsheet hurts. That's the classic picture of a gout attack. It's painful, it's common, and it's well understood.
+You went to bed fine. At 3 a.m. your big toe feels like it's on fire, and even the bedsheet hurts. That's the classic picture of a gout attack. It's painful and common, and doctors understand it well, so there's a lot that can be done.
 @body
-## What gout is {#what}
+## What is gout? {#what}
 
 NIAMS says gout is an inflammatory arthritis. Urate builds up over a long time and forms needle-shaped crystals in and around joints, causing inflammation. Many people with high urate levels never get gout.[^1]
 

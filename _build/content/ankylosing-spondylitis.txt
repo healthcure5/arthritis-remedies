@@ -17,11 +17,11 @@ feel: Clarity and reassurance
 @lead
 Most back pain is muscle trouble and it settles. A smaller group has a back that's stiffest after rest and eases with movement, often starting young. If that sounds familiar, it's worth knowing the name.
 @body
-## What it is {#what}
+## What is ankylosing spondylitis? {#what}
 
 The Mayo Clinic says ankylosing spondylitis is an inflammatory disease that mainly affects the spine. Over time, inflammation can cause vertebrae to fuse, reducing flexibility and sometimes leading to a hunched posture. There are two forms: AS, which shows on X-ray, and nonradiographic axial spondyloarthritis, diagnosed through symptoms, blood tests and imaging such as MRI.[^1]
 
-## Signs {#signs}
+## What are the signs? {#signs}
 
 - Onset usually in early adulthood
 - Back pain and stiffness, mainly in the lower back and hips, often worse in the morning or after inactivity

@@ -4,7 +4,7 @@ dek: The fear is common and fair: it already hurts, so why move? What the CDC, t
 cat: Movement
 hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
 desc: Afraid exercise will make arthritis worse? What the CDC and Mayo Clinic say about safe movement, how to start slowly at any age, and when to stop.
-blurb: The honest answer on exercise, soreness and starting late in life.
+blurb: What the research says about exercise, soreness and starting late in life.
 updated: 2026-11-23
 related: gentle-exercises-for-arthritis-seniors, tried-everything-nothing-works, why-are-stairs-so-hard-with-arthritis
 feel: Hope, with permission to go slowly
@@ -15,7 +15,7 @@ feel: Hope, with permission to go slowly
 - Consistency matters more than intensity. Short sessions count.
 - Talk with your doctor or a physical therapist first, especially if you've been inactive.
 @lead
-It already hurts to move, so doing more of it sounds like a bad idea. Many people with arthritis think exactly that, and for a long time. The honest answer is a little more hopeful, and it comes with a few rules that keep you safe.
+It already hurts to move, so doing more of it sounds like a bad idea. Many people with arthritis think exactly that, and for a long time. What the research says is more hopeful than you might expect, and it comes with a few rules that keep you safe.
 @body
 ## What the experts say {#says}
 

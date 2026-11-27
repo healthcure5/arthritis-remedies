@@ -15,13 +15,13 @@ feel: Calm and clarity (serious, but treatable)
 - Untreated RA can worsen and cause joint damage and disability. Early treatment matters.
 - Only a doctor can diagnose it. See one if you have these signs.
 @lead
-Long stiff mornings, both hands aching, and a tiredness that sleep doesn't touch. If that sounds like you, it deserves a doctor's attention, and sooner is better. This page explains what RA is and how it differs from the more common osteoarthritis.
+Long stiff mornings, both hands aching, and a tiredness that sleep doesn't touch. If that sounds like you, it deserves a doctor's attention, and sooner is better. RA works differently from the more common osteoarthritis, and knowing the difference can get you the right care sooner.
 @body
-## What it is {#what}
+## What is rheumatoid arthritis? {#what}
 
 NIAMS says rheumatoid arthritis is a chronic autoimmune disease in which the immune system attacks the lining of the joints, damaging the cartilage and bone inside them. Doctors don't know what triggers it.[^1]
 
-## Symptoms {#symptoms}
+## What are the signs? {#symptoms}
 
 - Joint pain at rest and during movement, with tenderness, swelling and warmth
 - Morning stiffness lasting longer than 30 minutes

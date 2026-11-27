@@ -1,6 +1,6 @@
 title: Joint Pain: What It Means and When to Get Help
 h1: Joint pain: what it can mean, and when to see a doctor
-dek: Aching, stiff, swollen or hot joints have many causes. Here is what the signs can point to, which ones need care quickly, and what to expect at the visit.
+dek: Aching, stiff, swollen or hot joints have many causes. What each sign can point to, which ones need care quickly, and how to get the most from the visit.
 cat: Symptoms
 hero: dawn-bedroom.jpg | Illustration of a bedroom at sunrise with a glass of water, glasses and slippers ready beside the bed
 desc: What does joint pain mean? What stiff, swollen or hot joints can point to, the signs that need care quickly, and what to expect when you see a doctor.
@@ -15,7 +15,7 @@ feel: Calm and steady (a worry, now with a plan)
 - Joint pain that lasts, keeps coming back or limits what you do is worth a visit.
 - Only a doctor can say what is causing it.
 @lead
-"My knee hurts. What does that mean?" Fair question, and nobody can answer it from a description alone. What this page can do is show you which details matter, which signs need quick care, and how to get ready for the visit.
+"My knee hurts. What does that mean?" Fair question, and nobody can answer it from a description alone. What you can do is notice the details that matter, spot the signs that need quick care, and get ready for the visit.
 @body
 ## What the common signs can point to {#signs}
 

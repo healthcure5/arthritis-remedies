@@ -17,7 +17,7 @@ feel: Calm clarity
 @lead
 Sore, stiff joints are bad enough. When you also have scaly patches on your skin and odd changes to your nails, it's reasonable to wonder whether they're connected. For some people, they are.
 @body
-## What it is {#what}
+## What is psoriatic arthritis? {#what}
 
 NIAMS describes psoriatic arthritis as a progressive inflammatory condition affecting the joints and the entheses, the places where tendons and ligaments attach to bone. The immune system becomes overactive for reasons scientists don't fully understand. There is no cure, but treatments can slow progression, reduce pain and protect joints.[^1]
 
@@ -37,7 +37,7 @@ Symptoms vary, and may include:[^1]
 
 It's most common in adults and affects men and women equally. Most people already have psoriasis, typically for 7 to 10 years, before arthritis appears. Obesity and severe psoriasis are linked to higher risk, and family history, stress, joint injury and infections may play a part.[^1]
 
-## What to do {#do}
+## What should you do? {#do}
 
 NIAMS advises seeing a doctor soon if joint symptoms appear, since early treatment is linked to better outcomes and less joint damage.[^1] If you have psoriasis, mention any joint pain or swelling at your next visit. A rheumatologist, a doctor who specializes in arthritis, often helps with diagnosis and treatment.
 

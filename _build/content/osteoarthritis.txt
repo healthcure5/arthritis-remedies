@@ -1,6 +1,6 @@
 title: Osteoarthritis: Symptoms, Causes and What Helps
 h1: Osteoarthritis: symptoms, causes and what helps
-dek: If a doctor has said osteoarthritis, or you suspect it, here is what it is, what causes it, and the everyday steps that help. The NIH says it is not simply wear and tear.
+dek: What osteoarthritis is, what raises the risk, how doctors spot it, and the everyday steps that ease it. The NIH says it isn't simply wear and tear.
 cat: Types
 hero: chair-exercise.jpg | Illustration of an older woman sitting in a chair by a sunny window, lifting one leg straight out
 desc: Osteoarthritis explained: symptoms, causes, risk factors, how it is diagnosed, and what helps, from NIAMS, CDC and the Arthritis Foundation.
@@ -15,13 +15,13 @@ feel: Calm and capable
 - NIAMS says it is not simply wear and tear. Age, extra weight, past injuries, overuse and family history all play a part.
 - Exercise and weight management are first-line steps. There is no cure, but symptoms can be managed.
 @lead
-If a doctor has said "osteoarthritis," or you suspect it, you've probably heard it called wear and tear. The reality is a little different, and a little more hopeful. Here is what the NIH and others say, in plain words.
+You've probably heard osteoarthritis called wear and tear, as if your joints simply ran out of miles. The NIH sees it differently, and that's good news, because several of the things that drive it are things you can change.
 @body
-## What it is {#what}
+## What is osteoarthritis? {#what}
 
 NIAMS describes osteoarthritis as a joint disease in which the joint tissues gradually break down over time. It is the most common type of arthritis and is more common in older people. Women are more likely than men to have it, especially after age 50. Younger people can develop it, usually after a joint injury or a problem with how the joint formed.[^1]
 
-## Symptoms {#symptoms}
+## What does it feel like? {#symptoms}
 
 It tends to start slowly, in one or a few joints. NIAMS lists:[^1]
 
@@ -33,15 +33,15 @@ It tends to start slowly, in one or a few joints. NIAMS lists:[^1]
 
 The joints most affected are the finger ends and thumb joints, knees, hips, neck and lower back. As it progresses, stairs, sitting down, standing up and gripping can become hard. Pain can also lead to fatigue, sleep problems and low mood.[^1] In the hand, you may see firm bumps called Heberden's and Bouchard's nodes, and hear clicking or grinding.[^2]
 
-## Causes and risk factors {#causes}
+## What causes it? {#causes}
 
 NIAMS says it isn't simply wear and tear. Risk factors include aging, excess weight, past joint injury or surgery, repeated overuse, malformed joints and family history.[^1]
 
-## How it's diagnosed {#diagnosis}
+## How do doctors diagnose it? {#diagnosis}
 
 There's no single test. Doctors use your medical history, a physical exam, X-rays or MRI, blood tests to rule out other causes, and sometimes joint fluid tests to check for infection or gout.[^1]
 
-## What helps {#helps}
+## What helps day to day? {#helps}
 
 OA is long-term with no cure, but NIAMS lists these ways to manage it:[^1]
 

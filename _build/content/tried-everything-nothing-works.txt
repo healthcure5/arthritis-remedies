@@ -1,6 +1,6 @@
 title: Tried Everything for Arthritis? What Works Best
 h1: "I've tried everything and nothing works": what has the best support for arthritis
-dek: The creams, the pills, the bracelets, the shots. If you've spent real money and still ache, here is what the major health bodies say is worth your effort, in plain order.
+dek: The creams, the pills, the bracelets, the shots. If you've spent real money and still ache, these are the steps the CDC and the NIH put first, in order.
 cat: Hope
 hero: sunrise-hills.jpg | Illustration of a sun rising over hills and a village, with a path winding toward a lit window
 desc: Tried everything for arthritis and nothing helps? What the CDC and NIH say has the best support: movement, weight, self-management classes and your doctor.
