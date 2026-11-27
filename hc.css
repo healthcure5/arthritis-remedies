@@ -300,3 +300,6 @@ s.was{color:#5f6560!important}
 .stickybar p b{display:block;color:var(--ink);font-size:16px}
 .stickybar .b{flex:none;padding:13px 16px;min-height:44px;font-size:16px}
 @media (max-width:700px){.stickybar.on{display:flex}body:has(.stickybar.on){padding-bottom:84px}}
+.vidwrap{position:relative;min-width:0}.vidwrap video{display:block;width:100%}
+.vidbtn{position:absolute;right:12px;bottom:12px;z-index:2;min-height:44px;min-width:72px;padding:10px 14px;border:0;border-radius:999px;background:rgba(30,42,44,.82);color:#fff;font:600 15px/1 inherit;cursor:pointer}
+.vidbtn:hover{background:#1E2A2C}.vidbtn:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #1E6670}
