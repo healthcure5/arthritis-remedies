@@ -357,3 +357,4 @@ footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 @media (max-width:420px){.brand{font-size:21px;gap:7px}.brand svg{width:34px;height:auto}}
 .slide .card img{aspect-ratio:4/5}
 @media (max-width:380px){.brand{font-size:19px}.brand svg{width:30px}.hd-cta{padding:8px 10px!important}.mnav summary{min-width:54px;padding:8px 8px}.hd-in{gap:6px}}
+#shop{scroll-margin-top:84px}
