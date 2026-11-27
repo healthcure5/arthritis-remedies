@@ -368,3 +368,10 @@ details.mnav>div>.mprev{display:block!important;order:2;aspect-ratio:16/9!import
 .mnav .mprev p{font-size:15px}
 }
 @media (prefers-reduced-motion:reduce){details.mnav>div,details.mnav.is-open>div{transition:none!important}}
+/* Nov 27: free-book pages match the book page: thin outline sign-up box, and the cover sits above the sign-up box on phones and tablets */
+@media (max-width:860px){
+.hero .w:has(.formbox){row-gap:0}
+.hero .w:has(.formbox)>div:first-child{display:contents}
+.hero .w:has(.formbox) .cover,.hero .w:has(.formbox) .heroimg{order:1;margin:8px auto 24px}
+.hero .w:has(.formbox) .formbox{order:2}
+}
