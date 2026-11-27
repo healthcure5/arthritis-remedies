@@ -358,3 +358,13 @@ footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 .slide .card img{aspect-ratio:4/5}
 @media (max-width:380px){.brand{font-size:19px}.brand svg{width:30px}.hd-cta{padding:8px 10px!important}.mnav summary{min-width:54px;padding:8px 8px}.hd-in{gap:6px}}
 #shop{scroll-margin-top:84px}
+/* Nov 27 menu fix: the panel and its words slide in together (no words before the panel), picture shows on phones and tablets */
+details.mnav>div{visibility:hidden;transition:transform .6s cubic-bezier(.16,1,.3,1),visibility 0s linear .6s!important}
+details.mnav.is-open>div{visibility:visible!important;transition:transform .6s cubic-bezier(.16,1,.3,1),visibility 0s linear 0s!important}
+details.mnav>div>.mlinks,details.mnav>div>.mprev{visibility:inherit!important}
+@media (max-width:760px){
+details.mnav>div{display:flex!important;flex-direction:column;overflow-y:auto}
+details.mnav>div>.mprev{display:block!important;order:2;aspect-ratio:16/9!important;max-height:32vh;width:100%!important;margin-top:8px;border-radius:14px!important}
+.mnav .mprev p{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){details.mnav>div,details.mnav.is-open>div{transition:none!important}}

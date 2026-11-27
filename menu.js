@@ -64,13 +64,13 @@
     var links=[].slice.call(p.querySelectorAll(':scope>a')); if(!links.length) return;
     var L=document.createElement('div'); L.className='mlinks'; links.forEach(function(a){L.appendChild(a);});
     var R=document.createElement('div'); R.className='mprev'; R.setAttribute('aria-hidden','true');
-    var im=document.createElement('img'); im.alt=''; im.loading='lazy'; var cap=document.createElement('p');
+    var im=document.createElement('img'); im.alt=''; im.loading='eager'; im.decoding='async'; var cap=document.createElement('p');
     R.appendChild(im); R.appendChild(cap); p.appendChild(L); p.appendChild(R);
     function show(a){var k=M[key(a.getAttribute('href'))]||M['guide'];
       if(im.getAttribute('src')!==k[0]){R.classList.add('swap');setTimeout(function(){im.src=k[0];cap.textContent=k[1];R.classList.remove('swap');},140);}else{cap.textContent=k[1];}
       links.forEach(function(x){x.classList.toggle('on',x===a);});}
     links.forEach(function(a){a.addEventListener('mouseenter',function(){show(a)});a.addEventListener('focus',function(){show(a)});});
-    show(links[0]);
+    show(links.filter(function(x){return x.hasAttribute('aria-current');})[0]||links[0]);
   }
   function init(){[].forEach.call(document.querySelectorAll('details.mnav'),build);}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
