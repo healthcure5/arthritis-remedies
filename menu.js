@@ -50,13 +50,13 @@
   var M={
     'guide':['/images/cover-habits-rust.jpg','7 Bad Habits for Arthritis, free in your inbox.'],
     'book':['/images/cover-joint-reset.jpg','The Joint Reset: what to try, and how to start.'],
-    'course-info':['https://images.pexels.com/photos/7530853/pexels-photo-7530853.jpeg?auto=compress&cs=tinysrgb&w=900','The Program: one small step a day, at your own pace.'],
-    'club':['/images/px-woman-823560.jpg','The Club: one focus a month, from $9 a month.'],
-    'shop':['/images/chair.jpg','Every price in one place. Nothing added at checkout.'],
-    '#shop':['/images/chair.jpg','Every price in one place. Nothing added at checkout.'],
-    'about-hinge-care':['/images/px-cosmetics-7512325.jpg','A small wellness company that names every source.'],
-    'contact':['https://images.pexels.com/photos/5257613/pexels-photo-5257613.jpeg?auto=compress&cs=tinysrgb&w=900','Write to us. A real person writes back.'],
-    'circle':['/images/hands.jpg','The Circle: a small group, opening in January 2027.']
+    'course-info':['https://images.pexels.com/photos/8436937/pexels-photo-8436937.jpeg?auto=compress&cs=tinysrgb&w=900','The Program: one small step a day, at your own pace.'],
+    'club':['https://images.pexels.com/photos/6972778/pexels-photo-6972778.jpeg?auto=compress&cs=tinysrgb&w=900','The Club: one focus a month, from $9 a month.'],
+    'shop':['https://images.pexels.com/photos/6975819/pexels-photo-6975819.jpeg?auto=compress&cs=tinysrgb&w=900','Every price in one place. Nothing added at checkout.'],
+    '#shop':['https://images.pexels.com/photos/6975819/pexels-photo-6975819.jpeg?auto=compress&cs=tinysrgb&w=900','Every price in one place. Nothing added at checkout.'],
+    'about-hinge-care':['https://images.pexels.com/photos/6874324/pexels-photo-6874324.jpeg?auto=compress&cs=tinysrgb&w=900','We read the studies, then explain them in plain words.'],
+    'contact':['https://images.pexels.com/photos/5257554/pexels-photo-5257554.jpeg?auto=compress&cs=tinysrgb&w=900','Write to us. A real person writes back.'],
+    'circle':['https://images.pexels.com/photos/8172782/pexels-photo-8172782.jpeg?auto=compress&cs=tinysrgb&w=900','The Circle: a small group, opening in January 2027.']
   };
   function key(h){h=h||'';if(h.indexOf('#shop')>-1)return '#shop';var m=h.replace(/^.*\//,'').replace(/\.html.*$/,'').replace(/#.*$/,'');return m;}
   function build(d){
