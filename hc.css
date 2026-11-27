@@ -375,3 +375,15 @@ details.mnav>div>.mprev{display:block!important;order:2;aspect-ratio:16/9!import
 .hero .w:has(.formbox) .cover,.hero .w:has(.formbox) .heroimg{order:1;margin:8px auto 24px}
 .hero .w:has(.formbox) .formbox{order:2}
 }
+/* Nov 27: questions, redesigned. Open list on the page, roomy rows, a drawn plus that turns into a cross, nothing cut off on phones */
+details.q,.faqbook details.q{background:transparent!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;margin:0!important;max-width:760px}
+.faqbook details.q{max-width:none}
+.faqbook .w{max-width:780px}
+details.q:first-of-type{border-top:1px solid var(--line)!important}
+details.q summary,.faqbook details.q summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 2px!important;font:600 20px/1.35 Fraunces,Georgia,serif;color:var(--g);overflow-wrap:anywhere}
+details.q summary::after,.faqbook details.q summary::after{content:""!important;flex:0 0 36px;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--g);background:linear-gradient(var(--g),var(--g)) center/14px 2px no-repeat,linear-gradient(var(--g),var(--g)) center/2px 14px no-repeat!important;color:transparent;font-size:0;transform:none;transition:transform .25s ease,background-color .2s ease}
+details.q[open] summary::after,.faqbook details.q[open] summary::after{transform:rotate(45deg)}
+details.q summary:hover::after{background-color:#E3EEF0!important}
+details.q p,.faqbook details.q p{padding:0 54px 24px 2px!important;margin:0;font-size:18px;line-height:1.65;color:var(--soft);max-width:65ch}
+@media (max-width:600px){details.q summary,.faqbook details.q summary{font-size:18px;padding:18px 0!important;gap:14px}details.q p,.faqbook details.q p{padding:0 0 20px!important;font-size:17px}}
+@media (prefers-reduced-motion:reduce){details.q summary::after{transition:none}}
