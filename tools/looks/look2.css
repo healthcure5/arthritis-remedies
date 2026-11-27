@@ -11,3 +11,13 @@ section.s{border-top:0!important}section.s>.w>h2:first-child,section.s .w>.eye:f
 .b{border-radius:8px!important}.b3{background:var(--g2)!important;color:#fff!important;box-shadow:none!important}
 .b2{border-color:var(--g2)!important;color:var(--g2)!important}
 .stats{text-align:left!important}.stat{border-left:3px solid var(--sand);padding-left:16px}
+/* colors: Clear Care palette, white with deep blue-teal and sea green */
+:root{--g:#1F5F7A;--g2:#1F5F7A;--teal:#5FA8A0;--sand:#EEF5F6;--line:#D3E4E8;--ink:#1D2B36;--soft:#41525E}
+h1,h2,h3,.price,.stat .n{color:#163F52!important}
+.eye{color:#1F5F7A!important}
+section.s>.w>h2:first-child,section.s .w>.eye:first-child{border-top-color:var(--teal)!important}
+.s.alt,section.alt{background:#EEF5F6!important}
+.quote{border-left-color:var(--teal)!important}.stat{border-left-color:var(--teal)!important}
+.hd .brand{color:#1F5F7A}.b3{background:#1F5F7A!important}.b2{border-color:#1F5F7A!important;color:#1F5F7A!important}
+.ft,.finale,.wide{background:#163F52!important}.wide .eye{color:#A8DCD5!important}
+a{color:#1F5F7A}

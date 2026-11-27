@@ -13,3 +13,14 @@ section.s{border-top:0!important}
 .vids img{border-radius:28px!important}.wide{border-radius:34px!important}
 
 @media(max-width:860px){.heroimg{max-width:320px;margin:0 auto}}
+/* colors: Big Table palette, warm white with plum and orange */
+:root{--g:#5B2A6E;--g2:#6D3584;--orange:#F97316;--sand:#F6EEF8;--line:#E9DCEB;--ink:#2D2A32;--soft:#57505C}
+h1,h2,h3,.price,.stat .n{color:#4A2259!important}
+.eye{color:#B4501A!important}
+.s.alt,section.alt{background:#F6EEF8!important}
+.quote{border-left-color:var(--orange)!important}
+.card,.steps li{box-shadow:0 6px 0 #E9DCEB!important}
+.heroimg{box-shadow:14px 14px 0 #FFD9B8}
+.hd .brand{color:#5B2A6E}.b3{background:#6D3584!important;box-shadow:0 4px 0 #3F1A4F!important}.b2{border-color:#6D3584!important;color:#6D3584!important}
+.ft,.finale,.wide{background:#4A2259!important}.wide .eye{color:#FFC08A!important}
+a{color:#6D3584}

@@ -18,3 +18,14 @@ section.s{border-top:1px solid var(--line)!important}
 .hero .b3{background:#F5B04A!important;color:#1F3B3A!important}.hero .b2{border-color:#fff!important;color:#fff!important}
 .hero .heroimg{border-radius:0!important;box-shadow:18px 18px 0 #F5B04A}
 @media(min-width:900px){.split{grid-template-columns:.9fr 1.1fr!important;gap:64px!important}}
+/* colors: Magazine palette, bone with ink navy and warm gold */
+:root{--g:#1B2A41;--g2:#2B3F5E;--sand:#E9E7E1;--line:#D6D3CB;--ink:#1C1B19;--soft:#4D4A44}
+h1,h2,h3,.price,.stat .n{color:#1B2A41!important}.hero h1{color:#fff!important}
+.eye{color:#8C5E12!important}.hero .eye{color:#F5C46B!important}
+.hero{background:#1B2A41!important}.hero .lede,.hero .trust{color:#C8D0DC!important}
+.s.alt,section.alt{background:#E9E7E1!important}
+.quote{border-left-color:#C9962E!important}
+.hd .brand{color:#1B2A41}.b3{background:#1B2A41!important}.b2{border-color:#1B2A41!important;color:#1B2A41!important}
+.hero .b3{background:#F5B04A!important;color:#1B2A41!important}.hero .b2{border-color:#fff!important;color:#fff!important}
+.ft,.finale,.wide{background:#1B2A41!important}
+a{color:#2B3F5E}

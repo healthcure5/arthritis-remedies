@@ -15,3 +15,14 @@ section.s{border-top:0!important;padding:44px 0}
 .b{border-radius:999px!important;font-family:Outfit,sans-serif!important;font-weight:600!important;min-height:50px}
 .b3{background:var(--g2)!important;color:#fff!important;box-shadow:none!important}.b2{border-color:var(--g2)!important;color:var(--g2)!important}
 .lede{font-size:18px!important}
+/* colors: Group Chat palette, white with indigo and mint */
+:root{--g:#3730A3;--g2:#4338CA;--mint:#2DD4BF;--sand:#EEF2FF;--line:#DFE4FA;--ink:#1A1A2E;--soft:#4A4E69}
+h1,h2,h3,.price,.stat .n{color:#272373!important}
+.eye{color:#3730A3!important;background:#E0F7F3!important}
+.s.alt,section.alt{background:#EEF2FF!important}
+.card,.steps li{background:#F4F6FF!important}
+.quote{border-left-color:var(--mint)!important}
+.heroimg{outline:6px solid #CFF5EE;outline-offset:6px}
+.hd .brand{color:#3730A3}.b3{background:#4338CA!important}.b2{border-color:#4338CA!important;color:#4338CA!important}
+.ft,.finale,.wide{background:#272373!important}.wide .eye{color:#9FF0E4!important}
+a{color:#4338CA}
