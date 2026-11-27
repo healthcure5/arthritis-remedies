@@ -353,5 +353,5 @@ footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 .slidenav button:disabled{opacity:.35;cursor:default}
 .slidenav button:focus-visible{outline:3px solid #1E6670;outline-offset:2px}
 @media (prefers-reduced-motion:no-preference){.slide{scroll-behavior:smooth}}
-@media (max-width:760px){.hd-cta{display:inline-flex!important;padding:8px 12px!important;min-height:44px!important;font-size:15px!important}.hd-in{gap:10px}}
-@media (max-width:380px){.brand{font-size:21px}}
+@media (max-width:760px){.hd-cta{display:inline-flex!important;align-items:center;white-space:nowrap;padding:8px 12px!important;min-height:44px!important;font-size:15px!important}.hd-in{gap:8px}.mnav summary{min-width:60px;padding:8px 10px}}
+@media (max-width:420px){.brand{font-size:21px;gap:7px}.brand svg{width:34px;height:auto}}
