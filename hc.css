@@ -303,3 +303,10 @@ s.was{color:#5f6560!important}
 .vidwrap{position:relative;min-width:0}.vidwrap video{display:block;width:100%}
 .vidbtn{position:absolute;right:12px;bottom:12px;z-index:2;min-height:44px;min-width:72px;padding:10px 14px;border:0;border-radius:999px;background:rgba(30,42,44,.82);color:#fff;font:600 15px/1 inherit;cursor:pointer}
 .vidbtn:hover{background:#1E2A2C}.vidbtn:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #1E6670}
+/* Nov 27 graphic-designing pass: visible text menu on computers, larger small labels, 44px footer links */
+@media (min-width:1100px){.hd .nav{display:flex;gap:26px;margin-left:auto;margin-right:18px}.hd .nav a{font-size:17px;padding:12px 0}}
+.eye,.ft-cols h4{font-size:15px}
+.ft-fine,p.ft-fine{font-size:16px}
+footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
+.mnav summary{font-size:12px}
+.vidbtn{font:600 15px/1 Inter,system-ui,sans-serif}
