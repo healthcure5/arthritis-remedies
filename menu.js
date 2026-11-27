@@ -63,6 +63,7 @@
     var p=d.querySelector(':scope>div'); if(!p||p.querySelector('.mlinks')) return;
     var links=[].slice.call(p.querySelectorAll(':scope>a')); if(!links.length) return;
     var L=document.createElement('div'); L.className='mlinks'; links.forEach(function(a){L.appendChild(a);});
+    [].slice.call(p.childNodes).forEach(function(n){ if(n.nodeType===3) p.removeChild(n); });
     var R=document.createElement('div'); R.className='mprev'; R.setAttribute('aria-hidden','true');
     var im=document.createElement('img'); im.alt=''; im.loading='eager'; im.decoding='async'; var cap=document.createElement('p');
     R.appendChild(im); R.appendChild(cap); p.appendChild(L); p.appendChild(R);
