@@ -19,7 +19,7 @@ def common(s):
     s = s.replace('Illustrations made for Hinge Care with AI. ', 'Article photos from Pexels. ')
     s = re.sub(r'<div class="av"><svg class="sun"[^>]*>(?:(?!</div>).)*?</svg></div>', '<div class="av" aria-hidden="true"></div>', s, flags=re.S)
     # cards and featured links: photo of the linked article
-    s = re.sub(r'(<a class="(?:card|feat)" href="([a-z-]+)\.html"><img src=")journal-img/[a-z-]+\.jpg(")',
+    s = re.sub(r'(<a class="(?:card|feat)" href="([a-z-]+)\.html"><img src=")[^"]+(")',
                lambda m: m.group(1) + px(P[m.group(2)][0], 800 if 'feat' in m.group(0) else 600) + m.group(3) if m.group(2) in P else m.group(0), s)
     s = re.sub(r'<div class="banner">.*?</div>', '', s, flags=re.S)
     return s
@@ -29,7 +29,7 @@ for f in glob.glob(f'{R}/*.html'):
     s = open(f).read()
     if 'journal.css' not in s: continue
     slug = os.path.basename(f)[:-5]; o = s; s = common(s)
-    if slug in INLINE:
+    if slug in INLINE and 'Photo: Pexels' not in s:
         i, alt, cap = P[slug]
         s = re.sub(r'<meta property="og:image" content="[^"]*">', f'<meta property="og:image" content="{px(i,1200)}">', s)
         s = re.sub(r'("image":\s*")https://myhingecare\.com/journal-img/[a-z-]+\.jpg', lambda m: m.group(1) + px(i, 1200), s)
