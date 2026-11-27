@@ -392,3 +392,31 @@ details.q p,.faqbook details.q p{padding:0 54px 24px 2px!important;margin:0;font
 .hero .btns .b3{background:#1E6670!important;border:0!important;border-radius:12px}
 .hero .btns .b3:hover{background:#14474E!important}
 .hero .btns .b3:focus-visible{outline:3px solid #1E6670;outline-offset:3px}
+/* ===== Nov 27: modern pass ===== */
+/* 1. Clean sans-serif headings (Plus Jakarta Sans, Google Fonts, weights 600-800 confirmed). The Hinge Care wordmark and the signature keep their own fonts. */
+h1,h2,h3,h4,.num,.price,.vids figcaption b,details.q summary,.faqbook details.q summary,.mnav .mlinks a,.stat b,.stats .n,.quote h3,.wide h3,.finale h2,.timeline b{font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif!important}
+h1{font-weight:800!important;letter-spacing:-.025em;line-height:1.08}
+h2{font-weight:800!important;letter-spacing:-.02em;line-height:1.15}
+h3,h4,.vids figcaption b,details.q summary,.mnav .mlinks a{font-weight:700!important;letter-spacing:-.01em}
+.num,.stats .n,.price{font-weight:800!important;letter-spacing:-.02em}
+/* 2. Flat buttons everywhere: no raised shadow, no color fade */
+.b,.b1,.b2,.b3,.hd-cta,.b:hover,.b1:hover,.b2:hover,.b3:hover,.b:active,.b1:active,.b2:active,.b3:active{box-shadow:none!important;background-image:none!important;transform:none!important}
+.b{border-radius:12px}
+/* 3. Gold mostly gone: teal is the one button color, green stays for headings */
+.b1{background:#1E6670!important;color:#fff!important;border-color:#1E6670!important}
+.b1:hover{background:#14474E!important}
+.wide .b1{background:#fff!important;color:#1F3A27!important;border-color:#fff!important}
+.wide .b1:hover{background:#E3EEF0!important}
+.nav a:hover,.nav a[aria-current]{border-bottom-color:#1E6670!important}
+.val .vget{border-top-color:#2F5D3A!important}
+.quote{border-left-color:#1E6670!important}
+.ft-cols h4{color:#fff!important}
+.wide .eye{color:#CFE3E6!important}
+/* 4. Plain menu icon (three lines, no word), squarer photos */
+.mnav summary,.mnav[open] summary{font-size:0!important;letter-spacing:0!important;gap:0!important;min-width:48px!important;width:48px;min-height:48px!important;padding:0!important;border:0!important;border-radius:10px!important;background:transparent!important;box-shadow:none!important;justify-content:center}
+.mnav summary::before,.mnav[open] summary::before{width:24px!important;height:2.5px!important;margin:0!important;background:#1F3A27!important;box-shadow:0 -8px 0 #1F3A27,0 8px 0 #1F3A27!important;border-radius:2px!important}
+.mnav summary:hover{background:#E3EEF0!important}
+.mnav summary:focus-visible{outline:3px solid #1E6670;outline-offset:2px}
+.heroimg,.card img,.vids img,.vids video,.wide video,.clubvid,.mnav .mprev,.mnav>div>.mprev,.inline-img img,figure img{border-radius:8px!important}
+.cover{border-radius:4px!important}
+.hero.full .heroimg{border-radius:0!important}
