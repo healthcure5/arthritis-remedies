@@ -431,3 +431,10 @@ html .wide a.b[href*="checkout"],.wide .b1{background:#fff!important;color:#1F3A
 html .wide a.b[href*="checkout"]:hover,.wide .b1:hover{background:#E3EEF0!important}
 html a.b[href*="checkout"] ~ a.b[href*="checkout"]{background:transparent!important;color:#1F3A27!important;border:2px solid #1F3A27!important}
 .b2{border-width:2px!important;font-weight:700!important;color:#1F3A27}
+/* Nov 27: light footer, like Hinge Health and Qoves. Soft aqua with dark text; the green logo and headings stay as they are */
+.ft,footer.ft{background:#EAF2F3!important;color:#455659!important;border-top:1px solid #DAE6E8}
+.ft a,footer.ft a{color:#1E2A2C!important;text-decoration:none}
+.ft a:hover{color:#17575F!important;text-decoration:underline;text-underline-offset:3px}
+.ft-cols h4{color:#1F3A27!important}
+.ft-fine,.ft p{color:#455659!important}
+.ft a:focus-visible,footer a:focus-visible{outline:3px solid #17575F!important;outline-offset:2px}
