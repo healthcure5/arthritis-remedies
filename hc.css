@@ -428,10 +428,10 @@ html .wide a.b[href*="checkout"]{background:#fff!important;color:#1F3A27!importa
 html .wide a.b[href*="checkout"]:hover{background:#E3EEF0!important}
 html a.b[href*="checkout"] ~ a.b[href*="checkout"]{background:transparent!important;color:#1F3A27!important;border:2px solid #1F3A27!important}
 html a.b[href*="checkout"] ~ a.b[href*="checkout"]:hover{background:#fff!important}
-/* Nov 27 try: soft see-through gold buy buttons, and an even lighter gold wash on the prices section */
-html a.b[href*="checkout"],#shop .card .b{background:rgba(255,197,107,.38)!important;color:#1F3A27!important;border:1.5px solid rgba(214,150,40,.55)!important;box-shadow:none!important}
-html a.b[href*="checkout"]:hover,#shop .card .b:hover{background:rgba(255,197,107,.6)!important}
-html a.b[href*="checkout"] ~ a.b[href*="checkout"]{background:transparent!important;border:1.5px solid rgba(214,150,40,.7)!important}
-#shop{background:rgba(255,197,107,.10)!important}
-html .wide a.b[href*="checkout"]{background:rgba(255,214,140,.9)!important;color:#1F3A27!important;border-color:transparent!important}
-html .wide a.b[href*="checkout"]:hover{background:#FFE2A8!important}
+/* Nov 27: teal buttons, deeper and bolder so the words inside never fade (white on #17575F is about 8 to 1) */
+.b3,.b1,html a.b[href*="checkout"],.hero .btns .b3{background:#17575F!important;color:#fff!important;border-color:#17575F!important;font-weight:700!important;-webkit-font-smoothing:antialiased}
+.b3:hover,.b1:hover,html a.b[href*="checkout"]:hover,.hero .btns .b3:hover{background:#0F3F45!important;color:#fff!important}
+html .wide a.b[href*="checkout"],.wide .b1{background:#fff!important;color:#1F3A27!important;border-color:#fff!important}
+html .wide a.b[href*="checkout"]:hover,.wide .b1:hover{background:#E3EEF0!important}
+html a.b[href*="checkout"] ~ a.b[href*="checkout"]{background:transparent!important;color:#1F3A27!important;border:2px solid #1F3A27!important}
+.b2{border-width:2px!important;font-weight:700!important;color:#1F3A27}
