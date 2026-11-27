@@ -67,6 +67,10 @@ section.s{padding:84px 0}
 .ft{background:var(--ink);color:#C9CED8;padding:40px 0;font-size:16px}.ft a{color:#fff;margin-right:16px}.flogo{color:#fff!important;text-decoration:none;font-weight:800;font-size:20px}
 @media(max-width:900px){.nav{display:none}.hgrid,.two,.club{grid-template-columns:1fr}.pics{grid-template-columns:1fr}.pics figure:first-child{grid-row:auto}.pics figure:first-child img{aspect-ratio:16/11}
 .stats .w{grid-template-columns:1fr 1fr}.row{grid-template-columns:80px 1fr;gap:16px}.row img{width:80px}.row .price,.row .act{grid-column:2}.steps{grid-template-columns:1fr}.steps .num{font-size:90px}.sign{box-shadow:6px 6px 0 var(--ink)}}
+.val{background:#fff}.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:3px solid var(--ink)}
+.vgrid>div{padding:34px}.vget{background:var(--sun)}.vgrid h3{font-size:26px;font-weight:900;font-stretch:90%;font-variation-settings:"wdth" 90;margin-bottom:16px}
+.vgrid ul{list-style:none;padding:0;margin:0}.vgrid li{padding:14px 0;border-top:2px solid var(--ink);font-size:19px}.vcost li{display:grid;grid-template-columns:90px 1fr;gap:14px}.vcost b{font-weight:900;color:var(--co)}
+@media(max-width:900px){.vgrid{grid-template-columns:1fr}}
 """
     pics = ''.join(f'<figure><img src="{s}" alt="{a}" loading="lazy"><figcaption><b>{t}</b><span>{c}</span></figcaption></figure>' for s, a, t, c in PHOTOS)
     stats = ''.join(f'<div class="stat"><span class="n">{n}</span><span class="l">{l}</span></div>' for n, l in STATS)
@@ -78,7 +82,7 @@ section.s{padding:84px 0}
 <div class="w"><div class="pics">{pics}</div></div>
 <section class="stats"><div class="w">{stats}</div></section>
 <section class="s"><div class="w two"><div><h2>{HOUR_H}</h2><p>{HOUR_P1}</p><p>{HOUR_P2}</p></div><div class="quote"><p class="eye">About Hinge Care</p><h3>{ABOUT_H}</h3><p>{ABOUT_P}</p><p>{ABOUT_P2}</p></div></div></section>
-<section class="s" id="shop" style="background:#fff"><div class="w"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><div class="rows">{rows}</div>
+{value_block()}<section class="s" id="shop" style="background:#fff"><div class="w"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><div class="rows">{rows}</div>
 <div class="club"><div><p class="eye">{CLUB["eye"]}</p><h3>{CLUB["h"]}</h3><p>{CLUB["p"]}</p></div><div class="opts">{club_btns()}<p class="fine">{CLUB["pay"]} {CLUB["gift"]}</p></div></div></div></section>
 <section class="s"><div class="w"><h2>{STEPS_H}</h2><p class="sub">{STEPS_SUB}</p><ol class="steps">{steps}</ol></div></section>
 <section class="s" style="padding-top:0"><div class="w"><h2>{SRC_H}</h2><p class="sub">{SRC_SUB}</p>{sources_ul()}<p style="margin-top:22px;font-weight:600">{SIGNOFF}</p></div></section>
@@ -141,6 +145,11 @@ section.s{padding:100px 0}
 @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.hero .txt{padding:22px 24px 44px}.hero .pic{order:-1;height:56vw}.nav{display:none}
 .pics{grid-template-columns:1fr}.pics figure:nth-child(2){margin-top:0}.stats .w{grid-template-columns:1fr 1fr;gap:28px 0}.stat:nth-child(3){border-left:0;padding-left:0}
 .club,.signband .w{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.srcs{columns:1}.line{flex-wrap:wrap}.dots{display:none}.line h3{white-space:normal;font-size:30px}.about{margin:0 20px 70px;padding:30px 24px}}
+.val{background:#fff}.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:30px}
+.vgrid h3{font-style:italic;font-size:32px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gold)}
+.vgrid ul{list-style:none;padding:0;margin:0}.vgrid li{padding:14px 0;border-bottom:1px solid var(--blush2);color:var(--soft)}
+.vget li{font:italic 500 23px/1.35 "Cormorant Garamond",serif;color:var(--ink)}.vcost li{display:grid;grid-template-columns:80px 1fr;gap:14px}.vcost b{font-weight:700;color:#7A4E70}
+@media(max-width:900px){.vgrid{grid-template-columns:1fr;gap:30px}}
 """
     pics = ''.join(f'<figure><img src="{s}" alt="{a}" loading="lazy"><figcaption><b>{t}</b><span>{c}</span></figcaption></figure>' for s, a, t, c in PHOTOS)
     stats = ''.join(f'<div class="stat"><span class="n">{n}</span><span class="l">{l}</span></div>' for n, l in STATS)
@@ -153,7 +162,7 @@ section.s{padding:100px 0}
 <div class="about"><p class="eye">About Hinge Care</p><h3>{ABOUT_H}</h3><p>{ABOUT_P}</p><p>{ABOUT_P2}</p></div>
 <div class="w"><div class="pics">{pics}</div></div>
 <section class="stats"><div class="w">{stats}</div></section>
-<section class="s" id="shop"><div class="w"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><div class="menu">{items}</div>
+{value_block()}<section class="s" id="shop"><div class="w"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><div class="menu">{items}</div>
 <div class="club"><div><p class="eye">{CLUB["eye"]}</p><h3>{CLUB["h"]}</h3><p>{CLUB["p"]}</p></div><div class="opts">{club_btns()}<p class="fine">{CLUB["pay"]} {CLUB["gift"]}</p></div></div></div></section>
 <section class="signband" id="free"><div class="w"><h2>{STEPS[0][0]}</h2>{form()}</div></section>
 <section class="s"><div class="w"><h2>{STEPS_H}</h2><p class="sub">{STEPS_SUB}</p><ol class="steps">{steps}</ol></div></section>
@@ -212,6 +221,12 @@ section.s{padding:96px 0}.s h2{font-weight:800;font-size:clamp(34px,4.6vw,56px);
 .fin{background:var(--sun);text-align:center;padding:100px 0}.fin h2{font-weight:800;font-size:clamp(50px,8vw,110px);line-height:1}.fin p{font-size:21px;margin:14px 0 28px}
 .ft{background:var(--navy);color:#C2CDE0;padding:40px 0;font-size:16px}.ft a{color:#fff;margin-right:16px}.flogo{color:#fff!important;text-decoration:none;font:800 21px "Bricolage Grotesque",sans-serif}
 @media(max-width:900px){.nav{display:none}.stickers{grid-template-columns:1fr 1fr}.cards,.club,.path{grid-template-columns:1fr}.path::before{display:none}.pola{width:100%;max-width:340px}.about{margin:-60px 16px 0;padding:28px 22px}}
+.vgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:30px}
+.vgrid>div{border-radius:30px;padding:32px}.vget{background:var(--mint)}.vcost{background:var(--sunl)}
+.vgrid h3{font-size:26px;font-weight:800;margin-bottom:12px}.vgrid ul{list-style:none;padding:0;margin:0}
+.vget li{padding:10px 0 10px 40px;position:relative;font-weight:500}.vget li::before{content:"";position:absolute;left:0;top:13px;width:26px;height:26px;border-radius:50%;background:var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.vcost li{display:flex;gap:12px;align-items:baseline;padding:10px 0}.vcost b{background:#fff;border-radius:999px;padding:4px 12px;font-size:15px;min-width:76px;text-align:center}
+@media(max-width:900px){.vgrid{grid-template-columns:1fr}}
 """
     polas = ''.join(f'<figure class="pola"><img src="{s}" alt="{a}" loading="lazy"><figcaption><b>{t}</b><span>{c}</span></figcaption></figure>' for s, a, t, c in PHOTOS)
     stk = ''.join(f'<div class="stk"><span class="n">{n}</span><span class="l">{l}</span></div>' for n, l in STATS)
@@ -223,7 +238,7 @@ section.s{padding:96px 0}.s h2{font-weight:800;font-size:clamp(34px,4.6vw,56px);
 <div class="w"><div class="stickers">{stk}</div></div>
 <section class="navyband"><div class="w"><h2>{HOUR_H}</h2><p>{HOUR_P1}</p><p>{HOUR_P2}</p></div></section>
 <div class="about"><p class="eye">About Hinge Care</p><h3>{ABOUT_H}</h3><p>{ABOUT_P}</p><p>{ABOUT_P2}</p></div>
-<section class="s" id="shop"><div class="w"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><div class="cards">{cards}</div>
+{value_block()}<section class="s" id="shop"><div class="w"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><div class="cards">{cards}</div>
 <div class="club"><div><p class="eye">{CLUB["eye"]}</p><h3>{CLUB["h"]}</h3><p>{CLUB["p"]}</p></div><div class="opts">{club_btns()}<p class="fine">{CLUB["pay"]} {CLUB["gift"]}</p></div></div></div></section>
 <section class="s" style="background:#F6FAFD"><div class="w"><h2>{STEPS_H}</h2><p class="sub">{STEPS_SUB}</p><ol class="path">{path}</ol></div></section>
 <section class="s"><div class="w"><h2>{SRC_H}</h2><p class="sub">{SRC_SUB}</p>{sources_ul()}<p style="margin-top:22px;font-weight:700">{SIGNOFF}</p></div></section>
@@ -281,6 +296,10 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:30px;f
 .ft{background:#0A2B31;color:#B9CDD0;padding:40px 0;font-size:16px}.ft a{color:#fff;margin-right:16px}.flogo{color:#fff!important;text-decoration:none;font:700 22px "Zilla Slab",serif}
 @media(max-width:980px){.nav{display:none}.hero,.layout,.alt,.signband{grid-template-columns:1fr}.index{display:none}.circle{max-width:360px;margin:0 auto;order:-1}.alt:nth-child(even) img{order:0}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:2px solid var(--teal)}
 .cmp,.cmp tbody,.cmp tr,.cmp td,.cmp th{display:block;width:100%!important}.cmp thead{display:none}.cmp tr{border:2px solid var(--fog);border-radius:12px;margin-bottom:14px;padding:6px}.cmp td::before{content:attr(data-p);display:block;font:700 18px "Zilla Slab",serif;color:var(--teal)}.cmp tbody th{display:none}.srcs{grid-template-columns:1fr}}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:26px;border:2px solid var(--teal);border-radius:12px;overflow:hidden}
+.vgrid>div{padding:26px}.vget{background:#FFF4EC}.vgrid h3{font-size:24px;margin-bottom:10px}
+.vgrid ul{list-style:none;padding:0;margin:0}.vgrid li{padding:12px 0;border-top:1px solid #E3D6CC}.vcost li{border-top-color:var(--fog);display:grid;grid-template-columns:76px 1fr;gap:12px}.vcost b{color:var(--teal);font-family:"Zilla Slab",serif;font-size:19px}
+@media(max-width:980px){.vgrid{grid-template-columns:1fr}}
 """
     prods = PRODUCTS + [dict(img="/images/px-coffee-1850612.jpg", alt="A woman holding a warm yellow mug in both hands", eye="The Club", name="The Club",
                               text=CLUB["p"], price="$9", small="a month, founding members", btn=CLUB["buy"], href=CLUB["buyhref"], buy=True)]
@@ -302,7 +321,7 @@ table.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:30px;f
 <div class="w layout"><nav class="index" aria-label="On this page"><p>On this page</p><a href="#hour">The first hour</a><a href="#help">What changes</a><a href="#shop">Prices side by side</a><a href="#how">How it works</a><a href="#src">Our sources</a></nav><div>
 <section class="s" id="hour"><h2>{HOUR_H}</h2><p>{HOUR_P1}</p><p>{HOUR_P2}</p><div class="about"><p class="eye">About Hinge Care</p><h3>{ABOUT_H}</h3><p>{ABOUT_P}</p><p>{ABOUT_P2}</p></div></section>
 <section class="s" id="help">{alts}<div class="stats">{stats}</div></section>
-<section class="s" id="shop"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><table class="cmp"><thead>{head}</thead><tbody>{rows}</tbody></table><p class="sub" style="margin-top:14px;font-size:16px">{CLUB["pay"]} {CLUB["gift"]}</p></section>
+{value_block()}<section class="s" id="shop"><h2>{SHOP_H}</h2><p class="sub">{SHOP_SUB}</p><table class="cmp"><thead>{head}</thead><tbody>{rows}</tbody></table><p class="sub" style="margin-top:14px;font-size:16px">{CLUB["pay"]} {CLUB["gift"]}</p></section>
 <section class="s" id="how"><h2>{STEPS_H}</h2><p class="sub">{STEPS_SUB}</p><ol class="steps">{steps}</ol><div class="signband" id="free"><h3>{STEPS[0][0]}</h3>{form()}</div></section>
 <section class="s" id="src"><h2>{SRC_H}</h2><p class="sub">{SRC_SUB}</p>{sources_ul()}<p style="margin-top:20px;font-weight:600">{SIGNOFF}</p></section>
 </div></div>
@@ -359,6 +378,11 @@ section.s{padding:90px 0;border-bottom:6px solid var(--ink)}
 .ft{background:var(--ink);color:#BDBDBD;padding:40px 0;font-size:16px}.ft a{color:#fff;margin-right:16px}.flogo{color:#fff!important;text-decoration:none;font-weight:900;font-size:20px}
 @media(max-width:900px){.nav{display:none}.hgrid .l,.hgrid .r,.split>h2,.split>div{grid-column:1/-1}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(3){padding-left:0}.stat:nth-child(n+3){border-top:2px solid var(--ink)}
 .duo,.cols,.club,.steps{grid-template-columns:1fr}.col{border-right:0;border-bottom:2px solid var(--ink);padding:24px 0}.col+.col{padding-left:0}.bleed img{height:60vh}.bleed figcaption{position:static;max-width:none}}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.vgrid h3{font-size:26px;font-weight:900;letter-spacing:-.02em;padding-bottom:12px;border-bottom:6px solid var(--ink)}
+.vgrid ul{list-style:none;padding:0;margin:0}.vgrid li{padding:16px 0;border-bottom:2px solid var(--ink);font-size:19px}
+.vget li{font-weight:800;font-size:22px;letter-spacing:-.01em}.vcost li{display:grid;grid-template-columns:90px 1fr;gap:14px}.vcost b{background:var(--lime);padding:2px 8px;align-self:start;text-align:center}
+@media(max-width:900px){.vgrid{grid-template-columns:1fr}}
 """
     stats = ''.join(f'<div class="stat"><span class="n">{n}</span><span class="l">{l}</span></div>' for n, l in STATS)
     cols = ''.join(f'''<div class="col"><img src="{p["img"]}" alt="{p["alt"]}" loading="lazy"><p class="eye">{p["eye"]}</p><h3>{p["name"]}</h3><p>{p["text"]}</p><p class="price">{p["price"]}<small>{p["small"] or "&nbsp;"}</small></p><a class="{'btn' if p.get('main') else 'ghost'}" href="{p["href"]}">{p["btn"]}</a></div>''' for p in PRODUCTS)
@@ -371,7 +395,7 @@ section.s{padding:90px 0;border-bottom:6px solid var(--ink)}
 <figure class="bleed" style="margin:0"><img src="{s0}" alt="{a0}" loading="lazy"><figcaption><b>{t0}</b><span>{c0}</span></figcaption></figure>
 <div class="w"><div class="stats">{stats}</div></div>
 <section class="s"><div class="w split"><h2>{HOUR_H}</h2><div><p>{HOUR_P1}</p><p>{HOUR_P2}</p><div class="about"><p class="eye">About Hinge Care</p><h3>{ABOUT_H}</h3><p>{ABOUT_P}</p><p>{ABOUT_P2}</p></div></div></div><div class="w"><div class="duo">{duo}</div></div></section>
-<section class="s" id="shop"><div class="w"><div class="split"><h2>{SHOP_H}</h2><div><p class="sub" style="font-size:20px">{SHOP_SUB}</p></div></div><div class="cols">{cols}</div>
+{value_block()}<section class="s" id="shop"><div class="w"><div class="split"><h2>{SHOP_H}</h2><div><p class="sub" style="font-size:20px">{SHOP_SUB}</p></div></div><div class="cols">{cols}</div>
 <div class="club"><div><p class="eye">{CLUB["eye"]}</p><h3>{CLUB["h"]}</h3><p>{CLUB["p"]}</p></div><div class="opts">{club_btns()}<p class="fine">{CLUB["pay"]} {CLUB["gift"]}</p></div></div></div></section>
 <section class="s"><div class="w"><div class="split"><h2>{STEPS_H}</h2><div><p class="sub" style="font-size:20px">{STEPS_SUB}</p></div></div><ol class="steps">{steps}</ol></div></section>
 <section class="s"><div class="w split"><h2>{SRC_H}</h2><div><p class="sub">{SRC_SUB}</p>{sources_ul()}<p style="margin-top:20px;font-weight:700">{SIGNOFF}</p></div></div></section>

@@ -94,3 +94,18 @@ def page(title, fonts, css, body, cur, names, files):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?{fonts}&display=swap" rel="stylesheet">
 <style>{BASE_CSS}{css}</style></head><body><a class="skip" href="#main">Skip to content</a>{body}{bar}</body></html>'''
+
+# NEW (Nov 27): value block. Benefits = what the reader gets back; costs = everything they give up.
+VAL_H = "What you get back, and what it costs you."
+GETS = ["Built to shorten the stiff start to your day, so your mornings feel like yours again.",
+        "Meant to bring your hands back into your day: the mug, the key, the jar.",
+        "No more money on remedies that don't work. You'll know which ones earn it.",
+        "No more guessing. Every answer comes with its source named."]
+COSTS = [("Money", "Free to start. The book is $17, paid once."),
+         ("Time", "The free book arrives in a minute or two."),
+         ("Effort", "Short routines you can do sitting down, with nothing to install."),
+         ("Risk", "A 30-day money-back promise, and a real person who writes back.")]
+def value_block():
+    g = ''.join(f'<li>{x}</li>' for x in GETS)
+    c = ''.join(f'<li><b>{k}</b><span>{v}</span></li>' for k, v in COSTS)
+    return f'''<section class="s val"><div class="w"><h2>{VAL_H}</h2><div class="vgrid"><div class="vget"><h3>What you get back</h3><ul>{g}</ul></div><div class="vcost"><h3>What it costs you</h3><ul>{c}</ul></div></div></div></section>'''
