@@ -428,3 +428,10 @@ html .wide a.b[href*="checkout"]{background:#fff!important;color:#1F3A27!importa
 html .wide a.b[href*="checkout"]:hover{background:#E3EEF0!important}
 html a.b[href*="checkout"] ~ a.b[href*="checkout"]{background:transparent!important;color:#1F3A27!important;border:2px solid #1F3A27!important}
 html a.b[href*="checkout"] ~ a.b[href*="checkout"]:hover{background:#fff!important}
+/* Nov 27 try: soft see-through gold buy buttons, and an even lighter gold wash on the prices section */
+html a.b[href*="checkout"],#shop .card .b{background:rgba(255,197,107,.38)!important;color:#1F3A27!important;border:1.5px solid rgba(214,150,40,.55)!important;box-shadow:none!important}
+html a.b[href*="checkout"]:hover,#shop .card .b:hover{background:rgba(255,197,107,.6)!important}
+html a.b[href*="checkout"] ~ a.b[href*="checkout"]{background:transparent!important;border:1.5px solid rgba(214,150,40,.7)!important}
+#shop{background:rgba(255,197,107,.10)!important}
+html .wide a.b[href*="checkout"]{background:rgba(255,214,140,.9)!important;color:#1F3A27!important;border-color:transparent!important}
+html .wide a.b[href*="checkout"]:hover{background:#FFE2A8!important}
