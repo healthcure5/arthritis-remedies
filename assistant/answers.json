@@ -102,7 +102,7 @@
    ],
    "q": "What does everything cost?",
    "keys": "price prices cost how much what does it cost expensive cheap pay",
-   "a": "The 7 Bad Habits guide is free. <a href=\"https://myhingecare.com/book.html\">The Joint Reset</a> is $17. <a href=\"https://myhingecare.com/course-info.html\">The Hinge Care Program</a> is $97 ($77 if you already have the book). <a href=\"https://myhingecare.com/club.html\">The Club</a> is $9 a month for the first 50 members, then $19. <a href=\"https://myhingecare.com/circle.html\">The Circle</a> is $297. The book and Program are paid once and yours to keep."
+   "a": "The 7 Bad Habits guide is free. <a href=\"https://myhingecare.com/book.html\">The Joint Reset</a> is $17. <a href=\"https://myhingecare.com/course-info.html\">The Hinge Care Program</a> is $97 ($77 if you already have the book). <a href=\"https://myhingecare.com/club.html\">The Club</a> is $9 a month for the first 50 members, then $19. <a href=\"https://myhingecare.com/personal-plan.html\">The Personal Joint Plan</a> is $247 for 30 days with our team. <a href=\"https://myhingecare.com/circle.html\">The Circle</a> is $297. The book and Program are paid once and yours to keep."
   },
   {
    "id": "where-start",
@@ -110,7 +110,7 @@
    "kind": "simple",
    "q": "Where should I start?",
    "keys": "where start begin new first which one recommend best for me what should i get",
-   "a": "Start with the free guide, <a href=\"https://myhingecare.com/guide.html\">7 Bad Habits for Arthritis</a>. It shows the habits that keep joints stiff and an easy fix for each. If it helps, The Joint Reset ($17) goes deeper on what's worth your money, and the Program walks you through doing it one small step a day."
+   "a": "Start with the free guide, <a href=\"https://myhingecare.com/guide.html\">7 Bad Habits for Arthritis</a>. It shows the habits that keep joints stiff and an easy fix for each. If it helps, The Joint Reset ($17) goes deeper on what's worth your money, and the Program helps you actually build those habits into your day."
   },
   {
    "id": "book-vs-program",
@@ -118,7 +118,7 @@
    "kind": "simple",
    "q": "What's the difference between the book and the Program?",
    "keys": "difference book program which one compare vs versus both",
-   "a": "The Joint Reset tells you what helps, so it's great for looking things up. The Program helps you actually do it: one small step a day, with short videos, a path for your kind of arthritis and the Hinge App. Book owners get the Program for $77 instead of $97."
+   "a": "The Joint Reset tells you what helps, so it's great for looking things up. The Program helps you actually do it, with short videos, a path for your kind of arthritis and the Hinge App. Book owners get the Program for $77 instead of $97."
   },
   {
    "id": "pay-methods",
@@ -133,8 +133,8 @@
    "cat": "Prices and choosing",
    "kind": "simple",
    "q": "What is the Club?",
-   "keys": "club membership monthly what is the club weekly letter recipe routine",
-   "a": "The Club is weekly arthritis help: a seated routine on Monday, a simple recipe on Wednesday, a small weekend win on Friday and a Sunday letter that explains one arthritis headline in plain words. It's $9 a month for the first 50 members, then $19, or $90 a year. Cancel any time. <a href=\"https://myhingecare.com/club.html\">See the Club</a>."
+   "keys": "club membership monthly what is the club sunday letter recipe routine library ask andre",
+   "a": "The Club gives you a little more ease each month, one part of your body at a time. Each month has a four-week plan (December is warm hands, January is stronger legs and easier knees), one Sunday email with everything for the week, a members' library of more than 30 routines, recipes and letters, and Ask Andre, where you send a question and get your own answer by email. It's $9 a month for the first 50 members, then $19, or $90 a year. Cancel any time. <a href=\"https://myhingecare.com/club.html\">See the Club</a>."
   },
   {
    "id": "circle",
@@ -142,7 +142,15 @@
    "kind": "simple",
    "q": "What is the Circle?",
    "keys": "circle group live calls small group zoom evenings join waitlist list",
-   "a": "The Circle is a small live arthritis group of ten that meets by video on five evenings in one week, Monday to Friday at 7 pm Eastern. It's $297 for all five, and nothing is charged until we both agree it's a good fit. The founding round starts as soon as all ten seats are filled. It's best once you've started the Program or the Club. <a href=\"https://myhingecare.com/circle.html\">Ask to join the list</a>."
+   "a": "The Circle is a small live arthritis group of 20 that meets by video on five evenings in one week, Monday to Friday at 7 pm Eastern. You get company, answers out loud and one small goal each day. It's $297 for all five evenings, and nothing is charged until we both agree it's a good fit. The founding round starts as soon as all 20 seats are filled. It works best once you've started the Program or the Club. <a href=\"https://myhingecare.com/circle.html\">Ask to join the list</a>."
+  },
+  {
+   "id": "personal-plan",
+   "cat": "Prices and choosing",
+   "kind": "simple",
+   "q": "What is the Personal Joint Plan?",
+   "keys": "personal plan joint plan 30 days team one on one custom plan for me tailored 247",
+   "a": "The Personal Joint Plan is 30 days with our team, built around your joints. You tell us which joints hurt and the one thing you want to do again, and every morning your three things for the day are waiting, each with a short video. Write to us any day: if something hurts, we tell you what to try instead and build your next plan around it. Check-ins come in weeks 1, 2 and 4. It's $247, one payment, with a full refund within 30 days if it isn't right for you. <a href=\"https://myhingecare.com/personal-plan.html\">See the plan</a>."
   },
   {
    "id": "gift",
