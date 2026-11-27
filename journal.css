@@ -48,7 +48,7 @@ h1.t em,.ihead h1 em{font-style:italic;color:inherit;background:none}
 .hero img{width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:2px;background:var(--paper)}
 .hero figcaption,.inline-img figcaption{font:italic 400 16px/1.5 "Source Serif 4",Georgia,serif;color:var(--soft);margin-top:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 .hero figcaption small,.inline-img figcaption small{font-style:normal;font-size:14px;margin-left:6px;color:#6A655F}
-@media(max-width:640px){.hero img{aspect-ratio:4/3}.head{padding-top:28px}}
+@media(max-width:640px){.hero img{aspect-ratio:3/2}.head{padding-top:28px}}
 
 /* Body and sidebar */
 .wrap{max-width:1200px;margin:0 auto;padding:30px 22px 20px;display:grid;grid-template-columns:minmax(0,700px) 280px;gap:72px;justify-content:center}

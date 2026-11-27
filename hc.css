@@ -290,3 +290,13 @@ s.was{color:#5f6560!important}
 .val h3{font-size:24px;margin-bottom:10px}.val ul{list-style:none;padding:0;margin:0}.val li{padding:12px 0;border-top:1px solid var(--line)}
 .val .vcost li{display:grid;grid-template-columns:78px 1fr;gap:12px}.val .vcost b{color:#1E6670}
 @media(max-width:760px){.val .vgrid{grid-template-columns:1fr}}
+/* Nov 27: phone and tablet pointers (people first on phones, wider text on tablets, slim sticky bar) */
+@media (max-width:860px){
+.hero .w:not(:has(.buy)) .heroimg{order:-1;aspect-ratio:16/9;margin:0 0 18px}
+.lede{max-width:60ch}
+}
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px -18px rgba(30,42,44,.5);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;gap:12px}
+.stickybar p{margin:0;font-size:15px;line-height:1.35;color:var(--soft);flex:1}
+.stickybar p b{display:block;color:var(--ink);font-size:16px}
+.stickybar .b{flex:none;padding:13px 16px;min-height:44px;font-size:16px}
+@media (max-width:700px){.stickybar.on{display:flex}body:has(.stickybar.on){padding-bottom:84px}}

@@ -14,7 +14,7 @@ INLINE = {'morning-joint-stiffness': (4581377, 'A woman holding a hot drink in b
 def common(s):
     s = LOGO.sub('Hinge Care <small>Journal</small>', s)
     s = FONTS.sub(NEWF, s)
-    s = re.sub(r'journal\.css\?v=\d+', 'journal.css?v=20', s)
+    s = re.sub(r'journal\.css\?v=\d+', 'journal.css?v=21', s)
     s = s.replace('Free to read · Every claim sourced', 'Free to read. Every claim sourced.')
     s = s.replace('Illustrations made for Hinge Care with AI. ', 'Article photos from Pexels. ')
     s = re.sub(r'<div class="av"><svg class="sun"[^>]*>(?:(?!</div>).)*?</svg></div>', '<div class="av" aria-hidden="true"></div>', s, flags=re.S)
