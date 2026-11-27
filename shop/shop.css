@@ -1,5 +1,5 @@
 /* Easier Mornings and Partners pages: the look of the Hinge Care Whop store */
-:root{--cream:#FBF6EE;--sand:#F2E9DB;--ink:#1F3A27;--soft:#55645D;--clay:#2F5D3A;--clay-dk:#1F3A27;--line:#E4D8C4}
+:root{--cream:#FAFAF7;--sand:#EAF2F3;--ink:#1F3A27;--soft:#455659;--clay:#2F5D3A;--clay-dk:#1F3A27;--line:#DAE6E8}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font:19px/1.65 Inter,ui-sans-serif,system-ui,sans-serif}

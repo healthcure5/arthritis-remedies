@@ -73,6 +73,6 @@ for i, (name, fonts, hf, bf, extra) in enumerate(OPTS):
     # value section goes right after the "first hour" section, before the stats
     anchor = '<section class="s"><div class="w">\n<div class="stats'
     assert anchor in t, "anchor"
-    t = t.replace(anchor, value_block() + anchor, 1)
+    if "class=\"s val\"" not in t: t = t.replace(anchor, value_block() + anchor, 1)
     open(os.path.join(root, files[i]), "w").write(t)
 print("built", files)

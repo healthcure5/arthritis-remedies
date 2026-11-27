@@ -39,6 +39,6 @@ for i, o in enumerate(OPTS):
     t = re.sub(r'(<body[^>]*>)', lambda m: m.group(1) + bar, t, count=1)
     anchor = '<section class="s"><div class="w">\n<div class="stats'
     assert anchor in t
-    t = t.replace(anchor, value_block() + anchor, 1)
+    if "class=\"s val\"" not in t: t = t.replace(anchor, value_block() + anchor, 1)
     open(os.path.join(root, files[i]), "w").write(t)
 print("built", files)
