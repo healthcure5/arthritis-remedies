@@ -333,7 +333,7 @@ footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 @media (max-width:760px){.s{padding:56px 0}}
 .cards{gap:40px 36px}
 .card,.steps li,.val .vgrid>div{background:transparent;border:0;border-top:2px solid var(--line);border-radius:0;padding:24px 0 0;box-shadow:none}
-.card:hover,.steps li:hover{transform:none;box-shadow:none;border-top-color:var(--g2)}
+.card:hover,.steps li:hover{transform:translateY(-4px);box-shadow:none;border-top-color:var(--g2)}
 .val .vgrid{gap:40px}.val .vget{border-top:3px solid var(--gold)}.val .vcost{border-top:3px solid #1E6670}
 .card img{border-radius:6px}
 .faqbook .q{border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;margin:0}
@@ -342,3 +342,16 @@ footer a,.ft a{padding:10px 0}.ft-cols a,.ft-cols p a{min-height:44px}
 .faqbook .q summary,.faqbook .q p{padding-left:0;padding-right:0}
 .wide{border-radius:8px}
 .srcs a{border-radius:6px}
+/* Nov 27: side-sliding rows (photos and books), Start free in the phone header */
+.slide{display:flex!important;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:8px 2px 14px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.slide>*{flex:0 0 min(380px,82%);scroll-snap-align:start;min-width:0}
+.slide:focus-visible{outline:3px solid #1E6670;outline-offset:4px}
+.slidenav{display:flex;justify-content:flex-end;gap:10px;margin:18px 0 4px}
+.slidenav[hidden]{display:none}
+.slidenav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--g);background:#fff;color:var(--g);font:400 28px/1 Georgia,serif;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+.slidenav button:hover:not(:disabled){background:var(--g);color:#fff}
+.slidenav button:disabled{opacity:.35;cursor:default}
+.slidenav button:focus-visible{outline:3px solid #1E6670;outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){.slide{scroll-behavior:smooth}}
+@media (max-width:760px){.hd-cta{display:inline-flex!important;padding:8px 12px!important;min-height:44px!important;font-size:15px!important}.hd-in{gap:10px}}
+@media (max-width:380px){.brand{font-size:21px}}
