@@ -1,0 +1,15 @@
+/* Look 3, Big Table: warm and friendly, Nunito 800 + Nunito Sans, pills, big round shapes */
+:root{--cream:#FFFAF4;--sand:#F4EEE4;--line:#EADFCF;--ink:#2D2A26;--soft:#5A534A;--g:#24503A;--g2:#2F6B4C}
+body{background:var(--cream);font-family:"Nunito Sans",system-ui,sans-serif!important;font-size:17.5px;line-height:1.65}
+h1,h2,h3,.price,.stat .n{font-family:Nunito,system-ui,sans-serif!important;font-weight:800!important;letter-spacing:-.01em}
+h1{font-size:clamp(36px,5vw,54px)!important;line-height:1.06}h2{font-size:clamp(26px,3.4vw,38px)!important}
+.eye{font:800 15px Nunito,sans-serif!important;color:#B4532A!important}
+@media(min-width:861px){.hero .w{grid-template-columns:.95fr 1.05fr!important}}@media(min-width:861px){.hero .w>div{order:2}}.heroimg{order:1;border-radius:46% 54% 40% 60% / 52% 44% 56% 48%!important;aspect-ratio:1/1!important}
+section.s{border-top:0!important}
+.card,.steps li{border:0!important;border-radius:30px!important;background:#fff;box-shadow:0 6px 0 var(--line)}
+.b{border-radius:999px!important;font-family:Nunito,sans-serif!important;font-weight:800!important}
+.b3{background:var(--g2)!important;color:#fff!important;box-shadow:0 4px 0 #1B3D2B!important}
+.b2{border-color:var(--g2)!important;color:var(--g2)!important}
+.vids img{border-radius:28px!important}.wide{border-radius:34px!important}
+
+@media(max-width:860px){.heroimg{max-width:320px;margin:0 auto}}

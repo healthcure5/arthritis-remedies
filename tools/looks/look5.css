@@ -1,0 +1,20 @@
+/* Look 5, Magazine: bone gray, DM Serif Display + DM Sans, big headline, asymmetric columns */
+:root{--cream:#F3F2EE;--sand:#E8E7E1;--line:#D8D6CE;--ink:#1F1D1A;--soft:#4F4B45;--g:#1F3B3A;--g2:#2C5654}
+body{background:var(--cream);font-family:"DM Sans",system-ui,sans-serif!important;font-size:17px;line-height:1.65}
+h1,h2,h3,.price,.stat .n{font-family:"DM Serif Display",Georgia,serif!important;font-weight:400!important}
+h1{font-size:clamp(44px,7vw,84px)!important;line-height:.98;letter-spacing:-.015em}h2{font-size:clamp(30px,4vw,48px)!important;line-height:1.05}
+.eye{font:500 15px "DM Sans",sans-serif!important;color:var(--g2)!important}
+.hero{padding:56px 0 48px}@media(min-width:861px){.hero .w{grid-template-columns:1.3fr .7fr!important;align-items:end!important}}
+.heroimg{aspect-ratio:3/4!important;border-radius:4px!important}
+section.s{border-top:1px solid var(--line)!important}
+@media(min-width:900px){section.s>.w>h2:first-child{max-width:18ch}}
+.card,.steps li{border:0!important;border-radius:4px!important;background:#FAF9F6;box-shadow:none!important}
+.card img,.vids img{border-radius:2px!important}.wide{border-radius:6px!important;background:var(--g)!important}
+.b{border-radius:6px!important}.b3{background:var(--g)!important;color:#fff!important;box-shadow:none!important}.b2{border-color:var(--g)!important;color:var(--g)!important}
+.ft,.finale{background:var(--g)!important}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr!important}}
+.lede{font-size:19px!important}
+.hero{background:var(--g);color:#E9EEE8}.hero h1{color:#fff}.hero .lede,.hero .trust{color:#C9D6CF!important}
+.hero .b3{background:#F5B04A!important;color:#1F3B3A!important}.hero .b2{border-color:#fff!important;color:#fff!important}
+.hero .heroimg{border-radius:0!important;box-shadow:18px 18px 0 #F5B04A}
+@media(min-width:900px){.split{grid-template-columns:.9fr 1.1fr!important;gap:64px!important}}
